@@ -1,0 +1,23 @@
+{
+  "name": "exmg-form",
+  "version": "0.0.0",
+  "description": "ExmgForm component",
+  "author": "Rodrigue Couanon <rodrigue@exmachina.nl>",
+  "homepage": "",
+  "license": "ISC",
+  "main": "lib/exmg-form.js",
+  "directories": {
+    "lib": "lib",
+    "test": "__tests__"
+  },
+  "files": [
+    "lib"
+  ],
+  "scripts": {
+    "tsc:watch": "tsc --watch",
+    "test": "echo \"Error: run tests from root\" && exit 1"
+  },
+  "dependencies": {
+    "lit": "^2.0.0-rc.2"
+  }
+}

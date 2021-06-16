@@ -1,0 +1,29 @@
+## editors
+/.idea
+/.vscode
+
+## system files
+.DS_Store
+
+## npm
+/node_modules/
+/npm-debug.log
+/packages/**/node_modules/
+
+## files
+/src/**/*.js
+/src/**/*-css.ts
+
+## testing
+/coverage/
+
+## temp folders
+/.tmp/
+
+# build
+/_site/
+/dist/
+/out-tsc/
+
+# Ex Machina
+!environment.js
