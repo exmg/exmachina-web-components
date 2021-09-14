@@ -1,8 +1,11 @@
-import { html, LitElement, customElement } from "lit-element";
+import { html, LitElement, customElement, property } from "lit-element";
 
 @customElement("test-form")
-export class ExmgDateTimeInputBase extends LitElement {
+export class TestForm extends LitElement {
+  @property({ type: String })
+  public test?: string;
+
   protected render() {
-    return html`HELLO BB`;
+    return html`RIRE ? -> <b>${this.test ? this.test : "No message"}</b>`;
   }
 }

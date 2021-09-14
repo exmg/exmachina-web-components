@@ -1,12 +1,15 @@
 import { __decorate } from "tslib";
-import { html, LitElement, customElement } from "lit-element";
-let ExmgDateTimeInputBase = class ExmgDateTimeInputBase extends LitElement {
+import { html, LitElement, customElement, property } from "lit-element";
+let TestForm = class TestForm extends LitElement {
     render() {
-        return html `HELLO BB`;
+        return html `RIRE ? -> <b>${this.test ? this.test : "No message"}</b>`;
     }
 };
-ExmgDateTimeInputBase = __decorate([
+__decorate([
+    property({ type: String })
+], TestForm.prototype, "test", void 0);
+TestForm = __decorate([
     customElement("test-form")
-], ExmgDateTimeInputBase);
-export { ExmgDateTimeInputBase };
+], TestForm);
+export { TestForm };
 //# sourceMappingURL=exmg-form-base.js.map

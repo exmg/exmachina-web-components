@@ -13,6 +13,9 @@
 ## files
 /src/**/*.js
 /src/**/*-css.ts
+/packages/**/dist/
+/demos/dist
+/demos/**/*-css.ts
 
 ## testing
 /coverage/

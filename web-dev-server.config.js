@@ -4,5 +4,4 @@ module.exports = {
   watch: true,
   appIndex: './demos/index.html',
   rootDir: './',
-  port: 8000,
 };
