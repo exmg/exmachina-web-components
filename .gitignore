@@ -17,7 +17,7 @@
 /demo/**/*.js
 /demo/**/*.d.ts
 /demo/**/*-css.ts
-/packages/**/tsconfig.tsbuildinfo
+/**/tsconfig.tsbuildinfo
 
 ## testing
 /coverage/
