@@ -22,7 +22,8 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git@github.com:ExmgElements/exmg-elements-monorepo.git"
+    "url": "git@github.com:ExmgElements/exmg-elements-monorepo.git",
+    "directory": "packages/exmg-button"
   },
   "license": "MIT",
   "devDependencies": {
@@ -39,6 +40,7 @@
     "chai": "^4.2.0",
     "eslint": "^7.8.1",
     "eslint-plugin-lit": "^1.2.2",
+    "genversion": "^3.0.1",
     "gulp": "^4.0.0",
     "gulp-watch": "^5.0.1",
     "mocha": "^5.2.0",
@@ -51,13 +53,7 @@
     "tsc": "tsc --project ./tsconfig.json",
     "lint": "tsc --noEmit && eslint '**/*ts' --ignore-path ../../.eslintignore -c ../../eslintrc.json --quiet --fix",
     "build:styles": "gulp render-styles",
-    "build": "npm run build:styles && npm run lint && npm run tsc",
-    "prepublishOnly": "npm run build",
-    "preversion": "npm run build",
-    "publishDryRun": "npm publish --dry-run",
-    "start": "npm run build:styles && gulp serve",
-    "test-dev": "polymer test --npm -p",
-    "test": "polymer test --npm --expanded"
+    "build": "npm run build:styles && npm run lint && npm run tsc"
   },
   "publishConfig": {
     "access": "public"

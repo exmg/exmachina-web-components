@@ -35,8 +35,8 @@
     "gulp-replace": "^1.0.0",
     "gulp-watch": "^5.0.1",
     "node-sass-import": "^2.0.1",
-    "replace": "^1.2.0",
     "node-watch": "^0.6.2",
+    "replace": "^1.2.0",
     "sass": "^1.26.10"
   },
   "devDependencies": {
@@ -48,6 +48,7 @@
     "@types/node": "^12.12.55",
     "@types/sass": "^1.16.0",
     "eslint": "^7.8.1",
+    "genversion": "^3.0.1",
     "typescript": "^4.0.2"
   },
   "scripts": {
@@ -58,7 +59,8 @@
     "tsc": "tsc -b ./tsconfig.json",
     "prepublishOnly": "npm run build",
     "publishDryRun": "npm publish --dry-run",
-    "preversion": "npm run build"
+    "preversion": "npm run build",
+    "genversion": "genversion -s -e version.js"
   },
   "publishConfig": {
     "access": "public"

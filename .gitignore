@@ -13,9 +13,9 @@
 ## files
 /src/**/*.js
 /src/**/*-css.ts
-/packages/**/dist/
-/demos/dist
-/demos/**/*-css.ts
+/packages/**/dist/*
+/demo/dist/
+/demo/**/*-css.ts
 
 ## testing
 /coverage/
@@ -26,7 +26,6 @@
 # build
 /_site/
 /dist/
-/out-tsc/
 
 # Ex Machina
 !environment.js

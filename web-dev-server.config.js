@@ -1,7 +1,7 @@
 module.exports = {
-  open: true,
+  open: false,
   nodeResolve: true,
   watch: true,
-  appIndex: './demos/index.html',
+  preserveSymlinks: true,
   rootDir: './',
 };

@@ -1,0 +1,51 @@
+{
+  "name": "@exmg/exmg-dialogs",
+  "version": "6.0.4",
+  "main": "index.js",
+  "files": [
+    "styles/**/*.scss",
+    "exmg-*.js",
+    "exmg-*.d.ts",
+    "index.js",
+    "index.d.ts"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:ExmgElements/exmg-elements-monorepo.git",
+    "directory": "packages/exmg-dialogs"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "@exmg/exmg-button": "^2.0.0",
+    "@material/mwc-icon-button": "^0.18.0",
+    "@polymer/iron-form": "^3.0.0",
+    "@polymer/paper-dialog": "^3.0.0",
+    "@polymer/paper-dialog-scrollable": "^3.0.0",
+    "lit-element": "^2.3.1",
+    "web-component-tester": "^6.9.2"
+  },
+  "devDependencies": {
+    "@exmg/exmg-cli": "^2.1.0",
+    "@exmg/exmg-markdown-editor": "^5.1.14",
+    "@exmg/exmg-paper-combobox": "^6.0.7",
+    "@exmg/exmg-paper-token-input": "^5.1.3",
+    "@polymer/marked-element": "^3.0.0",
+    "@polymer/paper-input": "^3.2.1",
+    "@polymer/paper-item": "^3.0.0",
+    "@webcomponents/webcomponentsjs": "^2.4.4",
+    "codemirror": "^5.54.0",
+    "eslint": "^7.8.1",
+    "typescript": "^4.0.2",
+    "web-animations-js": "^2.3.1"
+  },
+  "scripts": {
+    "tsc:watch": "tsc --watch --project ./tsconfig.json",
+    "tsc": "tsc -b ./tsconfig.json",
+    "lint": "tsc --noEmit && eslint '**/*ts' --ignore-path ../../.eslintignore -c ../../eslintrc.json --quiet --fix",
+    "build:styles": "gulp render-styles",
+    "build": "npm run build:styles && npm run lint && npm run tsc"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

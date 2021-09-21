@@ -1,0 +1,158 @@
+@import "@material/typography/mdc-typography";
+
+h1 {
+  @include mdc-typography(headline1);
+}
+
+h2 {
+  @include mdc-typography(headline2);
+}
+
+h3 {
+  @include mdc-typography(headline3);
+}
+
+h4 {
+  @include mdc-typography(headline4);
+}
+
+h5 {
+  @include mdc-typography(headline5);
+}
+
+h6 {
+  @include mdc-typography(headline6);
+}
+
+body,
+p {
+  font-family: var(
+    --mdc-typography-headline3-font-family,
+    var(--mdc-typography-font-family, Roboto, sans-serif)
+  );
+  margin: 0;
+}
+
+a,
+a:visited {
+  text-decoration: none;
+}
+
+.landing {
+  margin: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.header {
+  margin-bottom: 75px;
+  h3 {
+    font-weight: 200;
+  }
+}
+
+.elements {
+  display: flex;
+  margin: 2rem 0;
+  width: 100%;
+  justify-content: space-evenly;
+}
+
+.element {
+  border: 1px solid rgb(240, 179, 68);
+  color: black;
+  padding: 1rem;
+  &:hover {
+    cursor: pointer;
+  }
+  h3 {
+    font-size: 15px;
+    font-weight: 100;
+    letter-spacing: 2px;
+    margin: 0;
+  }
+  p {
+    margin: 0;
+  }
+}
+
+.demos {
+  width: 100%;
+  .sidemenu {
+    color: #eee;
+    background: rgb(31, 31, 35);
+    height: 100%;
+    width: 300px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    .sidemenu-header {
+      padding: 1rem;
+      h3 {
+        font-size: 30px;
+        margin: 0;
+      }
+    }
+    .sidemenu-elements {
+      overflow-y: scroll;
+    }
+    .element {
+      color: #eee;
+      border-left: none;
+      border-right: none;
+      border-top: none;
+      border-bottom: 1px solid rgb(240, 179, 68);
+      &.active {
+        color: rgb(240, 179, 68);
+      }
+      &:first-child {
+        border-top: 1px solid rgb(240, 179, 68);
+      }
+    }
+  }
+
+  .header {
+    width: calc(100% - 332px);
+    height: 100px;
+    margin-bottom: 0;
+    margin-left: 300px;
+    background: rgb(24, 24, 27);
+    color: white;
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    h3 {
+      margin: 0;
+      font-size: 30px;
+    }
+    .actions,
+    .infos {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      exmg-button {
+        width: 100%;
+      }
+      exmg-button:first-child {
+        margin-bottom: 0.5rem;
+      }
+      .npm {
+        --mdc-theme-primary: rgb(216, 57, 65);
+      }
+      .storybook {
+        --mdc-theme-primary: rgb(236, 87, 133);
+      }
+    }
+  }
+  .main {
+    width: calc(100% - 300px);
+    margin-left: 300px;
+    height: calc(100vh - 132px);
+  }
+  iframe {
+    border: none;
+    height: 100%;
+    width: 100%;
+  }
+}

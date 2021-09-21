@@ -14,6 +14,7 @@
     "allowSyntheticDefaultImports": true,
     "allowJs": true,
     "checkJs": false,
+    "preserveSymlinks":true,
     "experimentalDecorators": true,
     "importHelpers": true,
     "sourceMap": true,
@@ -22,4 +23,16 @@
     "skipLibCheck": true,
     "types": ["node"],
   },
+  "references": [
+    {
+      "path": "./demo/tsconfig.json",
+    },
+    {
+      "path": "./packages/exmg-button/tsconfig.json",
+    },
+    {
+      "path": "./packages/exmg-dialogs/tsconfig.json",
+    },
+  ],
+  "exclude": ["./**/dist/*", "./packages/exmg-cli/*", "./stories/**/*", "./scripts/**/*", "./web-dev-server.config.js"],
 }
