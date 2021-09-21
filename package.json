@@ -21,13 +21,13 @@
     "start": "npm run build:styles && node ./scripts/parseElements.js && concurrently --names tsc  \"npm run storybook\" \"npm run watch\" \"npm run watch:demos\" \"web-dev-server --config ./web-dev-server.config.js\"",
     "watch": "exmg-cli -w",
     "watch:demos": "tsc -b -w",
-    "tsc": "lerna run tsc",
-    "build:styles": "exmg-cli -s \"packages/**/src/styles/*.scss\"",
+    "build:styles": "exmg-cli -s \"packages/**/styles/*.scss\"",
     "bootstrap": "./scripts/bootstrap.sh",
+    "lint": "eslint './demo/**/*ts' --ignore-path ./.gitignore -c ./.eslintrc.js --fix && lerna run lint",
     "postinstall": "npm run bootstrap",
     "storybook": "start-storybook --quiet -p 6006",
     "build-storybook": "build-storybook",
-    "publish": "lerna run tsc && lerna publish"
+    "publish": "npm run lint && lerna run build && lerna publish"
   },
   "dependencies": {
     "storybook": "^6.2.9"

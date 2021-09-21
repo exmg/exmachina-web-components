@@ -11,11 +11,13 @@
 /packages/**/node_modules/
 
 ## files
-/src/**/*.js
-/src/**/*-css.ts
-/packages/**/dist/*
-/demo/dist/
+/packages/**/*.js
+/packages/**/*.d.ts
+/packages/**/*-css.ts
+/demo/**/*.js
+/demo/**/*.d.ts
 /demo/**/*-css.ts
+/packages/**/tsconfig.tsbuildinfo
 
 ## testing
 /coverage/

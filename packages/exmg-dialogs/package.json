@@ -29,21 +29,22 @@
     "@exmg/exmg-markdown-editor": "^5.1.14",
     "@exmg/exmg-paper-combobox": "^6.0.7",
     "@exmg/exmg-paper-token-input": "^5.1.3",
-    "@polymer/marked-element": "^3.0.0",
-    "@polymer/paper-input": "^3.2.1",
-    "@polymer/paper-item": "^3.0.0",
+    "@typescript-eslint/eslint-plugin": "^4.31.2",
+    "@typescript-eslint/parser": "^4.31.2",
     "@webcomponents/webcomponentsjs": "^2.4.4",
     "codemirror": "^5.54.0",
     "eslint": "^7.8.1",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-lit": "^1.5.1",
+    "eslint-plugin-prettier": "^4.0.0",
+    "prettier": "^2.4.1",
     "typescript": "^4.0.2",
     "web-animations-js": "^2.3.1"
   },
   "scripts": {
-    "tsc:watch": "tsc --watch --project ./tsconfig.json",
-    "tsc": "tsc -b ./tsconfig.json",
-    "lint": "tsc --noEmit && eslint '**/*ts' --ignore-path ../../.eslintignore -c ../../eslintrc.json --quiet --fix",
-    "build:styles": "gulp render-styles",
-    "build": "npm run build:styles && npm run lint && npm run tsc"
+    "lint": "tsc -b && eslint '**/*ts' --ignore-path ../../.gitignore -c ../../.eslintrc.js --fix",
+    "build:styles": "exmg-cli -s \"./styles/*.scss\"",
+    "build": "npm run build:styles && npm run lint"
   },
   "publishConfig": {
     "access": "public"

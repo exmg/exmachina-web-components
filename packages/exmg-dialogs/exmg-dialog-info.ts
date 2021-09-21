@@ -1,40 +1,40 @@
-import { customElement, html, LitElement, property, query } from "lit-element";
-import "@polymer/paper-dialog";
-import "@polymer/paper-dialog-scrollable";
-import "@exmg/exmg-button/exmg-button";
-import "@polymer/iron-form";
-import "@material/mwc-icon-button";
-import { style } from "./styles/exmg-dialog-styles-css";
-import { PaperDialogElement } from "@polymer/paper-dialog";
-import { closeIcon } from "./exmg-dialog-icons";
+import {customElement, html, LitElement, property, query} from 'lit-element';
+import '@polymer/paper-dialog';
+import '@polymer/paper-dialog-scrollable';
+import '@exmg/exmg-button/exmg-button';
+import '@polymer/iron-form';
+import '@material/mwc-icon-button';
+import {style} from './styles/exmg-dialog-styles-css';
+import {PaperDialogElement} from '@polymer/paper-dialog';
+import {closeIcon} from './exmg-dialog-icons';
 
-@customElement("exmg-dialog-info")
+@customElement('exmg-dialog-info')
 export class ExmgInfoDialog extends LitElement {
   /**
    * Title of the dialog
    */
-  @property({ type: String })
-  public title = "";
+  @property({type: String})
+  public title = '';
 
   /**
    * Copy for done button
    */
-  @property({ type: String, attribute: "button-copy" })
-  private buttonCopy = "";
+  @property({type: String, attribute: 'button-copy'})
+  private buttonCopy = '';
 
   /**
    * Hide close button ?
    */
-  @property({ type: Boolean, attribute: "hide-close-button" })
+  @property({type: Boolean, attribute: 'hide-close-button'})
   private hideCloseButton = false;
 
   /**
    * Show close button as unelevated
    */
-  @property({ type: Boolean, attribute: "button-unelevated" })
+  @property({type: Boolean, attribute: 'button-unelevated'})
   private buttonUnelevated?: boolean = false;
 
-  @query("#dialog")
+  @query('#dialog')
   private dialogNode?: PaperDialogElement;
 
   static styles = [style];
@@ -53,7 +53,7 @@ export class ExmgInfoDialog extends LitElement {
 
   done() {
     // dispatch event 'done'
-    this.dispatchEvent(new CustomEvent("done"));
+    this.dispatchEvent(new CustomEvent('done'));
   }
 
   renderHeader() {

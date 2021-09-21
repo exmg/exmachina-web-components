@@ -1,4 +1,4 @@
-import { html } from "lit-element";
+import {html} from 'lit-element';
 
 export const closeIcon = html`
   <svg

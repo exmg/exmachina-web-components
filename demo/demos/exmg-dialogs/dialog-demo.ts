@@ -1,12 +1,12 @@
-import { LitElement, html } from "lit";
-import { customElement } from "lit/decorators.js";
+import {LitElement, html} from 'lit';
+import {customElement} from 'lit/decorators.js';
 
-import "@exmg/exmg-dialogs/exmg-dialog-confirm";
-import "@exmg/exmg-dialogs/exmg-dialog-form";
-import "@exmg/exmg-dialogs/exmg-dialog-info";
-import { ExmgConfirmDialog } from "@exmg/exmg-dialogs/exmg-dialog-confirm";
+import '@exmg/exmg-dialogs/exmg-dialog-confirm';
+import '@exmg/exmg-dialogs/exmg-dialog-form';
+import '@exmg/exmg-dialogs/exmg-dialog-info';
+import {ExmgConfirmDialog} from '@exmg/exmg-dialogs/exmg-dialog-confirm';
 
-@customElement("dialog-demo")
+@customElement('dialog-demo')
 export class DialogDemo extends LitElement {
   getElementBySelector(selector: string): ExmgConfirmDialog | null {
     return this.shadowRoot ? this.shadowRoot.querySelector(selector) : null;
@@ -22,7 +22,7 @@ export class DialogDemo extends LitElement {
   _saveData(e: CustomEvent) {
     const target = e.target as ExmgConfirmDialog;
     // Save data
-    console.log("Data: ", e.detail);
+    console.log('Data: ', e.detail);
     // Trigger done after 1s
     setTimeout((_) => {
       // finished
@@ -32,7 +32,7 @@ export class DialogDemo extends LitElement {
   _saveDataTicket(e: CustomEvent) {
     const target = e.target as ExmgConfirmDialog;
     // Save data
-    console.log("Data: ", e.detail);
+    console.log('Data: ', e.detail);
     // Trigger done after 1s
     setTimeout((_) => {
       // finished
@@ -57,7 +57,7 @@ export class DialogDemo extends LitElement {
       try {
         // Throw error to simulate error
         if (true) {
-          throw Error("User does not have permission to save data");
+          throw Error('User does not have permission to save data');
         }
       } catch (err) {
         target.error(err as Error);
@@ -93,7 +93,7 @@ export class DialogDemo extends LitElement {
       <div class="main">
         <div>
           <exmg-button
-            @click=${() => this.getElementBySelector("#dialog0")!.open()}
+            @click=${() => this.getElementBySelector('#dialog0')!.open()}
             >Dialog Confirm</exmg-button
           >
           <exmg-dialog-confirm
@@ -108,7 +108,7 @@ export class DialogDemo extends LitElement {
         </div>
         <div>
           <exmg-button
-            @click=${() => this.getElementBySelector("#dialog00")!.open()}
+            @click=${() => this.getElementBySelector('#dialog00')!.open()}
             >Dialog Confirm (Using slot)</exmg-button
           >
           <exmg-dialog-confirm
@@ -124,7 +124,7 @@ export class DialogDemo extends LitElement {
         </div>
         <div>
           <exmg-button
-            @click=${() => this.getElementBySelector("#dialog1")!.open()}
+            @click=${() => this.getElementBySelector('#dialog1')!.open()}
             >Dialog Normal</exmg-button
           >
           <exmg-dialog-form
@@ -141,7 +141,7 @@ export class DialogDemo extends LitElement {
         </div>
         <div>
           <exmg-button
-            @click=${() => this.getElementBySelector("#dialog2")!.open()}
+            @click=${() => this.getElementBySelector('#dialog2')!.open()}
             >Dialog Error</exmg-button
           >
           <exmg-dialog-form
@@ -167,7 +167,7 @@ export class DialogDemo extends LitElement {
         </div>
         <div>
           <exmg-button
-            @click=${() => this.getElementBySelector("#dialog4a")!.open()}
+            @click=${() => this.getElementBySelector('#dialog4a')!.open()}
             >Dialog Info with scroll and normal title</exmg-button
           >
           <exmg-dialog-info
@@ -223,7 +223,7 @@ export class DialogDemo extends LitElement {
         </div>
         <div>
           <exmg-button
-            @click=${() => this.getElementBySelector("#dialog4b")!.open()}
+            @click=${() => this.getElementBySelector('#dialog4b')!.open()}
             >Dialog Info without close btn</exmg-button
           >
           <exmg-dialog-info
@@ -247,7 +247,7 @@ export class DialogDemo extends LitElement {
         </div>
         <div>
           <exmg-button
-            @click=${() => this.getElementBySelector("#dialog3")!.open()}
+            @click=${() => this.getElementBySelector('#dialog3')!.open()}
             >Dialog Large</exmg-button
           >
           <exmg-dialog-form

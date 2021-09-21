@@ -1,11 +1,11 @@
 #!/usr/bin/env node
-
+/* eslint-disable */
 const path = require('path');
 const commandLineArgs = require('command-line-args');
 const commandLineUsage = require('command-line-usage');
 const glob = require('glob');
-const { sassRender } = require('./sass-renderer.js');
-const { watcher } = require('./watcher.js');
+const {sassRender} = require('./sass-renderer.js');
+const {watcher} = require('./watcher.js');
 
 const options = [
   {
@@ -30,7 +30,7 @@ const options = [
   }
 ];
 
-const { source, watch, help } = commandLineArgs(options);
+const {source, watch, help} = commandLineArgs(options);
 
 function printUsage() {
   const sections = [

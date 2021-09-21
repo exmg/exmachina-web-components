@@ -1,23 +1,23 @@
 import { __decorate } from "tslib";
-import { customElement, html, LitElement, property, query } from "lit-element";
-import "@polymer/paper-dialog";
-import "@polymer/paper-dialog-scrollable";
-import "@exmg/exmg-button/exmg-button";
-import "@polymer/iron-form";
-import "@material/mwc-icon-button";
-import { style } from "./styles/exmg-dialog-styles-css";
-import { closeIcon } from "./exmg-dialog-icons";
+import { customElement, html, LitElement, property, query } from 'lit-element';
+import '@polymer/paper-dialog';
+import '@polymer/paper-dialog-scrollable';
+import '@exmg/exmg-button/exmg-button';
+import '@polymer/iron-form';
+import '@material/mwc-icon-button';
+import { style } from './styles/exmg-dialog-styles-css';
+import { closeIcon } from './exmg-dialog-icons';
 let ExmgInfoDialog = class ExmgInfoDialog extends LitElement {
     constructor() {
         super(...arguments);
         /**
          * Title of the dialog
          */
-        this.title = "";
+        this.title = '';
         /**
          * Copy for done button
          */
-        this.buttonCopy = "";
+        this.buttonCopy = '';
         /**
          * Hide close button ?
          */
@@ -39,7 +39,7 @@ let ExmgInfoDialog = class ExmgInfoDialog extends LitElement {
     }
     done() {
         // dispatch event 'done'
-        this.dispatchEvent(new CustomEvent("done"));
+        this.dispatchEvent(new CustomEvent('done'));
     }
     renderHeader() {
         return html `
@@ -84,19 +84,19 @@ __decorate([
     property({ type: String })
 ], ExmgInfoDialog.prototype, "title", void 0);
 __decorate([
-    property({ type: String, attribute: "button-copy" })
+    property({ type: String, attribute: 'button-copy' })
 ], ExmgInfoDialog.prototype, "buttonCopy", void 0);
 __decorate([
-    property({ type: Boolean, attribute: "hide-close-button" })
+    property({ type: Boolean, attribute: 'hide-close-button' })
 ], ExmgInfoDialog.prototype, "hideCloseButton", void 0);
 __decorate([
-    property({ type: Boolean, attribute: "button-unelevated" })
+    property({ type: Boolean, attribute: 'button-unelevated' })
 ], ExmgInfoDialog.prototype, "buttonUnelevated", void 0);
 __decorate([
-    query("#dialog")
+    query('#dialog')
 ], ExmgInfoDialog.prototype, "dialogNode", void 0);
 ExmgInfoDialog = __decorate([
-    customElement("exmg-dialog-info")
+    customElement('exmg-dialog-info')
 ], ExmgInfoDialog);
 export { ExmgInfoDialog };
 //# sourceMappingURL=exmg-dialog-info.js.map

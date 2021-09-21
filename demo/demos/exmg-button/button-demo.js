@@ -1,7 +1,7 @@
-import { __decorate } from "tslib";
-import { LitElement, html } from "lit";
-import { customElement, property } from "lit/decorators.js";
-import "@exmg/exmg-button/exmg-button.js";
+import {__decorate} from 'tslib';
+import {LitElement, html} from 'lit';
+import {customElement, property} from 'lit/decorators.js';
+import '@exmg/exmg-button/exmg-button.js';
 let ButtonDemo = class ButtonDemo extends LitElement {
     constructor() {
         super(...arguments);
@@ -91,10 +91,10 @@ let ButtonDemo = class ButtonDemo extends LitElement {
     }
 };
 __decorate([
-    property({ type: Boolean })
-], ButtonDemo.prototype, "loading", void 0);
+    property({type: Boolean})
+], ButtonDemo.prototype, 'loading', void 0);
 ButtonDemo = __decorate([
-    customElement("exmg-button-demo")
+    customElement('exmg-button-demo')
 ], ButtonDemo);
-export { ButtonDemo };
+export {ButtonDemo};
 //# sourceMappingURL=button-demo.js.map

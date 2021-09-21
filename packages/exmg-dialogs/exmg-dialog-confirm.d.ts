@@ -1,8 +1,8 @@
-import { LitElement } from "lit-element";
-import "@material/mwc-icon-button";
-import "@polymer/paper-dialog";
-import "@exmg/exmg-button/exmg-button.js";
-import "@polymer/iron-form";
+import {LitElement} from 'lit-element';
+import '@material/mwc-icon-button';
+import '@polymer/paper-dialog';
+import '@exmg/exmg-button/exmg-button.js';
+import '@polymer/iron-form';
 export declare class ExmgConfirmDialog extends LitElement {
     /**
      * Title of the dialog
@@ -33,7 +33,7 @@ export declare class ExmgConfirmDialog extends LitElement {
     private submitBtnNode?;
     private hasSlotContent;
     private observer?;
-    static styles: import("lit-element").CSSResult[];
+    static styles: import('lit-element').CSSResult[];
     constructor();
     connectedCallback(): void;
     disconnectedCallback(): void;
@@ -45,5 +45,5 @@ export declare class ExmgConfirmDialog extends LitElement {
     done(): void;
     private cancel;
     private submit;
-    protected render(): import("lit-element").TemplateResult;
+    protected render(): import('lit-element').TemplateResult;
 }

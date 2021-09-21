@@ -1,59 +1,59 @@
-import { customElement, html, LitElement, property, query } from "lit-element";
-import "@polymer/paper-dialog";
-import "@material/mwc-icon-button";
-import { PaperDialogElement } from "@polymer/paper-dialog";
-import "@polymer/paper-dialog-scrollable";
-import "@exmg/exmg-button/exmg-button";
-import "@polymer/iron-form";
-import { IronFormElement } from "@polymer/iron-form";
-import { style } from "./styles/exmg-dialog-styles-css";
-import { ExmgButton } from "@exmg/exmg-button/exmg-button";
-import { closeIcon, warningIcon } from "./exmg-dialog-icons";
+import {customElement, html, LitElement, property, query} from 'lit-element';
+import '@polymer/paper-dialog';
+import '@material/mwc-icon-button';
+import {PaperDialogElement} from '@polymer/paper-dialog';
+import '@polymer/paper-dialog-scrollable';
+import '@exmg/exmg-button/exmg-button';
+import '@polymer/iron-form';
+import {IronFormElement} from '@polymer/iron-form';
+import {style} from './styles/exmg-dialog-styles-css';
+import {ExmgButton} from '@exmg/exmg-button/exmg-button';
+import {closeIcon, warningIcon} from './exmg-dialog-icons';
 
 interface ExmgCustomEvent extends CustomEvent {
   path: HTMLElement[];
 }
 
-@customElement("exmg-dialog-form")
+@customElement('exmg-dialog-form')
 export class ExmgFormDialog extends LitElement {
   /**
    * Title of the dialog
    */
-  @property({ type: String })
-  public title = "";
+  @property({type: String})
+  public title = '';
 
   /**
    * Copy for submit button
    */
-  @property({ type: String, attribute: "button-copy" })
-  public buttonCopy = "";
+  @property({type: String, attribute: 'button-copy'})
+  public buttonCopy = '';
 
   /**
    * Hide close button ?
    */
-  @property({ type: Boolean, attribute: "hide-close-button" })
+  @property({type: Boolean, attribute: 'hide-close-button'})
   private hideCloseButton = false;
 
   /**
    * Indicator if submit is in progress This boolean will display the progress
    * bar at the bottom of the dialog
    */
-  @property({ type: Boolean, reflect: true })
+  @property({type: Boolean, reflect: true})
   private submitting = false;
 
   /**
    * When set this will be shown in the error section of the dialog
    */
-  @property({ type: String, attribute: "error-message" })
+  @property({type: String, attribute: 'error-message'})
   private errorMessage?: string;
 
-  @query("#dialog")
+  @query('#dialog')
   private dialogNode?: PaperDialogElement;
 
-  @query("#form")
+  @query('#form')
   private formNode?: IronFormElement;
 
-  @query("#submitBtn")
+  @query('#submitBtn')
   private submitBtnNode?: ExmgButton;
 
   static styles = [style];
@@ -71,7 +71,7 @@ export class ExmgFormDialog extends LitElement {
       : e.composedPath();
     if (
       eventPath[0] instanceof Element &&
-      eventPath[0].tagName === "PAPER-DIALOG"
+      eventPath[0].tagName === 'PAPER-DIALOG'
     ) {
       this.reset();
     }
@@ -94,7 +94,7 @@ export class ExmgFormDialog extends LitElement {
     this.errorMessage = undefined;
 
     if (this.submitBtnNode) {
-      this.submitBtnNode.removeAttribute("disabled");
+      this.submitBtnNode.removeAttribute('disabled');
     }
 
     if (this.formNode) {
@@ -107,7 +107,7 @@ export class ExmgFormDialog extends LitElement {
     this.errorMessage = error.message;
 
     if (this.submitBtnNode) {
-      this.submitBtnNode.removeAttribute("disabled");
+      this.submitBtnNode.removeAttribute('disabled');
     }
   }
 
@@ -116,7 +116,7 @@ export class ExmgFormDialog extends LitElement {
     this.submitting = false;
 
     if (this.submitBtnNode) {
-      this.submitBtnNode.removeAttribute("disabled");
+      this.submitBtnNode.removeAttribute('disabled');
     }
 
     // Close dialog
@@ -125,7 +125,7 @@ export class ExmgFormDialog extends LitElement {
 
   private cancel() {
     this.dispatchEvent(
-      new CustomEvent("cancel", { bubbles: false, composed: true })
+      new CustomEvent('cancel', {bubbles: false, composed: true})
     );
   }
 
@@ -142,12 +142,12 @@ export class ExmgFormDialog extends LitElement {
     this.submitting = true;
 
     if (this.submitBtnNode) {
-      this.submitBtnNode.setAttribute("disabled", "disabled");
+      this.submitBtnNode.setAttribute('disabled', 'disabled');
     }
 
     // dispatch event containing the serialized form data
     this.dispatchEvent(
-      new CustomEvent("submit", {
+      new CustomEvent('submit', {
         bubbles: false,
         composed: true,
         detail: this.formNode!.serializeForm(),
@@ -164,18 +164,18 @@ export class ExmgFormDialog extends LitElement {
         @iron-overlay-closed="${this.onCloseDialog}"
       >
         ${this.hideCloseButton
-          ? ""
+          ? ''
           : html`
               <mwc-icon-button @click=${this.close} class="close-button"
                 >${closeIcon}</mwc-icon-button
               >
             `}
         <header>
-          ${!!this.title ? html` <h2 class="title">${this.title}</h2> ` : ""}
+          ${!!this.title ? html` <h2 class="title">${this.title}</h2> ` : ''}
         </header>
         <paper-dialog-scrollable>
           <div class="body">
-            <div class="error ${!!this.errorMessage ? "show" : ""}">
+            <div class="error ${!!this.errorMessage ? 'show' : ''}">
               <span class="body">
                 ${warningIcon}
                 <span class="msg">${this.errorMessage}</span>

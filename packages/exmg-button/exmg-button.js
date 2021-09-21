@@ -1,11 +1,11 @@
 import { __decorate } from "tslib";
-import { html, property, customElement, eventOptions } from "lit-element";
-import "@material/mwc-ripple/mwc-ripple";
-import { classMap } from "lit-html/directives/class-map.js";
-import { ButtonBase } from "@material/mwc-button/mwc-button-base.js";
-import { style } from "@material/mwc-button/mwc-button-css.js";
-import { style as newStyles } from "./styles/exmg-button-styles-css.js";
-import "./exmg-spinner.js";
+import { html, property, customElement, eventOptions } from 'lit-element';
+import '@material/mwc-ripple/mwc-ripple';
+import { classMap } from 'lit-html/directives/class-map.js';
+import { ButtonBase } from '@material/mwc-button/mwc-button-base.js';
+import { style } from '@material/mwc-button/mwc-button-css.js';
+import { style as newStyles } from './styles/exmg-button-styles-css.js';
+import './exmg-spinner.js';
 let ExmgButton = class ExmgButton extends ButtonBase {
     constructor() {
         super(...arguments);
@@ -13,14 +13,14 @@ let ExmgButton = class ExmgButton extends ButtonBase {
     }
     render() {
         const classes = {
-            "mdc-button--raised": this.raised,
-            "mdc-button--unelevated": this.unelevated,
-            "mdc-button--outlined": this.outlined,
-            "mdc-button--dense": this.dense,
+            'mdc-button--raised': this.raised,
+            'mdc-button--unelevated': this.unelevated,
+            'mdc-button--outlined': this.outlined,
+            'mdc-button--dense': this.dense,
         };
         const loadingClass = {
-            "exmg-loading": this.loading,
-            "exmg-button-content": true,
+            'exmg-loading': this.loading,
+            'exmg-button-content': true,
         };
         const mdcButtonIcon = html `
       <span class="material-icons mdc-button__icon">${this.icon}</span>
@@ -42,30 +42,30 @@ let ExmgButton = class ExmgButton extends ButtonBase {
       >
         ${this.renderRipple()}
         <span class="${classMap(loadingClass)}">
-          ${this.icon && !this.trailingIcon ? mdcButtonIcon : ""}
+          ${this.icon && !this.trailingIcon ? mdcButtonIcon : ''}
           <span class="mdc-button__label">${this.label}</span>
-          ${this.icon && this.trailingIcon ? mdcButtonIcon : ""}
+          ${this.icon && this.trailingIcon ? mdcButtonIcon : ''}
           <slot></slot>
         </span>
         ${this.loading
             ? html ` <exmg-button-spinner active></exmg-button-spinner> `
-            : ""}
+            : ''}
         ${this.progress
             ? html `
               <div class="progress-holder">
                 <progress max="100" value=${this.progress}></progress>
               </div>
             `
-            : ""}
+            : ''}
       </button>
     `;
     }
     handleRippleActivateA(evt) {
         const onUp = () => {
-            window.removeEventListener("mouseup", onUp);
+            window.removeEventListener('mouseup', onUp);
             this.handleRippleDeactivateA();
         };
-        window.addEventListener("mouseup", onUp);
+        window.addEventListener('mouseup', onUp);
         this.rippleHandlers.startPress(evt);
     }
     handleRippleDeactivateA() {
@@ -95,7 +95,7 @@ __decorate([
     eventOptions({ passive: true })
 ], ExmgButton.prototype, "handleRippleActivateA", null);
 ExmgButton = __decorate([
-    customElement("exmg-button")
+    customElement('exmg-button')
 ], ExmgButton);
 export { ExmgButton };
 //# sourceMappingURL=exmg-button.js.map

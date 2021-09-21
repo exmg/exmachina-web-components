@@ -1,5 +1,6 @@
+/* eslint-disable */
 const watch = require('node-watch');
-const { promisify } = require('util');
+const {promisify} = require('util');
 const exec = promisify(require('child_process').exec);
 
 const watchOptions = {
@@ -26,7 +27,7 @@ async function addToQueue(fileName) {
   const execPromise = exec(`exmg-cli -s "${fileName}"`);
   try {
     await execPromise;
-  } catch ({ stdout, stderr }) {
+  } catch ({stdout, stderr}) {
     console.log(stdout);
     console.log('ERROR:', stderr);
   }
@@ -36,7 +37,7 @@ async function addToQueue(fileName) {
 
 async function watcher() {
   console.log('Exmg-CLI SASS watcher has started.');
-  watch("./", watchOptions, (_event, fileName) => {
+  watch('./', watchOptions, (_event, fileName) => {
     addToQueue(fileName);
   });
 }

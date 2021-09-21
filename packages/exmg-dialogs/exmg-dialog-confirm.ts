@@ -1,58 +1,58 @@
-import { customElement, html, LitElement, property, query } from "lit-element";
-import "@material/mwc-icon-button";
-import { PaperDialogElement } from "@polymer/paper-dialog";
-import "@polymer/paper-dialog";
-import "@exmg/exmg-button/exmg-button.js";
-import "@polymer/iron-form";
-import { style } from "./styles/exmg-dialog-styles-css";
-import { closeIcon, warningIcon } from "./exmg-dialog-icons";
+import {customElement, html, LitElement, property, query} from 'lit-element';
+import '@material/mwc-icon-button';
+import {PaperDialogElement} from '@polymer/paper-dialog';
+import '@polymer/paper-dialog';
+import '@exmg/exmg-button/exmg-button.js';
+import '@polymer/iron-form';
+import {style} from './styles/exmg-dialog-styles-css';
+import {closeIcon, warningIcon} from './exmg-dialog-icons';
 
-@customElement("exmg-dialog-confirm")
+@customElement('exmg-dialog-confirm')
 export class ExmgConfirmDialog extends LitElement {
   /**
    * Title of the dialog
    */
-  @property({ type: String })
-  public title = "";
+  @property({type: String})
+  public title = '';
 
   /**
    * Dialog message to display as confirmation question. Alternative would be to just add a slot body including a message.
    */
-  @property({ type: String })
-  private message = "";
+  @property({type: String})
+  private message = '';
 
   /**
    * Hide close button ?
    */
-  @property({ type: Boolean, attribute: "hide-close-button" })
+  @property({type: Boolean, attribute: 'hide-close-button'})
   private hideCloseButton = false;
 
   /**
    * Copy for submit button
    */
-  @property({ type: String, attribute: "button-copy" })
-  private buttonCopy = "";
+  @property({type: String, attribute: 'button-copy'})
+  private buttonCopy = '';
 
   /**
    * Indicator if submit is in progress This boolean will display the progress
    * bar at the bottom of the dialog
    */
-  @property({ type: Boolean, reflect: true })
+  @property({type: Boolean, reflect: true})
   private submitting = false;
 
   /**
    * When set this will be shown in the error section of the dialog
    */
-  @property({ type: String, attribute: "error-message" })
+  @property({type: String, attribute: 'error-message'})
   private errorMessage?: string;
 
-  @query("#dialog")
+  @query('#dialog')
   private dialogNode?: PaperDialogElement;
 
-  @query("#submitBtn")
+  @query('#submitBtn')
   private submitBtnNode?: PaperDialogElement;
 
-  @property({ type: Boolean })
+  @property({type: Boolean})
   private hasSlotContent = false;
 
   private observer?: MutationObserver;
@@ -70,13 +70,13 @@ export class ExmgConfirmDialog extends LitElement {
     super.connectedCallback();
 
     // Options for the observer (which mutations to observe)
-    const config = { attributes: false, childList: true, subtree: false };
+    const config = {attributes: false, childList: true, subtree: false};
 
     // Create an observer instance linked to the callback function
     this.observer = new MutationObserver((list: MutationRecord[]) => {
       for (const mutation of list) {
-        if (mutation.type === "childList") {
-          console.log("A child node has been added or removed.");
+        if (mutation.type === 'childList') {
+          console.log('A child node has been added or removed.');
           this.hasSlotContent = this.children.length > 0;
         }
       }
@@ -119,7 +119,7 @@ export class ExmgConfirmDialog extends LitElement {
     this.errorMessage = undefined;
 
     if (this.submitBtnNode) {
-      this.submitBtnNode.removeAttribute("disabled");
+      this.submitBtnNode.removeAttribute('disabled');
     }
   }
 
@@ -128,7 +128,7 @@ export class ExmgConfirmDialog extends LitElement {
     this.errorMessage = error.message;
 
     if (this.submitBtnNode) {
-      this.submitBtnNode.removeAttribute("disabled");
+      this.submitBtnNode.removeAttribute('disabled');
     }
   }
 
@@ -137,7 +137,7 @@ export class ExmgConfirmDialog extends LitElement {
     this.submitting = false;
 
     if (this.submitBtnNode) {
-      this.submitBtnNode.removeAttribute("disabled");
+      this.submitBtnNode.removeAttribute('disabled');
     }
 
     // Close dialog
@@ -146,7 +146,7 @@ export class ExmgConfirmDialog extends LitElement {
 
   private cancel() {
     this.dispatchEvent(
-      new CustomEvent("cancel", { bubbles: false, composed: true })
+      new CustomEvent('cancel', {bubbles: false, composed: true})
     );
   }
 
@@ -158,12 +158,12 @@ export class ExmgConfirmDialog extends LitElement {
     this.submitting = true;
 
     if (this.submitBtnNode) {
-      this.submitBtnNode.setAttribute("disabled", "disabled");
+      this.submitBtnNode.setAttribute('disabled', 'disabled');
     }
 
     // dispatch event
     this.dispatchEvent(
-      new CustomEvent("submit", { bubbles: false, composed: true })
+      new CustomEvent('submit', {bubbles: false, composed: true})
     );
   }
 
@@ -176,17 +176,17 @@ export class ExmgConfirmDialog extends LitElement {
         @iron-overlay-closed="${this.onCloseDialog}"
       >
         ${this.hideCloseButton
-          ? ""
+          ? ''
           : html`
               <mwc-icon-button @click=${this.close} class="close-button"
                 >${closeIcon}</mwc-icon-button
               >
             `}
         <header>
-          ${!!this.title ? html` <h2 class="title">${this.title}</h2> ` : ""}
+          ${!!this.title ? html` <h2 class="title">${this.title}</h2> ` : ''}
         </header>
         <div class="body">
-          <div class="error ${!!this.errorMessage ? "show" : ""}">
+          <div class="error ${!!this.errorMessage ? 'show' : ''}">
             <span class="body">
               ${warningIcon}
               <span class="msg">${this.errorMessage}</span>

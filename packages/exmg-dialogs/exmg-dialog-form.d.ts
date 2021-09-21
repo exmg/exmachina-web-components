@@ -1,9 +1,9 @@
-import { LitElement } from "lit-element";
-import "@polymer/paper-dialog";
-import "@material/mwc-icon-button";
-import "@polymer/paper-dialog-scrollable";
-import "@exmg/exmg-button/exmg-button";
-import "@polymer/iron-form";
+import {LitElement} from 'lit-element';
+import '@polymer/paper-dialog';
+import '@material/mwc-icon-button';
+import '@polymer/paper-dialog-scrollable';
+import '@exmg/exmg-button/exmg-button';
+import '@polymer/iron-form';
 export declare class ExmgFormDialog extends LitElement {
     /**
      * Title of the dialog
@@ -29,7 +29,7 @@ export declare class ExmgFormDialog extends LitElement {
     private dialogNode?;
     private formNode?;
     private submitBtnNode?;
-    static styles: import("lit-element").CSSResult[];
+    static styles: import('lit-element').CSSResult[];
     constructor();
     private onCloseDialog;
     open(): void;
@@ -39,5 +39,5 @@ export declare class ExmgFormDialog extends LitElement {
     done(): void;
     private cancel;
     submit(): void;
-    protected render(): import("lit-element").TemplateResult;
+    protected render(): import('lit-element').TemplateResult;
 }

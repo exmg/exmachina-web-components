@@ -1,8 +1,8 @@
 import { __decorate } from "tslib";
-import { html, property, customElement, LitElement } from "lit-element";
-import { classMap } from "lit-html/directives/class-map.js";
-import { observer } from "@material/mwc-base/observer.js";
-import { style } from "./styles/exmg-spinner-styles-css";
+import { html, property, customElement, LitElement } from 'lit-element';
+import { classMap } from 'lit-html/directives/class-map.js';
+import { observer } from '@material/mwc-base/observer.js';
+import { style } from './styles/exmg-spinner-styles-css';
 let ExmgSpinner = class ExmgSpinner extends LitElement {
     constructor() {
         super(...arguments);
@@ -14,9 +14,9 @@ let ExmgSpinner = class ExmgSpinner extends LitElement {
         this.coolingDown = false;
     }
     setAriaHidden(hidden) {
-        const attr = "aria-hidden";
+        const attr = 'aria-hidden';
         if (hidden) {
-            this.setAttribute(attr, "true");
+            this.setAttribute(attr, 'true');
         }
         else {
             this.removeAttribute(attr);
@@ -24,8 +24,8 @@ let ExmgSpinner = class ExmgSpinner extends LitElement {
     }
     render() {
         const classes = {
-            "exmg-active": this.active || this.coolingDown,
-            "exmg-cooldown": this.coolingDown,
+            'exmg-active': this.active || this.coolingDown,
+            'exmg-cooldown': this.coolingDown,
         };
         return html `
       <div
@@ -54,7 +54,7 @@ __decorate([
     })
 ], ExmgSpinner.prototype, "active", void 0);
 ExmgSpinner = __decorate([
-    customElement("exmg-button-spinner")
+    customElement('exmg-button-spinner')
 ], ExmgSpinner);
 export { ExmgSpinner };
 //# sourceMappingURL=exmg-spinner.js.map

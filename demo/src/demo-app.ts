@@ -1,39 +1,39 @@
-import { customElement, html, LitElement, property } from "lit-element";
-import { elements, Element } from "./elements.js";
-import demoAppStyles from "./styles/demo-app-css.js";
-import "@exmg/exmg-button/exmg-button.js";
+import {customElement, html, LitElement, property} from 'lit-element';
+import {elements, Element} from './elements.js';
+import demoAppStyles from './styles/demo-app-css.js';
+import '@exmg/exmg-button/exmg-button.js';
 
-@customElement("demo-app")
+@customElement('demo-app')
 export class DemoApp extends LitElement {
   static styles = [demoAppStyles];
 
-  @property({ type: Object })
+  @property({type: Object})
   private selectedElement?: Element;
 
   connectedCallback() {
     super.connectedCallback();
-    window.addEventListener("popstate", this.updateElementFromUrl);
+    window.addEventListener('popstate', this.updateElementFromUrl);
     this.updateElementFromUrl();
   }
 
   disconnectedCallback() {
     super.disconnectedCallback();
-    window.removeEventListener("popstate", this.updateElementFromUrl);
+    window.removeEventListener('popstate', this.updateElementFromUrl);
   }
 
   private updateElementFromUrl() {
     const url = window.location.pathname;
     const elementName = `@exmg/${url
-      .replace("/demo/demos/", "")
-      .replace("/", "")}`;
+      .replace('/demo/demos/', '')
+      .replace('/', '')}`;
     this.selectedElement = elements.find((e) => e.name === elementName);
   }
 
   private getSelectedElementStorybookUrl() {
     if (!this.selectedElement) {
-      return `http://localhost:6006`;
+      return 'http://localhost:6006';
     }
-    const name = this.selectedElement.name.replace("@exmg/", "");
+    const name = this.selectedElement.name.replace('@exmg/', '');
     return `http://localhost:6006/?path=/story/${name}`;
   }
 
@@ -42,14 +42,14 @@ export class DemoApp extends LitElement {
       const active =
         this.selectedElement && this.selectedElement.name === element.name;
       const url = window.location.href;
-      const href = element.name.replace("@exmg/", "");
+      const href = element.name.replace('@exmg/', '');
       return html`
         <a
           href=${url.replace(window.location.pathname, `/demo/demos/${href}/`)}
         >
-          <div class=${`element ${active ? "active" : ""}`}>
+          <div class=${`element ${active ? 'active' : ''}`}>
             <h3>${element.name}</h3>
-            ${this.selectedElement ? "" : html`<p>${element.version}</p>`}
+            ${this.selectedElement ? '' : html`<p>${element.version}</p>`}
           </div>
         </a>
       `;

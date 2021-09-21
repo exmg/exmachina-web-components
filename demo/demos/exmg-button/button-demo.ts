@@ -1,10 +1,10 @@
-import { LitElement, html } from "lit";
-import { customElement, property } from "lit/decorators.js";
-import "@exmg/exmg-button/exmg-button.js";
+import {LitElement, html} from 'lit';
+import {customElement, property} from 'lit/decorators.js';
+import '@exmg/exmg-button/exmg-button.js';
 
-@customElement("exmg-button-demo")
+@customElement('exmg-button-demo')
 export class ButtonDemo extends LitElement {
-  @property({ type: Boolean })
+  @property({type: Boolean})
   public loading = false;
 
   public changeHandler(e: any) {
