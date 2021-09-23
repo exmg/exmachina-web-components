@@ -1,8 +1,8 @@
-import { LitElement } from "lit";
-import "@exmg/exmg-dialogs/exmg-dialog-confirm";
-import "@exmg/exmg-dialogs/exmg-dialog-form";
-import "@exmg/exmg-dialogs/exmg-dialog-info";
-import { ExmgConfirmDialog } from "@exmg/exmg-dialogs/exmg-dialog-confirm";
+import { LitElement } from 'lit';
+import '@exmg/exmg-dialogs/exmg-dialog-confirm';
+import '@exmg/exmg-dialogs/exmg-dialog-form';
+import '@exmg/exmg-dialogs/exmg-dialog-info';
+import { ExmgConfirmDialog } from '@exmg/exmg-dialogs/exmg-dialog-confirm';
 export declare class DialogDemo extends LitElement {
     getElementBySelector(selector: string): ExmgConfirmDialog | null;
     _delete(e: CustomEvent): void;

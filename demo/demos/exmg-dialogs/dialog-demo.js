@@ -1,6 +1,6 @@
-import {__decorate} from 'tslib';
-import {LitElement, html} from 'lit';
-import {customElement} from 'lit/decorators.js';
+import { __decorate } from "tslib";
+import { LitElement, html } from 'lit';
+import { customElement } from 'lit/decorators.js';
 import '@exmg/exmg-dialogs/exmg-dialog-confirm';
 import '@exmg/exmg-dialogs/exmg-dialog-form';
 import '@exmg/exmg-dialogs/exmg-dialog-info';
@@ -331,5 +331,5 @@ let DialogDemo = class DialogDemo extends LitElement {
 DialogDemo = __decorate([
     customElement('dialog-demo')
 ], DialogDemo);
-export {DialogDemo};
+export { DialogDemo };
 //# sourceMappingURL=dialog-demo.js.map

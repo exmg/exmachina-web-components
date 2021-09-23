@@ -14,7 +14,7 @@ export class DialogDemo extends LitElement {
   _delete(e: CustomEvent) {
     const target = e.target as ExmgConfirmDialog;
     // Trigger done after 1s
-    setTimeout((_) => {
+    setTimeout(() => {
       // finished
       target.done();
     }, 1000);
@@ -24,7 +24,7 @@ export class DialogDemo extends LitElement {
     // Save data
     console.log('Data: ', e.detail);
     // Trigger done after 1s
-    setTimeout((_) => {
+    setTimeout(() => {
       // finished
       target.done();
     }, 1000);
@@ -34,7 +34,7 @@ export class DialogDemo extends LitElement {
     // Save data
     console.log('Data: ', e.detail);
     // Trigger done after 1s
-    setTimeout((_) => {
+    setTimeout(() => {
       // finished
       target.done();
     }, 1000);
@@ -53,7 +53,7 @@ export class DialogDemo extends LitElement {
   _saveDataError(e: CustomEvent) {
     const target = e.target as ExmgConfirmDialog;
     // Trigger done after 1s
-    setTimeout((_) => {
+    setTimeout(() => {
       try {
         // Throw error to simulate error
         if (true) {

@@ -1,6 +1,6 @@
-import {__decorate} from 'tslib';
-import {customElement, html, LitElement, property} from 'lit-element';
-import {elements} from './elements.js';
+import { __decorate } from "tslib";
+import { customElement, html, LitElement, property } from 'lit-element';
+import { elements } from './elements.js';
 import demoAppStyles from './styles/demo-app-css.js';
 import '@exmg/exmg-button/exmg-button.js';
 let DemoApp = class DemoApp extends LitElement {
@@ -88,10 +88,10 @@ let DemoApp = class DemoApp extends LitElement {
 };
 DemoApp.styles = [demoAppStyles];
 __decorate([
-    property({type: Object})
-], DemoApp.prototype, 'selectedElement', void 0);
+    property({ type: Object })
+], DemoApp.prototype, "selectedElement", void 0);
 DemoApp = __decorate([
     customElement('demo-app')
 ], DemoApp);
-export {DemoApp};
+export { DemoApp };
 //# sourceMappingURL=demo-app.js.map

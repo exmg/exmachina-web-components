@@ -9,6 +9,9 @@
     "./**/*.ts"
   ],
   "exclude": ["node_modules"],
+  "references": [
+    {"path": "../exmg-button"}
+  ]
  }
  
  
