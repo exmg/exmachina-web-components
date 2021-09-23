@@ -11,23 +11,17 @@
 /packages/**/node_modules/
 
 ## files
-/packages/**/*.js
-/packages/**/*.d.ts
-/packages/**/*-css.ts
-/demo/**/*.js
+# /packages/**/*.js
+# !/packages/exmg-cli/*
+# /packages/**/*.d.ts
+# /packages/**/*-css.ts
+# /packages/**/*.tsbuildinfo
+/packages/
+/demo/src/*.js
 /demo/**/*.d.ts
 /demo/**/*-css.ts
-/**/tsconfig.tsbuildinfo
 
-## testing
-/coverage/
 
 ## temp folders
 /.tmp/
 
-# build
-/_site/
-/dist/
-
-# Ex Machina
-!environment.js
