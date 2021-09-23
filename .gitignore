@@ -8,19 +8,16 @@
 ## npm
 /node_modules/
 /npm-debug.log
-/packages/**/node_modules/
 
 ## files
-# /packages/**/*.js
-# !/packages/exmg-cli/*
-# /packages/**/*.d.ts
-# /packages/**/*-css.ts
-# /packages/**/*.tsbuildinfo
-/packages/
+/packages/**/*.js
+!/packages/exmg-cli/*
+/packages/**/*.d.ts
+/packages/**/*-css.ts
+/packages/**/*.tsbuildinfo
 /demo/src/*.js
 /demo/**/*.d.ts
 /demo/**/*-css.ts
-
 
 ## temp folders
 /.tmp/
