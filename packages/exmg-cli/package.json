@@ -1,5 +1,5 @@
 {
-  "name": "@exmg/exmg-cli",
+  "name": "@exmg/test-exmg-cli",
   "version": "4.0.0",
   "description": "CLI - scripts used to process and build polymer / lit-element packages",
   "contributors": [
