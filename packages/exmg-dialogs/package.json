@@ -1,5 +1,5 @@
 {
-  "name": "@exmg/test-exmg-dialogs",
+  "name": "@exmg/exmg-dialogs",
   "version": "0.1.0-alpha.0",
   "main": "index.js",
   "files": [

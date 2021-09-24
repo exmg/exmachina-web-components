@@ -4,7 +4,7 @@ import {customElement} from 'lit/decorators.js';
 import '@exmg/exmg-dialogs/exmg-dialog-confirm';
 import '@exmg/exmg-dialogs/exmg-dialog-form';
 import '@exmg/exmg-dialogs/exmg-dialog-info';
-import {ExmgConfirmDialog} from '@exmg/exmg-dialogs/exmg-dialog-confirm';
+import {ExmgConfirmDialog} from '@exmg/exmg-dialogs/exmg-dialog-confirm.js';
 
 @customElement('dialog-demo')
 export class DialogDemo extends LitElement {

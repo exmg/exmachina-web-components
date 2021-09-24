@@ -15,6 +15,7 @@
     "lerna": "^4.0.0",
     "lit": "^2.0.0-rc.2",
     "lit-html": "^1.4.1",
+    "rollup": "^2.57.0",
     "typescript": "^4.3.2"
   },
   "scripts": {
@@ -27,7 +28,8 @@
     "postinstall": "npm run bootstrap",
     "storybook": "start-storybook --quiet -p 6006",
     "build-storybook": "build-storybook",
-    "publish": "npm run lint && lerna run build && lerna publish"
+    "publish": "npm run lint && lerna run build && lerna publish",
+    "build:demo": "rollup --config ./rollup.config.js"
   },
   "dependencies": {
     "storybook": "^6.2.9"
