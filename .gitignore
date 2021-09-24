@@ -12,10 +12,12 @@
 ## files
 !/packages/exmg-cli/*
 /packages/**/*.js
+/packages/**/*.js.map
 /packages/**/*.d.ts
 /packages/**/*-css.ts
 /packages/**/*.tsbuildinfo
-/demo/src/*.js
+/demo/**/*.js
+/demo/**/*.js.map
 /demo/**/*-css.ts
 /demo/**/*.d.ts
 
