@@ -2,7 +2,7 @@ import { __decorate } from "tslib";
 import { customElement, html, LitElement, property } from 'lit-element';
 import { elements } from './elements.js';
 import demoAppStyles from './styles/demo-app-css.js';
-import '@exmg/exmg-button/exmg-button.js';
+//import '@exmg/exmg-button/exmg-button.js';
 let DemoApp = class DemoApp extends LitElement {
     connectedCallback() {
         super.connectedCallback();

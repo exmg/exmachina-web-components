@@ -19,6 +19,7 @@
 /demo/**/*.js.map
 /demo/**/*-css.ts
 /demo/**/*.d.ts
+/demo/*.tsbuildinfo
 
 ## temp folders
 /.tmp/
