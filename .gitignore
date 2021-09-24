@@ -10,14 +10,14 @@
 /npm-debug.log
 
 ## files
-/packages/**/*.js
 !/packages/exmg-cli/*
+/packages/**/*.js
 /packages/**/*.d.ts
 /packages/**/*-css.ts
 /packages/**/*.tsbuildinfo
 /demo/src/*.js
-/demo/**/*.d.ts
 /demo/**/*-css.ts
+/demo/**/*.d.ts
 
 ## temp folders
 /.tmp/
