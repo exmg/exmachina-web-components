@@ -1,7 +1,7 @@
 import {customElement, html, LitElement, property} from 'lit-element';
 import {elements, Element} from './elements.js';
 import demoAppStyles from './styles/demo-app-css.js';
-import '@exmg/exmg-button/exmg-button.js';
+//import '@exmg/exmg-button/exmg-button.js';
 
 @customElement('demo-app')
 export class DemoApp extends LitElement {
