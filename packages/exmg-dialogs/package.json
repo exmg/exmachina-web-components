@@ -1,6 +1,6 @@
 {
   "name": "@exmg/test-exmg-dialogs",
-  "version": "6.0.4",
+  "version": "0.1.0-alpha.0",
   "main": "index.js",
   "files": [
     "styles/**/*.scss",

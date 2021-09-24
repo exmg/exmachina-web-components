@@ -1,6 +1,6 @@
 {
   "name": "@exmg/test-exmg-button",
-  "version": "2.0.2",
+  "version": "0.1.0-alpha.0",
   "dependencies": {
     "@material/mwc-button": "^0.18.0",
     "@material/typography": "^7.0.0",
