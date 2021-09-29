@@ -1,5 +1,7 @@
 import {html, LitElement} from 'lit';
-import {property, customElement, query} from 'lit/decorators.js'
+import {property} from 'lit/decorators/property.js';
+import {customElement} from 'lit/decorators/custom-element.js';
+import {query} from 'lit/decorators/query.js';
 import '@polymer/paper-dialog';
 import '@material/mwc-icon-button';
 import {PaperDialogElement} from '@polymer/paper-dialog';

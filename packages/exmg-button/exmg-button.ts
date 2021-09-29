@@ -1,5 +1,7 @@
 import {html} from 'lit';
-import {property, customElement, eventOptions} from 'lit/decorators.js'
+import {property} from 'lit/decorators/property.js';
+import {customElement} from 'lit/decorators/custom-element.js';
+import {eventOptions} from 'lit/decorators/event-options.js';
 import '@material/mwc-ripple/mwc-ripple';
 
 import {classMap} from 'lit-html/directives/class-map.js';

@@ -1,5 +1,6 @@
 import {html, LitElement} from 'lit';
-import {property, customElement} from 'lit/decorators.js'
+import {property} from 'lit/decorators/property.js';
+import {customElement} from 'lit/decorators/custom-element.js';
 import {elements, Element} from './elements.js';
 import demoAppStyles from './styles/demo-app-css.js';
 

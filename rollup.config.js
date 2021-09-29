@@ -18,7 +18,9 @@ const elementsConfigs = elements.map((element) => {
       sourcemap: false
     },
     plugins: [
-      resolve(),
+      resolve({
+        moduleDirectories: ['node_modules', './packages'],
+      }),
       strip({
         functions: ['console.log'],
       }),
@@ -51,14 +53,6 @@ export default [
       terser(),
       copy({
         targets: [
-          {
-            src: 'node_modules/@webcomponents',
-            dest: 'docs/polyfills/',
-          },
-          {
-            src: 'node_modules/lit',
-            dest: 'docs/polyfills/',
-          },
           {
             src: 'demo/src/styles/main.css',
             dest: 'docs/demo/src/styles',
