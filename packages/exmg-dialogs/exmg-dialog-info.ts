@@ -1,5 +1,5 @@
 import {html, LitElement} from 'lit';
-import {property, customElement, query} from 'lit/decorators.js'
+import {property, customElement, query} from 'lit/decorators'
 import '@polymer/paper-dialog';
 import '@polymer/paper-dialog-scrollable';
 import '@exmg/exmg-button/exmg-button';

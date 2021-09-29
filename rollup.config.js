@@ -56,6 +56,10 @@ export default [
             dest: 'docs/polyfills/@webcomponents',
           },
           {
+            src: 'node_modules/@lit/',
+            dest: 'docs/polyfills/@lit',
+          },
+          {
             src: 'demo/src/styles/main.css',
             dest: 'docs/demo/src/styles',
           },

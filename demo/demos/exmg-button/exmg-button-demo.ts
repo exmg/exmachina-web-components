@@ -1,5 +1,5 @@
 import {LitElement, html} from 'lit';
-import {customElement, property} from 'lit/decorators.js';
+import {customElement, property} from 'lit/decorators';
 import '@exmg/exmg-button/exmg-button.js';
 
 @customElement('exmg-button-demo')

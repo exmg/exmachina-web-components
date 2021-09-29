@@ -1,5 +1,5 @@
 import {html, LitElement} from 'lit';
-import {property, customElement} from 'lit/decorators.js'
+import {property, customElement} from 'lit/decorators'
 import {classMap} from 'lit-html/directives/class-map.js';
 import {observer} from '@material/mwc-base/observer.js';
 import {style} from './styles/exmg-spinner-styles-css';
