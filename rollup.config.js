@@ -52,12 +52,12 @@ export default [
       copy({
         targets: [
           {
-            src: 'node_modules/@webcomponents/webcomponentsjs',
-            dest: 'docs/polyfills/@webcomponents',
+            src: 'node_modules/@webcomponents',
+            dest: 'docs/polyfills/',
           },
           {
-            src: 'node_modules/lit/',
-            dest: 'docs/polyfills/lit',
+            src: 'node_modules/lit',
+            dest: 'docs/polyfills/',
           },
           {
             src: 'demo/src/styles/main.css',
