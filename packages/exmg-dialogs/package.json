@@ -1,6 +1,6 @@
 {
   "name": "@exmg/exmg-dialogs",
-  "version": "0.1.0-alpha.0",
+  "version": "6.0.4",
   "main": "index.js",
   "files": [
     "styles/**/*.scss",
@@ -16,13 +16,12 @@
   },
   "license": "MIT",
   "dependencies": {
-    "@exmg/exmg-button": "^2.0.0",
-    "@material/mwc-icon-button": "^0.18.0",
+    "@exmg/exmg-button": "^8.0.0",
+    "@material/mwc-icon-button": "^0.25.1",
     "@polymer/iron-form": "^3.0.0",
     "@polymer/paper-dialog": "^3.0.0",
     "@polymer/paper-dialog-scrollable": "^3.0.0",
-    "lit-element": "^2.3.1",
-    "web-component-tester": "^6.9.2"
+    "lit": "^2.0.0"
   },
   "devDependencies": {
     "@exmg/exmg-cli": "^2.1.0",
@@ -38,7 +37,7 @@
     "eslint-plugin-lit": "^1.5.1",
     "eslint-plugin-prettier": "^4.0.0",
     "prettier": "^2.4.1",
-    "typescript": "^4.0.2",
+    "typescript": "^4.3.2",
     "web-animations-js": "^2.3.1"
   },
   "scripts": {

@@ -1,7 +1,6 @@
 import {customElement, html, LitElement, property} from 'lit-element';
 import {elements, Element} from './elements.js';
 import demoAppStyles from './styles/demo-app-css.js';
-import '@exmg/exmg-button/exmg-button.js';
 
 @customElement('demo-app')
 export class DemoApp extends LitElement {
@@ -13,7 +12,7 @@ export class DemoApp extends LitElement {
   connectedCallback() {
     super.connectedCallback();
     window.addEventListener('popstate', this.updateElementFromUrl);
-    this.updateElementFromUrl();
+    this.updateElementFromUrl(); 
   }
 
   disconnectedCallback() {
@@ -23,10 +22,9 @@ export class DemoApp extends LitElement {
 
   private updateElementFromUrl() {
     const url = window.location.pathname;
-    const elementName = `@exmg/${url
-      .replace('/demo/demos/', '')
-      .replace('/', '')}`;
-    this.selectedElement = elements.find((e) => e.name === elementName);
+    const elementIndex = url.indexOf('exmg');
+    const elementName = url.substring(elementIndex, url.length - 1);
+    this.selectedElement = elements.find((e) => e.name === `@exmg/${elementName}`);
   }
 
   private getSelectedElementStorybookUrl() {
@@ -41,11 +39,12 @@ export class DemoApp extends LitElement {
     return elements.map((element) => {
       const active =
         this.selectedElement && this.selectedElement.name === element.name;
-      const url = window.location.href;
-      const href = element.name.replace('@exmg/', '');
+        const elementHref = element.name.replace('@exmg/', '');
+        const url = this.selectedElement ? `../${elementHref}/` : `./demos/${elementHref}/`;
+        console.log('URL', url);
       return html`
         <a
-          href=${url.replace(window.location.pathname, `/demo/demos/${href}/`)}
+          href=${url}
         >
           <div class=${`element ${active ? 'active' : ''}`}>
             <h3>${element.name}</h3>
@@ -71,7 +70,7 @@ export class DemoApp extends LitElement {
         <section class="demos">
           <div class="sidemenu">
             <div class="sidemenu-header">
-              <h3>EXMACHINA WEB COMPONENTS.</h3>
+              <h3>BITES.</h3>
             </div>
             <div class="sidemenu-elements">${this.renderElements()}</div>
           </div>
@@ -82,10 +81,10 @@ export class DemoApp extends LitElement {
             </div>
             <div class="actions">
               <a href=${this.selectedElement.url} target="_blank">
-                <exmg-button class="npm" raised>NPMJS</exmg-button>
+                <button class="npm" raised>NPMJS</button>
               </a>
               <a href=${this.getSelectedElementStorybookUrl()} target="_blank">
-                <exmg-button class="storybook" raised>STORYBOOK</exmg-button>
+                <button class="storybook" raised>STORYBOOK</button>
               </a>
             </div>
           </div>

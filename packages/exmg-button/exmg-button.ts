@@ -1,9 +1,10 @@
-import {html, property, customElement, eventOptions} from 'lit-element';
+import {html} from 'lit';
+import {property, customElement, eventOptions} from 'lit/decorators.js'
 import '@material/mwc-ripple/mwc-ripple';
 
 import {classMap} from 'lit-html/directives/class-map.js';
 import {ButtonBase} from '@material/mwc-button/mwc-button-base.js';
-import {style} from '@material/mwc-button/mwc-button-css.js';
+import {style} from '@material/mwc-button/styles-css.js';
 import {style as newStyles} from './styles/exmg-button-styles-css.js';
 import './exmg-spinner.js';
 

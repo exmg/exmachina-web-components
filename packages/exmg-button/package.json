@@ -1,10 +1,10 @@
 {
   "name": "@exmg/exmg-button",
-  "version": "0.1.0-alpha.0",
+  "version": "2.0.2",
   "dependencies": {
-    "@material/mwc-button": "^0.18.0",
+    "@material/mwc-button": "^0.25.1",
     "@material/typography": "^7.0.0",
-    "lit-element": "^2.4.0"
+    "lit": "^2.0.0"
   },
   "keywords": [
     "web-components",
@@ -25,9 +25,9 @@
   },
   "license": "MIT",
   "devDependencies": {
-    "@exmg/exmg-cli": "^2.1.0",
-    "@material/mwc-checkbox": "^0.18.0",
-    "@material/mwc-icon": "^0.18.0",
+    "@exmg/exmg-cli": "^4.1.0",
+    "@material/mwc-checkbox": "^0.25.1",
+    "@material/mwc-icon": "^0.25.1",
     "@types/material-components-web": "^1.0.0",
     "@typescript-eslint/eslint-plugin": "^4.31.2",
     "@typescript-eslint/parser": "^4.31.2",
@@ -37,7 +37,7 @@
     "eslint-plugin-lit": "^1.5.1",
     "eslint-plugin-prettier": "^4.0.0",
     "prettier": "^2.4.1",
-    "typescript": "^4.0.3"
+    "typescript": "^4.3.2"
   },
   "scripts": {
     "lint": "tsc -b && eslint '**/*ts' --ignore-path ../../.gitignore -c ../../.eslintrc.js --fix",

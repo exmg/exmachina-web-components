@@ -6,7 +6,7 @@ import '@exmg/exmg-dialogs/exmg-dialog-form';
 import '@exmg/exmg-dialogs/exmg-dialog-info';
 import {ExmgConfirmDialog} from '@exmg/exmg-dialogs/exmg-dialog-confirm.js';
 
-@customElement('dialog-demo')
+@customElement('exmg-dialogs-demo')
 export class DialogDemo extends LitElement {
   getElementBySelector(selector: string): ExmgConfirmDialog | null {
     return this.shadowRoot ? this.shadowRoot.querySelector(selector) : null;

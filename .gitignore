@@ -16,6 +16,7 @@
 /packages/**/*.d.ts
 /packages/**/*-css.ts
 /packages/**/*.tsbuildinfo
+/packages/**/node_modules/
 /demo/**/*.js
 /demo/**/*.js.map
 /demo/**/*-css.ts
