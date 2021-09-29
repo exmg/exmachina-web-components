@@ -1,5 +1,5 @@
 import {html, LitElement} from 'lit';
-import {property, customElement} from 'lit/decorators'
+import {property, customElement} from 'lit/decorators.js'
 import {elements, Element} from './elements.js';
 import demoAppStyles from './styles/demo-app-css.js';
 
@@ -71,7 +71,7 @@ export class DemoApp extends LitElement {
         <section class="demos">
           <div class="sidemenu">
             <div class="sidemenu-header">
-              <h3>BITES.</h3>
+              <h3>EXMACHINA WEB COMPONENTS.</h3>
             </div>
             <div class="sidemenu-elements">${this.renderElements()}</div>
           </div>

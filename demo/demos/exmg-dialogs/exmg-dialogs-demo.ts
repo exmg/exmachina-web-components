@@ -1,5 +1,5 @@
 import {LitElement, html} from 'lit';
-import {customElement} from 'lit/decorators';
+import {customElement} from 'lit/decorators.js';
 
 import '@exmg/exmg-dialogs/exmg-dialog-confirm';
 import '@exmg/exmg-dialogs/exmg-dialog-form';
