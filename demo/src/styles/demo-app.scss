@@ -1,4 +1,4 @@
-@import "@material/typography/mdc-typography";
+@import '@material/typography/mdc-typography';
 
 h1 {
   @include mdc-typography(headline1);
@@ -26,10 +26,7 @@ h6 {
 
 body,
 p {
-  font-family: var(
-    --mdc-typography-headline3-font-family,
-    var(--mdc-typography-font-family, Roboto, sans-serif)
-  );
+  font-family: var(--mdc-typography-headline3-font-family, var(--mdc-typography-font-family, Roboto, sans-serif));
   margin: 0;
 }
 
@@ -138,10 +135,23 @@ a:visited {
         margin-bottom: 0.5rem;
       }
       .npm {
-        --mdc-theme-primary: rgb(216, 57, 65);
-      }
-      .storybook {
-        --mdc-theme-primary: rgb(236, 87, 133);
+        text-decoration: none;
+        color: #fff;
+        background-color: rgb(216, 57, 65);
+        text-align: center;
+        letter-spacing: 0.5px;
+        -webkit-transition: background-color 0.2s ease-out;
+        transition: background-color 0.2s ease-out;
+        cursor: pointer;
+        border: none;
+        border-radius: 2px;
+        display: inline-block;
+        height: 36px;
+        line-height: 36px;
+        padding: 0 16px;
+        text-transform: uppercase;
+        vertical-align: middle;
+        -webkit-tap-highlight-color: transparent;
       }
     }
   }

@@ -29,14 +29,6 @@ export class DemoApp extends LitElement {
     this.selectedElement = elements.find((e) => e.name === `@exmg/${elementName}`);
   }
 
-  private getSelectedElementStorybookUrl() {
-    if (!this.selectedElement) {
-      return 'http://localhost:6006';
-    }
-    const name = this.selectedElement.name.replace('@exmg/', '');
-    return `http://localhost:6006/?path=/story/${name}`;
-  }
-
   private renderElements() {
     return elements.map((element) => {
       const active =
@@ -84,9 +76,6 @@ export class DemoApp extends LitElement {
             <div class="actions">
               <a href=${this.selectedElement.url} target="_blank">
                 <button class="npm" raised>NPMJS</button>
-              </a>
-              <a href=${this.getSelectedElementStorybookUrl()} target="_blank">
-                <button class="storybook" raised>STORYBOOK</button>
               </a>
             </div>
           </div>

@@ -1,0 +1,47 @@
+{
+  "name": "@exmg/exmg-tooltip",
+  "version": "8.0.0",
+  "dependencies": {
+    "lit": "^2.0.0"
+  },
+  "keywords": [
+    "web-components",
+    "lit-element",
+    "tooltip"
+  ],
+  "main": "index.js",
+  "files": [
+    "styles/*.js",
+    "*.js",
+    "*.d.ts"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:ExmgElements/exmg-elements-monorepo.git"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "@exmg/exmg-cli": "^4.1.0",
+    "@web/dev-server": "0.0.29",
+    "concurrently": "^6.2.1",
+    "@material/mwc-checkbox": "^0.25.1",
+    "@material/mwc-icon": "^0.25.1",
+    "@polymer/iron-component-page": "^4.0.1",
+    "@polymer/iron-demo-helpers": "^3.1.0",
+    "@webcomponents/webcomponentsjs": "^2.4.4",
+    "eslint": "^7.8.1",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-lit": "^1.5.1",
+    "eslint-plugin-prettier": "^4.0.0",
+    "prettier": "^2.4.1",
+    "typescript": "^4.3.2"
+  },
+  "scripts": {
+    "lint": "tsc -b && eslint '**/*ts' --ignore-path ../../.gitignore -c ../../.eslintrc.js --fix",
+    "build:styles": "exmg-cli -s \"./styles/*.scss\"",
+    "build": "npm run build:styles && npm run lint"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

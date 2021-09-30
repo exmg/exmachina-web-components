@@ -34,5 +34,5 @@
       "path": "./packages/exmg-dialogs/tsconfig.json",
     },
   ],
-  "exclude": ["./**/dist/*", "./packages/exmg-cli/*", "./stories/**/*", "./scripts/**/*", "./*.js", "./docs", "node_modules"],
+  "exclude": ["./**/dist/*", "./packages/exmg-cli/*", "./stories/**/*", "./scripts/**/*", "./*.js", "./docs", "./node_modules"],
 }

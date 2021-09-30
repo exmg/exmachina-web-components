@@ -1,0 +1,14 @@
+{
+  "extends": "../../tsconfig.json",
+  "compilerOptions": {
+    "outDir": "./",
+    "composite": true,
+    "declaration": true,
+    "experimentalDecorators":true
+  },
+  "include": [
+    "./**/*.ts"
+  ],
+ }
+ 
+ 

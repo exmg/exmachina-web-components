@@ -7,7 +7,7 @@ import copy from 'rollup-plugin-copy';
 /**
  * Elements with a viable demo
  */
-const elements = ['exmg-button', 'exmg-dialogs'];
+const elements = ['exmg-button', 'exmg-dialogs', 'exmg-tooltip'];
 
 const elementsConfigs = elements.map((element) => {
   return {
