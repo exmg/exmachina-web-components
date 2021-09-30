@@ -7,10 +7,6 @@
     "@material/typography": "^12.0.0",
     "@rollup/plugin-node-resolve": "^13.0.5",
     "@rollup/plugin-strip": "^2.1.0",
-    "@storybook/addon-actions": "^6.2.9",
-    "@storybook/addon-essentials": "^6.2.9",
-    "@storybook/addon-links": "^6.2.9",
-    "@storybook/web-components": "^6.2.9",
     "@web/dev-server": "0.0.29",
     "babel-loader": "^8.2.2",
     "concurrently": "^6.2.0",
@@ -22,20 +18,16 @@
     "typescript": "^4.3.2"
   },
   "scripts": {
-    "start": "npm run build:styles && node ./scripts/parseElements.js && tsc -b && concurrently --names \"npm run storybook\" \"npm run watch:styles\" \"npm run watch\" \"web-dev-server --config ./web-dev-server.config.js\"",
+    "start": "npm run build:styles && node ./scripts/parseElements.js && tsc -b && concurrently --names \"npm run watch:styles\" \"npm run watch\" \"web-dev-server --config ./web-dev-server.config.js\"",
     "watch:styles": "exmg-cli -w",
     "watch": "tsc -b --watch",
     "build:styles": "exmg-cli -s \"packages/**/styles/*.scss\" && exmg-cli -s \"demo/**/styles/*.scss\"",
     "bootstrap": "./scripts/bootstrap.sh",
     "lint": "eslint './demo/**/*ts' --ignore-path ./.gitignore -c ./.eslintrc.js --fix && lerna run lint",
     "postinstall": "npm run bootstrap",
-    "storybook": "start-storybook --quiet -p 6006",
-    "build-storybook": "build-storybook",
     "publish": "npm run lint && lerna run build && lerna publish",
     "build:demo": "rm -rf ./docs && npm run build:styles && tsc -b && rollup --config ./rollup.config.js",
     "run:demo": "web-dev-server ./docs/demo/index.html"
   },
-  "dependencies": {
-    "storybook": "^6.2.9"
-  }
+  "dependencies": {}
 }
