@@ -28,15 +28,7 @@
     "@exmg/exmg-cli": "^4.1.0",
     "@material/mwc-checkbox": "^0.25.1",
     "@material/mwc-icon": "^0.25.1",
-    "@types/material-components-web": "^1.0.0",
-    "@typescript-eslint/eslint-plugin": "^4.31.2",
-    "@typescript-eslint/parser": "^4.31.2",
     "@webcomponents/webcomponentsjs": "^2.4.4",
-    "eslint": "^7.8.1",
-    "eslint-config-prettier": "^8.3.0",
-    "eslint-plugin-lit": "^1.5.1",
-    "eslint-plugin-prettier": "^4.0.0",
-    "prettier": "^2.4.1",
     "typescript": "^4.3.2"
   },
   "scripts": {
