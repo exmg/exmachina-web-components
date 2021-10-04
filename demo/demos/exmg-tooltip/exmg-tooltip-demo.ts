@@ -1,5 +1,5 @@
 import {LitElement, html, css} from 'lit';
-import {customElement} from 'lit/decorators';
+import {customElement} from 'lit/decorators/custom-element.js';
 import '@exmg/exmg-tooltip/exmg-tooltip.js';
 
 @customElement('exmg-tooltip-demo')

@@ -27,7 +27,7 @@
   },
   "license": "MIT",
   "dependencies": {
-    "@material/mwc-radio": "^0.25.1",
+    "@material/mwc-radio": "=0.25.1",
     "lit": "^2.0.0"
   },
   "devDependencies": {

@@ -17,7 +17,7 @@
   "license": "MIT",
   "dependencies": {
     "@exmg/exmg-button": "^8.0.0",
-    "@material/mwc-icon-button": "^0.25.1",
+    "@material/mwc-icon-button": "=0.25.1",
     "@polymer/iron-form": "^3.0.0",
     "@polymer/paper-dialog": "^3.0.0",
     "@polymer/paper-dialog-scrollable": "^3.0.0",
