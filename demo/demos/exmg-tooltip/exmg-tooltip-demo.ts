@@ -50,7 +50,30 @@ export class ExmgTooltipDemo extends LitElement {
   ];
   public render() {
     return html`
-      <div class="container">
+      <style>
+        :host {
+          font-family: var(
+            --mdc-typography-headline3-font-family,
+            var(--mdc-typography-font-family, Roboto, sans-serif)
+          );
+          font-size: 15px;
+        }
+        .main {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          width: 100%;
+        }
+        .main > div {
+          width: 100%;
+          border-bottom: 1px solid #666;
+        }
+        div > * {
+          padding: 8px;
+        }
+      </style>
+      <div class="main">
         <div>
           <h3>Simple Usage</h3>
           <div tabindex="0" style="display:inline-block; position:relative;">

@@ -26,7 +26,7 @@
     "lint": "eslint './demo/**/*ts' --ignore-path ./.gitignore -c ./.eslintrc.js --fix && lerna run lint",
     "postinstall": "npm run bootstrap",
     "publish": "npm run lint && lerna run build && lerna publish",
-    "build:demo": "rm -rf ./docs && npm run build:styles && tsc -b && rollup --config ./rollup.config.js",
+    "build:demo": "node ./scripts/parseElements.js && rm -rf ./docs && npm run build:styles && tsc -b && rollup --config ./rollup.config.js",
     "run:demo": "web-dev-server ./docs/demo/index.html"
   },
   "dependencies": {}
