@@ -28,6 +28,5 @@
     "publish": "npm run lint && lerna run build && lerna publish",
     "build:demo": "node ./scripts/parseElements.js && rm -rf ./docs && npm run build:styles && tsc -b && rollup --config ./rollup.config.js",
     "run:demo": "web-dev-server ./docs/demo/index.html"
-  },
-  "dependencies": {}
+  }
 }

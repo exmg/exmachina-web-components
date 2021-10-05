@@ -1,0 +1,43 @@
+# Javascript Node CircleCI 2.0 configuration file
+#
+# Check https://circleci.com/docs/2.0/language-javascript/ for more details
+#
+version: 2.1
+
+orbs:
+  em-ci: exmachina/ci@0.0.5
+
+jobs:
+  test:
+    docker:
+      - image: circleci/node:11.5
+    # resource_class: medium+
+    working_directory: ~/repo
+    steps:
+      - checkout
+      - restore_cache:
+          keys:
+            - v2-dependencies-{{ checksum "package.json" }}
+            - v2-dependencies-
+      - run:
+          name: NPM register
+          command: echo "//registry.npmjs.org/:_authToken=\${NPM_PUBLISH_TOKEN}" > .npmrc
+      - run:
+          name: Memory usage
+          command: node -e "console.log(JSON.stringify(process.memoryUsage(), null, '\t'));"
+      - run: npm ci
+      # - run: yarn global add polymer-cli
+      - save_cache:
+          paths:
+            - node_modules
+          key: v2-dependencies-{{ checksum "package.json" }}
+      - run:
+          name: Lint check
+          command: npm run lint
+
+workflows:
+  version: 2
+  build_and_deploy:
+    jobs:
+      - test:
+          context: org-global
