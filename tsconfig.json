@@ -38,7 +38,7 @@
     },
     {
       "path": "./packages/exmg-tooltip/tsconfig.json",
-    },
+    }, 
   ],
   "exclude": ["./**/dist/*", "./packages/exmg-cli/*", "./stories/**/*", "./scripts/**/*", "./*.js", "./docs", "./node_modules"],
 }
