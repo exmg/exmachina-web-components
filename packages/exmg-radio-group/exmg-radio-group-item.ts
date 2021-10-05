@@ -7,7 +7,7 @@ import {customElement} from 'lit/decorators/custom-element.js';
 import {eventOptions} from 'lit/decorators/event-options.js';
 import {MDCFoundation} from '@material/base';
 import {style} from '@material/mwc-radio/mwc-radio-css';
-import { RippleHandlers } from '@material/mwc-ripple/ripple-handlers.js';
+import {RippleHandlers} from '@material/mwc-ripple/ripple-handlers.js';
 import foundation from '@material/radio/foundation';
 import {SelectionController} from './exmg-selection-controller';
 import {style as exmgRadioGroupItemStyles} from './styles/exmg-radio-group-item-styles-css.js';

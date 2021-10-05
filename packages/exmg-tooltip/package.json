@@ -2,6 +2,7 @@
   "name": "@exmg/exmg-tooltip",
   "version": "8.0.0",
   "dependencies": {
+    "@material/mwc-base": "^0.25.1",
     "lit": "^2.0.0"
   },
   "keywords": [
