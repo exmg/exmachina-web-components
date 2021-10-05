@@ -19,7 +19,7 @@
 set -e
 
 `npm bin`/lerna bootstrap
-`npm bin`/lerna clean
+`npm bin`/lerna clean --yes
 
 packages=(`find packages -name "package.json" -maxdepth 3 | xargs -I '{}' dirname '{}'`)
 
