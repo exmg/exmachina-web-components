@@ -23,7 +23,7 @@ set -e
 # Clone gh-pages branch
 git checkout docs
 # Merges master
-git merge --no-ff master
+git merge --no-ff --no-edit master
 # Remove previous build
 rm -rf docs
 # Install dependencies
