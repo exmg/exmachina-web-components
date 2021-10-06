@@ -33,4 +33,4 @@ npm run build:demo
 # Clean repo
 rm -rf !(docs)
 # Commit and push
-(git add -A; && git commit -am 'Update docs' && git push origin HEAD:docs)
+git add -A && git commit -am 'Update docs' && git push origin HEAD:docs
