@@ -33,42 +33,42 @@ jobs:
       - run:
           name: Lint check
           command: npm run lint
-  build_documentation:
-    docker:
-      - image: circleci/node:11.5
-    # resource_class: medium+
-    working_directory: ~/repo
-    steps:
-      - checkout
-      - restore_cache:
-          keys:
-            - v2-dependencies-{{ checksum "package.json" }}
-            - v2-dependencies-
-      - run:
-          name: NPM register
-          command: echo "//registry.npmjs.org/:_authToken=\${NPM_PUBLISH_TOKEN}" > .npmrc
-      - run:
-          name: Memory usage
-          command: node -e "console.log(JSON.stringify(process.memoryUsage(), null, '\t'));"
-      - run: npm i
-      - save_cache:
-          paths:
-            - node_modules
-          key: v2-dependencies-{{ checksum "package.json" }}
-      - run:
-          name: Build Demo
-          command: ./scripts/publishDemos.sh
+  # build_documentation:
+  #   docker:
+  #     - image: circleci/node:11.5
+  #   # resource_class: medium+
+  #   working_directory: ~/repo
+  #   steps:
+  #     - checkout
+  #     - restore_cache:
+  #         keys:
+  #           - v2-dependencies-{{ checksum "package.json" }}
+  #           - v2-dependencies-
+  #     - run:
+  #         name: NPM register
+  #         command: echo "//registry.npmjs.org/:_authToken=\${NPM_PUBLISH_TOKEN}" > .npmrc
+  #     - run:
+  #         name: Memory usage
+  #         command: node -e "console.log(JSON.stringify(process.memoryUsage(), null, '\t'));"
+  #     - run: npm i
+  #     - save_cache:
+  #         paths:
+  #           - node_modules
+  #         key: v2-dependencies-{{ checksum "package.json" }}
+  #     - run:
+  #         name: Build Demo
+  #         command: ./scripts/publishDemos.sh
 
 workflows:
   version: 2
   build_and_deploy:
     jobs:
       - test:
-          context: org-global
+          context: web
           filters:
             branches:
               only: master
-      - build_documentation:
-          context: org-global
-          requires:
-            - test
+      # - build_documentation:
+      #     context: web
+      #     requires:
+      #       - test
