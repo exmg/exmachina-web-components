@@ -65,5 +65,10 @@ workflows:
     jobs:
       - test:
           context: org-global
+          filters:
+            branches:
+              only: master
       - build_documentation:
           context: org-global
+          requires:
+            - test
