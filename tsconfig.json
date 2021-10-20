@@ -1,44 +1,70 @@
 {
   "compilerOptions": {
-    "target": "es2018",
-    "module": "esnext",
+    "target": "es2017",
+    "module": "es2015",
     "moduleResolution": "node",
-    "lib": ["es2017", "dom"],
-    "strict": true,
-    "noEmitOnError": false,
+    "lib": ["es2017", "dom", "dom.iterable"],
+    "declaration": true,
+    "sourceMap": true,
+    "inlineSources": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "noImplicitReturns": true,
     "noFallthroughCasesInSwitch": true,
-    "esModuleInterop": false,
-    "allowSyntheticDefaultImports": true,
-    "allowJs": true,
-    "checkJs": false,
-    "preserveSymlinks":true,
     "experimentalDecorators": true,
-    "importHelpers": true,
-    "sourceMap": true,
-    "inlineSources": true,
-    "declaration": true,
     "skipLibCheck": true,
-    "types": ["node"],
+    "strict": true,
+    "noImplicitAny": false,
+    "outDir": "./",
+    "baseUrl": "./packages",
+    "paths": {
+      "@exmg/exmg-*": ["./*"]
+    },
+    "composite": true,
+    "importHelpers": true,
+    "plugins": [
+      {
+        "name": "ts-lit-plugin",
+        "rules": {
+          "no-unknown-tag-name": "error",
+          "no-unclosed-tag": "error",
+          "no-unknown-property": "error",
+          "no-unintended-mixed-binding": "error",
+          "no-invalid-boolean-binding": "error",
+          "no-expressionless-property-binding": "error",
+          "no-noncallable-event-binding": "error",
+          "no-boolean-in-attribute-binding": "error",
+          "no-complex-attribute-binding": "error",
+          "no-nullable-attribute-binding": "error",
+          "no-incompatible-type-binding": "error",
+          "no-invalid-directive-binding": "error",
+          "no-incompatible-property-type": "error",
+          "no-unknown-property-converter": "error",
+          "no-invalid-attribute-name": "error",
+          "no-invalid-tag-name": "error",
+          "no-property-visibility-mismatch": "error",
+
+          "no-unknown-attribute": "off",
+          "no-unknown-event": "off",
+          "no-unknown-slot": "off",
+          "no-invalid-css": "off"
+        }
+      }
+    ]
   },
+  "include": [
+    "*.ts"
+  ],
   "references": [
     {
-      "path": "./demo/tsconfig.json",
+      "path": "packages/exmg-button",
     },
     {
-      "path": "./packages/exmg-button/tsconfig.json",
+      "path": "packages/exmg-dialogs",
     },
     {
-      "path": "./packages/exmg-dialogs/tsconfig.json",
-    },
-    {
-      "path": "./packages/exmg-radio-group/tsconfig.json",
-    },
-    {
-      "path": "./packages/exmg-tooltip/tsconfig.json",
+      "path": "packages/exmg-tooltip",
     }, 
   ],
-  "exclude": ["./**/dist/*", "./packages/exmg-cli/*", "./stories/**/*", "./scripts/**/*", "./*.js", "./docs", "./node_modules"],
+  "exclude": [],
 }

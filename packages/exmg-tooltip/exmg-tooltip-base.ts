@@ -1,5 +1,6 @@
 import {LitElement, html} from 'lit';
-import {property} from 'lit/decorators/property.js';
+import {property,} from 'lit/decorators/property.js';
+import {state} from 'lit/decorators.js';
 import {query} from 'lit/decorators/query.js';
 import {observer} from '@material/mwc-base/observer.js';
 
@@ -38,7 +39,7 @@ export class ExmgTooltipBase extends LitElement {
   @property({type: Number})
   yOffset?: number;
 
-  @property({type: Boolean})
+  @state()
   _showing = false;
 
   @query('#tooltip')

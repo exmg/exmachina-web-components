@@ -9,8 +9,8 @@ import '@polymer/paper-dialog-scrollable';
 import '@exmg/exmg-button/exmg-button';
 import '@polymer/iron-form';
 import {IronFormElement} from '@polymer/iron-form';
-import {style} from './styles/exmg-dialog-styles-css';
-import {ExmgButton} from '@exmg/exmg-button/exmg-button';
+import {style} from './styles/exmg-dialog-styles-css.js';
+import {ExmgButton} from '@exmg/exmg-button/exmg-button.js';
 import {closeIcon, warningIcon} from './exmg-dialog-icons';
 
 interface ExmgCustomEvent extends CustomEvent {
@@ -35,20 +35,20 @@ export class ExmgFormDialog extends LitElement {
    * Hide close button ?
    */
   @property({type: Boolean, attribute: 'hide-close-button'})
-  private hideCloseButton = false;
+  hideCloseButton = false;
 
   /**
    * Indicator if submit is in progress This boolean will display the progress
    * bar at the bottom of the dialog
    */
   @property({type: Boolean, reflect: true})
-  private submitting = false;
+  submitting = false;
 
   /**
    * When set this will be shown in the error section of the dialog
    */
   @property({type: String, attribute: 'error-message'})
-  private errorMessage?: string;
+  errorMessage?: string;
 
   @query('#dialog')
   private dialogNode?: PaperDialogElement;

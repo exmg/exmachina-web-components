@@ -7,7 +7,7 @@ import {PaperDialogElement} from '@polymer/paper-dialog';
 import '@polymer/paper-dialog';
 import '@exmg/exmg-button/exmg-button.js';
 import '@polymer/iron-form';
-import {style} from './styles/exmg-dialog-styles-css';
+import {style} from './styles/exmg-dialog-styles-css.js';
 import {closeIcon, warningIcon} from './exmg-dialog-icons';
 
 @customElement('exmg-dialog-confirm')
@@ -22,32 +22,32 @@ export class ExmgConfirmDialog extends LitElement {
    * Dialog message to display as confirmation question. Alternative would be to just add a slot body including a message.
    */
   @property({type: String})
-  private message = '';
+  public message = '';
 
   /**
    * Hide close button ?
    */
   @property({type: Boolean, attribute: 'hide-close-button'})
-  private hideCloseButton = false;
+  public hideCloseButton = false;
 
   /**
    * Copy for submit button
    */
   @property({type: String, attribute: 'button-copy'})
-  private buttonCopy = '';
+  public buttonCopy = '';
 
   /**
    * Indicator if submit is in progress This boolean will display the progress
    * bar at the bottom of the dialog
    */
   @property({type: Boolean, reflect: true})
-  private submitting = false;
+  public submitting = false;
 
   /**
    * When set this will be shown in the error section of the dialog
    */
   @property({type: String, attribute: 'error-message'})
-  private errorMessage?: string;
+  public errorMessage?: string;
 
   @query('#dialog')
   private dialogNode?: PaperDialogElement;
@@ -56,7 +56,7 @@ export class ExmgConfirmDialog extends LitElement {
   private submitBtnNode?: PaperDialogElement;
 
   @property({type: Boolean})
-  private hasSlotContent = false;
+  hasSlotContent = false;
 
   private observer?: MutationObserver;
 

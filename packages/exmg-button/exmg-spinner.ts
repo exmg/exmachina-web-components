@@ -3,7 +3,7 @@ import {property} from 'lit/decorators/property.js';
 import {customElement} from 'lit/decorators/custom-element.js';
 import {classMap} from 'lit-html/directives/class-map.js';
 import {observer} from '@material/mwc-base/observer.js';
-import {style} from './styles/exmg-spinner-styles-css';
+import {style} from './exmg-spinner-styles-css.js';
 
 @customElement('exmg-button-spinner')
 export class ExmgSpinner extends LitElement {

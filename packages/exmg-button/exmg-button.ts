@@ -7,7 +7,7 @@ import '@material/mwc-ripple/mwc-ripple';
 import {classMap} from 'lit-html/directives/class-map.js';
 import {ButtonBase} from '@material/mwc-button/mwc-button-base.js';
 import {style} from '@material/mwc-button/styles-css.js';
-import {style as newStyles} from './styles/exmg-button-styles-css.js';
+import {style as newStyles} from './exmg-button-styles-css.js';
 import './exmg-spinner.js';
 
 @customElement('exmg-button')

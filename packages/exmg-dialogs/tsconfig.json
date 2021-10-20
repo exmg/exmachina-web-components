@@ -1,14 +1,14 @@
 {
   "extends": "../../tsconfig.json",
   "compilerOptions": {
-    "outDir": "./",
     "composite": true,
-    "declaration": true,
+    "rootDir": ".",
+    "outDir": ".",
+    "tsBuildInfoFile": ".tsbuildinfo"
   },
   "include": [
-    "./**/*.ts"
+    "*.ts", "styles/*.ts"
   ],
-  "exclude": ["node_modules"],
   "references": [
     {"path": "../exmg-button"}
   ]

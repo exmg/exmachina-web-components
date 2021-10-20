@@ -23,19 +23,19 @@ export class ExmgInfoDialog extends LitElement {
    * Copy for done button
    */
   @property({type: String, attribute: 'button-copy'})
-  private buttonCopy = '';
+  buttonCopy = '';
 
   /**
    * Hide close button ?
    */
   @property({type: Boolean, attribute: 'hide-close-button'})
-  private hideCloseButton = false;
+  hideCloseButton = false;
 
   /**
    * Show close button as unelevated
    */
   @property({type: Boolean, attribute: 'button-unelevated'})
-  private buttonUnelevated?: boolean = false;
+  buttonUnelevated?: boolean = false;
 
   @query('#dialog')
   private dialogNode?: PaperDialogElement;
