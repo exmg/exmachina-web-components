@@ -2,23 +2,22 @@ import {html} from 'lit';
 import {property} from 'lit/decorators/property.js';
 import {customElement} from 'lit/decorators/custom-element.js';
 import {eventOptions} from 'lit/decorators/event-options.js';
-import '@material/mwc-ripple/mwc-ripple';
 
 import {classMap} from 'lit-html/directives/class-map.js';
 import {ButtonBase} from '@material/mwc-button/mwc-button-base.js';
-import {style} from '@material/mwc-button/styles-css.js';
-import {style as newStyles} from './styles/exmg-button-styles-css.js';
+import {styles} from '@material/mwc-button/styles.css.js';
+import {style as newStyles} from './exmg-button-styles-css.js';
 import './exmg-spinner.js';
 
 @customElement('exmg-button')
 export class ExmgButton extends ButtonBase {
   @property({type: Boolean})
-  public loading = false;
+  loading = false;
 
   @property({type: Number})
-  public progress?: number;
+  progress?: number;
 
-  static styles = [style, newStyles];
+  static styles = [styles, newStyles];
 
   protected render() {
     const classes = {

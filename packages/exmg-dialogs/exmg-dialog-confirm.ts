@@ -7,8 +7,8 @@ import {PaperDialogElement} from '@polymer/paper-dialog';
 import '@polymer/paper-dialog';
 import '@exmg/exmg-button/exmg-button.js';
 import '@polymer/iron-form';
-import {style} from './styles/exmg-dialog-styles-css';
-import {closeIcon, warningIcon} from './exmg-dialog-icons';
+import {style} from './exmg-dialog-styles-css.js';
+import {closeIcon, warningIcon} from './exmg-dialog-icons.js';
 
 @customElement('exmg-dialog-confirm')
 export class ExmgConfirmDialog extends LitElement {
@@ -16,38 +16,38 @@ export class ExmgConfirmDialog extends LitElement {
    * Title of the dialog
    */
   @property({type: String})
-  public title = '';
+  title = '';
 
   /**
    * Dialog message to display as confirmation question. Alternative would be to just add a slot body including a message.
    */
   @property({type: String})
-  private message = '';
+  message = '';
 
   /**
    * Hide close button ?
    */
   @property({type: Boolean, attribute: 'hide-close-button'})
-  private hideCloseButton = false;
+  hideCloseButton = false;
 
   /**
    * Copy for submit button
    */
   @property({type: String, attribute: 'button-copy'})
-  private buttonCopy = '';
+  buttonCopy = '';
 
   /**
    * Indicator if submit is in progress This boolean will display the progress
    * bar at the bottom of the dialog
    */
   @property({type: Boolean, reflect: true})
-  private submitting = false;
+  submitting = false;
 
   /**
    * When set this will be shown in the error section of the dialog
    */
   @property({type: String, attribute: 'error-message'})
-  private errorMessage?: string;
+  errorMessage?: string;
 
   @query('#dialog')
   private dialogNode?: PaperDialogElement;
@@ -56,7 +56,7 @@ export class ExmgConfirmDialog extends LitElement {
   private submitBtnNode?: PaperDialogElement;
 
   @property({type: Boolean})
-  private hasSlotContent = false;
+  hasSlotContent = false;
 
   private observer?: MutationObserver;
 
@@ -79,7 +79,6 @@ export class ExmgConfirmDialog extends LitElement {
     this.observer = new MutationObserver((list: MutationRecord[]) => {
       for (const mutation of list) {
         if (mutation.type === 'childList') {
-          console.log('A child node has been added or removed.');
           this.hasSlotContent = this.children.length > 0;
         }
       }
@@ -105,13 +104,13 @@ export class ExmgConfirmDialog extends LitElement {
     this.reset();
   }
 
-  public open() {
+  open() {
     if (this.dialogNode) {
       this.dialogNode.open();
     }
   }
 
-  public close() {
+  close() {
     if (this.dialogNode) {
       this.dialogNode.close();
     }
@@ -126,7 +125,7 @@ export class ExmgConfirmDialog extends LitElement {
     }
   }
 
-  public error(error: Error) {
+  error(error: Error) {
     this.submitting = false;
     this.errorMessage = error.message;
 
@@ -135,7 +134,7 @@ export class ExmgConfirmDialog extends LitElement {
     }
   }
 
-  public done() {
+  done() {
     // Reset properties when submit is finished
     this.submitting = false;
 
@@ -186,10 +185,10 @@ export class ExmgConfirmDialog extends LitElement {
               >
             `}
         <header>
-          ${!!this.title ? html` <h2 class="title">${this.title}</h2> ` : ''}
+          ${this.title ? html` <h2 class="title">${this.title}</h2> ` : ''}
         </header>
         <div class="body">
-          <div class="error ${!!this.errorMessage ? 'show' : ''}">
+          <div class="error ${this.errorMessage ? 'show' : ''}">
             <span class="body">
               ${warningIcon}
               <span class="msg">${this.errorMessage}</span>

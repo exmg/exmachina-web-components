@@ -1,12 +1,13 @@
 ## editors
 /.idea
-/.vscode
+.vscode
+
 
 ## system files
 .DS_Store
 
 ## npm
-/node_modules/
+node_modules
 /npm-debug.log
 
 ## files
@@ -17,12 +18,23 @@
 /packages/**/*-css.ts
 /packages/**/*.tsbuildinfo
 /packages/**/node_modules/
+/packages/*/*.tgz
+/packages/**/*.css.ts
+/packages/*/package-lock.json
 /demo/**/*.js
 /demo/**/*.js.map
 /demo/**/*-css.ts
 /demo/**/*.d.ts
 /demo/*.tsbuildinfo
+**/*.tsbuildinfo*
+!packages/**/custom_types/**
 
 ## temp folders
 /.tmp/
+/build
+/lerna-debug.log
+/gh-pages
+/dist
+/scripts/tsc-out/
+
 

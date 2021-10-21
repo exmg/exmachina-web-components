@@ -1,27 +1,21 @@
 {
   "name": "@exmg/exmg-dialogs",
   "version": "8.0.0",
-  "main": "index.js",
-  "files": [
-    "styles/**/*.scss",
-    "exmg-*.js",
-    "exmg-*.d.ts",
-    "index.js",
-    "index.d.ts"
-  ],
+  "main": "exmg-dialog-form.js",
   "repository": {
     "type": "git",
-    "url": "git@github.com:ExmgElements/exmg-elements-monorepo.git",
+    "url": "git@github.com:ExmgElements/packages/exmg-dialogs.git",
     "directory": "packages/exmg-dialogs"
   },
   "license": "MIT",
   "dependencies": {
-    "@exmg/exmg-button": "^8.0.0",
-    "@material/mwc-icon-button": "=0.25.1",
+    "@exmg/exmg-button": "=8.0.0",
+    "@material/mwc-icon-button": "^0.25.1",
     "@polymer/iron-form": "^3.0.0",
     "@polymer/paper-dialog": "^3.0.0",
     "@polymer/paper-dialog-scrollable": "^3.0.0",
-    "lit": "^2.0.0"
+    "lit": "^2.0.0",
+    "tslib": "^2.0.1"
   },
   "devDependencies": {
     "@exmg/exmg-cli": "^2.1.0",
@@ -34,9 +28,7 @@
     "web-animations-js": "^2.3.1"
   },
   "scripts": {
-    "lint": "tsc -b && eslint '**/*ts' --ignore-path ../../.gitignore -c ../../.eslintrc.js --fix",
-    "build:styles": "exmg-cli -s \"./styles/*.scss\"",
-    "build": "npm run build:styles && npm run lint"
+    "build:styles": "exmg-cli -s \"./*.scss\""
   },
   "publishConfig": {
     "access": "public"

@@ -3,21 +3,21 @@ import {property} from 'lit/decorators/property.js';
 import {customElement} from 'lit/decorators/custom-element.js';
 import {classMap} from 'lit-html/directives/class-map.js';
 import {observer} from '@material/mwc-base/observer.js';
-import {style} from './styles/exmg-spinner-styles-css';
+import {style} from './exmg-spinner-styles-css.js';
 
 @customElement('exmg-button-spinner')
 export class ExmgSpinner extends LitElement {
   @property({type: Boolean})
-  public coolingDown = false;
+  coolingDown = false;
 
   @property({type: Boolean, reflect: true})
-  @observer(function (this: ExmgSpinner, value: boolean) {
+  @observer(function(this: ExmgSpinner, value: boolean) {
     this.setAriaHidden(!value);
     this.coolingDown = !value;
   })
-  public active = false;
+  active = false;
 
-  public static styles = style;
+  static styles = style;
 
   private resetAnimation() {
     this.active = false;
@@ -33,7 +33,7 @@ export class ExmgSpinner extends LitElement {
     }
   }
 
-  public render() {
+  render() {
     const classes = {
       'exmg-active': this.active || this.coolingDown,
       'exmg-cooldown': this.coolingDown,

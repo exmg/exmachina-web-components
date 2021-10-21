@@ -1,7 +1,7 @@
 import {html, LitElement} from 'lit';
 import {property} from 'lit/decorators/property.js';
 import {customElement} from 'lit/decorators/custom-element.js';
-import {elements, Element} from './elements.js';
+import {elements} from './elements.js';
 import demoAppStyles from './styles/demo-app-css.js';
 
 @customElement('demo-app')
@@ -9,33 +9,48 @@ export class DemoApp extends LitElement {
   static styles = [demoAppStyles];
 
   @property({type: Object})
-  private selectedElement?: Element;
+  private selectedElement?: any;
+
+  boundLocationChanged?: any;
+
+  constructor() {
+    super();
+    this.boundLocationChanged = this._handleLocationChanged.bind(this);
+  }
+
+  private _handleLocationChanged() {
+    this._updateFromUrl();
+  }
+
+  _updateFromUrl() {
+    /* Url Search params */
+    const searchParams = new URLSearchParams(window.location.search.slice(1));
+    const elementName = searchParams.get('el');
+    this.selectedElement = elements.find((e) => e.name === `@exmg/${elementName}`);
+  }
 
   connectedCallback() {
     super.connectedCallback();
-    window.addEventListener('popstate', this.updateElementFromUrl);
-    this.updateElementFromUrl(); 
+
+    /* Add listener for search params changed */
+    window.addEventListener('search-property-changed', this.boundLocationChanged);
+    window.addEventListener('popstate', this.boundLocationChanged);
+
+    this._updateFromUrl();
   }
 
   disconnectedCallback() {
-    super.disconnectedCallback();
-    window.removeEventListener('popstate', this.updateElementFromUrl);
-  }
+    window.removeEventListener('search-property-changed', this.boundLocationChanged);
+    window.removeEventListener('popstate', this.boundLocationChanged);
 
-  private updateElementFromUrl() {
-    const url = window.location.pathname;
-    const elementIndex = url.indexOf('exmg');
-    const elementName = url.substring(elementIndex, url.length - 1);
-    this.selectedElement = elements.find((e) => e.name === `@exmg/${elementName}`);
+    super.disconnectedCallback();
   }
 
   private renderElements() {
     return elements.map((element) => {
-      const active =
-        this.selectedElement && this.selectedElement.name === element.name;
-        const elementHref = element.name.replace('@exmg/', '');
-        const url = this.selectedElement ? `../${elementHref}/` : `./demos/${elementHref}/`;
-        console.log('URL', url);
+      const active = this.selectedElement && this.selectedElement.name === element.name;
+      const elementHref = element.name.replace('@exmg/', '');
+      const url = `/demo/?el=${elementHref}`;
       return html`
         <a
           href=${url}
@@ -60,6 +75,7 @@ export class DemoApp extends LitElement {
         </section>
       `;
     } else {
+      const elementHref = this.selectedElement.name.replace('@exmg/', '');
       return html`
         <section class="demos">
           <div class="sidemenu">
@@ -80,7 +96,7 @@ export class DemoApp extends LitElement {
             </div>
           </div>
           <div class="main">
-            <slot></slot>
+            <iframe src="./demos/${elementHref}/index.html"></iframe>
           </div>
         </section>
       `;
