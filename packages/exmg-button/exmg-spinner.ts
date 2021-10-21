@@ -8,16 +8,16 @@ import {style} from './exmg-spinner-styles-css.js';
 @customElement('exmg-button-spinner')
 export class ExmgSpinner extends LitElement {
   @property({type: Boolean})
-  public coolingDown = false;
+  coolingDown = false;
 
   @property({type: Boolean, reflect: true})
-  @observer(function (this: ExmgSpinner, value: boolean) {
+  @observer(function(this: ExmgSpinner, value: boolean) {
     this.setAriaHidden(!value);
     this.coolingDown = !value;
   })
-  public active = false;
+  active = false;
 
-  public static styles = style;
+  static styles = style;
 
   private resetAnimation() {
     this.active = false;
@@ -33,7 +33,7 @@ export class ExmgSpinner extends LitElement {
     }
   }
 
-  public render() {
+  render() {
     const classes = {
       'exmg-active': this.active || this.coolingDown,
       'exmg-cooldown': this.coolingDown,

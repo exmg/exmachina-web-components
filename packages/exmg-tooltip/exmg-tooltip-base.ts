@@ -1,5 +1,5 @@
 import {LitElement, html} from 'lit';
-import {property,} from 'lit/decorators/property.js';
+import {property} from 'lit/decorators/property.js';
 import {state} from 'lit/decorators.js';
 import {query} from 'lit/decorators/query.js';
 import {observer} from '@material/mwc-base/observer.js';
@@ -10,7 +10,7 @@ export class ExmgTooltipBase extends LitElement {
    * must be a sibling of the tooltip.
    */
   @property({type: String})
-  @observer(function (this: ExmgTooltipBase) {
+  @observer(function(this: ExmgTooltipBase) {
     this._findTarget();
   })
   for?: string;
@@ -70,16 +70,14 @@ export class ExmgTooltipBase extends LitElement {
     return target;
   }
 
-  constructor() {
-    super();
-    this.setAttribute('role', 'tooltip');
-    this.setAttribute('tabindex', '-1');
-  }
-
   connectedCallback() {
     super.connectedCallback();
     this._boundShow = this.show.bind(this);
     this._boundHide = this.hide.bind(this);
+
+    this.setAttribute('role', 'tooltip');
+    this.setAttribute('tabindex', '-1');
+
     this._findTarget();
   }
 
@@ -152,8 +150,8 @@ export class ExmgTooltipBase extends LitElement {
     const targetLeft = targetRect.left - parentRect.left;
     const targetTop = targetRect.top - parentRect.top;
 
-    let tooltipLeft = 0,
-      tooltipTop = 0;
+    let tooltipLeft = 0;
+      let tooltipTop = 0;
 
     switch (this.position) {
       case 'top':

@@ -30,8 +30,7 @@
     "typescript": "^4.3.2"
   },
   "scripts": {
-    "build:styles": "exmg-cli -s \"./*.scss\"",
-    "build": "npm run build:styles && npm run lint"
+    "build:styles": "exmg-cli -s \"./*.scss\""
   },
   "publishConfig": {
     "access": "public"

@@ -28,8 +28,7 @@
     "web-animations-js": "^2.3.1"
   },
   "scripts": {
-    "build:styles": "exmg-cli -s \"./styles/*.scss\"",
-    "build": "npm run build:styles && npm run lint"
+    "build:styles": "exmg-cli -s \"./*.scss\""
   },
   "publishConfig": {
     "access": "public"

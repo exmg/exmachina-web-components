@@ -65,6 +65,9 @@
     {
       "path": "packages/exmg-tooltip",
     }, 
+    {
+      "path": "demo",
+    },
   ],
   "exclude": [],
 }

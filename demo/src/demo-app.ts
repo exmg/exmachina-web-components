@@ -1,7 +1,7 @@
 import {html, LitElement} from 'lit';
 import {property} from 'lit/decorators/property.js';
 import {customElement} from 'lit/decorators/custom-element.js';
-import {elements, Element} from './elements.js';
+import {elements} from './elements.js';
 import demoAppStyles from './styles/demo-app-css.js';
 
 @customElement('demo-app')
@@ -9,7 +9,7 @@ export class DemoApp extends LitElement {
   static styles = [demoAppStyles];
 
   @property({type: Object})
-  private selectedElement?: Element;
+  private selectedElement?: any;
 
   connectedCallback() {
     super.connectedCallback();

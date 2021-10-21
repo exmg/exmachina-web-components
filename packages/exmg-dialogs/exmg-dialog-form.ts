@@ -9,7 +9,7 @@ import '@polymer/paper-dialog-scrollable';
 import '@exmg/exmg-button/exmg-button';
 import '@polymer/iron-form';
 import {IronFormElement} from '@polymer/iron-form';
-import {style} from './styles/exmg-dialog-styles-css.js';
+import {style} from './exmg-dialog-styles-css.js';
 import {ExmgButton} from '@exmg/exmg-button/exmg-button.js';
 import {closeIcon, warningIcon} from './exmg-dialog-icons';
 
@@ -23,13 +23,13 @@ export class ExmgFormDialog extends LitElement {
    * Title of the dialog
    */
   @property({type: String})
-  public title = '';
+  title = '';
 
   /**
    * Copy for submit button
    */
   @property({type: String, attribute: 'button-copy'})
-  public buttonCopy = '';
+  buttonCopy = '';
 
   /**
    * Hide close button ?
@@ -80,13 +80,13 @@ export class ExmgFormDialog extends LitElement {
     }
   }
 
-  public open() {
+  open() {
     if (this.dialogNode) {
       this.dialogNode.open();
     }
   }
 
-  public close() {
+  close() {
     if (this.dialogNode) {
       this.dialogNode.close();
     }
@@ -105,7 +105,7 @@ export class ExmgFormDialog extends LitElement {
     }
   }
 
-  public error(error: Error) {
+  error(error: Error) {
     this.submitting = false;
     this.errorMessage = error.message;
 
@@ -114,7 +114,7 @@ export class ExmgFormDialog extends LitElement {
     }
   }
 
-  public done() {
+  done() {
     // Reset properties when submit is finished
     this.submitting = false;
 
@@ -174,11 +174,11 @@ export class ExmgFormDialog extends LitElement {
               >
             `}
         <header>
-          ${!!this.title ? html` <h2 class="title">${this.title}</h2> ` : ''}
+          ${this.title ? html` <h2 class="title">${this.title}</h2> ` : ''}
         </header>
         <paper-dialog-scrollable>
           <div class="body">
-            <div class="error ${!!this.errorMessage ? 'show' : ''}">
+            <div class="error ${this.errorMessage ? 'show' : ''}">
               <span class="body">
                 ${warningIcon}
                 <span class="msg">${this.errorMessage}</span>
