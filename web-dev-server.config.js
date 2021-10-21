@@ -4,4 +4,5 @@ module.exports = {
   watch: true,
   preserveSymlinks: true,
   rootDir: './',
+  appIndex: './demo/index.html'
 };
