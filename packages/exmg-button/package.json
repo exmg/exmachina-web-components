@@ -1,11 +1,11 @@
 {
   "name": "@exmg/exmg-button",
-  "version": "8.0.0",
+  "version": "8.0.1",
   "dependencies": {
-    "@material/mwc-button": "^0.25.1",
-    "@material/typography": "^12.0.0",
     "@material/mwc-base": "^0.25.1",
+    "@material/mwc-button": "^0.25.1",
     "@material/mwc-ripple": "^0.25.1",
+    "@material/typography": "^12.0.0",
     "lit": "^2.0.0",
     "tslib": "^2.0.1"
   },
@@ -23,7 +23,7 @@
   },
   "license": "MIT",
   "devDependencies": {
-    "@exmg/exmg-cli": "^4.1.0",
+    "@exmg/exmg-cli": "^8.0.1",
     "@material/mwc-checkbox": "=0.25.1",
     "@material/mwc-icon": "=0.25.1",
     "@webcomponents/webcomponentsjs": "^2.4.4",
