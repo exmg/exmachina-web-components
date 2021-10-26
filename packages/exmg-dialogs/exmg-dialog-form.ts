@@ -9,7 +9,7 @@ import '@polymer/paper-dialog-scrollable';
 import '@exmg/exmg-button/exmg-button';
 import '@polymer/iron-form';
 import {IronFormElement} from '@polymer/iron-form';
-import {style} from './exmg-dialog-styles-css.js';
+import {style} from './styles/exmg-dialog-styles-css.js';
 import {ExmgButton} from '@exmg/exmg-button/exmg-button.js';
 import {closeIcon, warningIcon} from './exmg-dialog-icons';
 

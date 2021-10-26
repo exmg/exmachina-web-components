@@ -7,7 +7,7 @@ import '@polymer/paper-dialog-scrollable';
 import '@exmg/exmg-button/exmg-button';
 import '@polymer/iron-form';
 import '@material/mwc-icon-button';
-import {style} from './exmg-dialog-styles-css.js';
+import {style} from './styles/exmg-dialog-styles-css.js';
 import {PaperDialogElement} from '@polymer/paper-dialog';
 import {closeIcon} from './exmg-dialog-icons';
 

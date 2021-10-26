@@ -7,7 +7,7 @@ import {PaperDialogElement} from '@polymer/paper-dialog';
 import '@polymer/paper-dialog';
 import '@exmg/exmg-button/exmg-button.js';
 import '@polymer/iron-form';
-import {style} from './exmg-dialog-styles-css.js';
+import {style} from './styles/exmg-dialog-styles-css.js';
 import {closeIcon, warningIcon} from './exmg-dialog-icons.js';
 
 @customElement('exmg-dialog-confirm')
