@@ -31,19 +31,19 @@ export class ExmgRadioGroupItem extends FormElement {
   protected formElement!: HTMLInputElement;
 
   @property({type: Boolean, reflect: true})
-  @observer(function (this: ExmgRadioGroupItem, checked: boolean) {
+  @observer(function(this: ExmgRadioGroupItem, checked: boolean) {
     this.formElement.checked = checked;
   })
   checked = false;
 
   @property({type: Boolean, reflect: true})
-  @observer(function (this: ExmgRadioGroupItem, disabled: boolean) {
+  @observer(function(this: ExmgRadioGroupItem, disabled: boolean) {
     this.mdcFoundation.setDisabled(disabled);
   })
   disabled = false;
 
   @property({type: String})
-  @observer(function (this: ExmgRadioGroupItem, value: string) {
+  @observer(function(this: ExmgRadioGroupItem, value: string) {
     this.formElement.value = value;
   })
   value = '';
