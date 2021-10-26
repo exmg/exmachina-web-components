@@ -16,6 +16,7 @@
   "main": "exmg-radio-group.js",
   "files": [
     "styles/**/*.scss",
+    "styles/**/*.js",
     "exmg-*.js",
     "exmg-*.d.ts",
     "index.js",
