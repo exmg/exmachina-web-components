@@ -1,6 +1,6 @@
 {
   "name": "@exmg/exmg-radio-group",
-  "version": "8.1.4",
+  "version": "8.1.5",
   "description": "Paper style radio group element",
   "contributors": [
     "Ex Machina"
@@ -32,7 +32,7 @@
     "lit": "^2.0.0"
   },
   "devDependencies": {
-    "@exmg/exmg-cli": "^8.1.4",
+    "@exmg/exmg-cli": "^8.1.5",
     "@webcomponents/webcomponentsjs": "^2.4.4",
     "typescript": "^4.3.2",
     "web-animations-js": "^2.3.1"

@@ -1,6 +1,6 @@
 {
   "name": "@exmg/exmg-tooltip",
-  "version": "8.1.4",
+  "version": "8.1.5",
   "dependencies": {
     "@material/mwc-base": "=0.25.3",
     "lit": "^2.0.0",
@@ -19,7 +19,7 @@
   },
   "license": "MIT",
   "devDependencies": {
-    "@exmg/exmg-cli": "^8.1.4",
+    "@exmg/exmg-cli": "^8.1.5",
     "@material/mwc-checkbox": "=0.25.3",
     "@material/mwc-icon": "=0.25.3",
     "@polymer/iron-component-page": "^4.0.1",
