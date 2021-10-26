@@ -1,6 +1,6 @@
 {
   "name": "@exmg/exmg-tooltip",
-  "version": "8.1.5",
+  "version": "8.1.6",
   "dependencies": {
     "@material/mwc-base": "=0.25.3",
     "lit": "^2.0.0",
