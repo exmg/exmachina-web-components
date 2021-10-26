@@ -19,7 +19,7 @@
     "bin"
   ],
   "bin": {
-    "exmg-cli": "src/index.js"
+    "exmg-cli": "./index.js"
   },
   "repository": {
     "type": "git",
