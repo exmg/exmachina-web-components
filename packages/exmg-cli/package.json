@@ -1,6 +1,6 @@
 {
   "name": "@exmg/exmg-cli",
-  "version": "8.1.3",
+  "version": "8.1.4",
   "description": "CLI - scripts used to process and build polymer / lit-element packages",
   "contributors": [
     "Ex Machina"
