@@ -11,11 +11,10 @@
     "lit-element",
     "cli"
   ],
-  "main": "src/sass-render/index.js",
   "files": [
-    "src/**/*.js",
-    "src/**/*.d.ts",
-    "src/**/*.tmpl",
+    "*.js",
+    "*.d.ts",
+    "*.tmpl",
     "bin"
   ],
   "bin": {
