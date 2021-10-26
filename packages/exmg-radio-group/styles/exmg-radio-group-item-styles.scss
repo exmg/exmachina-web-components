@@ -1,0 +1,51 @@
+$defaultColor: rgb(21,111,216);
+$defaultColorForBoxShadow: rgba(131,192,253, 0.5);
+
+:host {
+  border: 1px solid rgba(0,0,0,.54);
+  border-radius: 5px;
+  font-family: 'Roboto', 'Noto', sans-serif;
+  padding: 7px 10px;
+  margin: 5px;
+  cursor: pointer;
+}
+:host([checked]) {
+  border: 2px solid var(--mdc-theme-secondary, $defaultColor);
+  padding: 6px 9px;
+}
+:host([disabled]) {
+  border-color: rgba(0,0,0,.26);
+}
+:host(:focus-within) {
+  box-shadow: 0 0 0 3px var(--mdc-theme-secondary-box-shadow, $defaultColorForBoxShadow);
+}
+.item {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.description {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-left: 5px;
+}
+.description > .title {
+  text-transform: uppercase;
+  color: var(--mdc-theme-secondary, $defaultColor);
+  font-weight: 500;
+}
+.item.disabled > .description {
+  opacity: 0.26;
+}
+.mdc-radio[hidden] {
+  opacity: 0;
+  width: 0;
+  padding: 0;
+}
+.mdc-radio .mdc-radio__native-control:enabled:checked+.mdc-radio__background .mdc-radio__outer-circle {
+  border-color: var(--mdc-theme-secondary, $defaultColor);
+}
+.mdc-radio .mdc-radio__native-control:enabled+.mdc-radio__background .mdc-radio__inner-circle {
+  border-color: var(--mdc-theme-secondary, $defaultColor);
+}

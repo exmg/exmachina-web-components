@@ -7,7 +7,8 @@
     "tsBuildInfoFile": ".tsbuildinfo"
   },
   "include": [
-    "*.ts"
+    "*.ts",
+    "styles/*.ts"
   ],
  }
  
