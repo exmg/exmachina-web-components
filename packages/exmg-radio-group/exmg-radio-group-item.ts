@@ -55,7 +55,7 @@ export class ExmgRadioGroupItem extends FormElement {
   hideRadioButton = false;
 
   @property({type: Object})
-  private rippleHandlers: RippleHandlers | null = null;
+  rippleHandlers: RippleHandlers | null = null;
 
   private shouldRenderRipple = false;
 

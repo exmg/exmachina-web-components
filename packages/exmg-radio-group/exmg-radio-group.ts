@@ -25,7 +25,7 @@ export class ExmgRadioGroup extends LitElement {
   vertical = false;
 
   @property({type: Boolean, reflect: true, attribute: 'invalid'})
-  private invalid = false;
+  invalid = false;
 
   private litItemName = '';
 
