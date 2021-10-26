@@ -6,7 +6,7 @@ import {property} from 'lit/decorators/property.js';
 import {customElement} from 'lit/decorators/custom-element.js';
 import {eventOptions} from 'lit/decorators/event-options.js';
 import {MDCFoundation} from '@material/base';
-import {style} from '@material/mwc-radio/mwc-radio-css';
+import {styles} from '@material/mwc-radio/mwc-radio.css';
 import {RippleHandlers} from '@material/mwc-ripple/ripple-handlers.js';
 import foundation from '@material/radio/foundation';
 import {SelectionController} from './exmg-selection-controller';
@@ -95,7 +95,7 @@ export class ExmgRadioGroupItem extends FormElement {
     this.formElement.focus();
   }
 
-  static styles = [style, exmgRadioGroupItemStyles];
+  static styles = [styles, exmgRadioGroupItemStyles];
 
   protected createAdapter(): Record<string, any> {
     return {
