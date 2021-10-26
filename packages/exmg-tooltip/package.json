@@ -6,6 +6,14 @@
     "lit": "^2.0.0",
     "tslib": "^2.0.1"
   },
+  "files": [
+    "styles/**/*.scss",
+    "styles/**/*.js",
+    "exmg-*.js",
+    "exmg-*.d.ts",
+    "index.js",
+    "index.d.ts"
+  ],
   "keywords": [
     "web-components",
     "lit-element",
