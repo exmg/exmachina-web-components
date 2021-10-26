@@ -37,7 +37,7 @@
     "web-animations-js": "^2.3.1"
   },
   "scripts": {
-    "lint": "tsc -b && eslint '**/*ts' --ignore-path ../../.gitignore -c ../../.eslintrc.js --fix",
+    "lint": "tsc -b && eslint '**/*ts' --ignore-path ../../.gitignore -c ../../.eslintrc.yaml --fix",
     "build:styles": "exmg-cli -s \"./styles/*.scss\"",
     "build": "npm run build:styles && npm run lint"
   },
