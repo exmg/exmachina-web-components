@@ -1,6 +1,6 @@
 {
   "name": "@exmg/exmg-button",
-  "version": "8.1.5",
+  "version": "8.1.7",
   "dependencies": {
     "@material/mwc-base": "=0.25.3",
     "@material/mwc-button": "=0.25.3",
