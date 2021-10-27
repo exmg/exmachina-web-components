@@ -8,7 +8,7 @@
     
     {
       name: "@exmg/exmg-button",
-      version: "8.1.5",
+      version: "8.1.7",
       url: "https://www.npmjs.com/package/@exmg/exmg-button",
     },
     {
@@ -18,7 +18,7 @@
     },
     {
       name: "@exmg/exmg-dialogs",
-      version: "8.1.5",
+      version: "8.1.7",
       url: "https://www.npmjs.com/package/@exmg/exmg-dialogs",
     },
     {
@@ -28,7 +28,7 @@
     },
     {
       name: "@exmg/exmg-tooltip",
-      version: "8.1.6",
+      version: "8.1.8",
       url: "https://www.npmjs.com/package/@exmg/exmg-tooltip",
     },
   ];
