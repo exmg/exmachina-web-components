@@ -18,7 +18,7 @@ export class ExmgButton extends ButtonBase {
   progress?: number;
 
   static styles = [styles, newStyles];
-
+ 
   protected render() {
     const classes = {
       'mdc-button--raised': this.raised,
