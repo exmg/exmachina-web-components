@@ -9,10 +9,12 @@
     "lit": "^2.0.0",
     "tslib": "^2.0.1"
   },
+  "devDependencies": {
+    "@exmg/exmg-cli": "^8.1.5"
+  },
   "keywords": [
     "web-components",
-    "polymer",
-    "lit-element",
+    "lit",
     "button"
   ],
   "files": [
@@ -30,13 +32,6 @@
     "directory": "packages/exmg-button"
   },
   "license": "MIT",
-  "devDependencies": {
-    "@exmg/exmg-cli": "^8.1.5",
-    "@material/mwc-checkbox": "=0.25.3",
-    "@material/mwc-icon": "=0.25.3",
-    "@webcomponents/webcomponentsjs": "^2.4.4",
-    "typescript": "^4.3.2"
-  },
   "scripts": {
     "build:styles": "exmg-cli -s \"./**/*.scss\""
   },
