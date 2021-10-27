@@ -1,14 +1,14 @@
 import {html, LitElement} from 'lit';
-import {property} from 'lit/decorators/property.js';
+import {state} from 'lit/decorators.js';
 import {customElement} from 'lit/decorators/custom-element.js';
 import {elements} from './elements.js';
-import demoAppStyles from './styles/demo-app-css.js';
+import {style} from './styles/demo-app-css.js';
 
 @customElement('demo-app')
 export class DemoApp extends LitElement {
-  static styles = [demoAppStyles];
+  static styles = [style];
 
-  @property({type: Object})
+  @state()
   private selectedElement?: any;
 
   boundLocationChanged?: any;
@@ -69,7 +69,7 @@ export class DemoApp extends LitElement {
       return html`
         <section class="landing">
           <div class="header">
-            <h3>EXMACHINA WEB COMPONENTS.</h3>
+            <h3>EXMACHINA WEB COMPONENTS</h3>
           </div>
           <div class="elements">${this.renderElements()}</div>
         </section>
@@ -80,7 +80,7 @@ export class DemoApp extends LitElement {
         <section class="demos">
           <div class="sidemenu">
             <div class="sidemenu-header">
-              <h3>EXMACHINA WEB COMPONENTS.</h3>
+              <h3>EXMACHINA WEB COMPONENTS</h3>
             </div>
             <div class="sidemenu-elements">${this.renderElements()}</div>
           </div>

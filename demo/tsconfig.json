@@ -1,16 +1,14 @@
 {
   "extends": "../tsconfig.json",
   "compilerOptions": {
-    "outDir": "./",
     "composite": true,
-    "declaration": true,
-    "rootDir": "./",
+    "rootDir": ".",
+    "outDir": ".",
+    "tsBuildInfoFile": ".tsbuildinfo"
   },
   "include": [
-    "./src/**/*",
-    "./demos/**/*"
-  ],
-  "exclude": ["node_modules"],
- }
- 
- 
+    "src/*.ts",
+    "src/styles/*.ts",
+    "demos/**/*.ts"
+  ]
+}

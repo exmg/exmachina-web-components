@@ -12,6 +12,10 @@ const watchOptions = {
   },
 };
 
+watch('demo', watchOptions, function(_event, fileName) {
+  addToQueue(fileName);
+});
+
 watch('packages', watchOptions, function(_event, fileName) {
   addToQueue(fileName);
 });
