@@ -29,6 +29,9 @@
   "license": "MIT",
   "dependencies": {
     "@material/mwc-radio": "=0.25.3",
+    "@material/mwc-base": "=0.25.3",
+    "@material/mwc-ripple": "=0.25.3",
+    "@material/radio": "^12.0.0",
     "lit": "^2.0.0",
     "tslib": "^2.0.1"
   },
@@ -42,6 +45,5 @@
   },
   "publishConfig": {
     "access": "public"
-  },
-  "gitHead": "5f78244a15a964b97e6410251dae4c4f241a809e"
+  }
 }
