@@ -8,27 +8,27 @@
     
     {
       name: "@exmg/exmg-button",
-      version: "8.1.4",
+      version: "8.1.5",
       url: "https://www.npmjs.com/package/@exmg/exmg-button",
     },
     {
       name: "@exmg/exmg-cli",
-      version: "8.1.4",
+      version: "8.1.5",
       url: "https://www.npmjs.com/package/@exmg/exmg-cli",
     },
     {
       name: "@exmg/exmg-dialogs",
-      version: "8.1.4",
+      version: "8.1.5",
       url: "https://www.npmjs.com/package/@exmg/exmg-dialogs",
     },
     {
       name: "@exmg/exmg-radio-group",
-      version: "8.1.4",
+      version: "8.1.5",
       url: "https://www.npmjs.com/package/@exmg/exmg-radio-group",
     },
     {
       name: "@exmg/exmg-tooltip",
-      version: "8.1.4",
+      version: "8.1.6",
       url: "https://www.npmjs.com/package/@exmg/exmg-tooltip",
     },
   ];
