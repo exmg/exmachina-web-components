@@ -30,5 +30,5 @@ import {ExmgTooltipBase} from './exmg-tooltip-base.js';
 
 @customElement('exmg-tooltip')
 export class ExmgTooltip extends ExmgTooltipBase {
-  static styles = style;
+  static styles = style; 
 }
