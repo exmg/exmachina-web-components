@@ -3,12 +3,12 @@
 
 :host {
   height: 100%;
-  width: var(--exmg-paper-sidemenu-sidth);
-  background: var(--exmg-paper-sidemenu-background, white);
+  width: var(--exmg-sidemenu-sidth);
+  background: var(--exmg-sidemenu-background, white);
   box-shadow: 2px 0 2px 0 rgba(0, 0, 0, 0.1);
   transition: all 0.3s ease;
   overflow: hidden;
-  color: var(--default-paper-sidemenu-text-color);
+  color: var(--default-sidemenu-text-color);
   flex: 1;
   flex-basis: 0.000000001px;
   display: flex;
@@ -21,7 +21,7 @@
 
 paper-listbox {
   padding: 0;
-  background: var(--exmg-paper-sidemenu-background);
+  background: var(--exmg-sidemenu-background);
 }
 
 :host([collapsed]) paper-item .title {
@@ -36,8 +36,8 @@ paper-listbox {
 }
 
 .menu-footer {
-  border-top: 1px solid var(--exmg-paper-sidemenu-menu-border-color, #ddd);
-  background: var(--exmg-paper-sidemenu-menu-footer-background-color, #f9faf9);
+  border-top: 1px solid var(--exmg-sidemenu-menu-border-color, #ddd);
+  background: var(--exmg-sidemenu-menu-footer-background-color, #f9faf9);
   height: 48px;
   display: flex;
   justify-content: flex-end;
@@ -65,7 +65,7 @@ paper-listbox {
 
 .menu-footer svg {
   margin: 0 4px;
-  fill: var(--exmg-paper-sidemenu-icon-color, rgba(0, 0, 0, var(--dark-secondary-opacity)));
+  fill: var(--exmg-sidemenu-icon-color, rgba(0, 0, 0, var(--dark-secondary-opacity)));
 }
 
 :host([narrow]) .menu-footer {

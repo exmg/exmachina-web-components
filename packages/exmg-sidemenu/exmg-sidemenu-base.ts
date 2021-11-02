@@ -1,7 +1,7 @@
 import {html, LitElement} from 'lit';
-import {property} from 'lit/decorators.js';
-import {observer} from '@material/mwc-base/observer.js';
-import '@polymer/paper-listbox/paper-listbox.js';
+import {property} from 'lit/decorators';
+import {observer} from '@material/mwc-base/observer';
+import '@polymer/paper-listbox';
 
 export const chevronLeftIcon = html`
   <svg height="24" viewBox="0 0 24 24" width="24"><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"></path></svg>
@@ -15,34 +15,7 @@ export const settingsIcon = html`
   </svg>
 `;
 
-/**
- * The `exmg-paper-sidemenu` displays a vertical sidemenu that can be collapsed.
- *
- *  ### Styling
- *
- * `<exmg-paper-sidemenu>` provides the following custom properties and mixins
- *  for styling:
- *
- *  Custom property | Description | Default
- *  ----------------|-------------|----------
- *  `--exmg-paper-sidemenu-background` | Sidemenu background color | `white`
- *  `--exmg-paper-sidemenu-width` | Sidemenu bwidth | `256px`
- *  `--exmg-paper-sidemenu-collapsed-width` | Sidemenu collapsed width | `white`
- *  `--exmg-paper-sidemenu-group-text-color` | Group titletext color | `54% black`
- *  `--exmg-paper-sidemenu-item-text-color` | Item text color | `54% black`
- *  `--exmg-paper-sidemenu-menu-footer-background-color` | Footer background color | `#F9FAF9`
- *  `--exmg-paper-sidemenu-menu-border-color` | Border color of menu | '#DDD'
- *  `--exmg-paper-sidemenu-icon-color` | Sidemenu icon color | `54% black`
- *  `--exmg-paper-sidemenu-hover-background-color` | Item hover background color | `--paper-grey-200`
- *  `--exmg-paper-sidemenu-selected-text-color` | Item selected text color | `--primary-color`
- *  `--exmg-paper-sidemenu-badge-background-color` | Badge background color | #ff6978
- *  `--exmg-paper-sidemenu-badge-color | Badge font color | #fff
- *
- *  @customElement
- *  @demo demo/index.html
- */
-
-export class ExmgPaperSidemenuBase extends LitElement {
+export class ExmgSidemenuBase extends LitElement {
   @property({type: Boolean, reflect: true})
   @observer(function (this: LitElement, collapsed: boolean) {
     this.dispatchEvent(new CustomEvent('collapsed', {bubbles: false, composed: true, detail: collapsed}));

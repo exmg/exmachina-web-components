@@ -1,10 +1,9 @@
 import {html, LitElement} from 'lit';
-import {property} from 'lit/decorators.js';
-import {observer} from '@material/mwc-base/observer.js';
-import '@polymer/iron-flex-layout/iron-flex-layout.js';
-import '@polymer/paper-listbox/paper-listbox.js';
-import '@polymer/paper-item/paper-item.js';
-import '@polymer/paper-tooltip/paper-tooltip.js';
+import {property} from 'lit/decorators';
+import {observer} from '@material/mwc-base/observer';
+import '@polymer/paper-listbox';
+import '@polymer/paper-item/paper-item';
+import '@exmg/exmg-tooltip/exmg-tooltip.js';
 
 const dashboardIcon = html`
   <svg height="24" viewBox="0 0 24 24" width="24">
@@ -19,45 +18,7 @@ const settingsIcon = html`
   </svg>
 `;
 
-/**
- * `exmg-paper-sidemenu-header` default sidemenu header including a home and settings link.
- *
- * ### Menu data model
- * Menu items need to have the following structure:
- * ```html
- *  <exmg-paper-sidemenu
- *    selected="rooms/"
- *    ?collapsed=${this.collapsed}
- *    @collapsed=${this._handleCollapsed}
- *    @selected-changed=${this._handleSelectedChanged}
- *    ?narrow=${this.narrow}
- *     >
- *    <exmg-paper-sidemenu-header slot="header" ?collapsed=${this.collapsed}></exmg-paper-sidemenu-header>
- *      ${this.renderMenu()}
- *  </exmg-paper-sidemenu>
- * ```
- *
- * Please note not to forget to bind the collpapsed attribute. Otherwise the header will
- * not change layout mode when menu is collapsing.
- *
- * ### Styling
- *
- * `<exmg-paper-sidemenu-header>` provides the following custom properties and mixins
- * for styling:
- *
- * Custom property | Description | Default
- * ----------------|-------------|----------
- * `--exmg-paper-sidemenu-group-text-color` | Item text color | `54% black`
- * `--exmg-paper-sidemenu-menu-header-background-color` | Header background color | `#F9FAF9`
- * `--exmg-paper-sidemenu-hover-background-color` | Item hiover background color | `--paper-grey-200`
- * `--exmg-paper-sidemenu-selected-text-color` | Selected item text color | `--primary-color`
- *
- * @customElement
- * @polymer
- * @element exmg-paper-sidemenu-header
- */
-
-export class ExmgPaperSidemenuHeaderBase extends LitElement {
+export class ExmgSidemenuHeaderBase extends LitElement {
   /**
    *  Fakes urls on debug true
    */
@@ -111,11 +72,11 @@ export class ExmgPaperSidemenuHeaderBase extends LitElement {
             ${dashboardIcon}
             <span class="title">${this.homeLabel}</span>
           </paper-item>
-          <paper-tooltip position="right">${this.homeLabel}</paper-tooltip>
+          <exmg-tooltip position="right">${this.homeLabel}</exmg-tooltip>
         </a>
         <a href=${this.debug ? '#' : this.settingsUrl} tabindex="-1" class="menu-item">
           <paper-item role="menuitem" aria-label=${this.settingsLabel}> ${settingsIcon} </paper-item>
-          <paper-tooltip position="right">${this.settingsLabel}</paper-tooltip>
+          <exmg-tooltip position="right">${this.settingsLabel}</exmg-tooltip>
         </a>
       </paper-listbox>
     `;

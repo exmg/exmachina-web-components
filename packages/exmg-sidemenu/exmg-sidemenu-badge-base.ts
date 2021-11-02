@@ -1,6 +1,6 @@
 import {html, LitElement} from 'lit';
 
-export class ExmgPaperSidemenuBadgeBase extends LitElement {
+export class ExmgSidemenuBadgeBase extends LitElement {
   render() {
     return html`
       <div class="badge">

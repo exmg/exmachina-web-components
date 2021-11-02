@@ -1,5 +1,5 @@
 {
-  "name": "@exmg/exmg-paper-sidemenu",
+  "name": "@exmg/exmg-sidemenu",
   "version": "8.1.0",
   "description": "Paper style collapsible sidemenu",
   "contributors": [
@@ -7,81 +7,38 @@
   ],
   "keywords": [
     "web-components",
-    "polymer",
+    "lit",
     "sidemenu"
   ],
   "files": [
     "styles/**/*.scss",
-    "!gulpfile.js",
     "**/*.js",
-    "**/*.d.ts",
-    "index.js",
-    "index.d.ts"
+    "**/*.d.ts"
   ],
-  "main": "exmg-paper-sidemenu.js",
+  "main": "exmg-sidemenu.js",
   "repository": {
     "type": "git",
-    "url": "git@bitbucket.org:ExmgElements/exmg-paper-sidemenu.git"
+    "url": "git@github.com:ExmgElements/exmg-sidemenu.git",
+    "directory": "packages/exmg-sidemenu"
   },
   "license": "MIT",
-  "homepage": "https://github.com/ExmgElements/exmg-paper-sidemenu",
+  "homepage": "https://github.com/ExmgElements/exmg-sidemenu",
   "dependencies": {
     "@material/mwc-base": "^0.25.2",
     "@material/theme": "^13.0.0",
     "@material/typography": "^13.0.0",
     "@polymer/paper-item": "^3.0.1",
     "@polymer/paper-listbox": "^3.0.0",
-    "@polymer/paper-tooltip": "^3.0.1",
-    "@polymer/test-fixture": "^4.0.2",
-    "lit": "^2.0.0"
+    "@exmg/exmg-tooltip": "^8.1.8",
+    "lit": "^2.0.0",
+    "tslib": "^2.0.1"
   },
   "devDependencies": {
-    "@exmg/exmg-cli": "^4.1.0",
-    "@web/dev-server": "0.0.29",
-    "concurrently": "^6.2.1",
-    "@material/mwc-drawer": "^0.25.2",
-    "@material/mwc-icon-button": "^0.25.2",
-    "@material/mwc-top-app-bar": "^0.25.2",
     "@polymer/app-layout": "^3.1.0",
-    "@polymer/iron-ajax": "^3.0.0",
-    "@polymer/iron-demo-helpers": "^3.0.0",
-    "@polymer/iron-input": "^3.0.0",
-    "@polymer/iron-media-query": "^3.0.0",
-    "@polymer/paper-item": "^3.0.0",
-    "@polymer/paper-styles": "^3.0.0",
-    "@polymer/paper-tooltip": "^3.0.1",
-    "@types/mocha": "^5.2.7",
-    "@webcomponents/webcomponentsjs": "^2.4.4",
-    "chai": "^4.2.0",
-    "eslint": "^7.12.1",
-    "eslint-config-exmg": "latest",
-    "eslint-plugin-html": "^6.1.0",
-    "eslint-plugin-lit": "^1.2.4",
-    "eslint-plugin-prettier": "^3.1.4",
-    "gulp": "^4.0.0",
-    "gulp-rename": "^1.4.0",
-    "gulp-replace": "^1.0.0",
-    "mocha": "^6.2.3",
-    "typedoc": "^0.19.0",
-    "typescript": "^4.0.5",
-    "wct-mocha": "^1.1.0",
-    "web-animations-js": "^2.3.2"
+    "@exmg/exmg-cli": "^4.1.0"
   },
   "scripts": {
-    "package-install": "npm i",
-    "gen-docs": "typedoc --excludeNotExported --excludeExternals --excludePrivate --excludeProtected --ignoreCompilerErrors --exclude '{**/*test*,**/node_modules/**,**/test/**}' --out docs/ *.ts",
-    "tsc:watch": "tsc -b ./tsconfig.json --watch",
-    "tsc": "tsc -b ./tsconfig.json",
-    "lint": "tsc --noEmit && eslint '**/*ts' --ignore-path ../../.eslintignore -c ../../eslintrc.json --quiet --fix",
-    "build-styles": "exmg-cli -s \"styles/**/*.scss\"",
-    "watch-styles": "exmg-cli -w",
-    "build": "npm run build-styles && npm run lint && npm run tsc",
-    "prepublishOnly": "npm run build",
-    "preversion": "npm run build",
-    "publishDryRun": "npm publish --dry-run",
-    "start": "concurrently --kill-others --names tsc,web-dev-server \"npm run tsc:watch\" \"web-dev-server --app-index demo/index.html --node-resolve --open --watch\"",
-    "test-dev": "npm run tsc && polymer test --module-resolution=node --npm -p",
-    "test": "npm run tsc && polymer test --module-resolution=node --npm"
+    "build:styles": "exmg-cli -s \"./**/*.scss\""
   },
   "publishConfig": {
     "access": "public"

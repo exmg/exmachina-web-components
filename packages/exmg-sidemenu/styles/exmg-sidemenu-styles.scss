@@ -2,14 +2,14 @@
 //@import '@material/theme/mdc-theme';
 
 :host {
-  --default-paper-sidemenu-width: var(--paper-sidemenu-width, 256px);
-  --default-paper-sidemenu-collapsed-width: var(--paper-sidemenu-collapsed-width, 64px);
-  --default-paper-sidemenu-text-color: var(--paper-sidemenu-text-color, --mdc-theme-on-primary);
-  --default-paper-sidemenu-background: var(--paper-sidemenu-background-color, --mdc-theme-primary);
+  --default-sidemenu-width: var(--sidemenu-width, 256px);
+  --default-sidemenu-collapsed-width: var(--sidemenu-collapsed-width, 64px);
+  --default-sidemenu-text-color: var(--sidemenu-text-color, --mdc-theme-on-primary);
+  --default-sidemenu-background: var(--sidemenu-background-color, --mdc-theme-primary);
 }
 
-exmg-paper-sidemenu[collapsed] {
-  width: var(--default-paper-sidemenu-collapsed-width);
+exmg-sidemenu[collapsed] {
+  width: var(--default-sidemenu-collapsed-width);
 }
 
 .menu-group-title {
@@ -22,17 +22,17 @@ exmg-paper-sidemenu[collapsed] {
   letter-spacing: 0.5px;
   text-transform: uppercase;
   transition: all 0.3s ease;
-  color: var(--exmg-paper-sidemenu-group-text-color, rgba(0, 0, 0, var(--dark-secondary-opacity)));
+  color: var(--exmg-sidemenu-group-text-color, rgba(0, 0, 0, var(--dark-secondary-opacity)));
 }
 
 hr {
   border: none;
-  background: var(--exmg-paper-sidemenu-menu-border-color, #ddd);
+  background: var(--exmg-sidemenu-menu-border-color, #ddd);
   margin: 8px 0 0;
   height: 1px;
 }
 
-exmg-paper-sidemenu[collapsed] hr {
+exmg-sidemenu[collapsed] hr {
   height: 1px;
 }
 
@@ -54,7 +54,7 @@ paper-listbox {
   padding: 0;
 }
 
-exmg-paper-sidemenu paper-item {
+exmg-sidemenu paper-item {
   display: grid;
   grid-auto-flow: row;
   grid-template-columns: 2.4rem auto auto;
@@ -64,11 +64,11 @@ exmg-paper-sidemenu paper-item {
   padding: 0 12px;
   font-size: 14px;
   font-weight: 500;
-  color: var(--exmg-paper-sidemenu-item-text-color, rgba(0, 0, 0, var(--dark-secondary-opacity)));
+  color: var(--exmg-sidemenu-item-text-color, rgba(0, 0, 0, var(--dark-secondary-opacity)));
   cursor: pointer;
 }
 
-exmg-paper-sidemenu[collapsed] paper-item {
+exmg-sidemenu[collapsed] paper-item {
   display: flex;
   align-items: center;
   height: 100%;
@@ -77,12 +77,12 @@ exmg-paper-sidemenu[collapsed] paper-item {
   padding: 0 12px;
   font-size: 14px;
   font-weight: 500;
-  color: var(--exmg-paper-sidemenu-item-text-color, rgba(0, 0, 0, var(--dark-secondary-opacity)));
+  color: var(--exmg-sidemenu-item-text-color, rgba(0, 0, 0, var(--dark-secondary-opacity)));
   cursor: pointer;
 }
 
 a svg {
-  fill: var(--exmg-paper-sidemenu-icon-color, rgba(0, 0, 0, var(--dark-secondary-opacity)));
+  fill: var(--exmg-sidemenu-icon-color, rgba(0, 0, 0, var(--dark-secondary-opacity)));
   display: block;
 }
 
@@ -96,7 +96,7 @@ paper-item .title {
   grid-column-start: 2;
 }
 
-exmg-paper-sidemenu[collapsed] paper-item .title {
+exmg-sidemenu[collapsed] paper-item .title {
   display: none;
 }
 
@@ -109,35 +109,35 @@ paper-item svg {
   grid-column-start: 1;
 }
 
-paper-item exmg-paper-sidemenu-badge {
+paper-item exmg-sidemenu-badge {
   grid-column-start: 3;
   justify-self: end;
 }
 
-exmg-paper-tooltip {
+exmg-tooltip {
   display: none;
   white-space: nowrap;
 }
 
-exmg-paper-sidemenu[collapsed] paper-item svg {
+exmg-sidemenu[collapsed] paper-item svg {
   padding: 0;
 }
 
-exmg-paper-sidemenu[collapsed] .menu-group {
+exmg-sidemenu[collapsed] .menu-group {
   padding: 12px 0;
 }
 
-exmg-paper-sidemenu[collapsed] .menu-group-title {
+exmg-sidemenu[collapsed] .menu-group-title {
   height: 0;
   padding: 0;
   margin-bottom: 10px;
 }
 
-exmg-paper-sidemenu[collapsed] exmg-paper-tooltip {
+exmg-sidemenu[collapsed] exmg-tooltip {
   display: block;
 }
 
-exmg-paper-sidemenu[collapsed] .menu-footer svg {
+exmg-sidemenu[collapsed] .menu-footer svg {
   transform: rotate(180deg);
 }
 
@@ -146,8 +146,8 @@ exmg-paper-sidemenu[collapsed] .menu-footer svg {
   display: inline-block;
   font-size: 11px;
   border-radius: 12px;
-  background-color: var(--exmg-paper-sidemenu-badge-background-color, var(--secondary-text-color));
-  color: var(--exmg-paper-sidemenu-badge-text-color, white);
+  background-color: var(--exmg-sidemenu-badge-background-color, var(--secondary-text-color));
+  color: var(--exmg-sidemenu-badge-text-color, white);
   line-height: 1;
   padding: 2px 4px;
   min-width: 16px;
@@ -161,25 +161,25 @@ exmg-paper-sidemenu[collapsed] .menu-footer svg {
   top: 0px;
 }
 
-exmg-paper-sidemenu[collapsed] .icon-badge {
+exmg-sidemenu[collapsed] .icon-badge {
   display: block;
 }
 
 a:hover paper-item {
-  background: var(--exmg-paper-sidemenu-hover-background-color, var(--paper-grey-200));
+  background: var(--exmg-sidemenu-hover-background-color, var(--paper-grey-200));
 }
 
 a:active paper-item {
-  background: var(--exmg-paper-sidemenu-active-background-color, var(--paper-grey-400));
+  background: var(--exmg-sidemenu-active-background-color, var(--paper-grey-400));
 }
 
 a[aria-selected='true'] svg {
-  fill: var(--exmg-paper-sidemenu-selected-text-color, var(--primary-color));
+  fill: var(--exmg-sidemenu-selected-text-color, var(--primary-color));
 }
 
 a[aria-selected='true'] paper-item {
-  color: var(--exmg-paper-sidemenu-selected-text-color, var(--mdc-theme-on-primary));
-  background-color: var(--exmg-paper-sidemenu-selected-background-color, var(--primary-color));
+  color: var(--exmg-sidemenu-selected-text-color, var(--mdc-theme-on-primary));
+  background-color: var(--exmg-sidemenu-selected-background-color, var(--primary-color));
 }
 
 *[hidden] {
@@ -187,7 +187,7 @@ a[aria-selected='true'] paper-item {
 }
 
 .main-content {
-  margin-left: var(--default-paper-sidemenu-width);
+  margin-left: var(--default-sidemenu-width);
 }
 
 .main-content.narrow {
@@ -200,24 +200,24 @@ app-drawer {
 }
 
 app-drawer.collapsed {
-  --app-drawer-width: var(--default-paper-sidemenu-collapsed-width);
+  --app-drawer-width: var(--default-sidemenu-collapsed-width);
 }
 
 .main-content.collapsed {
-  margin-left: var(--default-paper-sidemenu-collapsed-width);
+  margin-left: var(--default-sidemenu-collapsed-width);
 }
 
 div[slot='footer'] {
   margin: 4px 0px;
   width: 100%;
   height: 100%;
-  border-right: 1px solid var(--exmg-paper-sidemenu-menu-border-color, #ddd);
+  border-right: 1px solid var(--exmg-sidemenu-menu-border-color, #ddd);
 }
 
 div[slot='footer'] svg {
   fill: white;
 }
 
-exmg-paper-sidemenu[collapsed] div[slot='footer'] .title {
+exmg-sidemenu[collapsed] div[slot='footer'] .title {
   display: none;
 }

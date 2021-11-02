@@ -11,7 +11,6 @@ import {IronDropdownElement} from '@polymer/iron-dropdown/iron-dropdown.js';
 import '@polymer/iron-input/iron-input.js';
 import '@polymer/paper-input/paper-input-error.js';
 import '@polymer/paper-button/paper-button.js';
-import '@polymer/iron-flex-layout/iron-flex-layout.js';
 import '@polymer/paper-input/paper-input-container.js';
 import '@polymer/paper-styles/paper-styles.js';
 import {afterNextRender} from '@polymer/polymer/lib/utils/render-status.js';

@@ -24,18 +24,18 @@ $mdc-theme-on-surface: #03182a;
   --app-drawer-scrim-background: rgba(0, 0, 0, 0.6);
 
   /* Side menu */
-  --exmg-paper-sidemenu-background: var(--app-drawer-background-color);
-  --exmg-paper-sidemenu-group-text-color: rgba(255, 255, 255, 0.7);
-  --exmg-paper-sidemenu-group-title: rgba(255, 255, 255, 0.7);
-  --exmg-paper-sidemenu-item-text-color: rgba(255, 255, 255, 0.7);
-  --exmg-paper-sidemenu-menu-footer-background-color: #223c57;
-  --exmg-paper-sidemenu-menu-border-color: #314e6c;
-  --exmg-paper-sidemenu-icon-color: rgba(255, 255, 255, 0.9);
-  --exmg-paper-sidemenu-badge-background-color: var(--mdc-theme-primary);
-  --exmg-paper-sidemenu-badge-text-color: var(--mdc-theme-on-primary);
-  --exmg-paper-sidemenu-hover-background-color: var(--app-drawer-background-hover-color);
-  --exmg-paper-sidemenu-active-background-color: var(--app-drawer-background-active-color);
-  --exmg-paper-sidemenu-selected-text-color: white;
-  --exmg-paper-sidemenu-menu-header-background-color: var(--app-drawer-background-color);
-  /* --exmg-paper-sidemenu-selected-text-color: var(--mdc-theme-primary);*/
+  --exmg-sidemenu-background: var(--app-drawer-background-color);
+  --exmg-sidemenu-group-text-color: rgba(255, 255, 255, 0.7);
+  --exmg-sidemenu-group-title: rgba(255, 255, 255, 0.7);
+  --exmg-sidemenu-item-text-color: rgba(255, 255, 255, 0.7);
+  --exmg-sidemenu-menu-footer-background-color: #223c57;
+  --exmg-sidemenu-menu-border-color: #314e6c;
+  --exmg-sidemenu-icon-color: rgba(255, 255, 255, 0.9);
+  --exmg-sidemenu-badge-background-color: var(--mdc-theme-primary);
+  --exmg-sidemenu-badge-text-color: var(--mdc-theme-on-primary);
+  --exmg-sidemenu-hover-background-color: var(--app-drawer-background-hover-color);
+  --exmg-sidemenu-active-background-color: var(--app-drawer-background-active-color);
+  --exmg-sidemenu-selected-text-color: white;
+  --exmg-sidemenu-menu-header-background-color: var(--app-drawer-background-color);
+  /* --exmg-sidemenu-selected-text-color: var(--mdc-theme-primary);*/
 }

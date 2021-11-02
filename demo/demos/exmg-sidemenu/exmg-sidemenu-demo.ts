@@ -1,17 +1,19 @@
 import {LitElement, html, css} from 'lit';
 import {property, customElement} from 'lit/decorators.js';
 import {classMap} from 'lit/directives/class-map.js';
-import {sidemenuStyles} from '../index.js';
-import '../index.js';
-import '@material/mwc-drawer/mwc-drawer.js';
+import {style as sidemenuStyles} from '@exmg/exmg-sidemenu/styles/exmg-sidemenu-styles-css.js';
+import {style as themeStyles} from '@exmg/exmg-sidemenu/styles/theme-styles-css.js';
+import '@exmg/exmg-sidemenu/exmg-sidemenu.js';
+import '@exmg/exmg-sidemenu/exmg-sidemenu-header.js';
+import '@exmg/exmg-sidemenu/exmg-sidemenu-badge.js';
 import '@material/mwc-icon-button/mwc-icon-button.js';
 import '@polymer/paper-item/paper-item.js';
-import '@polymer/paper-tooltip/paper-tooltip.js';
+import '@exmg/exmg-tooltip/exmg-tooltip.js';
 import '@polymer/app-layout/app-drawer/app-drawer.js';
 import '@polymer/app-layout/app-toolbar/app-toolbar.js';
 
 import {menu} from './menu.js';
-import {isItemGroup, MenuItem, MenuGroupItem, MenuItemOrGroupItem} from '../exmg-paper-sidemenu-types.js';
+import {isItemGroup, MenuItem, MenuGroupItem, MenuItemOrGroupItem} from '@exmg/exmg-sidemenu/exmg-sidemenu-types.js';
 
 export const installMediaQueryWatcher = (mediaQuery: string, layoutChangedCallback: (mediaQueryMatches: boolean) => void) => {
   const mql = window.matchMedia(mediaQuery);
@@ -19,8 +21,8 @@ export const installMediaQueryWatcher = (mediaQuery: string, layoutChangedCallba
   layoutChangedCallback(mql.matches);
 };
 
-@customElement('x-demo')
-export class XDemo extends LitElement {
+@customElement('exmg-sidemenu-demo')
+export class SidemenuDemo extends LitElement {
   @property({type: Array})
   menu: [] | undefined;
 
@@ -38,6 +40,7 @@ export class XDemo extends LitElement {
 
   static styles = [
     sidemenuStyles,
+    themeStyles,
     css`
       :host {
         display: inline-block;
@@ -45,12 +48,12 @@ export class XDemo extends LitElement {
         width: 100%;
       }
 
-      app-toolbar {
-        background: blue;
-      }
-
       .main-content p {
         padding: 1rem 2rem;
+      }
+
+      app-toolbar {
+        background: yellow;
       }
     `,
   ];
@@ -72,13 +75,20 @@ export class XDemo extends LitElement {
   private renderGroupItem(i: MenuGroupItem) {
     return html`
       <div class="menu-group-title">${i.title}</div>
-      ${i.items?.map(
+      ${(i.items || []).map(
         (subitem: MenuItem) =>
           html`
-            <a href=${this.debug ? '#' : subitem.path} data-path=${subitem.path} tabindex="-1" class="menu-item">
-              <paper-item data-path="${subitem.path}" role="menuitem">
-                <svg height="24" viewBox="0 0 24 24" width="24"><path d=${subitem.iconPath}></path></svg>
+            <a href="${this.debug ? '#' : subitem.path}" data-path="${subitem.path}" tabindex="-1" class="menu-item">
+              <paper-item data-path=${subitem.path} role="menuitem">
+                ${subitem.iconPath
+                  ? html`<svg height="24" viewBox="0 0 24 24" width="24"><path d="${subitem.iconPath}"></path></svg>`
+                  : subitem.icon}
                 <span class="title"> ${subitem.title} </span>
+                ${subitem.badge
+                  ? html`<exmg-sidemenu-badge ?collapsed=${this.collapsed}
+                      >${subitem.badge === true ? html`&nbsp;` : subitem.badge}</exmg-sidemenu-badge
+                    >`
+                  : ''}
               </paper-item>
               <paper-tooltip position="right">${subitem.title}</paper-tooltip>
             </a>
@@ -92,8 +102,13 @@ export class XDemo extends LitElement {
     return html`
       <a href=${this.debug ? '#' : i.path} data-path=${i.path} tabindex="-1" class="menu-item solo">
         <paper-item data-path=${i.path} role="menuitem">
-          <svg height="24" viewBox="0 0 24 24" width="24"><path d=${i.iconPath}></path></svg>
+          ${i.iconPath ? html`<svg height="24" viewBox="0 0 24 24" width="24"><path d="${i.iconPath}"></path></svg>` : i.icon}
           <span class="title">${i.title}</span>
+          ${i.badge
+            ? html`<exmg-sidemenu-badge ?collapsed=${this.collapsed}
+                >${i.badge === true ? html`&nbsp;` : i.badge}</exmg-sidemenu-badge
+              >`
+            : ''}
         </paper-item>
         <paper-tooltip position="right">${i.title}</paper-tooltip>
       </a>
@@ -102,7 +117,7 @@ export class XDemo extends LitElement {
   }
 
   private renderMenu() {
-    return html` ${menu.map((i: MenuItemOrGroupItem) => (isItemGroup(i) ? this.renderGroupItem(i) : this.renderItem(i)))} `;
+    return html` ${(menu || []).map((i: MenuItemOrGroupItem) => (isItemGroup(i) ? this.renderGroupItem(i) : this.renderItem(i)))} `;
   }
 
   private openChanged(e: CustomEvent) {
@@ -123,6 +138,25 @@ export class XDemo extends LitElement {
     this.drawerOpened = !this.drawerOpened;
   }
 
+  renderFooterButton() {
+    return html`
+      <div slot="footer">
+        <a href="${'#'}" tabindex="-1" class="menu-item">
+          <paper-item role="menuitem" data-path="notifications/" tabindex="0" aria-disabled="false">
+            <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24">
+              <path d="M0 0h24v24H0z" fill="none" />
+              <path
+                d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z"
+              />
+            </svg>
+            <span class="title"> Mark </span>
+          </paper-item>
+          <paper-tooltip position="right" role="tooltip" tabindex="-1">Signout</paper-tooltip>
+        </a>
+      </div>
+    `;
+  }
+
   render() {
     const classes = {collapsed: this.collapsed, narrow: this.narrow};
 
@@ -136,16 +170,16 @@ export class XDemo extends LitElement {
         ?opened=${this.drawerOpened}
         @opened-changed="${this.openChanged}"
       >
-        <exmg-paper-sidemenu
+        <exmg-sidemenu
           selected="rooms/"
           ?collapsed=${this.collapsed}
           @collapsed=${this._handleCollapsed}
           @selected-changed=${this._handleSelectedChanged}
           ?narrow=${this.narrow}
         >
-          <exmg-paper-sidemenu-header slot="header" ?collapsed=${this.collapsed}></exmg-paper-sidemenu-header>
-          ${this.renderMenu()}
-        </exmg-paper-sidemenu>
+          <exmg-sidemenu-header slot="header" ?collapsed=${this.collapsed}></exmg-sidemenu-header>
+          ${this.renderMenu()} ${this.renderFooterButton()}
+        </exmg-sidemenu>
       </app-drawer>
 
       <article class="main-content ${classMap(classes)}">

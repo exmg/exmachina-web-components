@@ -13,7 +13,7 @@ paper-item {
   padding: 0 20px;
   font-size: 14px;
   font-weight: 500;
-  color: var(--exmg-paper-sidemenu-group-text-color, rgba(0, 0, 0, var(--dark-secondary-opacity)));
+  color: var(--exmg-sidemenu-group-text-color, rgba(0, 0, 0, var(--dark-secondary-opacity)));
   cursor: pointer;
 }
 
@@ -26,10 +26,10 @@ paper-item svg {
   width: 24px;
   max-width: 24px;
   height: 20px;
-  fill: var(--exmg-paper-sidemenu-group-text-color, rgba(0, 0, 0, var(--dark-secondary-opacity)));
+  fill: var(--exmg-sidemenu-group-text-color, rgba(0, 0, 0, var(--dark-secondary-opacity)));
 }
 
-exmg-paper-tooltip {
+exmg-tooltip {
   display: none;
   white-space: nowrap;
 }
@@ -38,9 +38,9 @@ exmg-paper-tooltip {
   display: flex;
   align-items: center;
   box-sizing: border-box;
-  background: var(--exmg-paper-sidemenu-menu-header-background-color, #f9faf9);
+  background: var(--exmg-sidemenu-menu-header-background-color, #f9faf9);
   min-height: 56px;
-  border-bottom: 1px solid var(--exmg-paper-sidemenu-menu-border-color, #ddd);
+  border-bottom: 1px solid var(--exmg-sidemenu-menu-border-color, #ddd);
 }
 
 .menu-header paper-listbox {
@@ -51,7 +51,7 @@ exmg-paper-tooltip {
 }
 
 .menu-header .menu-item:first-child {
-  border-right: 1px solid var(--exmg-paper-sidemenu-menu-border-color, #ddd);
+  border-right: 1px solid var(--exmg-sidemenu-menu-border-color, #ddd);
   flex: 1;
   flex-basis: 0.000000001px;
 }
@@ -66,7 +66,7 @@ exmg-paper-tooltip {
   flex-direction: column;
 }
 
-:host([collapsed]) exmg-paper-tooltip {
+:host([collapsed]) exmg-tooltip {
   display: block;
 }
 
@@ -96,15 +96,15 @@ exmg-paper-tooltip {
 }
 
 a:hover paper-item {
-  background: var(--exmg-paper-sidemenu-hover-background-color, var(--paper-grey-200));
+  background: var(--exmg-sidemenu-hover-background-color, var(--paper-grey-200));
 }
 
 a[aria-selected='true'] paper-item svg {
-  fill: var(--exmg-paper-sidemenu-selected-text-color, var(--primary-color));
+  fill: var(--exmg-sidemenu-selected-text-color, var(--primary-color));
 }
 
 a[aria-selected='true'] paper-item {
-  color: var(--exmg-paper-sidemenu-selected-text-color, var(--primary-color));
+  color: var(--exmg-sidemenu-selected-text-color, var(--primary-color));
 }
 
 .menu-item {

@@ -74,6 +74,9 @@
       "path": "packages/exmg-sortable",
     }, 
     {
+      "path": "packages/exmg-sidemenu",
+    }, 
+    {
       "path": "demo",
     },
   ],

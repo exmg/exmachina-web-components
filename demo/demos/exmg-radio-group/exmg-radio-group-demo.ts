@@ -1,6 +1,4 @@
 import {LitElement, html, property, customElement} from 'lit-element';
-import '@polymer/iron-demo-helpers/demo-pages-shared-styles';
-import '@polymer/iron-demo-helpers/demo-snippet';
 import './exmg-icons.js';
 import '@exmg/exmg-radio-group/exmg-radio-group.js';
 import '@exmg/exmg-radio-group/exmg-radio-group-item.js';
