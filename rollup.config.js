@@ -34,8 +34,8 @@ const elementsConfigs = elements.map((element) => {
         ]
       })
     ],
-  }
-})
+  };
+});
 
 export default [
   {

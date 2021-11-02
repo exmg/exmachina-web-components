@@ -1,4 +1,4 @@
-//requiring path and fs modules
+// requiring path and fs modules
 const path = require('path');
 const fs = require('fs');
 
@@ -29,9 +29,9 @@ const constructDemoableElements = async (packageFile) => {
   const parsedPackage = JSON.parse(fileContent);
   template = template.replace('$ELEMENTS', `
     {
-      name: "${parsedPackage.name}",
-      version: "${parsedPackage.version}",
-      url: "https://www.npmjs.com/package/${parsedPackage.name}",
+      name: '${parsedPackage.name}',
+      version: '${parsedPackage.version}',
+      url: 'https://www.npmjs.com/package/${parsedPackage.name}',
     },$ELEMENTS`);
 }
 

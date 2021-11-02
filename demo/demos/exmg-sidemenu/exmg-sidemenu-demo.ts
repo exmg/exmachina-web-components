@@ -90,7 +90,7 @@ export class SidemenuDemo extends LitElement {
                     >`
                   : ''}
               </paper-item>
-              <paper-tooltip position="right">${subitem.title}</paper-tooltip>
+              <exmg-tooltip position="right">${subitem.title}</exmg-tooltip>
             </a>
           `,
       )}
@@ -110,7 +110,7 @@ export class SidemenuDemo extends LitElement {
               >`
             : ''}
         </paper-item>
-        <paper-tooltip position="right">${i.title}</paper-tooltip>
+        <exmg-tooltip position="right">${i.title}</exmg-tooltip>
       </a>
       <hr />
     `;

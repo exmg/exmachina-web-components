@@ -7,45 +7,44 @@
     url: string;
   };
   export const elements: Element[] = [
-    
     {
-      name: "@exmg/exmg-button",
-      version: "8.1.7",
-      url: "https://www.npmjs.com/package/@exmg/exmg-button",
+      name: '@exmg/exmg-button',
+      version: '8.1.7',
+      url: 'https://www.npmjs.com/package/@exmg/exmg-button',
     },
     {
-      name: "@exmg/exmg-cli",
-      version: "8.1.5",
-      url: "https://www.npmjs.com/package/@exmg/exmg-cli",
+      name: '@exmg/exmg-cli',
+      version: '8.1.5',
+      url: 'https://www.npmjs.com/package/@exmg/exmg-cli',
     },
     {
-      name: "@exmg/exmg-dialogs",
-      version: "8.1.7",
-      url: "https://www.npmjs.com/package/@exmg/exmg-dialogs",
+      name: '@exmg/exmg-dialogs',
+      version: '8.1.7',
+      url: 'https://www.npmjs.com/package/@exmg/exmg-dialogs',
     },
     {
-      name: "@exmg/exmg-grid",
-      version: "8.1.0",
-      url: "https://www.npmjs.com/package/@exmg/exmg-grid",
+      name: '@exmg/exmg-grid',
+      version: '8.1.0',
+      url: 'https://www.npmjs.com/package/@exmg/exmg-grid',
     },
     {
-      name: "@exmg/exmg-radio-group",
-      version: "8.1.5",
-      url: "https://www.npmjs.com/package/@exmg/exmg-radio-group",
+      name: '@exmg/exmg-radio-group',
+      version: '8.1.5',
+      url: 'https://www.npmjs.com/package/@exmg/exmg-radio-group',
     },
     {
-      name: "@exmg/exmg-sidemenu",
-      version: "8.1.0",
-      url: "https://www.npmjs.com/package/@exmg/exmg-sidemenu",
+      name: '@exmg/exmg-sidemenu',
+      version: '8.1.0',
+      url: 'https://www.npmjs.com/package/@exmg/exmg-sidemenu',
     },
     {
-      name: "@exmg/exmg-sortable",
-      version: "8.0.1",
-      url: "https://www.npmjs.com/package/@exmg/exmg-sortable",
+      name: '@exmg/exmg-sortable',
+      version: '8.0.1',
+      url: 'https://www.npmjs.com/package/@exmg/exmg-sortable',
     },
     {
-      name: "@exmg/exmg-tooltip",
-      version: "8.1.8",
-      url: "https://www.npmjs.com/package/@exmg/exmg-tooltip",
+      name: '@exmg/exmg-tooltip',
+      version: '8.1.8',
+      url: 'https://www.npmjs.com/package/@exmg/exmg-tooltip',
     },
   ];
