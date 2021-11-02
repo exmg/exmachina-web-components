@@ -43,7 +43,6 @@
           "no-invalid-attribute-name": "error",
           "no-invalid-tag-name": "error",
           "no-property-visibility-mismatch": "error",
-
           "no-unknown-attribute": "off",
           "no-unknown-event": "off",
           "no-unknown-slot": "off",
@@ -58,6 +57,9 @@
   "references": [
     {
       "path": "packages/exmg-button",
+    },
+    {
+      "path": "packages/exmg-grid",
     },
     {
       "path": "packages/exmg-dialogs",

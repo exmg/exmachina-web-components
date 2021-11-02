@@ -21,8 +21,6 @@ export class DialogDemo extends LitElement {
   }
   _saveData(e: CustomEvent) {
     const target = e.target as ExmgConfirmDialog;
-    // Save data
-    console.log('Data: ', e.detail);
     // Trigger done after 1s
     setTimeout(() => {
       // finished
@@ -31,8 +29,6 @@ export class DialogDemo extends LitElement {
   }
   _saveDataTicket(e: CustomEvent) {
     const target = e.target as ExmgConfirmDialog;
-    // Save data
-    console.log('Data: ', e.detail);
     // Trigger done after 1s
     setTimeout(() => {
       // finished

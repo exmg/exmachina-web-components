@@ -31,14 +31,12 @@
     "@material/mwc-radio": "=0.25.3",
     "@material/mwc-base": "=0.25.3",
     "@material/mwc-ripple": "=0.25.3",
-    "@material/radio": "^12.0.0",
+    "@material/radio": "^13.0.0",
     "lit": "^2.0.0",
     "tslib": "^2.0.1"
   },
   "devDependencies": {
-    "@exmg/exmg-cli": "^8.1.5",
-    "web-animations-js": "^2.3.1",
-    "@polymer/iron-demo-helpers": "^3.1.0"
+    "@exmg/exmg-cli": "^8.1.5"
   },
   "scripts": {
     "build:styles": "exmg-cli -s \"./styles/*.scss\""
