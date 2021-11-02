@@ -161,17 +161,18 @@ export class ExmgGrid extends LitElement {
     return this.getQuerySelectors().getTable();
   }
 
-  private getTableBody(): HTMLTableSectionElement {
+  private getTableBody() {
     return this.getQuerySelectors().getTableBody();
   }
 
-  private findTableBody(): HTMLTableSectionElement | void {
+  private findTableBody() {
     if (this.querySelectors) {
       return this.getTableBody() || undefined;
     }
+    return undefined;
   }
 
-  private getColumns(selector = 'th'): NodeListOf<HTMLTableHeaderCellElement> {
+  private getColumns(selector = 'th'): NodeListOf<HTMLElement> {
     return this.getQuerySelectors().getColumns(selector);
   }
 

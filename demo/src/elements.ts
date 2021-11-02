@@ -34,6 +34,11 @@
       url: "https://www.npmjs.com/package/@exmg/exmg-radio-group",
     },
     {
+      name: "@exmg/exmg-sortable",
+      version: "8.0.1",
+      url: "https://www.npmjs.com/package/@exmg/exmg-sortable",
+    },
+    {
       name: "@exmg/exmg-tooltip",
       version: "8.1.8",
       url: "https://www.npmjs.com/package/@exmg/exmg-tooltip",

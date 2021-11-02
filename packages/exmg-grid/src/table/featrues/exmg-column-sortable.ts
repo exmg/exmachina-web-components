@@ -27,7 +27,7 @@ export class ExmgColumnSortable {
     });
   }
 
-  private registerListeners(column: HTMLTableCellElement, columnId: string): void {
+  private registerListeners(column: HTMLElement, columnId: string): void {
     column.addEventListener('click', () => {
       const columnSortDirection = column.getAttribute('data-sort-direction');
       const nextSortDirection = columnSortDirection === 'ASC' ? 'DESC' : columnSortDirection === 'DESC' ? undefined : 'ASC';

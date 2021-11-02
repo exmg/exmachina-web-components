@@ -71,6 +71,9 @@
       "path": "packages/exmg-radio-group",
     }, 
     {
+      "path": "packages/exmg-sortable",
+    }, 
+    {
       "path": "demo",
     },
   ],
