@@ -24,7 +24,8 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git@github.com:ExmgElements/exmg-elements-monorepo.git"
+    "url": "git@github.com:exmg/exmg-web-components.git",
+    "directory": "packages/exmg-radio-group"
   },
   "license": "MIT",
   "dependencies": {

@@ -21,7 +21,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git@github.com:ExmgElements/exmg-grid.git",
+    "url": "git@github.com:exmg/exmg-web-components.git",
     "directory": "packages/exmg-grid"
   },
   "dependencies": {

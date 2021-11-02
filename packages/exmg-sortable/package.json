@@ -27,7 +27,7 @@
   "main": "exmg-sortable.js",
   "repository": {
     "type": "git",
-    "url": "git@github.com:ExmgElements/exmg-sortable.git",
+    "url": "git@github.com:exmg/exmg-web-components.git",
     "directory": "packages/exmg-sortable"
   },
   "license": "MIT",

@@ -4,16 +4,14 @@
   "main": "exmg-dialog-form.js",
   "repository": {
     "type": "git",
-    "url": "git@github.com:ExmgElements/packages/exmg-dialogs.git",
+    "url": "git@github.com:exmg/exmg-web-components.git",
     "directory": "packages/exmg-dialogs"
   },
   "files": [
     "styles/**/*.scss",
     "styles/**/*.js",
     "exmg-*.js",
-    "exmg-*.d.ts",
-    "index.js",
-    "index.d.ts"
+    "exmg-*.d.ts"
   ],
   "license": "MIT",
   "dependencies": {
