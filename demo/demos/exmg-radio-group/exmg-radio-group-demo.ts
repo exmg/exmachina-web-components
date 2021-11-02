@@ -26,11 +26,10 @@ export class ExmgRadioGroupDemo extends LitElement {
   }
 
   handleKeyUp() {
-    console.log('KEYUP');
+    // console.log('KEYUP');
   }
 
   onPaperRadioGroupChanged(e: CustomEvent) {
-    console.log('onPaperRadioGroupChanged', e.detail);
     this.selected = e.detail.selected;
   }
 
