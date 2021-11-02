@@ -1,19 +1,19 @@
 export class ExmgQuerySelectors {
   private table: HTMLTableElement;
-  private tableBody: HTMLTableSectionElement;
+  private tableBody: HTMLElement;
   constructor(t: HTMLTableElement, tb: HTMLTableSectionElement) {
     this.table = t;
     this.tableBody = tb;
   }
 
-  getTable(): HTMLTableElement {
+  getTable() {
     if (!this.table) {
       throw new Error('Element table not found. Slot hast to define <table>');
     }
     return this.table!;
   }
 
-  getTableBody(): HTMLTableSectionElement {
+  getTableBody() {
     if (!this.tableBody) {
       throw new Error('Element tbody not found. Slot hast to define <tbody class="grid-data">');
     }
@@ -21,11 +21,11 @@ export class ExmgQuerySelectors {
     return this.tableBody!;
   }
 
-  getColumns(selector = 'th'): NodeListOf<HTMLTableHeaderCellElement> {
-    return this.getTable().querySelectorAll<HTMLTableHeaderCellElement>(`.grid-columns ${selector}`);
+  getColumns(selector = 'th'): NodeListOf<HTMLElement> {
+    return this.getTable().querySelectorAll<HTMLElement>(`.grid-columns ${selector}`);
   }
 
-  getColumn<T extends HTMLElement = HTMLTableHeaderCellElement>(selector = 'th'): T | undefined {
+  getColumn<T extends HTMLElement>(selector = 'th'): T | undefined {
     return this.getTable().querySelector<T>(`.grid-columns ${selector}`) || undefined;
   }
 
