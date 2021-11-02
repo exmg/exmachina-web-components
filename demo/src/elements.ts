@@ -7,6 +7,7 @@
     url: string;
   };
   export const elements: Element[] = [
+    
     {
       name: '@exmg/exmg-button',
       version: '8.1.7',
@@ -26,6 +27,11 @@
       name: '@exmg/exmg-grid',
       version: '8.1.0',
       url: 'https://www.npmjs.com/package/@exmg/exmg-grid',
+    },
+    {
+      name: '@exmg/exmg-markdown-editor',
+      version: '8.0.2',
+      url: 'https://www.npmjs.com/package/@exmg/exmg-markdown-editor',
     },
     {
       name: '@exmg/exmg-radio-group',

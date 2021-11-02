@@ -13,6 +13,7 @@
     "exmg-*.js",
     "exmg-*.d.ts"
   ],
+  "homepage": "https://github.com/exmg/exmachina-web-components",
   "license": "MIT",
   "dependencies": {
     "@exmg/exmg-button": "^8.1.7",

@@ -21,6 +21,7 @@
     "url": "git@github.com:exmg/exmg-web-components.git",
     "directory": "packages/exmg-markdown-editor"
   },
+  "homepage": "https://github.com/exmg/exmachina-web-components",
   "license": "MIT",
   "files": [
     "styles/**/*.scss",
@@ -29,6 +30,7 @@
   ],
   "dependencies": {
     "@polymer/iron-flex-layout": "^3.0.1",
+    "@material/mwc-base": "=0.25.3",
     "@polymer/iron-icon": "^3.0.1",
     "@polymer/iron-iconset-svg": "^3.0.1",
     "@polymer/marked-element": "^3.0.1",

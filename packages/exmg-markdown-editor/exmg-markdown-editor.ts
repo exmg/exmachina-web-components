@@ -1,5 +1,5 @@
 import {LitElement, html, TemplateResult} from 'lit';
-import {customElement, query, property} from 'lit/decorators.js';
+import {customElement, query, property, state} from 'lit/decorators.js';
 import {repeat} from 'lit/directives/repeat.js';
 import {classMap} from 'lit/directives/class-map.js';
 import {observer} from '@material/mwc-base/observer.js';
@@ -22,6 +22,7 @@ import {
   ChangedProps,
 } from './exmg-custom-types.js';
 
+// eslint-disable-next-line no-undef
 import Editor = CodeMirror.Editor;
 import {
   convertShortcut,
@@ -152,25 +153,25 @@ export class EditorElement extends LitElement {
   toolbarButtons: ToolBarOption[] = DEFAULT_TOOLBAR_OPTIONS;
 
   @property({type: String})
-  public name?: string;
+  name?: string;
 
   @property({type: Boolean, attribute: 'required'})
-  public required = false;
+  required = false;
 
   @property({type: Boolean, reflect: true, attribute: 'invalid'})
-  private invalid = false;
+  invalid = false;
 
   bubbles = false;
 
   static styles = [codeMirrorStylesText];
 
-  public validate(): boolean {
+  validate(): boolean {
     this.invalid = this.required && !this.markdown;
 
     return !this.invalid;
   }
 
-  @property({type: Array})
+  @state()
   private toolbarButtonsConfig: ToolBarConfigItem[] = [
     {
       name: 'undo',
@@ -331,7 +332,7 @@ export class EditorElement extends LitElement {
   @property({type: Object, attribute: 'shortcuts'})
   shortcuts: Record<string, string> = SHORTCUTS;
 
-  @property({type: Array})
+  @state()
   private enabledExtensions: AvailableMarkdownExtension[] = [];
 
   @query('#editor')

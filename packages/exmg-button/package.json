@@ -25,6 +25,7 @@
     "index.js",
     "index.d.ts"
   ],
+  "homepage": "https://github.com/exmg/exmachina-web-components",
   "main": "exmg-button.js",
   "repository": {
     "type": "git",

@@ -19,6 +19,7 @@
     "index.js",
     "index.d.ts"
   ],
+  "homepage": "https://github.com/exmg/exmachina-web-components",
   "repository": {
     "type": "git",
     "url": "git@github.com:exmg/exmg-web-components.git",

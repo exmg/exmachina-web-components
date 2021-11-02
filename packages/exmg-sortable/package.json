@@ -22,6 +22,7 @@
   "devDependencies": {
     "@exmg/exmg-cli": "^8.1.5"
   },
+  "homepage": "https://github.com/exmg/exmachina-web-components",
   "main": "exmg-sortable.js",
   "repository": {
     "type": "git",
