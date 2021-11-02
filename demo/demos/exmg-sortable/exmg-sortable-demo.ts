@@ -1,18 +1,108 @@
-import {LitElement, html, TemplateResult} from 'lit';
+import {LitElement, html, css} from 'lit';
 import {customElement, property} from 'lit/decorators.js';
-import '@polymer/iron-ajax/iron-ajax.js';
-import '../exmg-sortable.js';
+import '@exmg/exmg-sortable/exmg-sortable.js';
+import {USERS} from './data/users.js';
 
 @customElement('exmg-sortable-demo')
 export class SortableDemo extends LitElement {
-  @property({type: String})
-  public dataUrl = '';
-
   @property({type: Array})
-  public users: any[] = [];
+  users: any[] = USERS;
 
   @property({type: Object})
   private externalSortableHost?: HTMLElement;
+
+  static styles = [css`
+    ul,
+    li {
+      margin-left: 0;
+      padding-left: 0;
+    }
+
+    li {
+      display: flex;
+      padding: 10px 15px;
+      border-bottom: 1px solid silver;
+    }
+
+    li.cloned {
+      background: white;
+      width: 100%;
+      box-sizing: border-box;
+      box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+      opacity: 0.9;
+    }
+
+    li.dragged {
+      background: #c0c0c0;
+      opacity: 0.25;
+      box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5) inset;
+    }
+
+    li > strong {
+      flex-grow: 1;
+    }
+
+    li > span {
+      width: 30%;
+    }
+
+    table {
+      border-collapse: collapse;
+      width: 100%;
+    }
+
+    td,
+    th {
+      padding: 10px 15px;
+      border-bottom: 1px solid silver;
+    }
+
+    tr.dragged {
+      background: #c0c0c0;
+      opacity: 0.25;
+      box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5) inset;
+    }
+
+    tr.cloned {
+      background: white;
+      width: 100%;
+      box-sizing: border-box;
+      box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+      opacity: 0.9;
+    }
+
+    td.handle {
+      padding: 0;
+      vertical-align: middle;
+    }
+    td.handle span {
+      display: block;
+      background: gray;
+      width: 20px;
+      height: 20px;
+      margin: 10px;
+    }
+
+    .boxes {
+      margin-top: 2em;
+      overflow: hidden;
+    }
+
+    .box {
+      float: left;
+      width: 150px;
+      height: 150px;
+      padding: 10px;
+      margin: 20px;
+      box-sizing: border-box;
+      background: #f0f0f0;
+      box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+    }
+
+    .box.dragged {
+      opacity: 0;
+    }
+  `]
 
   protected async firstUpdated(): Promise<void> {
     await this.updateComplete;
@@ -21,7 +111,7 @@ export class SortableDemo extends LitElement {
     });
   }
 
-  public constructor() {
+  constructor() {
     super();
 
     this.orderChange = this.orderChange.bind(this);
@@ -45,107 +135,8 @@ export class SortableDemo extends LitElement {
     }, 0);
   }
 
-  private handleIronAjaxResponse(response: CustomEvent): void {
-    this.users = response.detail.xhr.response;
-  }
-
-  public render(): TemplateResult {
+  render() {
     return html`
-      <style>
-        ul,
-        li {
-          margin-left: 0;
-          padding-left: 0;
-        }
-
-        li {
-          display: flex;
-          padding: 10px 15px;
-          border-bottom: 1px solid silver;
-        }
-
-        li.cloned {
-          background: white;
-          width: 100%;
-          box-sizing: border-box;
-          box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
-          opacity: 0.9;
-        }
-
-        li.dragged {
-          background: #c0c0c0;
-          opacity: 0.25;
-          box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5) inset;
-        }
-
-        li > strong {
-          flex-grow: 1;
-        }
-
-        li > span {
-          width: 30%;
-        }
-
-        table {
-          border-collapse: collapse;
-          width: 100%;
-        }
-
-        td,
-        th {
-          padding: 10px 15px;
-          border-bottom: 1px solid silver;
-        }
-
-        tr.dragged {
-          background: #c0c0c0;
-          opacity: 0.25;
-          box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5) inset;
-        }
-
-        tr.cloned {
-          background: white;
-          width: 100%;
-          box-sizing: border-box;
-          box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
-          opacity: 0.9;
-        }
-
-        td.handle {
-          padding: 0;
-          vertical-align: middle;
-        }
-        td.handle span {
-          display: block;
-          background: gray;
-          width: 20px;
-          height: 20px;
-          margin: 10px;
-        }
-
-        .boxes {
-          margin-top: 2em;
-          overflow: hidden;
-        }
-
-        .box {
-          float: left;
-          width: 150px;
-          height: 150px;
-          padding: 10px;
-          margin: 20px;
-          box-sizing: border-box;
-          background: #f0f0f0;
-          box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
-        }
-
-        .box.dragged {
-          opacity: 0;
-        }
-      </style>
-
-      <iron-ajax auto="" url="data/users.json" handle-as="json" @response="${this.handleIronAjaxResponse}"></iron-ajax>
-
       <h2>List</h2>
       <exmg-sortable orientation="vertical" @dom-order-change="${this.orderChange}">
         <ul>

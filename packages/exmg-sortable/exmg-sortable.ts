@@ -32,10 +32,10 @@ const orientationMap = {
 @customElement('exmg-sortable')
 export class SortableElement extends LitElement {
   @property({type: String, attribute: 'handle-selector'})
-  public handleSelector?: string;
+  handleSelector?: string;
 
   @property({type: String, attribute: 'item-selector'})
-  public itemSelector = 'li';
+  itemSelector = 'li';
 
   /**
    * Optionally is possible to pass node instance which is host of sortable elements otherwise host for sortable elements
@@ -43,22 +43,22 @@ export class SortableElement extends LitElement {
    * Note that style `sortableHostNode.style.position` will be set to `relative`
    */
   @property({type: Object})
-  public sortableHostNode?: HTMLElement;
+  sortableHostNode?: HTMLElement;
 
   @property({type: Boolean, attribute: 'animation-enabled'})
-  public animationEnabled = false;
+  animationEnabled = false;
 
   @property({type: String, attribute: 'cloned-class'})
-  public clonedClass = 'cloned';
+  clonedClass = 'cloned';
 
   @property({type: String, attribute: 'dragged-class'})
-  public draggedClass = 'dragged';
+  draggedClass = 'dragged';
 
   @property({type: Object, attribute: 'animation-timing'})
-  public animationTiming: any = {duration: 200, easing: 'ease-out'};
+  animationTiming: any = {duration: 200, easing: 'ease-out'};
 
   @property({type: String})
-  public orientation?: 'horizontal' | 'vertical';
+  orientation?: 'horizontal' | 'vertical';
 
   private dragRequestPending = false;
   private draggedElement?: HTMLElement;

@@ -11,5 +11,8 @@
     "**/*.ts",
     "src/styles/*.ts"
   ],
+  "references": [
+    {"path": "../exmg-sortable"}
+  ]
  }
 
