@@ -3,7 +3,7 @@ import {property} from 'lit/decorators/property.js';
 import {customElement} from 'lit/decorators/custom-element.js';
 import {eventOptions} from 'lit/decorators/event-options.js';
 
-import {classMap} from 'lit-html/directives/class-map.js';
+import {classMap} from 'lit/directives/class-map.js';
 import {ButtonBase} from '@material/mwc-button/mwc-button-base.js';
 import {styles} from '@material/mwc-button/styles.css.js';
 import {style as newStyles} from './styles/exmg-button-styles-css.js';
