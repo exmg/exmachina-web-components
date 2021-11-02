@@ -1,0 +1,114 @@
+:host {
+  display: block;
+}
+
+paper-listbox {
+  padding: 0;
+}
+
+paper-item {
+  height: 56px;
+  box-sizing: border-box;
+  line-height: 56px;
+  padding: 0 20px;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--exmg-paper-sidemenu-group-text-color, rgba(0, 0, 0, var(--dark-secondary-opacity)));
+  cursor: pointer;
+}
+
+paper-item:last-child {
+  padding: 0 8px;
+}
+
+paper-item svg {
+  padding-right: 12px;
+  width: 24px;
+  max-width: 24px;
+  height: 20px;
+  fill: var(--exmg-paper-sidemenu-group-text-color, rgba(0, 0, 0, var(--dark-secondary-opacity)));
+}
+
+exmg-paper-tooltip {
+  display: none;
+  white-space: nowrap;
+}
+
+.menu-header {
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+  background: var(--exmg-paper-sidemenu-menu-header-background-color, #f9faf9);
+  min-height: 56px;
+  border-bottom: 1px solid var(--exmg-paper-sidemenu-menu-border-color, #ddd);
+}
+
+.menu-header paper-listbox {
+  display: flex;
+  width: 100%;
+  border: none;
+  background: none;
+}
+
+.menu-header .menu-item:first-child {
+  border-right: 1px solid var(--exmg-paper-sidemenu-menu-border-color, #ddd);
+  flex: 1;
+  flex-basis: 0.000000001px;
+}
+
+.menu-header .menu-item:nth-child(2) svg {
+  padding-right: 0;
+}
+
+:host([collapsed]) .menu-header {
+  padding: 10px 0 8px;
+  display: flex;
+  flex-direction: column;
+}
+
+:host([collapsed]) exmg-paper-tooltip {
+  display: block;
+}
+
+:host([collapsed]) .menu-header .menu-item:nth-child(1) svg {
+  padding-right: 0;
+}
+
+:host([collapsed]) .menu-header paper-listbox {
+  display: flex;
+  flex-direction: column;
+  border-right: none;
+  border-bottom: none;
+  padding: 5px 0;
+}
+
+:host([collapsed]) paper-item {
+  min-height: 36px;
+  line-height: 36px;
+  height: initial;
+  border-right: none;
+}
+
+:host([collapsed]) paper-item .title {
+  opacity: 0;
+  width: 0;
+  pointer-events: none;
+}
+
+a:hover paper-item {
+  background: var(--exmg-paper-sidemenu-hover-background-color, var(--paper-grey-200));
+}
+
+a[aria-selected='true'] paper-item svg {
+  fill: var(--exmg-paper-sidemenu-selected-text-color, var(--primary-color));
+}
+
+a[aria-selected='true'] paper-item {
+  color: var(--exmg-paper-sidemenu-selected-text-color, var(--primary-color));
+}
+
+.menu-item {
+  display: block;
+  text-decoration: none;
+  outline: none;
+}
