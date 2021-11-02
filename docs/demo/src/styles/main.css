@@ -32,25 +32,25 @@ html {
   --app-drawer-scrim-background: rgba(22, 43, 65, 0.8);
 
   /* Side menu */
-  --exmg-paper-sidemenu-background: var(--app-drawer-background-color);
-  --exmg-paper-sidemenu-group-text-color: white;
-  --exmg-paper-sidemenu-group-title: white;
-  --exmg-paper-sidemenu-item-text-color: white;
-  --exmg-paper-sidemenu-menu-footer-background-color: #223c57;
-  --exmg-paper-sidemenu-menu-border-color: #314e6c;
-  --exmg-paper-sidemenu-icon-color: rgba(255, 255, 255, 0.9);
-  --exmg-paper-sidemenu-active-background-color: var(--mdc-theme-primary);
-  --exmg-paper-sidemenu-badge-background-color: var(--mdc-theme-primary);
-  --exmg-paper-sidemenu-badge-text-color: var(--mdc-theme-on-primary);
-  --exmg-paper-sidemenu-hover-background-color: var(
+  --exmg-sidemenu-background: var(--app-drawer-background-color);
+  --exmg-sidemenu-group-text-color: white;
+  --exmg-sidemenu-group-title: white;
+  --exmg-sidemenu-item-text-color: white;
+  --exmg-sidemenu-menu-footer-background-color: #223c57;
+  --exmg-sidemenu-menu-border-color: #314e6c;
+  --exmg-sidemenu-icon-color: rgba(255, 255, 255, 0.9);
+  --exmg-sidemenu-active-background-color: var(--mdc-theme-primary);
+  --exmg-sidemenu-badge-background-color: var(--mdc-theme-primary);
+  --exmg-sidemenu-badge-text-color: var(--mdc-theme-on-primary);
+  --exmg-sidemenu-hover-background-color: var(
     --app-drawer-background-hover-color
   );
-  --exmg-paper-sidemenu-selected-background-color: var(--mdc-theme-primary);
-  --exmg-paper-sidemenu-selected-text-color: white;
-  --exmg-paper-sidemenu-menu-header-background-color: var(
+  --exmg-sidemenu-selected-background-color: var(--mdc-theme-primary);
+  --exmg-sidemenu-selected-text-color: white;
+  --exmg-sidemenu-menu-header-background-color: var(
     --app-drawer-background-color
   );
-  --exmg-paper-sidemenu-badge-background-color: var(--mdc-theme-secondary);
+  --exmg-sidemenu-badge-background-color: var(--mdc-theme-secondary);
 
   /* Form drawer */
   --exmg-form-drawer-header-separator-color: #314e6c;
@@ -104,24 +104,24 @@ html[dark-theme] {
   --app-drawer-scrim-background: rgba(22, 43, 65, 0.8);
 
   /* Side menu */
-  --exmg-paper-sidemenu-background: var(--app-drawer-background-color);
-  --exmg-paper-sidemenu-group-text-color: rgba(255, 255, 255, 0.7);
-  --exmg-paper-sidemenu-group-title: rgba(255, 255, 255, 0.7);
-  --exmg-paper-sidemenu-item-text-color: var(--dark-ice);
-  --exmg-paper-sidemenu-menu-footer-background-color: var(--dark-muted-black);
-  --exmg-paper-sidemenu-menu-border-color: var(
+  --exmg-sidemenu-background: var(--app-drawer-background-color);
+  --exmg-sidemenu-group-text-color: rgba(255, 255, 255, 0.7);
+  --exmg-sidemenu-group-title: rgba(255, 255, 255, 0.7);
+  --exmg-sidemenu-item-text-color: var(--dark-ice);
+  --exmg-sidemenu-menu-footer-background-color: var(--dark-muted-black);
+  --exmg-sidemenu-menu-border-color: var(
     --app-drawer-background-hover-color
   );
-  --exmg-paper-sidemenu-icon-color: rgba(255, 255, 255, 0.9);
-  --exmg-paper-sidemenu-active-background-color: var(--dark-muted-black);
-  --exmg-paper-sidemenu-badge-background-color: var(--mdc-theme-primary);
-  --exmg-paper-sidemenu-badge-text-color: var(--mdc-theme-on-primary);
-  --exmg-paper-sidemenu-hover-background-color: var(
+  --exmg-sidemenu-icon-color: rgba(255, 255, 255, 0.9);
+  --exmg-sidemenu-active-background-color: var(--dark-muted-black);
+  --exmg-sidemenu-badge-background-color: var(--mdc-theme-primary);
+  --exmg-sidemenu-badge-text-color: var(--mdc-theme-on-primary);
+  --exmg-sidemenu-hover-background-color: var(
     --app-drawer-background-hover-color
   );
-  --exmg-paper-sidemenu-selected-background-color: var(--dark-hover-black);
-  --exmg-paper-sidemenu-selected-text-color: var(--mdc-theme-primary);
-  --exmg-paper-sidemenu-menu-header-background-color: var(--dark-muted-black);
+  --exmg-sidemenu-selected-background-color: var(--dark-hover-black);
+  --exmg-sidemenu-selected-text-color: var(--mdc-theme-primary);
+  --exmg-sidemenu-menu-header-background-color: var(--dark-muted-black);
 
   /* Grid */
   --exmg-theme-table-surface: red;

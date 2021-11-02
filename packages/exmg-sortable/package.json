@@ -12,9 +12,7 @@
   ],
   "files": [
     "exmg-*.js",
-    "exmg-*.d.ts",
-    "index.js",
-    "index.d.ts"
+    "exmg-*.d.ts"
   ],
   "dependencies": {
     "@polymer/polymer": "^3.4.1",

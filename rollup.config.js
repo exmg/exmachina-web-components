@@ -7,7 +7,7 @@ import copy from 'rollup-plugin-copy';
 /**
  * Elements with a viable demo
  */
-const elements = ['exmg-button', 'exmg-grid', 'exmg-dialogs', 'exmg-tooltip', 'exmg-radio-group', 'exmg-sortable'];
+const elements = ['exmg-button', 'exmg-grid', 'exmg-dialogs', 'exmg-tooltip', 'exmg-radio-group', 'exmg-sortable', 'exmg-sidemenu'];
 
 const elementsConfigs = elements.map((element) => {
   return {
@@ -34,8 +34,8 @@ const elementsConfigs = elements.map((element) => {
         ]
       })
     ],
-  }
-})
+  };
+});
 
 export default [
   {

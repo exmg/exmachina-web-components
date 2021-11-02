@@ -32,3 +32,9 @@ import {ExmgTooltipBase} from './exmg-tooltip-base.js';
 export class ExmgTooltip extends ExmgTooltipBase {
   static styles = style;
 }
+
+declare global {
+  interface HTMLElementTagNameMap {
+    'exmg-tooltip': ExmgTooltip;
+  }
+}

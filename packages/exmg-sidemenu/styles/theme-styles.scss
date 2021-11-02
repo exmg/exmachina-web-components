@@ -1,0 +1,41 @@
+/* Sass vars */
+$mdc-theme-primary: #0071dc;
+$mdc-theme-secondary: #f53b57;
+$mdc-theme-background: #f6f6f6;
+$mdc-theme-on-background: #000;
+$mdc-theme-surface: #fff;
+$mdc-theme-on-primary: #fff;
+$mdc-theme-on-secondary: #03182a;
+$mdc-theme-on-surface: #03182a;
+
+:host {
+  /* Main header colors */
+  --app-drawer-width: 16rem;
+  --app-toolbar-height: 3.6rem;
+  --app-header-background-color: var(--mdc-theme-primary);
+  --app-header-text-color: var(--mdc-theme-on-primary);
+  --app-header-selected-color: var(--mdc-theme-on-primary);
+
+  /* Drawer */
+  --app-drawer-collapsed-width: 4rem;
+  --app-drawer-background-color: #142b42;
+  --app-drawer-background-hover-color: #223c57;
+  --app-drawer-background-active-color: #314e6c;
+  --app-drawer-scrim-background: rgba(0, 0, 0, 0.6);
+
+  /* Side menu */
+  --exmg-sidemenu-background: var(--app-drawer-background-color);
+  --exmg-sidemenu-group-text-color: rgba(255, 255, 255, 0.7);
+  --exmg-sidemenu-group-title: rgba(255, 255, 255, 0.7);
+  --exmg-sidemenu-item-text-color: rgba(255, 255, 255, 0.7);
+  --exmg-sidemenu-menu-footer-background-color: #223c57;
+  --exmg-sidemenu-menu-border-color: #314e6c;
+  --exmg-sidemenu-icon-color: rgba(255, 255, 255, 0.9);
+  --exmg-sidemenu-badge-background-color: var(--mdc-theme-primary);
+  --exmg-sidemenu-badge-text-color: var(--mdc-theme-on-primary);
+  --exmg-sidemenu-hover-background-color: var(--app-drawer-background-hover-color);
+  --exmg-sidemenu-active-background-color: var(--app-drawer-background-active-color);
+  --exmg-sidemenu-selected-text-color: white;
+  --exmg-sidemenu-menu-header-background-color: var(--app-drawer-background-color);
+  /* --exmg-sidemenu-selected-text-color: var(--mdc-theme-primary);*/
+}
