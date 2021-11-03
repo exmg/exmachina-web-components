@@ -27,7 +27,7 @@
   "devDependencies": {
     "@exmg/exmg-cli": "^2.1.0",
     "@material/mwc-icon": "=0.25.3",
-    "@exmg/exmg-markdown-editor": "^5.1.14",
+    "@exmg/exmg-markdown-editor": "^8.0.0",
     "@exmg/exmg-paper-combobox": "^6.0.7",
     "@exmg/exmg-paper-token-input": "^5.1.3",
     "codemirror": "^5.54.0"

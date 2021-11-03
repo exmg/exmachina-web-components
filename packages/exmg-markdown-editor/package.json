@@ -9,9 +9,8 @@
   ],
   "keywords": [
     "web-components",
-    "polymer",
     "typescript",
-    "lit-elemnt",
+    "lit",
     "markdown",
     "editor",
     "wysiwyg"
@@ -36,7 +35,7 @@
     "@polymer/marked-element": "^3.0.1",
     "@polymer/polymer": "^3.4.1",
     "codemirror": "5.49.2",
-    "marked": "^1.2.2",
+    "marked": "^2.1.3",
     "lit": "^2.0.0",
     "tslib": "^2.0.1"
   },

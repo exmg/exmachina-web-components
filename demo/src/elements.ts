@@ -24,6 +24,11 @@
       url: 'https://www.npmjs.com/package/@exmg/exmg-dialogs',
     },
     {
+      name: '@exmg/exmg-form',
+      version: '8.1.0',
+      url: 'https://www.npmjs.com/package/@exmg/exmg-form',
+    },
+    {
       name: '@exmg/exmg-grid',
       version: '8.1.0',
       url: 'https://www.npmjs.com/package/@exmg/exmg-grid',

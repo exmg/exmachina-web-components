@@ -16,8 +16,6 @@ import {
   ToolBarOption,
   ToolBarConfigItem,
   isToolBarConfigItem,
-  AvailableMarkdownExtension,
-  availableMarkdownExtensions,
   Position,
   ChangedProps,
 } from './exmg-custom-types.js';
@@ -332,9 +330,6 @@ export class EditorElement extends LitElement {
   @property({type: Object, attribute: 'shortcuts'})
   shortcuts: Record<string, string> = SHORTCUTS;
 
-  @state()
-  private enabledExtensions: AvailableMarkdownExtension[] = [];
-
   @query('#editor')
   editorElement?: HTMLElement;
 
@@ -365,7 +360,6 @@ export class EditorElement extends LitElement {
   constructor() {
     super();
     this._onKeyPressed = this.onKeyPressed.bind(this);
-
     // Cancel enter propogation
     this.addEventListener('keyup', this._onKeyPressed);
   }
@@ -383,7 +377,6 @@ export class EditorElement extends LitElement {
   protected async firstUpdated(): Promise<void> {
     await this.updateComplete;
     this.setupEditor();
-    this.setupToolbarExtensions();
     this.isElementInitialized = true;
     this.renderHTML();
   }
@@ -433,7 +426,11 @@ export class EditorElement extends LitElement {
     if (window.markdownEditorConfig && window.markdownEditorConfig.renderer) {
       customRenderer = window.markdownEditorConfig.renderer as Renderer;
     }
-    window.marked.use({renderer: customRenderer});
+    const extensions = window.markdownEditorConfig?.extensions || [];
+
+
+    // @ts-ignore
+    window.marked.use({renderer: customRenderer, extensions});
 
     this.innerHTML = `<div class="preview-body">${window.marked(this.markdown, opts)}</div>`;
     this.focus();
@@ -452,25 +449,6 @@ export class EditorElement extends LitElement {
 
       return this.normalizedToolBarConfig.get(optionName) || {};
     });
-  }
-  /**
-   * Updates the Toolbar to take out disabled extensions that are active on the toolbar
-   */
-
-  private setupToolbarExtensions(): void {
-    const fetchedConfig = window.markdownEditorConfig;
-    if (fetchedConfig) {
-      this.enabledExtensions = fetchedConfig.extensions;
-    }
-    const baseToolbarButtons = this.toolbarButtons;
-    availableMarkdownExtensions.forEach((extension) => {
-      if (baseToolbarButtons.includes(extension) && !this.enabledExtensions.includes(extension)) {
-        console.warn(`The extension ${extension} is not enabled on your markdownEditorConfig object, it was removed from the toolbar.`);
-        baseToolbarButtons.splice(baseToolbarButtons.indexOf(extension), 1);
-      }
-    });
-    this.toolbarButtons = baseToolbarButtons;
-    this.requestUpdate();
   }
 
   /**
@@ -501,7 +479,7 @@ export class EditorElement extends LitElement {
     }
   }
 
-  /********* TOOL BAR HANDLERS *************/
+  // ********* TOOL BAR HANDLERS *************/
   private toggleFullscreen(event?: Event): void {
     if (event) {
       event.preventDefault();
@@ -888,11 +866,11 @@ export class EditorElement extends LitElement {
     this.fire('exmg-markdown-editor-paste-table');
   }
 
-  public insertMarkdown(data: string): void {
+  insertMarkdown(data: string): void {
     this.insertAtCursor(data);
   }
 
-  public insertTableAtCursor(data: string): void {
+  insertTableAtCursor(data: string): void {
     const columnWidth = (rows: string[][], columnIndex: number) => {
       return Math.max.apply(
         null,

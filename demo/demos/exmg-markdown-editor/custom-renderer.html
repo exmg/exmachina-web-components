@@ -65,18 +65,21 @@
         }
       </style>
     </custom-style>
+
   </head>
   <body>
     <div class="vertical-section-container centered">
       <h2>Markdown Custom Renderer</h2>
       <demo-snippet>
         <template>
-          <exmg-markdown-editor split-view show-helper-label class="markdown-body" markdown="# Test"> </exmg-markdown-editor>
+          <exmg-markdown-editor split-view show-helper-label class="markdown-body" markdown="# Test \n\n 000 +1111+ 2222 \n 3333"> </exmg-markdown-editor>
         </template>
       </demo-snippet>
+
     </div>
 
-    <script type="module">
+    <script>
+      // Overwrite existing renderer for a header
       const renderer = {
         heading(text, level) {
           const escapedText = text.toLowerCase().replace(/[^\w]+/g, '-');
@@ -86,18 +89,41 @@
                 <span class="header-link"></span>
               </a>
               ${text}
-            </h${level}>`;
-        },
+            </h${level}>
+          `;
+        }
       };
+  
+      // Add non existing addition (Underline) to the marked as an extension 
+      const underline = {
+        name: 'underline',
+        level: 'inline',
+        start(src) { return src.match(/\+/)?.index; },
+        tokenizer(src, tokens) {
+          const rule = /^\+([^\+\n]+)\+/;
+          const match = rule.exec(src);
+          if (match) {
+            return {
+              type: 'underline',
+              raw: match[0],
+              u: this.inlineTokens(match[1].trim()),
+
+            };
+          }
+        },
+        renderer(token) {
+          return `\n<u>${this.parseInline(token.u)}</u>`;
+        },
+        childTokens: ['u']
+      };
+
       window.markdownEditorConfig = {
         renderer,
+        extensions: [underline]
       };
-      const markdown = `# Text
-Lorem **ipsum** dolor sit amet, ~~consectetur adipiscing~~ elit, sed do _eiusmod_ tempor incididunt
-ut labore et dolore magna aliqua.
-`;
+
       const mdEditor = document.body.querySelector('exmg-markdown-editor');
-      mdEditor.markdown = markdown;
+
     </script>
   </body>
 </html>
