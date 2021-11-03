@@ -74,6 +74,9 @@
       "path": "packages/exmg-sortable",
     }, 
     {
+      "path": "packages/exmg-markdown-editor",
+    }, 
+    {
       "path": "packages/exmg-sidemenu",
     }, 
     {

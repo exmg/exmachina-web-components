@@ -25,10 +25,11 @@
     "index.js",
     "index.d.ts"
   ],
+  "homepage": "https://github.com/exmg/exmachina-web-components",
   "main": "exmg-button.js",
   "repository": {
     "type": "git",
-    "url": "git@github.com:ExmgElements/exmg-button.git",
+    "url": "git@github.com:exmg/exmg-web-components.git",
     "directory": "packages/exmg-button"
   },
   "license": "MIT",

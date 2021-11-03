@@ -18,11 +18,11 @@
   "main": "exmg-sidemenu.js",
   "repository": {
     "type": "git",
-    "url": "git@github.com:ExmgElements/exmg-sidemenu.git",
+    "url": "git@github.com:exmg/exmg-web-components.git",
     "directory": "packages/exmg-sidemenu"
   },
   "license": "MIT",
-  "homepage": "https://github.com/ExmgElements/exmg-sidemenu",
+  "homepage": "https://github.com/exmg/exmachina-web-components",
   "dependencies": {
     "@material/mwc-base": "^0.25.2",
     "@material/theme": "^13.0.0",

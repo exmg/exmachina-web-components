@@ -4,7 +4,7 @@
   "main": "exmg-dialog-form.js",
   "repository": {
     "type": "git",
-    "url": "git@github.com:ExmgElements/packages/exmg-dialogs.git",
+    "url": "git@github.com:exmg/exmg-web-components.git",
     "directory": "packages/exmg-dialogs"
   },
   "files": [
@@ -13,6 +13,7 @@
     "exmg-*.js",
     "exmg-*.d.ts"
   ],
+  "homepage": "https://github.com/exmg/exmachina-web-components",
   "license": "MIT",
   "dependencies": {
     "@exmg/exmg-button": "^8.1.7",
