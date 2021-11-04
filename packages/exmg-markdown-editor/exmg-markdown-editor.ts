@@ -648,7 +648,7 @@ export class EditorElement extends ExmgElement {
       const stateFound = states.includes(type);
       switch (type) {
         case 'header': {
-          const result = /(^[\#]+)/.exec(text);
+          const result = /(^[#]+)/.exec(text);
           if (result === null) {
             text = `${symbol} ${text}`;
             const offset = symbol!.length + 1; // +1 is space.

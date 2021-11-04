@@ -56,7 +56,7 @@ export class ExmgFormBase extends ExmgElement {
   /**
    * Indicator of the form has pending changes
    */
-  @property({type: Boolean})
+  @state()
   @observer(function(this: ExmgFormBase, dirty: boolean) {
     this.dispatchEvent(
       new CustomEvent('dirty-change', {

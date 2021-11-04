@@ -1,27 +1,27 @@
 @use '@material/typography/mixins' as typography;
 
 h1 {
-  @include typography.mdc-typography(headline1);
+  @include typography.typography(headline1);
 }
 
 h2 {
-  @include typography.mdc-typography(headline2);
+  @include typography.typography(headline2);
 }
 
 h3 {
-  @include typography.mdc-typography(headline3);
+  @include typography.typography(headline3);
 }
 
 h4 {
-  @include typography.mdc-typography(headline4);
+  @include typography.typography(headline4);
 }
 
 h5 {
-  @include typography.mdc-typography(headline5);
+  @include typography.typography(headline5);
 }
 
 h6 {
-  @include typography.mdc-typography(headline6);
+  @include typography.typography(headline6);
 }
 
 body,
@@ -51,9 +51,14 @@ a:visited {
 
 .elements {
   display: flex;
-  margin: 2rem 0;
+  flex-wrap: wrap;
+  margin: 2rem;
   width: 100%;
   justify-content: space-evenly;
+}
+
+.elements > a {
+  margin: 1rem;
 }
 
 .element {
