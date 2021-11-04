@@ -26,6 +26,7 @@
     "directory": "packages/exmg-grid"
   },
   "dependencies": {
+    "@exmg/exmg-base": "^8.0.0",
     "@exmg/exmg-sortable": "^8.0.1",
     "@material/mwc-menu": "^0.25.2",
     "@material/mwc-button": "^0.25.2",

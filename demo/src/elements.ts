@@ -7,7 +7,6 @@
     url: string;
   };
   export const elements: Element[] = [
-    
     {
       name: '@exmg/exmg-button',
       version: '8.1.7',

@@ -1,8 +1,9 @@
-import {LitElement, html, TemplateResult} from 'lit';
+import {html, TemplateResult} from 'lit';
+import {ExmgElement} from '@exmg/exmg-base';
 import {customElement, query, property, state} from 'lit/decorators.js';
 import {repeat} from 'lit/directives/repeat.js';
 import {classMap} from 'lit/directives/class-map.js';
-import {observer} from '@material/mwc-base/observer.js';
+import {observer} from '@exmg/exmg-base/observer/observer.js';
 
 import '@polymer/iron-flex-layout/iron-flex-layout.js';
 import '@polymer/iron-icon/iron-icon.js';
@@ -96,11 +97,11 @@ import {MarkedOptions, Renderer} from 'marked';
  * @element exmg-markdown-editor
  * @demo demo/index.html
  * @memberof Exmg
- * @extends LitElement
+ * @extends ExmgElement
  * @summary Markdown editor element
  */
 @customElement('exmg-markdown-editor')
-export class EditorElement extends LitElement {
+export class EditorElement extends ExmgElement {
   @property({type: Boolean, attribute: 'auto-focus'})
   autoFocus = false;
 
@@ -114,7 +115,7 @@ export class EditorElement extends LitElement {
   indentWithTabs = true;
 
   @property({type: String})
-  @observer(function (this: EditorElement, markdown: string) {
+  @observer(function(this: EditorElement, markdown: string) {
     if (this.codeMirrorEditor && this.codeMirrorEditor.getValue() !== markdown) {
       this.codeMirrorEditor.setValue(markdown || '');
     }
@@ -134,7 +135,7 @@ export class EditorElement extends LitElement {
   splitView = false;
 
   @property({type: Boolean, reflect: true, attribute: 'fullscreen'})
-  @observer(function (this: EditorElement, fullscreen: boolean) {
+  @observer(function(this: EditorElement, fullscreen: boolean) {
     if (!this.codeMirrorEditor) {
       return;
     }
@@ -587,11 +588,11 @@ export class EditorElement extends LitElement {
     const codeMirror = this.codeMirrorEditor!;
     const states = this.getStates();
     const blockStyles: Record<string, string> = {
-      strong: '**',
+      'strong': '**',
       'inline-code': '`',
-      code: '```',
-      em: '*',
-      strikethrough: '~~',
+      'code': '```',
+      'em': '*',
+      'strikethrough': '~~',
     };
 
     const cursorStart = codeMirror.getDoc().getCursor('start');
@@ -874,36 +875,35 @@ export class EditorElement extends LitElement {
     const columnWidth = (rows: string[][], columnIndex: number) => {
       return Math.max.apply(
         null,
-        rows.map(function (row) {
+        rows.map(function(row) {
           return row[columnIndex].length;
         }),
       );
     };
 
-    const rows = data.split(/[\n\u0085\u2028\u2029]|\r\n?/g).map(function (row) {
+    const rows = data.split(/[\n\u0085\u2028\u2029]|\r\n?/g).map(function(row) {
       return row.split('\t');
     });
-    const columnWidths = rows[0].map(function (_column, columnIndex) {
+    const columnWidths = rows[0].map(function(_column, columnIndex) {
       return columnWidth(rows, columnIndex);
     });
-    const markdownRows = rows.map(function (row) {
+    const markdownRows = rows.map(function(row) {
       return (
         '| ' +
         row
-          .map(function (column, index) {
+          .map(function(column, index) {
             return column + Array(columnWidths[index] - column.length + 1).join(' ');
           })
           .join(' | ') +
         ' |'
       );
-      row.map;
     });
     markdownRows.splice(
       1,
       0,
       '|' +
         columnWidths
-          .map(function (_width, index) {
+          .map(function(_width, index) {
             return Array(columnWidths[index] + 3).join('-');
           })
           .join('|') +

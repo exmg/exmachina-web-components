@@ -1,0 +1,30 @@
+{
+    "name": "@exmg/exmg-base",
+    "version": "8.0.0",
+    "description": "Base element",
+    "contributors": [
+      "Ex Machina"
+    ],
+    "keywords": [
+      "web-components",
+      "lit"
+    ],
+    "main": "exmg-element.js",
+    "files": [
+      "*.js"
+    ],
+    "repository": {
+      "type": "git",
+      "url": "git@github.com:exmg/exmg-web-components.git",
+      "directory": "packages/exmg-base"
+    },
+    "license": "MIT",
+    "dependencies": {
+      "lit": "^2.0.0",
+      "tslib": "^2.0.1"
+    },
+    "publishConfig": {
+      "access": "public"
+    }
+  }
+  

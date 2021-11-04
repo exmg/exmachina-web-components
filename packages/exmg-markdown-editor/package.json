@@ -28,6 +28,7 @@
     "exmg-*.d.ts"
   ],
   "dependencies": {
+    "@exmg/exmg-base": "^8.0.0",
     "@polymer/iron-flex-layout": "^3.0.1",
     "@material/mwc-base": "=0.25.3",
     "@polymer/iron-icon": "^3.0.1",

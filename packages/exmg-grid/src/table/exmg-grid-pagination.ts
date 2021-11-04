@@ -1,5 +1,6 @@
-import {LitElement, html} from 'lit';
+import {html} from 'lit';
 import {customElement, property} from 'lit/decorators.js';
+import {ExmgElement} from '@exmg/exmg-base';
 import {repeat} from 'lit/directives/repeat.js';
 import '@material/mwc-icon-button';
 import '@polymer/paper-item/paper-item.js';
@@ -16,7 +17,7 @@ import {style} from '../styles/exmg-grid-pagination-styles-css.js';
  * `--exmg-theme-table-pagination-color` | pagination foreground (mostly text) color | `var(--mdc-theme-on-surface, #02182b);`
  */
 @customElement('exmg-grid-pagination')
-export class ExmgGridPagination extends LitElement {
+export class ExmgGridPagination extends ExmgElement {
   static styles = [style];
 
   @property({type: String, attribute: 'page-size-label'})

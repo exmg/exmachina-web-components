@@ -1,12 +1,12 @@
-import {html, LitElement} from 'lit';
-import {property} from 'lit/decorators/property.js';
-import {customElement} from 'lit/decorators/custom-element.js';
+import {html} from 'lit';
+import {property, customElement} from 'lit/decorators.js';
+import {ExmgElement} from '@exmg/exmg-base';
 import {classMap} from 'lit-html/directives/class-map.js';
-import {observer} from '@material/mwc-base/observer.js';
+import {observer} from '@exmg/exmg-base/observer/observer.js';
 import {style} from './styles/exmg-spinner-styles-css.js';
 
 @customElement('exmg-button-spinner')
-export class ExmgSpinner extends LitElement {
+export class ExmgSpinner extends ExmgElement {
   @property({type: Boolean})
   coolingDown = false;
 

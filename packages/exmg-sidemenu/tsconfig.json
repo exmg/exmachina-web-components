@@ -11,8 +11,7 @@
     "styles/*.ts"
   ],
   "references": [
-    {"path": "../exmg-tooltip"}
+    {"path": "../exmg-tooltip"},
+    {"path": "../exmg-base"}
   ]
  }
- 
- 

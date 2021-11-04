@@ -1,7 +1,8 @@
-import {html, LitElement} from 'lit';
+import {html} from 'lit';
 import {property} from 'lit/decorators/property.js';
 import {customElement} from 'lit/decorators/custom-element.js';
 import {query} from 'lit/decorators/query.js';
+import {ExmgElement} from '@exmg/exmg-base';
 import '@polymer/paper-dialog';
 import '@polymer/paper-dialog-scrollable';
 import '@exmg/exmg-button/exmg-button';
@@ -12,7 +13,7 @@ import {PaperDialogElement} from '@polymer/paper-dialog';
 import {closeIcon} from './exmg-dialog-icons';
 
 @customElement('exmg-dialog-info')
-export class ExmgInfoDialog extends LitElement {
+export class ExmgInfoDialog extends ExmgElement {
   /**
    * Title of the dialog
    */

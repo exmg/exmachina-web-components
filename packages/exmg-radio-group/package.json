@@ -30,6 +30,7 @@
   },
   "license": "MIT",
   "dependencies": {
+    "@exmg/exmg-base": "^8.0.0",
     "@material/mwc-radio": "=0.25.3",
     "@material/mwc-base": "=0.25.3",
     "@material/mwc-ripple": "=0.25.3",

@@ -16,6 +16,7 @@
   "homepage": "https://github.com/exmg/exmachina-web-components",
   "license": "MIT",
   "dependencies": {
+    "@exmg/exmg-base": "^8.0.0",
     "@exmg/exmg-button": "^8.1.7",
     "@material/mwc-icon-button": "=0.25.3",
     "@polymer/iron-form": "^3.0.0",

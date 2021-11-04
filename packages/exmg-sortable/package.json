@@ -15,6 +15,7 @@
     "exmg-*.d.ts"
   ],
   "dependencies": {
+    "@exmg/exmg-base": "^8.0.0",
     "@polymer/polymer": "^3.4.1",
     "lit": "^2.0.0",
     "tslib": "^2.0.1"

@@ -1,4 +1,5 @@
-import {html, LitElement} from 'lit';
+import {html} from 'lit';
+import {ExmgElement} from '@exmg/exmg-base';
 import {property, customElement, state} from 'lit/decorators.js';
 import {cache} from 'lit/directives/cache.js';
 import '@exmg/exmg-sortable/exmg-sortable.js';
@@ -49,7 +50,7 @@ type SmartPropertyValue = GenericPropertyValues<Props>;
  * `--exmg-table-checkbox-cell-width` | width of cell with checkbox | `24px;`
  */
 @customElement('exmg-grid')
-export class ExmgGrid extends LitElement {
+export class ExmgGrid extends ExmgElement {
   static styles = [exmgGridTableStyles];
 
   /**

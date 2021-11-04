@@ -10,6 +10,9 @@
     "*.ts",
     "styles/*.ts"
   ],
+  "references": [
+    {"path": "../exmg-base"}
+  ]
  }
  
  

@@ -72,12 +72,12 @@
     }, 
     {
       "path": "packages/exmg-sortable",
-    }, 
-    {
-      "path": "packages/exmg-markdown-editor",
-    }, 
+    },
     {
       "path": "packages/exmg-sidemenu",
+    },
+    {
+      "path": "packages/exmg-markdown-editor",
     }, 
     {
       "path": "demo",

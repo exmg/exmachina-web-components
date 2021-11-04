@@ -1,4 +1,5 @@
-import {LitElement, html, PropertyValues} from 'lit';
+import {html, PropertyValues} from 'lit';
+import {ExmgElement} from '@exmg/exmg-base';
 import {property} from 'lit/decorators.js';
 import {addListener, removeListener} from '@polymer/polymer/lib/utils/gestures.js';
 import {afterNextRender} from '@polymer/polymer/lib/utils/render-status.js';
@@ -11,7 +12,7 @@ const orientationMap = {
   vertical: {x: 0, y: 1},
 };
 
-export class SortableElementBase extends LitElement {
+export class SortableElementBase extends ExmgElement {
   @property({type: String, attribute: 'handle-selector'})
   handleSelector?: string;
 

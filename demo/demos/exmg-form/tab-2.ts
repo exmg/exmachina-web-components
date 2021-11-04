@@ -6,8 +6,8 @@ import '@exmg/exmg-paper-combobox/exmg-paper-combobox.js';
 import '@exmg/exmg-paper-token-input/exmg-paper-token-input.js';
 import '@exmg/exmg-markdown-editor/exmg-markdown-editor.js';
 
-import '../exmg-form.js';
-import {ExmgForm} from '../exmg-form.js';
+import '@exmg/exmg-form/exmg-form.js';
+import {ExmgForm} from '@exmg/exmg-form/exmg-form.js';
 
 @customElement('tab-2')
 export class Tab2El extends LitElement {

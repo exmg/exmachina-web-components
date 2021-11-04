@@ -1,5 +1,6 @@
-import {html, LitElement, css} from 'lit';
+import {html, css} from 'lit';
 import {property, customElement, query, state} from 'lit/decorators.js';
+import {ExmgElement} from '@exmg/exmg-base';
 import {classMap} from 'lit/directives/class-map.js';
 import '@polymer/paper-icon-button/paper-icon-button.js';
 import {Debouncer} from '@polymer/polymer/lib/utils/debounce.js';
@@ -23,7 +24,7 @@ export const clearIcon = html`
 `;
 
 @customElement('exmg-toolbar-search')
-export class ToolbarSearch extends LitElement {
+export class ToolbarSearch extends ExmgElement {
   @state()
   _isSearch = false;
 

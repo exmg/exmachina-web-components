@@ -23,6 +23,7 @@
   },
   "license": "MIT",
   "dependencies": {
+    "@exmg/exmg-base": "^8.0.0",
     "@exmg/exmg-button": "^8.0.3",
     "@polymer/iron-form": "^3.0.1",
     "lit": "^2.0.0",

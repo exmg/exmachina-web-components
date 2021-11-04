@@ -1,6 +1,7 @@
-import {html, LitElement} from 'lit';
+import {html} from 'lit';
+import {ExmgElement} from '@exmg/exmg-base';
 import {property} from 'lit/decorators';
-import {observer} from '@material/mwc-base/observer';
+import {observer} from '@exmg/exmg-base/observer/observer.js';
 import '@polymer/paper-listbox';
 
 export const chevronLeftIcon = html`
@@ -15,9 +16,9 @@ export const settingsIcon = html`
   </svg>
 `;
 
-export class ExmgSidemenuBase extends LitElement {
+export class ExmgSidemenuBase extends ExmgElement {
   @property({type: Boolean, reflect: true})
-  @observer(function (this: LitElement, collapsed: boolean) {
+  @observer(function(this: ExmgElement, collapsed: boolean) {
     this.dispatchEvent(new CustomEvent('collapsed', {bubbles: false, composed: true, detail: collapsed}));
   })
   collapsed = false;
@@ -26,7 +27,7 @@ export class ExmgSidemenuBase extends LitElement {
    * Contains the path of the selected menu item
    */
   @property({type: String})
-  @observer(function (this: LitElement, selected: string) {
+  @observer(function(this: ExmgElement, selected: string) {
     this.dispatchEvent(new CustomEvent('selected-changed', {bubbles: false, composed: true, detail: selected}));
   })
   selected!: string;

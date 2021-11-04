@@ -1,5 +1,6 @@
-import {html, LitElement} from 'lit';
+import {html} from 'lit';
 import {customElement, property, query} from 'lit/decorators.js';
+import {ExmgElement} from '@exmg/exmg-base';
 import '@material/mwc-menu';
 import '@material/mwc-list/mwc-list-item';
 import '@material/mwc-icon-button';
@@ -9,7 +10,7 @@ import {style} from '../styles/exmg-grid-setting-selection-list-styles-css.js';
 import {Menu} from '@material/mwc-menu';
 
 @customElement('exmg-grid-setting-selection-list')
-export class ExmgGridSettingSelectionList extends LitElement {
+export class ExmgGridSettingSelectionList extends ExmgElement {
   @property({type: String})
   tooltip = '';
 

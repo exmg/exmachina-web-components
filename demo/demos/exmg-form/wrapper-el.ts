@@ -1,8 +1,8 @@
 import {LitElement, html} from 'lit';
 import {customElement, property} from 'lit/decorators.js';
 
-import '../exmg-form.js';
-import {ExmgForm} from '../exmg-form.js';
+import '@exmg/exmg-form/exmg-form.js';
+import {ExmgForm} from '@exmg/exmg-form/exmg-form.js';
 
 @customElement('wrapper-el')
 export class WrapperEl extends LitElement {

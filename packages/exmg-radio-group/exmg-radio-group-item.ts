@@ -1,5 +1,5 @@
 import {FormElement} from '@material/mwc-base/form-element.js';
-import {observer} from '@material/mwc-base/observer.js';
+import {observer} from '@exmg/exmg-base/observer/observer.js';
 import {html} from 'lit';
 import {query} from 'lit/decorators/query.js';
 import {property} from 'lit/decorators/property.js';
@@ -10,7 +10,7 @@ import {styles} from '@material/mwc-radio/mwc-radio.css';
 import {RippleHandlers} from '@material/mwc-ripple/ripple-handlers.js';
 import foundation from '@material/radio/foundation';
 import {SelectionController} from './exmg-selection-controller';
-import {style as exmgRadioGroupItemStyles} from './styles/exmg-radio-group-item-styles-css';
+import {style as exmgRadioGroupItemStyles} from './styles/exmg-radio-group-item-styles-css.js';
 import '@material/mwc-ripple';
 
 export interface RadioFoundation extends MDCFoundation {
