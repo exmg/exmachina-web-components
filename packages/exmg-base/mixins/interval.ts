@@ -1,4 +1,4 @@
-import { ExmgElement } from '../exmg-element.js';
+import {ExmgElement} from '../exmg-element.js';
 import {Constructor} from './types.js';
 
 export abstract class IntervalClass extends ExmgElement {
@@ -23,9 +23,7 @@ export const IntervalMixin = <T extends Constructor<ExmgElement & IntervalClass>
     mode: IntervalModeType = 'AUTO';
 
     connectedCallback() {
-      if (super.connectedCallback) {
-        super.connectedCallback();
-      }
+      super.connectedCallback();
       if (this.mode === 'AUTO') {
         this.startInterval();
       }
@@ -47,9 +45,7 @@ export const IntervalMixin = <T extends Constructor<ExmgElement & IntervalClass>
 
     disconnectedCallback() {
       clearInterval(this._timer);
-      if (super.disconnectedCallback) {
-        super.disconnectedCallback();
-      }
+      super.disconnectedCallback();
     }
 
     updateContent() {

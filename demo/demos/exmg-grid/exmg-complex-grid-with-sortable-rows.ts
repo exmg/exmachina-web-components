@@ -10,7 +10,7 @@ import '@exmg/exmg-grid/src/table/exmg-grid-smart-toolbar.js';
 import {ExmgBaseGridDemo} from './exmg-base-grid-demo.js';
 
 import {style as tableStyles} from '@exmg/exmg-grid/src/styles/exmg-grid-styles-css.js';
-import {style as demoStyles} from './demo-styles-css.js';
+import {style as demoStyles} from './demo-common-css.js';
 
 @customElement('demo-complex-grid-sortable')
 export class ExmgComplexGridWithSortableRows extends ExmgBaseGridDemo {
