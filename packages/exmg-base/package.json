@@ -11,7 +11,8 @@
   ],
   "main": "exmg-element.js",
   "files": [
-    "*.js"
+    "*.js",
+    "**/*.js"
   ],
   "repository": {
     "type": "git",
