@@ -1,8 +1,8 @@
 {
   "name": "@exmg/exmg-tooltip",
-  "version": "8.1.10",
+  "version": "8.1.12",
   "dependencies": {
-    "@exmg/exmg-base": "^8.1.10",
+    "@exmg/exmg-base": "^8.1.12",
     "@material/mwc-base": "=0.25.3",
     "lit": "^2.0.0",
     "tslib": "^2.0.1"
