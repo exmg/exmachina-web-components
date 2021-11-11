@@ -70,7 +70,7 @@ export interface MarkdownElement extends HTMLElement {
 declare global {
   interface Window {
     marked: MarkdownElement;
-    markdownEditorConfig: {
+    markdownEditorConfig?: {
       urlPlaceholder?: string;
       imagePlaceholder?: string;
       extensions?: any[];

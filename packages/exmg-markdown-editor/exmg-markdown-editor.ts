@@ -215,7 +215,7 @@ export class EditorElement extends ExmgElement {
   protected update(changedProperties: ChangedProps): void {
     if (changedProperties.has('toolbarButtonsConfig')) {
       const normalizedToolBartConfig: Map<ToolBarOption, ToolBarConfigItem> = new Map();
-      const customToolbarConfig = window.markdownEditorConfig.customToolBarButtons ?? [];
+      const customToolbarConfig = window.markdownEditorConfig?.customToolBarButtons ?? [];
       const toolbarConfigWithCustoms = [...this.toolbarButtonsConfig, ...customToolbarConfig];
       (toolbarConfigWithCustoms || []).forEach((it) => normalizedToolBartConfig.set(it.name, it));
       this.normalizedToolBarConfig = normalizedToolBartConfig;
@@ -272,10 +272,7 @@ export class EditorElement extends ExmgElement {
       smartypants: false,
     };
 
-    let customRenderer;
-    if (window.markdownEditorConfig && window.markdownEditorConfig.renderer) {
-      customRenderer = window.markdownEditorConfig.renderer as Renderer;
-    }
+    const customRenderer = window.markdownEditorConfig?.renderer as Renderer || undefined;
     const extensions = window.markdownEditorConfig?.extensions || [];
 
 
