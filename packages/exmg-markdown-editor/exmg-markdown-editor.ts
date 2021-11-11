@@ -289,7 +289,8 @@ export class EditorElement extends ExmgElement {
    * @return {Array}
    */
   private getToolbar(toolBarOptions: ToolBarOption[] = []): (ToolBarConfigItem | Record<string, any>)[] {
-    return toolBarOptions.map((optionName: ToolBarOption) => {
+    const customToolBarOptions = window.markdownEditorConfig?.customToolBarButtons?.map((b) => b.name) ?? [];
+    return [...customToolBarOptions, ...toolBarOptions].map((optionName: ToolBarOption) => {
       if (optionName === '|') {
         return {};
       }
