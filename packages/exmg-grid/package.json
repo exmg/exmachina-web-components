@@ -1,6 +1,6 @@
 {
   "name": "@exmg/exmg-grid",
-  "version": "8.1.13",
+  "version": "8.1.14",
   "description": "exmg grid element",
   "contributors": [
     "Ex Machina"
@@ -27,8 +27,8 @@
     "directory": "packages/exmg-grid"
   },
   "dependencies": {
-    "@exmg/exmg-base": "^8.1.13",
-    "@exmg/exmg-sortable": "^8.1.13",
+    "@exmg/exmg-base": "^8.1.14",
+    "@exmg/exmg-sortable": "^8.1.14",
     "@material/mwc-base": "^0.25.2",
     "@material/mwc-button": "^0.25.2",
     "@material/mwc-checkbox": "^0.25.2",

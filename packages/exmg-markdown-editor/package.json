@@ -1,7 +1,7 @@
 {
   "name": "@exmg/exmg-markdown-editor",
   "flat": true,
-  "version": "8.1.13",
+  "version": "8.1.14",
   "description": "Element that wrap-around marked-element to make the markdown editable",
   "main": "index.js",
   "contributors": [
@@ -28,7 +28,7 @@
     "**/*.d.ts"
   ],
   "dependencies": {
-    "@exmg/exmg-base": "^8.1.13",
+    "@exmg/exmg-base": "^8.1.14",
     "@material/mwc-base": "=0.25.3",
     "@material/mwc-icon": "^0.25.3",
     "@polymer/iron-flex-layout": "^3.0.1",

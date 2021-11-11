@@ -1,8 +1,8 @@
 {
   "name": "@exmg/exmg-button",
-  "version": "8.1.13",
+  "version": "8.1.14",
   "dependencies": {
-    "@exmg/exmg-base": "^8.1.13",
+    "@exmg/exmg-base": "^8.1.14",
     "@material/mwc-base": "=0.25.3",
     "@material/mwc-button": "=0.25.3",
     "@material/mwc-ripple": "=0.25.3",
