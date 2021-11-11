@@ -1,6 +1,6 @@
 {
   "name": "@exmg/exmg-sortable",
-  "version": "8.1.12",
+  "version": "8.1.13",
   "description": "Enables drag and drop sorting of items in a list or table",
   "contributors": [
     "Ex Machina Group"
@@ -17,7 +17,7 @@
     "*.d.ts"
   ],
   "dependencies": {
-    "@exmg/exmg-base": "^8.1.12",
+    "@exmg/exmg-base": "^8.1.13",
     "@polymer/polymer": "^3.4.1",
     "lit": "^2.0.0",
     "tslib": "^2.0.1"
