@@ -781,3 +781,9 @@ export class EditorElement extends ExmgElement {
     `;
   }
 }
+
+declare global {
+  interface HTMLElementTagNameMap {
+    'exmg-markdown-editor': EditorElement;
+  }
+}

@@ -13,9 +13,10 @@
   "main": "index.js",
   "files": [
     "assets/*",
-    "src/**/*.scss",
-    "src/**/exmg-*.js",
-    "src/**/exmg-*.d.ts",
+    "src/styles/**/*.scss",
+    "src/styles/**/*.js",
+    "src/**/*.js",
+    "src/**/*.d.ts",
     "index.js",
     "index.d.ts"
   ],

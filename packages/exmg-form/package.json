@@ -14,8 +14,8 @@
   "files": [
     "styles/**/*.scss",
     "styles/**/*.js",
-    "exmg-*.js",
-    "exmg-*.d.ts"
+    "*.js",
+    "*.d.ts"
   ],
   "repository": {
     "type": "git",

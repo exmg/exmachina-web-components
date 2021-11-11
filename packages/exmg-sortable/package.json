@@ -11,8 +11,10 @@
     "sortable"
   ],
   "files": [
-    "exmg-*.js",
-    "exmg-*.d.ts"
+    "styles/**/*.scss",
+    "styles/**/*.js",
+    "*.js",
+    "*.d.ts"
   ],
   "dependencies": {
     "@exmg/exmg-base": "^8.1.12",

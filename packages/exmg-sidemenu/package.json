@@ -13,8 +13,8 @@
   "files": [
     "styles/**/*.scss",
     "styles/**/*.js",
-    "**/*.js",
-    "**/*.d.ts"
+    "*.js",
+    "*.d.ts"
   ],
   "main": "exmg-sidemenu.js",
   "repository": {

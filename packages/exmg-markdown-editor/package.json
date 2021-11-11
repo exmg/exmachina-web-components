@@ -25,8 +25,8 @@
   "files": [
     "styles/**/*.scss",
     "styles/**/*.js",
-    "exmg-*.js",
-    "exmg-*.d.ts"
+    "*.js",
+    "*.d.ts"
   ],
   "dependencies": {
     "@exmg/exmg-base": "^8.1.12",
