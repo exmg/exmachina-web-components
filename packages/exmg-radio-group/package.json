@@ -1,6 +1,6 @@
 {
   "name": "@exmg/exmg-radio-group",
-  "version": "8.1.9",
+  "version": "8.1.10",
   "description": "Paper style radio group element",
   "contributors": [
     "Ex Machina"
@@ -30,7 +30,7 @@
   },
   "license": "MIT",
   "dependencies": {
-    "@exmg/exmg-base": "^8.1.9",
+    "@exmg/exmg-base": "^8.1.10",
     "@material/mwc-base": "=0.25.3",
     "@material/mwc-radio": "=0.25.3",
     "@material/mwc-ripple": "=0.25.3",
