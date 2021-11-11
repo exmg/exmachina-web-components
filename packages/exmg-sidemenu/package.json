@@ -12,6 +12,7 @@
   ],
   "files": [
     "styles/**/*.scss",
+    "styles/**/*.js",
     "**/*.js",
     "**/*.d.ts"
   ],
