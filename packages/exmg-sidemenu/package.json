@@ -1,6 +1,6 @@
 {
   "name": "@exmg/exmg-sidemenu",
-  "version": "8.1.0",
+  "version": "8.1.9",
   "description": "Paper style collapsible sidemenu",
   "contributors": [
     "Ex Machina Group"
@@ -24,19 +24,19 @@
   "license": "MIT",
   "homepage": "https://github.com/exmg/exmachina-web-components",
   "dependencies": {
-    "@exmg/exmg-base": "^8.0.0",
+    "@exmg/exmg-base": "^8.1.9",
+    "@exmg/exmg-tooltip": "^8.1.9",
     "@material/mwc-base": "^0.25.2",
     "@material/theme": "^13.0.0",
     "@material/typography": "^13.0.0",
     "@polymer/paper-item": "^3.0.1",
     "@polymer/paper-listbox": "^3.0.0",
-    "@exmg/exmg-tooltip": "^8.1.8",
     "lit": "^2.0.0",
     "tslib": "^2.0.1"
   },
   "devDependencies": {
-    "@polymer/app-layout": "^3.1.0",
-    "@exmg/exmg-cli": "^4.1.0"
+    "@exmg/exmg-cli": "^4.1.0",
+    "@polymer/app-layout": "^3.1.0"
   },
   "scripts": {
     "build:styles": "exmg-cli -s \"./**/*.scss\""

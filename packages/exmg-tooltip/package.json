@@ -1,8 +1,8 @@
 {
   "name": "@exmg/exmg-tooltip",
-  "version": "8.1.8",
+  "version": "8.1.9",
   "dependencies": {
-    "@exmg/exmg-base": "^8.0.0",
+    "@exmg/exmg-base": "^8.1.9",
     "@material/mwc-base": "=0.25.3",
     "lit": "^2.0.0",
     "tslib": "^2.0.1"
@@ -29,7 +29,7 @@
   },
   "license": "MIT",
   "devDependencies": {
-    "@exmg/exmg-cli": "^8.1.5"
+    "@exmg/exmg-cli": "^8.1.9"
   },
   "scripts": {
     "build:styles": "exmg-cli -s \"./**/*.scss\""

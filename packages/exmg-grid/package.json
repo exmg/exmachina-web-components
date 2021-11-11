@@ -1,6 +1,6 @@
 {
   "name": "@exmg/exmg-grid",
-  "version": "8.1.0",
+  "version": "8.1.9",
   "description": "exmg grid element",
   "contributors": [
     "Ex Machina"
@@ -26,32 +26,32 @@
     "directory": "packages/exmg-grid"
   },
   "dependencies": {
-    "@exmg/exmg-base": "^8.0.0",
-    "@exmg/exmg-sortable": "^8.0.1",
-    "@material/mwc-menu": "^0.25.2",
-    "@material/mwc-button": "^0.25.2",
-    "@material/mwc-list": "^0.25.2",
+    "@exmg/exmg-base": "^8.1.9",
+    "@exmg/exmg-sortable": "^8.1.9",
     "@material/mwc-base": "^0.25.2",
+    "@material/mwc-button": "^0.25.2",
     "@material/mwc-checkbox": "^0.25.2",
     "@material/mwc-icon-button": "^0.25.2",
+    "@material/mwc-list": "^0.25.2",
+    "@material/mwc-menu": "^0.25.2",
     "@material/theme": "^13.0.0",
     "@material/typography": "^13.0.0",
     "@polymer/iron-dropdown": "^3.0.1",
-    "@polymer/iron-input": "^3.0.1",
     "@polymer/iron-flex-layout": "^3.0.1",
-    "@polymer/paper-styles": "^3.0.1",
+    "@polymer/iron-input": "^3.0.1",
     "@polymer/paper-button": "^3.0.1",
+    "@polymer/paper-icon-button": "^3.0.1",
     "@polymer/paper-input": "^3.2.1",
     "@polymer/paper-item": "^3.0.1",
     "@polymer/paper-listbox": "^3.0.1",
-    "@polymer/paper-icon-button": "^3.0.1",
     "@polymer/paper-menu-button": "^3.0.1",
+    "@polymer/paper-styles": "^3.0.1",
     "@polymer/polymer": "^3.4.1",
     "lit": "^2.0.0",
     "tslib": "^2.0.1"
   },
   "devDependencies": {
-    "@exmg/exmg-cli": "^8.1.5"
+    "@exmg/exmg-cli": "^8.1.9"
   },
   "license": "MIT",
   "scripts": {
