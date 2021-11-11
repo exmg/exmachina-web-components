@@ -1,6 +1,6 @@
 {
   "name": "@exmg/exmg-dialogs",
-  "version": "8.1.10",
+  "version": "8.1.11",
   "main": "exmg-dialog-form.js",
   "repository": {
     "type": "git",
@@ -27,7 +27,7 @@
   },
   "devDependencies": {
     "@exmg/exmg-cli": "^2.1.0",
-    "@exmg/exmg-markdown-editor": "^8.1.10",
+    "@exmg/exmg-markdown-editor": "^8.1.11",
     "@exmg/exmg-paper-combobox": "^6.0.7",
     "@exmg/exmg-paper-token-input": "^5.1.3",
     "@material/mwc-icon": "=0.25.3",
