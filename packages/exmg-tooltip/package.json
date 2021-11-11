@@ -8,10 +8,9 @@
     "tslib": "^2.0.1"
   },
   "files": [
-    "styles/**/*.scss",
-    "styles/**/*.js",
-    "*.js",
-    "*.d.ts"
+    "**/*.scss",
+    "**/*.js",
+    "**/*.d.ts"
   ],
   "keywords": [
     "web-components",

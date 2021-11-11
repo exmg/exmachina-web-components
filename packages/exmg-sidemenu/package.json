@@ -11,10 +11,9 @@
     "sidemenu"
   ],
   "files": [
-    "styles/**/*.scss",
-    "styles/**/*.js",
-    "*.js",
-    "*.d.ts"
+    "**/*.scss",
+    "**/*.js",
+    "**/*.d.ts"
   ],
   "main": "exmg-sidemenu.js",
   "repository": {

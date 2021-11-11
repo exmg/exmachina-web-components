@@ -12,10 +12,9 @@
   ],
   "main": "exmg-form.js",
   "files": [
-    "styles/**/*.scss",
-    "styles/**/*.js",
-    "*.js",
-    "*.d.ts"
+    "**/*.scss",
+    "**/*.js",
+    "**/*.d.ts"
   ],
   "repository": {
     "type": "git",

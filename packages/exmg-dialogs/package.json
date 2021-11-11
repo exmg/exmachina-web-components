@@ -8,10 +8,9 @@
     "directory": "packages/exmg-dialogs"
   },
   "files": [
-    "styles/**/*.scss",
-    "styles/**/*.js",
-    "*.js",
-    "*.d.ts"
+    "**/*.scss",
+    "**/*.js",
+    "**/*.d.ts"
   ],
   "homepage": "https://github.com/exmg/exmachina-web-components",
   "license": "MIT",
