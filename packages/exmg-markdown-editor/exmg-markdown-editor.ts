@@ -17,7 +17,6 @@ import {style as codeMirrorStylesText} from './styles/exmg-markdown-codemirror-s
 import {
   ToolBarOption,
   ToolBarConfigItem,
-  isToolBarConfigItem,
   Position,
   ChangedProps,
 } from './exmg-custom-types.js';
@@ -289,8 +288,7 @@ export class EditorElement extends ExmgElement {
    * @return {Array}
    */
   private getToolbar(toolBarOptions: ToolBarOption[] = []): (ToolBarConfigItem | Record<string, any>)[] {
-    const customToolBarOptions = window.markdownEditorConfig?.customToolBarButtons?.map((b) => b.name) ?? [];
-    return [...customToolBarOptions, ...toolBarOptions].map((optionName: ToolBarOption) => {
+    return [...toolBarOptions].map((optionName: ToolBarOption) => {
       if (optionName === '|') {
         return {};
       }
@@ -745,13 +743,13 @@ export class EditorElement extends ExmgElement {
         <div class="items">
           ${repeat<ToolBarConfigItem | Record<string, any>>(
             this.getToolbar(this.toolbarButtons),
-            (it, index: number) => (isToolBarConfigItem(it) ? it.name : `empty_${index}`),
+            (it, index: number) => (it.name ? it.name : `empty_${index}`),
             (it) => {
-              if (isToolBarConfigItem(it)) {
+              if (it.name) {
                 const hasMaterialIcon = it.icon.indexOf('exmg-markdown-editor-icons:') < 0;
                 return html`
                   <a href="#" title=${it.title} class=${it.className ?? ''} @click=${() => {
-                    this.action(it);
+                    this.action(it as ToolBarConfigItem);
                   }}>
                     ${hasMaterialIcon ?
                       html`<mwc-icon>${it.icon}</mwc-icon>` :
