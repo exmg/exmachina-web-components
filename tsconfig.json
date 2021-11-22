@@ -86,6 +86,9 @@
       "path": "packages/exmg-copy-to-clipboard",
     }, 
     {
+      "path": "packages/exmg-form-drawer",
+    }, 
+    {
       "path": "demo",
     },
   ],

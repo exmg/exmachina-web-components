@@ -1,9 +1,6 @@
 import {html} from 'lit';
-import {customElement, property} from 'lit/decorators.js';
+import {customElement, state, property, query} from 'lit/decorators.js';
 import {ExmgElement} from '@exmg/exmg-base/exmg-element.js';
-
-import {FlattenedNodesObserver} from '@polymer/polymer/lib/utils/flattened-nodes-observer.js';
-import {addListener, removeListener} from '@polymer/polymer/lib/utils/gestures.js';
 import {style} from './styles/exmg-copy-to-clipboard-styles-css.js';
 
 /**
@@ -20,62 +17,74 @@ import {style} from './styles/exmg-copy-to-clipboard-styles-css.js';
 @customElement('exmg-copy-to-clipboard')
 export class ExmgCopyToClipboard extends ExmgElement {
   @property({type: String})
-  private value?: string;
+  value?: string;
 
-  @property({type: Boolean})
-  private isCopySupported = !!document.queryCommandSupported('copy');
+  @state()
+  private isCopySupported = false;
 
-  @property({type: Boolean})
+  @state()
   protected bubbles = false;
 
-  private observer?: FlattenedNodesObserver;
+  @query('#clipboard')
+  clipboard?: HTMLElement;
+
   private htmlElement?: HTMLElement;
 
   private handleCopy: (p0: Event) => void;
+
+  private _observer?: MutationObserver;
 
   static styles = [style];
 
   constructor() {
     super();
+    this.isCopySupported = !!document.queryCommandSupported('copy');
     this.handleCopy = this.handleCopyAction.bind(this);
   }
 
   connectedCallback() {
     super.connectedCallback();
 
-    this.observer = new FlattenedNodesObserver(this, () => {
-      this.initSlottedElement();
+    // Create an observer instance linked to the callback function
+    this._observer = new MutationObserver((mutationsList) => {
+      for(const mutation of mutationsList) {
+        if (mutation.type === 'childList') {
+         this.addClickListener();
+        }
+      }
     });
+
+    // Start observing the target node for configured mutations
+    this._observer.observe(this, {attributes: true, childList: true, subtree: false});
+  }
+
+  firstUpdated() {
+    this.addClickListener();
+    if (!this.isCopySupported && this.htmlElement) {
+      this.htmlElement.style.display = 'none';
+      this.dispatchEvent(new CustomEvent('copy-not-supported', {bubbles: this.bubbles, composed: true}));
+    }
   }
 
   disconnectedCallback() {
-    if (this.observer) {
-      this.observer.disconnect();
-      this.observer = undefined;
-    }
-
-    if (this.htmlElement) {
-      removeListener(this.htmlElement, 'tap', this.handleCopy);
-    }
-
+    this.htmlElement?.removeEventListener('click', this.handleCopy);
+    this._observer?.disconnect();
     super.disconnectedCallback();
   }
 
-  /**
-   * initializes the slotted content and adds a event listener to the html element provided
-   */
-  private initSlottedElement(): void {
-    this.htmlElement = (FlattenedNodesObserver.getFlattenedNodes(this) || []).filter((n: Node) => n.nodeType === Node.ELEMENT_NODE)[0];
-    if (this.htmlElement) {
-      addListener(this.htmlElement, 'tap', this.handleCopy);
-    }
+  addClickListener() {
+    this.htmlElement?.removeEventListener('click', this.handleCopy);
+    const elements = this.querySelectorAll('*');
+
+    this.htmlElement = elements[0] as HTMLElement;
+    this.htmlElement?.addEventListener('click', this.handleCopy);
   }
 
   /**
    * Copy the given value to the clipboard
    */
-  private copyToClipboard(): void {
-    const clipboardNode: HTMLElement | null = this.shadowRoot ? this.shadowRoot.querySelector('#clipboard') : null;
+  private copyToClipboard() {
+    const clipboardNode: HTMLElement | null | undefined = this.shadowRoot ? this.clipboard : null;
 
     if (!clipboardNode) {
       return;
@@ -112,16 +121,9 @@ export class ExmgCopyToClipboard extends ExmgElement {
   /**
    * Handle button tap event and trigger the actual copy to clipboard
    */
-  private handleCopyAction(e: Event) {
+  handleCopyAction(e: Event) {
     this.copyToClipboard();
     e.stopPropagation();
-  }
-
-  protected firstUpdated() {
-    if (!this.isCopySupported && this.htmlElement) {
-      this.htmlElement.style.display = 'none';
-      this.dispatchEvent(new CustomEvent('copy-not-supported', {bubbles: this.bubbles, composed: true}));
-    }
   }
 
   render() {
