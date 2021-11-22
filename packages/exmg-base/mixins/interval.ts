@@ -1,4 +1,4 @@
-import { ExmgElement } from '../exmg-element.js';
+import {ExmgElement} from '../exmg-element.js';
 import {Constructor} from './types.js';
 
 export abstract class IntervalClass extends ExmgElement {
