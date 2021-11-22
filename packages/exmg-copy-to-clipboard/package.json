@@ -1,0 +1,37 @@
+{
+  "name": "@exmg/exmg-copy-to-clipboard",
+  "version": "8.1.0",
+  "dependencies": {
+    "@exmg/exmg-base": "^8.1.14",
+    "@material/mwc-base": "=0.25.3",
+    "lit": "^2.0.0",
+    "tslib": "^2.0.1"
+  },
+  "files": [
+    "**/*.scss",
+    "**/*.js",
+    "**/*.d.ts"
+  ],
+  "keywords": [
+    "web-components",
+    "lit",
+    "clipboard"
+  ],
+  "main": "exmg-copy-to-clipboard.js",
+  "homepage": "https://github.com/exmg/exmachina-web-components",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:exmg/exmg-web-components.git",
+    "directory": "packages/exmg-copy-to-clipboard"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "@exmg/exmg-cli": "^8.1.9"
+  },
+  "scripts": {
+    "build:styles": "exmg-cli -s \"./**/*.scss\""
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

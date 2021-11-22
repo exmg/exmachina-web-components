@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes">
+
+    <title>exmg-copy-to-clipboard demo</title>
+
+    <script src="../node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js"></script>
+
+    <script type="module" src="../node_modules/@polymer/iron-demo-helpers/demo-pages-shared-styles.js"></script>
+    <script type="module" src="../node_modules/@polymer/iron-demo-helpers/demo-snippet.js"></script>
+
+    <script type="module" src="../node_modules/@polymer/paper-icon-button/paper-icon-button.js"></script>
+    <script type="module" src="../node_modules/@polymer/iron-iconset-svg/iron-iconset-svg.js"></script>
+    <script type="module" src="../node_modules/@polymer/iron-icons/iron-icons.js"></script>
+
+    <script type="module" src="../exmg-copy-to-clipboard.js"></script>
+
+    <style>
+      [hidden] {
+        display: none !important;
+      }
+    </style>
+  </head>
+  <iron-iconset-svg name="icons" size="24">
+    <svg>
+      <defs>
+        <g id="content-copy"><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"></path></g>
+      </defs>
+    </svg>
+  </iron-iconset-svg>
+  <body>
+    <div class="vertical-section-container centered">
+      <h3>Copy using a button element</h3>
+      <demo-snippet>
+        <template>
+          <exmg-copy-to-clipboard value="copied content 1">
+            <button>⎘ Copy to clipboard</button>
+          </exmg-copy-to-clipboard>
+        </template>
+      </demo-snippet>
+      <h3>Copy using a paper-icon-button</h3>
+      <demo-snippet>
+        <template>
+          mark@test.com
+          <exmg-copy-to-clipboard value="mark@test.com">
+            <paper-icon-button icon="content-copy"></paper-icon-button>
+          </exmg-copy-to-clipboard>
+        </template>
+      </demo-snippet>
+      <h3>Copy using a normal html element</h3>
+      <demo-snippet>
+        <template>
+          <exmg-copy-to-clipboard value="copied content 2">
+            <span style="cursor:pointer;">⎘ Copy to clipboard</span>
+          </exmg-copy-to-clipboard>
+        </template>
+      </demo-snippet>
+    </div>
+  </body>
+</html>
