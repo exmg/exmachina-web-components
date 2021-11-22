@@ -19,12 +19,16 @@
       version: '8.1.9',
       url: 'https://www.npmjs.com/package/@exmg/exmg-cli',
     },{
+      name: '@exmg/exmg-copy-to-clipboard',
+      version: '8.1.0',
+      url: 'https://www.npmjs.com/package/@exmg/exmg-copy-to-clipboard',
+    },{
       name: '@exmg/exmg-dialogs',
-      version: '8.1.15',
+      version: '8.1.16',
       url: 'https://www.npmjs.com/package/@exmg/exmg-dialogs',
     },{
       name: '@exmg/exmg-form',
-      version: '8.1.15',
+      version: '8.1.16',
       url: 'https://www.npmjs.com/package/@exmg/exmg-form',
     },{
       name: '@exmg/exmg-grid',
@@ -32,7 +36,7 @@
       url: 'https://www.npmjs.com/package/@exmg/exmg-grid',
     },{
       name: '@exmg/exmg-markdown-editor',
-      version: '8.1.15',
+      version: '8.1.16',
       url: 'https://www.npmjs.com/package/@exmg/exmg-markdown-editor',
     },{
       name: '@exmg/exmg-radio-group',

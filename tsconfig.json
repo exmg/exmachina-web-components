@@ -83,6 +83,9 @@
       "path": "packages/exmg-markdown-editor",
     }, 
     {
+      "path": "packages/exmg-copy-to-clipboard",
+    }, 
+    {
       "path": "demo",
     },
   ],
