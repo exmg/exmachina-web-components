@@ -28,13 +28,24 @@ export type ToolBarOption =
   | 'fullscreen'
   | 'split-view'
   | 'indent-in'
-  | 'indent-out';
+  | 'indent-out'
+  | string;
 
+/**
+ * Object to add custom buttons to the Toolbar
+ * @property name: Name of the custom item
+ * @property type: Codemirror type of processed strings. Block is for some characters, line is for a line or more.
+ * @property token: Artefact shown in the editor indicating the custom action. ¡Must match expected token in an extension if the block needs to be processed in HTML!
+ * @property icon: Material Icon name
+ * @property className: Class given to the toolbar button
+ * @property title: Title of the button, will be visible
+ */
 export interface ToolBarConfigItem extends Object {
   name: ToolBarOption;
+  type?: 'block' | 'line';
+  token?: string;
   icon: string;
-  action: unknown;
-  className: string;
+  className?: string;
   title: string;
 }
 
@@ -59,11 +70,12 @@ export interface MarkdownElement extends HTMLElement {
 declare global {
   interface Window {
     marked: MarkdownElement;
-    markdownEditorConfig: {
-      urlPlaceholder: string;
-      imagePlaceholder: string;
-      extensions: any[];
-      renderer: unknown;
+    markdownEditorConfig?: {
+      urlPlaceholder?: string;
+      imagePlaceholder?: string;
+      extensions?: any[];
+      customToolBarButtons?: ToolBarConfigItem[];
+      renderer?: unknown;
     };
   }
 }

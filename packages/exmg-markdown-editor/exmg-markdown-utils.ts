@@ -1,5 +1,5 @@
 import {Editor, KeyMap} from 'codemirror';
-import {ToolBarOption} from './exmg-custom-types.js';
+import {ToolBarConfigItem, ToolBarOption} from './exmg-custom-types.js';
 
 const isMac = /Mac/.test(navigator.platform);
 export const convertShortcut = (name: string): string => {
@@ -112,4 +112,159 @@ export const DEFAULT_TOOLBAR_OPTIONS: ToolBarOption[] = [
   '|',
   'fullscreen',
   'split-view',
+];
+
+export const defaultToolBarConfig: ToolBarConfigItem[] = [
+  {
+    name: 'undo',
+    icon: 'undo',
+    className: 'btn-undo',
+    title: 'Undo',
+  },
+  {
+    name: 'redo',
+    icon: 'redo',
+    className: 'btn-redo',
+    title: 'Redo',
+  },
+  {
+    name: 'header_one',
+    icon: 'exmg-markdown-editor-icons:header-one',
+    type: 'line',
+    token: '#',
+    className: 'btn-header',
+    title: 'Header 1',
+  },
+  {
+    name: 'header_two',
+    icon: 'exmg-markdown-editor-icons:header-two',
+    type: 'line',
+    token: '##',
+    className: 'btn-header',
+    title: 'Header 2',
+  },
+  {
+    name: 'header_three',
+    icon: 'exmg-markdown-editor-icons:header-three',
+    type: 'line',
+    token: '###',
+    className: 'btn-header',
+    title: 'Header 3',
+  },
+  {
+    name: 'strong',
+    icon: 'format_bold',
+    type: 'block',
+    token: '**',
+    className: 'btn-bold',
+    title: 'Bold',
+  },
+  {
+    name: 'italic',
+    icon: 'format_italic',
+    type: 'block',
+    token: '*',
+    className: 'btn-italic',
+    title: 'Italic',
+  },
+  {
+    name: 'strikethrough',
+    icon: 'format_strikethrough',
+    type: 'block',
+    token: '~~',
+    className: 'btn-strikethrough',
+    title: 'Strikethrough',
+  },
+  {
+    name: 'indent-in',
+    icon: 'format_indent_increase',
+    type: 'line',
+    token: '>',
+    className: 'btn-indent-in',
+    title: 'Indent increase',
+  },
+  {
+    name: 'indent-out',
+    icon: 'format_indent_decrease',
+    type: 'line',
+    token: '>',
+    className: 'btn-indent-out',
+    title: 'Indent decrease',
+  },
+  {
+    name: 'quote',
+    icon: 'format_quote',
+    type: 'line',
+    token: '>',
+    className: 'btn-quote-left',
+    title: 'Quote',
+  },
+  {
+    name: 'hr',
+    icon: 'horizontal_rule',
+    className: 'btn-horizontal-rule',
+    title: 'Horizontal Rule',
+  },
+  {
+    name: 'code',
+    icon: 'code',
+    className: 'btn-code',
+    title: 'Code',
+  },
+  {
+    name: 'table',
+    icon: 'grid_on',
+    className: 'btn-table',
+    title: 'Table',
+  },
+  {
+    name: 'table-paste',
+    icon: 'table_view',
+    className: 'btn-table-paste',
+    title: 'Paste Table',
+  },
+  {
+    name: 'link',
+    icon: 'link',
+    className: 'btn-link',
+    title: 'Link',
+  },
+  {
+    name: 'image',
+    icon: 'image',
+    className: 'btn-image',
+    title: 'Image',
+  },
+  {
+    name: 'image-ext',
+    icon: 'image',
+    className: 'btn-image',
+    title: 'Image',
+  },
+  {
+    name: 'unordered-list',
+    icon: 'format_list_bulleted',
+    type: 'line',
+    token: '*',
+    className: 'btn-list-ul',
+    title: 'Generic List',
+  },
+  {
+    name: 'ordered-list',
+    icon: 'format_list_numbered',
+    className: 'btn-list-ol',
+    title: 'Numbered List',
+  },
+  {
+    name: 'fullscreen',
+    icon: 'fullscreen',
+    className: 'btn-fullscreen',
+    title: 'Fullscreen',
+  },
+  {
+    name: 'split-view',
+    icon: 'exmg-markdown-editor-icons:chrome-reader-mode',
+    className: 'btn-split-view',
+    title: 'Split View',
+  },
 ];

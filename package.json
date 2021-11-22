@@ -46,7 +46,7 @@
     "lint:fix": "npm run lint:typescript -- --fix && npm run lint:lit -- --fix",
     "lint:typescript": "eslint \"packages/**/*.ts\"",
     "lint:lit": "lit-analyzer \"packages/**/*.ts\" --strict",
-    "start": "npm run build & node ./scripts/parseElements.js && concurrently --names watch,serve \"npm run watch\" \"web-dev-server --config ./web-dev-server.config.js\"",
+    "start": "node ./scripts/parseElements.js && npm run build && concurrently --names watch,serve \"npm run watch\" \"web-dev-server --config ./web-dev-server.config.js\"",
     "watch:styles": "exmg-cli -w",
     "build": "npm run build:styling && npm run build:typescript",
     "build:typescript": "tsc --build --verbose",

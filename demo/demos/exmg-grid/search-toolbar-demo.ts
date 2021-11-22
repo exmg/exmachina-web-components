@@ -12,7 +12,7 @@ import {ExmgBaseGridDemo} from './exmg-base-grid-demo.js';
 import '@exmg/exmg-grid/src/table/exmg-grid.js';
 import '@exmg/exmg-grid/src/table/exmg-grid-pagination.js';
 import {style as tableStyles} from '@exmg/exmg-grid/src/styles/exmg-grid-styles-css.js';
-import {style as demoStyles} from './demo-styles-css.js';
+import {style as demoStyles} from './demo-common-css.js';
 
 @customElement('search-toolbar-demo')
 export class SearchToolbarDemo extends ExmgBaseGridDemo {

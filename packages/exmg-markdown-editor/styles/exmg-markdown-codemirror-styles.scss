@@ -586,6 +586,9 @@ span.CodeMirror-selectedtext {
   left: 0;
   z-index: 12;
 }
+.toolbar .items {
+  display: flex;
+}
 .toolbar a {
   display: inline-block;
   text-align: center;
@@ -596,7 +599,8 @@ span.CodeMirror-selectedtext {
   border: 1px solid transparent;
   cursor: pointer;
 }
-.toolbar a iron-icon {
+.toolbar a iron-icon,
+.toolbar a mwc-icon {
   margin: 4px;
   width: 22px;
   height: 22px;
@@ -610,4 +614,6 @@ span.CodeMirror-selectedtext {
 .toolbar .seperator {
   margin: 0 8px;
   border-left: 1px solid var(--exmg-markdown-editor-toolbar-seperator-color, #ddd);
+  align-self: center;
+  height: 22px;
 }

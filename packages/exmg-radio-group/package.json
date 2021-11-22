@@ -1,6 +1,6 @@
 {
   "name": "@exmg/exmg-radio-group",
-  "version": "8.1.5",
+  "version": "8.1.14",
   "description": "Paper style radio group element",
   "contributors": [
     "Ex Machina"
@@ -15,12 +15,9 @@
   ],
   "main": "exmg-radio-group.js",
   "files": [
-    "styles/**/*.scss",
-    "styles/**/*.js",
-    "exmg-*.js",
-    "exmg-*.d.ts",
-    "index.js",
-    "index.d.ts"
+    "**/*.scss",
+    "**/*.js",
+    "**/*.d.ts"
   ],
   "homepage": "https://github.com/exmg/exmachina-web-components",
   "repository": {
@@ -30,16 +27,16 @@
   },
   "license": "MIT",
   "dependencies": {
-    "@exmg/exmg-base": "^8.0.0",
-    "@material/mwc-radio": "=0.25.3",
+    "@exmg/exmg-base": "^8.1.14",
     "@material/mwc-base": "=0.25.3",
+    "@material/mwc-radio": "=0.25.3",
     "@material/mwc-ripple": "=0.25.3",
     "@material/radio": "^13.0.0",
     "lit": "^2.0.0",
     "tslib": "^2.0.1"
   },
   "devDependencies": {
-    "@exmg/exmg-cli": "^8.1.5"
+    "@exmg/exmg-cli": "^8.1.9"
   },
   "scripts": {
     "build:styles": "exmg-cli -s \"./styles/*.scss\""

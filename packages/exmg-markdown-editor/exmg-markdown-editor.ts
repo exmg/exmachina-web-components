@@ -7,6 +7,7 @@ import {observer} from '@exmg/exmg-base/observer/observer.js';
 
 import '@polymer/iron-flex-layout/iron-flex-layout.js';
 import '@polymer/iron-icon/iron-icon.js';
+import '@material/mwc-icon/mwc-icon.js';
 
 import {afterNextRender} from '@polymer/polymer/lib/utils/render-status.js';
 import './exmg-import-helper.js';
@@ -16,7 +17,6 @@ import {style as codeMirrorStylesText} from './styles/exmg-markdown-codemirror-s
 import {
   ToolBarOption,
   ToolBarConfigItem,
-  isToolBarConfigItem,
   Position,
   ChangedProps,
 } from './exmg-custom-types.js';
@@ -26,6 +26,7 @@ import Editor = CodeMirror.Editor;
 import {
   convertShortcut,
   debounce,
+  defaultToolBarConfig,
   DEFAULT_TOOLBAR_OPTIONS,
   ENTER_KEY_CODE,
   insertBlocks,
@@ -171,162 +172,7 @@ export class EditorElement extends ExmgElement {
   }
 
   @state()
-  private toolbarButtonsConfig: ToolBarConfigItem[] = [
-    {
-      name: 'undo',
-      icon: 'exmg-markdown-editor-icons:undo',
-      action: this.undo,
-      className: 'btn-undo',
-      title: 'Undo',
-    },
-    {
-      name: 'redo',
-      icon: 'exmg-markdown-editor-icons:redo',
-      action: this.redo,
-      className: 'btn-redo',
-      title: 'Redo',
-    },
-    {
-      name: 'header_one',
-      icon: 'exmg-markdown-editor-icons:header-one',
-      action: this.toggleHeaderOne,
-      className: 'btn-header',
-      title: 'Header 1',
-    },
-    {
-      name: 'header_two',
-      icon: 'exmg-markdown-editor-icons:header-two',
-      action: this.toggleHeaderTwo,
-      className: 'btn-header',
-      title: 'Header 2',
-    },
-    {
-      name: 'header_three',
-      icon: 'exmg-markdown-editor-icons:header-three',
-      action: this.toggleHeaderThree,
-      className: 'btn-header',
-      title: 'Header 3',
-    },
-    {
-      name: 'strong',
-      icon: 'exmg-markdown-editor-icons:format-bold',
-      action: this.toggleBold,
-      className: 'btn-bold',
-      title: 'Bold',
-    },
-    {
-      name: 'italic',
-      icon: 'exmg-markdown-editor-icons:format-italic',
-      action: this.toggleItalic,
-      className: 'btn-italic',
-      title: 'Italic',
-    },
-    {
-      name: 'strikethrough',
-      icon: 'exmg-markdown-editor-icons:format-strikethrough',
-      action: this.toggleStrikethrough,
-      className: 'btn-strikethrough',
-      title: 'Strikethrough',
-    },
-    {
-      name: 'indent-in',
-      icon: 'exmg-markdown-editor-icons:format-indent-in',
-      action: this.increaseIndentation,
-      className: 'btn-indent-in',
-      title: 'Indent increase',
-    },
-    {
-      name: 'indent-out',
-      icon: 'exmg-markdown-editor-icons:format-indent-out',
-      action: this.decreaseIndentation,
-      className: 'btn-indent-out',
-      title: 'Indent decrease',
-    },
-    {
-      name: 'quote',
-      icon: 'exmg-markdown-editor-icons:format-quote',
-      action: this.toggleBlockquote,
-      className: 'btn-quote-left',
-      title: 'Quote',
-    },
-    {
-      name: 'hr',
-      icon: 'exmg-markdown-editor-icons:trending-flat',
-      action: this.toggleHorizontalRule,
-      className: 'btn-horizontal-rule',
-      title: 'Horizontal Rule',
-    },
-    {
-      name: 'code',
-      icon: 'exmg-markdown-editor-icons:code',
-      action: this.toggleCode,
-      className: 'btn-code',
-      title: 'Code',
-    },
-    {
-      name: 'table',
-      icon: 'exmg-markdown-editor-icons:grid-on',
-      action: this.insertTable,
-      className: 'btn-table',
-      title: 'Table',
-    },
-    {
-      name: 'table-paste',
-      icon: 'exmg-markdown-editor-icons:paste-table',
-      action: this.pasteTable,
-      className: 'btn-table-paste',
-      title: 'Paste Table',
-    },
-    {
-      name: 'link',
-      icon: 'exmg-markdown-editor-icons:link',
-      action: this.insertLink,
-      className: 'btn-link',
-      title: 'Link',
-    },
-    {
-      name: 'image',
-      icon: 'exmg-markdown-editor-icons:image',
-      action: this.insertImage,
-      className: 'btn-image',
-      title: 'Image',
-    },
-    {
-      name: 'image-ext',
-      icon: 'exmg-markdown-editor-icons:image',
-      action: this.insertImageExt,
-      className: 'btn-image',
-      title: 'Image',
-    },
-    {
-      name: 'unordered-list',
-      icon: 'exmg-markdown-editor-icons:format-list-bulleted',
-      action: this.toggleUnorderedList,
-      className: 'btn-list-ul',
-      title: 'Generic List',
-    },
-    {
-      name: 'ordered-list',
-      icon: 'exmg-markdown-editor-icons:format-list-numbered',
-      action: this.toggleOrderedList,
-      className: 'btn-list-ol',
-      title: 'Numbered List',
-    },
-    {
-      name: 'fullscreen',
-      icon: 'exmg-markdown-editor-icons:fullscreen',
-      action: this.toggleFullscreen,
-      className: 'btn-fullscreen',
-      title: 'Fullscreen',
-    },
-    {
-      name: 'split-view',
-      icon: 'exmg-markdown-editor-icons:chrome-reader-mode',
-      action: this.toggleSplitView,
-      className: 'btn-split-view',
-      title: 'Split View',
-    },
-  ];
+  private toolbarButtonsConfig: ToolBarConfigItem[] = defaultToolBarConfig;
 
   @property({type: Object, attribute: 'shortcuts'})
   shortcuts: Record<string, string> = SHORTCUTS;
@@ -368,7 +214,9 @@ export class EditorElement extends ExmgElement {
   protected update(changedProperties: ChangedProps): void {
     if (changedProperties.has('toolbarButtonsConfig')) {
       const normalizedToolBartConfig: Map<ToolBarOption, ToolBarConfigItem> = new Map();
-      (this.toolbarButtonsConfig || []).forEach((it) => normalizedToolBartConfig.set(it.name, it));
+      const customToolbarConfig = window.markdownEditorConfig?.customToolBarButtons ?? [];
+      const toolbarConfigWithCustoms = [...this.toolbarButtonsConfig, ...customToolbarConfig];
+      (toolbarConfigWithCustoms || []).forEach((it) => normalizedToolBartConfig.set(it.name, it));
       this.normalizedToolBarConfig = normalizedToolBartConfig;
     }
 
@@ -423,10 +271,7 @@ export class EditorElement extends ExmgElement {
       smartypants: false,
     };
 
-    let customRenderer;
-    if (window.markdownEditorConfig && window.markdownEditorConfig.renderer) {
-      customRenderer = window.markdownEditorConfig.renderer as Renderer;
-    }
+    const customRenderer = window.markdownEditorConfig?.renderer as Renderer || undefined;
     const extensions = window.markdownEditorConfig?.extensions || [];
 
 
@@ -443,7 +288,7 @@ export class EditorElement extends ExmgElement {
    * @return {Array}
    */
   private getToolbar(toolBarOptions: ToolBarOption[] = []): (ToolBarConfigItem | Record<string, any>)[] {
-    return toolBarOptions.map((optionName: ToolBarOption) => {
+    return [...toolBarOptions].map((optionName: ToolBarOption) => {
       if (optionName === '|') {
         return {};
       }
@@ -512,7 +357,7 @@ export class EditorElement extends ExmgElement {
       const actionBtn = this.normalizedToolBarConfig.get(shortcut as ToolBarOption);
       if (actionBtn && !!this.shortcuts[shortcut]) {
         // @ts-ignore
-        extraKeys[convertShortcut(this.shortcuts[shortcut])] = () => actionBtn.action.bind(this)();
+        extraKeys[convertShortcut(this.shortcuts[shortcut])] = () => this.action(actionBtn);
       }
     });
 
@@ -584,16 +429,9 @@ export class EditorElement extends ExmgElement {
     return result ? states.includes(result.value) : false;
   }
 
-  private processBlock(type: string, newLine = false): void {
+  private processBlock(type: string, token: string, newLine = false): void {
     const codeMirror = this.codeMirrorEditor!;
     const states = this.getStates();
-    const blockStyles: Record<string, string> = {
-      'strong': '**',
-      'inline-code': '`',
-      'code': '```',
-      'em': '*',
-      'strikethrough': '~~',
-    };
 
     const cursorStart = codeMirror.getDoc().getCursor('start');
     const cursorEnd = codeMirror.getDoc().getCursor('end');
@@ -603,30 +441,30 @@ export class EditorElement extends ExmgElement {
     if (this.hasType(states, type)) {
       const start = {
         ...cursorStart,
-        ch: cursorStart.ch - blockStyles[type].length,
+        ch: cursorStart.ch - token.length,
       };
       const end = {
         ...cursorEnd,
-        ch: cursorEnd.ch + blockStyles[type].length,
+        ch: cursorEnd.ch + token.length,
       };
       codeMirror.getDoc().setSelection(start, end);
       codeMirror.getDoc().replaceSelection(selectionText);
       cursorStart.ch = start.ch;
     } else {
       const text =
-        blockStyles[type] +
+        token +
         (type === 'code' ? '\n' : '') +
         (emptySelection ? `${type} text` : selectionText) +
         (type === 'code' ? '\n' : '') +
-        blockStyles[type];
+        token;
       codeMirror.getDoc().replaceSelection(text);
       if (newLine) {
         cursorStart.line += 1;
         cursorEnd.line += 1;
       } else {
-        cursorStart.ch += blockStyles[type].length;
+        cursorStart.ch += token.length;
         if (!multiLineSelection) {
-          cursorEnd.ch += emptySelection ? `${type} text`.length + blockStyles[type].length : blockStyles[type].length;
+          cursorEnd.ch += emptySelection ? `${type} text`.length + token.length : token.length;
         }
       }
     }
@@ -647,7 +485,9 @@ export class EditorElement extends ExmgElement {
       let text = codeMirror.getDoc().getLine(i);
       const stateFound = states.includes(type);
       switch (type) {
-        case 'header': {
+        case 'header_one':
+        case 'header_two':
+        case 'header_three': {
           const result = /(^[#]+)/.exec(text);
           if (result === null) {
             text = `${symbol} ${text}`;
@@ -729,11 +569,52 @@ export class EditorElement extends ExmgElement {
     return states;
   }
 
-  private toggleHorizontalRule(event?: Event): void {
-    if (event) {
-      event.preventDefault();
+  private action(option: ToolBarConfigItem) {
+    if (!option.type) {
+      switch (option.name) {
+        case 'undo':
+          return this.undo();
+        case 'redo':
+          return this.redo();
+        case 'code':
+          return this.toggleCode();
+        case 'table':
+          return this.insertTable();
+        case 'table-paste':
+          return this.pasteTable();
+        case 'link':
+          return this.insertLink();
+        case 'image':
+          return this.insertImage();
+        case 'hr':
+          return this.toggleHorizontalRule();
+        case 'image-ext':
+          return this.insertImageExt();
+        case 'fullscreen':
+          return this.toggleFullscreen();
+        case 'split-view':
+          return this.toggleSplitView();
+        case 'ordered-list':
+          return this.processLine('ordered-list');
+        default:
+          // eslint-disable-next-line
+          return console.error(`A custom option - ${option.name} - for the ExmgMarkdownEditor is set without a type.`, option);
+      }
+    } else {
+      if (!option.token) {
+        // eslint-disable-next-line
+        return console.error(`A custom option - ${option.name} - for the ExmgMarkdownEditor is set without a token.`, option);
+      }
+      switch (option.type) {
+        case 'block':
+          return this.processBlock(option.name, option.token);
+        case 'line':
+          return this.processLine(option.name, option.token);
+      }
     }
+  }
 
+  private toggleHorizontalRule(): void {
     const codeMirrorEditor = this.codeMirrorEditor!;
     const cursorStart = codeMirrorEditor.getDoc().getCursor('start');
     const lineLength = codeMirrorEditor.getDoc().getLine(cursorStart.line).trim().length;
@@ -745,125 +626,25 @@ export class EditorElement extends ExmgElement {
     codeMirrorEditor.focus();
   }
 
-  private toggleStrikethrough(event?: Event): void {
-    if (event) {
-      event.preventDefault();
-    }
-
-    this.processBlock('strikethrough');
-  }
-
-  private toggleBold(event?: Event): void {
-    if (event) {
-      event.preventDefault();
-    }
-
-    this.processBlock('strong');
-  }
-
-  private toggleItalic(event?: Event): void {
-    if (event) {
-      event.preventDefault();
-    }
-
-    this.processBlock('em');
-  }
-
-  private toggleBlockquote(event?: Event): void {
-    if (event) {
-      event.preventDefault();
-    }
-
-    this.processLine('quote', '>');
-  }
-
-  private toggleUnorderedList(event?: Event): void {
-    if (event) {
-      event.preventDefault();
-    }
-    this.processLine('unordered-list', '*');
-  }
-
-  private toggleOrderedList(event?: Event): void {
-    if (event) {
-      event.preventDefault();
-    }
-
-    this.processLine('ordered-list');
-  }
-
-  private toggleHeaderOne(event?: Event): void {
-    if (event) {
-      event.preventDefault();
-    }
-
-    this.processLine('header', '#');
-  }
-
-  private toggleHeaderTwo(event?: Event): void {
-    if (event) {
-      event.preventDefault();
-    }
-
-    this.processLine('header', '##');
-  }
-
-  private toggleHeaderThree(event?: Event): void {
-    if (event) {
-      event.preventDefault();
-    }
-
-    this.processLine('header', '###');
-  }
-
-  private increaseIndentation(event?: Event): void {
-    if (event) {
-      event.preventDefault();
-    }
-    this.processLine('indent-in', '>');
-  }
-  private decreaseIndentation(event?: Event): void {
-    if (event) {
-      event.preventDefault();
-    }
-    this.processLine('indent-out', '>');
-  }
-
-  private insertLink(event?: Event): void {
-    if (event) {
-      event.preventDefault();
-    }
+  private insertLink(): void {
     const selection = this.getSelectedText();
     this.insertAtCursor(insertBlocks.link(selection), 2, 8);
   }
 
-  private insertImageExt(event?: Event) {
-    if (event) {
-      event.preventDefault();
-    }
+  private insertImageExt() {
     this.fire('exmg-markdown-editor-image-open');
   }
 
-  private insertImage(event?: Event): void {
-    if (event) {
-      event.preventDefault();
-    }
+  private insertImage(): void {
     const selection = this.getSelectedText();
     this.insertAtCursor(insertBlocks.image(selection), 2, 8);
   }
 
-  private insertTable(event?: Event): void {
-    if (event) {
-      event.preventDefault();
-    }
-
+  private insertTable(): void {
     this.insertAtCursor(insertBlocks.table, 2, 8);
   }
 
-  private pasteTable(event?: Event): void {
-    if (event) {
-      event.preventDefault();
-    }
+  private pasteTable(): void {
     this.fire('exmg-markdown-editor-paste-table');
   }
 
@@ -919,9 +700,9 @@ export class EditorElement extends ExmgElement {
     }
 
     if (this.isSelectionInline()) {
-      this.processBlock('inline-code');
+      this.processBlock('inline-code', '');
     } else {
-      this.processBlock('code', true);
+      this.processBlock('code', '', true);
     }
   }
 
@@ -962,12 +743,17 @@ export class EditorElement extends ExmgElement {
         <div class="items">
           ${repeat<ToolBarConfigItem | Record<string, any>>(
             this.getToolbar(this.toolbarButtons),
-            (it, index: number) => (isToolBarConfigItem(it) ? it.name : `empty_${index}`),
+            (it, index: number) => (it.name ? it.name : `empty_${index}`),
             (it) => {
-              if (isToolBarConfigItem(it)) {
+              if (it.name) {
+                const hasMaterialIcon = it.icon.indexOf('exmg-markdown-editor-icons:') < 0;
                 return html`
-                  <a href="#" title="${it.name}" class="${it.className}" @click="${it.action}">
-                    <iron-icon icon="${it.icon}"></iron-icon>
+                  <a href="#" title=${it.title} class=${it.className ?? ''} @click=${() => {
+                    this.action(it as ToolBarConfigItem);
+                  }}>
+                    ${hasMaterialIcon ?
+                      html`<mwc-icon>${it.icon}</mwc-icon>` :
+                      html`<iron-icon icon="${it.icon}"></iron-icon>`}
                   </a>
                 `;
               }
@@ -989,5 +775,11 @@ export class EditorElement extends ExmgElement {
         <div id="preview" class="preview-html"><slot></slot></div>
       </div>
     `;
+  }
+}
+
+declare global {
+  interface HTMLElementTagNameMap {
+    'exmg-markdown-editor': EditorElement;
   }
 }

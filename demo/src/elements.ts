@@ -8,47 +8,47 @@
   export const elements: Element[] = [
     {
       name: '@exmg/exmg-base',
-      version: '8.0.0',
+      version: '8.1.14',
       url: 'https://www.npmjs.com/package/@exmg/exmg-base',
     },{
       name: '@exmg/exmg-button',
-      version: '8.1.7',
+      version: '8.1.14',
       url: 'https://www.npmjs.com/package/@exmg/exmg-button',
     },{
       name: '@exmg/exmg-cli',
-      version: '8.1.5',
+      version: '8.1.9',
       url: 'https://www.npmjs.com/package/@exmg/exmg-cli',
     },{
       name: '@exmg/exmg-dialogs',
-      version: '8.1.7',
+      version: '8.1.15',
       url: 'https://www.npmjs.com/package/@exmg/exmg-dialogs',
     },{
       name: '@exmg/exmg-form',
-      version: '8.1.0',
+      version: '8.1.15',
       url: 'https://www.npmjs.com/package/@exmg/exmg-form',
     },{
       name: '@exmg/exmg-grid',
-      version: '8.1.0',
+      version: '8.1.14',
       url: 'https://www.npmjs.com/package/@exmg/exmg-grid',
     },{
       name: '@exmg/exmg-markdown-editor',
-      version: '8.0.2',
+      version: '8.1.15',
       url: 'https://www.npmjs.com/package/@exmg/exmg-markdown-editor',
     },{
       name: '@exmg/exmg-radio-group',
-      version: '8.1.5',
+      version: '8.1.14',
       url: 'https://www.npmjs.com/package/@exmg/exmg-radio-group',
     },{
       name: '@exmg/exmg-sidemenu',
-      version: '8.1.0',
+      version: '8.1.14',
       url: 'https://www.npmjs.com/package/@exmg/exmg-sidemenu',
     },{
       name: '@exmg/exmg-sortable',
-      version: '8.0.1',
+      version: '8.1.14',
       url: 'https://www.npmjs.com/package/@exmg/exmg-sortable',
     },{
       name: '@exmg/exmg-tooltip',
-      version: '8.1.8',
+      version: '8.1.14',
       url: 'https://www.npmjs.com/package/@exmg/exmg-tooltip',
     },
   ];
