@@ -47,7 +47,7 @@ export class ExmgCopyToClipboard extends ExmgElement {
 
     // Create an observer instance linked to the callback function
     this._observer = new MutationObserver((mutationsList) => {
-      for(const mutation of mutationsList) {
+      for (const mutation of mutationsList) {
         if (mutation.type === 'childList') {
          this.addClickListener();
         }

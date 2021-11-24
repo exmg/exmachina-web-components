@@ -21,25 +21,25 @@ import '@exmg/exmg-button/exmg-button.js';
 @customElement('exmg-form-drawer' as any)
 export class ExmgFormDrawer extends LitElement {
   @property({type: Boolean})
-  public opened = false;
+  opened = false;
 
   @property({type: String, attribute: 'submit-btn-title'})
-  public submitBtnTitle = 'Submit';
+  submitBtnTitle = 'Submit';
 
   @property({type: Boolean, attribute: 'submit-btn-hidden'})
-  public submitBtnHidden = false;
+  submitBtnHidden = false;
 
   @property({type: String, attribute: 'cancel-btn-title'})
-  public cancelBtnTitle = 'Cancel';
+  cancelBtnTitle = 'Cancel';
 
   @property({type: Boolean, attribute: 'keep-opened-on-submit-success'})
-  public keepOpenedOnSubmitSuccess = false;
+  keepOpenedOnSubmitSuccess = false;
 
   @property({type: Boolean, attribute: 'reset-form-on-submit-success'})
-  public resetFormOnSubmitSuccess = false;
+  resetFormOnSubmitSuccess = false;
 
   @property({type: Boolean, attribute: 'autofocus-on-open'})
-  public autofocusOnOpen = false;
+  autofocusOnOpen = false;
 
   @property({type: Boolean, attribute: 'no-cancel-on-outside-click'})
   noCancelOnOutsideClick = false;
@@ -53,7 +53,7 @@ export class ExmgFormDrawer extends LitElement {
   @query('exmg-form')
   private form?: ExmgForm;
 
-  public done(): void {
+  done() {
     this.submitting = false;
 
     if (!this.keepOpenedOnSubmitSuccess) {
@@ -67,23 +67,23 @@ export class ExmgFormDrawer extends LitElement {
     this.form!.done();
   }
 
-  public close() {
+  close() {
     this.opened = false;
   }
 
-  public submit(): void {
+  submit() {
     if (this.form && this.form.validate()) {
       this.form.submit();
     }
   }
 
-  public validate(): void {
+  validate() {
     if (this.form) {
       this.form.validate();
     }
   }
 
-  public serializeForm(): {[key: string]: any} | undefined {
+  serializeForm(): {[key: string]: any} | undefined {
     if (this.form) {
       return this.form.serializeForm();
     }
@@ -91,14 +91,14 @@ export class ExmgFormDrawer extends LitElement {
     return;
   }
 
-  public reset(): void {
+  reset() {
     if (this.form) {
       this.form.reset();
     }
     this.submitting = false;
   }
 
-  public error(errorMessage: string): void {
+  error(errorMessage: string) {
     this.submitting = false;
     this.form!.error(errorMessage);
   }

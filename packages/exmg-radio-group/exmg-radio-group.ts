@@ -1,5 +1,6 @@
 import {html} from 'lit';
 import {ExmgElement} from '@exmg/exmg-base';
+import {classMap} from 'lit/directives/class-map.js';
 import {property} from 'lit/decorators/property.js';
 import {customElement} from 'lit/decorators/custom-element.js';
 import {observer} from '@exmg/exmg-base/observer/observer.js';
@@ -24,6 +25,9 @@ export class ExmgRadioGroup extends ExmgElement {
 
   @property({type: Boolean})
   vertical = false;
+
+  @property({type: Boolean})
+  wrap = false;
 
   @property({type: Boolean, reflect: true, attribute: 'invalid'})
   invalid = false;
@@ -59,7 +63,7 @@ export class ExmgRadioGroup extends ExmgElement {
     }
   }
 
-  validate(): boolean {
+  validate() {
     this.invalid = this.required && !this.selected;
 
     return !this.invalid;
@@ -84,7 +88,7 @@ export class ExmgRadioGroup extends ExmgElement {
     });
   }
 
-  connectedCallback(): void {
+  connectedCallback() {
     super.connectedCallback();
 
     this.addEventListener('keyup', this._onKeyPressed);
@@ -95,7 +99,7 @@ export class ExmgRadioGroup extends ExmgElement {
     this.setProperSelectedItem();
   }
 
-  disconnectedCallback(): void {
+  disconnectedCallback() {
     this.removeEventListener('keyup', this._onKeyPressed);
     this.removeEventListener('exmg-radio-group-item-changed', this._handleRadioGroupItemChanged);
 
@@ -103,9 +107,14 @@ export class ExmgRadioGroup extends ExmgElement {
   }
 
   render() {
+    const classes = {
+      vertical: this.vertical,
+      horizontal: !this.vertical,
+      wrap: this.wrap,
+    };
     return html`
-      <div class="radio-group-container ${this.vertical ? 'vertical' : 'horizontal'}" ?invalid="${this.invalid}">
-        <slot></slot> 
+      <div class="radio-group-container ${classMap(classes)}" ?invalid="${this.invalid}">
+        <slot></slot>
       </div>
     `;
   }

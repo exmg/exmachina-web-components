@@ -9,7 +9,7 @@ export class SortableDemo extends LitElement {
   users: any[] = USERS;
 
   @property({type: Object})
-  private externalSortableHost?: HTMLElement;
+  externalSortableHost?: HTMLElement;
 
   static styles = [css`
     ul,
@@ -120,7 +120,7 @@ export class SortableDemo extends LitElement {
   /**
    * Simple order update: splices the data array to change physical rendering order.
    */
-  private orderChange(e: CustomEvent): void {
+  private orderChange(e: CustomEvent) {
     setTimeout(() => {
       const {sourceIndex, targetIndex} = e.detail;
       const items = [...this.users];
@@ -138,7 +138,7 @@ export class SortableDemo extends LitElement {
   render() {
     return html`
       <h2>List</h2>
-      <exmg-sortable orientation="vertical" @dom-order-change="${this.orderChange}">
+      <exmg-sortable animation-enabled orientation="vertical" @dom-order-change="${this.orderChange}">
         <ul>
           ${this.users.map((user) => {
             return html`
@@ -154,10 +154,8 @@ export class SortableDemo extends LitElement {
       <h2>Cards with animation</h2>
       <exmg-sortable
         item-selector="div.box"
-        animation-enabled
-        animation-timing="{ 'duration': 500 }"
         @dom-order-change="${this.orderChange}"
-      ></exmg-sortable>
+      >
         <div class="boxes">
           ${this.users.map((user) => {
             return html` <div class="box">${user.firstName}</div> `;

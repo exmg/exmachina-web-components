@@ -107,14 +107,14 @@ export class ExmgGridPagination extends ExmgElement {
     this.dispatchEvent(new CustomEvent('exmg-grid-pagination-page-changed', {bubbles: true, composed: true, detail: {page}}));
   }
 
-  private handleOnClickPrev(e: Event): boolean {
+  private handleOnClickPrev(e: Event) {
     e.preventDefault();
     this.pageIndex = this.pageIndex - 1;
     this.fireEventPageChanged(this.pageIndex);
     return false;
   }
 
-  private handleOnClickNext(e: Event): boolean {
+  private handleOnClickNext(e: Event) {
     e.preventDefault();
     this.pageIndex = this.pageIndex + 1;
     this.fireEventPageChanged(this.pageIndex);

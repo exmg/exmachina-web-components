@@ -388,7 +388,7 @@ export interface EventDetailRowsOrderUpdated {
 `Items are sorted as it is done in UI.`
 
 ```
-  onRowsOrderChanged(event: CustomEvent<EventDetailRowsOrderChanged>): void {
+  onRowsOrderChanged(event: CustomEvent<EventDetailRowsOrderChanged>) {
     // store current order and update items
     this.items = [...event.detail.items];
   }

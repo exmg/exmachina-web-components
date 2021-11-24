@@ -14,7 +14,7 @@ export class ExmgColumnSortable {
     this.defaultSortDirection = dsd;
   }
 
-  initFeature(): void {
+  initFeature() {
     this.querySelectors.getColumns('th[data-sort]').forEach((column) => {
       const columnId = column.getAttribute('data-sort') || column.getAttribute('data-column-key')!;
 
@@ -27,7 +27,7 @@ export class ExmgColumnSortable {
     });
   }
 
-  private registerListeners(column: HTMLElement, columnId: string): void {
+  private registerListeners(column: HTMLElement, columnId: string) {
     column.addEventListener('click', () => {
       const columnSortDirection = column.getAttribute('data-sort-direction');
       const nextSortDirection = columnSortDirection === 'ASC' ? 'DESC' : columnSortDirection === 'DESC' ? undefined : 'ASC';
@@ -48,7 +48,7 @@ export class ExmgColumnSortable {
     });
   }
 
-  private fireSortChanged(columnId: string, sortDirection?: SORT_DIRECTION): void {
+  private fireSortChanged(columnId: string, sortDirection?: SORT_DIRECTION) {
     this.dispatchEvent(
       new CustomEvent<EventDetailSortChange>('exmg-grid-sort-change', {
         bubbles: true,

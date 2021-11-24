@@ -177,15 +177,15 @@ export class ExmgGrid extends ExmgElement {
     return this.getQuerySelectors().getColumns(selector);
   }
 
-  private getBodyRowSelector(selector = ''): string {
+  private getBodyRowSelector(selector = '') {
     return this.getQuerySelectors().getBodyRowSelector(selector);
   }
 
-  private canSortRows(): boolean {
+  private canSortRows() {
     return !this.sortable && this.rowsSortable;
   }
 
-  private rowsOrderChange(e: CustomEvent): void {
+  private rowsOrderChange(e: CustomEvent) {
     setTimeout(() => {
       const {sourceIndex, targetIndex} = e.detail;
       const items = [...this.items];
@@ -211,7 +211,7 @@ export class ExmgGrid extends ExmgElement {
     }, 0);
   }
 
-  private updateColumnVisibility(previousHiddenColumnNames: Record<string, string> = {}): void {
+  private updateColumnVisibility(previousHiddenColumnNames: Record<string, string> = {}) {
     let visibleColumns = 0;
     this.getColumns().forEach((column, index) => {
       const columnKey = column.getAttribute('data-column-key');
@@ -229,7 +229,7 @@ export class ExmgGrid extends ExmgElement {
     this.updateAutoColspan(visibleColumns);
   }
 
-  private updateAutoColspan(visibleColumns: number): void {
+  private updateAutoColspan(visibleColumns: number) {
     this.getTable()
       .querySelectorAll('[data-auto-colspan]')
       .forEach((element) => {
@@ -238,7 +238,7 @@ export class ExmgGrid extends ExmgElement {
       });
   }
 
-  private observeExpandedRowIds(changedProps: SmartPropertyValue): void {
+  private observeExpandedRowIds(changedProps: SmartPropertyValue) {
     if (changedProps.has('expandedRowIds')) {
       Object.entries(this.expandedRowIds).forEach(([rowId, nextExpandedState]) => {
         const expendableToggle = this.getTableBody().querySelector<HTMLElement>(
@@ -255,7 +255,7 @@ export class ExmgGrid extends ExmgElement {
     }
   }
 
-  private observeSelectedRowIds(changedProps: SmartPropertyValue): void {
+  private observeSelectedRowIds(changedProps: SmartPropertyValue) {
     if (changedProps.has('selectedRowIds')) {
       Object.entries(this.selectedRowIds).forEach(([rowId, nextSelectionState]) => {
         const row = this.getTableBody().querySelector<HTMLTableRowElement>(this.getBodyRowSelector(`[data-row-key="${rowId}"]`));
@@ -270,7 +270,7 @@ export class ExmgGrid extends ExmgElement {
     }
   }
 
-  private observeItems(changedProps: SmartPropertyValue): void {
+  private observeItems(changedProps: SmartPropertyValue) {
     if (changedProps.has('items') && this.rowSelectableFeature) {
       this.rowSelectableFeature.syncSelectedItems();
     }
@@ -337,7 +337,7 @@ export class ExmgGrid extends ExmgElement {
     this.componentReady = true;
   }
 
-  protected updated(changedProps: SmartPropertyValue): void {
+  protected updated(changedProps: SmartPropertyValue) {
     if (changedProps.has('hiddenColumnNames') || changedProps.has('items')) {
       this.updateColumnVisibility(changedProps.get('hiddenColumnNames') as Record<string, string>);
     }

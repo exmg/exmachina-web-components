@@ -181,7 +181,7 @@ export abstract class ExmgBaseGridDemo extends LitElement {
     return () => this.handleAction(actionId);
   }
 
-  private handleAction(actionId: string): void {
+  private handleAction(actionId: string) {
     switch (actionId) {
       case 'delete': {
         const rowIds = this.selectedRows.map((row) => row.getAttribute('data-row-key'));
@@ -262,7 +262,7 @@ export abstract class ExmgBaseGridDemo extends LitElement {
     };
   }
 
-  private handleFilterChanged(id: string, value: string): void {
+  private handleFilterChanged(id: string, value: string) {
     const filterId = value !== 'all' ? id : null;
     switch (filterId) {
       case 'month':
@@ -330,7 +330,7 @@ export abstract class ExmgBaseGridDemo extends LitElement {
     this.selectedRowIds = this.createRowIdToStateMap(false);
   }
 
-  protected onRowsOrderChanged(event: CustomEvent<EventDetailRowsOrderChanged>): void {
+  protected onRowsOrderChanged(event: CustomEvent<EventDetailRowsOrderChanged>) {
     this.items = [...event.detail.items];
   }
 
@@ -338,7 +338,7 @@ export abstract class ExmgBaseGridDemo extends LitElement {
     this.selectedRows = event.detail.rows;
   }
 
-  protected sortItems(column: string, sortDirection?: 'ASC' | 'DESC'): void {
+  protected sortItems(column: string, sortDirection?: 'ASC' | 'DESC') {
     if (!sortDirection) {
       // reset - sort by ID
       filteredItems.sort(({id: xId}, {id: yId}) => (xId > yId ? 1 : xId < yId ? -1 : 0));
@@ -352,7 +352,7 @@ export abstract class ExmgBaseGridDemo extends LitElement {
     }
   }
 
-  protected onSortChange(event: CustomEvent<EventDetailSortChange>): void {
+  protected onSortChange(event: CustomEvent<EventDetailSortChange>) {
     const {column, sortDirection} = event.detail;
     this.sortItems(column, sortDirection);
     this.pageIndex = 0;

@@ -51,8 +51,8 @@ export class ExmgRadioGroupItem extends FormElement {
   @property({type: String})
   name = '';
 
-  @property({type: Boolean, attribute: 'hide-radio-button'})
-  hideRadioButton = false;
+  @property({type: Boolean, attribute: 'enable-radio-button'})
+  enableRadioButton = false;
 
   @property({type: Object})
   rippleHandlers: RippleHandlers | null = null;
@@ -77,21 +77,21 @@ export class ExmgRadioGroupItem extends FormElement {
     });
   }
 
-  connectedCallback(): void {
+  connectedCallback() {
     super.connectedCallback();
     if (this.selectionController) {
       this.selectionController.register(this);
     }
   }
 
-  disconnectedCallback(): void {
+  disconnectedCallback() {
     if (this.selectionController) {
       this.selectionController.unregister(this);
     }
     super.disconnectedCallback();
   }
 
-  focusNative(): void {
+  focusNative() {
     this.formElement.focus();
   }
 
@@ -130,7 +130,7 @@ export class ExmgRadioGroupItem extends FormElement {
   render() {
     return html`
       <label class="item ${this.checked ? 'checked' : ''} ${this.disabled ? 'disabled' : ''}">
-        <div class="mdc-radio" ?hidden="${this.hideRadioButton}">
+        <div class="mdc-radio" ?hidden="${!this.enableRadioButton}">
           <input
             class="mdc-radio__native-control"
             type="radio"
