@@ -8,7 +8,7 @@
     flex-wrap: wrap;
 }
 .radio-group-container[invalid] {
-    border: 1px solid red;
+    border: 1px solid var(--exmg-radio-group-invalid, red);
 }
 .radio-group-container.horizontal {
     flex-direction: row;
