@@ -193,13 +193,13 @@ export class EditorElement extends ExmgElement {
     return (this.markdown || '').replace(/([^\r]|^)\n/g, '$1\n');
   }
 
-  focus(): void {
+  focus() {
     if (!this.codeMirrorEditor) return;
     this.refresh();
     this.codeMirrorEditor!.focus();
   }
 
-  refresh(): void {
+  refresh() {
     if (!this.codeMirrorEditor) return;
     this.codeMirrorEditor!.refresh();
   }
@@ -211,7 +211,7 @@ export class EditorElement extends ExmgElement {
     this.addEventListener('keyup', this._onKeyPressed);
   }
 
-  protected update(changedProperties: ChangedProps): void {
+  protected update(changedProperties: ChangedProps) {
     if (changedProperties.has('toolbarButtonsConfig')) {
       const normalizedToolBartConfig: Map<ToolBarOption, ToolBarConfigItem> = new Map();
       const customToolbarConfig = window.markdownEditorConfig?.customToolBarButtons ?? [];
@@ -230,7 +230,7 @@ export class EditorElement extends ExmgElement {
     this.renderHTML();
   }
 
-  protected fire<T>(eventName: string, detail?: T, bubbles?: boolean): boolean {
+  protected fire<T>(eventName: string, detail?: T, bubbles?: boolean) {
     return this.dispatchEvent(
       new CustomEvent(eventName, {
         bubbles: bubbles || this.bubbles,
@@ -257,7 +257,7 @@ export class EditorElement extends ExmgElement {
     return code;
   }
 
-  renderHTML(): void {
+  renderHTML() {
     if (!this.markdown) {
       this.innerHTML = '';
       return;
@@ -300,7 +300,7 @@ export class EditorElement extends ExmgElement {
   /**
    * Manages the undo/redo disabled state based upon the available history in code mirror
    */
-  private updateDocHistory(): void {
+  private updateDocHistory() {
     if (!this.codeMirrorEditor) {
       return;
     }
@@ -326,7 +326,7 @@ export class EditorElement extends ExmgElement {
   }
 
   // ********* TOOL BAR HANDLERS *************/
-  private toggleFullscreen(event?: Event): void {
+  private toggleFullscreen(event?: Event) {
     if (event) {
       event.preventDefault();
     }
@@ -334,7 +334,7 @@ export class EditorElement extends ExmgElement {
     this.fullscreen = !this.fullscreen;
   }
 
-  private toggleSplitView(event?: Event): void {
+  private toggleSplitView(event?: Event) {
     if (event) {
       event.preventDefault();
     }
@@ -391,11 +391,11 @@ export class EditorElement extends ExmgElement {
     return codeMirrorEditor;
   }
 
-  private replaceRangeLine(text: string, lineNumber: number): void {
+  private replaceRangeLine(text: string, lineNumber: number) {
     this.codeMirrorEditor!.getDoc().replaceRange(text, {line: lineNumber, ch: 0}, {line: lineNumber, ch: 99999999999999});
   }
 
-  private insertAtCursor(text: string, selectionOffset?: number, selectionLength?: number): void {
+  private insertAtCursor(text: string, selectionOffset?: number, selectionLength?: number) {
     this.codeMirrorEditor!.getDoc().replaceSelection(text, 'start');
 
     const cursorStart = this.codeMirrorEditor!.getDoc().getCursor();
@@ -407,7 +407,7 @@ export class EditorElement extends ExmgElement {
     this.codeMirrorEditor!.focus();
   }
 
-  private hasType(states: string[], type: string): boolean {
+  private hasType(states: string[], type: string) {
     const mappings = [
       {
         key: 'code',
@@ -429,7 +429,7 @@ export class EditorElement extends ExmgElement {
     return result ? states.includes(result.value) : false;
   }
 
-  private processBlock(type: string, token: string, newLine = false): void {
+  private processBlock(type: string, token: string, newLine = false) {
     const codeMirror = this.codeMirrorEditor!;
     const states = this.getStates();
 
@@ -473,7 +473,7 @@ export class EditorElement extends ExmgElement {
     codeMirror.focus();
   }
 
-  private processLine(type: string, symbol?: string): void {
+  private processLine(type: string, symbol?: string) {
     const codeMirror = this.codeMirrorEditor!;
     const cursorStart = codeMirror.getDoc().getCursor('start');
     const cursorEnd = codeMirror.getDoc().getCursor('end');
@@ -532,7 +532,7 @@ export class EditorElement extends ExmgElement {
     codeMirror.focus();
   }
 
-  private isSelectionInline(): boolean {
+  private isSelectionInline() {
     const codeMirror = this.codeMirrorEditor!;
     const cursorStart = codeMirror.getDoc().getCursor('start');
     const cursorEnd = codeMirror.getDoc().getCursor('end');
@@ -540,13 +540,13 @@ export class EditorElement extends ExmgElement {
     return cursorStart.line === cursorEnd.line && cursorEnd.ch - cursorStart.ch !== lineLength;
   }
 
-  private getSelectedText(): string {
+  private getSelectedText() {
     const codeMirror = this.codeMirrorEditor;
     const doc = codeMirror!.getDoc()!;
     return doc.getSelection();
   }
 
-  private getStates(position?: Position): string[] {
+  private getStates(position?: Position) {
     const codeMirror = this.codeMirrorEditor!;
     const pos: Position = position || {...codeMirror.getDoc().getCursor('start')};
     if (pos.sticky === 'after') {
@@ -614,7 +614,7 @@ export class EditorElement extends ExmgElement {
     }
   }
 
-  private toggleHorizontalRule(): void {
+  private toggleHorizontalRule() {
     const codeMirrorEditor = this.codeMirrorEditor!;
     const cursorStart = codeMirrorEditor.getDoc().getCursor('start');
     const lineLength = codeMirrorEditor.getDoc().getLine(cursorStart.line).trim().length;
@@ -626,7 +626,7 @@ export class EditorElement extends ExmgElement {
     codeMirrorEditor.focus();
   }
 
-  private insertLink(): void {
+  private insertLink() {
     const selection = this.getSelectedText();
     this.insertAtCursor(insertBlocks.link(selection), 2, 8);
   }
@@ -635,24 +635,24 @@ export class EditorElement extends ExmgElement {
     this.fire('exmg-markdown-editor-image-open');
   }
 
-  private insertImage(): void {
+  private insertImage() {
     const selection = this.getSelectedText();
     this.insertAtCursor(insertBlocks.image(selection), 2, 8);
   }
 
-  private insertTable(): void {
+  private insertTable() {
     this.insertAtCursor(insertBlocks.table, 2, 8);
   }
 
-  private pasteTable(): void {
+  private pasteTable() {
     this.fire('exmg-markdown-editor-paste-table');
   }
 
-  insertMarkdown(data: string): void {
+  insertMarkdown(data: string) {
     this.insertAtCursor(data);
   }
 
-  insertTableAtCursor(data: string): void {
+  insertTableAtCursor(data: string) {
     const columnWidth = (rows: string[][], columnIndex: number) => {
       return Math.max.apply(
         null,
@@ -694,7 +694,7 @@ export class EditorElement extends ExmgElement {
     this.insertAtCursor(result);
   }
 
-  private toggleCode(event?: Event): void {
+  private toggleCode(event?: Event) {
     if (event) {
       event.preventDefault();
     }
@@ -706,7 +706,7 @@ export class EditorElement extends ExmgElement {
     }
   }
 
-  private undo(event?: Event): void {
+  private undo(event?: Event) {
     if (event) {
       event.preventDefault();
     }
@@ -715,7 +715,7 @@ export class EditorElement extends ExmgElement {
     this.codeMirrorEditor!.focus();
   }
 
-  private redo(event?: Event): void {
+  private redo(event?: Event) {
     if (event) {
       event.preventDefault();
     }

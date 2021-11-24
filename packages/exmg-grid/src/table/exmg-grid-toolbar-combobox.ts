@@ -18,7 +18,7 @@ import {afterNextRender} from '@polymer/polymer/lib/utils/render-status.js';
 
 import {PaperListboxElement} from '@polymer/paper-listbox/paper-listbox.js';
 
-const copyElementStyle = (source: HTMLElement, target: HTMLElement): void => {
+const copyElementStyle = (source: HTMLElement, target: HTMLElement) => {
   const computedStyle = window.getComputedStyle(source, null);
   Array.from(computedStyle).forEach((key) =>
     target.style.setProperty(key, computedStyle.getPropertyValue(key), computedStyle.getPropertyPriority(key)),
@@ -52,7 +52,7 @@ const debounce = (time: number) => {
   let timer: number;
 
   // eslint-disable-next-line @typescript-eslint/ban-types
-  return (cb?: Function): void => {
+  return (cb?: Function) => {
     clearTimeout(timer);
     if (cb) {
       timer = window.setTimeout(cb, time);
@@ -345,7 +345,7 @@ export class PaperGridTooolbarComboboxElement extends ExmgElement {
     };
   }
 
-  private executeObservers(changedProperties: ChangedProps): void {
+  private executeObservers(changedProperties: ChangedProps) {
     Object.entries(this.observers).forEach(([key, cb]) => {
       if (cb && changedProperties.has(key as Props)) {
         cb(changedProperties);
@@ -380,11 +380,11 @@ export class PaperGridTooolbarComboboxElement extends ExmgElement {
     }
   }
 
-  private observeSelectedValue(): void {
+  private observeSelectedValue() {
     this.selected = this.selectedValue;
   }
 
-  private observeSelected(): void {
+  private observeSelected() {
     if (this.selectedValue !== this.selected) {
       this.ignoreFocus = true;
     }
@@ -392,7 +392,7 @@ export class PaperGridTooolbarComboboxElement extends ExmgElement {
     this.selectedValue = this.selected;
   }
 
-  private observeSelectedItem(): void {
+  private observeSelectedItem() {
     if (!this.selectedItem) {
       this.token = undefined;
       return;
@@ -417,25 +417,25 @@ export class PaperGridTooolbarComboboxElement extends ExmgElement {
   /**
    * Opens the combo-box.
    */
-  open(): void {
+  open() {
     this.opened = true;
   }
 
   /**
    * Closes the combo-box.
    */
-  close(): void {
+  close() {
     this.opened = false;
   }
 
   /**
    * Toggles the combo-box/
    */
-  toggle(): void {
+  toggle() {
     this.opened = !this.opened;
   }
 
-  filterItems(): boolean {
+  filterItems() {
     const items: NodeListOf<HTMLElement> = this.querySelectorAll('paper-item, paper-icon-item');
     const hasFilterPhrase = !!this.inputValue && this.inputValue.length > 0;
     const phrase = hasFilterPhrase ? this.inputValue.toLowerCase().trim() : '';
@@ -467,14 +467,14 @@ export class PaperGridTooolbarComboboxElement extends ExmgElement {
     return index === -1 ? undefined : index;
   }
 
-  private hasSelectedItem(): boolean {
+  private hasSelectedItem() {
     return !!this.selectedItem;
   }
 
   /**
    * this method can be used to set the focus of the element
    */
-  focus(): void {
+  focus() {
     this.inputElement!.focus();
   }
 
@@ -496,13 +496,13 @@ export class PaperGridTooolbarComboboxElement extends ExmgElement {
    * Returns true if `value` is valid.
    * @return {boolean} True if the value is valid.
    */
-  validate(): boolean {
+  validate() {
     this.invalid = !this.disabled && this.required && !this.hasSelectedItem();
     return !this.invalid;
   }
 
   /** ********** EVENT HANDLERS *************/
-  private onKeyUp(e: KeyboardEvent): void {
+  private onKeyUp(e: KeyboardEvent) {
     if (typeof this.inputValue !== 'string') {
       this.inputValue = '';
     }
@@ -557,13 +557,13 @@ export class PaperGridTooolbarComboboxElement extends ExmgElement {
     this.previousInsideClick = inside;
   }
 
-  private onContainerTap(e: Event): void {
+  private onContainerTap(e: Event) {
     e.preventDefault();
     this.menuElement!.open();
     afterNextRender(this, () => this.focus());
   }
 
-  private onItemSelected(e: CustomEvent<{item: Element}>): void {
+  private onItemSelected(e: CustomEvent<{item: Element}>) {
     e.stopPropagation();
 
     if (this.selected && !this.selectedItem) {
@@ -582,7 +582,7 @@ export class PaperGridTooolbarComboboxElement extends ExmgElement {
     this.resetInput();
   }
 
-  private onItemDeselected(e: Event): void {
+  private onItemDeselected(e: Event) {
     e.stopPropagation();
     this.selectedItem = undefined;
     this.selected = undefined;
@@ -591,7 +591,7 @@ export class PaperGridTooolbarComboboxElement extends ExmgElement {
     this.resetInput();
   }
 
-  private onItemActivated(e: CustomEvent<{selected: string | number}>): void {
+  private onItemActivated(e: CustomEvent<{selected: string | number}>) {
     // when user select same item then don't receive iron-select event but we still want to
     // prepare input
     if (this.selected === e.detail.selected) {
@@ -602,11 +602,11 @@ export class PaperGridTooolbarComboboxElement extends ExmgElement {
     this.opened = false;
   }
 
-  private onInputValueChange(e: Event): void {
+  private onInputValueChange(e: Event) {
     this.inputValue = (e.target as HTMLInputElement).value;
   }
 
-  private onInputFocusChanged(event: CustomEvent): void {
+  private onInputFocusChanged(event: CustomEvent) {
     this.inputFocused = event.detail.value;
   }
 
@@ -645,7 +645,7 @@ export class PaperGridTooolbarComboboxElement extends ExmgElement {
   /**
    * Fix menu content width and height
    */
-  private onIronResize(): void {
+  private onIronResize() {
     const element: HTMLElement = this.shadowRoot!.querySelector<HTMLElement>('.dropdown-content')!;
 
     const {left: elementLeft} = element.getBoundingClientRect();
@@ -666,7 +666,7 @@ export class PaperGridTooolbarComboboxElement extends ExmgElement {
     }
   }
 
-  private shouldFireEvent(changedProperties: GenericPropertyValues<keyof this | PrivateProps>): boolean {
+  private shouldFireEvent(changedProperties: GenericPropertyValues<keyof this | PrivateProps>) {
     const props: (keyof this | PrivateProps)[] = ['selected', 'selectedItem'];
     const anyPropChanged = props.some(
       (it: keyof this | PrivateProps) =>
@@ -687,7 +687,7 @@ export class PaperGridTooolbarComboboxElement extends ExmgElement {
     this.isElementInitialized = true;
   }
 
-  protected updated(changedProperties: ChangedProps): void {
+  protected updated(changedProperties: ChangedProps) {
     this.executeObservers(changedProperties);
     if (this.shouldFireEvent(changedProperties)) {
       if (typeof this.selected !== 'undefined') {
@@ -704,7 +704,7 @@ export class PaperGridTooolbarComboboxElement extends ExmgElement {
     }
   }
 
-  disconnectedCallback(): void {
+  disconnectedCallback() {
     super.disconnectedCallback();
     this.inputElement && this.inputElement.removeEventListener('keyup', this._onKeyUp);
     this.removeEventListener('iron-resize', this._onIronResize);

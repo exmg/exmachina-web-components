@@ -7,7 +7,7 @@ export class ExmgRowSortable {
     this.querySelectors = qs;
   }
 
-  initFeature(): void {
+  initFeature() {
     this.querySelectors
       .getTableBody()
       .querySelectorAll<HTMLElement>('tr:not([data-initialized]) .grid-row-drag-handler, tr:not([data-initialized]).grid-row-drag-handler')
@@ -16,7 +16,7 @@ export class ExmgRowSortable {
       });
   }
 
-  updateFeature(): void {
+  updateFeature() {
     this.initFeature();
   }
 
@@ -31,7 +31,7 @@ export class ExmgRowSortable {
     return () => undefined;
   }
 
-  private registerMouseListenersHideDetailOnStartDragging(element: HTMLElement): void {
+  private registerMouseListenersHideDetailOnStartDragging(element: HTMLElement) {
     const getRowDetail = this.getRowDetailQuerySelectorFactory(element);
 
     if (element.closest('td')) {

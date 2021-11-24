@@ -3,8 +3,8 @@ import {property, query, state} from 'lit/decorators.js';
 import {ExmgElement} from '@exmg/exmg-base';
 import {classMap} from 'lit/directives/class-map.js';
 import {observer} from '@exmg/exmg-base/observer/observer.js';
-import {Debouncer} from '@exmg/exmg-base/debounce/debounce.js';
-import {timeOut} from '@exmg/exmg-base/debounce/async.js';
+import {Debouncer} from '@exmg/exmg-base/utils/debounce/debounce.js';
+import {timeOut} from '@exmg/exmg-base/utils/debounce/async.js';
 import '@polymer/iron-form/iron-form.js';
 import '@exmg/exmg-button/exmg-button.js';
 import {IronFormElement} from '@polymer/iron-form/iron-form.js';
@@ -70,7 +70,7 @@ export class ExmgFormBase extends ExmgElement {
   })
   private dirty = false;
 
-  get isDirty(): boolean {
+  get isDirty() {
     return this.dirty;
   }
 

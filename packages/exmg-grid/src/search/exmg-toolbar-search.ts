@@ -3,8 +3,8 @@ import {property, customElement, query, state} from 'lit/decorators.js';
 import {ExmgElement} from '@exmg/exmg-base';
 import {classMap} from 'lit/directives/class-map.js';
 import '@polymer/paper-icon-button/paper-icon-button.js';
-import {Debouncer} from '@exmg/exmg-base/debounce/debounce.js';
-import {timeOut} from '@exmg/exmg-base/debounce/async.js';
+import {Debouncer} from '@exmg/exmg-base/utils/debounce/debounce.js';
+import {timeOut} from '@exmg/exmg-base/utils/debounce/async.js';
 
 export const searchIcon = html`
   <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24">

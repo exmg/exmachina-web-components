@@ -9,7 +9,7 @@ export class ExmgRowExpandable {
     this.expandableToggleSelector = ets;
   }
 
-  initFeature(): void {
+  initFeature() {
     this.querySelectors
       .getTableBody()
       .querySelectorAll<HTMLElement>(`${this.expandableToggleSelector}:not([data-is-expandable])`)
@@ -19,11 +19,11 @@ export class ExmgRowExpandable {
       });
   }
 
-  updateFeature(): void {
+  updateFeature() {
     this.initFeature();
   }
 
-  private registerClickListener(triggerElement: HTMLElement): void {
+  private registerClickListener(triggerElement: HTMLElement) {
     triggerElement.addEventListener('click', (event: Event) => {
       const parentRow = triggerElement.closest('tr');
       const rowDetail = parentRow && (parentRow.nextElementSibling as HTMLTableRowElement);

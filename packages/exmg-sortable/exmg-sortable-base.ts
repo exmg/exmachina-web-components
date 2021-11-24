@@ -1,8 +1,7 @@
 import {html, PropertyValues} from 'lit';
 import {ExmgElement} from '@exmg/exmg-base';
 import {property} from 'lit/decorators.js';
-import {addListener, removeListener} from '@polymer/polymer/lib/utils/gestures.js';
-import {afterNextRender} from '@polymer/polymer/lib/utils/render-status.js';
+import {addListener, removeListener} from '@exmg/exmg-base/utils/gestures.js';
 
 /**
  * Orientation map to limit dragging to horizontal or vertical.
@@ -58,16 +57,16 @@ export class SortableElementBase extends ExmgElement {
     this.handleTrack = this.handleTrack.bind(this);
   }
 
-  connectedCallback(): void {
+  connectedCallback() {
     super.connectedCallback();
     addListener(this.getSortableHost(), 'track', this.handleTrack);
   }
 
-  disconnectedCallback(): void {
+  disconnectedCallback() {
     removeListener(this.getSortableHost(), 'track', this.handleTrack);
   }
 
-  protected updated(changedProperties: PropertyValues): void {
+  protected updated(changedProperties: PropertyValues) {
     if (changedProperties.has('sortableHostNode')) {
       // reset listeners when sortableHostNode changed
       removeListener((changedProperties.get('sortableHostNode') as HTMLElement) || this, 'track', this.handleTrack);
@@ -96,7 +95,7 @@ export class SortableElementBase extends ExmgElement {
    * Tracks a pointer from touchstart/mousedown to touchend/mouseup. Note that the start state is fired following
    * the first actual move event following a touchstart/mousedown.
    */
-  private handleTrack(e: Event): void {
+  private handleTrack(e: Event) {
     switch ((e as CustomEvent).detail.state) {
       case 'start':
         if (!this.dragRequestPending) {
@@ -109,10 +108,10 @@ export class SortableElementBase extends ExmgElement {
       case 'end':
         if (this.animationPromise) {
           this.animationPromise.then(() => {
-            afterNextRender(this, this.trackEnd);
+            setTimeout(() => this.trackEnd());
           });
         } else {
-          afterNextRender(this, this.trackEnd);
+          setTimeout(() => this.trackEnd());
         }
         break;
     }
@@ -122,7 +121,7 @@ export class SortableElementBase extends ExmgElement {
    * Initialized a drag and drop sequence if a child node was clicked that matches the itemSelector property. If a
    * handleSelector is defined, a node matching this selector must be clicked instead.
    */
-  private trackStart(e: Event): void {
+  private trackStart(e: Event) {
     const handle = this.handleSelector;
     const eventPath: EventTarget[] = (e as any).path ? (e as any).path : e.composedPath();
     const targetElement = eventPath[0] as HTMLElement;
@@ -155,7 +154,7 @@ export class SortableElementBase extends ExmgElement {
   /**
    * Ends the drag and drop sequence.
    */
-  private trackEnd(): void {
+  private trackEnd() {
     if (!this.draggedElement) {
       return;
     }
@@ -188,7 +187,7 @@ export class SortableElementBase extends ExmgElement {
    * Moves the active node's clone to follow the pointer. The node that the clone intersects with (via hitTest) is
    * the insert point for updated sorting.
    */
-  private trackMove(e: Event): void {
+  private trackMove(e: Event) {
     e.preventDefault();
 
     if (!this.draggedElementClone) {
@@ -223,7 +222,7 @@ export class SortableElementBase extends ExmgElement {
     }
   }
 
-  private updateUserSelectStyle(userSelect: 'text' | 'none'): void {
+  private updateUserSelectStyle(userSelect: 'text' | 'none') {
     /**
      * Firefox bug fix: when dragging elements in firefox, closest text also getting selected
      */
@@ -259,11 +258,11 @@ export class SortableElementBase extends ExmgElement {
    * @param {HTMLElement} node
    * @returns {boolean} isAnimating
    */
-  private isAnimating(node: HTMLElement): boolean {
+  private isAnimating(node: HTMLElement) {
     return this.animatedElements.indexOf(node) !== -1;
   }
 
-  private reset(): void {
+  private reset() {
     if (this.draggedElementClone !== undefined && this.draggedElementClone.parentNode !== null) {
       this.draggedElementClone.parentNode.removeChild(this.draggedElementClone);
     }
@@ -290,7 +289,7 @@ export class SortableElementBase extends ExmgElement {
    * @param {number} dx
    * @param {number} dy
    */
-  private animateNode(node: HTMLElement, dx = 0, dy = 0): void {
+  private animateNode(node: HTMLElement, dx = 0, dy = 0) {
     if (!node.animate) {
       return;
     }
@@ -331,7 +330,7 @@ export class SortableElementBase extends ExmgElement {
    * @param {Node} node
    * @param {Node} target
    */
-  private insertAtTarget(node: Node, target: HTMLElement): void {
+  private insertAtTarget(node: Node, target: HTMLElement) {
     let offsets: any[] = [];
     if (this.animationEnabled) {
       offsets = this.sortableNodes.map((item) => ({

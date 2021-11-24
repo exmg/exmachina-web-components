@@ -59,7 +59,7 @@ export class ExmgRadioGroup extends ExmgElement {
     }
   }
 
-  validate(): boolean {
+  validate() {
     this.invalid = this.required && !this.selected;
 
     return !this.invalid;
@@ -84,7 +84,7 @@ export class ExmgRadioGroup extends ExmgElement {
     });
   }
 
-  connectedCallback(): void {
+  connectedCallback() {
     super.connectedCallback();
 
     this.addEventListener('keyup', this._onKeyPressed);
@@ -95,7 +95,7 @@ export class ExmgRadioGroup extends ExmgElement {
     this.setProperSelectedItem();
   }
 
-  disconnectedCallback(): void {
+  disconnectedCallback() {
     this.removeEventListener('keyup', this._onKeyPressed);
     this.removeEventListener('exmg-radio-group-item-changed', this._handleRadioGroupItemChanged);
 

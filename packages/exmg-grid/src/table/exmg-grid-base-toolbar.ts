@@ -26,12 +26,12 @@ export class ExmgGridBaseToolbar extends ExmgElement {
 
   private observer?: MutationObserver;
 
-  private getChildElementCount(selector: string): number {
+  private getChildElementCount(selector: string) {
     const element = this.querySelector(selector);
     return element ? element.childElementCount : 0;
   }
 
-  connectedCallback(): void {
+  connectedCallback() {
     super.connectedCallback();
 
     this.observer = new MutationObserver((mutationsList) => {
@@ -52,8 +52,9 @@ export class ExmgGridBaseToolbar extends ExmgElement {
     this.observer!.observe(this, {attributes: false, childList: true, subtree: true});
   }
 
-  disconnectedCallback(): void {
+  disconnectedCallback() {
     this.observer!.disconnect();
+    super.disconnectedCallback();
   }
 
   render() {

@@ -33,7 +33,7 @@ export class UserUpdateDrawer extends FormDrawerBase<UserData> {
     console.log('item changed');
   }
 
-  openChanged(opened: boolean): void {
+  openChanged(opened: boolean) {
     setTimeout(() => opened && this.markdownEditor!.refresh(), 0);
   }
 

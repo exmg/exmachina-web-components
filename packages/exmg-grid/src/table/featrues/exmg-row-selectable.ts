@@ -19,7 +19,7 @@ const indeterminateCheckbox = (checkboxElement: HTMLInputElement) => {
   checkboxElement.checked = true;
 };
 
-const syncCheckboxAttrFromProp = (checkboxElement: HTMLInputElement): void => {
+const syncCheckboxAttrFromProp = (checkboxElement: HTMLInputElement) => {
   if (checkboxElement.checked) {
     checkboxElement.setAttribute('checked', 'checked');
   } else {
@@ -44,7 +44,7 @@ export class ExmgRowSelectable {
     this.disableRowClickSelection = drcs;
   }
 
-  initFeature(bodyRows: NodeListOf<HTMLTableRowElement>): void {
+  initFeature(bodyRows: NodeListOf<HTMLTableRowElement>) {
     const fireEvent = this.initAllCheckbox();
     const rowsSelectionSyncShouldTriggerEvent = this.syncRowSelectionWithBodyCheckboxes();
     this.updateBodyRowsListeners(bodyRows);
@@ -53,7 +53,7 @@ export class ExmgRowSelectable {
     }
   }
 
-  updateFeature(bodyRows: NodeListOf<HTMLTableRowElement>): void {
+  updateFeature(bodyRows: NodeListOf<HTMLTableRowElement>) {
     this.updateBodyRowsListeners(bodyRows);
     const rowsSelectionSyncShouldTriggerEvent = this.syncRowSelectionWithBodyCheckboxes();
     this.updateSelectAllCheckbox();
@@ -62,7 +62,7 @@ export class ExmgRowSelectable {
     }
   }
 
-  syncSelectedItems(): void {
+  syncSelectedItems() {
     if (this.syncRowSelectionWithBodyCheckboxes()) {
       this.fireSelectableRows();
     }
@@ -80,7 +80,7 @@ export class ExmgRowSelectable {
     );
   }
 
-  private updateBodyRowsListeners(bodyRows: NodeListOf<HTMLTableRowElement>): void {
+  private updateBodyRowsListeners(bodyRows: NodeListOf<HTMLTableRowElement>) {
     bodyRows.forEach((row) => {
       row.setAttribute('data-is-selectable', '');
 
@@ -121,7 +121,7 @@ export class ExmgRowSelectable {
     });
   }
 
-  private initAllCheckbox(): boolean {
+  private initAllCheckbox() {
     let fireEvent = false;
     this.allCheckbox = this.selectableCheckboxSelector
       ? this.querySelectors.getColumn<HTMLInputElement>(this.selectableCheckboxSelector)
@@ -143,7 +143,7 @@ export class ExmgRowSelectable {
     return fireEvent;
   }
 
-  private syncRowSelectionWithBodyCheckboxes(): boolean {
+  private syncRowSelectionWithBodyCheckboxes() {
     let fireEvent = false;
 
     if (this.selectableCheckboxSelector) {
@@ -193,7 +193,7 @@ export class ExmgRowSelectable {
       : [];
   }
 
-  private handleAllCheckboxStateChange(): void {
+  private handleAllCheckboxStateChange() {
     if (this.allCheckbox!.checked) {
       this.allCheckbox!.removeAttribute('indeterminate');
       this.selectedRows = [];
@@ -219,7 +219,7 @@ export class ExmgRowSelectable {
     }
   }
 
-  private updateSelectAllCheckbox(): void {
+  private updateSelectAllCheckbox() {
     const selectedRowsCount = this.selectedRows.length;
     if (this.allCheckbox) {
       if (!this.allCheckbox.checked && selectedRowsCount === this.querySelectors.getBodyRows().length) {

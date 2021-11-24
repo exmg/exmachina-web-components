@@ -77,21 +77,21 @@ export class ExmgRadioGroupItem extends FormElement {
     });
   }
 
-  connectedCallback(): void {
+  connectedCallback() {
     super.connectedCallback();
     if (this.selectionController) {
       this.selectionController.register(this);
     }
   }
 
-  disconnectedCallback(): void {
+  disconnectedCallback() {
     if (this.selectionController) {
       this.selectionController.unregister(this);
     }
     super.disconnectedCallback();
   }
 
-  focusNative(): void {
+  focusNative() {
     this.formElement.focus();
   }
 
