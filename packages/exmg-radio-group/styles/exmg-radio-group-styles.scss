@@ -1,5 +1,11 @@
+:host {
+    display: block;
+}
 .radio-group-container {
     display: flex;
+}
+.radio-group-container.wrap {
+    flex-wrap: wrap;
 }
 .radio-group-container[invalid] {
     border: 1px solid red;

@@ -9,7 +9,7 @@ export class SortableDemo extends LitElement {
   users: any[] = USERS;
 
   @property({type: Object})
-  private externalSortableHost?: HTMLElement;
+  externalSortableHost?: HTMLElement;
 
   static styles = [css`
     ul,

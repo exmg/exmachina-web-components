@@ -256,7 +256,6 @@ export class PaperGridTooolbarComboboxElement extends ExmgElement {
       paper-input-container {
         flex: 1;
         flex-basis: 0.000000001px;
-        hheight: 56px;
         box-sizing: border-box;
       }
       .tokens {

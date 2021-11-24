@@ -1,20 +1,52 @@
-$defaultColor: rgb(21,111,216);
+$defaultColor:  #0071e3;
 $defaultColorForBoxShadow: rgba(131,192,253, 0.5);
 
 :host {
-  border: 1px solid rgba(0,0,0,.54);
-  border-radius: 5px;
+  display: block;
+  border: 1px solid #d2d2d7;
+  border-radius: 12px;
   font-family: 'Roboto', 'Noto', sans-serif;
-  padding: 7px 10px;
-  margin: 5px;
+  font-size: 16px;
+  line-height: 1.23536;
+  font-weight: 400;
+  letter-spacing: -.022em;
+  padding: 0px;
+  color: rgba(29, 29, 31, 1);
+  box-sizing: border-box;
+  margin: 0;
   cursor: pointer;
+  margin-top: 0.8rem;
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+}
+::slotted(.figure) {
+  text-align: center;
+  font-size: 13px;
+  color: rgba(29, 29, 31, 0.8);
+}
+::slotted(.figure.horizontal) {
+  display: flex;
+  flex-direction: row;
+  text-align: left;
+  align-items: center;
+}
+::slotted([slot="title"]) {
+  margin-bottom: 0.3rem;
+}
+:host label{
+  padding: 15px;
+  height: 100%;
+  box-sizing: border-box;
+}
+:host(:not([checked]):not([disabled]):hover){
+  border: 1px solid #9d9da0;
 }
 :host([checked]) {
-  border: 2px solid var(--mdc-theme-secondary, $defaultColor);
-  padding: 6px 9px;
+  outline: none;
+  border: 2px solid #0071e3;
 }
-:host([disabled]) {
-  border-color: rgba(0,0,0,.26);
+:host([checked]) label {
+  padding: 14px;
 }
 :host(:focus-within) {
   box-shadow: 0 0 0 3px var(--mdc-theme-secondary-box-shadow, $defaultColorForBoxShadow);
@@ -28,12 +60,21 @@ $defaultColorForBoxShadow: rgba(131,192,253, 0.5);
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding-left: 5px;
+  width: 100%;
 }
 .description > .title {
-  text-transform: uppercase;
-  color: var(--mdc-theme-secondary, $defaultColor);
-  font-weight: 500;
+  font-weight: 600;
+}
+.description > .body {
+  font-size: 12px;
+  line-height: 1.33337;
+  font-weight: 400;
+  letter-spacing: -.01em;
+  margin-top: 0.5rem;
+  color: rgba(29, 29, 31, 0.8);
+}
+.description > * {
+  flex: 1;
 }
 .item.disabled > .description {
   opacity: 0.26;
@@ -41,6 +82,7 @@ $defaultColorForBoxShadow: rgba(131,192,253, 0.5);
 .mdc-radio[hidden] {
   opacity: 0;
   width: 0;
+  height: 0;
   padding: 0;
 }
 .mdc-radio .mdc-radio__native-control:enabled:checked+.mdc-radio__background .mdc-radio__outer-circle {
