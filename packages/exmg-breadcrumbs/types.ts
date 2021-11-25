@@ -1,0 +1,6 @@
+export interface BreadcrumbItem {
+    href: string;
+    content: string;
+    selected?: boolean;
+    disabled?: boolean;
+}

@@ -17,7 +17,8 @@ const elements = [
   'exmg-sidemenu',
   'exmg-copy-to-clipboard',
   'exmg-form',
-  'exmg-form-drawer'
+  'exmg-form-drawer',
+  'exmg-breadcrumbs'
 ];
 
 const elementsConfigs = elements.map((element) => {
