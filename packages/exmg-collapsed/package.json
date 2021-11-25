@@ -1,0 +1,37 @@
+{
+    "name": "@exmg/exmg-collapsed",
+    "version": "8.1.0",
+    "dependencies": {
+      "@exmg/exmg-base": "^8.1.14",
+      "lit": "^2.0.0",
+      "tslib": "^2.0.1"
+    },
+    "devDependencies": {
+      "@exmg/exmg-cli": "^8.1.9"
+    },
+    "keywords": [
+      "web-components",
+      "lit",
+      "collapsed"
+    ],
+    "files": [
+      "**/*.scss",
+      "**/*.js",
+      "**/*.d.ts"
+    ],
+    "homepage": "https://github.com/exmg/exmachina-web-components",
+    "main": "exmg-collapsed.js",
+    "repository": {
+      "type": "git",
+      "url": "git@github.com:exmg/exmg-web-components.git",
+      "directory": "packages/exmg-collapsed"
+    },
+    "license": "MIT",
+    "scripts": {
+      "build:styles": "exmg-cli -s \"./**/*.scss\""
+    },
+    "publishConfig": {
+      "access": "public"
+    }
+  }
+  

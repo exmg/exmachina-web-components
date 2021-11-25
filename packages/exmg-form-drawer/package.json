@@ -26,6 +26,8 @@
     "@exmg/exmg-base": "^8.1.14",
     "@exmg/exmg-button": "^8.1.14",
     "@exmg/exmg-form": "^8.1.14",
+    "@polymer/neon-animation": "^3.0.1",
+    "@polymer/paper-dialog": "^3.0.1",
     "lit": "^2.0.0",
     "tslib": "^2.0.1"
   },

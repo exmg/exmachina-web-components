@@ -48,7 +48,7 @@ export class ExmgFormDrawer extends LitElement {
   disableStickyHeader = false;
 
   @property({type: Boolean, reflect: true})
-  private submitting = false;
+  submitting = false;
 
   @query('exmg-form')
   private form?: ExmgForm;

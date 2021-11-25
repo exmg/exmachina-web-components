@@ -19,6 +19,10 @@
       version: '8.1.9',
       url: 'https://www.npmjs.com/package/@exmg/exmg-cli',
     },{
+      name: '@exmg/exmg-collapsed',
+      version: '8.1.0',
+      url: 'https://www.npmjs.com/package/@exmg/exmg-collapsed',
+    },{
       name: '@exmg/exmg-copy-to-clipboard',
       version: '8.1.0',
       url: 'https://www.npmjs.com/package/@exmg/exmg-copy-to-clipboard',

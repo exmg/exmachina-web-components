@@ -64,6 +64,7 @@ export class SortableElementBase extends ExmgElement {
 
   disconnectedCallback() {
     removeListener(this.getSortableHost(), 'track', this.handleTrack);
+    super.disconnectedCallback();
   }
 
   protected updated(changedProperties: PropertyValues) {
