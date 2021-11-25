@@ -87,10 +87,13 @@
     }, 
     {
       "path": "packages/exmg-form-drawer",
-    }, 
+    },
     {
       "path": "packages/exmg-breadcrumbs",
-    }, 
+    },
+    {
+      "path": "packages/exmg-collapsed",
+    },
     {
       "path": "demo",
     },
