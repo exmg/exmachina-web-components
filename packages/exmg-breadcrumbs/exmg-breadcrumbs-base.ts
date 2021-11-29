@@ -1,102 +1,47 @@
-import {html} from 'lit';
-import {property, state} from 'lit/decorators.js';
+import {html, nothing} from 'lit';
+import {property} from 'lit/decorators.js';
 import {repeat} from 'lit/directives/repeat.js';
+import {classMap} from 'lit/directives/class-map.js';
 
-import {arrowSeparator} from './exmg-breadcrumbs-icons.js';
 import {BreadcrumbItem} from './types.js';
 import {ExmgElement} from '@exmg/exmg-base/exmg-element.js';
 
-type GenericPropertyValues<T, V = unknown> = Map<T, V>;
-type Props = Exclude<keyof ExmgBreadcrumbsBase, number | symbol>;
-
-type SmartPropertyValue = GenericPropertyValues<Props>;
+export const arrowSeparator = html`
+  <svg height="24" viewBox="0 0 24 24" width="24" preserveAspectRatio="xMidYMid meet">
+    <path d="M8.59 16.34l4.58-4.59-4.58-4.59L10 5.75l6 6-6 6z"></path>
+  </svg>
+`;
 
 export class ExmgBreadcrumbsBase extends ExmgElement {
   @property({type: Array})
   items: BreadcrumbItem[] = [];
 
-  @property({type: Number})
-  limit?: number;
-
-  /**
-   * If true then css var `--breadcrumbs-item-separator-background-url` should be provided. It will be set as
-   * background image of separator.
-   */
-  @property({type: Boolean, attribute: 'has-custom-separator', reflect: true})
-  hasCustomSeparator?: boolean;
-
-  @property({type: String, attribute: 'separator-text'})
-  separatorText?: string;
-
-  @state()
-  private preparedItems?: BreadcrumbItem[] = [];
-
-  private renderSeparator(currentIndex: number, lastIndex: number) {
-    if (currentIndex === lastIndex) {
-      return null;
-    }
-
-    if (this.hasCustomSeparator) {
-      return html`
-        <span class="separator"></span>
-      `;
-    }
-
-    return html`
-      <span class="separator">${this.separatorText || arrowSeparator}</span>
-    `;
-  }
+  @property({type: Boolean, attribute: 'arrow-separator', reflect: true})
+  arrowSeperator = false;
 
   protected renderItems() {
-    const lastIndex = this.preparedItems!.length - 1;
+    const lastIndex = this.items?.length - 1;
     return repeat(
-      this.preparedItems!,
+      this.items || [],
       ({href, content}) => `${href}${content}`,
-      ({href, content, disabled, selected}, index) => {
+      ({href, content}, index) => {
         return html`
-          <div class="breadcrumb-item">
-            <a href=${href} ?inactive="${!selected}" ?disabled="${disabled}">${content}</a>
-            ${this.renderSeparator(index, lastIndex)}
-          </div>
+          <li class="${classMap({arrowSeperator: this.arrowSeperator})}">
+            <a href=${href} aria-current=${index === lastIndex ? 'page' : 'false'}>${content}</a>
+            ${this.arrowSeperator && index !== lastIndex? arrowSeparator : nothing}
+          </li>
         `;
       },
     );
   }
 
-  protected prepareItems(): void {
-    let preparedItems = this.items.map((item) => {
-      const {href, disabled} = item;
-      const isDisabled = !href || !!disabled;
-
-      return {
-        ...item,
-        href: isDisabled ? 'javascript:void(0);' : href,
-        disabled: isDisabled,
-      };
-    });
-
-    if (this.limit && this.limit < preparedItems.length) {
-      const headLength = Math.floor(this.limit / 2);
-      const tailLength = this.limit - headLength;
-      preparedItems = preparedItems.filter((_, index: number) => index < headLength || index > tailLength);
-    }
-
-    this.preparedItems = preparedItems;
-  }
-
-  update(changedProperties: SmartPropertyValue) {
-    if (changedProperties.has('items') || changedProperties.has('limit')) {
-      this.prepareItems();
-    }
-
-    super.update(changedProperties);
-  }
-
   render() {
     return html`
-      <div class="container">
-        ${this.renderItems()}
-      </div>
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <ol>
+          ${this.renderItems()}
+        </ol>
+      </nav>
     `;
   }
 }

@@ -19,7 +19,7 @@ parserOptions:
   sourceType: module
 settings:
   wc:
-    elementBaseClasses: ['BaseElement', 'LitElement', 'FormElement']
+    elementBaseClasses: ['BaseElement', 'LitElement', 'FormElement', 'ExmgElement']
 rules:
   # Rules temporally disabled
   '@typescript-eslint/explicit-function-return-type': off
@@ -57,6 +57,11 @@ rules:
   jasmine/no-pending-tests: error
 overrides:
   - files: ['packages/**/*.ts']
+    rules:
+      no-unused-vars: off
+      no-invalid-this: off
+      new-cap: off
+  - files: ['demo/**/*.ts']
     rules:
       no-unused-vars: off
       no-invalid-this: off
