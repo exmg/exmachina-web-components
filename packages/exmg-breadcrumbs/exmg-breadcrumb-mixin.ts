@@ -4,13 +4,12 @@ import {ExmgBreadcrumbs} from './exmg-breadcrumbs.js';
 import {BreadcrumbItem} from './types.js';
 
 export abstract class BreadcrumbsClass extends ExmgElement {
-    protected getBreadcrumbElement?(): ExmgBreadcrumbs;
+    breadcrumbs?: ExmgBreadcrumbs;
 }
 
 export interface BreadcrumbsInterface {
     emitSetBreadcrumbs(items: BreadcrumbItem[]): void;
     emitResetBreadcrumbs(): void;
-
 }
 
 export const breadcrumbsMixin = <T extends Constructor<ExmgElement & BreadcrumbsClass>>(base: T) => {
@@ -39,11 +38,11 @@ export const breadcrumbsMixin = <T extends Constructor<ExmgElement & Breadcrumbs
     }
 
     resetBreadcrumbs() {
-        this.getBreadcrumbElement && (this.getBreadcrumbElement().items = []);
+        this.breadcrumbs && (this.breadcrumbs.items = []);
     }
 
     setBreadcrumbs(e: CustomEvent<{items: BreadcrumbItem[]}>) {
-        this.getBreadcrumbElement && (this.getBreadcrumbElement().items = e.detail.items);
+        this.breadcrumbs && (this.breadcrumbs.items = e.detail.items);
     }
 
     constructor(...args) {

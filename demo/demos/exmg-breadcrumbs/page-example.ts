@@ -3,6 +3,7 @@ import {customElement, query} from 'lit/decorators';
 import {ExmgElement} from '@exmg/exmg-base/exmg-element.js';
 import {breadcrumbsMixin} from '@exmg/exmg-breadcrumbs/exmg-breadcrumb-mixin.js';
 import '@exmg/exmg-breadcrumbs/exmg-breadcrumbs.js';
+import {ExmgBreadcrumbs} from '@exmg/exmg-breadcrumbs/exmg-breadcrumbs.js';
 
 const dummyItems = [
     {href: '/home', content: 'Home page1'},
@@ -14,7 +15,7 @@ const dummyItems = [
 @customElement('page-example')
 export class PageExample extends breadcrumbsMixin(ExmgElement) {
     @query('#breadcrumbs')
-    breadcrumbs?: any;
+    breadcrumbs?: ExmgBreadcrumbs;
 
     static styles = [
         css`
@@ -34,10 +35,6 @@ export class PageExample extends breadcrumbsMixin(ExmgElement) {
             }
         `
     ];
-
-    getBreadcrumbElement() {
-        return this.breadcrumbs;
-    }
 
     render() {
         return html`
