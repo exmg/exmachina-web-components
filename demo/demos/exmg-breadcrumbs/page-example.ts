@@ -1,7 +1,7 @@
 import {html, css} from 'lit';
 import {customElement, query} from 'lit/decorators';
 import {ExmgElement} from '@exmg/exmg-base/exmg-element.js';
-import {breadcrumbsMixin} from '@exmg/exmg-breadcrumbs/exmg-breadcrumb-mixin.js';
+import {BreadcrumbsMixin} from '@exmg/exmg-breadcrumbs/exmg-breadcrumb-mixin.js';
 import '@exmg/exmg-breadcrumbs/exmg-breadcrumbs.js';
 import {ExmgBreadcrumbs} from '@exmg/exmg-breadcrumbs/exmg-breadcrumbs.js';
 
@@ -13,9 +13,15 @@ const dummyItems = [
 ];
 
 @customElement('page-example')
-export class PageExample extends breadcrumbsMixin(ExmgElement) {
+export class PageExample extends BreadcrumbsMixin(ExmgElement) {
     @query('#breadcrumbs')
-    breadcrumbs?: ExmgBreadcrumbs;
+    breadcrumbsElement?: ExmgBreadcrumbs;
+
+    breadcrumbs = [
+        {href: '/home', content: 'Home page'},
+        {href: '/users', content: 'User List'},
+        {href: '/users/1234', content: 'Mark'},
+    ];
 
     static styles = [
         css`
@@ -41,8 +47,8 @@ export class PageExample extends breadcrumbsMixin(ExmgElement) {
             <div class="page">
                 <exmg-breadcrumbs id="breadcrumbs">Waiting..</exmg-breadcrumbs>
                 <div class="actions">
-                    <button @click=${() => this.emitResetBreadcrumbs()}>reset</button>
-                    <button @click=${() => this.emitSetBreadcrumbs(dummyItems)}>set</button>
+                    <button @click=${() => this.emitResetBreadcrumbs()}>reset (Event)</button>
+                    <button @click=${() => this.emitSetBreadcrumbs(dummyItems)}>Change (Event)</button>
                 </div>
             </div>
         `;

@@ -1,10 +1,13 @@
 import {ExmgElement} from '@exmg/exmg-base/exmg-element.js';
 import {Constructor} from '@exmg/exmg-base/mixins/types.js';
 import {ExmgBreadcrumbs} from './exmg-breadcrumbs.js';
+import {observer} from '@exmg/exmg-base/observer/observer.js';
 import {BreadcrumbItem} from './types.js';
+import {property} from 'lit/decorators.js';
 
 export abstract class BreadcrumbsClass extends ExmgElement {
-    breadcrumbs?: ExmgBreadcrumbs;
+    breadcrumbsElement?: ExmgBreadcrumbs;
+    breadcrumbs?: BreadcrumbItem[];
 }
 
 export interface BreadcrumbsInterface {
@@ -12,10 +15,16 @@ export interface BreadcrumbsInterface {
     emitResetBreadcrumbs(): void;
 }
 
-export const breadcrumbsMixin = <T extends Constructor<ExmgElement & BreadcrumbsClass>>(base: T) => {
+export const BreadcrumbsMixin = <T extends Constructor<ExmgElement & BreadcrumbsClass>>(base: T) => {
   class BreadcrumbsState extends base {
     setBreadcrumbsBind: (e: CustomEvent<{ items: BreadcrumbItem[]; }>) => void;
     resetBreadcrumbsBind: () => void;
+
+    @property({type: Array})
+    @observer(function(this: any, breadcrumbs: BreadcrumbItem[]) {
+        this.emitSetBreadcrumbs(breadcrumbs);
+    })
+    breadcrumbs?: BreadcrumbItem[] = [];
 
     emitSetBreadcrumbs(items: BreadcrumbItem[]) {
         window.dispatchEvent(
@@ -38,11 +47,11 @@ export const breadcrumbsMixin = <T extends Constructor<ExmgElement & Breadcrumbs
     }
 
     resetBreadcrumbs() {
-        this.breadcrumbs && (this.breadcrumbs.items = []);
+        this.breadcrumbsElement && (this.breadcrumbsElement.items = []);
     }
 
     setBreadcrumbs(e: CustomEvent<{items: BreadcrumbItem[]}>) {
-        this.breadcrumbs && (this.breadcrumbs.items = e.detail.items);
+        this.breadcrumbsElement && (this.breadcrumbsElement.items = e.detail.items);
     }
 
     constructor(...args) {
