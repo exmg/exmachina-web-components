@@ -18,6 +18,7 @@ const elements = [
   'exmg-copy-to-clipboard',
   'exmg-form',
   'exmg-form-drawer',
+  'exmg-breadcrumbs',
   'exmg-collapsed'
 ];
 
