@@ -214,5 +214,8 @@ html[dark-theme] {
 body,
 html {
   margin: 0;
+  padding: 1rem;
   background: white;
+  font-family: "Roboto";
+  -webkit-font-smoothing: antialiased;
 }
