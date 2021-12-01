@@ -31,24 +31,19 @@ const constructDemoableElements = async (packageFile) => {
       version: '${parsedPackage.version}',
       url: 'https://www.npmjs.com/package/${parsedPackage.name}',
     },$ELEMENTS`);
-
-    console.log(template);
 }
 
 const main = () => {
   try {
     const files = fs.readdirSync(packagesPath);
-    console.log(files);
     files.forEach((file) => {
       if (file.startsWith('.')) {
         // Case of .DS_Store in MacOS
         return;
       }
-      console.log(path.join(packagesPath, '/', file, '/package.json'))
       constructDemoableElements(path.join(packagesPath, '/', file, '/package.json'));
     });
     template = template.replace('$ELEMENTS', '');
-    console.log(outPutPath);
     fs.writeFileSync(outPutPath, template);
     console.log('Elements successfuly parsed.');
   }
