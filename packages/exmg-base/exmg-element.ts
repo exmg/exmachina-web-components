@@ -1,6 +1,6 @@
 import {LitElement} from 'lit';
 
-export abstract class ExmgElement extends LitElement {
+export class ExmgElement extends LitElement {
     protected bubbles = false;
 
     protected fire<T>(eventName: string, detail?: T, bubbles?: boolean) {

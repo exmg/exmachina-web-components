@@ -11,6 +11,10 @@
       version: '8.1.14',
       url: 'https://www.npmjs.com/package/@exmg/exmg-base',
     },{
+      name: '@exmg/exmg-breadcrumbs',
+      version: '8.1.0',
+      url: 'https://www.npmjs.com/package/@exmg/exmg-breadcrumbs',
+    },{
       name: '@exmg/exmg-button',
       version: '8.1.14',
       url: 'https://www.npmjs.com/package/@exmg/exmg-button',
