@@ -55,6 +55,10 @@
       version: '8.1.14',
       url: 'https://www.npmjs.com/package/@exmg/exmg-sidemenu',
     },{
+      name: '@exmg/exmg-snackbar',
+      version: '8.1.0',
+      url: 'https://www.npmjs.com/package/@exmg/exmg-snackbar',
+    },{
       name: '@exmg/exmg-sortable',
       version: '8.1.14',
       url: 'https://www.npmjs.com/package/@exmg/exmg-sortable',

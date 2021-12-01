@@ -92,6 +92,9 @@
       "path": "packages/exmg-collapsed",
     },
     {
+      "path": "packages/exmg-snackbar",
+    },
+    {
       "path": "demo",
     },
   ],

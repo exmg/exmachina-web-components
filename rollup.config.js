@@ -18,7 +18,8 @@ const elements = [
   'exmg-copy-to-clipboard',
   'exmg-form',
   'exmg-form-drawer',
-  'exmg-collapsed'
+  'exmg-collapsed',
+  'exmg-snackbar'
 ];
 
 const elementsConfigs = elements.map((element) => {

@@ -1,0 +1,23 @@
+.mdc-snackbar--positive {
+  .mdc-snackbar__surface {
+    background-color: #12805c !important;
+  }
+}
+.mdc-snackbar--negative {
+  .mdc-snackbar__surface {
+    background-color: #c9252d !important;
+  }
+}
+.mdc-snackbar--info {
+  .mdc-snackbar__surface {
+    background-color: #0d66d0 !important;
+  }
+}
+
+.mdc-snackbar__surface {
+  color: white;
+}
+
+slot[name='icon']::slotted(*) {
+  margin-left: 12px;
+}
