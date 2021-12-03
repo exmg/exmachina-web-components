@@ -2,6 +2,7 @@ extends:
   - eslint:recommended
   - google
   - plugin:wc/recommended
+  - prettier/prettier
 globals:
   goog: false
   assert: false
@@ -14,6 +15,7 @@ plugins:
   - '@typescript-eslint'
   - jasmine
   - wc
+  - prettier/prettier
 parserOptions:
   ecmaVersion: 2017
   sourceType: module
@@ -31,6 +33,7 @@ rules:
   block-spacing: off
 
   '@typescript-eslint/explicit-member-accessibility': [error, {'accessibility': 'no-public'}]
+  prettier/prettier: [error, {'endOfLine': 'auto'}]
 
   no-new: warn
   quotes: [error, single, {'avoidEscape': true}]
