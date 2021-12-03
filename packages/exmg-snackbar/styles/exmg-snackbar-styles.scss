@@ -1,0 +1,30 @@
+:host {
+    --exmg-snackbar-positive-background-color: #12805c;
+    --exmg-snackbar-negative-background-color: #c9252d;
+    --exmg-snackbar-info-background-color: #0d66d0;
+    --exmg-snackbar-text-color: #fff;
+}
+
+.mdc-snackbar--positive {
+  .mdc-snackbar__surface {
+    background-color: var(--exmg-snackbar-positive-background-color) !important;
+  }
+}
+.mdc-snackbar--negative {
+  .mdc-snackbar__surface {
+    background-color: var(--exmg-snackbar-negative-background-color) !important;
+  }
+}
+.mdc-snackbar--info {
+  .mdc-snackbar__surface {
+    background-color: var(--exmg-snackbar-info-background-color) !important;
+  }
+}
+
+.mdc-snackbar__surface {
+  color: var(--exmg-snackbar-text-color);
+}
+
+slot[name='icon']::slotted(*) {
+  margin-left: 12px;
+}
