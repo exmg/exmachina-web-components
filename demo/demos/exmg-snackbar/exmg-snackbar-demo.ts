@@ -31,6 +31,9 @@ export class SnackbarDemo extends LitElement {
       div > * {
         padding: 8px;
       }
+      #custom-snackbar {
+        --exmg-snackbar-info-background-color: pink;
+      }
     `,
   ];
 
@@ -181,6 +184,23 @@ export class SnackbarDemo extends LitElement {
             yOffset="300"
           >
             <mwc-icon slot="icon">info</mwc-icon>
+            <mwc-icon-button icon="close" slot="dismiss"></mwc-icon-button>
+          </exmg-snackbar>
+        </div>
+        <div>
+          <h4>Custom color snackbar</h4>
+          <exmg-button unelevated @click=${() =>
+            this.shadowRoot?.querySelector<ExmgSnackbar>('#custom-snackbar')?.show()}>
+            Open custom
+          </exmg-button>
+          <exmg-snackbar
+            id="custom-snackbar"
+            variant="info"
+            timeoutMs="-1"
+            leading
+            labelText="INFO: This will only close when pressing the dismiss button"
+          >
+            <mwc-icon slot="icon">shopping_cart</mwc-icon>
             <mwc-icon-button icon="close" slot="dismiss"></mwc-icon-button>
           </exmg-snackbar>
         </div>
