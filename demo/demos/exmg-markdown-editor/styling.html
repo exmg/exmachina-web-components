@@ -23,47 +23,39 @@
     <link href="https://fonts.googleapis.com/css?family=Roboto+Mono:400,700|Roboto:400,300,300italic,400italic,500,500italic,700,700italic" rel="stylesheet" />
     <link rel="stylesheet" href="/demo/src/styles/main.css"></link>
 
-    <script type="module" src="/node_modules/@polymer/iron-demo-helpers/demo-pages-shared-styles.js"></script>
     <script type="module" src="/node_modules/@polymer/iron-demo-helpers/demo-snippet.js"></script>
 
     <link rel="stylesheet" href="/node_modules/github-markdown-css/github-markdown.css" />
 
     <script type="module" src="/node_modules/@exmg/exmg-markdown-editor/exmg-markdown-editor.js"></script>
     
-    <custom-style>
-      <style is="custom-style" include="demo-pages-shared-styles">
-        html {
-          --exmg-markdown-editor-border: #dfe1e6;
-          --exmg-markdown-editor-toolbar-background: #f4f5f7;
-          --exmg-markdown-editor-toolbar-button-background-hover: #ebecf0;
-          --exmg-markdown-editor-toolbar-color: #505f79;
-          --exmg-markdown-editor-label-color: #0071dc;
-          --exmg-markdown-editor-toolbar: {
-            padding: 6px 10px;
-          }
+    <style>
+      html {
+        --exmg-markdown-editor-border: #dfe1e6;
+        --exmg-markdown-editor-toolbar-background: #f4f5f7;
+        --exmg-markdown-editor-toolbar-button-background-hover: #ebecf0;
+        --exmg-markdown-editor-toolbar-color: #505f79;
+        --exmg-markdown-editor-label-color: #0071dc;
+        --exmg-markdown-editor-toolbar: {
+          padding: 6px 10px;
+        }
 
-          --exmg-markdown-editor-toolbar-button-icon: {
-            width: 18px;
-            height: 18px;
-          }
+        --exmg-markdown-editor-toolbar-button-icon: {
+          width: 18px;
+          height: 18px;
         }
-        .centered {
-          max-width: 1000px;
-        }
-        .markdown-body {
-          padding-top: 10px;
-        }
-        marked-element {
-          background-color: #f1f1f1;
-        }
-        .container {
-          height: 300px;
-        }
-      </style>
-    </custom-style>
+      }
+      marked-element {
+        background-color: #f1f1f1;
+      }
+      .container {
+        height: 300px;
+      }
+    </style>
+
   </head>
   <body>
-    <div class="vertical-section-container centered">
+    <div class="centered">
       <demo-snippet>
         <template>
           <exmg-markdown-editor height="800" split-view show-helper-label class="markdown-body"> </exmg-markdown-editor>

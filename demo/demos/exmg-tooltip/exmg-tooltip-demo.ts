@@ -36,9 +36,10 @@ export class ExmgTooltipDemo extends LitElement {
         background-color: red;
       }
       .custom-style {
-        --exmg-tooltip-font-size: 16px;
+        --exmg-tooltip-font-size: 14px;
+        --exmg-tooltip-line-height: 16px;
         --exmg-tooltip-background: yellow;
-        --exmg-tooltip-opacity: 0.7;
+        --exmg-tooltip-opacity: 1;
         --exmg-tooltip-text-color: blue;
         --exmg-tooltip-min-width: 200px;
       }
@@ -48,7 +49,7 @@ export class ExmgTooltipDemo extends LitElement {
       }
     `,
   ];
-  public render() {
+  render() {
     return html`
       <style>
         :host {
