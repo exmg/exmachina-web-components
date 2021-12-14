@@ -748,7 +748,8 @@ export class EditorElement extends ExmgElement {
               if (it.name) {
                 const hasMaterialIcon = it.icon.indexOf('exmg-markdown-editor-icons:') < 0;
                 return html`
-                  <a href="#" title=${it.title} class=${it.className ?? ''} @click=${() => {
+                  <a href="#" title=${it.title} class=${it.className ?? ''} @click=${(e: CustomEvent) => {
+                    e.preventDefault();
                     this.action(it as ToolBarConfigItem);
                   }}>
                     ${hasMaterialIcon ?
