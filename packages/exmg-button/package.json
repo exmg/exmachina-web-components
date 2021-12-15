@@ -1,8 +1,8 @@
 {
   "name": "@exmg/exmg-button",
-  "version": "8.1.14",
+  "version": "8.1.17",
   "dependencies": {
-    "@exmg/exmg-base": "^8.1.14",
+    "@exmg/exmg-base": "^8.1.17",
     "@material/mwc-base": "=0.25.3",
     "@material/mwc-button": "=0.25.3",
     "@material/mwc-ripple": "=0.25.3",
@@ -11,7 +11,7 @@
     "tslib": "^2.0.1"
   },
   "devDependencies": {
-    "@exmg/exmg-cli": "^8.1.9"
+    "@exmg/exmg-cli": "^8.1.17"
   },
   "keywords": [
     "web-components",

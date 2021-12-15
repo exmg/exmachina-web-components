@@ -1,8 +1,8 @@
 {
   "name": "@exmg/exmg-copy-to-clipboard",
-  "version": "8.1.0",
+  "version": "8.1.17",
   "dependencies": {
-    "@exmg/exmg-base": "^8.1.14",
+    "@exmg/exmg-base": "^8.1.17",
     "@material/mwc-base": "=0.25.3",
     "lit": "^2.0.0",
     "tslib": "^2.0.1"
@@ -26,7 +26,7 @@
   },
   "license": "MIT",
   "devDependencies": {
-    "@exmg/exmg-cli": "^8.1.9"
+    "@exmg/exmg-cli": "^8.1.17"
   },
   "scripts": {
     "build:styles": "exmg-cli -s \"./**/*.scss\""

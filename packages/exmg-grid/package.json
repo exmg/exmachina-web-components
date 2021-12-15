@@ -1,6 +1,6 @@
 {
   "name": "@exmg/exmg-grid",
-  "version": "8.1.14",
+  "version": "8.1.17",
   "description": "exmg grid element",
   "contributors": [
     "Ex Machina"
@@ -27,8 +27,8 @@
     "directory": "packages/exmg-grid"
   },
   "dependencies": {
-    "@exmg/exmg-base": "^8.1.14",
-    "@exmg/exmg-sortable": "^8.1.14",
+    "@exmg/exmg-base": "^8.1.17",
+    "@exmg/exmg-sortable": "^8.1.17",
     "@material/mwc-base": "^0.25.2",
     "@material/mwc-button": "^0.25.2",
     "@material/mwc-checkbox": "^0.25.2",
@@ -52,7 +52,7 @@
     "tslib": "^2.0.1"
   },
   "devDependencies": {
-    "@exmg/exmg-cli": "^8.1.9"
+    "@exmg/exmg-cli": "^8.1.17"
   },
   "license": "MIT",
   "scripts": {
