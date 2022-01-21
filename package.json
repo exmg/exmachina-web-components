@@ -57,7 +57,7 @@
     "bootstrap:windows": "./scripts/bootstrap-win.sh",
     "bootstrap:default": "./scripts/bootstrap.sh",
     "postinstall": "npm run bootstrap",
-    "publish": "npm run lint && lerna run build && lerna publish",
+    "publish": "npm run lint && npm run build && lerna publish",
     "build:demo": "node ./scripts/parseElements.js && rm -rf ./docs && npm run build && rollup --config ./rollup.config.js",
     "watch": "node scripts/watcher.js",
     "run:demo": "web-dev-server ./docs/demo/index.html"

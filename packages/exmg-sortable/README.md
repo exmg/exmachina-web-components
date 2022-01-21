@@ -1,7 +1,7 @@
 # \<exmg-sortable\>
 
 Enables drag and drop sorting of items in a list or table
-
+ 
 Please visit the [API Documentation and demo](http://ExmgElements.github.io/exmg-sortable/) page for more information.
 
 ## Install the Polymer-CLI
