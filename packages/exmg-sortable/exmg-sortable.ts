@@ -1,4 +1,4 @@
-import {customElement} from 'lit/decorators';
+import {customElement} from 'lit/decorators.js';
 import {SortableElementBase} from './exmg-sortable-base.js';
 
 /**
