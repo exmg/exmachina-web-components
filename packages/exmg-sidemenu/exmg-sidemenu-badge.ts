@@ -1,4 +1,4 @@
-import {customElement} from 'lit/decorators';
+import {customElement} from 'lit/decorators.js';
 import {style} from './styles/exmg-sidemenu-badge-styles-css.js';
 import {ExmgSidemenuBadgeBase} from './exmg-sidemenu-badge-base.js';
 
