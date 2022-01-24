@@ -588,6 +588,7 @@ span.CodeMirror-selectedtext {
 }
 .toolbar .items {
   display: flex;
+  flex-wrap: wrap;
 }
 .toolbar a {
   display: inline-block;
