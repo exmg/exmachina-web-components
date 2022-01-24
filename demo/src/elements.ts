@@ -32,15 +32,15 @@
       url: 'https://www.npmjs.com/package/@exmg/exmg-copy-to-clipboard',
     },{
       name: '@exmg/exmg-dialogs',
-      version: '8.1.17',
+      version: '8.1.20',
       url: 'https://www.npmjs.com/package/@exmg/exmg-dialogs',
     },{
       name: '@exmg/exmg-form',
-      version: '8.1.17',
+      version: '8.1.20',
       url: 'https://www.npmjs.com/package/@exmg/exmg-form',
     },{
       name: '@exmg/exmg-form-drawer',
-      version: '8.1.17',
+      version: '8.1.20',
       url: 'https://www.npmjs.com/package/@exmg/exmg-form-drawer',
     },{
       name: '@exmg/exmg-grid',
@@ -48,7 +48,7 @@
       url: 'https://www.npmjs.com/package/@exmg/exmg-grid',
     },{
       name: '@exmg/exmg-markdown-editor',
-      version: '8.1.17',
+      version: '8.1.20',
       url: 'https://www.npmjs.com/package/@exmg/exmg-markdown-editor',
     },{
       name: '@exmg/exmg-radio-group',

@@ -267,9 +267,6 @@ export class ExmgGridToolbar extends ExmgElement {
         .title > exmg-toolbar-search {
           flex: 1;
         }
-        .extra {
-          margin-right: 1rem;
-        }
       </style>
       <exmg-grid-base-toolbar ?disableSeperator=${this.disableSeperator}>
         <div slot="actions">${this.renderActions()}</div>
