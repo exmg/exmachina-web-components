@@ -124,7 +124,16 @@ export class ExmgFormBase extends ExmgElement {
     this.saveDefaults();
   }
 
+  /**
+   * 
+   * @deprecated handleError method should be used
+   */
   error(errorMessage: string) {
+    this.submitting = false;
+    this.errorMessage = errorMessage;
+  }
+
+  handleError(errorMessage: string) {
     this.submitting = false;
     this.errorMessage = errorMessage;
   }

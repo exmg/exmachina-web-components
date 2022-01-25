@@ -56,7 +56,7 @@ export class DialogDemo extends LitElement {
           throw Error('User does not have permission to save data');
         }
       } catch (err) {
-        target.error(err as Error);
+        target.handleError(err instanceof Error ? err.message : 'Unknown Error');
       }
     }, 1000);
   }

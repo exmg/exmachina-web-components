@@ -124,9 +124,22 @@ export class ExmgConfirmDialog extends ExmgElement {
     }
   }
 
+  /**
+   * 
+   * @deprecated handleError method should be used
+   */
   error(error: Error) {
     this.submitting = false;
     this.errorMessage = error.message;
+
+    if (this.submitBtnNode) {
+      this.submitBtnNode.removeAttribute('disabled');
+    }
+  }
+
+  handleError(errorMessage: string) {
+    this.submitting = false;
+    this.errorMessage = errorMessage;
 
     if (this.submitBtnNode) {
       this.submitBtnNode.removeAttribute('disabled');

@@ -52,7 +52,7 @@ export class Tab3El extends LitElement {
 
   displayFormDirty(e: CustomEvent) {
     const form = e.target as ExmgForm;
-    form.error(`You changed a value, form is dirty: ${form.isDirty}`);
+    form.handleError(`You changed a value, form is dirty: ${form.isDirty}`);
   }
 
   validateForm1() {

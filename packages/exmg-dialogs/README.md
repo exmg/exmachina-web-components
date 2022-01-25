@@ -33,7 +33,7 @@ createAccount(e) {
     // notify dialog successfull
     target.done();
   } catch (error) {
-    target.error(error);
+    target.handleError(error);
   }
 }
 ```

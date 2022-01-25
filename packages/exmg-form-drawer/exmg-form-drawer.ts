@@ -98,7 +98,16 @@ export class ExmgFormDrawer extends LitElement {
     this.submitting = false;
   }
 
+  /**
+   * 
+   * @deprecated handleError method should be used
+   */
   error(errorMessage: string) {
+    this.submitting = false;
+    this.form!.error(errorMessage);
+  }
+
+  handleError(errorMessage: string) {
     this.submitting = false;
     this.form!.error(errorMessage);
   }

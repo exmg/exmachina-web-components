@@ -76,7 +76,7 @@ export class Drawer extends LitElement {
   onSubmit() {
     setTimeout(() => {
       if (this.shouldFail) {
-        this.form!.error('Internal error occurred');
+        this.form!.handleError('Internal error occurred');
       } else {
         this.form!.done();
       }
