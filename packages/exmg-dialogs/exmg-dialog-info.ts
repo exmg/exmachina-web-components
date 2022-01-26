@@ -99,3 +99,9 @@ export class ExmgInfoDialog extends ExmgElement {
     `;
   }
 }
+
+declare global {
+  interface HTMLElementTagNameMap {
+    'exmg-dialog-info': ExmgInfoDialog;
+  }
+}

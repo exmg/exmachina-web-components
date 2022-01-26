@@ -169,3 +169,9 @@ export class ExmgFormDrawer extends LitElement {
     `;
   }
 }
+
+declare global {
+  interface HTMLElementTagNameMap {
+    'exmg-form-drawer': ExmgFormDrawer;
+  }
+}

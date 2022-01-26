@@ -188,3 +188,9 @@ export class ToolbarSearch extends ExmgElement {
     setTimeout(() => this.shadowRoot!.querySelector<HTMLInputElement>('#searchInput')!.focus(), 200);
   }
 }
+
+declare global {
+  interface HTMLElementTagNameMap {
+    'exmg-toolbar-search': ToolbarSearch;
+  }
+}

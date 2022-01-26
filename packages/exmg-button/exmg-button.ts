@@ -101,3 +101,9 @@ export class ExmgButton extends ButtonBase {
     this.rippleHandlers.endFocus();
   }
 }
+
+declare global {
+  interface HTMLElementTagNameMap {
+    'exmg-button': ExmgButton;
+  }
+}

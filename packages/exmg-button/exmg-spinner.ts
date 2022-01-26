@@ -54,3 +54,9 @@ export class ExmgSpinner extends ExmgElement {
     `;
   }
 }
+
+declare global {
+  interface HTMLElementTagNameMap {
+    'exmg-spinner': ExmgSpinner;
+  }
+}

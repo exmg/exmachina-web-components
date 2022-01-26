@@ -201,3 +201,9 @@ export class ExmgRadioGroupItem extends FormElement {
     this.rippleHandlers!.endFocus();
   }
 }
+
+declare global {
+  interface HTMLElementTagNameMap {
+    'exmg-radio-group-item': ExmgRadioGroupItem;
+  }
+}

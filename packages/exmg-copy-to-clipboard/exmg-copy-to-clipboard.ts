@@ -133,3 +133,9 @@ export class ExmgCopyToClipboard extends ExmgElement {
     `;
   }
 }
+
+declare global {
+  interface HTMLElementTagNameMap {
+    'exmg-copy-to-clipboard': ExmgCopyToClipboard;
+  }
+}

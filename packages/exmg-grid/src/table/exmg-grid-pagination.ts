@@ -185,3 +185,9 @@ export class ExmgGridPagination extends ExmgElement {
     // tslint:enable:max-line-length
   }
 }
+
+declare global {
+  interface HTMLElementTagNameMap {
+    'exmg-grid-pagination': ExmgGridPagination;
+  }
+}

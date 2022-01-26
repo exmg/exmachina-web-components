@@ -281,3 +281,9 @@ export class ExmgGridToolbar extends ExmgElement {
     `;
   }
 }
+
+declare global {
+  interface HTMLElementTagNameMap {
+    'exmg-grid-toolbar': ExmgGridToolbar;
+  }
+}

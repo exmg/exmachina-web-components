@@ -218,3 +218,9 @@ export class ExmgFormDialog extends ExmgElement {
     `;
   }
 }
+
+declare global {
+  interface HTMLElementTagNameMap {
+    'exmg-dialog-form': ExmgFormDialog;
+  }
+}

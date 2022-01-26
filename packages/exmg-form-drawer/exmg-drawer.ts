@@ -63,3 +63,9 @@ export class ExmgDrawer extends LitElement {
     `;
   }
 }
+
+declare global {
+  interface HTMLElementTagNameMap {
+    'exmg-drawer': ExmgDrawer;
+  }
+}

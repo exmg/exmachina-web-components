@@ -396,3 +396,9 @@ export class ExmgGrid extends ExmgElement {
     `;
   }
 }
+
+declare global {
+  interface HTMLElementTagNameMap {
+    'exmg-grid': ExmgGrid;
+  }
+}

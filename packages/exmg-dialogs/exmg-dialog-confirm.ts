@@ -223,3 +223,9 @@ export class ExmgConfirmDialog extends ExmgElement {
     `;
   }
 }
+
+declare global {
+  interface HTMLElementTagNameMap {
+    'exmg-dialog-confirm': ExmgConfirmDialog;
+  }
+}

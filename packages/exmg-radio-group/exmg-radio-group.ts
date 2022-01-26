@@ -119,3 +119,9 @@ export class ExmgRadioGroup extends ExmgElement {
     `;
   }
 }
+
+declare global {
+  interface HTMLElementTagNameMap {
+    'exmg-radio-group': ExmgRadioGroup;
+  }
+}

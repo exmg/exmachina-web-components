@@ -43,3 +43,9 @@ export class ExmgSnackbar extends SnackbarBase {
     </div>`;
   }
 }
+
+declare global {
+  interface HTMLElementTagNameMap {
+    'exmg-snackbar': ExmgSnackbar;
+  }
+}

@@ -143,3 +143,9 @@ export class ExmgGridSmartToolbar extends ExmgElement {
     `;
   }
 }
+
+declare global {
+  interface HTMLElementTagNameMap {
+    'exmg-grid-smart-toolbar': ExmgGridSmartToolbar;
+  }
+}
