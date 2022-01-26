@@ -1,6 +1,6 @@
 {
   "name": "@exmg/exmg-dialogs",
-  "version": "8.1.22",
+  "version": "8.1.23",
   "main": "exmg-dialog-form.js",
   "repository": {
     "type": "git",
@@ -16,7 +16,7 @@
   "license": "MIT",
   "dependencies": {
     "@exmg/exmg-base": "^8.1.17",
-    "@exmg/exmg-button": "^8.1.17",
+    "@exmg/exmg-button": "^8.1.23",
     "@material/mwc-icon-button": "=0.25.3",
     "@polymer/iron-form": "^3.0.0",
     "@polymer/paper-dialog": "^3.0.0",
