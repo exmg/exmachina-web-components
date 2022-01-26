@@ -1,7 +1,7 @@
 import {html} from 'lit';
 import {property, customElement} from 'lit/decorators.js';
 import {ExmgElement} from '@exmg/exmg-base';
-import {classMap} from 'lit-html/directives/class-map.js';
+import {classMap} from 'lit/directives/class-map.js';
 import {observer} from '@exmg/exmg-base/observer/observer.js';
 import {style} from './styles/exmg-spinner-styles-css.js';
 
@@ -57,6 +57,6 @@ export class ExmgSpinner extends ExmgElement {
 
 declare global {
   interface HTMLElementTagNameMap {
-    'exmg-spinner': ExmgSpinner;
+    'exmg-button-spinner': ExmgSpinner;
   }
 }

@@ -57,7 +57,7 @@ export class ExmgGrid extends ExmgElement {
    * Array of data which mapped to rows
    */
   @property({type: Array})
-  items: any[] = [];
+  items: unknown[] = [];
 
   /**
    * Feature that turn on sort by column
