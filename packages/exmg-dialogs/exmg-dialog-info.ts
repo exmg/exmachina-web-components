@@ -74,7 +74,7 @@ export class ExmgInfoDialog extends ExmgElement {
 
   protected render() {
     return html`
-      <paper-dialog id="dialog" with-backdrop no-cancel-on-outside-click>
+      <paper-dialog id="dialog" scroll-action="lock" with-backdrop no-cancel-on-outside-click>
         ${this.hideCloseButton
           ? html` ${this.renderHeader()} `
           : html`

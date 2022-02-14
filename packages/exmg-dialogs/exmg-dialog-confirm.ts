@@ -185,6 +185,7 @@ export class ExmgConfirmDialog extends ExmgElement {
     return html`
       <paper-dialog
         id="dialog"
+        scroll-action="lock"
         with-backdrop
         no-cancel-on-outside-click
         @iron-overlay-closed="${this.onCloseDialog}"
