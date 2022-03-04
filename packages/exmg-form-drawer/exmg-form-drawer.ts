@@ -141,7 +141,7 @@ export class ExmgFormDrawer extends LitElement {
       <exmg-drawer
         ?opened="${this.opened}"
         ?no-cancel-on-outside-click="${this.noCancelOnOutsideClick}"
-        scroll-action=${this.scrollAction}
+        .scroll-action=${this.scrollAction}
         @exmg-drawer-opened-changed=${this._handleOpenChanged}
         style="max-width: ${this.style.maxWidth || '547px'}"
       >

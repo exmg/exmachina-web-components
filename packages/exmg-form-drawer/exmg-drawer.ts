@@ -54,7 +54,7 @@ export class ExmgDrawer extends LitElement {
         }
       </style>
       <paper-dialog
-        scroll-action=${this.scrollAction}
+        .scroll-action=${this.scrollAction}
         ?opened="${this.opened}"
         ?no-cancel-on-outside-click="${this.noCancelOnOutsideClick}"
         @opened-changed="${this.handleOpenedChanged}"
