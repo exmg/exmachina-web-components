@@ -50,6 +50,9 @@ export class ExmgFormDrawer extends LitElement {
   @property({type: Boolean, reflect: true})
   submitting = false;
 
+  @property({type: String, attribute: 'scroll-action'})
+  scrollAction: 'lock' | 'refit' | 'cancel' | undefined = 'lock';
+
   @query('exmg-form')
   private form?: ExmgForm;
 
@@ -138,6 +141,7 @@ export class ExmgFormDrawer extends LitElement {
       <exmg-drawer
         ?opened="${this.opened}"
         ?no-cancel-on-outside-click="${this.noCancelOnOutsideClick}"
+        scroll-action=${this.scrollAction}
         @exmg-drawer-opened-changed=${this._handleOpenChanged}
         style="max-width: ${this.style.maxWidth || '547px'}"
       >
