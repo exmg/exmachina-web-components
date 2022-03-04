@@ -23,6 +23,9 @@ export class ExmgDrawer extends LitElement {
   @property({type: Boolean, attribute: 'no-cancel-on-outside-click'})
   noCancelOnOutsideClick = false;
 
+  @property({type: String, attribute: 'scroll-action'})
+  scrollAction: 'lock' | 'refit' | 'cancel' | undefined = 'lock';
+
   handleOpenedChanged(e: CustomEvent) {
     this.opened = e.detail.value;
 
@@ -51,7 +54,7 @@ export class ExmgDrawer extends LitElement {
         }
       </style>
       <paper-dialog
-        scroll-action="lock"
+        scroll-action=${this.scrollAction}
         ?opened="${this.opened}"
         ?no-cancel-on-outside-click="${this.noCancelOnOutsideClick}"
         @opened-changed="${this.handleOpenedChanged}"
