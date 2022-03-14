@@ -90,6 +90,7 @@ export abstract class FormDrawerBase<T> extends BaseElement {
         no-cancel-on-outside-click
         ?opened="${this.opened}"
         reset-form-on-submit-success
+        scroll-action="lock"
         @exmg-drawer-opened-changed="${this._handleFormDrawerToggle}"
         submit-btn-title=${this.item ? this.updateButton : this.addButton}
         @submit=${this.item ? this.updateItem : this.createItem}

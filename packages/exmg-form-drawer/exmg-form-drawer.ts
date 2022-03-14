@@ -1,5 +1,6 @@
 import {LitElement, html} from 'lit';
 import {customElement, property, query} from 'lit/decorators.js';
+import {ifDefined} from 'lit/directives/if-defined.js';
 import '@polymer/neon-animation/animations/slide-from-right-animation.js';
 import '@polymer/neon-animation/animations/slide-right-animation.js';
 import '@polymer/paper-dialog/paper-dialog.js';
@@ -51,7 +52,7 @@ export class ExmgFormDrawer extends LitElement {
   submitting = false;
 
   @property({type: String, attribute: 'scroll-action'})
-  scrollAction: 'lock' | 'refit' | 'cancel' | undefined = 'lock';
+  scrollAction?: 'lock' | 'refit' | 'cancel' | undefined;
 
   @query('exmg-form')
   private form?: ExmgForm;
@@ -141,7 +142,7 @@ export class ExmgFormDrawer extends LitElement {
       <exmg-drawer
         ?opened="${this.opened}"
         ?no-cancel-on-outside-click="${this.noCancelOnOutsideClick}"
-        .scrollAction=${this.scrollAction}
+        scroll-action=${ifDefined(this.scrollAction)}
         @exmg-drawer-opened-changed=${this._handleOpenChanged}
         style="max-width: ${this.style.maxWidth || '547px'}"
       >

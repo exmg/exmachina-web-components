@@ -1,6 +1,7 @@
 import {html} from 'lit';
 import {property} from 'lit/decorators/property.js';
 import {customElement} from 'lit/decorators/custom-element.js';
+import {ifDefined} from 'lit/directives/if-defined.js';
 import {query} from 'lit/decorators/query.js';
 import {ExmgElement} from '@exmg/exmg-base';
 import '@polymer/paper-dialog';
@@ -59,6 +60,9 @@ export class ExmgFormDialog extends ExmgElement {
 
   @query('#submitBtn')
   private submitBtnNode?: ExmgButton;
+
+  @property({type: String, attribute: 'scroll-action'})
+  scrollAction?: 'lock' | 'refit' | 'cancel' | undefined;
 
   static styles = [style];
 
@@ -176,7 +180,7 @@ export class ExmgFormDialog extends ExmgElement {
     return html`
       <paper-dialog
         id="dialog"
-        scroll-action="lock"
+        scroll-action=${ifDefined(this.scrollAction)}
         with-backdrop
         no-cancel-on-outside-click
         @iron-overlay-closed="${this.onCloseDialog}"
