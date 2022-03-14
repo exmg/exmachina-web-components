@@ -1,5 +1,6 @@
 import {LitElement, html} from 'lit';
 import {customElement, property} from 'lit/decorators.js';
+import {ifDefined} from 'lit/directives/if-defined.js';
 import '@polymer/neon-animation/animations/slide-from-right-animation.js';
 import '@polymer/neon-animation/animations/slide-right-animation.js';
 import '@polymer/paper-dialog/paper-dialog.js';
@@ -24,7 +25,7 @@ export class ExmgDrawer extends LitElement {
   noCancelOnOutsideClick = false;
 
   @property({type: String, attribute: 'scroll-action'})
-  scrollAction: 'lock' | 'refit' | 'cancel' | undefined = 'lock';
+  scrollAction?: 'lock' | 'refit' | 'cancel' | undefined;
 
   handleOpenedChanged(e: CustomEvent) {
     this.opened = e.detail.value;
@@ -54,7 +55,7 @@ export class ExmgDrawer extends LitElement {
         }
       </style>
       <paper-dialog
-        .scrollAction=${this.scrollAction}
+        scroll-action=${ifDefined(this.scrollAction)}
         ?opened="${this.opened}"
         ?no-cancel-on-outside-click="${this.noCancelOnOutsideClick}"
         @opened-changed="${this.handleOpenedChanged}"

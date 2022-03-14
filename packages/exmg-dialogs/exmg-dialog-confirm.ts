@@ -1,5 +1,6 @@
 import {html} from 'lit';
 import {property, customElement, query} from 'lit/decorators.js';
+import {ifDefined} from 'lit/directives/if-defined.js';
 import {ExmgElement} from '@exmg/exmg-base';
 import '@material/mwc-icon-button';
 import {PaperDialogElement} from '@polymer/paper-dialog';
@@ -56,6 +57,9 @@ export class ExmgConfirmDialog extends ExmgElement {
 
   @property({type: Boolean})
   hasSlotContent = false;
+
+  @property({type: String, attribute: 'scroll-action'})
+  scrollAction?: 'lock' | 'refit' | 'cancel' | undefined;
 
   private observer?: MutationObserver;
 
@@ -185,7 +189,7 @@ export class ExmgConfirmDialog extends ExmgElement {
     return html`
       <paper-dialog
         id="dialog"
-        scroll-action="lock"
+        scroll-action=${ifDefined(this.scrollAction)}
         with-backdrop
         no-cancel-on-outside-click
         @iron-overlay-closed="${this.onCloseDialog}"

@@ -1,5 +1,6 @@
 import {html} from 'lit';
 import {property} from 'lit/decorators/property.js';
+import {ifDefined} from 'lit/directives/if-defined.js';
 import {customElement} from 'lit/decorators/custom-element.js';
 import {query} from 'lit/decorators/query.js';
 import {ExmgElement} from '@exmg/exmg-base';
@@ -38,6 +39,9 @@ export class ExmgInfoDialog extends ExmgElement {
   @property({type: Boolean, attribute: 'button-unelevated'})
   buttonUnelevated?: boolean = false;
 
+  @property({type: String, attribute: 'scroll-action'})
+  scrollAction?: 'lock' | 'refit' | 'cancel' | undefined;
+
   @query('#dialog')
   private dialogNode?: PaperDialogElement;
 
@@ -74,7 +78,7 @@ export class ExmgInfoDialog extends ExmgElement {
 
   protected render() {
     return html`
-      <paper-dialog id="dialog" scroll-action="lock" with-backdrop no-cancel-on-outside-click>
+      <paper-dialog id="dialog" scroll-action=${ifDefined(this.scrollAction)} with-backdrop no-cancel-on-outside-click>
         ${this.hideCloseButton
           ? html` ${this.renderHeader()} `
           : html`
