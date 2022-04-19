@@ -6,6 +6,9 @@ import './page-example.js';
 @customElement('exmg-breadcrumbs-demo')
 export class BreadcrumbsDemo extends LitElement {
     static styles = [css`
+        :host {
+          --mdc-theme-surface: #0071dc;
+        }
         exmg-breadcrumbs{
             font-family: Roboto;
             font-size: 1rem;
@@ -21,7 +24,7 @@ export class BreadcrumbsDemo extends LitElement {
         .theme exmg-breadcrumbs {
             --mdc-theme-primary: #cecece;
             --mdc-theme-on-primary: var(--mdc-theme-primary);
-            --mdc-theme-on-surface: white;
+            --mdc-theme-surface: white;
         }
     `];
 
