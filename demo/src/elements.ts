@@ -32,7 +32,7 @@
       url: 'https://www.npmjs.com/package/@exmg/exmg-copy-to-clipboard',
     },{
       name: '@exmg/exmg-dialogs',
-      version: '8.1.25',
+      version: '8.1.28',
       url: 'https://www.npmjs.com/package/@exmg/exmg-dialogs',
     },{
       name: '@exmg/exmg-form',
@@ -40,7 +40,7 @@
       url: 'https://www.npmjs.com/package/@exmg/exmg-form',
     },{
       name: '@exmg/exmg-form-drawer',
-      version: '8.1.27',
+      version: '8.1.28',
       url: 'https://www.npmjs.com/package/@exmg/exmg-form-drawer',
     },{
       name: '@exmg/exmg-grid',

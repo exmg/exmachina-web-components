@@ -1,6 +1,6 @@
 :host {
-  --breadcrumbs-seperator-color: var(--mdc-theme-primary);
-  --breadcrumbs-text-color: var(--mdc-theme-primary);
+  --breadcrumbs-seperator-color: var(--mdc-theme-surface, #0071dc);
+  --breadcrumbs-text-color: var(--mdc-theme-surface, #0071dc);
   display: block;
   color: var(--breadcrumbs-text-color);
 }
@@ -28,10 +28,14 @@ li {
 }
 
 a[href] {
-  color: var( --mdc-theme-primary);
-  text-decoration-color: var(--mdc-theme-primary);
-  text-decoration-color: var(--a-normal-underline);
+  color: var(--mdc-theme-surface, #0071dc);
+  text-decoration-color: var(--mdc-theme-surface, #0071dc);
+  text-decoration-color: var(--mdc-theme-surface, #0071dc);
   text-decoration-skip-ink: none;
+}
+
+a:visited {
+  text-decoration-color: var(--mdc-theme-surface, #0071dc);
 }
 
 nav.breadcrumb ol {
@@ -53,8 +57,8 @@ nav.breadcrumb li + li::before {
   display: none;
 }
 
-nav.breadcrumb [aria-current="page"] {
-  color: var(--mdc-theme-on-surface);
+nav.breadcrumb [aria-current='page'] {
+  color: var(#0071dc, --mdc-theme-surface);
   font-weight: 600;
   text-decoration: none;
 }
