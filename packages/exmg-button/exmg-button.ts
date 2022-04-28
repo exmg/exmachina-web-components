@@ -10,7 +10,7 @@ import { style as newStyles } from './styles/exmg-button-styles-css.js';
 import './exmg-spinner.js';
 
 /**
- * Exmg Button element
+ * Exmg Button element - based on Material
  */
 @customElement('exmg-button')
 export class ExmgButton extends ButtonBase {
