@@ -65,7 +65,7 @@ jobs:
             git add -f ./docs
             git commit -m 'Update docs'
             git reset --hard
-            git push https://${GH_TOKEN}@github.com/exmg/exmachina-web-components.git HEAD:docs
+            git push https://${GH_TOKEN}@github.com/exmg/exmachina-web-components.git temp:docs
 
 workflows:
   version: 2
