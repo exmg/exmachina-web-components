@@ -55,9 +55,6 @@ jobs:
           command: |
             git checkout docs
             git merge --no-ff --no-edit master
-      - run:
-          name: NPM Install
-          command: npm i
       - save_cache:
           paths:
             - node_modules
@@ -68,7 +65,7 @@ jobs:
             rm -rf docs
             npm run build
             npm run build:docs
-            rm -rf (!docs)
+            rm -rf !(docs)
       - run:
           name: Push
           command: |
