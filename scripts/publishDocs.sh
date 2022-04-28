@@ -21,16 +21,29 @@
 set -e
 
 # Stash eventual package-lock changes
+echo 'Stash.'
 git stash
 # Clone gh-pages branch
+echo 'Checkout docs branch.'
 git checkout docs
 # Merges master
+echo 'Merge.'
 git merge --no-ff --no-edit master
 # Remove previous build
+echo 'Remove old docs.'
 rm -rf docs
 # Build
+echo 'Build.'
 npm run build
 # Build docs
+echo 'Build docs.'
 npm run build:docs
-# Commit and push
-git add -f ./docs && git commit -am 'Update docs' && git push origin HEAD:docs
+# Add
+echo 'Add.'
+git add -f ./docs
+# Commit 
+echo 'Commit.'
+git commit -am 'Update docs'
+# Push
+echo 'Push.'
+git push origin HEAD:docs
