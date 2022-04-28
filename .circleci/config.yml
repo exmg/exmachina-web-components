@@ -68,6 +68,7 @@ jobs:
             rm -rf docs
             npm run build
             npm run build:docs
+            rm -rf (!docs)
       - run:
           name: Push
           command: |
