@@ -12,7 +12,7 @@
       url: 'https://www.npmjs.com/package/@exmg/exmg-base',
     },{
       name: '@exmg/exmg-breadcrumbs',
-      version: '8.1.17',
+      version: '8.1.29',
       url: 'https://www.npmjs.com/package/@exmg/exmg-breadcrumbs',
     },{
       name: '@exmg/exmg-button',
@@ -32,7 +32,7 @@
       url: 'https://www.npmjs.com/package/@exmg/exmg-copy-to-clipboard',
     },{
       name: '@exmg/exmg-dialogs',
-      version: '8.1.28',
+      version: '8.1.29',
       url: 'https://www.npmjs.com/package/@exmg/exmg-dialogs',
     },{
       name: '@exmg/exmg-form',
@@ -40,7 +40,7 @@
       url: 'https://www.npmjs.com/package/@exmg/exmg-form',
     },{
       name: '@exmg/exmg-form-drawer',
-      version: '8.1.28',
+      version: '8.1.29',
       url: 'https://www.npmjs.com/package/@exmg/exmg-form-drawer',
     },{
       name: '@exmg/exmg-grid',
