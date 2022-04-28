@@ -15,7 +15,7 @@
 #  See the License for the specific language governing permissions and
 #  limitations under the License.
 #
-# Adapted for ExMachina Web Components from https://github.com/material-components/material-web/blob/master/scripts/publish-demos.sh
+#  Adapted for ExMachina Web Components from https://github.com/material-components/material-web/blob/master/scripts/publish-demos.sh
 #
 
 set -e
@@ -29,7 +29,7 @@ rm -rf docs
 # Install dependencies
 npm i 
 # Build docs
-npm run build:demo
+npm run build:docs
 # Clean repo
 rm -rf !(docs)
 # Commit and push
