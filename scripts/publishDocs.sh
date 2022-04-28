@@ -21,7 +21,7 @@
 set -e
 
 # Stash eventual package-lock changes
-rm package-lock.json
+git stash
 # Clone gh-pages branch
 git checkout docs
 # Merges master
