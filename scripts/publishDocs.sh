@@ -33,4 +33,4 @@ npm run build
 # Build docs
 npm run build:docs
 # Commit and push
-git add ./docs && git commit -am 'Update docs' && git push origin HEAD:docs
+git add -f ./docs && git commit -am 'Update docs' && git push origin HEAD:docs
