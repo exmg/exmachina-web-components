@@ -21,7 +21,7 @@ jobs:
             - v2-dependencies-
       - run:
           name: NPM register
-          command: echo "//registry.npmjs.org/:_authToken=\${NPM_PUBLISH_TOKEN}" > .npmrc
+          command: echo "//registry.npmjs.org/:_authToken=\${NPM_TOKEN}" > .npmrc
       - run:
           name: Memory usage
           command: node -e "console.log(JSON.stringify(process.memoryUsage(), null, '\t'));"
@@ -40,16 +40,18 @@ jobs:
     working_directory: ~/repo
     steps:
       - checkout
-      - add_ssh_keys:
-          fingerprints:
-            - 'e2:f8:77:ef:73:f3:98:a4:7c:43:a8:ac:d6:28:1e:4b'
       - restore_cache:
           keys:
             - v2-dependencies-{{ checksum "package.json" }}
             - v2-dependencies-
       - run:
           name: NPM register
-          command: echo "//registry.npmjs.org/:_authToken=\${NPM_PUBLISH_TOKEN}" > .npmrc
+          command: echo "//registry.npmjs.org/:_authToken=\${NPM_TOKEN}" > .npmrc
+      - run:
+          name: Checkout to docs branch and merge
+          command: |
+            git checkout docs
+            git merge --no-ff --no-edit master
       - run:
           name: NPM Install
           command: npm i
@@ -62,18 +64,27 @@ jobs:
           key: v2-dependencies-{{ checksum "package.json" }}
       - run:
           name: Build Docs
-          command: chmod 777 ./scripts/publishDocs.sh && ./scripts/publishDocs.sh
+          command: |
+            rm -rf docs
+            npm run build
+            npm run build:docs
+      - run:
+          name: Push
+          command: |
+            git add -f ./docs
+            git commit -am 'Update docs'
+            git push origin HEAD:docs
 
 workflows:
   version: 2
   build_and_deploy:
     jobs:
       - test:
-          context: org-global
+          context: web
           filters:
             branches:
               only: master
       - build_documentation:
-          context: org-global
+          context: web
           requires:
             - test
