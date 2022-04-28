@@ -28,8 +28,8 @@ git checkout docs
 git merge --no-ff --no-edit master
 # Remove previous build
 rm -rf docs
-# Install dependencies
-npm i 
+# Build
+npm run build
 # Build docs
 npm run build:docs
 # Commit and push
