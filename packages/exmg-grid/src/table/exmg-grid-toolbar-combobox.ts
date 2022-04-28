@@ -98,7 +98,7 @@ export class PaperGridTooolbarComboboxElement extends ExmgElement {
 
   /**
    * Set custom max width of menu list with items
-   * @type {number = 200}
+   * @type {number}
    */
   @property({type: Number, attribute: 'max-width-menu-list'})
   maxWidthMenuList = 200;

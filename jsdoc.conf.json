@@ -21,7 +21,7 @@
       "packages/exmg-markdown-editor",
       "packages/exmg-radio-group",
       "packages/exmg-sidemenu",
-      "packages/exmg-snckbar",
+      "packages/exmg-snackbar",
       "packages/exmg-sortable",
       "packages/exmg-tooltip"
     ]
