@@ -65,7 +65,8 @@ jobs:
             rm -rf docs
             npm run build
             npm run build:docs
-            mv /docs ..
+            ls
+            mv ./docs ..
             rm -rf *
             mv ../docs .
       - run:
