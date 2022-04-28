@@ -63,6 +63,6 @@
     "build:demo": "node ./scripts/parseElements.js && rm -rf ./docs && npm run build && rollup --config ./rollup.config.js",
     "watch": "node scripts/watcher.js",
     "run:demo": "web-dev-server ./docs/demo/index.html",
-    "build:docs": "./node_modules/.bin/jsdoc -c ./jsdoc.conf.json -R README.md"
+    "build:docs": "npm run build && ./node_modules/.bin/jsdoc -c ./jsdoc.conf.json -R README.md"
   }
 }

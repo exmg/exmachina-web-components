@@ -50,11 +50,6 @@ jobs:
       - run:
           name: Git Config
           command: git config --global user.email "rodrigue@exmachina.nl" && git config --global user.name "exmg-circleci"
-      - run:
-          name: Checkout to docs branch and merge
-          command: |
-            git checkout -f docs
-            git merge --no-ff --no-edit master
       - save_cache:
           paths:
             - node_modules
@@ -62,8 +57,6 @@ jobs:
       - run:
           name: Build Docs
           command: |
-            rm -rf docs
-            npm run build
             npm run build:docs
       - run:
           name: Push
