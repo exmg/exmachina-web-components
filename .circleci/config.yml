@@ -61,6 +61,7 @@ jobs:
       - run:
           name: Push
           command: |
+            git checkout -b temp
             git add -f ./docs
             git commit -m 'Update docs'
             git reset --hard
