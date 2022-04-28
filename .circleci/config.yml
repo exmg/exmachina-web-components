@@ -73,7 +73,7 @@ jobs:
           command: |
             git add -f ./docs
             git commit -am 'Update docs'
-            git push origin HEAD:docs
+            git push https://${GH_TOKEN}@github.com/exmg/exmachina-web-components.git HEAD:docs
 
 workflows:
   version: 2
