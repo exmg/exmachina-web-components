@@ -68,7 +68,7 @@ jobs:
             git add -f ./docs
             git commit -m 'Update docs'
             git reset --hard
-            git push -v https://rdrgcnn@github.com/exmg/exmachina-web-components.git temp:docs
+            git push -v https://github.com/exmg/exmachina-web-components.git temp:docs
 
 workflows:
   version: 2
