@@ -51,9 +51,11 @@ jobs:
           name: NPM register
           command: echo "//registry.npmjs.org/:_authToken=\${NPM_PUBLISH_TOKEN}" > .npmrc
       - run:
-          name: Memory usage
-          command: node -e "console.log(JSON.stringify(process.memoryUsage(), null, '\t'));"
-      - run: npm i
+          name: NPM Install
+          command: npm i
+      - run:
+          name: Git Config
+          command: git config --global user.email "rodrigue@exmachina.nl" && git config --global user.name "exmg-circleci"
       - save_cache:
           paths:
             - node_modules
