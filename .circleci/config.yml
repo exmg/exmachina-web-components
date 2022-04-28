@@ -57,7 +57,7 @@ jobs:
           key: v2-dependencies-{{ checksum "package.json" }}
       - run:
           name: Build Docs
-          command: ./scripts/publishDocs.sh
+          command: chmod 777 ./scripts/publishDocs.sh && ./scripts/publishDocs.sh
 
 workflows:
   version: 2
