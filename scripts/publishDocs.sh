@@ -44,6 +44,9 @@ git add -f ./docs
 # Commit 
 echo 'Commit.'
 git commit -am 'Update docs'
+# Config 
+echo 'Config.'
+git config --list
 # Push
 echo 'Push.'
 git push origin HEAD:docs
