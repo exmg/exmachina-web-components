@@ -1,0 +1,253 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Source: exmg-grid/src/table/exmg-grid-pagination.js | Source: exmg-grid/src/table/exmg-grid-pagination.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/bootstrap.min.css">
+    <link type="text/css" rel="stylesheet" href="styles/prettify-jsdoc.css">
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/tui-doc.css">
+
+    
+</head>
+<body>
+<nav class="lnb" id="lnb">
+    <div class="logo" style="width: 150px; height: 50px">
+        
+            <img src="https://www.exmachinagroup.com/images/svg/ExMachinaPrimary.svg" width="100%" height="100%">
+        
+    </div>
+    <div class="title">
+        <h1><a href="index.html" class="link">Source: exmg-grid/src/table/exmg-grid-pagination.js</a></h1>
+        
+    </div>
+    <div class="search-container" id="search-container">
+        <input type="text" placeholder="Search">
+        <ul></ul>
+    </div>
+    
+    <div class="lnb-api hidden"><h3>Classes</h3><ul><li><a href="Exmg.EditorElement.html">EditorElement</a><button type="button" class="hidden toggle-subnav btn btn-link">  <span class="glyphicon glyphicon-plus"></span></button><div class="hidden" id="Exmg.EditorElement_sub"><div class="member-type">Methods</div><ul class="inner"><li><a href="Exmg.EditorElement.html#getToolbar">getToolbar</a></li><li><a href="Exmg.EditorElement.html#updateDocHistory">updateDocHistory</a></li></ul></div></li><li><a href="ExmgCopyToClipboard.html">ExmgCopyToClipboard</a><button type="button" class="hidden toggle-subnav btn btn-link">  <span class="glyphicon glyphicon-plus"></span></button><div class="hidden" id="ExmgCopyToClipboard_sub"><div class="member-type">Methods</div><ul class="inner"><li><a href="ExmgCopyToClipboard.html#copyToClipboard">copyToClipboard</a></li><li><a href="ExmgCopyToClipboard.html#handleCopyAction">handleCopyAction</a></li></ul></div></li><li><a href="ExmgDrawer.html">ExmgDrawer</a><button type="button" class="hidden toggle-subnav btn btn-link">  <span class="glyphicon glyphicon-plus"></span></button><div class="hidden" id="ExmgDrawer_sub"></div></li><li><a href="ExmgForm.html">ExmgForm</a><button type="button" class="hidden toggle-subnav btn btn-link">  <span class="glyphicon glyphicon-plus"></span></button><div class="hidden" id="ExmgForm_sub"></div></li><li><a href="ExmgFormDrawer.html">ExmgFormDrawer</a><button type="button" class="hidden toggle-subnav btn btn-link">  <span class="glyphicon glyphicon-plus"></span></button><div class="hidden" id="ExmgFormDrawer_sub"><div class="member-type">Methods</div><ul class="inner"><li><a href="ExmgFormDrawer.html#error">error</a></li></ul></div></li><li><a href="ExmgGrid.html">ExmgGrid</a><button type="button" class="hidden toggle-subnav btn btn-link">  <span class="glyphicon glyphicon-plus"></span></button><div class="hidden" id="ExmgGrid_sub"><div class="member-type">Members</div><ul class="inner"><li><a href="ExmgGrid.html#disableRowClickSelection">disableRowClickSelection</a></li><li><a href="ExmgGrid.html#expandedRowIds">expandedRowIds</a></li><li><a href="ExmgGrid.html#hiddenColumnNames">hiddenColumnNames</a></li><li><a href="ExmgGrid.html#items">items</a></li><li><a href="ExmgGrid.html#rowsSelectable">rowsSelectable</a></li><li><a href="ExmgGrid.html#rowsSortable">rowsSortable</a></li><li><a href="ExmgGrid.html#selectedRowIds">selectedRowIds</a></li><li><a href="ExmgGrid.html#sortable">sortable</a></li><li><a href="ExmgGrid.html#tableLayout">tableLayout</a></li></ul></div></li><li><a href="ExmgGridBaseToolbar.html">ExmgGridBaseToolbar</a><button type="button" class="hidden toggle-subnav btn btn-link">  <span class="glyphicon glyphicon-plus"></span></button><div class="hidden" id="ExmgGridBaseToolbar_sub"></div></li><li><a href="ExmgGridPagination.html">ExmgGridPagination</a><button type="button" class="hidden toggle-subnav btn btn-link">  <span class="glyphicon glyphicon-plus"></span></button><div class="hidden" id="ExmgGridPagination_sub"></div></li><li><a href="ExmgSidemenu.html">ExmgSidemenu</a><button type="button" class="hidden toggle-subnav btn btn-link">  <span class="glyphicon glyphicon-plus"></span></button><div class="hidden" id="ExmgSidemenu_sub"></div></li><li><a href="ExmgSidemenuHeader.html">ExmgSidemenuHeader</a><button type="button" class="hidden toggle-subnav btn btn-link">  <span class="glyphicon glyphicon-plus"></span></button><div class="hidden" id="ExmgSidemenuHeader_sub"></div></li><li><a href="ExmgTooltip.html">ExmgTooltip</a><button type="button" class="hidden toggle-subnav btn btn-link">  <span class="glyphicon glyphicon-plus"></span></button><div class="hidden" id="ExmgTooltip_sub"></div></li><li><a href="SortableElement.html">SortableElement</a><button type="button" class="hidden toggle-subnav btn btn-link">  <span class="glyphicon glyphicon-plus"></span></button><div class="hidden" id="SortableElement_sub"></div></li></ul></div><div class="lnb-api hidden"><h3>Global</h3><ul><li><a href="global.html#orientationMap">orientationMap</a></li><li><a href="global.html#selectionController">selectionController</a></li></ul></div>
+</nav>
+<div id="resizer"></div>
+
+<div class="main" id="main">
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import { __decorate } from "tslib";
+import { html } from 'lit';
+import { customElement, property } from 'lit/decorators.js';
+import { ExmgElement } from '@exmg/exmg-base';
+import { repeat } from 'lit/directives/repeat.js';
+import '@material/mwc-icon-button';
+import '@polymer/paper-item/paper-item.js';
+import './exmg-grid-toolbar-combobox.js';
+import { style } from '../styles/exmg-grid-pagination-styles-css.js';
+/**
+ * ### Styling
+ * The following custom properties  are available for styling:
+ *
+ * Custom property | Description | Default
+ * ----------------|-------------|----------
+ * `--exmg-theme-table-pagination-bg-color` | pagination background color | `var(--mdc-theme-surface, #ffffff);`
+ * `--exmg-theme-table-pagination-color` | pagination foreground (mostly text) color | `var(--mdc-theme-on-surface, #02182b);`
+ */
+let ExmgGridPagination = class ExmgGridPagination extends ExmgElement {
+    constructor() {
+        super(...arguments);
+        this.pageSizeLabel = 'Rows per page:';
+        this.pageSizeOptions = [10, 20, 30];
+        this.pageSize = this.pageSizeOptions[0];
+        this.pageIndex = 0;
+        this.itemCount = 0;
+    }
+    renderPageSizeLabel() {
+        return html ` ${this.pageSizeLabel} `;
+    }
+    renderPageSizeOptions() {
+        return html `
+      &lt;exmg-grid-toolbar-combobox
+        id="pageSizeOptions"
+        attr-for-selected="data-id"
+        selected="${this.pageSize}"
+        @exmg-combobox-select="${this.handleOnPageSizeChanged}"
+        style="display: inline-block;min-width: 0;"
+      >
+        ${repeat(this.pageSizeOptions, (item) => item, (item) => html ` &lt;paper-item data-id="${item}">${item}&lt;/paper-item> `)}
+      &lt;/exmg-grid-toolbar-combobox>
+    `;
+    }
+    renderPageRangeLabel() {
+        if (this.itemCount > 0) {
+            return html `
+        &lt;span>
+          ${this.pageIndex * this.pageSize + 1}- ${Math.min((this.pageIndex + 1) * this.pageSize, this.itemCount)} of ${this.itemCount}
+        &lt;/span>
+      `;
+        }
+        return html ` &lt;span>${this.pageIndex * this.pageSize + 1}-${(this.pageIndex + 1) * this.pageSize}&lt;/span> `;
+    }
+    renderPageRangeActions() {
+        return html ` ${this.renderPrevPage()} ${this.renderNextPage()} `;
+    }
+    renderPrevPage() {
+        const enabled = this.pageIndex > 0;
+        return html `
+      &lt;mwc-icon-button
+        icon="navigate_before"
+        id="prevPageBtn"
+        ?disabled="${!enabled}"
+        class="actions"
+        title="Previous page"
+        @click="${enabled ? this.handleOnClickPrev : undefined}"
+      >&lt;/mwc-icon-button>
+    `;
+    }
+    renderNextPage() {
+        const enabled = this.itemCount &amp;&amp; this.itemCount > (this.pageIndex + 1) * this.pageSize;
+        return html `
+      &lt;mwc-icon-button
+        icon="navigate_next"
+        id="nextPageBtn"
+        ?disabled="${!enabled}"
+        class="actions"
+        title="Next page"
+        @click="${enabled ? this.handleOnClickNext : undefined}"
+      >&lt;/mwc-icon-button>
+    `;
+    }
+    fireEventPageChanged(page) {
+        this.dispatchEvent(new CustomEvent('exmg-grid-pagination-page-changed', { bubbles: true, composed: true, detail: { page } }));
+    }
+    handleOnClickPrev(e) {
+        e.preventDefault();
+        this.pageIndex = this.pageIndex - 1;
+        this.fireEventPageChanged(this.pageIndex);
+        return false;
+    }
+    handleOnClickNext(e) {
+        e.preventDefault();
+        this.pageIndex = this.pageIndex + 1;
+        this.fireEventPageChanged(this.pageIndex);
+        return false;
+    }
+    handleOnPageSizeChanged(e) {
+        const { value } = e.detail;
+        if (typeof value !== 'undefined') {
+            this.pageSize = parseInt(value, 10);
+            this.pageIndex = 0;
+            this.dispatchEvent(new CustomEvent('exmg-grid-pagination-page-size-changed', {
+                bubbles: true,
+                composed: true,
+                detail: { pageSize: this.pageSize, page: this.pageIndex },
+            }));
+        }
+    }
+    render() {
+        // tslint:disable:max-line-length
+        return html `
+      &lt;style>
+        :host {
+          --paper-item-focused: {
+            background-color: var(
+              --exmg-theme-table-toolbar-filter-item-active-bg-color,
+              var(--exmg-theme-table-on-surface-low, var(--mdc-theme-surface))
+            );
+          }
+          --paper-item-selected: {
+            background-color: var(
+              --exmg-theme-table-toolbar-filter-item-active-bg-color,
+              var(--exmg-theme-table-on-surface-low, var(--mdc-theme-surface))
+            );
+          }
+          --paper-button-ink-color: var(--exmg-theme-table-toolbar-filter-item-active-bg-color, var(--mdc-theme-surface));
+
+          --exmg-paper-combobox-selected-item-color: var(--exmg-theme-table-pagination-color, var(--mdc-theme-on-surface));
+          --exmg-paper-combobox-selected-item-bg-color: var(--exmg-theme-table-pagination-bg-color, transparent);
+          --exmg-paper-combobox-dropdown-button-color: var(--exmg-theme-table-pagination-color, var(--mdc-theme-on-surface));
+          --exmg-paper-combobox-dropdown-button-bg-color: var(--exmg-theme-table-pagination-bg-color, transparent);
+          --exmg-paper-combobox-dropdown-list-color: var(--exmg-theme-table-pagination-color, var(--mdc-theme-on-surface));
+          --exmg-paper-combobox-dropdown-list-bg-color: var(--exmg-theme-table-pagination-bg-color, var(--mdc-theme-surface));
+
+          exmg-grid-toolbar-combobox {
+            --exmg-paper-combobox-background-color: var(--exmg-theme-table-pagination-bg-color);
+          }
+        }
+      &lt;/style>
+      &lt;div class="wrapper">
+        &lt;div class="page-size">
+          &lt;div class="page-size-label">${this.renderPageSizeLabel()}&lt;/div>
+          &lt;div class="page-size-options">${this.renderPageSizeOptions()}&lt;/div>
+        &lt;/div>
+        &lt;div class="page-range">
+          &lt;div class="page-range-label">${this.renderPageRangeLabel()}&lt;/div>
+          &lt;div class="page-range-actions">${this.renderPageRangeActions()}&lt;/div>
+        &lt;/div>
+        &lt;div>&lt;/div>
+      &lt;/div>
+    `;
+        // tslint:enable:max-line-length
+    }
+};
+ExmgGridPagination.styles = [style];
+__decorate([
+    property({ type: String, attribute: 'page-size-label' })
+], ExmgGridPagination.prototype, "pageSizeLabel", void 0);
+__decorate([
+    property({ type: Array, attribute: 'page-size-options' })
+], ExmgGridPagination.prototype, "pageSizeOptions", void 0);
+__decorate([
+    property({ type: Number, attribute: 'page-size' })
+], ExmgGridPagination.prototype, "pageSize", void 0);
+__decorate([
+    property({ type: Number, attribute: 'page-index' })
+], ExmgGridPagination.prototype, "pageIndex", void 0);
+__decorate([
+    property({ type: Number, attribute: 'item-count' })
+], ExmgGridPagination.prototype, "itemCount", void 0);
+ExmgGridPagination = __decorate([
+    customElement('exmg-grid-pagination')
+], ExmgGridPagination);
+export { ExmgGridPagination };
+//# sourceMappingURL=exmg-grid-pagination.js.map</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<footer>
+    <img class="logo" src="https://www.exmachinagroup.com/images/svg/ExMachinaPrimary.svg" style="width: 150px; height: 50px">
+    <div class="footer-text">NHN Entertainment. Frontend Development Lab</div>
+</footer>
+<script>prettyPrint();</script>
+<script src="scripts/jquery.min.js"></script>
+<script src="scripts/tui-doc.js"></script>
+<script src="scripts/linenumber.js"></script>
+
+    <script>
+        var id = '_sub'.replace(/"/g, '_');
+        var selectedApi = document.getElementById(id); // do not use jquery selector
+        var $selectedApi = $(selectedApi);
+
+        $selectedApi.removeClass('hidden');
+        $selectedApi.parent().find('.glyphicon').removeClass('glyphicon-plus').addClass('glyphicon-minus');
+        showLnbApi();
+    </script>
+
+</body>
+</html>
