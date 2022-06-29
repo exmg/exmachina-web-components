@@ -67,7 +67,6 @@ jobs:
             git checkout -b temp
             git add -f ./docs
             git commit -am 'Update docs'
-            git pull -s recursive --no-edit -X ours origin docs
             git push -v https://github.com/exmg/exmachina-web-components.git temp:docs
 
 workflows:
