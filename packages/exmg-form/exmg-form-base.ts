@@ -153,7 +153,7 @@ export class ExmgFormBase extends ExmgElement {
   }
 
   validate() {
-    this.ironFormElem && this.ironFormElem.validate();
+    return this.ironFormElem && this.ironFormElem.validate();
   }
 
   private resetRegisteredCustomElements() {
