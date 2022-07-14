@@ -137,7 +137,6 @@ export class ExmgFormDrawer extends LitElement {
   static styles = [style];
 
   render() {
-    // language=html
     return html`
       <exmg-drawer
         ?opened="${this.opened}"
