@@ -3,7 +3,7 @@
 :host {
   font-family: var(--mdc-typography-headline3-font-family, var(--mdc-typography-font-family, Roboto, sans-serif));
   --toolbar-height: 100px;
-  --sidebar-width: 300px
+  --sidebar-width: 300px;
 }
 
 h1 {
@@ -39,7 +39,7 @@ ol {
 main {
   display: flex;
   flex-direction: column;
-  font-family: "Roboto Mono", monospace;
+  font-family: 'Roboto Mono', monospace;
   -webkit-font-smoothing: antialiased;
   font-size: 1rem;
   line-height: 1.4rem;
@@ -70,16 +70,16 @@ main {
         width: 80%;
       }
     }
-    .info{
+    .info {
       padding: 1rem;
       flex: 1;
       display: flex;
       .element {
         flex: 1;
       }
-      .version{
+      .version {
         font-size: 0.9rem;
-        color: rgba(255,255,255,0.75);
+        color: rgba(255, 255, 255, 0.75);
       }
       .actions {
         display: flex;
@@ -107,7 +107,7 @@ main {
     .main {
       flex: 1;
     }
-    .sidemenu{
+    .sidemenu {
       background: #eee;
       li a {
         text-decoration: none;
@@ -115,9 +115,21 @@ main {
         box-sizing: border-box;
         display: block;
         border-bottom: 1px solid #ddd;
+        color: black;
+      }
+      li a:visited {
+        text-decoration: none;
+        color: black;
       }
       li a:hover {
         background: #ddd;
+      }
+      li {
+        &.active {
+          a {
+            color: rgb(74, 163, 204);
+          }
+        }
       }
     }
   }
