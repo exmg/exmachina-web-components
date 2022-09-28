@@ -48,7 +48,7 @@
         <article>
             <pre class="prettyprint source linenums"><code>import { __decorate } from "tslib";
 import { html } from 'lit';
-import { ExmgElement } from '@exmg/exmg-base';
+import { ExmgElement } from '@exmg/exmg-base/exmg-element.js';
 import { property, customElement, state } from 'lit/decorators.js';
 import { cache } from 'lit/directives/cache.js';
 import '@exmg/exmg-sortable/exmg-sortable.js';
@@ -318,7 +318,9 @@ let ExmgGrid = class ExmgGrid extends ExmgElement {
       &lt;div class="table-card-container">
         &lt;slot name="toolbar">&lt;/slot>
         &lt;div class="table-card">
-          &lt;div class="table-container">${cache(this.canSortRows() ? this.renderWithSortable() : this.renderWithoutSortable())}&lt;/div>
+          &lt;div class="table-container">
+            ${cache(this.canSortRows() ? this.renderWithSortable() : this.renderWithoutSortable())}
+          &lt;/div>
           &lt;slot name="pagination">&lt;/slot>
         &lt;/div>
       &lt;/div>

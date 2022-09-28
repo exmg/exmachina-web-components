@@ -48,7 +48,7 @@
         <article>
             <pre class="prettyprint source linenums"><code>import { __decorate } from "tslib";
 import { html } from 'lit';
-import { ExmgElement } from '@exmg/exmg-base';
+import { ExmgElement } from '@exmg/exmg-base/exmg-element.js';
 import { customElement, query, property, state } from 'lit/decorators.js';
 import { repeat } from 'lit/directives/repeat.js';
 import { classMap } from 'lit/directives/class-map.js';
@@ -630,13 +630,18 @@ let EditorElement = class EditorElement extends ExmgElement {
             if (it.name) {
                 const hasMaterialIcon = it.icon.indexOf('exmg-markdown-editor-icons:') &lt; 0;
                 return html `
-                  &lt;a href="#" title=${it.title} class=${(_a = it.className) !== null &amp;&amp; _a !== void 0 ? _a : ''} @click=${(e) => {
+                  &lt;a
+                    href="#"
+                    title=${it.title}
+                    class=${(_a = it.className) !== null &amp;&amp; _a !== void 0 ? _a : ''}
+                    @click=${(e) => {
                     e.preventDefault();
                     this.action(it);
-                }}>
-                    ${hasMaterialIcon ?
-                    html `&lt;mwc-icon>${it.icon}&lt;/mwc-icon>` :
-                    html `&lt;iron-icon icon="${it.icon}">&lt;/iron-icon>`}
+                }}
+                  >
+                    ${hasMaterialIcon
+                    ? html `&lt;mwc-icon>${it.icon}&lt;/mwc-icon>`
+                    : html `&lt;iron-icon icon="${it.icon}">&lt;/iron-icon>`}
                   &lt;/a>
                 `;
             }

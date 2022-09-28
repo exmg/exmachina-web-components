@@ -52,7 +52,7 @@ import { property } from 'lit/decorators/property.js';
 import { customElement } from 'lit/decorators/custom-element.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import { query } from 'lit/decorators/query.js';
-import { ExmgElement } from '@exmg/exmg-base';
+import { ExmgElement } from '@exmg/exmg-base/exmg-element.js';
 import '@polymer/paper-dialog';
 import '@material/mwc-icon-button';
 import '@polymer/paper-dialog-scrollable';
@@ -85,11 +85,8 @@ let ExmgFormDialog = class ExmgFormDialog extends ExmgElement {
     }
     onCloseDialog(e) {
         /* only reset form if close event originates from dialog */
-        const eventPath = e.path
-            ? e.path
-            : e.composedPath();
-        if (eventPath[0] instanceof Element &amp;&amp;
-            eventPath[0].tagName === 'PAPER-DIALOG') {
+        const eventPath = e.path ? e.path : e.composedPath();
+        if (eventPath[0] instanceof Element &amp;&amp; eventPath[0].tagName === 'PAPER-DIALOG') {
             this.reset();
         }
     }
@@ -173,14 +170,8 @@ let ExmgFormDialog = class ExmgFormDialog extends ExmgElement {
       >
         ${this.hideCloseButton
             ? ''
-            : html `
-              &lt;mwc-icon-button @click=${this.close} class="close-button"
-                >${closeIcon}&lt;/mwc-icon-button
-              >
-            `}
-        &lt;header>
-          ${this.title ? html ` &lt;h2 class="title">${this.title}&lt;/h2> ` : ''}
-        &lt;/header>
+            : html ` &lt;mwc-icon-button @click=${this.close} class="close-button">${closeIcon}&lt;/mwc-icon-button> `}
+        &lt;header>${this.title ? html ` &lt;h2 class="title">${this.title}&lt;/h2> ` : ''}&lt;/header>
         &lt;paper-dialog-scrollable>
           &lt;div class="body">
             &lt;div class="error ${this.errorMessage ? 'show' : ''}">
@@ -198,10 +189,7 @@ let ExmgFormDialog = class ExmgFormDialog extends ExmgElement {
         &lt;/paper-dialog-scrollable>
         &lt;div class="actions">
           &lt;exmg-button dialog-dismiss @click=${this.cancel}>Cancel&lt;/exmg-button>
-          &lt;exmg-button
-            id="submitBtn"
-            @click=${this.submit}
-            ?loading="${this.submitting}"
+          &lt;exmg-button id="submitBtn" @click=${this.submit} ?loading="${this.submitting}"
             >${this.buttonCopy}&lt;/exmg-button
           >
         &lt;/div>

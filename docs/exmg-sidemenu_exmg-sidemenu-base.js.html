@@ -48,7 +48,7 @@
         <article>
             <pre class="prettyprint source linenums"><code>import { __decorate } from "tslib";
 import { html } from 'lit';
-import { ExmgElement } from '@exmg/exmg-base';
+import { ExmgElement } from '@exmg/exmg-base/exmg-element.js';
 import { property } from 'lit/decorators.js';
 import { observer } from '@exmg/exmg-base/observer/observer.js';
 import '@polymer/paper-listbox';
@@ -107,7 +107,12 @@ export class ExmgSidemenuBase extends ExmgElement {
             &lt;!-- Sidemenu Footer -->
             &lt;div class="menu-footer">
               &lt;slot name="footer">&lt;/slot>
-              &lt;button aria-label="Collapse side menu" aria-hidden="true" aria-pressed="true" @click=${this._handleCollapse}>
+              &lt;button
+                aria-label="Collapse side menu"
+                aria-hidden="true"
+                aria-pressed="true"
+                @click=${this._handleCollapse}
+              >
                 ${chevronLeftIcon}
               &lt;/button>
             &lt;/div>

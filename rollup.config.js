@@ -25,9 +25,9 @@ const elements = [
 
 const elementsConfigs = elements.map((element) => {
   return {
-    input: `./demo/demos/${element}/*.js`,
+    input: `./demo/demos/${element}/${element}-demo.js`,
     output: {
-      file: `./docs/demo/demos/${element}/`,
+      file: `./docs/demo/demos/${element}/${element}-demo.js`,
       format: 'es',
       sourcemap: false,
     },
@@ -43,6 +43,10 @@ const elementsConfigs = elements.map((element) => {
         targets: [
           {
             src: `./demo/demos/${element}/*.html`,
+            dest: `./docs/demo/demos/${element}`,
+          },
+          {
+            src: [`./demo/demos/${element}/*.js`, `!./demo/demos/${element}/${element}-demo.js`],
             dest: `./docs/demo/demos/${element}`,
           },
         ],

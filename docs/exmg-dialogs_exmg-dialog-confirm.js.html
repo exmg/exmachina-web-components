@@ -50,7 +50,7 @@
 import { html } from 'lit';
 import { property, customElement, query } from 'lit/decorators.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
-import { ExmgElement } from '@exmg/exmg-base';
+import { ExmgElement } from '@exmg/exmg-base/exmg-element.js';
 import '@material/mwc-icon-button';
 import '@polymer/paper-dialog';
 import '@exmg/exmg-button/exmg-button.js';
@@ -181,14 +181,8 @@ let ExmgConfirmDialog = class ExmgConfirmDialog extends ExmgElement {
       >
         ${this.hideCloseButton
             ? ''
-            : html `
-              &lt;mwc-icon-button @click=${this.close} class="close-button"
-                >${closeIcon}&lt;/mwc-icon-button
-              >
-            `}
-        &lt;header>
-          ${this.title ? html ` &lt;h2 class="title">${this.title}&lt;/h2> ` : ''}
-        &lt;/header>
+            : html ` &lt;mwc-icon-button @click=${this.close} class="close-button">${closeIcon}&lt;/mwc-icon-button> `}
+        &lt;header>${this.title ? html ` &lt;h2 class="title">${this.title}&lt;/h2> ` : ''}&lt;/header>
         &lt;div class="body">
           &lt;div class="error ${this.errorMessage ? 'show' : ''}">
             &lt;span class="body">
@@ -196,16 +190,11 @@ let ExmgConfirmDialog = class ExmgConfirmDialog extends ExmgElement {
               &lt;span class="msg">${this.errorMessage}&lt;/span>
             &lt;/span>
           &lt;/div>
-          ${this.hasSlotContent
-            ? html ` &lt;slot>&lt;/slot> `
-            : html ` &lt;p>${this.message}&lt;/p> `}
+          ${this.hasSlotContent ? html ` &lt;slot>&lt;/slot> ` : html ` &lt;p>${this.message}&lt;/p> `}
         &lt;/div>
         &lt;div class="actions">
           &lt;exmg-button dialog-dismiss @click=${this.cancel}>Cancel&lt;/exmg-button>
-          &lt;exmg-button
-            id="submitBtn"
-            @click=${this.submit}
-            ?loading="${this.submitting}"
+          &lt;exmg-button id="submitBtn" @click=${this.submit} ?loading="${this.submitting}"
             >${this.buttonCopy}&lt;/exmg-button
           >
         &lt;/div>

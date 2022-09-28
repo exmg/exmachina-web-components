@@ -48,7 +48,7 @@
         <article>
             <pre class="prettyprint source linenums"><code>import { __decorate } from "tslib";
 import { html, css } from 'lit';
-import { ExmgElement } from '@exmg/exmg-base';
+import { ExmgElement } from '@exmg/exmg-base/exmg-element.js';
 import { customElement, property, query, state } from 'lit/decorators.js';
 import { classMap } from 'lit/directives/class-map.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
@@ -528,15 +528,10 @@ let PaperGridTooolbarComboboxElement = class PaperGridTooolbarComboboxElement ex
         &lt;/paper-input-container>
 
         &lt;span id="inputWidthHelper">${this.inputValue} &lt;/span>
-        &lt;mwc-icon-button
-          ?disabled="${this.disabled}"
-          @click=${() => this.toggle()}
-        >
-          &lt;svg xmlns="http://www.w3.org/2000/svg" 
-            height="24px" 
-            viewBox="0 0 24 24" 
-            width="24px">
-            &lt;path d="M0 0h24v24H0V0z" fill="none"/>&lt;path d="M7 10l5 5 5-5H7z"/>
+        &lt;mwc-icon-button ?disabled="${this.disabled}" @click=${() => this.toggle()}>
+          &lt;svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px">
+            &lt;path d="M0 0h24v24H0V0z" fill="none" />
+            &lt;path d="M7 10l5 5 5-5H7z" />
           &lt;/svg>
         &lt;/mwc-icon-button>
         &lt;iron-dropdown

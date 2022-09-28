@@ -49,7 +49,7 @@
             <pre class="prettyprint source linenums"><code>import { __decorate } from "tslib";
 import { html } from 'lit';
 import { customElement, property, state } from 'lit/decorators.js';
-import { ExmgElement } from '@exmg/exmg-base';
+import { ExmgElement } from '@exmg/exmg-base/exmg-element.js';
 import { style } from '../styles/exmg-grid-base-toolbar-styles-css.js';
 /**
  * ### Styling
@@ -100,7 +100,9 @@ let ExmgGridBaseToolbar = class ExmgGridBaseToolbar extends ExmgElement {
               &lt;/div>
             `
             : ''}
-        &lt;div class="seperator ${this.actionsCount > 0 &amp;&amp; !this.disableSeperator ? 'with-action-separator' : ''}">&amp;nbsp;&lt;/div>
+        &lt;div class="seperator ${this.actionsCount > 0 &amp;&amp; !this.disableSeperator ? 'with-action-separator' : ''}">
+          &amp;nbsp;
+        &lt;/div>
         &lt;div class="description">
           &lt;slot name="description">&lt;/slot>
         &lt;/div>
