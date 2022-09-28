@@ -1,6 +1,6 @@
 import {html} from 'lit';
 import {customElement, property} from 'lit/decorators.js';
-import {ExmgElement} from '@exmg/exmg-base';
+import {ExmgElement} from '@exmg/exmg-base/exmg-element.js';
 import {repeat} from 'lit/directives/repeat.js';
 import '@material/mwc-icon-button';
 import '@polymer/paper-item/paper-item.js';
@@ -61,7 +61,8 @@ export class ExmgGridPagination extends ExmgElement {
     if (this.itemCount > 0) {
       return html`
         <span>
-          ${this.pageIndex * this.pageSize + 1}- ${Math.min((this.pageIndex + 1) * this.pageSize, this.itemCount)} of ${this.itemCount}
+          ${this.pageIndex * this.pageSize + 1}- ${Math.min((this.pageIndex + 1) * this.pageSize, this.itemCount)} of
+          ${this.itemCount}
         </span>
       `;
     }
@@ -104,7 +105,9 @@ export class ExmgGridPagination extends ExmgElement {
   }
 
   private fireEventPageChanged(page: number) {
-    this.dispatchEvent(new CustomEvent('exmg-grid-pagination-page-changed', {bubbles: true, composed: true, detail: {page}}));
+    this.dispatchEvent(
+      new CustomEvent('exmg-grid-pagination-page-changed', {bubbles: true, composed: true, detail: {page}}),
+    );
   }
 
   private handleOnClickPrev(e: Event) {
@@ -156,14 +159,29 @@ export class ExmgGridPagination extends ExmgElement {
               var(--exmg-theme-table-on-surface-low, var(--mdc-theme-surface))
             );
           }
-          --paper-button-ink-color: var(--exmg-theme-table-toolbar-filter-item-active-bg-color, var(--mdc-theme-surface));
+          --paper-button-ink-color: var(
+            --exmg-theme-table-toolbar-filter-item-active-bg-color,
+            var(--mdc-theme-surface)
+          );
 
-          --exmg-paper-combobox-selected-item-color: var(--exmg-theme-table-pagination-color, var(--mdc-theme-on-surface));
+          --exmg-paper-combobox-selected-item-color: var(
+            --exmg-theme-table-pagination-color,
+            var(--mdc-theme-on-surface)
+          );
           --exmg-paper-combobox-selected-item-bg-color: var(--exmg-theme-table-pagination-bg-color, transparent);
-          --exmg-paper-combobox-dropdown-button-color: var(--exmg-theme-table-pagination-color, var(--mdc-theme-on-surface));
+          --exmg-paper-combobox-dropdown-button-color: var(
+            --exmg-theme-table-pagination-color,
+            var(--mdc-theme-on-surface)
+          );
           --exmg-paper-combobox-dropdown-button-bg-color: var(--exmg-theme-table-pagination-bg-color, transparent);
-          --exmg-paper-combobox-dropdown-list-color: var(--exmg-theme-table-pagination-color, var(--mdc-theme-on-surface));
-          --exmg-paper-combobox-dropdown-list-bg-color: var(--exmg-theme-table-pagination-bg-color, var(--mdc-theme-surface));
+          --exmg-paper-combobox-dropdown-list-color: var(
+            --exmg-theme-table-pagination-color,
+            var(--mdc-theme-on-surface)
+          );
+          --exmg-paper-combobox-dropdown-list-bg-color: var(
+            --exmg-theme-table-pagination-bg-color,
+            var(--mdc-theme-surface)
+          );
 
           exmg-grid-toolbar-combobox {
             --exmg-paper-combobox-background-color: var(--exmg-theme-table-pagination-bg-color);

@@ -1,5 +1,5 @@
 import {html} from 'lit';
-import {ExmgElement} from '@exmg/exmg-base';
+import {ExmgElement} from '@exmg/exmg-base/exmg-element.js';
 import {classMap} from 'lit/directives/class-map.js';
 import {property} from 'lit/decorators/property.js';
 import {customElement} from 'lit/decorators/custom-element.js';
@@ -15,7 +15,7 @@ export class ExmgRadioGroup extends ExmgElement {
   name?: string;
 
   @property({type: String, reflect: true})
-  @observer(function(this: ExmgRadioGroup) {
+  @observer(function (this: ExmgRadioGroup) {
     this.setProperSelectedItem();
   })
   selected = '';
@@ -76,7 +76,9 @@ export class ExmgRadioGroup extends ExmgElement {
 
     this.selected = detail.value;
 
-    this.dispatchEvent(new CustomEvent('exmg-radio-group-changed', {detail: {selected: this.selected}, composed: true, bubbles: true}));
+    this.dispatchEvent(
+      new CustomEvent('exmg-radio-group-changed', {detail: {selected: this.selected}, composed: true, bubbles: true}),
+    );
   }
 
   private setProperSelectedItem() {

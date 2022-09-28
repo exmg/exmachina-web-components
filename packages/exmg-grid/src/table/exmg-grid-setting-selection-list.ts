@@ -1,6 +1,6 @@
 import {html} from 'lit';
 import {customElement, property, query} from 'lit/decorators.js';
-import {ExmgElement} from '@exmg/exmg-base';
+import {ExmgElement} from '@exmg/exmg-base/exmg-element.js';
 import '@material/mwc-menu';
 import '@material/mwc-list/mwc-list-item';
 import '@material/mwc-icon-button';
@@ -122,9 +122,18 @@ export class ExmgGridSettingSelectionList extends ExmgElement {
 
       <mwc-menu id="menu" absolute activatable multi @action="${this.handleListAction}">
         ${this.settingData.map(
-          (item) => html` <mwc-list-item ?selected=${item.selected} ?activated=${item.selected}> ${item.title} </mwc-list-item>`,
+          (item) =>
+            html` <mwc-list-item ?selected=${item.selected} ?activated=${item.selected}>
+              ${item.title}
+            </mwc-list-item>`,
         )}
       </mwc-menu>
     `;
+  }
+}
+
+declare global {
+  interface HTMLElementTagNameMap {
+    'exmg-grid-setting-selection-list': ExmgGridSettingSelectionList;
   }
 }

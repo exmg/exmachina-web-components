@@ -1,6 +1,6 @@
 import {html} from 'lit';
 import {property, customElement} from 'lit/decorators.js';
-import {ExmgElement} from '@exmg/exmg-base';
+import {ExmgElement} from '@exmg/exmg-base/exmg-element.js';
 import {classMap} from 'lit/directives/class-map.js';
 import {observer} from '@exmg/exmg-base/observer/observer.js';
 import {style} from './styles/exmg-spinner-styles-css.js';
@@ -11,7 +11,7 @@ export class ExmgSpinner extends ExmgElement {
   coolingDown = false;
 
   @property({type: Boolean, reflect: true})
-  @observer(function(this: ExmgSpinner, value: boolean) {
+  @observer(function (this: ExmgSpinner, value: boolean) {
     this.setAriaHidden(!value);
     this.coolingDown = !value;
   })

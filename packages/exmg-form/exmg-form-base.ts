@@ -1,6 +1,6 @@
 import {html} from 'lit';
 import {property, query, state} from 'lit/decorators.js';
-import {ExmgElement} from '@exmg/exmg-base';
+import {ExmgElement} from '@exmg/exmg-base/exmg-element.js';
 import {classMap} from 'lit/directives/class-map.js';
 import {observer} from '@exmg/exmg-base/observer/observer.js';
 import {Debouncer} from '@exmg/exmg-base/utils/debounce/debounce.js';
@@ -57,7 +57,7 @@ export class ExmgFormBase extends ExmgElement {
    * Indicator of the form has pending changes
    */
   @state()
-  @observer(function(this: ExmgFormBase, dirty: boolean) {
+  @observer(function (this: ExmgFormBase, dirty: boolean) {
     this.dispatchEvent(
       new CustomEvent('dirty-change', {
         bubbles: this.bubbles,
@@ -125,7 +125,7 @@ export class ExmgFormBase extends ExmgElement {
   }
 
   /**
-   * 
+   *
    * @deprecated handleError method should be used
    */
   error(errorMessage: string) {

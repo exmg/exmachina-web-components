@@ -1,5 +1,5 @@
 import {html} from 'lit';
-import {ExmgElement} from '@exmg/exmg-base';
+import {ExmgElement} from '@exmg/exmg-base/exmg-element.js';
 import {property} from 'lit/decorators.js';
 import {observer} from '@exmg/exmg-base/observer/observer.js';
 import '@polymer/paper-listbox';
@@ -18,7 +18,7 @@ export const settingsIcon = html`
 
 export class ExmgSidemenuBase extends ExmgElement {
   @property({type: Boolean, reflect: true})
-  @observer(function(this: ExmgElement, collapsed: boolean) {
+  @observer(function (this: ExmgElement, collapsed: boolean) {
     this.dispatchEvent(new CustomEvent('collapsed', {bubbles: false, composed: true, detail: collapsed}));
   })
   collapsed = false;
@@ -27,7 +27,7 @@ export class ExmgSidemenuBase extends ExmgElement {
    * Contains the path of the selected menu item
    */
   @property({type: String})
-  @observer(function(this: ExmgElement, selected: string) {
+  @observer(function (this: ExmgElement, selected: string) {
     this.dispatchEvent(new CustomEvent('selected-changed', {bubbles: false, composed: true, detail: selected}));
   })
   selected!: string;
@@ -77,7 +77,12 @@ export class ExmgSidemenuBase extends ExmgElement {
             <!-- Sidemenu Footer -->
             <div class="menu-footer">
               <slot name="footer"></slot>
-              <button aria-label="Collapse side menu" aria-hidden="true" aria-pressed="true" @click=${this._handleCollapse}>
+              <button
+                aria-label="Collapse side menu"
+                aria-hidden="true"
+                aria-pressed="true"
+                @click=${this._handleCollapse}
+              >
                 ${chevronLeftIcon}
               </button>
             </div>

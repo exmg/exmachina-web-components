@@ -1,6 +1,6 @@
 import {html, css} from 'lit';
 import {customElement, property} from 'lit/decorators.js';
-import {ExmgElement} from '@exmg/exmg-base';
+import {ExmgElement} from '@exmg/exmg-base/exmg-element.js';
 import './exmg-grid-toolbar.js';
 import {
   Filter,
@@ -83,7 +83,9 @@ export class ExmgGridSmartToolbar extends ExmgElement {
     return !!action.condition && action.condition!.type === ActionConditionType.AmountOfSelectedItemsRange;
   }
 
-  private checkAmountOfSelectedItemsRangeCondition(action: ActionWithCondition<ActionAmountSelectedItemsCondition>): boolean {
+  private checkAmountOfSelectedItemsRangeCondition(
+    action: ActionWithCondition<ActionAmountSelectedItemsCondition>,
+  ): boolean {
     const condition = action.condition;
     const min = condition!.min;
 

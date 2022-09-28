@@ -1,7 +1,7 @@
 import {html} from 'lit';
 import {property, customElement, query} from 'lit/decorators.js';
 import {ifDefined} from 'lit/directives/if-defined.js';
-import {ExmgElement} from '@exmg/exmg-base';
+import {ExmgElement} from '@exmg/exmg-base/exmg-element.js';
 import '@material/mwc-icon-button';
 import {PaperDialogElement} from '@polymer/paper-dialog';
 import '@polymer/paper-dialog';
@@ -129,7 +129,7 @@ export class ExmgConfirmDialog extends ExmgElement {
   }
 
   /**
-   * 
+   *
    * @deprecated handleError method should be used
    */
   error(error: Error) {
@@ -163,9 +163,7 @@ export class ExmgConfirmDialog extends ExmgElement {
   }
 
   private cancel() {
-    this.dispatchEvent(
-      new CustomEvent('cancel', {bubbles: false, composed: true})
-    );
+    this.dispatchEvent(new CustomEvent('cancel', {bubbles: false, composed: true}));
   }
 
   private submit() {
@@ -180,9 +178,7 @@ export class ExmgConfirmDialog extends ExmgElement {
     }
 
     // dispatch event
-    this.dispatchEvent(
-      new CustomEvent('submit', {bubbles: false, composed: true})
-    );
+    this.dispatchEvent(new CustomEvent('submit', {bubbles: false, composed: true}));
   }
 
   protected render() {
@@ -196,14 +192,8 @@ export class ExmgConfirmDialog extends ExmgElement {
       >
         ${this.hideCloseButton
           ? ''
-          : html`
-              <mwc-icon-button @click=${this.close} class="close-button"
-                >${closeIcon}</mwc-icon-button
-              >
-            `}
-        <header>
-          ${this.title ? html` <h2 class="title">${this.title}</h2> ` : ''}
-        </header>
+          : html` <mwc-icon-button @click=${this.close} class="close-button">${closeIcon}</mwc-icon-button> `}
+        <header>${this.title ? html` <h2 class="title">${this.title}</h2> ` : ''}</header>
         <div class="body">
           <div class="error ${this.errorMessage ? 'show' : ''}">
             <span class="body">
@@ -211,16 +201,11 @@ export class ExmgConfirmDialog extends ExmgElement {
               <span class="msg">${this.errorMessage}</span>
             </span>
           </div>
-          ${this.hasSlotContent
-            ? html` <slot></slot> `
-            : html` <p>${this.message}</p> `}
+          ${this.hasSlotContent ? html` <slot></slot> ` : html` <p>${this.message}</p> `}
         </div>
         <div class="actions">
           <exmg-button dialog-dismiss @click=${this.cancel}>Cancel</exmg-button>
-          <exmg-button
-            id="submitBtn"
-            @click=${this.submit}
-            ?loading="${this.submitting}"
+          <exmg-button id="submitBtn" @click=${this.submit} ?loading="${this.submitting}"
             >${this.buttonCopy}</exmg-button
           >
         </div>

@@ -3,7 +3,7 @@ import {property} from 'lit/decorators/property.js';
 import {customElement} from 'lit/decorators/custom-element.js';
 import {ifDefined} from 'lit/directives/if-defined.js';
 import {query} from 'lit/decorators/query.js';
-import {ExmgElement} from '@exmg/exmg-base';
+import {ExmgElement} from '@exmg/exmg-base/exmg-element.js';
 import '@polymer/paper-dialog';
 import '@material/mwc-icon-button';
 import {PaperDialogElement} from '@polymer/paper-dialog';
@@ -74,13 +74,8 @@ export class ExmgFormDialog extends ExmgElement {
 
   private onCloseDialog(e: ExmgCustomEvent) {
     /* only reset form if close event originates from dialog */
-    const eventPath: EventTarget[] = (e as any).path
-      ? (e as any).path
-      : e.composedPath();
-    if (
-      eventPath[0] instanceof Element &&
-      eventPath[0].tagName === 'PAPER-DIALOG'
-    ) {
+    const eventPath: EventTarget[] = (e as any).path ? (e as any).path : e.composedPath();
+    if (eventPath[0] instanceof Element && eventPath[0].tagName === 'PAPER-DIALOG') {
       this.reset();
     }
   }
@@ -110,10 +105,10 @@ export class ExmgFormDialog extends ExmgElement {
     }
   }
 
-/**
- * 
- * @deprecated handleError method should be used
- */
+  /**
+   *
+   * @deprecated handleError method should be used
+   */
   error(error: Error) {
     this.submitting = false;
     this.errorMessage = error.message;
@@ -145,9 +140,7 @@ export class ExmgFormDialog extends ExmgElement {
   }
 
   private cancel() {
-    this.dispatchEvent(
-      new CustomEvent('cancel', {bubbles: false, composed: true})
-    );
+    this.dispatchEvent(new CustomEvent('cancel', {bubbles: false, composed: true}));
   }
 
   submit() {
@@ -172,7 +165,7 @@ export class ExmgFormDialog extends ExmgElement {
         bubbles: false,
         composed: true,
         detail: this.formNode!.serializeForm(),
-      })
+      }),
     );
   }
 
@@ -187,14 +180,8 @@ export class ExmgFormDialog extends ExmgElement {
       >
         ${this.hideCloseButton
           ? ''
-          : html`
-              <mwc-icon-button @click=${this.close} class="close-button"
-                >${closeIcon}</mwc-icon-button
-              >
-            `}
-        <header>
-          ${this.title ? html` <h2 class="title">${this.title}</h2> ` : ''}
-        </header>
+          : html` <mwc-icon-button @click=${this.close} class="close-button">${closeIcon}</mwc-icon-button> `}
+        <header>${this.title ? html` <h2 class="title">${this.title}</h2> ` : ''}</header>
         <paper-dialog-scrollable>
           <div class="body">
             <div class="error ${this.errorMessage ? 'show' : ''}">
@@ -212,10 +199,7 @@ export class ExmgFormDialog extends ExmgElement {
         </paper-dialog-scrollable>
         <div class="actions">
           <exmg-button dialog-dismiss @click=${this.cancel}>Cancel</exmg-button>
-          <exmg-button
-            id="submitBtn"
-            @click=${this.submit}
-            ?loading="${this.submitting}"
+          <exmg-button id="submitBtn" @click=${this.submit} ?loading="${this.submitting}"
             >${this.buttonCopy}</exmg-button
           >
         </div>

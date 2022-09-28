@@ -1,5 +1,5 @@
 import {html, PropertyValues} from 'lit';
-import {ExmgElement} from '@exmg/exmg-base';
+import {ExmgElement} from '@exmg/exmg-base/exmg-element.js';
 import {property} from 'lit/decorators.js';
 import {addListener, removeListener} from '@exmg/exmg-base/utils/gestures.js';
 
@@ -341,7 +341,8 @@ export class SortableElementBase extends ExmgElement {
     }
 
     if (node && node.parentNode) {
-      const insert = node.compareDocumentPosition(target) & this.DOCUMENT_POSITION_FOLLOWING ? target.nextSibling : target;
+      const insert =
+        node.compareDocumentPosition(target) & this.DOCUMENT_POSITION_FOLLOWING ? target.nextSibling : target;
       node.parentNode.insertBefore(node, insert);
     }
 

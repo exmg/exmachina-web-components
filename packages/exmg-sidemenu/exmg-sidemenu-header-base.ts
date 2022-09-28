@@ -1,5 +1,5 @@
 import {html, LitElement} from 'lit';
-import {ExmgElement} from '@exmg/exmg-base';
+import {ExmgElement} from '@exmg/exmg-base/exmg-element.js';
 import {property} from 'lit/decorators.js';
 import {observer} from '@exmg/exmg-base/observer/observer.js';
 import '@polymer/paper-listbox';
@@ -60,14 +60,20 @@ export class ExmgSidemenuHeaderBase extends ExmgElement {
    * Contains the path of the selected menu item
    */
   @property({type: String})
-  @observer(function(this: LitElement, selected: string) {
+  @observer(function (this: LitElement, selected: string) {
     this.dispatchEvent(new CustomEvent('selected-changed', {bubbles: false, composed: true, detail: selected}));
   })
   selected!: string;
 
   render() {
     return html`
-      <paper-listbox class="menu-header" slot="header" attr-for-selected="data-path" selected="${this.selected}" selectable="a">
+      <paper-listbox
+        class="menu-header"
+        slot="header"
+        attr-for-selected="data-path"
+        selected="${this.selected}"
+        selectable="a"
+      >
         <a href=${this.debug ? '#' : this.homeUrl} data-path="[[homeUrl]]" tabindex="-1" class="menu-item">
           <paper-item role="menuitem">
             ${dashboardIcon}

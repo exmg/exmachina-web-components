@@ -1,6 +1,6 @@
 import {html, css} from 'lit';
 import {property, customElement, query, state} from 'lit/decorators.js';
-import {ExmgElement} from '@exmg/exmg-base';
+import {ExmgElement} from '@exmg/exmg-base/exmg-element.js';
 import {classMap} from 'lit/directives/class-map.js';
 import '@polymer/paper-icon-button/paper-icon-button.js';
 import {Debouncer} from '@exmg/exmg-base/utils/debounce/debounce.js';
@@ -130,7 +130,9 @@ export class ToolbarSearch extends ExmgElement {
                 @keyup=${this._handleKeyUp}
                 @blur=${this._handleInputBlur}
               />
-              ${this.filterValue ? html` <button class="clear-button" @mousedown=${this._handleClear}>${clearIcon}</button> ` : html``}
+              ${this.filterValue
+                ? html` <button class="clear-button" @mousedown=${this._handleClear}>${clearIcon}</button> `
+                : html``}
             `
           : html`
               ${searchIcon}

@@ -2,7 +2,7 @@ import {html} from 'lit';
 import {property} from 'lit/decorators/property.js';
 import {state} from 'lit/decorators.js';
 import {query} from 'lit/decorators/query.js';
-import {ExmgElement} from '@exmg/exmg-base';
+import {ExmgElement} from '@exmg/exmg-base/exmg-element.js';
 import {observer} from '@exmg/exmg-base/observer/observer.js';
 
 export class ExmgTooltipBase extends ExmgElement {
@@ -11,7 +11,7 @@ export class ExmgTooltipBase extends ExmgElement {
    * must be a sibling of the tooltip.
    */
   @property({type: String})
-  @observer(function(this: ExmgTooltipBase) {
+  @observer(function (this: ExmgTooltipBase) {
     this._findTarget();
   })
   for?: string;
@@ -152,7 +152,7 @@ export class ExmgTooltipBase extends ExmgElement {
     const targetTop = targetRect.top - parentRect.top;
 
     let tooltipLeft = 0;
-      let tooltipTop = 0;
+    let tooltipTop = 0;
 
     switch (this.position) {
       case 'top':

@@ -1,5 +1,5 @@
 import {html} from 'lit';
-import {ExmgElement} from '@exmg/exmg-base';
+import {ExmgElement} from '@exmg/exmg-base/exmg-element.js';
 import {property, customElement, state} from 'lit/decorators.js';
 import {cache} from 'lit/directives/cache.js';
 import '@exmg/exmg-sortable/exmg-sortable.js';
@@ -258,7 +258,9 @@ export class ExmgGrid extends ExmgElement {
   private observeSelectedRowIds(changedProps: SmartPropertyValue) {
     if (changedProps.has('selectedRowIds')) {
       Object.entries(this.selectedRowIds).forEach(([rowId, nextSelectionState]) => {
-        const row = this.getTableBody().querySelector<HTMLTableRowElement>(this.getBodyRowSelector(`[data-row-key="${rowId}"]`));
+        const row = this.getTableBody().querySelector<HTMLTableRowElement>(
+          this.getBodyRowSelector(`[data-row-key="${rowId}"]`),
+        );
 
         if (row) {
           const isSelected = row.hasAttribute('data-selected');
@@ -389,7 +391,9 @@ export class ExmgGrid extends ExmgElement {
       <div class="table-card-container">
         <slot name="toolbar"></slot>
         <div class="table-card">
-          <div class="table-container">${cache(this.canSortRows() ? this.renderWithSortable() : this.renderWithoutSortable())}</div>
+          <div class="table-container">
+            ${cache(this.canSortRows() ? this.renderWithSortable() : this.renderWithoutSortable())}
+          </div>
           <slot name="pagination"></slot>
         </div>
       </div>

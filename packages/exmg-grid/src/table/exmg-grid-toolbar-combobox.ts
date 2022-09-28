@@ -1,5 +1,5 @@
 import {html, css} from 'lit';
-import {ExmgElement} from '@exmg/exmg-base';
+import {ExmgElement} from '@exmg/exmg-base/exmg-element.js';
 import {customElement, property, query, state} from 'lit/decorators.js';
 import {classMap} from 'lit/directives/class-map.js';
 import {ifDefined} from 'lit/directives/if-defined.js';
@@ -758,15 +758,10 @@ export class PaperGridTooolbarComboboxElement extends ExmgElement {
         </paper-input-container>
 
         <span id="inputWidthHelper">${this.inputValue} </span>
-        <mwc-icon-button
-          ?disabled="${this.disabled}"
-          @click=${() => this.toggle()}
-        >
-          <svg xmlns="http://www.w3.org/2000/svg" 
-            height="24px" 
-            viewBox="0 0 24 24" 
-            width="24px">
-            <path d="M0 0h24v24H0V0z" fill="none"/><path d="M7 10l5 5 5-5H7z"/>
+        <mwc-icon-button ?disabled="${this.disabled}" @click=${() => this.toggle()}>
+          <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px">
+            <path d="M0 0h24v24H0V0z" fill="none" />
+            <path d="M7 10l5 5 5-5H7z" />
           </svg>
         </mwc-icon-button>
         <iron-dropdown
@@ -809,5 +804,11 @@ export class PaperGridTooolbarComboboxElement extends ExmgElement {
         <span>${this.token!.text}</span>
       </paper-button>
     `;
+  }
+}
+
+declare global {
+  interface HTMLElementTagNameMap {
+    'exmg-grid-toolbar-combobox': PaperGridTooolbarComboboxElement;
   }
 }

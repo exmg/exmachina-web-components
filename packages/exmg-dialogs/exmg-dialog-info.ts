@@ -3,7 +3,7 @@ import {property} from 'lit/decorators/property.js';
 import {ifDefined} from 'lit/directives/if-defined.js';
 import {customElement} from 'lit/decorators/custom-element.js';
 import {query} from 'lit/decorators/query.js';
-import {ExmgElement} from '@exmg/exmg-base';
+import {ExmgElement} from '@exmg/exmg-base/exmg-element.js';
 import '@polymer/paper-dialog';
 import '@polymer/paper-dialog-scrollable';
 import '@exmg/exmg-button/exmg-button';
@@ -82,9 +82,7 @@ export class ExmgInfoDialog extends ExmgElement {
         ${this.hideCloseButton
           ? html` ${this.renderHeader()} `
           : html`
-              <mwc-icon-button @click=${this.close} class="close-button"
-                >${closeIcon}</mwc-icon-button
-              >
+              <mwc-icon-button @click=${this.close} class="close-button">${closeIcon}</mwc-icon-button>
               ${this.renderHeader()}
             `}
 
@@ -92,10 +90,7 @@ export class ExmgInfoDialog extends ExmgElement {
           <slot></slot>
         </paper-dialog-scrollable>
         <div class="actions">
-          <exmg-button
-            id="doneBtn"
-            @click=${this.done}
-            ?unelevated=${this.buttonUnelevated}
+          <exmg-button id="doneBtn" @click=${this.done} ?unelevated=${this.buttonUnelevated}
             >${this.buttonCopy}</exmg-button
           >
         </div>

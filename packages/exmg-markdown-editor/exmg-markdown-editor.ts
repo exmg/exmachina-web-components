@@ -1,5 +1,5 @@
 import {html, TemplateResult} from 'lit';
-import {ExmgElement} from '@exmg/exmg-base';
+import {ExmgElement} from '@exmg/exmg-base/exmg-element.js';
 import {customElement, query, property, state} from 'lit/decorators.js';
 import {repeat} from 'lit/directives/repeat.js';
 import {classMap} from 'lit/directives/class-map.js';
@@ -14,12 +14,7 @@ import './exmg-import-helper.js';
 
 import './exmg-markdown-editor-icons.js';
 import {style as codeMirrorStylesText} from './styles/exmg-markdown-codemirror-styles-css.js';
-import {
-  ToolBarOption,
-  ToolBarConfigItem,
-  Position,
-  ChangedProps,
-} from './exmg-custom-types.js';
+import {ToolBarOption, ToolBarConfigItem, Position, ChangedProps} from './exmg-custom-types.js';
 
 // eslint-disable-next-line no-undef
 import Editor = CodeMirror.Editor;
@@ -116,7 +111,7 @@ export class EditorElement extends ExmgElement {
   indentWithTabs = true;
 
   @property({type: String})
-  @observer(function(this: EditorElement, markdown: string) {
+  @observer(function (this: EditorElement, markdown: string) {
     if (this.codeMirrorEditor && this.codeMirrorEditor.getValue() !== markdown) {
       this.codeMirrorEditor.setValue(markdown || '');
     }
@@ -136,7 +131,7 @@ export class EditorElement extends ExmgElement {
   splitView = false;
 
   @property({type: Boolean, reflect: true, attribute: 'fullscreen'})
-  @observer(function(this: EditorElement, fullscreen: boolean) {
+  @observer(function (this: EditorElement, fullscreen: boolean) {
     if (!this.codeMirrorEditor) {
       return;
     }
@@ -271,9 +266,8 @@ export class EditorElement extends ExmgElement {
       smartypants: false,
     };
 
-    const customRenderer = window.markdownEditorConfig?.renderer as Renderer || undefined;
+    const customRenderer = (window.markdownEditorConfig?.renderer as Renderer) || undefined;
     const extensions = window.markdownEditorConfig?.extensions || [];
-
 
     // @ts-ignore
     window.marked.use({renderer: customRenderer, extensions});
@@ -392,7 +386,11 @@ export class EditorElement extends ExmgElement {
   }
 
   private replaceRangeLine(text: string, lineNumber: number) {
-    this.codeMirrorEditor!.getDoc().replaceRange(text, {line: lineNumber, ch: 0}, {line: lineNumber, ch: 99999999999999});
+    this.codeMirrorEditor!.getDoc().replaceRange(
+      text,
+      {line: lineNumber, ch: 0},
+      {line: lineNumber, ch: 99999999999999},
+    );
   }
 
   private insertAtCursor(text: string, selectionOffset?: number, selectionLength?: number) {
@@ -598,12 +596,18 @@ export class EditorElement extends ExmgElement {
           return this.processLine('ordered-list');
         default:
           // eslint-disable-next-line
-          return console.error(`A custom option - ${option.name} - for the ExmgMarkdownEditor is set without a type.`, option);
+          return console.error(
+            `A custom option - ${option.name} - for the ExmgMarkdownEditor is set without a type.`,
+            option,
+          );
       }
     } else {
       if (!option.token) {
         // eslint-disable-next-line
-        return console.error(`A custom option - ${option.name} - for the ExmgMarkdownEditor is set without a token.`, option);
+        return console.error(
+          `A custom option - ${option.name} - for the ExmgMarkdownEditor is set without a token.`,
+          option,
+        );
       }
       switch (option.type) {
         case 'block':
@@ -656,23 +660,23 @@ export class EditorElement extends ExmgElement {
     const columnWidth = (rows: string[][], columnIndex: number) => {
       return Math.max.apply(
         null,
-        rows.map(function(row) {
+        rows.map(function (row) {
           return row[columnIndex].length;
         }),
       );
     };
 
-    const rows = data.split(/[\n\u0085\u2028\u2029]|\r\n?/g).map(function(row) {
+    const rows = data.split(/[\n\u0085\u2028\u2029]|\r\n?/g).map(function (row) {
       return row.split('\t');
     });
-    const columnWidths = rows[0].map(function(_column, columnIndex) {
+    const columnWidths = rows[0].map(function (_column, columnIndex) {
       return columnWidth(rows, columnIndex);
     });
-    const markdownRows = rows.map(function(row) {
+    const markdownRows = rows.map(function (row) {
       return (
         '| ' +
         row
-          .map(function(column, index) {
+          .map(function (column, index) {
             return column + Array(columnWidths[index] - column.length + 1).join(' ');
           })
           .join(' | ') +
@@ -684,7 +688,7 @@ export class EditorElement extends ExmgElement {
       0,
       '|' +
         columnWidths
-          .map(function(_width, index) {
+          .map(function (_width, index) {
             return Array(columnWidths[index] + 3).join('-');
           })
           .join('|') +
@@ -748,13 +752,18 @@ export class EditorElement extends ExmgElement {
               if (it.name) {
                 const hasMaterialIcon = it.icon.indexOf('exmg-markdown-editor-icons:') < 0;
                 return html`
-                  <a href="#" title=${it.title} class=${it.className ?? ''} @click=${(e: CustomEvent) => {
-                    e.preventDefault();
-                    this.action(it as ToolBarConfigItem);
-                  }}>
-                    ${hasMaterialIcon ?
-                      html`<mwc-icon>${it.icon}</mwc-icon>` :
-                      html`<iron-icon icon="${it.icon}"></iron-icon>`}
+                  <a
+                    href="#"
+                    title=${it.title}
+                    class=${it.className ?? ''}
+                    @click=${(e: CustomEvent) => {
+                      e.preventDefault();
+                      this.action(it as ToolBarConfigItem);
+                    }}
+                  >
+                    ${hasMaterialIcon
+                      ? html`<mwc-icon>${it.icon}</mwc-icon>`
+                      : html`<iron-icon icon="${it.icon}"></iron-icon>`}
                   </a>
                 `;
               }
