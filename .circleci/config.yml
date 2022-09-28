@@ -73,6 +73,7 @@ jobs:
       - run:
           name: Push
           command: |
+            git push --delete origin docs
             git checkout -b temp
             git add -f .
             git commit -am 'Update docs'
