@@ -8,7 +8,7 @@ const search = `<h1><a href="index.html" class="link">Home</a></h1>`;
 
 const processed = `
   <h1><a href="index.html" class="link">Documentation</a></h1>
-  <h1><a href="./demo/index.html" class="link">Demos</a></h1>
+  <h1><a href="./demo/index.html" target="_blank" class="link">Demos</a></h1>
 `;
 
 const main = () => {
