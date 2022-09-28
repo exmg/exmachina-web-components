@@ -7,7 +7,7 @@ import '@exmg/exmg-grid/src/table/exmg-grid.js';
 import '@exmg/exmg-grid/src/table/exmg-grid-pagination.js';
 import {dragIcon, expandIcon} from './exmg-icons.js';
 import '@exmg/exmg-grid/src/table/exmg-grid-smart-toolbar.js';
-import {ExmgBaseGridDemo} from './exmg-base-grid-demo.js';
+import {ExmgBaseGridDemo} from './exmg-grid-demo.js';
 
 import {style as tableStyles} from '@exmg/exmg-grid/src/styles/exmg-grid-styles-css.js';
 import {style as demoStyles} from './demo-common-css.js';

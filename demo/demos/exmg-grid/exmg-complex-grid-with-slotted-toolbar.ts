@@ -15,7 +15,7 @@ import {style as tableStyles} from '@exmg/exmg-grid/src/styles/exmg-grid-styles-
 import {style as demoStyles} from './demo-common-css.js';
 
 import {createIcon} from './exmg-icons.js';
-import {DEFAULT_SORT_COLUMN, DEFAULT_SORT_DIRECTION, ExmgBaseGridDemo} from './exmg-base-grid-demo.js';
+import {DEFAULT_SORT_COLUMN, DEFAULT_SORT_DIRECTION, ExmgBaseGridDemo} from './exmg-grid-demo.js';
 
 @customElement('demo-complex-grid-with-slotted-toolbar')
 export class ExmgComplexGridWithSlottedToolbar extends ExmgBaseGridDemo {
