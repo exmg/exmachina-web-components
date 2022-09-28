@@ -61,7 +61,8 @@ export class DemoApp extends LitElement {
     return elements.map((element) => {
       const active = this.selectedElement && this.selectedElement.name === element.name;
       const elementHref = element.name.replace('@exmg/', '');
-      const url = `/demo/?el=${elementHref}`;
+      const url = new URL(window.location.href);
+      url.searchParams.set('el', elementHref);
       return html`
         <li class=${`element ${active ? 'active' : ''}`}>
           <a href=${url}> ${element.name.substr(11)} </a>
