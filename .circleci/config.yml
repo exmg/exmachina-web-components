@@ -68,7 +68,7 @@ jobs:
             rm -rf ./packages
             rm -rf ./scripts
             rm -rf ./node_modules
-            rm .eslintignore .eslintrc.yaml .prettierrc.js jsdoc.conf.json learna.json package-lock.json package.json README.md rollup.config.js tsconfig.json web-dev-server.config.js .gitignore
+            rm .eslintignore .eslintrc.yaml .prettierrc.js jsdoc.conf.json lerna.json package-lock.json package.json README.md rollup.config.js tsconfig.json web-dev-server.config.js .gitignore
 
       - run:
           name: Push
