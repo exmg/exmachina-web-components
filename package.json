@@ -64,5 +64,8 @@
     "watch": "node scripts/watcher.js",
     "run:demo": "web-dev-server ./docs/demo/index.html",
     "build:docs": "npm run build && rm -rf ./docs && npm run build:demo && ./node_modules/.bin/jsdoc -c ./jsdoc.conf.json -R README.md && node ./scripts/processDemoInDocumentation.js"
+  },
+  "dependencies": {
+    "@vaadin/vaadin-date-picker": "^23.2.2"
   }
 }

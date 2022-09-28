@@ -29,11 +29,11 @@ const elementsConfigs = elements.map((element) => {
     output: {
       file: `./docs/demo/demos/${element}/${element}-demo.js`,
       format: 'es',
-      sourcemap: false
+      sourcemap: false,
     },
     plugins: [
       resolve({
-        moduleDirectories: ['node_modules', './packages'],
+        moduleDirectories: ['./node_modules', './packages'],
       }),
       strip({
         functions: ['console.log'],
@@ -44,9 +44,9 @@ const elementsConfigs = elements.map((element) => {
           {
             src: `./demo/demos/${element}/index.html`,
             dest: `./docs/demo/demos/${element}`,
-          }
-        ]
-      })
+          },
+        ],
+      }),
     ],
   };
 });
@@ -57,7 +57,7 @@ export default [
     output: {
       file: './docs/demo/src/demo-app.js',
       format: 'es',
-      sourcemap: false
+      sourcemap: false,
     },
     plugins: [
       resolve(),
