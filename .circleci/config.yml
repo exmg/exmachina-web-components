@@ -73,11 +73,10 @@ jobs:
       - run:
           name: Push
           command: |
-            git push --delete origin docs
             git checkout -b temp
             git add -f .
             git commit -am 'Update docs'
-            git push -v https://github.com/exmg/exmachina-web-components.git temp:docs
+            git push -v --force https://github.com/exmg/exmachina-web-components.git temp:docs
 
 workflows:
   version: 2
