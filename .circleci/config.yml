@@ -62,10 +62,19 @@ jobs:
           command: |
             npm run build:docs
       - run:
+          name: Clean eveyrthing
+          command: |
+            rm -rf ./demo
+            rm -rf ./packages
+            rm -rf ./scripts
+            rm -rf ./node_modules
+            rm .eslintignore .eslintrc.yaml .prettierrc.js jsdoc.conf.json learna.json package-lock.json package.json README.md rollup.config.js tsconfig.json web-dev-server.config.js .gitignore
+
+      - run:
           name: Push
           command: |
             git checkout -b temp
-            git add -f ./docs
+            git add -f .
             git commit -am 'Update docs'
             git push -v https://github.com/exmg/exmachina-web-components.git temp:docs
 
