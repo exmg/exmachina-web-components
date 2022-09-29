@@ -46,7 +46,11 @@ const elementsConfigs = elements.map((element) => {
       copy({
         targets: [
           {
-            src: [`./demo/demos/${element}/*`, `!./demo/demos/${element}/index.html`],
+            src: [
+              `./demo/demos/${element}/*.html`,
+              `./demo/demos/${element}/*.js`,
+              `!./demo/demos/${element}/index.html`,
+            ],
             dest: `./docs/demo/demos/${element}/`,
           },
         ],
@@ -56,7 +60,7 @@ const elementsConfigs = elements.map((element) => {
 });
 
 export default [
-  merge(baseConfig, {
+  {
     input: './demo/src/demo-app.js',
     output: {
       file: './docs/demo/src/demo-app.js',
@@ -82,6 +86,6 @@ export default [
         ],
       }),
     ],
-  }),
+  },
   ...elementsConfigs,
 ];
