@@ -21,6 +21,7 @@ const elements = [
   'exmg-collapsed',
   'exmg-snackbar',
   'exmg-breadcrumbs',
+  'exmg-markdown-editor',
 ];
 
 const elementsConfigs = elements.map((element) => {

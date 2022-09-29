@@ -64,7 +64,7 @@
     "build:demo": "node ./scripts/parseElements.js && npm run build && rollup --config ./rollup.config.js",
     "run:demo": "web-dev-server ./docs/demo/index.html",
     "build:docs": "npm run build && rm -rf ./docs && npm run build:demo && ./node_modules/.bin/jsdoc -c ./jsdoc.conf.json -R README.md && node ./scripts/processDemoInDocumentation.js",
-    "run:docs": "web-dev-server ./docs/index.html"
+    "run:docs": "web-dev-server /docs/index.html"
   },
   "dependencies": {
     "@open-wc/building-rollup": "^2.0.2",
