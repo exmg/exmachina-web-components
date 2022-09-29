@@ -2,7 +2,7 @@
 const path = require('path');
 const fs = require('fs');
 
-const rootPath = path.join(__dirname);
+const rootPath = path.join(__dirname, '../');
 
 const config = `
   include: '/node_modules/'
