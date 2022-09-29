@@ -62,8 +62,8 @@ jobs:
           command: |
             npm run build:docs
       - run:
-          name: Create Jekyll configuration for GH Pages
-          command: node ./scripts/docsPublishing.js
+          name: Adds a .nojekyll file
+          command: touch .nojekyll
       - run:
           name: Clean eveyrthing
           command: |
