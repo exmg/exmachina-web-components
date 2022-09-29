@@ -1,14 +1,8 @@
 import resolve from '@rollup/plugin-node-resolve';
 import {terser} from 'rollup-plugin-terser';
-import {createSpaConfig} from '@open-wc/building-rollup';
-import merge from 'deepmerge';
+
 import strip from '@rollup/plugin-strip';
 import copy from 'rollup-plugin-copy';
-
-const baseConfig = createSpaConfig({
-  legacyBuild: true,
-  injectServiceWorker: false,
-});
 
 /**
  * Elements with a viable demo
@@ -30,10 +24,12 @@ const elements = [
 ];
 
 const elementsConfigs = elements.map((element) => {
-  return merge(baseConfig, {
-    input: `./demo/demos/${element}/index.html`,
+  return {
+    input: `./demo/demos/${element}/${element}-demo.js`,
     output: {
-      file: `./docs/demo/demos/${element}/index.html`,
+      file: `./docs/demo/demos/${element}/${element}-demo.js`,
+      format: 'es',
+      sourcemap: false,
     },
     plugins: [
       resolve({
@@ -46,17 +42,13 @@ const elementsConfigs = elements.map((element) => {
       copy({
         targets: [
           {
-            src: [
-              `./demo/demos/${element}/*.html`,
-              `./demo/demos/${element}/*.js`,
-              `!./demo/demos/${element}/index.html`,
-            ],
+            src: [`./demo/demos/${element}/*.js`, `./demo/demos/${element}/*.html`, `./demo/demos/${element}/*.png`],
             dest: `./docs/demo/demos/${element}/`,
           },
         ],
       }),
     ],
-  });
+  };
 });
 
 export default [
@@ -82,6 +74,18 @@ export default [
           {
             src: 'demo/index.html',
             dest: 'docs/demo',
+          },
+          {
+            src: 'node_modules/@webcomponents/shadycss/apply-shim.min.js',
+            dest: 'docs/demo/node_modules/@webcomponents/shadycss/apply-shim.min.js',
+          },
+          {
+            src: 'node_modules/@webcomponents/webcomponentsjs/webcomponents-bundle.js',
+            dest: 'docs/demo/node_modules/@webcomponents/webcomponentsjs/webcomponents-bundle.js',
+          },
+          {
+            src: 'node_modules/web-animations-js/web-animations-next-lite.min.js',
+            dest: 'docs/demo/node_modules/web-animations-js/web-animations-next-lite.min.js',
           },
         ],
       }),
