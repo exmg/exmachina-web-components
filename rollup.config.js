@@ -1,8 +1,14 @@
 import resolve from '@rollup/plugin-node-resolve';
 import {terser} from 'rollup-plugin-terser';
-
+import {createSpaConfig} from '@open-wc/building-rollup';
+import merge from 'deepmerge';
 import strip from '@rollup/plugin-strip';
 import copy from 'rollup-plugin-copy';
+
+const baseConfig = createSpaConfig({
+  legacyBuild: true,
+  injectServiceWorker: false,
+});
 
 /**
  * Elements with a viable demo
@@ -24,12 +30,10 @@ const elements = [
 ];
 
 const elementsConfigs = elements.map((element) => {
-  return {
-    input: `./demo/demos/${element}/${element}-demo.js`,
+  return merge(baseConfig, {
+    input: `./demo/demos/${element}/index.html`,
     output: {
-      file: `./docs/demo/demos/${element}/${element}-demo.js`,
-      format: 'es',
-      sourcemap: false,
+      file: `./docs/demo/demos/${element}/index.html`,
     },
     plugins: [
       resolve({
@@ -42,21 +46,17 @@ const elementsConfigs = elements.map((element) => {
       copy({
         targets: [
           {
-            src: `./demo/demos/${element}/*.html`,
-            dest: `./docs/demo/demos/${element}`,
-          },
-          {
-            src: [`./demo/demos/${element}/*.js`, `!./demo/demos/${element}/${element}-demo.js`],
+            src: `./demo/demos/${element}`,
             dest: `./docs/demo/demos/${element}`,
           },
         ],
       }),
     ],
-  };
+  });
 });
 
 export default [
-  {
+  merge(baseConfig, {
     input: './demo/src/demo-app.js',
     output: {
       file: './docs/demo/src/demo-app.js',
@@ -82,6 +82,6 @@ export default [
         ],
       }),
     ],
-  },
+  }),
   ...elementsConfigs,
 ];

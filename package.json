@@ -50,6 +50,7 @@
     "lint:typescript": "eslint \"packages/**/*.ts\"",
     "lint:lit": "lit-analyzer \"packages/**/*.ts\" --strict",
     "start": "node ./scripts/parseElements.js && npm run build && concurrently --names watch,serve \"npm run watch\" \"web-dev-server --config ./web-dev-server.config.js\"",
+    "watch": "node scripts/watcher.js",
     "watch:styles": "exmg-cli -w",
     "build": "npm run build:styling && npm run build:typescript",
     "build:typescript": "tsc --build --verbose",
@@ -61,11 +62,12 @@
     "postinstall": "npm run bootstrap",
     "publish": "npm run lint && npm run build && lerna publish",
     "build:demo": "node ./scripts/parseElements.js && npm run build && rollup --config ./rollup.config.js",
-    "watch": "node scripts/watcher.js",
     "run:demo": "web-dev-server ./docs/demo/index.html",
-    "build:docs": "npm run build && rm -rf ./docs && npm run build:demo && ./node_modules/.bin/jsdoc -c ./jsdoc.conf.json -R README.md && node ./scripts/processDemoInDocumentation.js"
+    "build:docs": "npm run build && rm -rf ./docs && npm run build:demo && ./node_modules/.bin/jsdoc -c ./jsdoc.conf.json -R README.md && node ./scripts/processDemoInDocumentation.js",
+    "run:docs": "web-dev-server ./docs/index.html"
   },
   "dependencies": {
+    "@open-wc/building-rollup": "^2.0.2",
     "@vaadin/vaadin-date-picker": "^23.2.2"
   }
 }
