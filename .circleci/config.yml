@@ -65,7 +65,7 @@ jobs:
           name: Adds a .nojekyll file
           command: touch .nojekyll
       - run:
-          name: Clean eveyrthing
+          name: Clean everything
           command: |
             rm -rf ./demo
             rm -rf ./packages
