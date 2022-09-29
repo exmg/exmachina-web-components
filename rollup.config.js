@@ -46,8 +46,8 @@ const elementsConfigs = elements.map((element) => {
       copy({
         targets: [
           {
-            src: `./demo/demos/${element}`,
-            dest: `./docs/demo/demos/${element}`,
+            src: [`./demo/demos/${element}/*`, `!./demo/demos/${element}/index.html`],
+            dest: `./docs/demo/demos/${element}/`,
           },
         ],
       }),
