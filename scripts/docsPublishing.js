@@ -6,7 +6,7 @@ const rootPath = path.join(__dirname, '../');
 
 const main = () => {
   try {
-    fs.writeFileSync(path.join(rootPath, '.nojekyll'));
+    fs.writeFileSync(path.join(rootPath, '.nojekyll'), '');
     console.log('Added .nojekyll file');
   } catch (error) {
     console.log('An error occured: ', error);
