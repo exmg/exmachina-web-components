@@ -10,7 +10,7 @@ const config = `
 
 const main = () => {
   try {
-    fs.writeFileSync(path.join(rootPath, '_config.yml'), processedIndexFile);
+    fs.writeFileSync(path.join(rootPath, '_config.yml'), config);
     console.log('Config for Jekyll successfully created.');
   } catch (error) {
     console.log('An error occured: ', error);
