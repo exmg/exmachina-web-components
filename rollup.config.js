@@ -78,47 +78,47 @@ export default [
           },
           {
             src: 'node_modules/@webcomponents/shadycss/apply-shim.min.js',
-            dest: 'docs/demo/node_modules/@webcomponents/shadycss/apply-shim.min.js',
+            dest: 'docs/node_modules/@webcomponents/shadycss/apply-shim.min.js',
           },
           {
             src: 'node_modules/@webcomponents/webcomponentsjs/webcomponents-bundle.js',
-            dest: 'docs/demo/node_modules/@webcomponents/webcomponentsjs/webcomponents-bundle.js',
+            dest: 'docs/node_modules/@webcomponents/webcomponentsjs/webcomponents-bundle.js',
           },
           {
             src: 'node_modules/web-animations-js/web-animations-next-lite.min.js',
-            dest: 'docs/demo/node_modules/web-animations-js/web-animations-next-lite.min.js',
+            dest: 'docs/node_modules/web-animations-js/web-animations-next-lite.min.js',
           },
           {
             src: 'node_modules/codemirror/lib/codemirror.js',
-            dest: 'docs/demo/node_modules/codemirror/lib/codemirror.js',
+            dest: 'docs/node_modules/codemirror/lib/codemirror.js',
           },
           {
             src: 'node_modules/codemirror/mode/markdown/markdown.js',
-            dest: 'docs/demo/node_modules/codemirror/mode/markdown/markdown.js',
+            dest: 'docs/node_modules/codemirror/mode/markdown/markdown.js',
           },
           {
             src: 'node_modules/codemirror/addon/edit/continuelist.js',
-            dest: 'docs/demo/node_modules/codemirror/addon/edit/continuelist.js',
+            dest: 'docs/node_modules/codemirror/addon/edit/continuelist.js',
           },
           {
             src: 'node_modules/codemirror/addon/mode/overlay.js',
-            dest: 'docs/demo/node_modules/codemirror/addon/mode/overlay.js',
+            dest: 'docs/node_modules/codemirror/addon/mode/overlay.js',
           },
           {
             src: 'node_modules/codemirror/addon/display/fullscreen.js',
-            dest: 'docs/demo/node_modules/codemirror/addon/display/fullscreen.js',
+            dest: 'docs/node_modules/codemirror/addon/display/fullscreen.js',
           },
           {
             src: 'node_modules/codemirror/addon/display/placeholder.js',
-            dest: 'docs/demo/node_modules/codemirror/addon/display/placeholder.js',
+            dest: 'docs/node_modules/codemirror/addon/display/placeholder.js',
           },
           {
             src: 'node_modules/codemirror/mode/gfm/gfm.js',
-            dest: 'docs/demo/node_modules/codemirror/mode/gfm/gfm.js',
+            dest: 'docs/node_modules/codemirror/mode/gfm/gfm.js',
           },
           {
             src: 'node_modules/codemirror/mode/xml/xml.js',
-            dest: 'docs/demo/node_modules/codemirror/mode/xml/xml.js',
+            dest: 'docs/node_modules/codemirror/mode/xml/xml.js',
           },
         ],
       }),
