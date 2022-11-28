@@ -19,7 +19,7 @@ const toggleClass = (className: string, el: HTMLElement, val?: boolean) => {
 
 export class ExmgCollapsedBase extends ExmgElement {
   @property({type: Boolean, reflect: true})
-  @observer(function(this: ExmgCollapsedBase) {
+  @observer(function (this: ExmgCollapsedBase) {
     this._openedChanged();
   })
   opened = false;
@@ -29,6 +29,8 @@ export class ExmgCollapsedBase extends ExmgElement {
 
   @state()
   _desiredSize = '';
+
+  _initialized = false;
 
   constructor() {
     super();
@@ -95,14 +97,18 @@ export class ExmgCollapsedBase extends ExmgElement {
 
   _openedChanged() {
     this.setAttribute('aria-hidden', String(!this.opened));
-    this.transitioning = true;
+    if (this._initialized) {
+      this.transitioning = true;
+    }
     toggleClass('collapse-closed', this, false);
     toggleClass('collapse-opened', this, false);
-    this.updateSize(this.opened ? 'auto' : '0px', true);
+    this.updateSize(this.opened ? 'auto' : '0px', this._initialized);
     // Focus the current collapse.
     if (this.opened) {
       this.focus();
     }
+
+    this._initialized = true;
   }
 
   _onTransitionEnd(event: TransitionEvent) {
@@ -120,8 +126,6 @@ export class ExmgCollapsedBase extends ExmgElement {
   }
 
   protected render() {
-    return html`
-      <slot></slot>
-    `;
+    return html` <slot></slot> `;
   }
 }
