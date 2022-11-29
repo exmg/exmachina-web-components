@@ -7,6 +7,6 @@
 :host(.collapse-closed) {
   display: none;
 }
-:host(:not(.collapse-opened)) {
+:host(:not(.collapse-closed)) {
   overflow: hidden;
 }
