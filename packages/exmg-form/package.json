@@ -1,6 +1,6 @@
 {
   "name": "@exmg/exmg-form",
-  "version": "8.1.24",
+  "version": "8.1.30",
   "description": "Form helper element",
   "contributors": [
     "Ex Machina"
@@ -24,14 +24,14 @@
   "license": "MIT",
   "dependencies": {
     "@exmg/exmg-base": "^8.1.17",
-    "@exmg/exmg-button": "^8.1.24",
+    "@exmg/exmg-button": "^8.1.30",
     "@polymer/iron-form": "^3.0.1",
     "lit": "^2.0.0",
     "tslib": "^2.0.1"
   },
   "devDependencies": {
     "@exmg/exmg-cli": "^4.1.0",
-    "@exmg/exmg-markdown-editor": "^8.1.20",
+    "@exmg/exmg-markdown-editor": "^8.1.30",
     "@exmg/exmg-paper-combobox": "^8.0.1",
     "@exmg/exmg-paper-token-input": "^8.0.0",
     "@material/mwc-tab": "^0.25.2",
