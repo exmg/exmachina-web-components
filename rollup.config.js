@@ -118,7 +118,7 @@ export default [
           },
           {
             src: 'node_modules/codemirror/mode/xml/xml.js',
-            dest: 'docs/node_modules/codemirror/mode/xml/,
+            dest: 'docs/node_modules/codemirror/mode/xml/',
           },
         ],
       }),
