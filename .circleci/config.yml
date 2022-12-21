@@ -63,7 +63,7 @@ jobs:
             npm run build:docs
       - run:
           name: Adds a .nojekyll file
-          command: touch .nojekyll
+          command: touch ./docs/.nojekyll
       - run:
           name: Clean eveyrthing
           command: |
