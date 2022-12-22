@@ -120,6 +120,14 @@ export default [
             src: 'node_modules/codemirror/mode/xml/xml.js',
             dest: 'docs/node_modules/codemirror/mode/xml/',
           },
+          {
+            src: 'node_modules/github-markdown-css/github-markdown.css',
+            dest: 'docs/node_modules/github-markdown-css',
+          },
+          {
+            src: 'node_modules/@polymer/iron-demo-helpers/demo-snippet.js',
+            dest: 'docs/node_modules/@polymer/iron-demo-helpers',
+          },
         ],
       }),
     ],
