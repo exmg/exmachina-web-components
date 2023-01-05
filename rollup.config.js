@@ -124,6 +124,10 @@ export default [
             src: 'node_modules/github-markdown-css/github-markdown.css',
             dest: 'docs/node_modules/github-markdown-css',
           },
+          {
+            src: 'node_modules/tslib',
+            dest: 'docs/node_modules/tslib',
+          },
         ],
       }),
     ],
