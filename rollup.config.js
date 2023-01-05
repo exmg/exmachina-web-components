@@ -27,14 +27,14 @@ const elements = [
 
 const elementsConfigs = elements.map((element) => {
   return {
-    input: [`./demo/demos/${element}/*.js`],
+    input: [`demo/demos/${element}/*.js`],
     output: {
-      dir: `./docs/demo/demos/${element}/`,
+      dir: `docs/demo/demos/`,
       format: 'es',
       sourcemap: false,
     },
     plugins: [
-      multiInput(),
+      multiInput({relative: 'demo/demos/'}),
       resolve({
         moduleDirectories: ['./node_modules', './packages'],
       }),
@@ -42,14 +42,6 @@ const elementsConfigs = elements.map((element) => {
         functions: ['console.log'],
       }),
       terser(),
-      copy({
-        targets: [
-          {
-            src: [`./demo/demos/${element}/*.js`, `./demo/demos/${element}/*.html`, `./demo/demos/${element}/*.png`],
-            dest: `./docs/demo/demos/${element}/`,
-          },
-        ],
-      }),
     ],
   };
 });
