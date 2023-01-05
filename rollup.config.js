@@ -127,8 +127,8 @@ export default [
             dest: 'docs/node_modules/github-markdown-css',
           },
           {
-            src: 'node_modules/tslib',
-            dest: 'docs/node_modules/tslib',
+            src: 'node_modules/@polymer/iron-demo-helpers/demo-snippet.js',
+            dest: 'docs/node_modules/@polymer/iron-demo-helpers/',
           },
         ],
       }),
