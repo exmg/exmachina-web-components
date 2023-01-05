@@ -42,6 +42,14 @@ const elementsConfigs = elements.map((element) => {
         functions: ['console.log'],
       }),
       terser(),
+      copy({
+        targets: [
+          {
+            src: [`./demo/demos/${element}/*.html`, `./demo/demos/${element}/*.png`],
+            dest: `./docs/demo/demos/${element}/`,
+          },
+        ],
+      }),
     ],
   };
 });
