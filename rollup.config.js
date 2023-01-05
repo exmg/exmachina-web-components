@@ -3,6 +3,7 @@ import {terser} from 'rollup-plugin-terser';
 
 import strip from '@rollup/plugin-strip';
 import copy from 'rollup-plugin-copy';
+import multiInput from 'rollup-plugin-multi-input';
 
 /**
  * Elements with a viable demo
@@ -26,13 +27,14 @@ const elements = [
 
 const elementsConfigs = elements.map((element) => {
   return {
-    input: `./demo/demos/${element}/${element}-demo.js`,
+    input: [`./demo/demos/${element}/*.js`],
     output: {
-      file: `./docs/demo/demos/${element}/${element}-demo.js`,
+      dir: `./docs/demo/demos/${element}/`,
       format: 'es',
       sourcemap: false,
     },
     plugins: [
+      multiInput(),
       resolve({
         moduleDirectories: ['./node_modules', './packages'],
       }),
