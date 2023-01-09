@@ -39,14 +39,26 @@ export class ExmgCollapsedBase extends ExmgElement {
     this.setAttribute('aria-hidden', 'true');
   }
 
+  /**
+   * Toggle the current(opened/closed) state.
+   * @public
+   */
   toggle() {
     this.opened = !this.opened;
   }
 
+  /**
+   * Set the opened state
+   * @public
+   */
   show() {
     this.opened = true;
   }
 
+  /**
+   * Set the closed state
+   * @public
+   */
   hide() {
     this.opened = false;
   }
