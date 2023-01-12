@@ -1,6 +1,8 @@
+# `<exmg-copy-to-clipboard>` [![Published on npm](https://img.shields.io/npm/v/@exmg/exmg-copy-to-clipboard.svg)](https://www.npmjs.com/package/@exmg/exmg-copy-to-clipboard)
+
 # @exmg/exmg-copy-to-clipboard
 
-Helper element to create icon/buttons that lets the user copy content to the clipboard. Just wrap it arround
+Helper element to create icon/buttons that lets the user copy content to the clipboard. Just wrap it around
 the button or icon and set the value that needs to be copied.
 
 ## Usage

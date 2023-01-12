@@ -13,9 +13,15 @@ export const arrowSeparator = html`
 `;
 
 export class ExmgBreadcrumbsBase extends ExmgElement {
+  /**
+   * The items displayed by the breadcrumbs
+   */
   @property({type: Array})
   items: BreadcrumbItem[] = [];
 
+  /**
+   * Whether or not to display the arrow seperator
+   */
   @property({type: Boolean, attribute: 'arrow-separator', reflect: true})
   arrowSeperator = false;
 
@@ -28,7 +34,7 @@ export class ExmgBreadcrumbsBase extends ExmgElement {
         return html`
           <li class="${classMap({arrowSeperator: this.arrowSeperator})}">
             <a href=${href} aria-current=${index === lastIndex ? 'page' : 'false'}>${content}</a>
-            ${this.arrowSeperator && index !== lastIndex? arrowSeparator : nothing}
+            ${this.arrowSeperator && index !== lastIndex ? arrowSeparator : nothing}
           </li>
         `;
       },

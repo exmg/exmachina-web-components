@@ -3,7 +3,7 @@ import {ExmgCollapsedBase} from './exmg-collapsed-base.js';
 import {style} from './styles/exmg-collapsed-styles-css.js';
 
 /**
- * `ExmgCollapsed` is a class for custom collapsible element (`<exmg-collapsed>` web component).
+ * 'exmg-collapsed' element contains a slot that can be expanded or collapsed to reveal additional content or information.
  *
  * @customElement exmg-collapsed
  * @extends ExmgCollapsedBase
