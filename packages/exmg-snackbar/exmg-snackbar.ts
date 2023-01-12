@@ -8,6 +8,10 @@ import {styles} from '@material/mwc-snackbar/mwc-snackbar.css.js';
 
 @customElement('exmg-snackbar')
 export class ExmgSnackbar extends SnackbarBase {
+  /**
+   * Sets the Snackbar variant, options from MWC
+   * @type {String}
+   */
   @property({type: String})
   variant: 'positive' | 'negative' | 'info' | null = null;
 

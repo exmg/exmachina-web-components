@@ -49,7 +49,7 @@ export class ExmgCopyToClipboard extends ExmgElement {
     this._observer = new MutationObserver((mutationsList) => {
       for (const mutation of mutationsList) {
         if (mutation.type === 'childList') {
-         this.addClickListener();
+          this.addClickListener();
         }
       }
     });
@@ -82,6 +82,7 @@ export class ExmgCopyToClipboard extends ExmgElement {
 
   /**
    * Copy the given value to the clipboard
+   * @private
    */
   private copyToClipboard() {
     const clipboardNode: HTMLElement | null | undefined = this.shadowRoot ? this.clipboard : null;

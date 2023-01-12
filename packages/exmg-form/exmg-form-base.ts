@@ -133,11 +133,19 @@ export class ExmgFormBase extends ExmgElement {
     this.errorMessage = errorMessage;
   }
 
+  /**
+   * Error handler for form
+   * @param errorMessage
+   */
   handleError(errorMessage: string) {
     this.submitting = false;
     this.errorMessage = errorMessage;
   }
 
+  /**
+   * Submit the form when it's valid
+   * @fires submit
+   */
   submit() {
     if (this.ironFormElem && this.ironFormElem.validate()) {
       this.submitting = true;
@@ -152,6 +160,10 @@ export class ExmgFormBase extends ExmgElement {
     }
   }
 
+  /**
+   * Form validation method
+   * @returns {Boolean}
+   */
   validate() {
     return this.ironFormElem && this.ironFormElem.validate();
   }

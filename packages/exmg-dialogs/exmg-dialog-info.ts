@@ -39,6 +39,9 @@ export class ExmgInfoDialog extends ExmgElement {
   @property({type: Boolean, attribute: 'button-unelevated'})
   buttonUnelevated?: boolean = false;
 
+  /**
+   * Sets the action for scroll behaviour within the dialog
+   */
   @property({type: String, attribute: 'scroll-action'})
   scrollAction?: 'lock' | 'refit' | 'cancel' | undefined;
 
@@ -47,18 +50,27 @@ export class ExmgInfoDialog extends ExmgElement {
 
   static styles = [style];
 
+  /**
+   * Opens the dialog node
+   */
   open() {
     if (this.dialogNode) {
       this.dialogNode.open();
     }
   }
 
+  /**
+   * Closes the dialog node
+   */
   close() {
     if (this.dialogNode) {
       this.dialogNode.close();
     }
   }
 
+  /**
+   * @fires done
+   */
   done() {
     // dispatch event 'done'
     this.dispatchEvent(new CustomEvent('done'));

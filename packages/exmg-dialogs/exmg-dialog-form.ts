@@ -61,6 +61,9 @@ export class ExmgFormDialog extends ExmgElement {
   @query('#submitBtn')
   private submitBtnNode?: ExmgButton;
 
+  /**
+   * Sets the action for scroll behaviour within the dialog
+   */
   @property({type: String, attribute: 'scroll-action'})
   scrollAction?: 'lock' | 'refit' | 'cancel' | undefined;
 
@@ -80,12 +83,18 @@ export class ExmgFormDialog extends ExmgElement {
     }
   }
 
+  /**
+   * Opens the dialog node
+   */
   open() {
     if (this.dialogNode) {
       this.dialogNode.open();
     }
   }
 
+  /**
+   * Closes the dialog node
+   */
   close() {
     if (this.dialogNode) {
       this.dialogNode.close();
@@ -118,6 +127,10 @@ export class ExmgFormDialog extends ExmgElement {
     }
   }
 
+  /**
+   * Dialog error handler
+   * @param errorMessage
+   */
   handleError(errorMessage: string) {
     this.submitting = false;
     this.errorMessage = errorMessage;
@@ -127,6 +140,9 @@ export class ExmgFormDialog extends ExmgElement {
     }
   }
 
+  /**
+   * Reset and close the dialog
+   */
   done() {
     // Reset properties when submit is finished
     this.submitting = false;
@@ -139,6 +155,10 @@ export class ExmgFormDialog extends ExmgElement {
     this.close();
   }
 
+  /**
+   * Cancel the dialog
+   * @fires cancel
+   */
   private cancel() {
     this.dispatchEvent(new CustomEvent('cancel', {bubbles: false, composed: true}));
   }
