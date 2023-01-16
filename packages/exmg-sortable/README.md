@@ -1,31 +1,59 @@
-# \<exmg-sortable\>
+# `<exmg-sortable>` [![Published on npm](https://img.shields.io/npm/v/@exmg/exmg-sortable.svg)](https://www.npmjs.com/package/@exmg/exmg-sortable)
+
+# @exmg/exmg-sortable
 
 Enables drag and drop sorting of items in a list or table
- 
-Please visit the [API Documentation and demo](http://ExmgElements.github.io/exmg-sortable/) page for more information.
 
-## Install the Polymer-CLI
+!!! You should always handle @dom-order-change to update your local .items property to update sorted list properly
 
-First, make sure you have the [Polymer CLI](https://www.npmjs.com/package/polymer-cli) installed. Then run `polymer serve` to serve your element locally.
+## Installation
 
-## Install
-
-Install the component using bower
-
-```
-$ bower install --save ExmgElements/exmg-sortable
+```sh
+npm install @exmg/exmg-sortable
 ```
 
-## Viewing Your Element
+## Example Usage
 
-```
-$ polymer serve
+### Standard
+
+```html
+<exmg-sortable item-selector="div.box" @dom-order-change="${this.orderChange}">
+  <div class="boxes">
+    ${this.users.map((user) => { return html`
+    <div class="box">${user.firstName}</div>
+    `; })}
+  </div>
+</exmg-sortable>
 ```
 
-## Running Tests
+## API
 
-```
-$ polymer test
-```
+### Slots
 
-Your application is already set up to be tested via [web-component-tester](https://github.com/Polymer/web-component-tester). Run `polymer test` to run your application's test suite locally.
+| Name      | Description      |
+| --------- | ---------------- |
+| _default_ | Elements to sort |
+
+### Properties/Attributes
+
+| Name               | Type      | Default                                 | Description                                                               |
+| ------------------ | --------- | --------------------------------------- | ------------------------------------------------------------------------- |
+| `handleSelector`   | `string`  | _None_                                  | Selector of the 'handle' to sort                                          |
+| `itemSelector`     | `string`  | _`li`_                                  | Selector of the items                                                     |
+| `animationEnabled` | `boolean` | _false_                                 | The value that gets copied and displayed                                  |
+| `clonedClass`      | `string`  | _None_                                  | Class of the cloned element                                               |
+| `draggedClass`     | `string`  | _None_                                  | Class of the dragged element                                              |
+| `animationTiming`  | `object`  | _`{duration: 200, easing: 'ease-out'}`_ | The timing of the animation                                               |
+| `orientation`      | `string`  | _None_                                  | Whether or not to display the sortable element horizontally or vertically |
+
+### Methods
+
+_None_
+
+### Styling
+
+_None_
+
+## Additional references
+
+- [Additional Documentation](https://exmg.github.io/exmachina-web-components/ExmgSortable.html)
