@@ -1,3 +1,5 @@
+# `<exmg-button>` [![Published on npm](https://img.shields.io/npm/v/@exmg/exmg-button.svg)](https://www.npmjs.com/package/@exmg/exmg-button)
+
 # exmg-button
 
 Material button including loading (spinner) animation when loading attribute is set to element. This button extends the material @material/mwc-button.
