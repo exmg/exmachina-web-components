@@ -17,30 +17,35 @@ import {closeIcon} from './exmg-dialog-icons';
 export class ExmgInfoDialog extends ExmgElement {
   /**
    * Title of the dialog
+   * @type {String}
    */
   @property({type: String})
   title = '';
 
   /**
    * Copy for done button
+   * @type {String}
    */
   @property({type: String, attribute: 'button-copy'})
   buttonCopy = '';
 
   /**
    * Hide close button ?
+   * @type {Boolean}
    */
   @property({type: Boolean, attribute: 'hide-close-button'})
   hideCloseButton = false;
 
   /**
    * Show close button as unelevated
+   * @type {Boolean}
    */
   @property({type: Boolean, attribute: 'button-unelevated'})
   buttonUnelevated?: boolean = false;
 
   /**
    * Sets the action for scroll behaviour within the dialog
+   * @type {String}
    */
   @property({type: String, attribute: 'scroll-action'})
   scrollAction?: 'lock' | 'refit' | 'cancel' | undefined;

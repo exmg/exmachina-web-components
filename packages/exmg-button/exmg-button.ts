@@ -18,12 +18,14 @@ import './exmg-spinner.js';
 export class ExmgButton extends ButtonBase {
   /**
    * Whether or not the button is in loading state
+   * @type {Boolean}
    */
   @property({type: Boolean})
   loading = false;
 
   /**
    * Whether or not the button displays progress
+   * @type {Number}
    */
   @property({type: Number})
   progress?: number;

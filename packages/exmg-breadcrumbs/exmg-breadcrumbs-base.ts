@@ -15,12 +15,14 @@ export const arrowSeparator = html`
 export class ExmgBreadcrumbsBase extends ExmgElement {
   /**
    * The items displayed by the breadcrumbs
+   * @type {Array}
    */
   @property({type: Array})
   items: BreadcrumbItem[] = [];
 
   /**
    * Whether or not to display the arrow seperator
+   * @type {Boolean}
    */
   @property({type: Boolean, attribute: 'arrow-separator', reflect: true})
   arrowSeperator = false;

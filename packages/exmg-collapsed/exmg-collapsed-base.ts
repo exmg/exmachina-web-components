@@ -26,6 +26,7 @@ const toggleClass = (className: string, el: HTMLElement, val?: boolean) => {
 export class ExmgCollapsedBase extends ExmgElement {
   /**
    * Whether or not the element is opened or not
+   * @type {Boolean}
    */
   @property({type: Boolean, reflect: true})
   @observer(function (this: ExmgCollapsedBase) {
@@ -33,6 +34,10 @@ export class ExmgCollapsedBase extends ExmgElement {
   })
   opened = false;
 
+  /**
+   * Whether the element is transitioning or not
+   * @type {Boolean}
+   */
   @property({type: Boolean, reflect: true})
   transitioning = false;
 

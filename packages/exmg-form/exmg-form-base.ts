@@ -25,30 +25,35 @@ const warningIcon = html`
 export class ExmgFormBase extends ExmgElement {
   /**
    * Option to hide submit button
+   * @type {Boolean}
    */
   @property({type: Boolean, attribute: 'hide-submit-button'})
   hideSubmitButton = false;
 
   /**
    * Option to hide reset button
+   * @type {Boolean}
    */
   @property({type: Boolean, attribute: 'hide-reset-button'})
   hideResetButton = false;
 
   /**
    * default submit button copy
+   * @type {String}
    */
   @property({type: String, attribute: 'submit-button-copy'})
   submitButtonCopy = 'Submit';
 
   /**
    * default reset button copy
+   * @type {String}
    */
   @property({type: String, attribute: 'reset-button-copy'})
   resetButtonCopy = 'Reset';
 
   /**
    * with this option the disable button will be disabled while there are no changes in the form
+   * @type {Boolean}
    */
   @property({type: Boolean, reflect: true, attribute: 'disable-submit-no-changes'})
   disableSubmitNoChanges = false;

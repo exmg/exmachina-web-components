@@ -16,6 +16,10 @@ import {style} from './styles/exmg-copy-to-clipboard-styles-css.js';
  */
 @customElement('exmg-copy-to-clipboard')
 export class ExmgCopyToClipboard extends ExmgElement {
+  /**
+   * Value to be copied
+   * @type {String}
+   */
   @property({type: String})
   value?: string;
 

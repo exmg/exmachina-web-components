@@ -23,18 +23,21 @@ interface ExmgCustomEvent extends CustomEvent {
 export class ExmgFormDialog extends ExmgElement {
   /**
    * Title of the dialog
+   * @type {String}
    */
   @property({type: String})
   title = '';
 
   /**
    * Copy for submit button
+   * @type {String}
    */
   @property({type: String, attribute: 'button-copy'})
   buttonCopy = '';
 
   /**
    * Hide close button ?
+   * @type {Boolean}
    */
   @property({type: Boolean, attribute: 'hide-close-button'})
   hideCloseButton = false;
@@ -42,12 +45,14 @@ export class ExmgFormDialog extends ExmgElement {
   /**
    * Indicator if submit is in progress This boolean will display the progress
    * bar at the bottom of the dialog
+   * @type {Boolean}
    */
   @property({type: Boolean, reflect: true})
   submitting = false;
 
   /**
    * When set this will be shown in the error section of the dialog
+   * @type {String}
    */
   @property({type: String, attribute: 'error-message'})
   errorMessage?: string;
