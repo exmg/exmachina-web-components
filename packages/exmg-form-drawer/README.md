@@ -155,3 +155,5 @@ To define drawer max width, you can:
 ## Additional references
 
 - [Additional Documentation](https://exmg.github.io/exmachina-web-components/ExmgFormDrawer.html)
+
+- [Demo](https://exmg.github.io/exmachina-web-components/demo/?el=exmg-form-drawer)

@@ -57,3 +57,5 @@ _None_
 ## Additional references
 
 - [Additional Documentation](https://exmg.github.io/exmachina-web-components/ExmgSortable.html)
+
+- [Demo](https://exmg.github.io/exmachina-web-components/demo/?el=exmg-sortable)

@@ -10,7 +10,7 @@ Material button including loading (spinner) animation when loading attribute is 
 npm install @exmg/exmg-button
 ```
 
-## Variations
+## Example Usage
 
 ### Disabled
 
@@ -36,23 +36,49 @@ npm install @exmg/exmg-button
 <exmg-button unelevated>This button is unelevated</exmg-button>
 ```
 
-## Loading
-
-To show loading; add loading property to exmg-button element.
+### Loading
 
 ```html
 <exmg-button loading>This button is in loading state</exmg-button>
 ```
 
-## Progress
-
-To show progress; add progress property with a number value from '0' to '100' to exmg-button element.
+### Progress
 
 ```html
 <exmg-button progress="45">This button is showing progress</exmg-button>
 ```
 
-## Styling
+## API
+
+### Slots
+
+| Name      | Description                       |
+| --------- | --------------------------------- |
+| _default_ | Element to show within the button |
+
+### Properties/Attributes
+
+| Name         | Type      | Default | Description                                                                       |
+| ------------ | --------- | ------- | --------------------------------------------------------------------------------- |
+| `loading`    | `boolean` | _false_ | Whether or not the button is in loading state                                     |
+| `progress`   | `number`  | _false_ | Whether or not the button displays progress                                       |
+| `unelevated` | `number`  | _false_ | Creates a contained button that is flush with the surface.                        |
+| `outlined`   | `number`  | _false_ | Creates an outlined button that is flush with the surface.                        |
+| `dense`      | `number`  | _false_ | Makes the button text and container slightly smaller.                             |
+| `disabled`   | `number`  | _false_ | Disabled buttons cannot be interacted with and have no visual interaction effect. |
+| `fullwidth`  | `number`  | _false_ | When true, the button is expanded to fit the entire available space.              |
+| `icon`       | `number`  | _''_    | Icon to display, and aria-label value when label is not defined.                  |
+| `label`      | `string`  | _''_    | Label to display for the button, and aria-label.                                  |
+
+### Methods
+
+_None_
+
+### Events
+
+_None_
+
+### CSS Custom Properties
 
 |        Target        |             Variable             |  Value  |
 | :------------------: | :------------------------------: | :-----: |
@@ -61,3 +87,9 @@ To show progress; add progress property with a number value from '0' to '100' to
 | Spinner Stroke Width |   --exmg-spinner-stroke-width    |   3px   |
 |    Progress Color    |   --exmg-button-progress-color   | #89c8ff |
 |  Progress Direction  | --exmg-button-progress-direction |   rtl   |
+
+## Additional references
+
+- [Additional Documentation](https://exmg.github.io/exmachina-web-components/ExmgButton.html)
+
+- [Demo](https://exmg.github.io/exmachina-web-components/demo/?el=exmg-button)

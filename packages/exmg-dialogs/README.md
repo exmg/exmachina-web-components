@@ -148,14 +148,8 @@ deleteItem(e) {
 | button-secondary: _boolean_  | If set to `true` the button will be with secondary theme |
 | @done                        | Event thrown when hitting the main button                |
 
-## Viewing Your Element
+## Additional references
 
-```
-$ npm run start
-```
+- [Additional Documentation](https://exmg.github.io/exmachina-web-components/ExmgCopyToClipboard.html)
 
-## Running Tests
-
-```
-$ npm run test
-```
+- [Demo](https://exmg.github.io/exmachina-web-components/demo/?el=exmg-copy-to-clipboard)

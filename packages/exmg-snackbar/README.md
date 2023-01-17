@@ -71,3 +71,5 @@ npm install @exmg/exmg-snackbar
 ## Additional references
 
 - [Additional Documentation](https://exmg.github.io/exmachina-web-components/ExmgSnackbar.html)
+
+- [Demo](https://exmg.github.io/exmachina-web-components/demo/?el=exmg-snackbar)
