@@ -26,13 +26,12 @@ const elements = [
 ];
 
 const elementsConfigs = elements.map((element) => {
-  console.log(element, 'ELEMENT IS');
   return {
     input: [`demo/demos/${element}/*.js`],
     output: {
       dir: `docs/demo/demos/`,
       format: 'es',
-      sourcemap: true,
+      sourcemap: false,
     },
     plugins: [
       multiInput({relative: 'demo/demos/'}),
