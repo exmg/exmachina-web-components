@@ -10,9 +10,13 @@ import {style as newStyles} from './styles/exmg-button-styles-css.js';
 import './exmg-spinner.js';
 
 /**
- * # exmg-button
+ * exmg-button
+ *
  * Material button including loading (spinner) animation when loading attribute is set to element.
  * This button extends the material @material/mwc-button.
+ *
+ * @customElement exmg-button
+ * @extends ButtonBase
  */
 @customElement('exmg-button')
 export class ExmgButton extends ButtonBase {

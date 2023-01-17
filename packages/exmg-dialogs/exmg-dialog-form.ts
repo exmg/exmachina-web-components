@@ -19,6 +19,14 @@ interface ExmgCustomEvent extends CustomEvent {
   path: HTMLElement[];
 }
 
+/**
+ * exmg-dialog-form
+ *
+ * Dialog element useful to display forms and handle forms.
+ *
+ * @customElement exmg-dialog-form
+ * @extends ExmgElement
+ */
 @customElement('exmg-dialog-form')
 export class ExmgFormDialog extends ExmgElement {
   /**

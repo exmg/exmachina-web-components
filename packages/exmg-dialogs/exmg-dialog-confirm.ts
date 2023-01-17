@@ -10,6 +10,14 @@ import '@polymer/iron-form';
 import {style} from './styles/exmg-dialog-styles-css.js';
 import {closeIcon, warningIcon} from './exmg-dialog-icons.js';
 
+/**
+ * exmg-dialog-confirm
+ *
+ * Dialog element useful for confirmation prompts.
+ *
+ * @customElement exmg-dialog-confirm
+ * @extends ExmgElement
+ */
 @customElement('exmg-dialog-confirm')
 export class ExmgConfirmDialog extends ExmgElement {
   /**
@@ -154,7 +162,6 @@ export class ExmgConfirmDialog extends ExmgElement {
   }
 
   /**
-   *
    * @deprecated handleError method should be used
    */
   error(error: Error) {

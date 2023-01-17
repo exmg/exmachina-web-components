@@ -13,6 +13,9 @@ import {style} from './styles/exmg-copy-to-clipboard-styles-css.js';
  *    <paper-icon-button icon="content-copy"></paper-icon-button>
  *  </exmg-copy-to-clipboard>
  * ```
+ *
+ * @customElement exmg-copy-to-clipboard
+ * @extends ExmgElement
  */
 @customElement('exmg-copy-to-clipboard')
 export class ExmgCopyToClipboard extends ExmgElement {

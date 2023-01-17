@@ -13,6 +13,14 @@ import {style} from './styles/exmg-dialog-styles-css.js';
 import {PaperDialogElement} from '@polymer/paper-dialog';
 import {closeIcon} from './exmg-dialog-icons';
 
+/**
+ * exmg-dialog-info
+ *
+ * Dialog element useful to display information.
+ *
+ * @customElement exmg-dialog-info
+ * @extends ExmgElement
+ */
 @customElement('exmg-dialog-info')
 export class ExmgInfoDialog extends ExmgElement {
   /**
