@@ -5,21 +5,6 @@
 Helper element to create icon/buttons that lets the user copy content to the clipboard. Just wrap it around
 the button or icon and set the value that needs to be copied.
 
-## Usage
-
-```html
-<exmg-copy-to-clipboard value="mark@test.com">
-  <paper-icon-button icon="content-copy"></paper-icon-button>
-</exmg-copy-to-clipboard>
-```
-
-# `<exmg-exmg-copy-to-clipboard>` [![Published on npm](https://img.shields.io/npm/v/@exmg/exmg-copy-to-clipboard.svg)](https://www.npmjs.com/package/@exmg/exmg-copy-to-clipboard)
-
-Helper element to create icon/buttons that lets the user copy content to the clipboard. Just wrap it arround
-the button or icon and set the value that needs to be copied.
-
-[Demo](https://exmg.github.io/exmachina-web-components/demo/?el=exmg-copy-to-clipboard)
-
 ## Installation
 
 ```sh
@@ -69,3 +54,5 @@ _None_
 ## Additional references
 
 - [Additional Documentation](https://exmg.github.io/exmachina-web-components/ExmgCopyToClipboard.html)
+
+- [Demo](https://exmg.github.io/exmachina-web-components/demo/?el=exmg-copy-to-clipboard)

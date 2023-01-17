@@ -57,6 +57,7 @@ export class ExmgInfoDialog extends ExmgElement {
 
   /**
    * Opens the dialog node
+   * @public
    */
   open() {
     if (this.dialogNode) {
@@ -66,6 +67,7 @@ export class ExmgInfoDialog extends ExmgElement {
 
   /**
    * Closes the dialog node
+   * @public
    */
   close() {
     if (this.dialogNode) {
@@ -93,6 +95,9 @@ export class ExmgInfoDialog extends ExmgElement {
     `;
   }
 
+  /**
+   * @protected
+   */
   protected render() {
     return html`
       <paper-dialog id="dialog" scroll-action=${ifDefined(this.scrollAction)} with-backdrop no-cancel-on-outside-click>

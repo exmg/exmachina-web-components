@@ -123,6 +123,7 @@ export class ExmgConfirmDialog extends ExmgElement {
 
   /**
    * Opens the dialog node
+   * @public
    */
   open() {
     if (this.dialogNode) {
@@ -132,6 +133,7 @@ export class ExmgConfirmDialog extends ExmgElement {
 
   /**
    * Closes the dialog node
+   * @public
    */
   close() {
     if (this.dialogNode) {
@@ -139,6 +141,9 @@ export class ExmgConfirmDialog extends ExmgElement {
     }
   }
 
+  /**
+   * @private
+   */
   private reset() {
     this.submitting = false;
     this.errorMessage = undefined;
@@ -189,10 +194,16 @@ export class ExmgConfirmDialog extends ExmgElement {
     this.close();
   }
 
+  /**
+   * @private
+   */
   private cancel() {
     this.dispatchEvent(new CustomEvent('cancel', {bubbles: false, composed: true}));
   }
 
+  /**
+   * @private
+   */
   private submit() {
     // reset error message on new submit
     this.errorMessage = undefined;
@@ -208,6 +219,9 @@ export class ExmgConfirmDialog extends ExmgElement {
     this.dispatchEvent(new CustomEvent('submit', {bubbles: false, composed: true}));
   }
 
+  /**
+   * @protected
+   */
   protected render() {
     return html`
       <paper-dialog

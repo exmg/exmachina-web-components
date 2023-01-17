@@ -80,6 +80,10 @@ export class ExmgFormDialog extends ExmgElement {
     this.submit = this.submit.bind(this);
   }
 
+  /**
+   * @private
+   * @param e
+   */
   private onCloseDialog(e: ExmgCustomEvent) {
     /* only reset form if close event originates from dialog */
     const eventPath: EventTarget[] = (e as any).path ? (e as any).path : e.composedPath();
@@ -106,6 +110,9 @@ export class ExmgFormDialog extends ExmgElement {
     }
   }
 
+  /**
+   * @private
+   */
   private reset() {
     this.submitting = false;
     this.errorMessage = undefined;
@@ -147,6 +154,7 @@ export class ExmgFormDialog extends ExmgElement {
 
   /**
    * Reset and close the dialog
+   * @public
    */
   done() {
     // Reset properties when submit is finished
@@ -162,7 +170,7 @@ export class ExmgFormDialog extends ExmgElement {
 
   /**
    * Cancel the dialog
-   * @fires cancel
+   * @private
    */
   private cancel() {
     this.dispatchEvent(new CustomEvent('cancel', {bubbles: false, composed: true}));
@@ -194,6 +202,9 @@ export class ExmgFormDialog extends ExmgElement {
     );
   }
 
+  /**
+   * @protected
+   */
   protected render() {
     return html`
       <paper-dialog
