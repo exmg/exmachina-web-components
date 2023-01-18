@@ -53,55 +53,53 @@
       }
     ]
   },
-  "include": [
-    "*.ts"
-  ],
+  "include": ["*.ts"],
   "references": [
     {
-      "path": "packages/exmg-base",
+      "path": "packages/exmg-base"
     },
     {
-      "path": "packages/exmg-button",
+      "path": "packages/exmg-button"
     },
     {
-      "path": "packages/exmg-grid",
+      "path": "packages/exmg-grid"
     },
     {
-      "path": "packages/exmg-dialogs",
+      "path": "packages/exmg-dialogs"
     },
     {
-      "path": "packages/exmg-tooltip",
-    }, 
-    {
-      "path": "packages/exmg-radio-group",
-    }, 
-    {
-      "path": "packages/exmg-sortable",
+      "path": "packages/exmg-tooltip"
     },
     {
-      "path": "packages/exmg-sidemenu",
+      "path": "packages/exmg-radio-group"
     },
     {
-      "path": "packages/exmg-markdown-editor",
-    }, 
-    {
-      "path": "packages/exmg-copy-to-clipboard",
-    }, 
-    {
-      "path": "packages/exmg-form-drawer",
+      "path": "packages/exmg-sortable"
     },
     {
-      "path": "packages/exmg-breadcrumbs",
+      "path": "packages/exmg-sidemenu"
     },
     {
-      "path": "packages/exmg-collapsed",
+      "path": "packages/exmg-markdown-editor"
     },
     {
-      "path": "packages/exmg-snackbar",
+      "path": "packages/exmg-copy-to-clipboard"
     },
     {
-      "path": "demo",
+      "path": "packages/exmg-form-drawer"
     },
+    {
+      "path": "packages/exmg-breadcrumbs"
+    },
+    {
+      "path": "packages/exmg-collapsed"
+    },
+    {
+      "path": "packages/exmg-snackbar"
+    },
+    {
+      "path": "demo"
+    }
   ],
-  "exclude": [],
+  "exclude": []
 }

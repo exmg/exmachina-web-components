@@ -10,7 +10,7 @@ orbs:
 jobs:
   test:
     docker:
-      - image: circleci/node:11.5
+      - image: circleci/node:12.22.7
     # resource_class: medium+
     working_directory: ~/repo
     steps:
@@ -35,7 +35,7 @@ jobs:
           command: npm run lint
   build_documentation:
     docker:
-      - image: circleci/node:11.5
+      - image: circleci/node:12.22.7
     # resource_class: medium+
     working_directory: ~/repo
     steps:
@@ -63,7 +63,7 @@ jobs:
             npm run build:docs
       - run:
           name: Adds a .nojekyll file
-          command: touch .nojekyll
+          command: touch ./docs/.nojekyll
       - run:
           name: Clean everything
           command: |

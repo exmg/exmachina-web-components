@@ -6,7 +6,7 @@ import '@exmg/exmg-paper-combobox/exmg-paper-combobox.js';
 import '@exmg/exmg-form/exmg-form.js';
 import '@exmg/exmg-form-drawer/exmg-form-drawer.js';
 
-@customElement('exmg-drawer-demo')
+@customElement('exmg-drawer-demo-styled')
 export class Drawer extends LitElement {
   @property({type: Boolean}) opened = false;
   @property({type: Boolean}) shouldFail = false;
@@ -67,7 +67,12 @@ export class Drawer extends LitElement {
         <input type="button" @click="${this.openDialog}" value="Open dialog" />
         <br /><br />
         <label>
-          <input type="checkbox" name="shouldFail" value="${this.shouldFail}" @change="${this.handleShouldFailChange}" />
+          <input
+            type="checkbox"
+            name="shouldFail"
+            value="${this.shouldFail}"
+            @change="${this.handleShouldFailChange}"
+          />
           Should Fail
         </label>
         <br /><br />
@@ -117,7 +122,12 @@ export class Drawer extends LitElement {
           <paper-item>Trivia</paper-item>
           <paper-item>Other</paper-item>
         </exmg-paper-combobox>
-        <paper-input name="question" label="Question" value="Who's Dylan Hartigan's favorite artist?" required></paper-input>
+        <paper-input
+          name="question"
+          label="Question"
+          value="Who's Dylan Hartigan's favorite artist?"
+          required
+        ></paper-input>
         <paper-input name="answer_a" label="Answer A" value="Beyoncé"></paper-input>
         <paper-input name="answer_b" label="Answer B" value="Eminem"></paper-input>
         <paper-input name="answer_c" label="Answer C" value="Ariana Grande"></paper-input>

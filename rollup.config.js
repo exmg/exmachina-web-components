@@ -3,6 +3,7 @@ import {terser} from 'rollup-plugin-terser';
 
 import strip from '@rollup/plugin-strip';
 import copy from 'rollup-plugin-copy';
+import multiInput from 'rollup-plugin-multi-input';
 
 /**
  * Elements with a viable demo
@@ -26,13 +27,14 @@ const elements = [
 
 const elementsConfigs = elements.map((element) => {
   return {
-    input: `./demo/demos/${element}/${element}-demo.js`,
+    input: [`demo/demos/${element}/*.js`],
     output: {
-      file: `./docs/demo/demos/${element}/${element}-demo.js`,
+      dir: `docs/demo/demos/`,
       format: 'es',
       sourcemap: false,
     },
     plugins: [
+      multiInput({relative: 'demo/demos/'}),
       resolve({
         moduleDirectories: ['./node_modules', './packages'],
       }),
@@ -43,7 +45,7 @@ const elementsConfigs = elements.map((element) => {
       copy({
         targets: [
           {
-            src: [`./demo/demos/${element}/*.js`, `./demo/demos/${element}/*.html`, `./demo/demos/${element}/*.png`],
+            src: [`./demo/demos/${element}/*.html`, `./demo/demos/${element}/*.png`],
             dest: `./docs/demo/demos/${element}/`,
           },
         ],
@@ -78,47 +80,55 @@ export default [
           },
           {
             src: 'node_modules/@webcomponents/shadycss/apply-shim.min.js',
-            dest: 'docs/node_modules/@webcomponents/shadycss/apply-shim.min.js',
+            dest: 'docs/node_modules/@webcomponents/shadycss/',
           },
           {
             src: 'node_modules/@webcomponents/webcomponentsjs/webcomponents-bundle.js',
-            dest: 'docs/node_modules/@webcomponents/webcomponentsjs/webcomponents-bundle.js',
+            dest: 'docs/node_modules/@webcomponents/webcomponentsjs/',
           },
           {
             src: 'node_modules/web-animations-js/web-animations-next-lite.min.js',
-            dest: 'docs/node_modules/web-animations-js/web-animations-next-lite.min.js',
+            dest: 'docs/node_modules/web-animations-js/',
           },
           {
             src: 'node_modules/codemirror/lib/codemirror.js',
-            dest: 'docs/node_modules/codemirror/lib/codemirror.js',
+            dest: 'docs/node_modules/codemirror/lib/',
           },
           {
             src: 'node_modules/codemirror/mode/markdown/markdown.js',
-            dest: 'docs/node_modules/codemirror/mode/markdown/markdown.js',
+            dest: 'docs/node_modules/codemirror/mode/markdown/',
           },
           {
             src: 'node_modules/codemirror/addon/edit/continuelist.js',
-            dest: 'docs/node_modules/codemirror/addon/edit/continuelist.js',
+            dest: 'docs/node_modules/codemirror/addon/edit/',
           },
           {
             src: 'node_modules/codemirror/addon/mode/overlay.js',
-            dest: 'docs/node_modules/codemirror/addon/mode/overlay.js',
+            dest: 'docs/node_modules/codemirror/addon/mode/',
           },
           {
             src: 'node_modules/codemirror/addon/display/fullscreen.js',
-            dest: 'docs/node_modules/codemirror/addon/display/fullscreen.js',
+            dest: 'docs/node_modules/codemirror/addon/display/',
           },
           {
             src: 'node_modules/codemirror/addon/display/placeholder.js',
-            dest: 'docs/node_modules/codemirror/addon/display/placeholder.js',
+            dest: 'docs/node_modules/codemirror/addon/display/',
           },
           {
             src: 'node_modules/codemirror/mode/gfm/gfm.js',
-            dest: 'docs/node_modules/codemirror/mode/gfm/gfm.js',
+            dest: 'docs/node_modules/codemirror/mode/gfm/',
           },
           {
             src: 'node_modules/codemirror/mode/xml/xml.js',
-            dest: 'docs/node_modules/codemirror/mode/xml/xml.js',
+            dest: 'docs/node_modules/codemirror/mode/xml/',
+          },
+          {
+            src: 'node_modules/github-markdown-css/github-markdown.css',
+            dest: 'docs/node_modules/github-markdown-css',
+          },
+          {
+            src: 'node_modules/@polymer',
+            dest: 'docs/node_modules/',
           },
         ],
       }),
