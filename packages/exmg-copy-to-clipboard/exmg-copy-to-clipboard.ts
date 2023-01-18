@@ -13,9 +13,16 @@ import {style} from './styles/exmg-copy-to-clipboard-styles-css.js';
  *    <paper-icon-button icon="content-copy"></paper-icon-button>
  *  </exmg-copy-to-clipboard>
  * ```
+ *
+ * @customElement exmg-copy-to-clipboard
+ * @extends ExmgElement
  */
 @customElement('exmg-copy-to-clipboard')
 export class ExmgCopyToClipboard extends ExmgElement {
+  /**
+   * Value to be copied
+   * @type {String}
+   */
   @property({type: String})
   value?: string;
 
@@ -49,7 +56,7 @@ export class ExmgCopyToClipboard extends ExmgElement {
     this._observer = new MutationObserver((mutationsList) => {
       for (const mutation of mutationsList) {
         if (mutation.type === 'childList') {
-         this.addClickListener();
+          this.addClickListener();
         }
       }
     });
@@ -82,6 +89,7 @@ export class ExmgCopyToClipboard extends ExmgElement {
 
   /**
    * Copy the given value to the clipboard
+   * @private
    */
   private copyToClipboard() {
     const clipboardNode: HTMLElement | null | undefined = this.shadowRoot ? this.clipboard : null;

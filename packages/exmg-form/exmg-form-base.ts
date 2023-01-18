@@ -25,30 +25,35 @@ const warningIcon = html`
 export class ExmgFormBase extends ExmgElement {
   /**
    * Option to hide submit button
+   * @type {Boolean}
    */
   @property({type: Boolean, attribute: 'hide-submit-button'})
   hideSubmitButton = false;
 
   /**
    * Option to hide reset button
+   * @type {Boolean}
    */
   @property({type: Boolean, attribute: 'hide-reset-button'})
   hideResetButton = false;
 
   /**
    * default submit button copy
+   * @type {String}
    */
   @property({type: String, attribute: 'submit-button-copy'})
   submitButtonCopy = 'Submit';
 
   /**
    * default reset button copy
+   * @type {String}
    */
   @property({type: String, attribute: 'reset-button-copy'})
   resetButtonCopy = 'Reset';
 
   /**
    * with this option the disable button will be disabled while there are no changes in the form
+   * @type {Boolean}
    */
   @property({type: Boolean, reflect: true, attribute: 'disable-submit-no-changes'})
   disableSubmitNoChanges = false;
@@ -95,6 +100,10 @@ export class ExmgFormBase extends ExmgElement {
 
   private _defaults = new WeakMap();
 
+  /**
+   * Marks form as done
+   * @public
+   */
   done() {
     this.submitting = false;
   }
@@ -125,7 +134,6 @@ export class ExmgFormBase extends ExmgElement {
   }
 
   /**
-   *
    * @deprecated handleError method should be used
    */
   error(errorMessage: string) {
@@ -133,11 +141,21 @@ export class ExmgFormBase extends ExmgElement {
     this.errorMessage = errorMessage;
   }
 
+  /**
+   * Error handler for form
+   * @public
+   * @param errorMessage
+   */
   handleError(errorMessage: string) {
     this.submitting = false;
     this.errorMessage = errorMessage;
   }
 
+  /**
+   * Submit the form when it's valid
+   * @public
+   * @fires submit
+   */
   submit() {
     if (this.ironFormElem && this.ironFormElem.validate()) {
       this.submitting = true;
@@ -152,6 +170,11 @@ export class ExmgFormBase extends ExmgElement {
     }
   }
 
+  /**
+   * Form validation method
+   * @public
+   * @returns {Boolean}
+   */
   validate() {
     return this.ironFormElem && this.ironFormElem.validate();
   }
@@ -205,6 +228,10 @@ export class ExmgFormBase extends ExmgElement {
     return nodes;
   }
 
+  /**
+   * Resets form to initial state, fires form-reset
+   * @public
+   */
   reset() {
     this.ironFormElem && this.ironFormElem.reset();
     this.resetRegisteredCustomElements();
@@ -219,6 +246,9 @@ export class ExmgFormBase extends ExmgElement {
     this.checkDirty();
   }
 
+  /**
+   * Helper method to call serializeForm on iron form
+   */
   serializeForm(): {[key: string]: any} | undefined {
     return this.ironFormElem && this.ironFormElem.serializeForm();
   }
@@ -320,16 +350,25 @@ export class ExmgFormBase extends ExmgElement {
     super.disconnectedCallback();
   }
 
+  /**
+   * @private
+   */
   private _handleOnChange() {
     this.checkDirty();
   }
 
+  /**
+   * @private
+   */
   private _renderResetButton() {
     return !this.hideResetButton
       ? html` <exmg-button class="reset" @click="${this.onResetBtnClick}">${this.resetButtonCopy}</exmg-button> `
       : '';
   }
 
+  /**
+   * @private
+   */
   private renderSubmitButton() {
     return !this.hideSubmitButton
       ? html`
@@ -344,6 +383,9 @@ export class ExmgFormBase extends ExmgElement {
       : '';
   }
 
+  /**
+   * @protected
+   */
   protected renderActions() {
     if (this.hideSubmitButton && this.hideResetButton) {
       return '';
@@ -352,6 +394,9 @@ export class ExmgFormBase extends ExmgElement {
     return html` <div class="actions">${this._renderResetButton()} ${this.renderSubmitButton()}</div> `;
   }
 
+  /**
+   * @protected
+   */
   protected render() {
     const classes = {
       showError: !!this.errorMessage,

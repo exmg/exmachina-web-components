@@ -19,22 +19,33 @@ interface ExmgCustomEvent extends CustomEvent {
   path: HTMLElement[];
 }
 
+/**
+ * exmg-dialog-form
+ *
+ * Dialog element useful to display forms and handle forms.
+ *
+ * @customElement exmg-dialog-form
+ * @extends ExmgElement
+ */
 @customElement('exmg-dialog-form')
 export class ExmgFormDialog extends ExmgElement {
   /**
    * Title of the dialog
+   * @type {String}
    */
   @property({type: String})
   title = '';
 
   /**
    * Copy for submit button
+   * @type {String}
    */
   @property({type: String, attribute: 'button-copy'})
   buttonCopy = '';
 
   /**
    * Hide close button ?
+   * @type {Boolean}
    */
   @property({type: Boolean, attribute: 'hide-close-button'})
   hideCloseButton = false;
@@ -42,12 +53,14 @@ export class ExmgFormDialog extends ExmgElement {
   /**
    * Indicator if submit is in progress This boolean will display the progress
    * bar at the bottom of the dialog
+   * @type {Boolean}
    */
   @property({type: Boolean, reflect: true})
   submitting = false;
 
   /**
    * When set this will be shown in the error section of the dialog
+   * @type {String}
    */
   @property({type: String, attribute: 'error-message'})
   errorMessage?: string;
@@ -61,6 +74,9 @@ export class ExmgFormDialog extends ExmgElement {
   @query('#submitBtn')
   private submitBtnNode?: ExmgButton;
 
+  /**
+   * Sets the action for scroll behaviour within the dialog
+   */
   @property({type: String, attribute: 'scroll-action'})
   scrollAction?: 'lock' | 'refit' | 'cancel' | undefined;
 
@@ -72,6 +88,10 @@ export class ExmgFormDialog extends ExmgElement {
     this.submit = this.submit.bind(this);
   }
 
+  /**
+   * @private
+   * @param e
+   */
   private onCloseDialog(e: ExmgCustomEvent) {
     /* only reset form if close event originates from dialog */
     const eventPath: EventTarget[] = (e as any).path ? (e as any).path : e.composedPath();
@@ -80,18 +100,27 @@ export class ExmgFormDialog extends ExmgElement {
     }
   }
 
+  /**
+   * Opens the dialog node
+   */
   open() {
     if (this.dialogNode) {
       this.dialogNode.open();
     }
   }
 
+  /**
+   * Closes the dialog node
+   */
   close() {
     if (this.dialogNode) {
       this.dialogNode.close();
     }
   }
 
+  /**
+   * @private
+   */
   private reset() {
     this.submitting = false;
     this.errorMessage = undefined;
@@ -118,6 +147,10 @@ export class ExmgFormDialog extends ExmgElement {
     }
   }
 
+  /**
+   * Dialog error handler
+   * @param errorMessage
+   */
   handleError(errorMessage: string) {
     this.submitting = false;
     this.errorMessage = errorMessage;
@@ -127,6 +160,10 @@ export class ExmgFormDialog extends ExmgElement {
     }
   }
 
+  /**
+   * Reset and close the dialog
+   * @public
+   */
   done() {
     // Reset properties when submit is finished
     this.submitting = false;
@@ -139,6 +176,10 @@ export class ExmgFormDialog extends ExmgElement {
     this.close();
   }
 
+  /**
+   * Cancel the dialog
+   * @private
+   */
   private cancel() {
     this.dispatchEvent(new CustomEvent('cancel', {bubbles: false, composed: true}));
   }
@@ -169,6 +210,9 @@ export class ExmgFormDialog extends ExmgElement {
     );
   }
 
+  /**
+   * @protected
+   */
   protected render() {
     return html`
       <paper-dialog

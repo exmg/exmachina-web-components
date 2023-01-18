@@ -18,11 +18,10 @@ import {SortableElementBase} from './exmg-sortable-base.js';
  *  </ul>
  * </exmg-sortable>
  * ```
+ * @extends {SortableElementBase}
  */
-
 @customElement('exmg-sortable')
-export class SortableElement extends SortableElementBase {
-}
+export class SortableElement extends SortableElementBase {}
 
 declare global {
   interface HTMLElementTagNameMap {

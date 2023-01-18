@@ -1,4 +1,6 @@
-# <exmg-grid /\>
+# `<exmg-copy-to-clipboard>` [![Published on npm](https://img.shields.io/npm/v/@exmg/exmg-copy-to-clipboard.svg)](https://www.npmjs.com/package/@exmg/exmg-copy-to-clipboard)
+
+# @exmg/exmg-grid
 
 ## Install
 
@@ -535,3 +537,9 @@ By default grid has `table-layout` set to `auto` It can be changed to `fixed`
 - auto - table will shrink as much as possible. If content will overflow then scroll will be added.
 
 - fixed - table has layout set to fixed. If content will overflow then ellipsis will be added to text
+
+## Additional references
+
+- [Additional Documentation](https://exmg.github.io/exmachina-web-components/ExmgGrid.html)
+
+- [Demo](https://exmg.github.io/exmachina-web-components/demo/?el=exmg-grid)

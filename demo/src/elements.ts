@@ -16,7 +16,7 @@
       url: 'https://www.npmjs.com/package/@exmg/exmg-breadcrumbs',
     },{
       name: '@exmg/exmg-button',
-      version: '8.1.24',
+      version: '8.1.30',
       url: 'https://www.npmjs.com/package/@exmg/exmg-button',
     },{
       name: '@exmg/exmg-cli',
@@ -24,7 +24,7 @@
       url: 'https://www.npmjs.com/package/@exmg/exmg-cli',
     },{
       name: '@exmg/exmg-collapsed',
-      version: '8.1.22',
+      version: '8.1.30',
       url: 'https://www.npmjs.com/package/@exmg/exmg-collapsed',
     },{
       name: '@exmg/exmg-copy-to-clipboard',
@@ -32,31 +32,31 @@
       url: 'https://www.npmjs.com/package/@exmg/exmg-copy-to-clipboard',
     },{
       name: '@exmg/exmg-dialogs',
-      version: '8.1.29',
+      version: '8.1.30',
       url: 'https://www.npmjs.com/package/@exmg/exmg-dialogs',
     },{
       name: '@exmg/exmg-form',
-      version: '8.1.24',
+      version: '8.1.30',
       url: 'https://www.npmjs.com/package/@exmg/exmg-form',
     },{
       name: '@exmg/exmg-form-drawer',
-      version: '8.1.29',
+      version: '8.1.30',
       url: 'https://www.npmjs.com/package/@exmg/exmg-form-drawer',
     },{
       name: '@exmg/exmg-grid',
-      version: '8.1.24',
+      version: '8.1.30',
       url: 'https://www.npmjs.com/package/@exmg/exmg-grid',
     },{
       name: '@exmg/exmg-markdown-editor',
-      version: '8.1.20',
+      version: '8.1.30',
       url: 'https://www.npmjs.com/package/@exmg/exmg-markdown-editor',
     },{
       name: '@exmg/exmg-radio-group',
-      version: '8.1.23',
+      version: '8.1.30',
       url: 'https://www.npmjs.com/package/@exmg/exmg-radio-group',
     },{
       name: '@exmg/exmg-sidemenu',
-      version: '8.1.26',
+      version: '8.1.30',
       url: 'https://www.npmjs.com/package/@exmg/exmg-sidemenu',
     },{
       name: '@exmg/exmg-snackbar',
@@ -64,11 +64,11 @@
       url: 'https://www.npmjs.com/package/@exmg/exmg-snackbar',
     },{
       name: '@exmg/exmg-sortable',
-      version: '8.1.19',
+      version: '8.1.30',
       url: 'https://www.npmjs.com/package/@exmg/exmg-sortable',
     },{
       name: '@exmg/exmg-tooltip',
-      version: '8.1.26',
+      version: '8.1.30',
       url: 'https://www.npmjs.com/package/@exmg/exmg-tooltip',
     },
   ];

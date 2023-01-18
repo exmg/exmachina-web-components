@@ -18,12 +18,24 @@ import {style} from './styles/exmg-drawer-styles-css.js';
  */
 @customElement('exmg-drawer')
 export class ExmgDrawer extends LitElement {
+  /**
+   * The opened state of the drawer
+   * @type {Boolean}
+   */
   @property({type: Boolean})
   opened = false;
 
+  /**
+   * Prevent cancel on outside click or not
+   * @type {Boolean}
+   */
   @property({type: Boolean, attribute: 'no-cancel-on-outside-click'})
   noCancelOnOutsideClick = false;
 
+  /**
+   * Scroll action of the drawer
+   * @type {'lock' | 'refit' | 'cancel' | undefined}
+   */
   @property({type: String, attribute: 'scroll-action'})
   scrollAction?: 'lock' | 'refit' | 'cancel' | undefined;
 

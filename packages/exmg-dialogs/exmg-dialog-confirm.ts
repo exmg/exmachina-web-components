@@ -10,28 +10,40 @@ import '@polymer/iron-form';
 import {style} from './styles/exmg-dialog-styles-css.js';
 import {closeIcon, warningIcon} from './exmg-dialog-icons.js';
 
+/**
+ * exmg-dialog-confirm
+ *
+ * Dialog element useful for confirmation prompts.
+ *
+ * @customElement exmg-dialog-confirm
+ * @extends ExmgElement
+ */
 @customElement('exmg-dialog-confirm')
 export class ExmgConfirmDialog extends ExmgElement {
   /**
    * Title of the dialog
+   * @type {String}
    */
   @property({type: String})
   title = '';
 
   /**
    * Dialog message to display as confirmation question. Alternative would be to just add a slot body including a message.
+   * @type {String}
    */
   @property({type: String})
   message = '';
 
   /**
    * Hide close button ?
+   * @type {Boolean}
    */
   @property({type: Boolean, attribute: 'hide-close-button'})
   hideCloseButton = false;
 
   /**
    * Copy for submit button
+   * @type {String}
    */
   @property({type: String, attribute: 'button-copy'})
   buttonCopy = '';
@@ -39,12 +51,14 @@ export class ExmgConfirmDialog extends ExmgElement {
   /**
    * Indicator if submit is in progress This boolean will display the progress
    * bar at the bottom of the dialog
+   * @type {Boolean}
    */
   @property({type: Boolean, reflect: true})
   submitting = false;
 
   /**
    * When set this will be shown in the error section of the dialog
+   * @type {String}
    */
   @property({type: String, attribute: 'error-message'})
   errorMessage?: string;
@@ -55,9 +69,17 @@ export class ExmgConfirmDialog extends ExmgElement {
   @query('#submitBtn')
   private submitBtnNode?: PaperDialogElement;
 
+  /**
+   * Determine if a slot needs to be used or show the message
+   * @type {Boolean}
+   */
   @property({type: Boolean})
   hasSlotContent = false;
 
+  /**
+   * Sets the action for scroll behaviour within the dialog
+   * @type {String}
+   */
   @property({type: String, attribute: 'scroll-action'})
   scrollAction?: 'lock' | 'refit' | 'cancel' | undefined;
 
@@ -107,18 +129,29 @@ export class ExmgConfirmDialog extends ExmgElement {
     this.reset();
   }
 
+  /**
+   * Opens the dialog node
+   * @public
+   */
   open() {
     if (this.dialogNode) {
       this.dialogNode.open();
     }
   }
 
+  /**
+   * Closes the dialog node
+   * @public
+   */
   close() {
     if (this.dialogNode) {
       this.dialogNode.close();
     }
   }
 
+  /**
+   * @private
+   */
   private reset() {
     this.submitting = false;
     this.errorMessage = undefined;
@@ -129,7 +162,6 @@ export class ExmgConfirmDialog extends ExmgElement {
   }
 
   /**
-   *
    * @deprecated handleError method should be used
    */
   error(error: Error) {
@@ -141,6 +173,10 @@ export class ExmgConfirmDialog extends ExmgElement {
     }
   }
 
+  /**
+   * Dialog error handler
+   * @param errorMessage
+   */
   handleError(errorMessage: string) {
     this.submitting = false;
     this.errorMessage = errorMessage;
@@ -150,6 +186,9 @@ export class ExmgConfirmDialog extends ExmgElement {
     }
   }
 
+  /**
+   * Reset and close the dialog
+   */
   done() {
     // Reset properties when submit is finished
     this.submitting = false;
@@ -162,10 +201,16 @@ export class ExmgConfirmDialog extends ExmgElement {
     this.close();
   }
 
+  /**
+   * @private
+   */
   private cancel() {
     this.dispatchEvent(new CustomEvent('cancel', {bubbles: false, composed: true}));
   }
 
+  /**
+   * @private
+   */
   private submit() {
     // reset error message on new submit
     this.errorMessage = undefined;
@@ -181,6 +226,9 @@ export class ExmgConfirmDialog extends ExmgElement {
     this.dispatchEvent(new CustomEvent('submit', {bubbles: false, composed: true}));
   }
 
+  /**
+   * @protected
+   */
   protected render() {
     return html`
       <paper-dialog

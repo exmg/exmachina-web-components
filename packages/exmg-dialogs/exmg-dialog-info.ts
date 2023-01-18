@@ -13,32 +13,48 @@ import {style} from './styles/exmg-dialog-styles-css.js';
 import {PaperDialogElement} from '@polymer/paper-dialog';
 import {closeIcon} from './exmg-dialog-icons';
 
+/**
+ * exmg-dialog-info
+ *
+ * Dialog element useful to display information.
+ *
+ * @customElement exmg-dialog-info
+ * @extends ExmgElement
+ */
 @customElement('exmg-dialog-info')
 export class ExmgInfoDialog extends ExmgElement {
   /**
    * Title of the dialog
+   * @type {String}
    */
   @property({type: String})
   title = '';
 
   /**
    * Copy for done button
+   * @type {String}
    */
   @property({type: String, attribute: 'button-copy'})
   buttonCopy = '';
 
   /**
    * Hide close button ?
+   * @type {Boolean}
    */
   @property({type: Boolean, attribute: 'hide-close-button'})
   hideCloseButton = false;
 
   /**
    * Show close button as unelevated
+   * @type {Boolean}
    */
   @property({type: Boolean, attribute: 'button-unelevated'})
   buttonUnelevated?: boolean = false;
 
+  /**
+   * Sets the action for scroll behaviour within the dialog
+   * @type {String}
+   */
   @property({type: String, attribute: 'scroll-action'})
   scrollAction?: 'lock' | 'refit' | 'cancel' | undefined;
 
@@ -47,18 +63,29 @@ export class ExmgInfoDialog extends ExmgElement {
 
   static styles = [style];
 
+  /**
+   * Opens the dialog node
+   * @public
+   */
   open() {
     if (this.dialogNode) {
       this.dialogNode.open();
     }
   }
 
+  /**
+   * Closes the dialog node
+   * @public
+   */
   close() {
     if (this.dialogNode) {
       this.dialogNode.close();
     }
   }
 
+  /**
+   * @fires done
+   */
   done() {
     // dispatch event 'done'
     this.dispatchEvent(new CustomEvent('done'));
@@ -76,6 +103,9 @@ export class ExmgInfoDialog extends ExmgElement {
     `;
   }
 
+  /**
+   * @protected
+   */
   protected render() {
     return html`
       <paper-dialog id="dialog" scroll-action=${ifDefined(this.scrollAction)} with-backdrop no-cancel-on-outside-click>

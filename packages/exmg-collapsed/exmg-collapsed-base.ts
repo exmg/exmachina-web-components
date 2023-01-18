@@ -3,6 +3,12 @@ import {property, state} from 'lit/decorators.js';
 import {observer} from '@exmg/exmg-base/observer/observer.js';
 import {ExmgElement} from '@exmg/exmg-base/exmg-element.js';
 
+/**
+ * Helper function to toggle element
+ * @param className
+ * @param el
+ * @param val
+ */
 const toggleClass = (className: string, el: HTMLElement, val?: boolean) => {
   if (val !== undefined) {
     if (val) {
@@ -18,12 +24,20 @@ const toggleClass = (className: string, el: HTMLElement, val?: boolean) => {
 };
 
 export class ExmgCollapsedBase extends ExmgElement {
+  /**
+   * Whether or not the element is opened or not
+   * @type {Boolean}
+   */
   @property({type: Boolean, reflect: true})
   @observer(function (this: ExmgCollapsedBase) {
     this._openedChanged();
   })
   opened = false;
 
+  /**
+   * Whether the element is transitioning or not
+   * @type {Boolean}
+   */
   @property({type: Boolean, reflect: true})
   transitioning = false;
 
@@ -39,22 +53,40 @@ export class ExmgCollapsedBase extends ExmgElement {
     this.setAttribute('aria-hidden', 'true');
   }
 
+  /**
+   * Toggle the current(opened/closed) state.
+   * @public
+   */
   toggle() {
     this.opened = !this.opened;
   }
 
+  /**
+   * Set the opened state
+   * @public
+   */
   show() {
     this.opened = true;
   }
 
+  /**
+   * Set the closed state
+   * @public
+   */
   hide() {
     this.opened = false;
   }
 
+  /**
+   * @private
+   */
   _calcSize() {
     return this.getBoundingClientRect()['height'] + 'px';
   }
 
+  /**
+   * @private
+   */
   _updateTransition(enabled: boolean) {
     this.style.transitionDuration = enabled ? '' : '0s';
   }
@@ -95,6 +127,9 @@ export class ExmgCollapsedBase extends ExmgElement {
     }
   }
 
+  /**
+   * @private
+   */
   _openedChanged() {
     this.setAttribute('aria-hidden', String(!this.opened));
     if (this._initialized) {
@@ -111,12 +146,18 @@ export class ExmgCollapsedBase extends ExmgElement {
     this._initialized = true;
   }
 
+  /**
+   * @private
+   */
   _onTransitionEnd(event: TransitionEvent) {
     if (event.target === this) {
       this._transitionEnd();
     }
   }
 
+  /**
+   * @private
+   */
   _transitionEnd() {
     this.style['maxHeight'] = String(this._desiredSize);
     toggleClass('collapse-closed', this, !this.opened);

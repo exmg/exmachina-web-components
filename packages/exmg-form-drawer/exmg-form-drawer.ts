@@ -21,36 +21,80 @@ import '@exmg/exmg-button/exmg-button.js';
  */
 @customElement('exmg-form-drawer' as any)
 export class ExmgFormDrawer extends LitElement {
+  /**
+   * Opened state of the form-drawer
+   * @type {Boolean}
+   */
   @property({type: Boolean})
   opened = false;
 
+  /**
+   * The title of the 'submit' button
+   * @type {String}
+   */
   @property({type: String, attribute: 'submit-btn-title'})
   submitBtnTitle = 'Submit';
 
+  /**
+   * Whether or not to hide the submit button
+   * @type {Boolean}
+   */
   @property({type: Boolean, attribute: 'submit-btn-hidden'})
   submitBtnHidden = false;
 
+  /**
+   * Title of the cancel button
+   * @type {String}
+   */
   @property({type: String, attribute: 'cancel-btn-title'})
   cancelBtnTitle = 'Cancel';
 
+  /**
+   * Whether or not to keep the form drawer opened on submit success
+   * @type {Boolean}
+   */
   @property({type: Boolean, attribute: 'keep-opened-on-submit-success'})
   keepOpenedOnSubmitSuccess = false;
 
+  /**
+   * Reset form on submit success
+   * @type {Boolean}
+   */
   @property({type: Boolean, attribute: 'reset-form-on-submit-success'})
   resetFormOnSubmitSuccess = false;
 
+  /**
+   * Auto focus on open
+   * @type {Boolean}
+   */
   @property({type: Boolean, attribute: 'autofocus-on-open'})
   autofocusOnOpen = false;
 
+  /**
+   * No cancel on outside click
+   * @type {Boolean}
+   */
   @property({type: Boolean, attribute: 'no-cancel-on-outside-click'})
   noCancelOnOutsideClick = false;
 
+  /**
+   * Disable sticky header in drawer
+   * @type {Boolean}
+   */
   @property({type: Boolean, attribute: 'disable-sticky-header'})
   disableStickyHeader = false;
 
+  /**
+   * Whether or not the form is submitting
+   * @type {Boolean}
+   */
   @property({type: Boolean, reflect: true})
   submitting = false;
 
+  /**
+   * Scroll action of the drawer
+   * @type {'lock' | 'refit' | 'cancel' | undefined}
+   */
   @property({type: String, attribute: 'scroll-action'})
   scrollAction?: 'lock' | 'refit' | 'cancel' | undefined;
 
@@ -103,7 +147,7 @@ export class ExmgFormDrawer extends LitElement {
   }
 
   /**
-   * 
+   *
    * @deprecated handleError method should be used
    */
   error(errorMessage: string) {
@@ -148,7 +192,9 @@ export class ExmgFormDrawer extends LitElement {
         <div class="header">
           <slot name="title" class="title"></slot>
           <div class="header-buttons">
-            <exmg-button title="${this.cancelBtnTitle}" @click="${this.handleCancelBtnClick}"> ${this.cancelBtnTitle} </exmg-button>
+            <exmg-button title="${this.cancelBtnTitle}" @click="${this.handleCancelBtnClick}">
+              ${this.cancelBtnTitle}
+            </exmg-button>
             ${this.submitBtnHidden
               ? ''
               : html`

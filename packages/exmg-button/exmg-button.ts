@@ -1,23 +1,37 @@
-import { html } from 'lit';
-import { property } from 'lit/decorators/property.js';
-import { customElement } from 'lit/decorators/custom-element.js';
-import { eventOptions } from 'lit/decorators/event-options.js';
+import {html} from 'lit';
+import {property} from 'lit/decorators/property.js';
+import {customElement} from 'lit/decorators/custom-element.js';
+import {eventOptions} from 'lit/decorators/event-options.js';
 
-import { classMap } from 'lit/directives/class-map.js';
-import { ButtonBase } from '@material/mwc-button/mwc-button-base.js';
-import { styles } from '@material/mwc-button/styles.css.js';
-import { style as newStyles } from './styles/exmg-button-styles-css.js';
+import {classMap} from 'lit/directives/class-map.js';
+import {ButtonBase} from '@material/mwc-button/mwc-button-base.js';
+import {styles} from '@material/mwc-button/styles.css.js';
+import {style as newStyles} from './styles/exmg-button-styles-css.js';
 import './exmg-spinner.js';
 
 /**
- * Exmg Button element
+ * exmg-button
+ *
+ * Material button including loading (spinner) animation when loading attribute is set to element.
+ * This button extends the material @material/mwc-button.
+ *
+ * @customElement exmg-button
+ * @extends ButtonBase
  */
 @customElement('exmg-button')
 export class ExmgButton extends ButtonBase {
-  @property({ type: Boolean })
+  /**
+   * Whether or not the button is in loading state
+   * @type {Boolean}
+   */
+  @property({type: Boolean})
   loading = false;
 
-  @property({ type: Number })
+  /**
+   * Whether or not the button displays progress
+   * @type {Number}
+   */
+  @property({type: Number})
   progress?: number;
 
   static styles = [styles, newStyles];
@@ -33,9 +47,7 @@ export class ExmgButton extends ButtonBase {
       'exmg-loading': this.loading,
       'exmg-button-content': true,
     };
-    const mdcButtonIcon = html`
-      <span class="material-icons mdc-button__icon">${this.icon}</span>
-    `;
+    const mdcButtonIcon = html` <span class="material-icons mdc-button__icon">${this.icon}</span> `;
     return html`
       <button
         id="button"
@@ -58,21 +70,19 @@ export class ExmgButton extends ButtonBase {
           ${this.icon && this.trailingIcon ? mdcButtonIcon : ''}
           <slot></slot>
         </span>
-        ${this.loading
-        ? html` <exmg-button-spinner active></exmg-button-spinner> `
-        : ''}
+        ${this.loading ? html` <exmg-button-spinner active></exmg-button-spinner> ` : ''}
         ${this.progress
-        ? html`
+          ? html`
               <div class="progress-holder">
                 <progress max="100" value=${this.progress}></progress>
               </div>
             `
-        : ''}
+          : ''}
       </button>
     `;
   }
 
-  @eventOptions({ passive: true })
+  @eventOptions({passive: true})
   private handleRippleActivateA(evt?: Event) {
     const onUp = () => {
       window.removeEventListener('mouseup', onUp);
