@@ -58,17 +58,17 @@ npm install @exmg/exmg-button
 
 ### Properties/Attributes
 
-| Name         | Type      | Default | Description                                                                       |
-| ------------ | --------- | ------- | --------------------------------------------------------------------------------- |
-| `loading`    | `boolean` | _false_ | Whether or not the button is in loading state                                     |
-| `progress`   | `number`  | _false_ | Whether or not the button displays progress                                       |
-| `unelevated` | `number`  | _false_ | Creates a contained button that is flush with the surface.                        |
-| `outlined`   | `number`  | _false_ | Creates an outlined button that is flush with the surface.                        |
-| `dense`      | `number`  | _false_ | Makes the button text and container slightly smaller.                             |
-| `disabled`   | `number`  | _false_ | Disabled buttons cannot be interacted with and have no visual interaction effect. |
-| `fullwidth`  | `number`  | _false_ | When true, the button is expanded to fit the entire available space.              |
-| `icon`       | `number`  | _''_    | Icon to display, and aria-label value when label is not defined.                  |
-| `label`      | `string`  | _''_    | Label to display for the button, and aria-label.                                  |
+| Name         | Type      | Default     | Description                                                                       |
+| ------------ | --------- | ----------- | --------------------------------------------------------------------------------- |
+| `loading`    | `boolean` | _false_     | Whether or not the button is in loading state                                     |
+| `progress`   | `number`  | _undefined_ | Whether or not the button displays progress                                       |
+| `unelevated` | `boolean` | _false_     | Creates a contained button that is flush with the surface.                        |
+| `outlined`   | `boolean` | _false_     | Creates an outlined button that is flush with the surface.                        |
+| `dense`      | `boolean` | _false_     | Makes the button text and container slightly smaller.                             |
+| `disabled`   | `boolean` | _false_     | Disabled buttons cannot be interacted with and have no visual interaction effect. |
+| `fullwidth`  | `boolean` | _false_     | When true, the button is expanded to fit the entire available space.              |
+| `icon`       | `string`  | _''_        | Icon to display, and aria-label value when label is not defined.                  |
+| `label`      | `string`  | _''_        | Label to display for the button, and aria-label.                                  |
 
 ### Methods
 

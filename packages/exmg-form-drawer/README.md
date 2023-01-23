@@ -41,15 +41,6 @@ It is basic component that probably should not be used directly.
 It serves only as drawer without form functionality, so it is content agnostic.
 You can pass any dom markup as children of this component.
 
-Events:
-
-1. **exmg-drawer-opened-changed** - when drawer shown/hidden
-
-Attributes:
-
-1. **opened** - whether or not drawer is visible
-2. **no-cancel-on-outside-click** - whether or not clicking outside drawer should close drawer
-
 ### \<exmg-form-drawer>
 
 Wraps around **exmg-drawer**.
@@ -85,43 +76,24 @@ Provides form functionality to drawer:
 | ---------------------------- | ------------------------ |
 | `exmg-drawer-opened-changed` | when drawer shown/hidden |
 
+### CSS Custom Properties
+
+| Name                                        | Description                                                                          |
+| ------------------------------------------- | ------------------------------------------------------------------------------------ |
+| `--exmg-drawer-color`                       | set the height of slot container - handy when wanting to control max-height of form. |
+| `--exmg-drawer-bg-color`                    | set the padding right for the form internal element.                                 |
+| `--mdc-theme-primary`                       | _None_                                                                               |
+| `--mdc-theme-on-surface`                    | _None_                                                                               |
+| `--mdc-theme-surface`                       | _None_                                                                               |
+| `--exmg-form-drawer-header-separator-color` | Color of header seperator of form                                                    |
+| `--exmg-drawer-max-width`                   | Max width of drawer                                                                  |
+
 #### Notes about drawer form
 
 All dom markup passed as children into **exmg-form-drawer** will be wrapped into **exmg-form** underhood.
 
 To properly handle form submission, you should call done() or error() on form instance after receiving **submit**
 event from **exmg-form-drawer**. Please read https://github.com/ExmgElements/exmg-form docs for more info.
-
-## Styling
-
-You can define:
-
-- color palette
-- drawer max width
-
-To define color palette you can define following variables:
-
-- --exmg-drawer-color
-- --exmg-drawer-bg-color
-- --mdc-theme-primary
-- --mdc-theme-on-surface
-- --mdc-theme-surface
-- --exmg-form-drawer-header-separator-color
-
-See .scss/.ts files for more info.
-
-Example:
-
-```css
-exmg-form-drawer {
-  --mdc-theme-primary: #0071dc;
-}
-```
-
-To define drawer max width, you can:
-
-- Define variable **--exmg-drawer-max-width**
-- Pass max width directly into drawer component style attribute: `style="max-width: 500px"`
 
 ## Usage
 

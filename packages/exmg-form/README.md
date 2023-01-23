@@ -1,7 +1,5 @@
 # `<exmg-form>` [![Published on npm](https://img.shields.io/npm/v/@exmg/exmg-form.svg)](https://www.npmjs.com/package/@exmg/exmg-form)
 
-# exmg-form
-
 This component provides basic form functionality. It is made on top of `<iron-form>`.
 
 You can put any children elements inside of it, but only elements implementing IronFormElementBehavior will be serialized.
@@ -78,12 +76,12 @@ npm install @exmg/exmg-copy-to-clipboard
 
 | Name                                  | Type      | Default    | Description                                                                                 |
 | ------------------------------------- | --------- | ---------- | ------------------------------------------------------------------------------------------- |
-| `hide-submit-button'`                 | `boolean` | _false_    | Option to hide submit button                                                                |
-| `hide-reset-button'`                  | `boolean` | _false_    | Option to hide reset button                                                                 |
-| `submit-button-copy'`                 | `string`  | _'Submit'_ | Default submit button copy                                                                  |
-| `reset-button-copy'`                  | `string`  | _'Reset'_  | Default reset button copy                                                                   |
-| `disable-submit-no-changes'`          | `boolean` | _false_    | With this option the disable button will be disabled while there are no changes in the form |
-| `bubbles'`                            | `boolean` | _false_    | Setting this attribute will cause its                                                       |
+| `hide-submit-button`                  | `boolean` | _false_    | Option to hide submit button                                                                |
+| `hide-reset-button`                   | `boolean` | _false_    | Option to hide reset button                                                                 |
+| `submit-button-copy`                  | `string`  | _'Submit'_ | Default submit button copy                                                                  |
+| `reset-button-copy`                   | `string`  | _'Reset'_  | Default reset button copy                                                                   |
+| `disable-submit-no-changes`           | `boolean` | _false_    | With this option the disable button will be disabled while there are no changes in the form |
+| `bubbles`                             | `boolean` | _false_    | Setting this attribute will cause its                                                       |
 | events to bubble to the window object |
 
 ### Methods
