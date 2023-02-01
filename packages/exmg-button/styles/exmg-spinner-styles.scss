@@ -28,21 +28,22 @@
 }
 @-webkit-keyframes container-rotate {
   to {
-    -webkit-transform: rotate(360deg);
+    // Scale workaround for subpixel gap
+    -webkit-transform: rotate(360deg) scale(1.00001);
   }
 }
 @keyframes container-rotate {
   to {
-    transform: rotate(360deg);
+    // Scale workaround for subpixel gap
+    transform: rotate(360deg) scale(1.00001);
   }
 }
 .spinner-layer {
-  position: absolute;
+  display: flex;
   width: 100%;
   height: 100%;
   opacity: 0;
   color: var(--exmg-spinner-color, grey);
-  white-space: nowrap;
 }
 /**
  * IMPORTANT NOTE ABOUT CSS ANIMATION PROPERTIES (keanulee):
@@ -121,16 +122,6 @@
   width: 50%;
   height: 100%;
   overflow: hidden;
-}
-/**
- * Patch the gap that appear between the two adjacent div.circle-clipper while the
- * spinner is rotating (appears on Chrome 50, Safari 9.1.1, and Edge).
- */
-.spinner-layer::after {
-  content: '';
-  left: 45%;
-  width: 10%;
-  border-top-style: solid;
 }
 .spinner-layer::after,
 .circle-clipper .circle {
