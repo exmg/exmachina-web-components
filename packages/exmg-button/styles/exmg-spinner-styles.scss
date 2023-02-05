@@ -28,14 +28,12 @@
 }
 @-webkit-keyframes container-rotate {
   to {
-    // Scale workaround for subpixel gap
-    -webkit-transform: rotate(360deg) scale(1.00001);
+    -webkit-transform: rotate(360deg);
   }
 }
 @keyframes container-rotate {
   to {
-    // Scale workaround for subpixel gap
-    transform: rotate(360deg) scale(1.00001);
+    transform: rotate(360deg);
   }
 }
 .spinner-layer {
