@@ -6,11 +6,13 @@ export interface MenuItem {
   icon?: TemplateResult;
   title: string;
   badge?: number | boolean;
+  roles?: string[];
 }
 
 export interface MenuGroupItem {
   title: string;
   items: MenuItem[];
+  roles?: string[];
 }
 
 export type MenuItemOrGroupItem = MenuItem | MenuGroupItem;
