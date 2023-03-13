@@ -1,6 +1,6 @@
 {
   "name": "@exmg/exmg-collapsed",
-  "version": "8.1.30",
+  "version": "8.1.31",
   "dependencies": {
     "@exmg/exmg-base": "^8.1.17",
     "lit": "^2.0.0",

@@ -1,6 +1,6 @@
 {
   "name": "@exmg/exmg-form-drawer",
-  "version": "8.1.30",
+  "version": "8.1.31",
   "description": "Form side drawer element",
   "contributors": [
     "Ex Machina"
@@ -24,8 +24,8 @@
   "license": "MIT",
   "dependencies": {
     "@exmg/exmg-base": "^8.1.17",
-    "@exmg/exmg-button": "^8.1.30",
-    "@exmg/exmg-form": "^8.1.30",
+    "@exmg/exmg-button": "^8.1.31",
+    "@exmg/exmg-form": "^8.1.31",
     "@polymer/neon-animation": "^3.0.1",
     "@polymer/paper-dialog": "^3.0.1",
     "lit": "^2.0.0",
