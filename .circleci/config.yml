@@ -10,7 +10,7 @@ orbs:
 jobs:
   test:
     docker:
-      - image: circleci/node:19.3.0
+      - image: cimg/node:19.3.0
     # resource_class: medium+
     working_directory: ~/repo
     steps:
