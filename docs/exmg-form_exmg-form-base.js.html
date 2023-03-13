@@ -1,0 +1,416 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Source: exmg-form/exmg-form-base.js | Source: exmg-form/exmg-form-base.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/bootstrap.min.css">
+    <link type="text/css" rel="stylesheet" href="styles/prettify-jsdoc.css">
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/tui-doc.css">
+
+    
+</head>
+<body>
+<nav class="lnb" id="lnb">
+    <div class="logo" style="width: 100px; height: 50px">
+        
+            <img src="https://www.exmachinagroup.com/images/svg/ExMachinaPrimary.svg" width="100%" height="100%">
+        
+    </div>
+    <div class="title">
+        <h1><a href="index.html" class="link">Source: exmg-form/exmg-form-base.js</a></h1>
+        
+    </div>
+    <div class="search-container" id="search-container">
+        <input type="text" placeholder="Search">
+        <ul></ul>
+    </div>
+    
+    <div class="lnb-api hidden"><h3>Classes</h3><ul><li><a href="Exmg.EditorElement.html">EditorElement</a><button type="button" class="hidden toggle-subnav btn btn-link">  <span class="glyphicon glyphicon-plus"></span></button><div class="hidden" id="Exmg.EditorElement_sub"><div class="member-type">Methods</div><ul class="inner"><li><a href="Exmg.EditorElement.html#getToolbar">getToolbar</a></li><li><a href="Exmg.EditorElement.html#updateDocHistory">updateDocHistory</a></li></ul></div></li><li><a href="ExmgButton.html">ExmgButton</a><button type="button" class="hidden toggle-subnav btn btn-link">  <span class="glyphicon glyphicon-plus"></span></button><div class="hidden" id="ExmgButton_sub"></div></li><li><a href="ExmgCollapsed.html">ExmgCollapsed</a><button type="button" class="hidden toggle-subnav btn btn-link">  <span class="glyphicon glyphicon-plus"></span></button><div class="hidden" id="ExmgCollapsed_sub"></div></li><li><a href="ExmgCopyToClipboard.html">ExmgCopyToClipboard</a><button type="button" class="hidden toggle-subnav btn btn-link">  <span class="glyphicon glyphicon-plus"></span></button><div class="hidden" id="ExmgCopyToClipboard_sub"><div class="member-type">Methods</div><ul class="inner"><li><a href="ExmgCopyToClipboard.html#copyToClipboard">copyToClipboard</a></li><li><a href="ExmgCopyToClipboard.html#handleCopyAction">handleCopyAction</a></li></ul></div></li><li><a href="ExmgDrawer.html">ExmgDrawer</a><button type="button" class="hidden toggle-subnav btn btn-link">  <span class="glyphicon glyphicon-plus"></span></button><div class="hidden" id="ExmgDrawer_sub"></div></li><li><a href="ExmgForm.html">ExmgForm</a><button type="button" class="hidden toggle-subnav btn btn-link">  <span class="glyphicon glyphicon-plus"></span></button><div class="hidden" id="ExmgForm_sub"></div></li><li><a href="ExmgFormDrawer.html">ExmgFormDrawer</a><button type="button" class="hidden toggle-subnav btn btn-link">  <span class="glyphicon glyphicon-plus"></span></button><div class="hidden" id="ExmgFormDrawer_sub"><div class="member-type">Methods</div><ul class="inner"><li><a href="ExmgFormDrawer.html#error">error</a></li></ul></div></li><li><a href="ExmgGrid.html">ExmgGrid</a><button type="button" class="hidden toggle-subnav btn btn-link">  <span class="glyphicon glyphicon-plus"></span></button><div class="hidden" id="ExmgGrid_sub"><div class="member-type">Members</div><ul class="inner"><li><a href="ExmgGrid.html#disableRowClickSelection">disableRowClickSelection</a></li><li><a href="ExmgGrid.html#expandedRowIds">expandedRowIds</a></li><li><a href="ExmgGrid.html#hiddenColumnNames">hiddenColumnNames</a></li><li><a href="ExmgGrid.html#items">items</a></li><li><a href="ExmgGrid.html#rowsSelectable">rowsSelectable</a></li><li><a href="ExmgGrid.html#rowsSortable">rowsSortable</a></li><li><a href="ExmgGrid.html#selectedRowIds">selectedRowIds</a></li><li><a href="ExmgGrid.html#sortable">sortable</a></li><li><a href="ExmgGrid.html#tableLayout">tableLayout</a></li></ul></div></li><li><a href="ExmgGridBaseToolbar.html">ExmgGridBaseToolbar</a><button type="button" class="hidden toggle-subnav btn btn-link">  <span class="glyphicon glyphicon-plus"></span></button><div class="hidden" id="ExmgGridBaseToolbar_sub"></div></li><li><a href="ExmgGridPagination.html">ExmgGridPagination</a><button type="button" class="hidden toggle-subnav btn btn-link">  <span class="glyphicon glyphicon-plus"></span></button><div class="hidden" id="ExmgGridPagination_sub"></div></li><li><a href="ExmgSidemenu.html">ExmgSidemenu</a><button type="button" class="hidden toggle-subnav btn btn-link">  <span class="glyphicon glyphicon-plus"></span></button><div class="hidden" id="ExmgSidemenu_sub"></div></li><li><a href="ExmgSidemenuHeader.html">ExmgSidemenuHeader</a><button type="button" class="hidden toggle-subnav btn btn-link">  <span class="glyphicon glyphicon-plus"></span></button><div class="hidden" id="ExmgSidemenuHeader_sub"></div></li><li><a href="ExmgTooltip.html">ExmgTooltip</a><button type="button" class="hidden toggle-subnav btn btn-link">  <span class="glyphicon glyphicon-plus"></span></button><div class="hidden" id="ExmgTooltip_sub"></div></li><li><a href="SortableElement.html">SortableElement</a><button type="button" class="hidden toggle-subnav btn btn-link">  <span class="glyphicon glyphicon-plus"></span></button><div class="hidden" id="SortableElement_sub"></div></li></ul></div><div class="lnb-api hidden"><h3>Global</h3><ul><li><a href="global.html#orientationMap">orientationMap</a></li><li><a href="global.html#selectionController">selectionController</a></li></ul></div>
+</nav>
+<div id="resizer"></div>
+
+<div class="main" id="main">
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import { __decorate } from "tslib";
+import { html } from 'lit';
+import { property, query, state } from 'lit/decorators.js';
+import { ExmgElement } from '@exmg/exmg-base/exmg-element.js';
+import { classMap } from 'lit/directives/class-map.js';
+import { observer } from '@exmg/exmg-base/observer/observer.js';
+import { Debouncer } from '@exmg/exmg-base/utils/debounce/debounce.js';
+import { timeOut } from '@exmg/exmg-base/utils/debounce/async.js';
+import '@polymer/iron-form/iron-form.js';
+import '@exmg/exmg-button/exmg-button.js';
+const ENTER_KEY_CODE = 13;
+const warningIcon = html `
+  &lt;svg height="24" viewBox="0 0 24 24" width="24">
+    &lt;path d="M1 21h22L12 2 1 21zm12-3h-2v-2h2v2zm0-4h-2v-4h2v4z">&lt;/path>
+  &lt;/svg>
+`;
+export class ExmgFormBase extends ExmgElement {
+    constructor() {
+        super(...arguments);
+        /**
+         * Option to hide submit button
+         */
+        this.hideSubmitButton = false;
+        /**
+         * Option to hide reset button
+         */
+        this.hideResetButton = false;
+        /**
+         * default submit button copy
+         */
+        this.submitButtonCopy = 'Submit';
+        /**
+         * default reset button copy
+         */
+        this.resetButtonCopy = 'Reset';
+        /**
+         * with this option the disable button will be disabled while there are no changes in the form
+         */
+        this.disableSubmitNoChanges = false;
+        /**
+         * Indicator of the form has pending changes
+         */
+        this.dirty = false;
+        /**
+         * By default, exmg-form events do not bubble. Setting this attribute will cause its
+         * events to bubble to the window object.
+         */
+        this.bubbles = false;
+        this.errorMessage = '';
+        this.submitting = false;
+        this._defaults = new WeakMap();
+    }
+    get isDirty() {
+        return this.dirty;
+    }
+    done() {
+        this.submitting = false;
+    }
+    addInput(node, overwriteValues = false) {
+        if (!this._defaults.has(node) || overwriteValues) {
+            const defaults = {
+                value: node.value === undefined || node.value === null ? '' : node.value,
+            };
+            if ('_hasIronCheckedElementBehavior' in node || (node.type &amp;&amp; node.type === 'checkbox')) {
+                defaults.checked = node.checked;
+            }
+            this._defaults.set(node, defaults);
+        }
+    }
+    saveDefaults(overwriteValues = false) {
+        // After first render save original form data for later dirdty checks
+        const nodes = Array.from(this.querySelectorAll('*') || []).filter((n) => !!n.name);
+        for (let i = 0; i &lt; nodes.length; i++) {
+            const node = nodes[i];
+            this.addInput(node, overwriteValues);
+        }
+    }
+    firstUpdated() {
+        this.saveDefaults();
+    }
+    /**
+     *
+     * @deprecated handleError method should be used
+     */
+    error(errorMessage) {
+        this.submitting = false;
+        this.errorMessage = errorMessage;
+    }
+    handleError(errorMessage) {
+        this.submitting = false;
+        this.errorMessage = errorMessage;
+    }
+    submit() {
+        if (this.ironFormElem &amp;&amp; this.ironFormElem.validate()) {
+            this.submitting = true;
+            this.errorMessage = '';
+            this.dispatchEvent(new CustomEvent('submit', {
+                bubbles: this.bubbles,
+                composed: true,
+                detail: this.ironFormElem.serializeForm(),
+            }));
+        }
+    }
+    validate() {
+        return this.ironFormElem &amp;&amp; this.ironFormElem.validate();
+    }
+    resetRegisteredCustomElements() {
+        const nodes = this.getResetRegisteredElements(this);
+        nodes.forEach((n) => n.reset());
+    }
+    _isRegisteredForSubmitElement(node) {
+        return !node.disabled &amp;&amp; node.hasAttribute('register-for-reset');
+    }
+    _searchSubmittable(nodes, node) {
+        if (this._isRegisteredForSubmitElement(node)) {
+            nodes.push(node);
+        }
+        else if (node.root) {
+            this.getResetRegisteredElements(node.root, nodes);
+        }
+    }
+    _searchSubmittableInSlot(submittable, e) {
+        const assignedNodes = e.assignedNodes();
+        for (let i = 0; i &lt; assignedNodes.length; i++) {
+            if (assignedNodes[i].nodeType === Node.TEXT_NODE) {
+                continue;
+            }
+            // Note: assignedNodes does not contain &lt;slot> or &lt;content> because
+            // getDistributedNodes flattens the tree.
+            this._searchSubmittable(submittable, assignedNodes[i]);
+            const nestedAssignedNodes = assignedNodes[i].querySelectorAll('*');
+            for (let j = 0; j &lt; nestedAssignedNodes.length; j++) {
+                this._searchSubmittable(submittable, nestedAssignedNodes[j]);
+            }
+        }
+    }
+    getResetRegisteredElements(n, nodes = []) {
+        const elements = n.querySelectorAll('*');
+        for (let i = 0; i &lt; elements.length; i++) {
+            const e = elements[i];
+            if (e.localName === 'slot' || e.localName === 'content') {
+                this._searchSubmittableInSlot(nodes, e);
+            }
+            else {
+                this._searchSubmittable(nodes, e);
+            }
+        }
+        return nodes;
+    }
+    reset() {
+        this.ironFormElem &amp;&amp; this.ironFormElem.reset();
+        this.resetRegisteredCustomElements();
+        this.submitting = false;
+        this.errorMessage = '';
+        this.dispatchEvent(new CustomEvent('form-reset', {
+            bubbles: this.bubbles,
+            composed: true,
+        }));
+        this.checkDirty();
+    }
+    serializeForm() {
+        return this.ironFormElem &amp;&amp; this.ironFormElem.serializeForm();
+    }
+    _onSubmitBtnClick() {
+        this.submit();
+    }
+    onResetBtnClick() {
+        this.reset();
+    }
+    checkDirty() {
+        this._debouncer = Debouncer.debounce(this._debouncer, timeOut.after(200), () => {
+            let dirty = false;
+            // Select all slot nodes and filter out the input based on a existing name property on the node
+            const nodes = Array.from(this.querySelectorAll('*') || []).filter((n) => !!n.name &amp;&amp; !n.disabled);
+            try {
+                for (const node of nodes) {
+                    const def = this._defaults.get(node);
+                    if (!def) {
+                        throw Error('Unable to check dirty due to missing default');
+                    }
+                    // Special case for token input which has a array value
+                    if (node.tagName === 'EXMG-PAPER-TOKEN-INPUT') {
+                        if (!Array.isArray(node.value) || !Array.isArray(def.value)) {
+                            throw Error('Expected value of token input not an array');
+                        }
+                        if (def.value.sort().join(',') !== [...node.value].sort().join(',')) {
+                            dirty = true;
+                        }
+                    }
+                    else {
+                        if (('checked' in def &amp;&amp; def.checked !== node.checked) ||
+                            def.value !== (node.value === undefined || node.value === null ? '' : node.value)) {
+                            dirty = true;
+                        }
+                    }
+                }
+            }
+            catch (err) {
+                // eslint-disable-next-line no-console
+                console.warn(err);
+            }
+            finally {
+                this.dirty = dirty;
+            }
+        });
+    }
+    _onKeyUp(e) {
+        switch (e.code || e.keyCode) {
+            case ENTER_KEY_CODE:
+            case 'Enter':
+            case 'NumpadEnter':
+                e.stopPropagation();
+                this.submit();
+                break;
+            default:
+                this.checkDirty();
+                break;
+        }
+    }
+    connectedCallback() {
+        super.connectedCallback();
+        // Options for the observer (which mutations to observe)
+        const config = { attributes: false, childList: true, subtree: false };
+        // Create an observer instance linked to the callback function
+        this.observer = new MutationObserver((list) => {
+            for (const mutation of list) {
+                if (mutation.type === 'childList') {
+                    // Monitor slot for nodes created later
+                    mutation.addedNodes.forEach((node) => {
+                        if (node.name) {
+                            this.addInput(node);
+                        }
+                    });
+                }
+            }
+        });
+        // Start observing the target node for configured mutations
+        this.observer.observe(this, config);
+        this.addEventListener('keyup', this._onKeyUp);
+        this.addEventListener('change', this._handleOnChange);
+    }
+    disconnectedCallback() {
+        this.removeEventListener('keyup', this._onKeyUp);
+        this.removeEventListener('change', this._handleOnChange);
+        // Clean observer if needed
+        if (this.observer) {
+            this.observer.disconnect();
+        }
+        super.disconnectedCallback();
+    }
+    _handleOnChange() {
+        this.checkDirty();
+    }
+    _renderResetButton() {
+        return !this.hideResetButton
+            ? html ` &lt;exmg-button class="reset" @click="${this.onResetBtnClick}">${this.resetButtonCopy}&lt;/exmg-button> `
+            : '';
+    }
+    renderSubmitButton() {
+        return !this.hideSubmitButton
+            ? html `
+          &lt;exmg-button
+            unelevated
+            @click="${this._onSubmitBtnClick}"
+            ?disabled="${this.submitting || (this.disableSubmitNoChanges &amp;&amp; !this.dirty)}"
+            ?loading=${this.submitting}
+            >${this.submitButtonCopy}&lt;/exmg-button
+          >
+        `
+            : '';
+    }
+    renderActions() {
+        if (this.hideSubmitButton &amp;&amp; this.hideResetButton) {
+            return '';
+        }
+        return html ` &lt;div class="actions">${this._renderResetButton()} ${this.renderSubmitButton()}&lt;/div> `;
+    }
+    render() {
+        const classes = {
+            showError: !!this.errorMessage,
+        };
+        return html `
+      &lt;div class="error ${classMap(classes)}">
+        &lt;span class="body">
+          &lt;span class="body-content">
+            ${warningIcon}
+            &lt;span class="msg">${this.errorMessage}&lt;/span>
+          &lt;/span>
+        &lt;/span>
+      &lt;/div>
+      &lt;iron-form id="ironForm">
+        &lt;form id="form">
+          &lt;slot>&lt;/slot>
+        &lt;/form>
+      &lt;/iron-form>
+      ${this.renderActions()}
+    `;
+    }
+}
+__decorate([
+    property({ type: Boolean, attribute: 'hide-submit-button' })
+], ExmgFormBase.prototype, "hideSubmitButton", void 0);
+__decorate([
+    property({ type: Boolean, attribute: 'hide-reset-button' })
+], ExmgFormBase.prototype, "hideResetButton", void 0);
+__decorate([
+    property({ type: String, attribute: 'submit-button-copy' })
+], ExmgFormBase.prototype, "submitButtonCopy", void 0);
+__decorate([
+    property({ type: String, attribute: 'reset-button-copy' })
+], ExmgFormBase.prototype, "resetButtonCopy", void 0);
+__decorate([
+    property({ type: Boolean, reflect: true, attribute: 'disable-submit-no-changes' })
+], ExmgFormBase.prototype, "disableSubmitNoChanges", void 0);
+__decorate([
+    state(),
+    observer(function (dirty) {
+        this.dispatchEvent(new CustomEvent('dirty-change', {
+            bubbles: this.bubbles,
+            composed: true,
+            detail: {
+                dirty,
+            },
+        }));
+    })
+], ExmgFormBase.prototype, "dirty", void 0);
+__decorate([
+    property({ type: Boolean })
+], ExmgFormBase.prototype, "bubbles", void 0);
+__decorate([
+    state()
+], ExmgFormBase.prototype, "errorMessage", void 0);
+__decorate([
+    state()
+], ExmgFormBase.prototype, "submitting", void 0);
+__decorate([
+    query('#ironForm')
+], ExmgFormBase.prototype, "ironFormElem", void 0);
+//# sourceMappingURL=exmg-form-base.js.map</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<footer>
+    <img class="logo" src="https://www.exmachinagroup.com/images/svg/ExMachinaPrimary.svg" style="width: 100px; height: 50px">
+    <div class="footer-text">NHN Entertainment. Frontend Development Lab</div>
+</footer>
+<script>prettyPrint();</script>
+<script src="scripts/jquery.min.js"></script>
+<script src="scripts/tui-doc.js"></script>
+<script src="scripts/linenumber.js"></script>
+
+    <script>
+        var id = '_sub'.replace(/"/g, '_');
+        var selectedApi = document.getElementById(id); // do not use jquery selector
+        var $selectedApi = $(selectedApi);
+
+        $selectedApi.removeClass('hidden');
+        $selectedApi.parent().find('.glyphicon').removeClass('glyphicon-plus').addClass('glyphicon-minus');
+        showLnbApi();
+    </script>
+
+</body>
+</html>

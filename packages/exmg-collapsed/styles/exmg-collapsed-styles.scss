@@ -1,0 +1,12 @@
+:host {
+  display: block;
+  transition-duration: 300ms;
+  -webkit-transition-duration: 300ms;
+  overflow: visible;
+}
+:host(.collapse-closed) {
+  display: none;
+}
+:host(:not(.collapse-closed)) {
+  overflow: hidden;
+}

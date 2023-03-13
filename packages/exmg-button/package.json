@@ -1,16 +1,17 @@
 {
   "name": "@exmg/exmg-button",
-  "version": "8.1.7",
+  "version": "8.1.30",
   "dependencies": {
+    "@exmg/exmg-base": "^8.1.17",
     "@material/mwc-base": "=0.25.3",
     "@material/mwc-button": "=0.25.3",
     "@material/mwc-ripple": "=0.25.3",
-    "@material/typography": "^12.0.0",
+    "@material/typography": "^13.0.0",
     "lit": "^2.0.0",
     "tslib": "^2.0.1"
   },
   "devDependencies": {
-    "@exmg/exmg-cli": "^8.1.5"
+    "@exmg/exmg-cli": "^8.1.17"
   },
   "keywords": [
     "web-components",
@@ -18,17 +19,15 @@
     "button"
   ],
   "files": [
-    "styles/**/*.scss",
-    "styles/**/*.js",
-    "exmg-*.js",
-    "exmg-*.d.ts",
-    "index.js",
-    "index.d.ts"
+    "**/*.scss",
+    "**/*.js",
+    "**/*.d.ts"
   ],
+  "homepage": "https://github.com/exmg/exmachina-web-components",
   "main": "exmg-button.js",
   "repository": {
     "type": "git",
-    "url": "git@github.com:ExmgElements/exmg-button.git",
+    "url": "git@github.com:exmg/exmg-web-components.git",
     "directory": "packages/exmg-button"
   },
   "license": "MIT",

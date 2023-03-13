@@ -1,5 +1,5 @@
 import {FormElement} from '@material/mwc-base/form-element.js';
-import {observer} from '@material/mwc-base/observer.js';
+import {observer} from '@exmg/exmg-base/observer/observer.js';
 import {html} from 'lit';
 import {query} from 'lit/decorators/query.js';
 import {property} from 'lit/decorators/property.js';
@@ -10,7 +10,7 @@ import {styles} from '@material/mwc-radio/mwc-radio.css';
 import {RippleHandlers} from '@material/mwc-ripple/ripple-handlers.js';
 import foundation from '@material/radio/foundation';
 import {SelectionController} from './exmg-selection-controller';
-import {style as exmgRadioGroupItemStyles} from './styles/exmg-radio-group-item-styles-css';
+import {style as exmgRadioGroupItemStyles} from './styles/exmg-radio-group-item-styles-css.js';
 import '@material/mwc-ripple';
 
 export interface RadioFoundation extends MDCFoundation {
@@ -30,36 +30,56 @@ export class ExmgRadioGroupItem extends FormElement {
   @query('input')
   protected formElement!: HTMLInputElement;
 
+  /**
+   * Marks the item as checked
+   * @type {Boolean}
+   */
   @property({type: Boolean, reflect: true})
-  @observer(function(this: ExmgRadioGroupItem, checked: boolean) {
+  @observer(function (this: ExmgRadioGroupItem, checked: boolean) {
     this.formElement.checked = checked;
   })
   checked = false;
 
+  /**
+   * Marks the item as disabled
+   * @type {Boolean}
+   */
   @property({type: Boolean, reflect: true})
-  @observer(function(this: ExmgRadioGroupItem, disabled: boolean) {
+  @observer(function (this: ExmgRadioGroupItem, disabled: boolean) {
     this.mdcFoundation.setDisabled(disabled);
   })
   disabled = false;
 
+  /**
+   * Set value of item
+   * @type {String}
+   */
   @property({type: String})
-  @observer(function(this: ExmgRadioGroupItem, value: string) {
+  @observer(function (this: ExmgRadioGroupItem, value: string) {
     this.formElement.value = value;
   })
   value = '';
 
+  /**
+   * Set name of item
+   * @type {String}
+   */
   @property({type: String})
   name = '';
 
-  @property({type: Boolean, attribute: 'hide-radio-button'})
-  hideRadioButton = false;
+  /**
+   * Enable radio button for selecting
+   * @type {Boolean}
+   */
+  @property({type: Boolean, attribute: 'enable-radio-button'})
+  enableRadioButton = false;
 
   @property({type: Object})
   rippleHandlers: RippleHandlers | null = null;
 
   private shouldRenderRipple = false;
 
-  protected mdcFoundationClass: typeof RadioFoundation = (foundation as unknown) as typeof RadioFoundation;
+  protected mdcFoundationClass: typeof RadioFoundation = foundation as unknown as typeof RadioFoundation;
 
   protected mdcFoundation!: RadioFoundation;
 
@@ -77,21 +97,21 @@ export class ExmgRadioGroupItem extends FormElement {
     });
   }
 
-  connectedCallback(): void {
+  connectedCallback() {
     super.connectedCallback();
     if (this.selectionController) {
       this.selectionController.register(this);
     }
   }
 
-  disconnectedCallback(): void {
+  disconnectedCallback() {
     if (this.selectionController) {
       this.selectionController.unregister(this);
     }
     super.disconnectedCallback();
   }
 
-  focusNative(): void {
+  focusNative() {
     this.formElement.focus();
   }
 
@@ -109,7 +129,9 @@ export class ExmgRadioGroupItem extends FormElement {
     this.checked = this.formElement.checked;
     if (this.selectionController) {
       this.selectionController.update(this);
-      this.dispatchEvent(new CustomEvent('exmg-radio-group-item-changed', {detail: {value: this.value}, composed: false, bubbles: true}));
+      this.dispatchEvent(
+        new CustomEvent('exmg-radio-group-item-changed', {detail: {value: this.value}, composed: false, bubbles: true}),
+      );
     }
   }
 
@@ -122,15 +144,13 @@ export class ExmgRadioGroupItem extends FormElement {
   }
   /** @soyTemplate */
   renderRippleTemplate() {
-    return html `<mwc-ripple
-    .disabled="${this.disabled}"
-    unbounded></mwc-ripple>`;
+    return html`<mwc-ripple .disabled="${this.disabled}" unbounded></mwc-ripple>`;
   }
 
   render() {
     return html`
       <label class="item ${this.checked ? 'checked' : ''} ${this.disabled ? 'disabled' : ''}">
-        <div class="mdc-radio" ?hidden="${this.hideRadioButton}">
+        <div class="mdc-radio" ?hidden="${!this.enableRadioButton}">
           <input
             class="mdc-radio__native-control"
             type="radio"
@@ -199,5 +219,11 @@ export class ExmgRadioGroupItem extends FormElement {
 
   private handleRippleBlurA() {
     this.rippleHandlers!.endFocus();
+  }
+}
+
+declare global {
+  interface HTMLElementTagNameMap {
+    'exmg-radio-group-item': ExmgRadioGroupItem;
   }
 }

@@ -10,5 +10,8 @@
     "src/*.ts",
     "src/styles/*.ts",
     "demos/**/*.ts"
+  ],
+  "references": [
+    {"path": "../packages/exmg-form"}
   ]
 }

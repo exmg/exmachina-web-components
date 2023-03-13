@@ -1,7 +1,8 @@
 ## editors
 /.idea
-.vscode
 
+## Documentation
+/docs
 
 ## system files
 .DS_Store

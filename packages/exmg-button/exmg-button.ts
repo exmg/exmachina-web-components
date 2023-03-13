@@ -9,11 +9,28 @@ import {styles} from '@material/mwc-button/styles.css.js';
 import {style as newStyles} from './styles/exmg-button-styles-css.js';
 import './exmg-spinner.js';
 
+/**
+ * exmg-button
+ *
+ * Material button including loading (spinner) animation when loading attribute is set to element.
+ * This button extends the material @material/mwc-button.
+ *
+ * @customElement exmg-button
+ * @extends ButtonBase
+ */
 @customElement('exmg-button')
 export class ExmgButton extends ButtonBase {
+  /**
+   * Whether or not the button is in loading state
+   * @type {Boolean}
+   */
   @property({type: Boolean})
   loading = false;
 
+  /**
+   * Whether or not the button displays progress
+   * @type {Number}
+   */
   @property({type: Number})
   progress?: number;
 
@@ -30,9 +47,7 @@ export class ExmgButton extends ButtonBase {
       'exmg-loading': this.loading,
       'exmg-button-content': true,
     };
-    const mdcButtonIcon = html`
-      <span class="material-icons mdc-button__icon">${this.icon}</span>
-    `;
+    const mdcButtonIcon = html` <span class="material-icons mdc-button__icon">${this.icon}</span> `;
     return html`
       <button
         id="button"
@@ -55,9 +70,7 @@ export class ExmgButton extends ButtonBase {
           ${this.icon && this.trailingIcon ? mdcButtonIcon : ''}
           <slot></slot>
         </span>
-        ${this.loading
-          ? html` <exmg-button-spinner active></exmg-button-spinner> `
-          : ''}
+        ${this.loading ? html` <exmg-button-spinner active></exmg-button-spinner> ` : ''}
         ${this.progress
           ? html`
               <div class="progress-holder">
@@ -99,5 +112,11 @@ export class ExmgButton extends ButtonBase {
 
   private handleRippleBlurA() {
     this.rippleHandlers.endFocus();
+  }
+}
+
+declare global {
+  interface HTMLElementTagNameMap {
+    'exmg-button': ExmgButton;
   }
 }

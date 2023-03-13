@@ -1,29 +1,58 @@
-import {html, LitElement} from 'lit';
+import {html} from 'lit';
+import {ExmgElement} from '@exmg/exmg-base/exmg-element.js';
+import {classMap} from 'lit/directives/class-map.js';
 import {property} from 'lit/decorators/property.js';
 import {customElement} from 'lit/decorators/custom-element.js';
-import {observer} from '@material/mwc-base/observer.js';
-import {style as exmgRadioGroupStyles} from './styles/exmg-radio-group-styles-css';
+import {observer} from '@exmg/exmg-base/observer/observer.js';
+import {style as exmgRadioGroupStyles} from './styles/exmg-radio-group-styles-css.js';
 import {ExmgRadioGroupItem} from './exmg-radio-group-item.js';
 
 const ENTER_KEY_CODE = 13;
 
 @customElement('exmg-radio-group')
-export class ExmgRadioGroup extends LitElement {
+export class ExmgRadioGroup extends ExmgElement {
+  /**
+   * Name of the element
+   * @type {String}
+   */
   @property({type: String})
   name?: string;
 
+  /**
+   * Sets the selected item
+   * @type {String}
+   */
   @property({type: String, reflect: true})
-  @observer(function(this: ExmgRadioGroup) {
+  @observer(function (this: ExmgRadioGroup) {
     this.setProperSelectedItem();
   })
   selected = '';
 
+  /**
+   * Marks the radio group as required
+   * @type {Boolean}
+   */
   @property({type: Boolean})
   required = false;
 
+  /**
+   * Allows vertical radio group items
+   * @type {Boolean}
+   */
   @property({type: Boolean})
   vertical = false;
 
+  /**
+   * Sets flex wrap
+   * @type {Boolean}
+   */
+  @property({type: Boolean})
+  wrap = false;
+
+  /**
+   * Marks the radio group as invalid for validation
+   * @type {Boolean}
+   */
   @property({type: Boolean, reflect: true, attribute: 'invalid'})
   invalid = false;
 
@@ -46,6 +75,10 @@ export class ExmgRadioGroup extends LitElement {
     this._handleRadioGroupItemChanged = this.handleRadioGroupItemChanged.bind(this);
   }
 
+  /**
+   * Handle key press
+   * @param e
+   */
   private onKeyPressed(e: KeyboardEvent) {
     switch (e.code || e.keyCode) {
       case ENTER_KEY_CODE:
@@ -58,7 +91,12 @@ export class ExmgRadioGroup extends LitElement {
     }
   }
 
-  validate(): boolean {
+  /**
+   * Validate function to  check required and selected
+   * @returns {Boolean}
+   * @public
+   */
+  validate() {
     this.invalid = this.required && !this.selected;
 
     return !this.invalid;
@@ -66,14 +104,26 @@ export class ExmgRadioGroup extends LitElement {
 
   static styles = [exmgRadioGroupStyles];
 
+  /**
+   * Radio group item change handler
+   * @param e
+   * @fires exmg-radio-group-changed
+   * @private
+   */
   private handleRadioGroupItemChanged(e: Event) {
     const {detail} = e as CustomEvent;
 
     this.selected = detail.value;
 
-    this.dispatchEvent(new CustomEvent('exmg-radio-group-changed', {detail: {selected: this.selected}, composed: true, bubbles: true}));
+    this.dispatchEvent(
+      new CustomEvent('exmg-radio-group-changed', {detail: {selected: this.selected}, composed: true, bubbles: true}),
+    );
   }
 
+  /**
+   * Sets selected item based on the selected property
+   * @private
+   */
   private setProperSelectedItem() {
     this.querySelectorAll('exmg-radio-group-item').forEach((item: Element) => {
       const litItem = item as ExmgRadioGroupItem;
@@ -83,7 +133,7 @@ export class ExmgRadioGroup extends LitElement {
     });
   }
 
-  connectedCallback(): void {
+  connectedCallback() {
     super.connectedCallback();
 
     this.addEventListener('keyup', this._onKeyPressed);
@@ -94,7 +144,7 @@ export class ExmgRadioGroup extends LitElement {
     this.setProperSelectedItem();
   }
 
-  disconnectedCallback(): void {
+  disconnectedCallback() {
     this.removeEventListener('keyup', this._onKeyPressed);
     this.removeEventListener('exmg-radio-group-item-changed', this._handleRadioGroupItemChanged);
 
@@ -102,10 +152,21 @@ export class ExmgRadioGroup extends LitElement {
   }
 
   render() {
+    const classes = {
+      vertical: this.vertical,
+      horizontal: !this.vertical,
+      wrap: this.wrap,
+    };
     return html`
-      <div class="radio-group-container ${this.vertical ? 'vertical' : 'horizontal'}" ?invalid="${this.invalid}">
-        <slot></slot> 
+      <div class="radio-group-container ${classMap(classes)}" ?invalid="${this.invalid}">
+        <slot></slot>
       </div>
     `;
+  }
+}
+
+declare global {
+  interface HTMLElementTagNameMap {
+    'exmg-radio-group': ExmgRadioGroup;
   }
 }

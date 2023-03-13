@@ -1,6 +1,6 @@
 {
   "name": "@exmg/exmg-cli",
-  "version": "8.1.5",
+  "version": "8.1.17",
   "description": "CLI - scripts used to process and build polymer / lit-element packages",
   "contributors": [
     "Ex Machina"
@@ -22,7 +22,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/ExmgElements/exmg-cli.git"
+    "url": "git@github.com:exmg/exmg-web-components.git"
   },
   "license": "MIT",
   "dependencies": {

@@ -13,17 +13,18 @@
 #tooltip {
   display: block;
   outline: none;
-  font-size: var(--exmg-tooltip-font-size, 10px);
-  line-height: var(--exmg-tooltip-line-height, 1);
-  background-color: var(--exmg-tooltip-background, #616161);
+  font-size: var(--exmg-tooltip-font-size, 12px);
+  line-height: var(--exmg-tooltip-line-height, 14px);
+  background-color: var(--exmg-tooltip-background, #333);
   opacity: var(--exmg-tooltip-opacity, 0.9);
   color: var(--exmg-tooltip-text-color, white);
   padding: var(--exmg-tooltip-padding, 8px);
   border-radius: var(--exmg-tooltip-border-radius, 2px);
   min-width: var(--exmg-tooltip-min-width, initial);
+  transition: opacity 0.5s;
 }
 
-/* Thanks IE 10. */
-.hidden {
-  display: none !important;
+#tooltip.hidden {
+  opacity: 0;
+  display: none;
 }

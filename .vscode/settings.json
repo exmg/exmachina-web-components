@@ -1,0 +1,17 @@
+{
+  "files.autoGuessEncoding": true,
+  "files.exclude": {
+    "**/*.js.map": true,
+    "**/*.d.ts": {"when": "$(basename).ts"},
+    "**/*-css.ts": {"when": "$(basename).ts"},
+    "**/*.js": {"when": "$(basename).ts"}
+  },
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  },
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.formatOnSave": true,
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  }
+}

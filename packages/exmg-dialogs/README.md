@@ -1,4 +1,4 @@
-# \<exmg-dialogs\>
+# `<exmg-dialogs>` [![Published on npm](https://img.shields.io/npm/v/@exmg/exmg-dialogs.svg)](https://www.npmjs.com/package/@exmg/exmg-dialogs)
 
 ## Exmg Dialogs
 
@@ -33,7 +33,7 @@ createAccount(e) {
     // notify dialog successfull
     target.done();
   } catch (error) {
-    target.error(error);
+    target.handleError(error);
   }
 }
 ```
@@ -148,14 +148,8 @@ deleteItem(e) {
 | button-secondary: _boolean_  | If set to `true` the button will be with secondary theme |
 | @done                        | Event thrown when hitting the main button                |
 
-## Viewing Your Element
+## Additional references
 
-```
-$ npm run start
-```
+- [Additional Documentation](https://exmg.github.io/exmachina-web-components/ExmgCopyToClipboard.html)
 
-## Running Tests
-
-```
-$ npm run test
-```
+- [Demo](https://exmg.github.io/exmachina-web-components/demo/?el=exmg-copy-to-clipboard)

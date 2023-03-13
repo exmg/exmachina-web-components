@@ -1,18 +1,16 @@
 {
   "name": "@exmg/exmg-tooltip",
-  "version": "8.1.8",
+  "version": "8.1.30",
   "dependencies": {
+    "@exmg/exmg-base": "^8.1.17",
     "@material/mwc-base": "=0.25.3",
     "lit": "^2.0.0",
     "tslib": "^2.0.1"
   },
   "files": [
-    "styles/**/*.scss",
-    "styles/**/*.js",
-    "exmg-*.js",
-    "exmg-*.d.ts",
-    "index.js",
-    "index.d.ts"
+    "**/*.scss",
+    "**/*.js",
+    "**/*.d.ts"
   ],
   "keywords": [
     "web-components",
@@ -20,14 +18,15 @@
     "tooltip"
   ],
   "main": "exmg-tooltip.js",
+  "homepage": "https://github.com/exmg/exmachina-web-components",
   "repository": {
     "type": "git",
-    "url": "git@github.com:ExmgElements/exmg-tooltip.git",
+    "url": "git@github.com:exmg/exmg-web-components.git",
     "directory": "packages/exmg-tooltip"
   },
   "license": "MIT",
   "devDependencies": {
-    "@exmg/exmg-cli": "^8.1.5"
+    "@exmg/exmg-cli": "^8.1.17"
   },
   "scripts": {
     "build:styles": "exmg-cli -s \"./**/*.scss\""
