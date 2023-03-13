@@ -10,7 +10,7 @@ orbs:
 jobs:
   test:
     docker:
-      - image: circleci/node:12.22.7
+      - image: circleci/node:19.3.0
     # resource_class: medium+
     working_directory: ~/repo
     steps:
@@ -42,7 +42,7 @@ jobs:
       - checkout
       - add_ssh_keys:
           fingerprints:
-            - '07:5f:2e:56:ae:bf:13:d0:e7:c7:04:0d:15:2e:56:68'
+            - "07:5f:2e:56:ae:bf:13:d0:e7:c7:04:0d:15:2e:56:68"
       - restore_cache:
           keys:
             - v2-dependencies-{{ checksum "package.json" }}
