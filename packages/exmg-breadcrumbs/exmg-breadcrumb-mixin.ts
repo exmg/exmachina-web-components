@@ -1,6 +1,5 @@
-import {Constructor} from '@exmg/exmg-base/mixins/types.js';
 import {ExmgBreadcrumbs} from './exmg-breadcrumbs.js';
-import {observer, ExmgElement} from '@exmg/lit-base/index.js';
+import {observer, ExmgElement, Constructor} from '@exmg/lit-base/index.js';
 import {BreadcrumbItem} from './types.js';
 import {property} from 'lit/decorators.js';
 

@@ -6,11 +6,5 @@
     "rootDir": ".",
     "tsBuildInfoFile": ".tsbuildinfo"
   },
-  "include": [
-    "*.ts",
-  ],
-  "references": [
-    {"path": "../exmg-base"}
-  ]
- }
- 
+  "include": ["*.ts"]
+}

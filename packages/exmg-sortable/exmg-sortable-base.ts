@@ -1,7 +1,7 @@
 import {html, PropertyValues} from 'lit';
 import {ExmgElement} from '@exmg/lit-base/index.js';
 import {property} from 'lit/decorators.js';
-import {addListener, removeListener} from '@exmg/exmg-base/utils/gestures.js';
+import {gestures} from '@exmg/lit-base/index.js';
 
 /**
  * Orientation map to limit dragging to horizontal or vertical.
@@ -59,19 +59,23 @@ export class SortableElementBase extends ExmgElement {
 
   connectedCallback() {
     super.connectedCallback();
-    addListener(this.getSortableHost(), 'track', this.handleTrack);
+    gestures.addListener(this.getSortableHost(), 'track', this.handleTrack);
   }
 
   disconnectedCallback() {
-    removeListener(this.getSortableHost(), 'track', this.handleTrack);
+    gestures.removeListener(this.getSortableHost(), 'track', this.handleTrack);
     super.disconnectedCallback();
   }
 
   protected updated(changedProperties: PropertyValues) {
     if (changedProperties.has('sortableHostNode')) {
       // reset listeners when sortableHostNode changed
-      removeListener((changedProperties.get('sortableHostNode') as HTMLElement) || this, 'track', this.handleTrack);
-      addListener(this.getSortableHost(), 'track', this.handleTrack);
+      gestures.removeListener(
+        (changedProperties.get('sortableHostNode') as HTMLElement) || this,
+        'track',
+        this.handleTrack,
+      );
+      gestures.addListener(this.getSortableHost(), 'track', this.handleTrack);
 
       if (this.sortableHostNode) {
         // sortable host must have position relative

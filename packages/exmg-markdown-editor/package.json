@@ -28,7 +28,7 @@
     "**/*.d.ts"
   ],
   "dependencies": {
-    "@exmg/lit-base": "^1.1.5",
+    "@exmg/lit-base": "^1.1.6",
     "@material/mwc-base": "=0.25.3",
     "@material/mwc-icon": "^0.25.3",
     "@polymer/iron-flex-layout": "^3.0.1",
