@@ -1,6 +1,6 @@
 import {html} from 'lit';
 import {customElement, property, query} from 'lit/decorators.js';
-import {ExmgElement} from '@exmg/exmg-base/exmg-element.js';
+import {ExmgElement} from '@exmg/lit-base/index.js';
 import '@material/mwc-menu';
 import '@material/mwc-list/mwc-list-item';
 import '@material/mwc-icon-button';

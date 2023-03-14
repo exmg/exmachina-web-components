@@ -1,7 +1,6 @@
 import {html, LitElement} from 'lit';
-import {ExmgElement} from '@exmg/exmg-base/exmg-element.js';
+import {ExmgElement, observer} from '@exmg/lit-base/index.js';
 import {property} from 'lit/decorators.js';
-import {observer} from '@exmg/exmg-base/observer/observer.js';
 import '@polymer/paper-listbox';
 import '@polymer/paper-item/paper-item';
 import '@exmg/exmg-tooltip/exmg-tooltip.js';

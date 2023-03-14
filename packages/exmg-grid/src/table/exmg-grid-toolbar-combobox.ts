@@ -1,5 +1,5 @@
 import {html, css} from 'lit';
-import {ExmgElement} from '@exmg/exmg-base/exmg-element.js';
+import {ExmgElement} from '@exmg/lit-base/index.js';
 import {customElement, property, query, state} from 'lit/decorators.js';
 import {classMap} from 'lit/directives/class-map.js';
 import {ifDefined} from 'lit/directives/if-defined.js';

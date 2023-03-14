@@ -24,13 +24,13 @@
   "license": "MIT",
   "dependencies": {
     "@exmg/exmg-base": "^8.1.17",
+    "@exmg/lit-base": "^1.1.5",
     "@exmg/exmg-button": "^8.1.31",
     "@polymer/iron-form": "^3.0.1",
     "lit": "^2.0.0",
     "tslib": "^2.0.1"
   },
   "devDependencies": {
-    "@exmg/exmg-cli": "^4.1.0",
     "@exmg/exmg-markdown-editor": "^8.1.30",
     "@exmg/exmg-paper-combobox": "^8.0.1",
     "@exmg/exmg-paper-token-input": "^8.0.0",

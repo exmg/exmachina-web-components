@@ -1,5 +1,5 @@
 import {css, html} from 'lit';
-import {ExmgElement} from '@exmg/exmg-base/exmg-element.js';
+import {ExmgElement} from '@exmg/lit-base/index.js';
 import {customElement, property} from 'lit/decorators.js';
 import {ifDefined} from 'lit/directives/if-defined.js';
 import {repeat} from 'lit/directives/repeat.js';

@@ -1,7 +1,6 @@
 import {html} from 'lit';
 import {property, state} from 'lit/decorators.js';
-import {observer} from '@exmg/exmg-base/observer/observer.js';
-import {ExmgElement} from '@exmg/exmg-base/exmg-element.js';
+import {observer, ExmgElement} from '@exmg/lit-base/index.js';
 
 /**
  * Helper function to toggle element

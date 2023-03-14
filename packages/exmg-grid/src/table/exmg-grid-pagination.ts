@@ -1,6 +1,6 @@
 import {html} from 'lit';
 import {customElement, property} from 'lit/decorators.js';
-import {ExmgElement} from '@exmg/exmg-base/exmg-element.js';
+import {ExmgElement} from '@exmg/lit-base/index.js';
 import {repeat} from 'lit/directives/repeat.js';
 import '@material/mwc-icon-button';
 import '@polymer/paper-item/paper-item.js';

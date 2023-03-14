@@ -1,8 +1,7 @@
 import {html} from 'lit';
 import {property, query, state} from 'lit/decorators.js';
-import {ExmgElement} from '@exmg/exmg-base/exmg-element.js';
 import {classMap} from 'lit/directives/class-map.js';
-import {observer} from '@exmg/exmg-base/observer/observer.js';
+import {observer, ExmgElement} from '@exmg/lit-base/index.js';
 import {Debouncer} from '@exmg/exmg-base/utils/debounce/debounce.js';
 import {timeOut} from '@exmg/exmg-base/utils/debounce/async.js';
 import '@polymer/iron-form/iron-form.js';

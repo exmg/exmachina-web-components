@@ -1,5 +1,5 @@
 import {html, PropertyValues} from 'lit';
-import {ExmgElement} from '@exmg/exmg-base/exmg-element.js';
+import {ExmgElement} from '@exmg/lit-base/index.js';
 import {property} from 'lit/decorators.js';
 import {addListener, removeListener} from '@exmg/exmg-base/utils/gestures.js';
 
