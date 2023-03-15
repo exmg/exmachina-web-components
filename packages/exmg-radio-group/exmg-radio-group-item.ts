@@ -1,5 +1,5 @@
 import {FormElement} from '@material/mwc-base/form-element.js';
-import {observer} from '@exmg/exmg-base/observer/observer.js';
+import {observer} from '@exmg/lit-base/index.js';
 import {html} from 'lit';
 import {query} from 'lit/decorators/query.js';
 import {property} from 'lit/decorators/property.js';

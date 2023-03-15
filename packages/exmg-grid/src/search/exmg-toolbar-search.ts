@@ -1,10 +1,9 @@
 import {html, css} from 'lit';
 import {property, customElement, query, state} from 'lit/decorators.js';
-import {ExmgElement} from '@exmg/exmg-base/exmg-element.js';
+import {ExmgElement} from '@exmg/lit-base/index.js';
 import {classMap} from 'lit/directives/class-map.js';
 import '@polymer/paper-icon-button/paper-icon-button.js';
-import {Debouncer} from '@exmg/exmg-base/utils/debounce/debounce.js';
-import {timeOut} from '@exmg/exmg-base/utils/debounce/async.js';
+import {async, debounce} from '@exmg/lit-base/index.js';
 
 export const searchIcon = html`
   <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24">
@@ -69,7 +68,6 @@ export class ToolbarSearch extends ExmgElement {
         margin: 14px 12px;
       }
       span.interactive-content {
-
         white-space: nowrap;
         overflow: hidden;
         color: rgba(0, 0, 0, 0.38);
@@ -85,7 +83,7 @@ export class ToolbarSearch extends ExmgElement {
         @apply --layout-flex;
       }
       .search {
-        display: absolute:
+        display: absolut;
         background: none;
         outline-color: rgb(77, 144, 254);
         outline-offset: -2px;
@@ -167,7 +165,7 @@ export class ToolbarSearch extends ExmgElement {
   }
 
   _notifyChange() {
-    this._debouncer = Debouncer.debounce(this._debouncer, timeOut.after(200), () => {
+    this._debouncer = debounce.Debouncer.debounce(this._debouncer, async.timeOut.after(200), () => {
       this.dispatchEvent(
         new CustomEvent('exmg-grid-toolbar-search-changed', {
           bubbles: false,

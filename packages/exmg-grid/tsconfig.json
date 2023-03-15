@@ -7,13 +7,6 @@
     "outDir": ".",
     "tsBuildInfoFile": ".tsbuildinfo"
   },
-  "include": [
-    "**/*.ts",
-    "src/styles/*.ts"
-  ],
-  "references": [
-    {"path": "../exmg-base"},
-    {"path": "../exmg-sortable"}
-  ]
- }
-
+  "include": ["**/*.ts", "src/styles/*.ts"],
+  "references": [{"path": "../exmg-sortable"}]
+}

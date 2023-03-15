@@ -1,9 +1,8 @@
 import {html, TemplateResult} from 'lit';
-import {ExmgElement} from '@exmg/exmg-base/exmg-element.js';
+import {ExmgElement, observer} from '@exmg/lit-base/index.js';
 import {customElement, query, property, state} from 'lit/decorators.js';
 import {repeat} from 'lit/directives/repeat.js';
 import {classMap} from 'lit/directives/class-map.js';
-import {observer} from '@exmg/exmg-base/observer/observer.js';
 
 import '@polymer/iron-flex-layout/iron-flex-layout.js';
 import '@polymer/iron-icon/iron-icon.js';

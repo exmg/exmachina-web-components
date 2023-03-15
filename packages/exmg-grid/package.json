@@ -28,6 +28,7 @@
   },
   "dependencies": {
     "@exmg/exmg-base": "^8.1.17",
+    "@exmg/lit-base": "^1.1.7",
     "@exmg/exmg-sortable": "^8.1.31",
     "@material/mwc-base": "^0.25.2",
     "@material/mwc-button": "^0.25.2",

@@ -1,6 +1,6 @@
 import {html, css} from 'lit';
 import {customElement, query} from 'lit/decorators.js';
-import {ExmgElement} from '@exmg/exmg-base/exmg-element.js';
+import {ExmgElement} from '@exmg/lit-base/index.js';
 import {BreadcrumbsMixin} from '@exmg/exmg-breadcrumbs/exmg-breadcrumb-mixin.js';
 import '@exmg/exmg-breadcrumbs/exmg-breadcrumbs.js';
 import {ExmgBreadcrumbs} from '@exmg/exmg-breadcrumbs/exmg-breadcrumbs.js';

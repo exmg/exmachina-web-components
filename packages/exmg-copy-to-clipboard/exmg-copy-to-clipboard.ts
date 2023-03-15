@@ -1,6 +1,6 @@
 import {html} from 'lit';
 import {customElement, state, property, query} from 'lit/decorators.js';
-import {ExmgElement} from '@exmg/exmg-base/exmg-element.js';
+import {ExmgElement} from '@exmg/lit-base/index.js';
 import {style} from './styles/exmg-copy-to-clipboard-styles-css.js';
 
 /**

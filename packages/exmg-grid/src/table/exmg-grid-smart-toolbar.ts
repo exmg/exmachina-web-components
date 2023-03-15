@@ -1,6 +1,6 @@
 import {html, css} from 'lit';
 import {customElement, property} from 'lit/decorators.js';
-import {ExmgElement} from '@exmg/exmg-base/exmg-element.js';
+import {ExmgElement} from '@exmg/lit-base/index.js';
 import './exmg-grid-toolbar.js';
 import {
   Filter,

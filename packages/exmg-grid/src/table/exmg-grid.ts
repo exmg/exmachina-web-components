@@ -1,5 +1,5 @@
 import {html} from 'lit';
-import {ExmgElement} from '@exmg/exmg-base/exmg-element.js';
+import {ExmgElement} from '@exmg/lit-base/index.js';
 import {property, customElement, state} from 'lit/decorators.js';
 import {cache} from 'lit/directives/cache.js';
 import '@exmg/exmg-sortable/exmg-sortable.js';

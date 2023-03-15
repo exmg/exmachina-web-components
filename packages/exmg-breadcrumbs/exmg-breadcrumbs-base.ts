@@ -4,7 +4,7 @@ import {repeat} from 'lit/directives/repeat.js';
 import {classMap} from 'lit/directives/class-map.js';
 
 import {BreadcrumbItem} from './types.js';
-import {ExmgElement} from '@exmg/exmg-base/exmg-element';
+import {ExmgElement} from '@exmg/lit-base/index.js';
 
 export const arrowSeparator = html`
   <svg height="24" viewBox="0 0 24 24" width="24" preserveAspectRatio="xMidYMid meet">

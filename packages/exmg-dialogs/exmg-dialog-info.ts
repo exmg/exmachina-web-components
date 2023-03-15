@@ -3,7 +3,7 @@ import {property} from 'lit/decorators/property.js';
 import {ifDefined} from 'lit/directives/if-defined.js';
 import {customElement} from 'lit/decorators/custom-element.js';
 import {query} from 'lit/decorators/query.js';
-import {ExmgElement} from '@exmg/exmg-base/exmg-element.js';
+import {ExmgElement} from '@exmg/lit-base/index.js';
 import '@polymer/paper-dialog';
 import '@polymer/paper-dialog-scrollable';
 import '@exmg/exmg-button/exmg-button';

@@ -1,9 +1,8 @@
 import {html} from 'lit';
-import {ExmgElement} from '@exmg/exmg-base/exmg-element.js';
 import {classMap} from 'lit/directives/class-map.js';
 import {property} from 'lit/decorators/property.js';
 import {customElement} from 'lit/decorators/custom-element.js';
-import {observer} from '@exmg/exmg-base/observer/observer.js';
+import {observer, ExmgElement} from '@exmg/lit-base/index.js';
 import {style as exmgRadioGroupStyles} from './styles/exmg-radio-group-styles-css.js';
 import {ExmgRadioGroupItem} from './exmg-radio-group-item.js';
 

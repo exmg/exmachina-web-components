@@ -6,15 +6,6 @@
     "outDir": ".",
     "tsBuildInfoFile": ".tsbuildinfo"
   },
-  "include": [
-    "*.ts",
-    "styles/*.ts"
-  ],
-  "references": [
-    {"path": "../exmg-base"},
-    {"path": "../exmg-form"},
-    {"path": "../exmg-button"}
-  ]
- }
- 
- 
+  "include": ["*.ts", "styles/*.ts"],
+  "references": [{"path": "../exmg-form"}, {"path": "../exmg-button"}]
+}

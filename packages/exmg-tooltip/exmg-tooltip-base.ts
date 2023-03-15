@@ -2,8 +2,7 @@ import {html} from 'lit';
 import {property} from 'lit/decorators/property.js';
 import {state} from 'lit/decorators.js';
 import {query} from 'lit/decorators/query.js';
-import {ExmgElement} from '@exmg/exmg-base/exmg-element.js';
-import {observer} from '@exmg/exmg-base/observer/observer.js';
+import {ExmgElement, observer} from '@exmg/lit-base/index.js';
 
 export class ExmgTooltipBase extends ExmgElement {
   /**

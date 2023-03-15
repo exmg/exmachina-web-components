@@ -1,10 +1,7 @@
 import {html} from 'lit';
 import {property, query, state} from 'lit/decorators.js';
-import {ExmgElement} from '@exmg/exmg-base/exmg-element.js';
 import {classMap} from 'lit/directives/class-map.js';
-import {observer} from '@exmg/exmg-base/observer/observer.js';
-import {Debouncer} from '@exmg/exmg-base/utils/debounce/debounce.js';
-import {timeOut} from '@exmg/exmg-base/utils/debounce/async.js';
+import {observer, ExmgElement, debounce, async} from '@exmg/lit-base/index.js';
 import '@polymer/iron-form/iron-form.js';
 import '@exmg/exmg-button/exmg-button.js';
 import {IronFormElement} from '@polymer/iron-form/iron-form.js';
@@ -262,7 +259,7 @@ export class ExmgFormBase extends ExmgElement {
   }
 
   private checkDirty() {
-    this._debouncer = Debouncer.debounce(this._debouncer, timeOut.after(200), () => {
+    this._debouncer = debounce.Debouncer.debounce(this._debouncer, async.timeOut.after(200), () => {
       let dirty = false;
       // Select all slot nodes and filter out the input based on a existing name property on the node
       const nodes = Array.from(this.querySelectorAll<any>('*') || []).filter((n) => !!n.name && !n.disabled);
