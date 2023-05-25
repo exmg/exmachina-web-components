@@ -95,6 +95,9 @@
       "path": "packages/exmg-snackbar"
     },
     {
+      "path": "packages/exmg-upload"
+    },
+    {
       "path": "demo"
     }
   ],

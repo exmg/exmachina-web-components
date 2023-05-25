@@ -1,0 +1,25 @@
+export interface FileData {
+  id: string;
+  url?: string;
+  file: File;
+  invalid: boolean;
+  error: string;
+  status: FileUploadState;
+  progress?: number;
+}
+
+export type FileUploadState = 'UPLOADING' | 'UPLOADED' | 'INVALID';
+
+export enum FileUploadError {
+  INVALID_SIZE = 'File size to large',
+  INVALID_TYPE = 'Invalid file type',
+  INVALID_AMOUNT = 'Max amount of files exceeded',
+  INVALID_MULTIPLE = 'Multiple files not allowed',
+  SERVER_ERROR = 'Server error occured',
+}
+
+export interface FileUploadConfig {
+  adminSession: string;
+  uploadUrl: string;
+  formUpload?: boolean;
+}

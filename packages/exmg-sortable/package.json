@@ -16,12 +16,12 @@
     "**/*.d.ts"
   ],
   "dependencies": {
-    "@exmg/lit-base": "^1.1.7",
+    "@exmg/lit-base": "^1.1.8",
     "lit": "^2.0.0",
     "tslib": "^2.0.1"
   },
   "devDependencies": {
-    "@exmg/exmg-cli": "^8.1.17"
+    "@exmg/lit-cli": "1.1.9"
   },
   "homepage": "https://github.com/exmg/exmachina-web-components",
   "main": "exmg-sortable.js",
@@ -32,7 +32,7 @@
   },
   "license": "MIT",
   "scripts": {
-    "build:styles": "exmg-cli -s \"./**/*.scss\""
+    "build:styles": "exmg-lit-cli sass -f \"./**/*.scss\""
   },
   "publishConfig": {
     "access": "public"

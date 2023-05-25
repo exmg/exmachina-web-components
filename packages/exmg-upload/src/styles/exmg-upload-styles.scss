@@ -1,0 +1,143 @@
+:host {
+  display: flex;
+  color: var(--exmg-upload-text-color, #000);
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 8px 0 8px 0;
+}
+
+.image-upload-wrapper {
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+}
+
+#preview {
+  max-width: 80px;
+  max-height: 80px;
+}
+
+.preview-wrapper {
+  margin: 1rem;
+}
+
+.info-wrapper {
+  display: flex;
+  margin-left: 1.5rem;
+  flex-direction: column;
+  padding: 1rem;
+  gap: 12px;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.description {
+  color: #a7a7a7;
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+}
+
+.browse {
+  width: 50%;
+}
+
+exmg-button {
+  display: flex;
+  align-items: center;
+}
+
+.click-label {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+img {
+  z-index: 99999;
+  display: block;
+
+  /* This rule is very important, please don't ignore this */
+  max-width: 100%;
+}
+
+.image-container {
+  width: 200px;
+  height: 200px;
+}
+
+.error-message {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  background-color: #dedede;
+  width: 450px;
+  padding: 8px;
+  color: hsl(0, 87%, 56%);
+  border-radius: 4px;
+  margin-bottom: 1rem;
+  box-sizing: border-box;
+}
+
+.item {
+  width: 100%;
+}
+
+.item-container {
+  width: 100%;
+}
+
+.item:first-child {
+  margin-top: 1rem;
+}
+
+.item:last-child {
+  border-bottom: none;
+}
+
+.actions {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+  align-items: center;
+  .icon-buttons {
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
+  }
+}
+
+.disabled {
+  opacity: 0.5;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+}
+
+mwc-icon-button {
+  color: #0071dc;
+  --mdc-icon-size: 20px;
+  --mdc-icon-button-size: 28px;
+}
+
+exmg-upload-drop-area a {
+  color: #0071dc;
+  text-decoration: none;
+}
+
+exmg-upload-drop-area svg {
+  fill: #0071dc;
+}

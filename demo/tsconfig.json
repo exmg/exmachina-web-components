@@ -6,12 +6,6 @@
     "outDir": ".",
     "tsBuildInfoFile": ".tsbuildinfo"
   },
-  "include": [
-    "src/*.ts",
-    "src/styles/*.ts",
-    "demos/**/*.ts"
-  ],
-  "references": [
-    {"path": "../packages/exmg-form"}
-  ]
+  "include": ["src/*.ts", "src/styles/*.ts", "demos/**/*.ts"],
+  "references": [{"path": "../packages/exmg-form"}]
 }

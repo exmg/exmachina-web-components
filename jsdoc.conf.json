@@ -21,7 +21,8 @@
       "packages/exmg-sidemenu",
       "packages/exmg-snackbar",
       "packages/exmg-sortable",
-      "packages/exmg-tooltip"
+      "packages/exmg-tooltip",
+      "packages/exmg-upload"
     ]
   },
   "sourceType": "module",

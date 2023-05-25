@@ -27,8 +27,7 @@
     "directory": "packages/exmg-grid"
   },
   "dependencies": {
-    "@exmg/exmg-base": "^8.1.17",
-    "@exmg/lit-base": "^1.1.7",
+    "@exmg/lit-base": "^1.1.8",
     "@exmg/exmg-sortable": "^8.1.31",
     "@material/mwc-base": "^0.25.2",
     "@material/mwc-button": "^0.25.2",
@@ -53,11 +52,11 @@
     "tslib": "^2.0.1"
   },
   "devDependencies": {
-    "@exmg/exmg-cli": "^8.1.17"
+    "@exmg/lit-cli": "1.1.9"
   },
   "license": "MIT",
   "scripts": {
-    "build:styles": "exmg-cli -s \"./**/*.scss\""
+    "build:styles": "exmg-lit-cli sass -f \"./**/*.scss\""
   },
   "publishConfig": {
     "access": "public"

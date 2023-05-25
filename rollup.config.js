@@ -23,6 +23,7 @@ const elements = [
   'exmg-snackbar',
   'exmg-breadcrumbs',
   'exmg-markdown-editor',
+  'exmg-upload',
 ];
 
 const elementsConfigs = elements.map((element) => {

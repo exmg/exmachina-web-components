@@ -2,7 +2,7 @@
   "name": "@exmg/exmg-button",
   "version": "8.1.31",
   "dependencies": {
-    "@exmg/lit-base": "^1.1.7",
+    "@exmg/lit-base": "^1.1.8",
     "@material/mwc-base": "=0.25.3",
     "@material/mwc-button": "=0.25.3",
     "@material/mwc-ripple": "=0.25.3",
@@ -11,7 +11,7 @@
     "tslib": "^2.0.1"
   },
   "devDependencies": {
-    "@exmg/exmg-cli": "^8.1.17"
+    "@exmg/lit-cli": "1.1.9"
   },
   "keywords": [
     "web-components",
@@ -32,7 +32,7 @@
   },
   "license": "MIT",
   "scripts": {
-    "build:styles": "exmg-cli -s \"./**/*.scss\""
+    "build:styles": "exmg-lit-cli sass -f \"./**/*.scss\""
   },
   "publishConfig": {
     "access": "public"
