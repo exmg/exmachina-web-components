@@ -19,7 +19,16 @@ export enum FileUploadError {
 }
 
 export interface FileUploadConfig {
-  adminSession: string;
   uploadUrl: string;
   formUpload?: boolean;
+}
+
+declare global {
+  interface Window {
+    uploadDefaults: {
+      customAdapterPath?: string;
+      uploadUrl?: string;
+      headers?: {[key: string]: string};
+    };
+  }
 }

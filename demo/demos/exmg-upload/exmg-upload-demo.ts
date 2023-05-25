@@ -1,15 +1,16 @@
 import {LitElement, html, css} from 'lit';
-import {customElement, query} from 'lit/decorators.js';
+import {customElement} from 'lit/decorators.js';
 
-import './file-upload-dialog.js';
-import {FileUploadDialog} from './file-upload-dialog.js';
 import './file-upload-section.js';
+
+window.uploadDefaults = {
+  headers: {
+    'Allow-Access-Control-Origin': '*',
+  },
+};
 
 @customElement('exmg-upload-demo')
 export class ExmgUploadDemo extends LitElement {
-  @query('file-upload-dialog')
-  fileUploadDialog?: FileUploadDialog;
-
   static styles = [
     css`
       :host {
@@ -19,7 +20,7 @@ export class ExmgUploadDemo extends LitElement {
   ];
 
   render() {
-    return html` <button unelevated @click=${() => this.fileUploadDialog?.open()}>Open Dialog</button>
+    return html`<h2>Configurable Example</h2>
       <file-upload-dialog></file-upload-dialog><file-upload-section></file-upload-section>`;
   }
 }

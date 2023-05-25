@@ -57,7 +57,7 @@ export class ExmgUploadBase extends ExmgElement {
    * Admin User session will be set on request header for authentication
    */
   @property({type: String})
-  adminSession?: string;
+  customAdapterPath?: string;
 
   /**
    * Optional property. If not set it will look for the window.emconfig.backendHost
@@ -75,7 +75,7 @@ export class ExmgUploadBase extends ExmgElement {
    * The upload response type
    */
   @property({type: String})
-  serverType: 'xhr' | 'xhr-json' | 'local' = 'xhr';
+  serverType: 'xhr' | 'custom' | 'local' = 'xhr';
 
   /**
    * The CropperJS config see: https://github.com/fengyuanchen/cropperjs#options
@@ -178,6 +178,7 @@ export class ExmgUploadBase extends ExmgElement {
     if (this.disabled) {
       return;
     }
+
     const addedFiles = this._getFiles(event);
 
     this.prepareFiles(addedFiles);
@@ -298,9 +299,9 @@ export class ExmgUploadBase extends ExmgElement {
           @edit-image=${this._handleCropping}
           @remove-item=${this._handleRemove}
           uploadUrl=${ifDefined(this.uploadUrl)}
+          customAdapterPath=${ifDefined(this.customAdapterPath)}
           serverType=${this.serverType}
           responseType=${this.responseType}
-          adminSession=${ifDefined(this.adminSession)}
           .item=${item}
         ></exmg-upload-item>`,
     );

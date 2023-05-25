@@ -8,7 +8,7 @@ export {ExmgUploadDropAreaBase} from './src/exmg-upload-drop-area-base.js';
 export {ExmgUploadItem} from './src/exmg-upload-item.js';
 export {ExmgUploadItemBase} from './src/exmg-upload-item-base.js';
 
-export {UploadService, XHRUploadAdapter, LocalStorageUploadAdapter} from './src/upload/index.js';
+export {UploadService} from './src/upload/index.js';
 export {FileData, FileUploadConfig} from './src/types.js';
 
 export {style as exmgUploadStyles} from './src/styles/exmg-upload-styles-css.js';

@@ -15,7 +15,6 @@ export class FileUploadSection extends LitElement {
   @property({type: Boolean}) multiple = true;
   @property({type: Number}) maxAmount?: number;
   @property({type: Boolean}) disabled = false;
-  @property({type: String}) adminSession?: string;
   @property({type: String}) uploadUrl = 'http://localhost:3000/upload';
   @property({type: String}) serverType = 'local';
   @property({type: Boolean}) hideImageUpload = false;
@@ -25,6 +24,11 @@ export class FileUploadSection extends LitElement {
     css`
       :host {
         display: block;
+      }
+
+      hr,
+      exmg-upload {
+        margin-bottom: 48px;
       }
     `,
   ];
@@ -42,14 +46,13 @@ export class FileUploadSection extends LitElement {
         maxAmount=${ifDefined(this.maxAmount)}
         ?disabled=${this.disabled}
         ?multiple=${this.multiple}
-        adminSession=${ifDefined(this.adminSession)}
         uploadUrl=${ifDefined(this.uploadUrl)}
         serverType=${this.serverType}
         .cropperConfig=${this.cropperConfig}
       >
       </exmg-upload>
-      <br />
-      <br />
+
+      <hr />
       <file-upload-form
         accept=${ifDefined(this.accept)}
         maxSize=${this.maxSize}

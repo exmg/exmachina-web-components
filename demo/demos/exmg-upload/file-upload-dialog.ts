@@ -57,6 +57,7 @@ export class FileUploadDialog extends LitElement {
   }
 
   _save(e: CustomEvent<{urls: string[]}>) {
+    // Implement call to save url(s)
     console.log('save', e.detail);
     this.dialog?.close();
   }
@@ -75,6 +76,7 @@ export class FileUploadDialog extends LitElement {
           maxSize="1mb"
           maxAmount="2"
           multiple
+          serverType="local"
           uploadUrl=${ifDefined(this.uploadUrl)}
           .cropperConfig=${this.cropperConfig}
         >

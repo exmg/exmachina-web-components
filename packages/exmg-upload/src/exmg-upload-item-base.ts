@@ -10,28 +10,25 @@ import {checkIcon, closeIcon, editIcon, errorIcon} from './exmg-upload-icons';
 
 export class ExmgUploadItemBase extends ExmgElement {
   /**
-   * Admin User session will be set on request header for authentication
-   */
-  @property({type: String})
-  adminSession?: string;
-
-  /**
    * Optional property. If not set it will look for the window.emconfig.backendHost
    */
   @property({type: String})
   uploadUrl?: string;
 
-  /**
-   * The upload response type
-   */
   @property({type: String})
-  serverType: 'xhr' | 'xhr-json' | 'local' = 'xhr';
+  customAdapterPath?: string;
 
   /**
    * The upload response type
    */
   @property({type: String})
-  responseType: '' | 'json' | 'text' | 'blob' | 'arraybuffer' = 'json';
+  serverType: 'xhr' | 'local' | 'custom' = 'xhr';
+
+  /**
+   * The upload response type
+   */
+  @property({type: String})
+  responseType?: '' | 'json' | 'text' | 'blob' | 'arraybuffer';
 
   @property({type: Object})
   uploadService?: UploadService;
@@ -39,17 +36,14 @@ export class ExmgUploadItemBase extends ExmgElement {
   @property({type: Object})
   item?: FileData;
 
-  firstUpdated() {
+  async firstUpdated() {
     // @ts-ignore
-    const uploadUrl = this.uploadUrl || window.emconfig.backendHost + '/upload';
-    // @ts-ignore
-    const adminSession: string = this.adminSession || window.emconfig ? window.emconfig.adminSession : undefined;
-    const headers: {[key: string]: string} = adminSession
-      ? {'x-adminSession': adminSession, 'Allow-Access-Control-Origin': '*'}
-      : {adminSession, 'Allow-Access-Control-Origin': '*'};
+    const uploadUrl = this.uploadUrl;
+    const headers = window.uploadDefaults.headers;
 
-    this.uploadService = new UploadService(this.serverType!, {
-      uploadUrl,
+    this.uploadService = await UploadService.create(this.serverType!, {
+      customAdapterPath: this.customAdapterPath || window.uploadDefaults.customAdapterPath,
+      uploadUrl: uploadUrl || window.uploadDefaults.uploadUrl,
       headers,
       responseType: this.responseType,
     });

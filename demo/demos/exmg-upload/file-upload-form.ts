@@ -56,7 +56,7 @@ export class FileUploadForm extends ExmgElement {
     return html`
       <div>
         <fieldset>
-          <legend>Select server type</legend>
+          <legend>Select adapter type</legend>
           <div>
             <input
               type="radio"
@@ -77,7 +77,7 @@ export class FileUploadForm extends ExmgElement {
               ?checked=${this.serverType === 'local'}
               @change=${this._handleRadio}
             />
-            <label for="local">local</label>
+            <label for="local">Local Storage</label>
           </div>
         </fieldset>
         <br />

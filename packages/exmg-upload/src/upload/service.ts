@@ -1,25 +1,23 @@
 import {UploadAdapter, UploadConfig} from './types';
-import {LocalStorageUploadAdapter} from './adapters/local-adapter.js';
-import {XHRUploadAdapter} from './adapters/xhr-adapter.js';
-import {XHRJSONUploadAdapter} from './adapters/xhr-json-adapter.js';
+
+async function instantiateClass(path?: string, config?: UploadConfig): Promise<UploadAdapter> {
+  if (!path) {
+    throw new Error(`Class UploadAdapter path not set.`);
+  }
+  const {UploadAdapter} = await import(path);
+
+  if (typeof UploadAdapter === 'function') {
+    return new UploadAdapter(config);
+  } else {
+    throw new Error(`Class UploadAdapter not found.`);
+  }
+}
 
 class UploadService {
   private adapter: UploadAdapter;
 
-  constructor(destination: 'xhr' | 'xhr-json' | 'local', config?: UploadConfig) {
-    switch (destination) {
-      case 'local':
-        this.adapter = new LocalStorageUploadAdapter();
-        break;
-      case 'xhr':
-        this.adapter = new XHRUploadAdapter(config!);
-        break;
-      case 'xhr-json':
-        this.adapter = new XHRJSONUploadAdapter(config!);
-        break;
-      default:
-        throw new Error(`Unknown upload destination: ${destination}`);
-    }
+  constructor(adapter: UploadAdapter) {
+    this.adapter = adapter;
   }
 
   async upload(file: File, progressCallback: (progress: number) => void): Promise<string> {
@@ -28,6 +26,25 @@ class UploadService {
 
   abort() {
     this.adapter.abort && this.adapter.abort();
+  }
+
+  static async create(destination: 'xhr' | 'local' | 'custom', config?: UploadConfig): Promise<UploadService> {
+    let adapter: UploadAdapter;
+    switch (destination) {
+      case 'local':
+        adapter = await instantiateClass('./adapters/local-adapter.js', config);
+        break;
+      case 'xhr':
+        adapter = await instantiateClass('./adapters/xhr-adapter.js', config);
+        break;
+      case 'custom':
+        adapter = await instantiateClass(config?.customAdapterPath, config);
+        break;
+      default:
+        throw new Error(`Unknown upload destination: ${destination}`);
+    }
+
+    return new UploadService(adapter);
   }
 }
 

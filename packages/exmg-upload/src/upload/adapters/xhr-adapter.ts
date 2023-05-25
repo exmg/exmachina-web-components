@@ -1,4 +1,4 @@
-import { UploadAdapter, UploadConfig } from '../types';
+import {UploadAdapter, UploadConfig} from '../types';
 
 class XHRUploadAdapter implements UploadAdapter {
   config: UploadConfig;
@@ -21,7 +21,7 @@ class XHRUploadAdapter implements UploadAdapter {
       }
     };
 
-    const { xhr } = this;
+    const {xhr} = this;
 
     xhr.upload.addEventListener('progress', onProgress);
 
@@ -30,7 +30,7 @@ class XHRUploadAdapter implements UploadAdapter {
     formData.append('file', file);
 
     return new Promise<string>((resolve, reject) => {
-      const { uploadUrl } = this.config;
+      const {uploadUrl} = this.config;
 
       if (!uploadUrl) reject(new Error(`Upload url not found`));
       xhr.open('POST', uploadUrl!, true);
@@ -57,4 +57,4 @@ class XHRUploadAdapter implements UploadAdapter {
   }
 }
 
-export { XHRUploadAdapter };
+export {XHRUploadAdapter as UploadAdapter};
