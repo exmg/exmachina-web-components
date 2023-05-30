@@ -12,7 +12,6 @@ node_modules
 /npm-debug.log
 
 ## files
-!/packages/exmg-cli/*
 /packages/**/*.js
 /packages/**/*.js.map
 /packages/**/*.d.ts

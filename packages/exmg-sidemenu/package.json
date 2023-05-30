@@ -24,7 +24,7 @@
   "license": "MIT",
   "homepage": "https://github.com/exmg/exmachina-web-components",
   "dependencies": {
-    "@exmg/lit-base": "^1.1.7",
+    "@exmg/lit-base": "^1.1.8",
     "@exmg/exmg-tooltip": "^8.1.31",
     "@material/mwc-base": "^0.25.2",
     "@material/theme": "^13.0.0",
@@ -35,11 +35,11 @@
     "tslib": "^2.0.1"
   },
   "devDependencies": {
-    "@exmg/exmg-cli": "^4.1.0",
+    "@exmg/lit-cli": "1.1.9",
     "@polymer/app-layout": "^3.1.0"
   },
   "scripts": {
-    "build:styles": "exmg-cli -s \"./**/*.scss\""
+    "build:styles": "exmg-lit-cli sass -f \"./**/*.scss\""
   },
   "publishConfig": {
     "access": "public"

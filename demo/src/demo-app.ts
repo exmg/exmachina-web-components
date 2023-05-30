@@ -1,11 +1,8 @@
 import {html, LitElement, nothing} from 'lit';
 import {state} from 'lit/decorators.js';
 import {customElement} from 'lit/decorators/custom-element.js';
-import {elements as sourceElements} from './elements.js';
+import {elements} from './elements.js';
 import {style} from './styles/demo-app-css.js';
-
-const ignoreElewments = ['@exmg/exmg-base', '@exmg/exmg-cli'];
-const elements = sourceElements.filter((e) => !ignoreElewments.includes(e.name));
 
 @customElement('demo-app')
 export class DemoApp extends LitElement {
@@ -36,6 +33,7 @@ export class DemoApp extends LitElement {
       this.selectedElement = elements[0];
       const url = new URL(window.location.href);
       url.searchParams.set('el', this.selectedElement.name.substr(6));
+      // @ts-ignore
       window.history.pushState({}, '', url);
     }
   }

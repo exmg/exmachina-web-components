@@ -15,7 +15,7 @@
   "homepage": "https://github.com/exmg/exmachina-web-components",
   "license": "MIT",
   "dependencies": {
-    "@exmg/lit-base": "^1.1.7",
+    "@exmg/lit-base": "^1.1.8",
     "@exmg/exmg-button": "^8.1.31",
     "@material/mwc-icon-button": "=0.25.3",
     "@polymer/iron-form": "^3.0.0",
@@ -25,7 +25,7 @@
     "tslib": "^2.0.1"
   },
   "devDependencies": {
-    "@exmg/exmg-cli": "^2.1.0",
+    "@exmg/lit-cli": "1.1.9",
     "@exmg/exmg-markdown-editor": "^8.1.30",
     "@exmg/exmg-paper-combobox": "^6.0.7",
     "@exmg/exmg-paper-token-input": "^5.1.3",
@@ -33,7 +33,7 @@
     "codemirror": "^5.54.0"
   },
   "scripts": {
-    "build:styles": "exmg-cli -s \"./**/*.scss\""
+    "build:styles": "exmg-lit-cli sass -f \"./**/*.scss\""
   },
   "publishConfig": {
     "access": "public"
