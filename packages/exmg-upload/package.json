@@ -20,7 +20,17 @@
     "lit-element",
     "upload"
   ],
+  "type": "module",
   "main": "index.js",
+  "module": "index.js",
+  "exports": {
+    ".": "./index.js",
+    "./exmg-upload.js": "./src/exmg-upload.js",
+    "./exmg-upload-item.js": "./src/exmg-upload-item.js",
+    "./exmg-upload-drop-area.js": "./src/exmg-upload-drop-area.js",
+    "./exmg-upload-dialog.js": "./src/exmg-upload-dialog.js",
+    "./exmg-upload-crop.js": "./src/exmg-upload-crop.js"
+  },
   "homepage": "https://github.com/exmg/exmachina-web-components",
   "repository": {
     "type": "git",

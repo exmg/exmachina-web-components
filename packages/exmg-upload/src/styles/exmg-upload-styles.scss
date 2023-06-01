@@ -38,7 +38,7 @@
 }
 
 .description {
-  color: #a7a7a7;
+  color: var(--exmg-upload-description-text-color, #a7a7a7);
   font-size: 0.9rem;
   margin-bottom: 1rem;
 }

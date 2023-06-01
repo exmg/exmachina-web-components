@@ -1,3 +1,8 @@
+export const isMimeType = (value: string) => {
+  const mimeTypeRegex = /^[a-zA-Z]+\/[a-zA-Z0-9+\-.]+(\*?)$/;
+  return mimeTypeRegex.test(value);
+};
+
 /**
  * Checks if the type of a file is valid based on the accepted types.
  *
@@ -5,7 +10,7 @@
  * @param accept - A comma-separated list of accepted types.
  * @returns True if the file type is valid, false otherwise.
  */
-export const isTypeValid = (file: File, accept: string) => {
+export const isTypeValidExtension = (file: File, accept: string) => {
   const acceptedTypes = new Set(accept.split(','));
   const fileExtensionRegExp = /\.[^.]+$/;
   const name = file.name;
@@ -60,4 +65,25 @@ export const isImage = (file: File) => {
     return;
   }
   return file.type.startsWith('image');
+};
+
+export const isCorrectResolution = (image: File, resolution: string) => {
+  if (resolution.split('x').length !== 2) {
+    throw new Error('Incorrect fixed resultion format, should be formatted like "600x400"');
+  }
+  const [width, height] = resolution.split('x');
+  const img = new Image();
+  return new Promise((resolve, reject) => {
+    img.onload = () => {
+      const correct = img.naturalWidth === parseInt(width, 10) && img.naturalHeight === parseInt(height, 10);
+      resolve(correct);
+      URL.revokeObjectURL(img.src);
+    };
+    const objectURL = URL.createObjectURL(image);
+    img.src = objectURL;
+    img.onerror = () => {
+      URL.revokeObjectURL(img.src);
+      reject(new Error('Error reading aspect ratio'));
+    };
+  });
 };

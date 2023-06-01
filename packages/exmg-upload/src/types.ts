@@ -8,13 +8,14 @@ export interface FileData {
   progress?: number;
 }
 
-export type FileUploadState = 'UPLOADING' | 'UPLOADED' | 'INVALID';
+export type FileUploadState = 'UPLOADING' | 'UPLOADED' | 'INVALID' | 'WARNING';
 
 export enum FileUploadError {
-  INVALID_SIZE = 'File size to large',
+  INVALID_SIZE = 'File size too large',
   INVALID_TYPE = 'Invalid file type',
   INVALID_AMOUNT = 'Max amount of files exceeded',
   INVALID_MULTIPLE = 'Multiple files not allowed',
+  INVALID_RESOLUTION = 'Image resulution is not valid',
   SERVER_ERROR = 'Server error occured',
 }
 

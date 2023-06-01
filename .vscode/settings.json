@@ -9,6 +9,9 @@
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": true
   },
+  "workbench.colorCustomizations": {
+    "editor.lineHighlightBackground": "#77777733"
+  },
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.formatOnSave": true,
   "[typescript]": {

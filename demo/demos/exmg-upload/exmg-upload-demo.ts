@@ -21,6 +21,6 @@ export class ExmgUploadDemo extends LitElement {
 
   render() {
     return html`<h2>Configurable Example</h2>
-      <file-upload-dialog></file-upload-dialog><file-upload-section></file-upload-section>`;
+      <file-upload-section></file-upload-section>`;
   }
 }

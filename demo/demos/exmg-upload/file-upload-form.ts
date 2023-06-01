@@ -33,14 +33,10 @@ export class FileUploadForm extends ExmgElement {
 
   _handleBlur(e: FocusEvent, name: string) {
     // @ts-ignore
-    console.log(name, e.target.value);
-    // @ts-ignore
     this.fire('property-changed', {name, value: e.target.value});
   }
 
   _handleChange(e, name: string) {
-    // @ts-ignore
-    console.log(name, e.target.checked);
     // @ts-ignore
     this.fire('property-changed', {name, value: e.target.checked});
   }
@@ -48,7 +44,6 @@ export class FileUploadForm extends ExmgElement {
   _handleRadio() {
     // @ts-ignore
     const value = this.shadowRoot?.querySelector('input[name="serverType"]:checked')?.value;
-    console.log('serverType', value);
     this.fire('property-changed', {name: 'serverType', value});
   }
 
