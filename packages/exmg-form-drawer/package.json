@@ -1,6 +1,6 @@
 {
   "name": "@exmg/exmg-form-drawer",
-  "version": "8.1.31",
+  "version": "8.1.32",
   "description": "Form side drawer element",
   "contributors": [
     "Ex Machina"
@@ -23,18 +23,18 @@
   },
   "license": "MIT",
   "dependencies": {
-    "@exmg/exmg-button": "^8.1.31",
-    "@exmg/exmg-form": "^8.1.31",
+    "@exmg/exmg-button": "^8.1.32",
+    "@exmg/exmg-form": "^8.1.32",
     "@polymer/neon-animation": "^3.0.1",
     "@polymer/paper-dialog": "^3.0.1",
     "lit": "^2.0.0",
     "tslib": "^2.0.1"
   },
   "devDependencies": {
-    "@exmg/lit-cli": "1.1.9",
-    "@exmg/exmg-markdown-editor": "^8.1.30",
+    "@exmg/exmg-markdown-editor": "^8.1.31",
     "@exmg/exmg-paper-combobox": "^8.0.1",
     "@exmg/exmg-paper-token-input": "^8.0.0",
+    "@exmg/lit-cli": "1.1.9",
     "@material/mwc-tab": "^0.25.2",
     "@material/mwc-tab-bar": "^0.25.2",
     "@polymer/paper-checkbox": "^3.0.2",
