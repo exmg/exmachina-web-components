@@ -31,14 +31,10 @@ export class FileImageUploadForm extends ExmgElement {
 
   _handleBlur(e: FocusEvent, name: string) {
     // @ts-ignore
-    console.log(name, e.target.value);
-    // @ts-ignore
     this.fire('property-changed', {name, value: e.target.value});
   }
 
   _handleChange(e, name: string) {
-    // @ts-ignore
-    console.log(name, e.target.checked);
     // @ts-ignore
     this.fire('property-changed', {name, value: e.target.checked});
   }

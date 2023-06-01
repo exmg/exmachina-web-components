@@ -84,7 +84,6 @@ export class ExmgUploadBase extends ExmgElement {
    */
   @property({type: Object})
   @observer(function (this: ExmgUploadBase, value: Cropper.Options) {
-    console.log('cropperConfig updated', {...this._cropperConfig, ...value});
     this._cropperConfig = {...this._cropperConfig, ...value};
   })
   cropperConfig: Cropper.Options = {};

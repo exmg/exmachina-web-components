@@ -17,14 +17,6 @@ export const isTypeValidExtension = (file: File, accept: string) => {
   const type = file.type;
   const hasFileExtension = fileExtensionRegExp.test(name);
   const [fileExtension] = !hasFileExtension ? [undefined] : fileExtensionRegExp.exec(name) ?? [];
-  console.log('isTypeValidExtension', acceptedTypes.has(type) || (fileExtension && acceptedTypes.has(fileExtension)));
-  console.log(
-    'isTypeValidExtension',
-    acceptedTypes,
-    acceptedTypes.has(type),
-    fileExtension,
-    fileExtension && acceptedTypes.has(fileExtension),
-  );
   return acceptedTypes.has(type) || (fileExtension && acceptedTypes.has(fileExtension));
 };
 
@@ -77,7 +69,7 @@ export const isImage = (file: File) => {
 
 export const isCorrectResolution = (image: File, resolution: string) => {
   if (resolution.split('x').length !== 2) {
-    throw new Error('Incorrect fixed resultion format, should be "600x400"');
+    throw new Error('Incorrect fixed resultion format, should be formatted like "600x400"');
   }
   const [width, height] = resolution.split('x');
   const img = new Image();
