@@ -2,6 +2,10 @@
   "version": "8.1.0",
   "name": "exmachina-web-components",
   "private": true,
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/exmg/exmachina-web-components.git"
+  },
   "devDependencies": {
     "@babel/core": "^7.14.6",
     "@babel/plugin-transform-runtime": "^7.9.6",
