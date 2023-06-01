@@ -63,6 +63,7 @@
     "bootstrap:default": "./scripts/bootstrap.sh",
     "postinstall": "npm run bootstrap",
     "version": "lerna version",
+    "publish": "npm run lint && lerna run build && lerna publish",
     "build:demo": "node ./scripts/parseElements.js && npm run build && rollup --config ./rollup.config.js",
     "run:demo": "web-dev-server ./docs/demo/index.html",
     "build:docs": "npm run build && rm -rf ./docs && npm run build:demo && ./node_modules/.bin/jsdoc -c ./jsdoc.conf.json -R README.md && node ./scripts/processDemoInDocumentation.js",
