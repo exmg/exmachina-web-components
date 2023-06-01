@@ -12,9 +12,11 @@ import './exmg-upload-item.js';
 import './exmg-upload-crop.js';
 import './exmg-upload-drop-area.js';
 
-import {isSizeValid, isTypeValid} from './utils.js';
+import {isCorrectResolution, isImage, isSizeValid, isTypeValidExtension} from './utils.js';
 import {classMap} from 'lit/directives/class-map.js';
-import {ExmgElement} from '@exmg/lit-base';
+import {ExmgElement, observer} from '@exmg/lit-base';
+
+import Cropper from 'cropperjs';
 
 export class ExmgUploadBase extends ExmgElement {
   /**
@@ -81,8 +83,14 @@ export class ExmgUploadBase extends ExmgElement {
    * The CropperJS config see: https://github.com/fengyuanchen/cropperjs#options
    */
   @property({type: Object})
-  cropperConfig = {
-    aspectRatio: 16 / 9,
+  @observer(function (this: ExmgUploadBase, value: Cropper.Options) {
+    console.log('cropperConfig updated', {...this._cropperConfig, ...value});
+    this._cropperConfig = {...this._cropperConfig, ...value};
+  })
+  cropperConfig: Cropper.Options = {};
+
+  @state()
+  _cropperConfig: Cropper.Options = {
     modal: true,
     center: true,
     dragMode: 'move',
@@ -111,6 +119,18 @@ export class ExmgUploadBase extends ExmgElement {
 
   @query('#crop-dialog')
   cropSection?: ExmgUploadCrop;
+
+  /**
+   * Allow cropping can only be used when fixedResolution is not set
+   */
+  @property({type: Boolean})
+  allowCropping: boolean = false;
+
+  /**
+   * when set the image must be exactly the given resolution (for example 600x400)
+   */
+  @property({type: String})
+  fixedResolution?: string;
 
   @query('#file')
   fileElement?: HTMLInputElement;
@@ -188,11 +208,11 @@ export class ExmgUploadBase extends ExmgElement {
    * Validator function to check file before upload to server
    * @param FileData
    */
-  private _validateFile(item: FileData) {
+  private async _validateFile(item: FileData) {
     if (!isSizeValid(item.file.size, this.maxSize)) {
       this._handleError(FileUploadError.INVALID_SIZE, item);
     }
-    if (this.accept && !isTypeValid(item.file, this.accept)) {
+    if (!isTypeValidExtension(item.file, this.accept || '')) {
       this._handleError(FileUploadError.INVALID_TYPE, item);
     }
     if (this.maxAmount && this.files.length >= this.maxAmount) {
@@ -200,6 +220,14 @@ export class ExmgUploadBase extends ExmgElement {
     }
     if (!this.multiple && this.files.length >= 1) {
       this._handleError(FileUploadError.INVALID_MULTIPLE, item);
+    }
+
+    const _isImage = isImage(item.file);
+    if (_isImage && this.fixedResolution) {
+      const isCorrect = await isCorrectResolution(item.file, this.fixedResolution);
+      if (!isCorrect) {
+        this._handleError(FileUploadError.INVALID_RESOLUTION, item);
+      }
     }
   }
 
@@ -280,12 +308,14 @@ export class ExmgUploadBase extends ExmgElement {
   }
 
   renderDescription() {
-    const {accept, maxSize} = this;
-    return `Only ${accept ? accept.replace(/,/g, ' ') : ''} files that not exceed ${maxSize} in size`;
+    const {accept, maxSize, fixedResolution} = this;
+    return `Only ${accept ? accept.replace(/,/g, ' ') : ''} files${
+      fixedResolution ? ` of resolution ${fixedResolution} px` : ''
+    } that do not exceed ${maxSize} in size`;
   }
 
   /**
-   * Renders the file items when in 'multiple' mode
+   * Renders the file items
    * @returns
    */
   renderFileItems() {
@@ -302,20 +332,21 @@ export class ExmgUploadBase extends ExmgElement {
           customAdapterPath=${ifDefined(this.customAdapterPath)}
           serverType=${this.serverType}
           responseType=${this.responseType}
+          ?allowCropping=${!this.fixedResolution && this.allowCropping}
           .item=${item}
         ></exmg-upload-item>`,
     );
   }
 
   renderUploadCrop() {
-    const {cropperConfig} = this;
+    const {_cropperConfig} = this;
     return html`
       <exmg-upload-crop
         id="crop-dialog"
         ?hideActions=${this.isModeDialog}
         @crop-done=${this._handleCropDone}
         @crop-cancel=${this.cancelActiveCrop}
-        .cropperConfig=${cropperConfig}
+        .cropperConfig=${_cropperConfig}
       ></exmg-upload-crop>
     `;
   }

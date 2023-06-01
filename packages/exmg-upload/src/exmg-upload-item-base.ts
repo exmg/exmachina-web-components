@@ -6,7 +6,7 @@ import {formatBytes, isImage} from './utils';
 import {ifDefined} from 'lit/directives/if-defined.js';
 import {UploadService} from './upload';
 import {ExmgElement} from '@exmg/lit-base';
-import {checkIcon, closeIcon, editIcon, errorIcon} from './exmg-upload-icons';
+import {checkIcon, closeIcon, editIcon, errorIcon, warningIcon} from './exmg-upload-icons';
 
 export class ExmgUploadItemBase extends ExmgElement {
   /**
@@ -35,6 +35,12 @@ export class ExmgUploadItemBase extends ExmgElement {
 
   @property({type: Object})
   item?: FileData;
+
+  @property({type: Boolean})
+  allowCropping?: boolean;
+
+  @property({type: Number})
+  aspectRatio?: number;
 
   async firstUpdated() {
     // @ts-ignore
@@ -106,15 +112,24 @@ export class ExmgUploadItemBase extends ExmgElement {
         return this.renderUploaded();
       case 'INVALID':
         return this.renderInvalid();
+      case 'WARNING':
+        return this._renderWarning();
+
       default:
         return nothing;
     }
   }
 
   private renderActions() {
-    return html`${this.item!.status === 'UPLOADED' && isImage(this.item!.file)
+    const {item, allowCropping} = this;
+    const {status} = item!;
+    return html`${status === 'UPLOADED' && isImage(item!.file) && allowCropping
         ? html`<mwc-icon-button @click=${this._handleEditClick}>${editIcon}</mwc-icon-button>`
         : nothing} <mwc-icon-button @click=${this._handleRemoveClick}>${closeIcon}</mwc-icon-button>`;
+  }
+
+  private _renderWarning() {
+    return html`<span class="warning-icon">${warningIcon}</span>`;
   }
 
   private renderUploading() {
@@ -131,7 +146,7 @@ export class ExmgUploadItemBase extends ExmgElement {
 
   render() {
     const file = this.item?.file;
-    const {progress} = this.item!;
+    const {progress, status} = this.item!;
     const originalName = file?.name!;
     const fileName = originalName.substring(0, originalName.lastIndexOf('.'));
     const fileType = originalName.substring(originalName.lastIndexOf('.') + 1, originalName.length);
@@ -141,7 +156,7 @@ export class ExmgUploadItemBase extends ExmgElement {
         <div class="status vertical-center">${this.renderStatus()}</div>
         <div class="name-container">
           <span class="file-name">${fileName}</span>
-          ${this.item?.status !== 'INVALID'
+          ${status !== 'INVALID' && status !== 'WARNING'
             ? html` <progress id="file" max="100" value=${ifDefined(progress || 0)}></progress>`
             : nothing}
           ${this.item?.error
