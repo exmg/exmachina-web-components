@@ -1,0 +1,1597 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Class: SortableElement | Class: SortableElement</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/bootstrap.min.css">
+    <link type="text/css" rel="stylesheet" href="styles/prettify-jsdoc.css">
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/tui-doc.css">
+
+    
+</head>
+<body>
+<nav class="lnb" id="lnb">
+    <div class="logo" style="width: 100px; height: 50px">
+        
+            <img src="https://www.exmachinagroup.com/images/svg/ExMachinaPrimary.svg" width="100%" height="100%">
+        
+    </div>
+    <div class="title">
+        <h1><a href="index.html" class="link">Class: SortableElement</a></h1>
+        
+    </div>
+    <div class="search-container" id="search-container">
+        <input type="text" placeholder="Search">
+        <ul></ul>
+    </div>
+    
+    <div class="lnb-api hidden"><h3>Classes</h3><ul><li><a href="Exmg.EditorElement.html">EditorElement</a><button type="button" class="hidden toggle-subnav btn btn-link">  <span class="glyphicon glyphicon-plus"></span></button><div class="hidden" id="Exmg.EditorElement_sub"><div class="member-type">Methods</div><ul class="inner"><li><a href="Exmg.EditorElement.html#getToolbar">getToolbar</a></li><li><a href="Exmg.EditorElement.html#updateDocHistory">updateDocHistory</a></li></ul></div></li><li><a href="ExmgBreadcrumbs.html">ExmgBreadcrumbs</a><button type="button" class="hidden toggle-subnav btn btn-link">  <span class="glyphicon glyphicon-plus"></span></button><div class="hidden" id="ExmgBreadcrumbs_sub"></div></li><li><a href="ExmgButton.html">ExmgButton</a><button type="button" class="hidden toggle-subnav btn btn-link">  <span class="glyphicon glyphicon-plus"></span></button><div class="hidden" id="ExmgButton_sub"><div class="member-type">Members</div><ul class="inner"><li><a href="ExmgButton.html#loading">loading</a></li></ul></div></li><li><a href="ExmgCollapsed.html">ExmgCollapsed</a><button type="button" class="hidden toggle-subnav btn btn-link">  <span class="glyphicon glyphicon-plus"></span></button><div class="hidden" id="ExmgCollapsed_sub"><div class="member-type">Members</div><ul class="inner"><li><a href="ExmgCollapsed.html#opened">opened</a></li><li><a href="ExmgCollapsed.html#transitioning">transitioning</a></li></ul><div class="member-type">Methods</div><ul class="inner"><li><a href="ExmgCollapsed.html#hide">hide</a></li><li><a href="ExmgCollapsed.html#show">show</a></li><li><a href="ExmgCollapsed.html#toggle">toggle</a></li></ul></div></li><li><a href="ExmgConfirmDialog.html">ExmgConfirmDialog</a><button type="button" class="hidden toggle-subnav btn btn-link">  <span class="glyphicon glyphicon-plus"></span></button><div class="hidden" id="ExmgConfirmDialog_sub"><div class="member-type">Members</div><ul class="inner"><li><a href="ExmgConfirmDialog.html#buttonCopy">buttonCopy</a></li><li><a href="ExmgConfirmDialog.html#hasSlotContent">hasSlotContent</a></li><li><a href="ExmgConfirmDialog.html#hideCloseButton">hideCloseButton</a></li><li><a href="ExmgConfirmDialog.html#message">message</a></li><li><a href="ExmgConfirmDialog.html#submitting">submitting</a></li><li><a href="ExmgConfirmDialog.html#title">title</a></li></ul><div class="member-type">Methods</div><ul class="inner"><li><a href="ExmgConfirmDialog.html#close">close</a></li><li><a href="ExmgConfirmDialog.html#done">done</a></li><li><a href="ExmgConfirmDialog.html#error">error</a></li><li><a href="ExmgConfirmDialog.html#handleError">handleError</a></li><li><a href="ExmgConfirmDialog.html#open">open</a></li><li><a href="ExmgConfirmDialog.html#render">render</a></li></ul></div></li><li><a href="ExmgCopyToClipboard.html">ExmgCopyToClipboard</a><button type="button" class="hidden toggle-subnav btn btn-link">  <span class="glyphicon glyphicon-plus"></span></button><div class="hidden" id="ExmgCopyToClipboard_sub"><div class="member-type">Methods</div><ul class="inner"><li><a href="ExmgCopyToClipboard.html#handleCopyAction">handleCopyAction</a></li></ul></div></li><li><a href="ExmgDrawer.html">ExmgDrawer</a><button type="button" class="hidden toggle-subnav btn btn-link">  <span class="glyphicon glyphicon-plus"></span></button><div class="hidden" id="ExmgDrawer_sub"><div class="member-type">Members</div><ul class="inner"><li><a href="ExmgDrawer.html#noCancelOnOutsideClick">noCancelOnOutsideClick</a></li><li><a href="ExmgDrawer.html#opened">opened</a></li></ul></div></li><li><a href="ExmgForm.html">ExmgForm</a><button type="button" class="hidden toggle-subnav btn btn-link">  <span class="glyphicon glyphicon-plus"></span></button><div class="hidden" id="ExmgForm_sub"></div></li><li><a href="ExmgFormDialog.html">ExmgFormDialog</a><button type="button" class="hidden toggle-subnav btn btn-link">  <span class="glyphicon glyphicon-plus"></span></button><div class="hidden" id="ExmgFormDialog_sub"><div class="member-type">Members</div><ul class="inner"><li><a href="ExmgFormDialog.html#buttonCopy">buttonCopy</a></li><li><a href="ExmgFormDialog.html#hideCloseButton">hideCloseButton</a></li><li><a href="ExmgFormDialog.html#submitting">submitting</a></li><li><a href="ExmgFormDialog.html#title">title</a></li></ul><div class="member-type">Methods</div><ul class="inner"><li><a href="ExmgFormDialog.html#close">close</a></li><li><a href="ExmgFormDialog.html#done">done</a></li><li><a href="ExmgFormDialog.html#error">error</a></li><li><a href="ExmgFormDialog.html#handleError">handleError</a></li><li><a href="ExmgFormDialog.html#open">open</a></li><li><a href="ExmgFormDialog.html#render">render</a></li></ul></div></li><li><a href="ExmgFormDrawer.html">ExmgFormDrawer</a><button type="button" class="hidden toggle-subnav btn btn-link">  <span class="glyphicon glyphicon-plus"></span></button><div class="hidden" id="ExmgFormDrawer_sub"><div class="member-type">Members</div><ul class="inner"><li><a href="ExmgFormDrawer.html#autofocusOnOpen">autofocusOnOpen</a></li><li><a href="ExmgFormDrawer.html#cancelBtnTitle">cancelBtnTitle</a></li><li><a href="ExmgFormDrawer.html#disableStickyHeader">disableStickyHeader</a></li><li><a href="ExmgFormDrawer.html#keepOpenedOnSubmitSuccess">keepOpenedOnSubmitSuccess</a></li><li><a href="ExmgFormDrawer.html#noCancelOnOutsideClick">noCancelOnOutsideClick</a></li><li><a href="ExmgFormDrawer.html#opened">opened</a></li><li><a href="ExmgFormDrawer.html#resetFormOnSubmitSuccess">resetFormOnSubmitSuccess</a></li><li><a href="ExmgFormDrawer.html#submitBtnHidden">submitBtnHidden</a></li><li><a href="ExmgFormDrawer.html#submitBtnTitle">submitBtnTitle</a></li><li><a href="ExmgFormDrawer.html#submitting">submitting</a></li></ul><div class="member-type">Methods</div><ul class="inner"><li><a href="ExmgFormDrawer.html#error">error</a></li></ul></div></li><li><a href="ExmgGrid.html">ExmgGrid</a><button type="button" class="hidden toggle-subnav btn btn-link">  <span class="glyphicon glyphicon-plus"></span></button><div class="hidden" id="ExmgGrid_sub"><div class="member-type">Members</div><ul class="inner"><li><a href="ExmgGrid.html#disableRowClickSelection">disableRowClickSelection</a></li><li><a href="ExmgGrid.html#expandedRowIds">expandedRowIds</a></li><li><a href="ExmgGrid.html#hiddenColumnNames">hiddenColumnNames</a></li><li><a href="ExmgGrid.html#items">items</a></li><li><a href="ExmgGrid.html#rowsSelectable">rowsSelectable</a></li><li><a href="ExmgGrid.html#rowsSortable">rowsSortable</a></li><li><a href="ExmgGrid.html#selectedRowIds">selectedRowIds</a></li><li><a href="ExmgGrid.html#sortable">sortable</a></li><li><a href="ExmgGrid.html#tableLayout">tableLayout</a></li></ul></div></li><li><a href="ExmgGridBaseToolbar.html">ExmgGridBaseToolbar</a><button type="button" class="hidden toggle-subnav btn btn-link">  <span class="glyphicon glyphicon-plus"></span></button><div class="hidden" id="ExmgGridBaseToolbar_sub"></div></li><li><a href="ExmgGridPagination.html">ExmgGridPagination</a><button type="button" class="hidden toggle-subnav btn btn-link">  <span class="glyphicon glyphicon-plus"></span></button><div class="hidden" id="ExmgGridPagination_sub"></div></li><li><a href="ExmgInfoDialog.html">ExmgInfoDialog</a><button type="button" class="hidden toggle-subnav btn btn-link">  <span class="glyphicon glyphicon-plus"></span></button><div class="hidden" id="ExmgInfoDialog_sub"><div class="member-type">Members</div><ul class="inner"><li><a href="ExmgInfoDialog.html#buttonCopy">buttonCopy</a></li><li><a href="ExmgInfoDialog.html#buttonUnelevated">buttonUnelevated</a></li><li><a href="ExmgInfoDialog.html#hideCloseButton">hideCloseButton</a></li><li><a href="ExmgInfoDialog.html#title">title</a></li></ul><div class="member-type">Methods</div><ul class="inner"><li><a href="ExmgInfoDialog.html#close">close</a></li><li><a href="ExmgInfoDialog.html#done">done</a></li><li><a href="ExmgInfoDialog.html#open">open</a></li><li><a href="ExmgInfoDialog.html#render">render</a></li></ul></div></li><li><a href="ExmgSidemenu.html">ExmgSidemenu</a><button type="button" class="hidden toggle-subnav btn btn-link">  <span class="glyphicon glyphicon-plus"></span></button><div class="hidden" id="ExmgSidemenu_sub"></div></li><li><a href="ExmgSidemenuHeader.html">ExmgSidemenuHeader</a><button type="button" class="hidden toggle-subnav btn btn-link">  <span class="glyphicon glyphicon-plus"></span></button><div class="hidden" id="ExmgSidemenuHeader_sub"></div></li><li><a href="ExmgTooltip.html">ExmgTooltip</a><button type="button" class="hidden toggle-subnav btn btn-link">  <span class="glyphicon glyphicon-plus"></span></button><div class="hidden" id="ExmgTooltip_sub"></div></li><li><a href="SortableElement.html">SortableElement</a><button type="button" class="hidden toggle-subnav btn btn-link">  <span class="glyphicon glyphicon-plus"></span></button><div class="hidden" id="SortableElement_sub"><div class="member-type">Methods</div><ul class="inner"><li><a href="SortableElement.html#animateNode">animateNode</a></li><li><a href="SortableElement.html#createClone">createClone</a></li><li><a href="SortableElement.html#getSortableHost">getSortableHost</a></li><li><a href="SortableElement.html#handleTrack">handleTrack</a></li><li><a href="SortableElement.html#hitTest">hitTest</a></li><li><a href="SortableElement.html#insertAtTarget">insertAtTarget</a></li><li><a href="SortableElement.html#isAnimating">isAnimating</a></li><li><a href="SortableElement.html#trackEnd">trackEnd</a></li><li><a href="SortableElement.html#trackMove">trackMove</a></li><li><a href="SortableElement.html#trackStart">trackStart</a></li></ul></div></li></ul></div><div class="lnb-api hidden"><h3>Global</h3><ul><li><a href="global.html#formatBytes">formatBytes</a></li><li><a href="global.html#isImage">isImage</a></li><li><a href="global.html#isSizeValid">isSizeValid</a></li><li><a href="global.html#isTypeValidExtension">isTypeValidExtension</a></li><li><a href="global.html#orientationMap">orientationMap</a></li><li><a href="global.html#selectionController">selectionController</a></li><li><a href="global.html#toggleClass">toggleClass</a></li></ul></div>
+</nav>
+<div id="resizer"></div>
+
+<div class="main" id="main">
+    
+
+
+
+
+<section>
+
+<header>
+    
+        <h2><span class="attribs"><span class="type-signature"></span></span>SortableElement<span class="signature">()</span><span class="type-signature"></span></h2>
+        
+            <div class="class-description"><p>The <code>&lt;exmg-sortable&gt;</code> element Enables drag and drop sorting of nodes in a list, table or any other set of
+elements.</p>
+<p>!!! You should always handle @dom-order-change to update your local .items property to update sorted list properly</p>
+<pre class="prettyprint source lang-html"><code>&lt;exmg-sortable item-selector=&quot;li&quot; @dom-order-change=&quot;${this.myChangeHandler}&quot;>
+ &lt;ul>
+    ${this.items.map((item) => {
+      return html`
+        &lt;li>${item}&lt;/li>
+      `;
+    })}
+ &lt;/ul>
+&lt;/exmg-sortable>
+</code></pre></div>
+        
+    
+</header>
+
+<article>
+    
+        <div class="container-overview">
+        
+            
+
+<dt>
+    
+        <h4 class="name" id="SortableElement">
+            
+                new <span class="type-signature"></span>SortableElement<span class="signature">()</span><span class="type-signature"></span>
+                
+            
+            <div class="container-source members">
+                <code><a href="exmg-sortable_exmg-sortable.js.html">exmg-sortable/exmg-sortable.js</a></code>,
+                <code><a href="exmg-sortable_exmg-sortable.js.html#line23">line 23</a></code>
+            </div>
+            
+        </h4>
+
+        
+    
+</dt>
+<dd>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+    
+
+</dd>
+
+        
+        </div>
+    
+
+    
+        <h3 class="subsection-title">Extends</h3>
+
+        
+
+
+    <ul>
+        <li><a href="SortableElementBase.html">SortableElementBase</a></li>
+    </ul>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        <h3 class="subsection-title">Methods</h3>
+
+        <dl>
+                
+
+<dt>
+    
+        <h4 class="name" id="animateNode">
+            
+                <span class="type-signature"></span>animateNode<span class="signature">(node, dx, dy)</span><span class="type-signature"></span>
+                
+            
+            <div class="container-source members">
+                <code><a href="exmg-sortable_exmg-sortable-base.js.html">exmg-sortable/exmg-sortable-base.js</a></code>,
+                <code><a href="exmg-sortable_exmg-sortable-base.js.html#line223">line 223</a></code>
+            </div>
+            
+        </h4>
+
+        
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        <p>Triggers a CSS animation on a node with the given dx and dy. Used following dom updates to make it appear as
+if nodes animate from their old to their new position in the dom.</p>
+    </div>
+    
+
+    
+
+    
+
+    
+
+    
+    <div class="container-params">
+        <h5>Parameters:</h5>
+        
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+        <th>Default</th>
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>node</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Node</span>
+
+
+            
+            </td>
+
+            
+
+            
+                <td class="default">
+                
+                </td>
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>dx</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+
+            
+
+            
+                <td class="default">
+                
+                    0
+                
+                </td>
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>dy</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+
+            
+
+            
+                <td class="default">
+                
+                    0
+                
+                </td>
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+    </div>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+    <dt class="inherited-from">Inherited From:</dt>
+    <dd class="inherited-from"><ul class="dummy"><li>
+        <a href="SortableElementBase.html#animateNode">SortableElementBase#animateNode</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+    
+
+</dd>
+
+            
+                
+
+<dt>
+    
+        <h4 class="name" id="createClone">
+            
+                <span class="type-signature"></span>createClone<span class="signature">(node)</span><span class="type-signature"> &rarr; {Node}</span>
+                
+            
+            <div class="container-source members">
+                <code><a href="exmg-sortable_exmg-sortable-base.js.html">exmg-sortable/exmg-sortable-base.js</a></code>,
+                <code><a href="exmg-sortable_exmg-sortable-base.js.html#line290">line 290</a></code>
+            </div>
+            
+        </h4>
+
+        
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        <p>Clones a given node to visually drag around. The original node is left in the same flow as its siblings. Clone
+styles are added onto the style object directly, since the ::slotted() selector can't universally target nodes
+that may be nested an unknown amount of shadow dom levels deep.</p>
+    </div>
+    
+
+    
+
+    
+
+    
+
+    
+    <div class="container-params">
+        <h5>Parameters:</h5>
+        
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>node</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">HTMLElement</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+    </div>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <div class="container-returns">
+        <h5>Returns:</h5>
+        
+                
+
+
+
+<span class="param-type">Node</span>
+
+
+
+
+
+- <p>clone</p>
+
+
+
+
+            
+    </div>
+    
+
+    
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+    <dt class="inherited-from">Inherited From:</dt>
+    <dd class="inherited-from"><ul class="dummy"><li>
+        <a href="SortableElementBase.html#createClone">SortableElementBase#createClone</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+    
+
+</dd>
+
+            
+                
+
+<dt>
+    
+        <h4 class="name" id="getSortableHost">
+            
+                <span class="type-signature"></span>getSortableHost<span class="signature">()</span><span class="type-signature"></span>
+                
+            
+            <div class="container-source members">
+                <code><a href="exmg-sortable_exmg-sortable-base.js.html">exmg-sortable/exmg-sortable-base.js</a></code>,
+                <code><a href="exmg-sortable_exmg-sortable-base.js.html#line51">line 51</a></code>
+            </div>
+            
+        </h4>
+
+        
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        <p>Get instance of sortable host.
+By default it is <code>exmg-sortable</code> which can be overridden by property <code>sortableHostNode</code></p>
+    </div>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+    <dt class="inherited-from">Inherited From:</dt>
+    <dd class="inherited-from"><ul class="dummy"><li>
+        <a href="SortableElementBase.html#getSortableHost">SortableElementBase#getSortableHost</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+    
+
+</dd>
+
+            
+                
+
+<dt>
+    
+        <h4 class="name" id="handleTrack">
+            
+                <span class="type-signature"></span>handleTrack<span class="signature">()</span><span class="type-signature"></span>
+                
+            
+            <div class="container-source members">
+                <code><a href="exmg-sortable_exmg-sortable-base.js.html">exmg-sortable/exmg-sortable-base.js</a></code>,
+                <code><a href="exmg-sortable_exmg-sortable-base.js.html#line61">line 61</a></code>
+            </div>
+            
+        </h4>
+
+        
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        <p>Tracks a pointer from touchstart/mousedown to touchend/mouseup. Note that the start state is fired following
+the first actual move event following a touchstart/mousedown.</p>
+    </div>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+    <dt class="inherited-from">Inherited From:</dt>
+    <dd class="inherited-from"><ul class="dummy"><li>
+        <a href="SortableElementBase.html#handleTrack">SortableElementBase#handleTrack</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+    
+
+</dd>
+
+            
+                
+
+<dt>
+    
+        <h4 class="name" id="hitTest">
+            
+                <span class="type-signature"></span>hitTest<span class="signature">(node, targets)</span><span class="type-signature"> &rarr; {Array.&lt;HTMLElement>}</span>
+                
+            
+            <div class="container-source members">
+                <code><a href="exmg-sortable_exmg-sortable-base.js.html">exmg-sortable/exmg-sortable-base.js</a></code>,
+                <code><a href="exmg-sortable_exmg-sortable-base.js.html#line182">line 182</a></code>
+            </div>
+            
+        </h4>
+
+        
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        <p>Fast and simple hit test to check whether the center of a node intersects with the rectangle of any of the
+given targets. Returns an array of matches.</p>
+    </div>
+    
+
+    
+
+    
+
+    
+
+    
+    <div class="container-params">
+        <h5>Parameters:</h5>
+        
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>node</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">HTMLElement</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>targets</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Array</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+    </div>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <div class="container-returns">
+        <h5>Returns:</h5>
+        
+                
+
+
+
+<span class="param-type">Array.&lt;HTMLElement></span>
+
+
+
+
+
+- <p>matches</p>
+
+
+
+
+            
+    </div>
+    
+
+    
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+    <dt class="inherited-from">Inherited From:</dt>
+    <dd class="inherited-from"><ul class="dummy"><li>
+        <a href="SortableElementBase.html#hitTest">SortableElementBase#hitTest</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+    
+
+</dd>
+
+            
+                
+
+<dt>
+    
+        <h4 class="name" id="insertAtTarget">
+            
+                <span class="type-signature"></span>insertAtTarget<span class="signature">(node, target)</span><span class="type-signature"></span>
+                
+            
+            <div class="container-source members">
+                <code><a href="exmg-sortable_exmg-sortable-base.js.html">exmg-sortable/exmg-sortable-base.js</a></code>,
+                <code><a href="exmg-sortable_exmg-sortable-base.js.html#line259">line 259</a></code>
+            </div>
+            
+        </h4>
+
+        
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        <p>Inserts node at target to update sibling sorting. If the node precedes the target, it is inserted after it;
+If it follows the target, it is inserted before it. This ensures any node can be dragged from the very
+beginning to the very end and vice versa. The animateNode function is called for all nodes that moved because
+of this dom update.</p>
+    </div>
+    
+
+    
+
+    
+
+    
+
+    
+    <div class="container-params">
+        <h5>Parameters:</h5>
+        
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>node</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Node</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>target</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Node</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+    </div>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+    <dt class="inherited-from">Inherited From:</dt>
+    <dd class="inherited-from"><ul class="dummy"><li>
+        <a href="SortableElementBase.html#insertAtTarget">SortableElementBase#insertAtTarget</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+    
+
+</dd>
+
+            
+                
+
+<dt>
+    
+        <h4 class="name" id="isAnimating">
+            
+                <span class="type-signature"></span>isAnimating<span class="signature">(node)</span><span class="type-signature"> &rarr; {boolean}</span>
+                
+            
+            <div class="container-source members">
+                <code><a href="exmg-sortable_exmg-sortable-base.js.html">exmg-sortable/exmg-sortable-base.js</a></code>,
+                <code><a href="exmg-sortable_exmg-sortable-base.js.html#line197">line 197</a></code>
+            </div>
+            
+        </h4>
+
+        
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        <p>Returns a boolean indicating whether the node is currently in an animation.</p>
+    </div>
+    
+
+    
+
+    
+
+    
+
+    
+    <div class="container-params">
+        <h5>Parameters:</h5>
+        
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>node</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">HTMLElement</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+    </div>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <div class="container-returns">
+        <h5>Returns:</h5>
+        
+                
+
+
+
+<span class="param-type">boolean</span>
+
+
+
+
+
+- <p>isAnimating</p>
+
+
+
+
+            
+    </div>
+    
+
+    
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+    <dt class="inherited-from">Inherited From:</dt>
+    <dd class="inherited-from"><ul class="dummy"><li>
+        <a href="SortableElementBase.html#isAnimating">SortableElementBase#isAnimating</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+    
+
+</dd>
+
+            
+                
+
+<dt>
+    
+        <h4 class="name" id="trackEnd">
+            
+                <span class="type-signature"></span>trackEnd<span class="signature">()</span><span class="type-signature"></span>
+                
+            
+            <div class="container-source members">
+                <code><a href="exmg-sortable_exmg-sortable-base.js.html">exmg-sortable/exmg-sortable-base.js</a></code>,
+                <code><a href="exmg-sortable_exmg-sortable-base.js.html#line112">line 112</a></code>
+            </div>
+            
+        </h4>
+
+        
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        <p>Ends the drag and drop sequence.</p>
+    </div>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+    <dt class="inherited-from">Inherited From:</dt>
+    <dd class="inherited-from"><ul class="dummy"><li>
+        <a href="SortableElementBase.html#trackEnd">SortableElementBase#trackEnd</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+    
+
+</dd>
+
+            
+                
+
+<dt>
+    
+        <h4 class="name" id="trackMove">
+            
+                <span class="type-signature"></span>trackMove<span class="signature">()</span><span class="type-signature"></span>
+                
+            
+            <div class="container-source members">
+                <code><a href="exmg-sortable_exmg-sortable-base.js.html">exmg-sortable/exmg-sortable-base.js</a></code>,
+                <code><a href="exmg-sortable_exmg-sortable-base.js.html#line137">line 137</a></code>
+            </div>
+            
+        </h4>
+
+        
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        <p>Moves the active node's clone to follow the pointer. The node that the clone intersects with (via hitTest) is
+the insert point for updated sorting.</p>
+    </div>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+    <dt class="inherited-from">Inherited From:</dt>
+    <dd class="inherited-from"><ul class="dummy"><li>
+        <a href="SortableElementBase.html#trackMove">SortableElementBase#trackMove</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+    
+
+</dd>
+
+            
+                
+
+<dt>
+    
+        <h4 class="name" id="trackStart">
+            
+                <span class="type-signature"></span>trackStart<span class="signature">()</span><span class="type-signature"></span>
+                
+            
+            <div class="container-source members">
+                <code><a href="exmg-sortable_exmg-sortable-base.js.html">exmg-sortable/exmg-sortable-base.js</a></code>,
+                <code><a href="exmg-sortable_exmg-sortable-base.js.html#line87">line 87</a></code>
+            </div>
+            
+        </h4>
+
+        
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        <p>Initialized a drag and drop sequence if a child node was clicked that matches the itemSelector property. If a
+handleSelector is defined, a node matching this selector must be clicked instead.</p>
+    </div>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+    <dt class="inherited-from">Inherited From:</dt>
+    <dd class="inherited-from"><ul class="dummy"><li>
+        <a href="SortableElementBase.html#trackStart">SortableElementBase#trackStart</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+    
+
+</dd>
+
+            </dl>
+    
+
+    
+
+    
+</article>
+
+</section>
+
+
+
+
+</div>
+
+<footer>
+    <img class="logo" src="https://www.exmachinagroup.com/images/svg/ExMachinaPrimary.svg" style="width: 100px; height: 50px">
+    <div class="footer-text">NHN Entertainment. Frontend Development Lab</div>
+</footer>
+<script>prettyPrint();</script>
+<script src="scripts/jquery.min.js"></script>
+<script src="scripts/tui-doc.js"></script>
+<script src="scripts/linenumber.js"></script>
+
+    <script>
+        var id = 'SortableElement_sub'.replace(/"/g, '_');
+        var selectedApi = document.getElementById(id); // do not use jquery selector
+        var $selectedApi = $(selectedApi);
+
+        $selectedApi.removeClass('hidden');
+        $selectedApi.parent().find('.glyphicon').removeClass('glyphicon-plus').addClass('glyphicon-minus');
+        showLnbApi();
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,766 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Source: exmg-markdown-editor/exmg-markdown-editor.js | Source: exmg-markdown-editor/exmg-markdown-editor.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/bootstrap.min.css">
+    <link type="text/css" rel="stylesheet" href="styles/prettify-jsdoc.css">
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/tui-doc.css">
+
+    
+</head>
+<body>
+<nav class="lnb" id="lnb">
+    <div class="logo" style="width: 100px; height: 50px">
+        
+            <img src="https://www.exmachinagroup.com/images/svg/ExMachinaPrimary.svg" width="100%" height="100%">
+        
+    </div>
+    <div class="title">
+        <h1><a href="index.html" class="link">Source: exmg-markdown-editor/exmg-markdown-editor.js</a></h1>
+        
+    </div>
+    <div class="search-container" id="search-container">
+        <input type="text" placeholder="Search">
+        <ul></ul>
+    </div>
+    
+    <div class="lnb-api hidden"><h3>Classes</h3><ul><li><a href="Exmg.EditorElement.html">EditorElement</a><button type="button" class="hidden toggle-subnav btn btn-link">  <span class="glyphicon glyphicon-plus"></span></button><div class="hidden" id="Exmg.EditorElement_sub"><div class="member-type">Methods</div><ul class="inner"><li><a href="Exmg.EditorElement.html#getToolbar">getToolbar</a></li><li><a href="Exmg.EditorElement.html#updateDocHistory">updateDocHistory</a></li></ul></div></li><li><a href="ExmgBreadcrumbs.html">ExmgBreadcrumbs</a><button type="button" class="hidden toggle-subnav btn btn-link">  <span class="glyphicon glyphicon-plus"></span></button><div class="hidden" id="ExmgBreadcrumbs_sub"></div></li><li><a href="ExmgButton.html">ExmgButton</a><button type="button" class="hidden toggle-subnav btn btn-link">  <span class="glyphicon glyphicon-plus"></span></button><div class="hidden" id="ExmgButton_sub"><div class="member-type">Members</div><ul class="inner"><li><a href="ExmgButton.html#loading">loading</a></li></ul></div></li><li><a href="ExmgCollapsed.html">ExmgCollapsed</a><button type="button" class="hidden toggle-subnav btn btn-link">  <span class="glyphicon glyphicon-plus"></span></button><div class="hidden" id="ExmgCollapsed_sub"><div class="member-type">Members</div><ul class="inner"><li><a href="ExmgCollapsed.html#opened">opened</a></li><li><a href="ExmgCollapsed.html#transitioning">transitioning</a></li></ul><div class="member-type">Methods</div><ul class="inner"><li><a href="ExmgCollapsed.html#hide">hide</a></li><li><a href="ExmgCollapsed.html#show">show</a></li><li><a href="ExmgCollapsed.html#toggle">toggle</a></li></ul></div></li><li><a href="ExmgConfirmDialog.html">ExmgConfirmDialog</a><button type="button" class="hidden toggle-subnav btn btn-link">  <span class="glyphicon glyphicon-plus"></span></button><div class="hidden" id="ExmgConfirmDialog_sub"><div class="member-type">Members</div><ul class="inner"><li><a href="ExmgConfirmDialog.html#buttonCopy">buttonCopy</a></li><li><a href="ExmgConfirmDialog.html#hasSlotContent">hasSlotContent</a></li><li><a href="ExmgConfirmDialog.html#hideCloseButton">hideCloseButton</a></li><li><a href="ExmgConfirmDialog.html#message">message</a></li><li><a href="ExmgConfirmDialog.html#submitting">submitting</a></li><li><a href="ExmgConfirmDialog.html#title">title</a></li></ul><div class="member-type">Methods</div><ul class="inner"><li><a href="ExmgConfirmDialog.html#close">close</a></li><li><a href="ExmgConfirmDialog.html#done">done</a></li><li><a href="ExmgConfirmDialog.html#error">error</a></li><li><a href="ExmgConfirmDialog.html#handleError">handleError</a></li><li><a href="ExmgConfirmDialog.html#open">open</a></li><li><a href="ExmgConfirmDialog.html#render">render</a></li></ul></div></li><li><a href="ExmgCopyToClipboard.html">ExmgCopyToClipboard</a><button type="button" class="hidden toggle-subnav btn btn-link">  <span class="glyphicon glyphicon-plus"></span></button><div class="hidden" id="ExmgCopyToClipboard_sub"><div class="member-type">Methods</div><ul class="inner"><li><a href="ExmgCopyToClipboard.html#handleCopyAction">handleCopyAction</a></li></ul></div></li><li><a href="ExmgDrawer.html">ExmgDrawer</a><button type="button" class="hidden toggle-subnav btn btn-link">  <span class="glyphicon glyphicon-plus"></span></button><div class="hidden" id="ExmgDrawer_sub"><div class="member-type">Members</div><ul class="inner"><li><a href="ExmgDrawer.html#noCancelOnOutsideClick">noCancelOnOutsideClick</a></li><li><a href="ExmgDrawer.html#opened">opened</a></li></ul></div></li><li><a href="ExmgForm.html">ExmgForm</a><button type="button" class="hidden toggle-subnav btn btn-link">  <span class="glyphicon glyphicon-plus"></span></button><div class="hidden" id="ExmgForm_sub"></div></li><li><a href="ExmgFormDialog.html">ExmgFormDialog</a><button type="button" class="hidden toggle-subnav btn btn-link">  <span class="glyphicon glyphicon-plus"></span></button><div class="hidden" id="ExmgFormDialog_sub"><div class="member-type">Members</div><ul class="inner"><li><a href="ExmgFormDialog.html#buttonCopy">buttonCopy</a></li><li><a href="ExmgFormDialog.html#hideCloseButton">hideCloseButton</a></li><li><a href="ExmgFormDialog.html#submitting">submitting</a></li><li><a href="ExmgFormDialog.html#title">title</a></li></ul><div class="member-type">Methods</div><ul class="inner"><li><a href="ExmgFormDialog.html#close">close</a></li><li><a href="ExmgFormDialog.html#done">done</a></li><li><a href="ExmgFormDialog.html#error">error</a></li><li><a href="ExmgFormDialog.html#handleError">handleError</a></li><li><a href="ExmgFormDialog.html#open">open</a></li><li><a href="ExmgFormDialog.html#render">render</a></li></ul></div></li><li><a href="ExmgFormDrawer.html">ExmgFormDrawer</a><button type="button" class="hidden toggle-subnav btn btn-link">  <span class="glyphicon glyphicon-plus"></span></button><div class="hidden" id="ExmgFormDrawer_sub"><div class="member-type">Members</div><ul class="inner"><li><a href="ExmgFormDrawer.html#autofocusOnOpen">autofocusOnOpen</a></li><li><a href="ExmgFormDrawer.html#cancelBtnTitle">cancelBtnTitle</a></li><li><a href="ExmgFormDrawer.html#disableStickyHeader">disableStickyHeader</a></li><li><a href="ExmgFormDrawer.html#keepOpenedOnSubmitSuccess">keepOpenedOnSubmitSuccess</a></li><li><a href="ExmgFormDrawer.html#noCancelOnOutsideClick">noCancelOnOutsideClick</a></li><li><a href="ExmgFormDrawer.html#opened">opened</a></li><li><a href="ExmgFormDrawer.html#resetFormOnSubmitSuccess">resetFormOnSubmitSuccess</a></li><li><a href="ExmgFormDrawer.html#submitBtnHidden">submitBtnHidden</a></li><li><a href="ExmgFormDrawer.html#submitBtnTitle">submitBtnTitle</a></li><li><a href="ExmgFormDrawer.html#submitting">submitting</a></li></ul><div class="member-type">Methods</div><ul class="inner"><li><a href="ExmgFormDrawer.html#error">error</a></li></ul></div></li><li><a href="ExmgGrid.html">ExmgGrid</a><button type="button" class="hidden toggle-subnav btn btn-link">  <span class="glyphicon glyphicon-plus"></span></button><div class="hidden" id="ExmgGrid_sub"><div class="member-type">Members</div><ul class="inner"><li><a href="ExmgGrid.html#disableRowClickSelection">disableRowClickSelection</a></li><li><a href="ExmgGrid.html#expandedRowIds">expandedRowIds</a></li><li><a href="ExmgGrid.html#hiddenColumnNames">hiddenColumnNames</a></li><li><a href="ExmgGrid.html#items">items</a></li><li><a href="ExmgGrid.html#rowsSelectable">rowsSelectable</a></li><li><a href="ExmgGrid.html#rowsSortable">rowsSortable</a></li><li><a href="ExmgGrid.html#selectedRowIds">selectedRowIds</a></li><li><a href="ExmgGrid.html#sortable">sortable</a></li><li><a href="ExmgGrid.html#tableLayout">tableLayout</a></li></ul></div></li><li><a href="ExmgGridBaseToolbar.html">ExmgGridBaseToolbar</a><button type="button" class="hidden toggle-subnav btn btn-link">  <span class="glyphicon glyphicon-plus"></span></button><div class="hidden" id="ExmgGridBaseToolbar_sub"></div></li><li><a href="ExmgGridPagination.html">ExmgGridPagination</a><button type="button" class="hidden toggle-subnav btn btn-link">  <span class="glyphicon glyphicon-plus"></span></button><div class="hidden" id="ExmgGridPagination_sub"></div></li><li><a href="ExmgInfoDialog.html">ExmgInfoDialog</a><button type="button" class="hidden toggle-subnav btn btn-link">  <span class="glyphicon glyphicon-plus"></span></button><div class="hidden" id="ExmgInfoDialog_sub"><div class="member-type">Members</div><ul class="inner"><li><a href="ExmgInfoDialog.html#buttonCopy">buttonCopy</a></li><li><a href="ExmgInfoDialog.html#buttonUnelevated">buttonUnelevated</a></li><li><a href="ExmgInfoDialog.html#hideCloseButton">hideCloseButton</a></li><li><a href="ExmgInfoDialog.html#title">title</a></li></ul><div class="member-type">Methods</div><ul class="inner"><li><a href="ExmgInfoDialog.html#close">close</a></li><li><a href="ExmgInfoDialog.html#done">done</a></li><li><a href="ExmgInfoDialog.html#open">open</a></li><li><a href="ExmgInfoDialog.html#render">render</a></li></ul></div></li><li><a href="ExmgSidemenu.html">ExmgSidemenu</a><button type="button" class="hidden toggle-subnav btn btn-link">  <span class="glyphicon glyphicon-plus"></span></button><div class="hidden" id="ExmgSidemenu_sub"></div></li><li><a href="ExmgSidemenuHeader.html">ExmgSidemenuHeader</a><button type="button" class="hidden toggle-subnav btn btn-link">  <span class="glyphicon glyphicon-plus"></span></button><div class="hidden" id="ExmgSidemenuHeader_sub"></div></li><li><a href="ExmgTooltip.html">ExmgTooltip</a><button type="button" class="hidden toggle-subnav btn btn-link">  <span class="glyphicon glyphicon-plus"></span></button><div class="hidden" id="ExmgTooltip_sub"></div></li><li><a href="SortableElement.html">SortableElement</a><button type="button" class="hidden toggle-subnav btn btn-link">  <span class="glyphicon glyphicon-plus"></span></button><div class="hidden" id="SortableElement_sub"><div class="member-type">Methods</div><ul class="inner"><li><a href="SortableElement.html#animateNode">animateNode</a></li><li><a href="SortableElement.html#createClone">createClone</a></li><li><a href="SortableElement.html#getSortableHost">getSortableHost</a></li><li><a href="SortableElement.html#handleTrack">handleTrack</a></li><li><a href="SortableElement.html#hitTest">hitTest</a></li><li><a href="SortableElement.html#insertAtTarget">insertAtTarget</a></li><li><a href="SortableElement.html#isAnimating">isAnimating</a></li><li><a href="SortableElement.html#trackEnd">trackEnd</a></li><li><a href="SortableElement.html#trackMove">trackMove</a></li><li><a href="SortableElement.html#trackStart">trackStart</a></li></ul></div></li></ul></div><div class="lnb-api hidden"><h3>Global</h3><ul><li><a href="global.html#formatBytes">formatBytes</a></li><li><a href="global.html#isImage">isImage</a></li><li><a href="global.html#isSizeValid">isSizeValid</a></li><li><a href="global.html#isTypeValidExtension">isTypeValidExtension</a></li><li><a href="global.html#orientationMap">orientationMap</a></li><li><a href="global.html#selectionController">selectionController</a></li><li><a href="global.html#toggleClass">toggleClass</a></li></ul></div>
+</nav>
+<div id="resizer"></div>
+
+<div class="main" id="main">
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import { __decorate } from "tslib";
+import { html } from 'lit';
+import { ExmgElement, observer } from '@exmg/lit-base/index.js';
+import { customElement, query, property, state } from 'lit/decorators.js';
+import { repeat } from 'lit/directives/repeat.js';
+import { classMap } from 'lit/directives/class-map.js';
+import '@polymer/iron-flex-layout/iron-flex-layout.js';
+import '@polymer/iron-icon/iron-icon.js';
+import '@material/mwc-icon/mwc-icon.js';
+import { afterNextRender } from '@polymer/polymer/lib/utils/render-status.js';
+import './exmg-import-helper.js';
+import './exmg-markdown-editor-icons.js';
+import { style as codeMirrorStylesText } from './styles/exmg-markdown-codemirror-styles-css.js';
+import { convertShortcut, debounce, defaultToolBarConfig, DEFAULT_TOOLBAR_OPTIONS, ENTER_KEY_CODE, insertBlocks, KEY_MAPS, SHORTCUTS, } from './exmg-markdown-utils.js';
+// import * as marked from 'marked';
+/**
+ * Markdown WYSIWYG editor element.
+ * This editor element is a wrapper element for the markdown-element which will enable editing
+ * the markdown data. See [marked-element](https://www.webcomponents.org/element/PolymerElements/marked-element/)
+ * for more details on how to use this element.
+ *
+ * ```
+ * &lt;exmg-markdown-editor markdown="# Header 1">&lt;/exmg-markdown-editor>
+ * ```
+ *
+ * ## Custom Toolbar
+ * Add attribute toolbar-buttons to adjust the toolbar buttons. The array values should match
+ * the _toolbarButtons item name values.
+ *
+ * ```html
+ * &lt;exmg-markdown-editor toolbar-buttons='["strong","italic","strikethrough","|","quote","hr","table"]'>&lt;/exmg-markdown-editor>
+ * ```
+ *
+ * ### Styling
+ *
+ * The preview panel markdown output can be styled from outside th element. See the demo/styling.html example
+ * on how to do this. In this demo the github-markdown-css project is used for styling the html output.
+ *
+ * The HTML output will we inserted into the element slot and will have a container div arround it
+ * with the class preview-html:
+ *
+ * ```
+ * &lt;exmg-markdown-editor markdown="# Header 1">
+ *  &lt;div class="preview-body">&lt;h1>Header 1&lt;/h1>&lt;/div>
+ * &lt;/exmg-markdown-editor>
+ * ```
+ *
+ * `&lt;exmg-markdown-editor>` provides the following custom properties and mixins
+ *  for styling:
+ *
+ *  Custom property | Description | Default
+ *  ----------------|-------------|----------
+ *  `--exmg-markdown-editor-border` | Border Color | `#ddd`
+ *  `--exmg-markdown-editor-background-color` | Editor Background Color | `white`
+ *  `--exmg-markdown-editor-fullscreen-top-offset` | Top offset in fullscreen mode | `0px`
+ *  `--exmg-markdown-editor-toolbar-background` | Toolbar background color | `#fafafa`
+ *  `--exmg-markdown-editor-toolbar-label-background` | Toolbar label background color | `#fafafa`
+ *  `--exmg-markdown-editor-label-color` | Toolbar text color | `54% black`
+ *  `--exmg-markdown-editor-toolbar-color` | Toolbar text color | `87% black`
+ *  `--exmg-markdown-editor-toolbar-color-disabled` | Toolbar text color disabled | `54% black`
+ *  `--exmg-markdown-editor-preview-background` | Preview background color | `white`
+ *  `--exmg-markdown-editor-toolbar-button-background-hover` | Toolbar icon border color | `#fafafa`
+ *  `--exmg-markdown-editor-toolbar-seperator-color` | Toolbar seperator color | `#ddd`
+ *  `--exmg-markdown-editor-code-hover` | Editor code part hover background color | `white`
+ *
+ *  # Events:
+ *  - value-change - where detail is current markdown value
+ *  - exmg-markdown-editor-fullscreen where detail is boolean with current fullscreen state
+ *  - exmg-markdown-editor-paste-table thrown when app should display a dialog to paste Excel Table
+ *  - exmg-markdown-editor-image-open when image-ext button is clicked. Can be used to insert external images
+ *
+ * @customElement
+ * @group Exmg Core Elements
+ * @element exmg-markdown-editor
+ * @demo demo/index.html
+ * @memberof Exmg
+ * @extends ExmgElement
+ * @summary Markdown editor element
+ */
+let EditorElement = class EditorElement extends ExmgElement {
+    constructor() {
+        super();
+        this.autoFocus = false;
+        this.height = undefined;
+        this.lineNumbers = false;
+        this.indentWithTabs = true;
+        this.showHelperLabel = false;
+        this.splitView = false;
+        this.fullscreen = false;
+        this.toolbarButtons = DEFAULT_TOOLBAR_OPTIONS;
+        this.required = false;
+        this.invalid = false;
+        this.bubbles = false;
+        this.toolbarButtonsConfig = defaultToolBarConfig;
+        this.shortcuts = SHORTCUTS;
+        this.normalizedToolBarConfig = new Map();
+        this.dispatchMarkdownUpdatedDebounce = debounce(300);
+        this.isElementInitialized = false;
+        this._onKeyPressed = this.onKeyPressed.bind(this);
+        // Cancel enter propogation
+        this.addEventListener('keyup', this._onKeyPressed);
+    }
+    validate() {
+        this.invalid = this.required &amp;&amp; !this.markdown;
+        return !this.invalid;
+    }
+    get value() {
+        return (this.markdown || '').replace(/([^\r]|^)\n/g, '$1\n');
+    }
+    focus() {
+        if (!this.codeMirrorEditor)
+            return;
+        this.refresh();
+        this.codeMirrorEditor.focus();
+    }
+    refresh() {
+        if (!this.codeMirrorEditor)
+            return;
+        this.codeMirrorEditor.refresh();
+    }
+    update(changedProperties) {
+        var _a, _b;
+        if (changedProperties.has('toolbarButtonsConfig')) {
+            const normalizedToolBartConfig = new Map();
+            const customToolbarConfig = (_b = (_a = window.markdownEditorConfig) === null || _a === void 0 ? void 0 : _a.customToolBarButtons) !== null &amp;&amp; _b !== void 0 ? _b : [];
+            const toolbarConfigWithCustoms = [...this.toolbarButtonsConfig, ...customToolbarConfig];
+            (toolbarConfigWithCustoms || []).forEach((it) => normalizedToolBartConfig.set(it.name, it));
+            this.normalizedToolBarConfig = normalizedToolBartConfig;
+        }
+        super.update(changedProperties);
+    }
+    async firstUpdated() {
+        await this.updateComplete;
+        this.setupEditor();
+        this.isElementInitialized = true;
+        this.renderHTML();
+    }
+    fire(eventName, detail, bubbles) {
+        return this.dispatchEvent(new CustomEvent(eventName, {
+            bubbles: bubbles || this.bubbles,
+            composed: true,
+            detail,
+        }));
+    }
+    /**
+     * Fired when the content is being processed and before it is rendered.
+     * Provides an opportunity to highlight code blocks based on the programming
+     * language used. This is also known as syntax highlighting. One example would
+     * be to use a prebuilt syntax highlighting library, e.g with
+     * [highlightjs](https://highlightjs.org/).
+     *
+     * @param {string} code
+     * @param {string} lang
+     * @return {string}
+     * @event syntax-highlight
+     */
+    _highlight(code, lang) {
+        this.fire('syntax-highlight', { code: code, lang: lang });
+        return code;
+    }
+    renderHTML() {
+        var _a, _b;
+        if (!this.markdown) {
+            this.innerHTML = '';
+            return;
+        }
+        const opts = {
+            highlight: this._highlight.bind(this),
+            breaks: false,
+            sanitize: false,
+            pedantic: false,
+            smartypants: false,
+        };
+        const customRenderer = ((_a = window.markdownEditorConfig) === null || _a === void 0 ? void 0 : _a.renderer) || undefined;
+        const extensions = ((_b = window.markdownEditorConfig) === null || _b === void 0 ? void 0 : _b.extensions) || [];
+        // @ts-ignore
+        window.marked.use({ renderer: customRenderer, extensions });
+        this.innerHTML = `&lt;div class="preview-body">${window.marked(this.markdown, opts)}&lt;/div>`;
+        this.focus();
+        this.fire('html-render-complete', {});
+    }
+    /**
+     * Helper method that creates button array from toolbar config property
+     * @param {Array} toolBarOptions
+     * @return {Array}
+     */
+    getToolbar(toolBarOptions = []) {
+        return [...toolBarOptions].map((optionName) => {
+            if (optionName === '|') {
+                return {};
+            }
+            return this.normalizedToolBarConfig.get(optionName) || {};
+        });
+    }
+    /**
+     * Manages the undo/redo disabled state based upon the available history in code mirror
+     */
+    updateDocHistory() {
+        if (!this.codeMirrorEditor) {
+            return;
+        }
+        const { undo, redo } = this.codeMirrorEditor.getDoc().historySize();
+        const undoEl = this.shadowRoot.querySelector('.btn-undo');
+        if (undoEl) {
+            if (undo > 0) {
+                undoEl.removeAttribute('disabled');
+            }
+            else {
+                undoEl.setAttribute('disabled', 'disabled');
+            }
+        }
+        const redoEl = this.shadowRoot.querySelector('.btn-redo');
+        if (redoEl) {
+            if (redo > 0) {
+                redoEl.removeAttribute('disabled');
+            }
+            else {
+                redoEl.setAttribute('disabled', 'disabled');
+            }
+        }
+    }
+    // ********* TOOL BAR HANDLERS *************/
+    toggleFullscreen(event) {
+        if (event) {
+            event.preventDefault();
+        }
+        this.fullscreen = !this.fullscreen;
+    }
+    toggleSplitView(event) {
+        if (event) {
+            event.preventDefault();
+        }
+        this.splitView = !this.splitView;
+    }
+    setupEditor() {
+        const extraKeys = Object.assign(Object.assign({}, KEY_MAPS), { Esc: (codeMirror) => {
+                // @ts-ignore
+                if (codeMirror.getOption('fullScreen')) {
+                    this.fullscreen = false;
+                }
+            } });
+        Object.keys(this.shortcuts).forEach((shortcut) => {
+            const actionBtn = this.normalizedToolBarConfig.get(shortcut);
+            if (actionBtn &amp;&amp; !!this.shortcuts[shortcut]) {
+                // @ts-ignore
+                extraKeys[convertShortcut(this.shortcuts[shortcut])] = () => this.action(actionBtn);
+            }
+        });
+        /* initialize code mirror */
+        const editorConfig = {
+            mode: 'markdown',
+            value: this.markdown || '',
+            tabSize: 2,
+            indentUnit: 2,
+            indentWithTabs: this.indentWithTabs,
+            lineNumbers: this.lineNumbers,
+            autofocus: this.autoFocus,
+            extraKeys,
+            lineWrapping: true,
+        };
+        const codeMirrorEditor = window.CodeMirror(this.editorElement, editorConfig);
+        /* Update markdown property with latest changes */
+        codeMirrorEditor.on('change', (editor) => {
+            if (this.markdown === editor.getValue()) {
+                return;
+            }
+            this.markdown = editor.getValue();
+        });
+        afterNextRender(this, () => this.updateDocHistory());
+        this.codeMirrorEditor = codeMirrorEditor;
+        return codeMirrorEditor;
+    }
+    replaceRangeLine(text, lineNumber) {
+        this.codeMirrorEditor.getDoc().replaceRange(text, { line: lineNumber, ch: 0 }, { line: lineNumber, ch: 99999999999999 });
+    }
+    insertAtCursor(text, selectionOffset, selectionLength) {
+        this.codeMirrorEditor.getDoc().replaceSelection(text, 'start');
+        const cursorStart = this.codeMirrorEditor.getDoc().getCursor();
+        cursorStart.ch += selectionOffset || 0;
+        this.codeMirrorEditor.getDoc().setSelection(cursorStart, {
+            line: cursorStart.line,
+            ch: cursorStart.ch + (selectionLength || text.length),
+        });
+        this.codeMirrorEditor.focus();
+    }
+    hasType(states, type) {
+        const mappings = [
+            {
+                key: 'code',
+                value: 'comment',
+            },
+            {
+                key: 'inline-code',
+                value: 'comment',
+            },
+        ];
+        if (states.includes(type)) {
+            return true;
+        }
+        const result = mappings.find((m) => {
+            return m.key === type;
+        });
+        return result ? states.includes(result.value) : false;
+    }
+    processBlock(type, token, newLine = false) {
+        const codeMirror = this.codeMirrorEditor;
+        const states = this.getStates();
+        const cursorStart = codeMirror.getDoc().getCursor('start');
+        const cursorEnd = codeMirror.getDoc().getCursor('end');
+        const multiLineSelection = cursorStart.line !== cursorEnd.line;
+        const selectionText = codeMirror.getDoc().getSelection();
+        const emptySelection = selectionText === '';
+        if (this.hasType(states, type)) {
+            const start = Object.assign(Object.assign({}, cursorStart), { ch: cursorStart.ch - token.length });
+            const end = Object.assign(Object.assign({}, cursorEnd), { ch: cursorEnd.ch + token.length });
+            codeMirror.getDoc().setSelection(start, end);
+            codeMirror.getDoc().replaceSelection(selectionText);
+            cursorStart.ch = start.ch;
+        }
+        else {
+            const text = token +
+                (type === 'code' ? '\n' : '') +
+                (emptySelection ? `${type} text` : selectionText) +
+                (type === 'code' ? '\n' : '') +
+                token;
+            codeMirror.getDoc().replaceSelection(text);
+            if (newLine) {
+                cursorStart.line += 1;
+                cursorEnd.line += 1;
+            }
+            else {
+                cursorStart.ch += token.length;
+                if (!multiLineSelection) {
+                    cursorEnd.ch += emptySelection ? `${type} text`.length + token.length : token.length;
+                }
+            }
+        }
+        codeMirror.getDoc().setSelection(cursorStart, cursorEnd);
+        codeMirror.focus();
+    }
+    processLine(type, symbol) {
+        const codeMirror = this.codeMirrorEditor;
+        const cursorStart = codeMirror.getDoc().getCursor('start');
+        const cursorEnd = codeMirror.getDoc().getCursor('end');
+        let lineCount = 0;
+        for (let i = cursorStart.line; i &lt;= cursorEnd.line; i += 1) {
+            const lineStart = Object.assign(Object.assign({}, cursorStart), { line: i, ch: 0, sticky: 'after' });
+            const states = this.getStates(lineStart);
+            let text = codeMirror.getDoc().getLine(i);
+            const stateFound = states.includes(type);
+            switch (type) {
+                case 'header_one':
+                case 'header_two':
+                case 'header_three': {
+                    const result = /(^[#]+)/.exec(text);
+                    if (result === null) {
+                        text = `${symbol} ${text}`;
+                        const offset = symbol.length + 1; // +1 is space.
+                        if (cursorStart.ch !== cursorEnd.ch) {
+                            cursorEnd.ch += offset;
+                        }
+                        else {
+                            cursorStart.ch += offset;
+                            cursorEnd.ch += offset;
+                        }
+                    }
+                    else if (symbol &amp;&amp; result[0] === symbol) {
+                        text = text.substring(symbol.length + 1);
+                    }
+                    else if (symbol &amp;&amp; result[0].length !== symbol.length) {
+                        text = text.substring(result[0].length + 1);
+                        text = `${symbol} ${text}`;
+                    }
+                    break;
+                }
+                case 'quote':
+                case 'indent-in':
+                case 'unordered-list':
+                    text = stateFound ? text.substring(2) : `${symbol} ${text}`;
+                    cursorStart.ch += stateFound ? -2 : 2;
+                    cursorEnd.ch += stateFound ? -2 : 2;
+                    break;
+                case 'indent-out':
+                    text = states.includes('quote') ? text.substring(2) : `${symbol} ${text}`;
+                    cursorStart.ch += stateFound ? -2 : 2;
+                    cursorEnd.ch += stateFound ? -2 : 2;
+                    break;
+                case 'ordered-list':
+                    text = stateFound ? text.substring(3) : `${lineCount + 1}. ${text}`;
+                    cursorStart.ch += stateFound ? -3 : 3;
+                    cursorEnd.ch += stateFound ? -3 : 3;
+                    break;
+            }
+            this.replaceRangeLine(text, i);
+            lineCount += 1;
+        }
+        codeMirror.getDoc().setSelection(cursorStart, cursorEnd);
+        codeMirror.focus();
+    }
+    isSelectionInline() {
+        const codeMirror = this.codeMirrorEditor;
+        const cursorStart = codeMirror.getDoc().getCursor('start');
+        const cursorEnd = codeMirror.getDoc().getCursor('end');
+        const lineLength = codeMirror.getDoc().getLine(cursorStart.line).length;
+        return cursorStart.line === cursorEnd.line &amp;&amp; cursorEnd.ch - cursorStart.ch !== lineLength;
+    }
+    getSelectedText() {
+        const codeMirror = this.codeMirrorEditor;
+        const doc = codeMirror.getDoc();
+        return doc.getSelection();
+    }
+    getStates(position) {
+        const codeMirror = this.codeMirrorEditor;
+        const pos = position || Object.assign({}, codeMirror.getDoc().getCursor('start'));
+        if (pos.sticky === 'after') {
+            pos.ch = +1;
+        }
+        const cursor = codeMirror.getTokenAt(pos);
+        cursor.string === '~' ? (cursor.type = 'strikethrough') : '';
+        if (!cursor.type) {
+            return [];
+        }
+        const states = cursor.type.split(' ');
+        if (states.includes('variable-2')) {
+            const text = codeMirror.getDoc().getLine(pos.line);
+            const index = states.indexOf('variable-2');
+            states[index] = /^\s*\d+\.\s/.test(text) ? 'ordered-list' : 'unordered-list';
+        }
+        return states;
+    }
+    action(option) {
+        if (!option.type) {
+            switch (option.name) {
+                case 'undo':
+                    return this.undo();
+                case 'redo':
+                    return this.redo();
+                case 'code':
+                    return this.toggleCode();
+                case 'table':
+                    return this.insertTable();
+                case 'table-paste':
+                    return this.pasteTable();
+                case 'link':
+                    return this.insertLink();
+                case 'image':
+                    return this.insertImage();
+                case 'hr':
+                    return this.toggleHorizontalRule();
+                case 'image-ext':
+                    return this.insertImageExt();
+                case 'fullscreen':
+                    return this.toggleFullscreen();
+                case 'split-view':
+                    return this.toggleSplitView();
+                case 'ordered-list':
+                    return this.processLine('ordered-list');
+                default:
+                    // eslint-disable-next-line
+                    return console.error(`A custom option - ${option.name} - for the ExmgMarkdownEditor is set without a type.`, option);
+            }
+        }
+        else {
+            if (!option.token) {
+                // eslint-disable-next-line
+                return console.error(`A custom option - ${option.name} - for the ExmgMarkdownEditor is set without a token.`, option);
+            }
+            switch (option.type) {
+                case 'block':
+                    return this.processBlock(option.name, option.token);
+                case 'line':
+                    return this.processLine(option.name, option.token);
+            }
+        }
+    }
+    toggleHorizontalRule() {
+        const codeMirrorEditor = this.codeMirrorEditor;
+        const cursorStart = codeMirrorEditor.getDoc().getCursor('start');
+        const lineLength = codeMirrorEditor.getDoc().getLine(cursorStart.line).trim().length;
+        const newLine = cursorStart.ch === 0 &amp;&amp; lineLength === 0;
+        const appendStr = newLine ? '\n' : '\n\n';
+        this.insertAtCursor(appendStr + insertBlocks.hr + appendStr);
+        cursorStart.line += newLine ? 1 : 2;
+        codeMirrorEditor.getDoc().setSelection(cursorStart, cursorStart);
+        codeMirrorEditor.focus();
+    }
+    insertLink() {
+        const selection = this.getSelectedText();
+        this.insertAtCursor(insertBlocks.link(selection), 2, 8);
+    }
+    insertImageExt() {
+        this.fire('exmg-markdown-editor-image-open');
+    }
+    insertImage() {
+        const selection = this.getSelectedText();
+        this.insertAtCursor(insertBlocks.image(selection), 2, 8);
+    }
+    insertTable() {
+        this.insertAtCursor(insertBlocks.table, 2, 8);
+    }
+    pasteTable() {
+        this.fire('exmg-markdown-editor-paste-table');
+    }
+    insertMarkdown(data) {
+        this.insertAtCursor(data);
+    }
+    insertTableAtCursor(data) {
+        const columnWidth = (rows, columnIndex) => {
+            return Math.max.apply(null, rows.map(function (row) {
+                return row[columnIndex].length;
+            }));
+        };
+        const rows = data.split(/[\n\u0085\u2028\u2029]|\r\n?/g).map(function (row) {
+            return row.split('\t');
+        });
+        const columnWidths = rows[0].map(function (_column, columnIndex) {
+            return columnWidth(rows, columnIndex);
+        });
+        const markdownRows = rows.map(function (row) {
+            return ('| ' +
+                row
+                    .map(function (column, index) {
+                    return column + Array(columnWidths[index] - column.length + 1).join(' ');
+                })
+                    .join(' | ') +
+                ' |');
+        });
+        markdownRows.splice(1, 0, '|' +
+            columnWidths
+                .map(function (_width, index) {
+                return Array(columnWidths[index] + 3).join('-');
+            })
+                .join('|') +
+            '|');
+        const result = markdownRows.join('\n');
+        this.insertAtCursor(result);
+    }
+    toggleCode(event) {
+        if (event) {
+            event.preventDefault();
+        }
+        if (this.isSelectionInline()) {
+            this.processBlock('inline-code', '');
+        }
+        else {
+            this.processBlock('code', '', true);
+        }
+    }
+    undo(event) {
+        if (event) {
+            event.preventDefault();
+        }
+        this.codeMirrorEditor.getDoc().undo();
+        this.codeMirrorEditor.focus();
+    }
+    redo(event) {
+        if (event) {
+            event.preventDefault();
+        }
+        this.codeMirrorEditor.getDoc().redo();
+        this.codeMirrorEditor.focus();
+    }
+    onKeyPressed(e) {
+        switch (e.code || e.keyCode) {
+            case ENTER_KEY_CODE:
+            case 'Enter':
+            case 'NumpadEnter':
+                if (!e.ctrlKey) {
+                    e.stopPropagation();
+                }
+                break;
+        }
+    }
+    render() {
+        const classes = { fullscreen: this.fullscreen, labels: true };
+        return html `
+      &lt;div id="toolbar" class="toolbar">
+        &lt;div class="items">
+          ${repeat(this.getToolbar(this.toolbarButtons), (it, index) => (it.name ? it.name : `empty_${index}`), (it) => {
+            var _a;
+            if (it.name) {
+                const hasMaterialIcon = it.icon.indexOf('exmg-markdown-editor-icons:') &lt; 0;
+                return html `
+                  &lt;a
+                    href="#"
+                    title=${it.title}
+                    class=${(_a = it.className) !== null &amp;&amp; _a !== void 0 ? _a : ''}
+                    @click=${(e) => {
+                    e.preventDefault();
+                    this.action(it);
+                }}
+                  >
+                    ${hasMaterialIcon
+                    ? html `&lt;mwc-icon>${it.icon}&lt;/mwc-icon>`
+                    : html `&lt;iron-icon icon="${it.icon}">&lt;/iron-icon>`}
+                  &lt;/a>
+                `;
+            }
+            return html ` &lt;span class="seperator">&lt;/span> `;
+        })}
+        &lt;/div>
+        &lt;div class=${classMap(classes)}>
+          ${this.showHelperLabel
+            ? html `
+                &lt;div>EDITOR&lt;/div>
+                ${this.splitView ? html ` &lt;div class="preview">PREVIEW&lt;/div> ` : ''}
+              `
+            : ''}
+        &lt;/div>
+      &lt;/div>
+      &lt;div class="container" style="height: ${this.height &amp;&amp; !this.fullscreen ? `${this.height}px` : 'inherit'};">
+        &lt;div id="editor">&lt;/div>
+        &lt;div id="preview" class="preview-html">&lt;slot>&lt;/slot>&lt;/div>
+      &lt;/div>
+    `;
+    }
+};
+EditorElement.styles = [codeMirrorStylesText];
+__decorate([
+    property({ type: Boolean, attribute: 'auto-focus' })
+], EditorElement.prototype, "autoFocus", void 0);
+__decorate([
+    property({ type: Number, attribute: 'height' })
+], EditorElement.prototype, "height", void 0);
+__decorate([
+    property({ type: Boolean, attribute: 'line-numbers' })
+], EditorElement.prototype, "lineNumbers", void 0);
+__decorate([
+    property({ type: Boolean, attribute: 'indent-with-tabs' })
+], EditorElement.prototype, "indentWithTabs", void 0);
+__decorate([
+    property({ type: String }),
+    observer(function (markdown) {
+        if (this.codeMirrorEditor &amp;&amp; this.codeMirrorEditor.getValue() !== markdown) {
+            this.codeMirrorEditor.setValue(markdown || '');
+        }
+        this.dispatchMarkdownUpdatedDebounce(() => {
+            this.fire('value-change', this.value);
+            this.fire('change', this.value);
+        });
+        this.renderHTML();
+        this.updateDocHistory();
+    })
+], EditorElement.prototype, "markdown", void 0);
+__decorate([
+    property({ type: Boolean, attribute: 'show-helper-label' })
+], EditorElement.prototype, "showHelperLabel", void 0);
+__decorate([
+    property({ type: Boolean, reflect: true, attribute: 'split-view' })
+], EditorElement.prototype, "splitView", void 0);
+__decorate([
+    property({ type: Boolean, reflect: true, attribute: 'fullscreen' }),
+    observer(function (fullscreen) {
+        if (!this.codeMirrorEditor) {
+            return;
+        }
+        // @ts-ignore
+        this.codeMirrorEditor.setOption('fullScreen', fullscreen);
+        if (this.isElementInitialized) {
+            this.fire('exmg-markdown-editor-fullscreen', !!fullscreen);
+        }
+    })
+], EditorElement.prototype, "fullscreen", void 0);
+__decorate([
+    property({ type: Array, attribute: 'toolbar-buttons' })
+], EditorElement.prototype, "toolbarButtons", void 0);
+__decorate([
+    property({ type: String })
+], EditorElement.prototype, "name", void 0);
+__decorate([
+    property({ type: Boolean, attribute: 'required' })
+], EditorElement.prototype, "required", void 0);
+__decorate([
+    property({ type: Boolean, reflect: true, attribute: 'invalid' })
+], EditorElement.prototype, "invalid", void 0);
+__decorate([
+    state()
+], EditorElement.prototype, "toolbarButtonsConfig", void 0);
+__decorate([
+    property({ type: Object, attribute: 'shortcuts' })
+], EditorElement.prototype, "shortcuts", void 0);
+__decorate([
+    query('#editor')
+], EditorElement.prototype, "editorElement", void 0);
+EditorElement = __decorate([
+    customElement('exmg-markdown-editor')
+], EditorElement);
+export { EditorElement };
+//# sourceMappingURL=exmg-markdown-editor.js.map</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<footer>
+    <img class="logo" src="https://www.exmachinagroup.com/images/svg/ExMachinaPrimary.svg" style="width: 100px; height: 50px">
+    <div class="footer-text">NHN Entertainment. Frontend Development Lab</div>
+</footer>
+<script>prettyPrint();</script>
+<script src="scripts/jquery.min.js"></script>
+<script src="scripts/tui-doc.js"></script>
+<script src="scripts/linenumber.js"></script>
+
+    <script>
+        var id = '_sub'.replace(/"/g, '_');
+        var selectedApi = document.getElementById(id); // do not use jquery selector
+        var $selectedApi = $(selectedApi);
+
+        $selectedApi.removeClass('hidden');
+        $selectedApi.parent().find('.glyphicon').removeClass('glyphicon-plus').addClass('glyphicon-minus');
+        showLnbApi();
+    </script>
+
+</body>
+</html>

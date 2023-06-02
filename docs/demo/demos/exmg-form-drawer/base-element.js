@@ -1,0 +1,1 @@
+import{s as e}from"../lit-element-775ec931.js";class s extends e{constructor(){super(...arguments),this.bubbles=!1}fire(e,s,t){this.dispatchEvent(new CustomEvent(e,{bubbles:t||this.bubbles,composed:!0,detail:s}))}}export{s as BaseElement};

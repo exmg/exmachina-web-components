@@ -1,0 +1,451 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Source: exmg-upload/src/exmg-upload-base.js | Source: exmg-upload/src/exmg-upload-base.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/bootstrap.min.css">
+    <link type="text/css" rel="stylesheet" href="styles/prettify-jsdoc.css">
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/tui-doc.css">
+
+    
+</head>
+<body>
+<nav class="lnb" id="lnb">
+    <div class="logo" style="width: 100px; height: 50px">
+        
+            <img src="https://www.exmachinagroup.com/images/svg/ExMachinaPrimary.svg" width="100%" height="100%">
+        
+    </div>
+    <div class="title">
+        <h1><a href="index.html" class="link">Source: exmg-upload/src/exmg-upload-base.js</a></h1>
+        
+    </div>
+    <div class="search-container" id="search-container">
+        <input type="text" placeholder="Search">
+        <ul></ul>
+    </div>
+    
+    <div class="lnb-api hidden"><h3>Classes</h3><ul><li><a href="Exmg.EditorElement.html">EditorElement</a><button type="button" class="hidden toggle-subnav btn btn-link">  <span class="glyphicon glyphicon-plus"></span></button><div class="hidden" id="Exmg.EditorElement_sub"><div class="member-type">Methods</div><ul class="inner"><li><a href="Exmg.EditorElement.html#getToolbar">getToolbar</a></li><li><a href="Exmg.EditorElement.html#updateDocHistory">updateDocHistory</a></li></ul></div></li><li><a href="ExmgBreadcrumbs.html">ExmgBreadcrumbs</a><button type="button" class="hidden toggle-subnav btn btn-link">  <span class="glyphicon glyphicon-plus"></span></button><div class="hidden" id="ExmgBreadcrumbs_sub"></div></li><li><a href="ExmgButton.html">ExmgButton</a><button type="button" class="hidden toggle-subnav btn btn-link">  <span class="glyphicon glyphicon-plus"></span></button><div class="hidden" id="ExmgButton_sub"><div class="member-type">Members</div><ul class="inner"><li><a href="ExmgButton.html#loading">loading</a></li></ul></div></li><li><a href="ExmgCollapsed.html">ExmgCollapsed</a><button type="button" class="hidden toggle-subnav btn btn-link">  <span class="glyphicon glyphicon-plus"></span></button><div class="hidden" id="ExmgCollapsed_sub"><div class="member-type">Members</div><ul class="inner"><li><a href="ExmgCollapsed.html#opened">opened</a></li><li><a href="ExmgCollapsed.html#transitioning">transitioning</a></li></ul><div class="member-type">Methods</div><ul class="inner"><li><a href="ExmgCollapsed.html#hide">hide</a></li><li><a href="ExmgCollapsed.html#show">show</a></li><li><a href="ExmgCollapsed.html#toggle">toggle</a></li></ul></div></li><li><a href="ExmgConfirmDialog.html">ExmgConfirmDialog</a><button type="button" class="hidden toggle-subnav btn btn-link">  <span class="glyphicon glyphicon-plus"></span></button><div class="hidden" id="ExmgConfirmDialog_sub"><div class="member-type">Members</div><ul class="inner"><li><a href="ExmgConfirmDialog.html#buttonCopy">buttonCopy</a></li><li><a href="ExmgConfirmDialog.html#hasSlotContent">hasSlotContent</a></li><li><a href="ExmgConfirmDialog.html#hideCloseButton">hideCloseButton</a></li><li><a href="ExmgConfirmDialog.html#message">message</a></li><li><a href="ExmgConfirmDialog.html#submitting">submitting</a></li><li><a href="ExmgConfirmDialog.html#title">title</a></li></ul><div class="member-type">Methods</div><ul class="inner"><li><a href="ExmgConfirmDialog.html#close">close</a></li><li><a href="ExmgConfirmDialog.html#done">done</a></li><li><a href="ExmgConfirmDialog.html#error">error</a></li><li><a href="ExmgConfirmDialog.html#handleError">handleError</a></li><li><a href="ExmgConfirmDialog.html#open">open</a></li><li><a href="ExmgConfirmDialog.html#render">render</a></li></ul></div></li><li><a href="ExmgCopyToClipboard.html">ExmgCopyToClipboard</a><button type="button" class="hidden toggle-subnav btn btn-link">  <span class="glyphicon glyphicon-plus"></span></button><div class="hidden" id="ExmgCopyToClipboard_sub"><div class="member-type">Methods</div><ul class="inner"><li><a href="ExmgCopyToClipboard.html#handleCopyAction">handleCopyAction</a></li></ul></div></li><li><a href="ExmgDrawer.html">ExmgDrawer</a><button type="button" class="hidden toggle-subnav btn btn-link">  <span class="glyphicon glyphicon-plus"></span></button><div class="hidden" id="ExmgDrawer_sub"><div class="member-type">Members</div><ul class="inner"><li><a href="ExmgDrawer.html#noCancelOnOutsideClick">noCancelOnOutsideClick</a></li><li><a href="ExmgDrawer.html#opened">opened</a></li></ul></div></li><li><a href="ExmgForm.html">ExmgForm</a><button type="button" class="hidden toggle-subnav btn btn-link">  <span class="glyphicon glyphicon-plus"></span></button><div class="hidden" id="ExmgForm_sub"></div></li><li><a href="ExmgFormDialog.html">ExmgFormDialog</a><button type="button" class="hidden toggle-subnav btn btn-link">  <span class="glyphicon glyphicon-plus"></span></button><div class="hidden" id="ExmgFormDialog_sub"><div class="member-type">Members</div><ul class="inner"><li><a href="ExmgFormDialog.html#buttonCopy">buttonCopy</a></li><li><a href="ExmgFormDialog.html#hideCloseButton">hideCloseButton</a></li><li><a href="ExmgFormDialog.html#submitting">submitting</a></li><li><a href="ExmgFormDialog.html#title">title</a></li></ul><div class="member-type">Methods</div><ul class="inner"><li><a href="ExmgFormDialog.html#close">close</a></li><li><a href="ExmgFormDialog.html#done">done</a></li><li><a href="ExmgFormDialog.html#error">error</a></li><li><a href="ExmgFormDialog.html#handleError">handleError</a></li><li><a href="ExmgFormDialog.html#open">open</a></li><li><a href="ExmgFormDialog.html#render">render</a></li></ul></div></li><li><a href="ExmgFormDrawer.html">ExmgFormDrawer</a><button type="button" class="hidden toggle-subnav btn btn-link">  <span class="glyphicon glyphicon-plus"></span></button><div class="hidden" id="ExmgFormDrawer_sub"><div class="member-type">Members</div><ul class="inner"><li><a href="ExmgFormDrawer.html#autofocusOnOpen">autofocusOnOpen</a></li><li><a href="ExmgFormDrawer.html#cancelBtnTitle">cancelBtnTitle</a></li><li><a href="ExmgFormDrawer.html#disableStickyHeader">disableStickyHeader</a></li><li><a href="ExmgFormDrawer.html#keepOpenedOnSubmitSuccess">keepOpenedOnSubmitSuccess</a></li><li><a href="ExmgFormDrawer.html#noCancelOnOutsideClick">noCancelOnOutsideClick</a></li><li><a href="ExmgFormDrawer.html#opened">opened</a></li><li><a href="ExmgFormDrawer.html#resetFormOnSubmitSuccess">resetFormOnSubmitSuccess</a></li><li><a href="ExmgFormDrawer.html#submitBtnHidden">submitBtnHidden</a></li><li><a href="ExmgFormDrawer.html#submitBtnTitle">submitBtnTitle</a></li><li><a href="ExmgFormDrawer.html#submitting">submitting</a></li></ul><div class="member-type">Methods</div><ul class="inner"><li><a href="ExmgFormDrawer.html#error">error</a></li></ul></div></li><li><a href="ExmgGrid.html">ExmgGrid</a><button type="button" class="hidden toggle-subnav btn btn-link">  <span class="glyphicon glyphicon-plus"></span></button><div class="hidden" id="ExmgGrid_sub"><div class="member-type">Members</div><ul class="inner"><li><a href="ExmgGrid.html#disableRowClickSelection">disableRowClickSelection</a></li><li><a href="ExmgGrid.html#expandedRowIds">expandedRowIds</a></li><li><a href="ExmgGrid.html#hiddenColumnNames">hiddenColumnNames</a></li><li><a href="ExmgGrid.html#items">items</a></li><li><a href="ExmgGrid.html#rowsSelectable">rowsSelectable</a></li><li><a href="ExmgGrid.html#rowsSortable">rowsSortable</a></li><li><a href="ExmgGrid.html#selectedRowIds">selectedRowIds</a></li><li><a href="ExmgGrid.html#sortable">sortable</a></li><li><a href="ExmgGrid.html#tableLayout">tableLayout</a></li></ul></div></li><li><a href="ExmgGridBaseToolbar.html">ExmgGridBaseToolbar</a><button type="button" class="hidden toggle-subnav btn btn-link">  <span class="glyphicon glyphicon-plus"></span></button><div class="hidden" id="ExmgGridBaseToolbar_sub"></div></li><li><a href="ExmgGridPagination.html">ExmgGridPagination</a><button type="button" class="hidden toggle-subnav btn btn-link">  <span class="glyphicon glyphicon-plus"></span></button><div class="hidden" id="ExmgGridPagination_sub"></div></li><li><a href="ExmgInfoDialog.html">ExmgInfoDialog</a><button type="button" class="hidden toggle-subnav btn btn-link">  <span class="glyphicon glyphicon-plus"></span></button><div class="hidden" id="ExmgInfoDialog_sub"><div class="member-type">Members</div><ul class="inner"><li><a href="ExmgInfoDialog.html#buttonCopy">buttonCopy</a></li><li><a href="ExmgInfoDialog.html#buttonUnelevated">buttonUnelevated</a></li><li><a href="ExmgInfoDialog.html#hideCloseButton">hideCloseButton</a></li><li><a href="ExmgInfoDialog.html#title">title</a></li></ul><div class="member-type">Methods</div><ul class="inner"><li><a href="ExmgInfoDialog.html#close">close</a></li><li><a href="ExmgInfoDialog.html#done">done</a></li><li><a href="ExmgInfoDialog.html#open">open</a></li><li><a href="ExmgInfoDialog.html#render">render</a></li></ul></div></li><li><a href="ExmgSidemenu.html">ExmgSidemenu</a><button type="button" class="hidden toggle-subnav btn btn-link">  <span class="glyphicon glyphicon-plus"></span></button><div class="hidden" id="ExmgSidemenu_sub"></div></li><li><a href="ExmgSidemenuHeader.html">ExmgSidemenuHeader</a><button type="button" class="hidden toggle-subnav btn btn-link">  <span class="glyphicon glyphicon-plus"></span></button><div class="hidden" id="ExmgSidemenuHeader_sub"></div></li><li><a href="ExmgTooltip.html">ExmgTooltip</a><button type="button" class="hidden toggle-subnav btn btn-link">  <span class="glyphicon glyphicon-plus"></span></button><div class="hidden" id="ExmgTooltip_sub"></div></li><li><a href="SortableElement.html">SortableElement</a><button type="button" class="hidden toggle-subnav btn btn-link">  <span class="glyphicon glyphicon-plus"></span></button><div class="hidden" id="SortableElement_sub"><div class="member-type">Methods</div><ul class="inner"><li><a href="SortableElement.html#animateNode">animateNode</a></li><li><a href="SortableElement.html#createClone">createClone</a></li><li><a href="SortableElement.html#getSortableHost">getSortableHost</a></li><li><a href="SortableElement.html#handleTrack">handleTrack</a></li><li><a href="SortableElement.html#hitTest">hitTest</a></li><li><a href="SortableElement.html#insertAtTarget">insertAtTarget</a></li><li><a href="SortableElement.html#isAnimating">isAnimating</a></li><li><a href="SortableElement.html#trackEnd">trackEnd</a></li><li><a href="SortableElement.html#trackMove">trackMove</a></li><li><a href="SortableElement.html#trackStart">trackStart</a></li></ul></div></li></ul></div><div class="lnb-api hidden"><h3>Global</h3><ul><li><a href="global.html#formatBytes">formatBytes</a></li><li><a href="global.html#isImage">isImage</a></li><li><a href="global.html#isSizeValid">isSizeValid</a></li><li><a href="global.html#isTypeValidExtension">isTypeValidExtension</a></li><li><a href="global.html#orientationMap">orientationMap</a></li><li><a href="global.html#selectionController">selectionController</a></li><li><a href="global.html#toggleClass">toggleClass</a></li></ul></div>
+</nav>
+<div id="resizer"></div>
+
+<div class="main" id="main">
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import { __decorate } from "tslib";
+import { html } from 'lit';
+import { property, query, state } from 'lit/decorators.js';
+import { ifDefined } from 'lit/directives/if-defined.js';
+import { repeat } from 'lit/directives/repeat.js';
+import { FileUploadError } from './types.js';
+import '@exmg/exmg-button';
+// File upload imports
+import './exmg-upload-item.js';
+import './exmg-upload-crop.js';
+import './exmg-upload-drop-area.js';
+import { isCorrectResolution, isImage, isSizeValid, isTypeValidExtension } from './utils.js';
+import { classMap } from 'lit/directives/class-map.js';
+import { ExmgElement, observer } from '@exmg/lit-base';
+export class ExmgUploadBase extends ExmgElement {
+    constructor() {
+        super(...arguments);
+        /**
+         * Files addded to component
+         */
+        this.files = [];
+        /**
+         * Accepted file types seperated by comma
+         */
+        this.accept = '';
+        /**
+         * The max file size allowed to upload e.g. '20mb'
+         */
+        this.maxSize = '100mb';
+        /**
+         * Determines if multiple files can be selected. When false maxAmount is set to 1 automatically
+         */
+        this.multiple = false;
+        /**
+         * Disable the upload component useful for forms
+         */
+        this.disabled = false;
+        /**
+         * The upload response type
+         */
+        this.responseType = 'json';
+        /**
+         * The upload response type
+         */
+        this.serverType = 'xhr';
+        /**
+         * The CropperJS config see: https://github.com/fengyuanchen/cropperjs#options
+         */
+        this.cropperConfig = {};
+        this._cropperConfig = {
+            modal: true,
+            center: true,
+            dragMode: 'move',
+            movable: true,
+            scalable: true,
+            guides: true,
+            zoomOnWheel: true,
+            cropBoxMovable: true,
+            wheelZoomRatio: 0.1,
+        };
+        /**
+         * Internal state to check if user is cropping or not
+         */
+        this._isCropping = false;
+        this.isModeDialog = false;
+        /**
+         * Internal state to check if file is uploaded or not
+         */
+        this._uploaded = false;
+        /**
+         * Allow cropping can only be used when fixedResolution is not set
+         */
+        this.allowCropping = false;
+    }
+    getValues() {
+        return this.files.filter((file) => file.status === 'UPLOADED').map((file) => file.url);
+    }
+    /**
+     * Extract files from either file input or drop event
+     * @param event
+     * @returns FileList[] | []
+     */
+    _getFiles(event) {
+        var _a;
+        const { files } = (_a = (event.type === 'drop' ? event.dataTransfer : event.target)) !== null &amp;&amp; _a !== void 0 ? _a : {};
+        return Array.from(files !== null &amp;&amp; files !== void 0 ? files : []);
+    }
+    /**
+     * Resets the upload component
+     * @public
+     */
+    reset() {
+        this._uploaded = false;
+        this.files = [];
+        this.cancelActiveCrop();
+    }
+    prepareFiles(addedFiles) {
+        // Loop through files and assign unique id
+        const newFiles = addedFiles.map((item) => ({
+            id: (Date.now() + Math.random()).toString(36),
+            file: item,
+            status: 'UPLOADING',
+        }));
+        for (const file of newFiles) {
+            this._validateFile(file);
+            this.files = [...this.files, file];
+        }
+        this.fire('files-changed', { files: this.files }, true);
+        this._uploaded = true;
+        if (this.fileElement) {
+            this.fileElement.value = '';
+        }
+    }
+    /**
+     * Handles file change which also validates
+     * @param event
+     * @fires files-changed
+     */
+    async _handleChange(event) {
+        event.preventDefault();
+        if (this.disabled) {
+            return;
+        }
+        const addedFiles = this._getFiles(event);
+        this.prepareFiles(addedFiles);
+    }
+    /**
+     * Validator function to check file before upload to server
+     * @param FileData
+     */
+    async _validateFile(item) {
+        if (!isSizeValid(item.file.size, this.maxSize)) {
+            this._handleError(FileUploadError.INVALID_SIZE, item);
+        }
+        if (!isTypeValidExtension(item.file, this.accept || '')) {
+            this._handleError(FileUploadError.INVALID_TYPE, item);
+        }
+        if (this.maxAmount &amp;&amp; this.files.length >= this.maxAmount) {
+            this._handleError(FileUploadError.INVALID_AMOUNT, item);
+        }
+        if (!this.multiple &amp;&amp; this.files.length >= 1) {
+            this._handleError(FileUploadError.INVALID_MULTIPLE, item);
+        }
+        const _isImage = isImage(item.file);
+        if (_isImage &amp;&amp; this.fixedResolution) {
+            const isCorrect = await isCorrectResolution(item.file, this.fixedResolution);
+            if (!isCorrect) {
+                this._handleError(FileUploadError.INVALID_RESOLUTION, item);
+            }
+        }
+    }
+    /**
+     * Enable cropping mode
+     * @param e
+     */
+    _handleCropping(e) {
+        const file = e.detail;
+        this._isCropping = true;
+        setTimeout(() => { var _a; return (_a = this.cropSection) === null || _a === void 0 ? void 0 : _a.crop(file); });
+    }
+    /**
+     * Removes file from files array
+     * @param id
+     */
+    removeFile(id) {
+        this.files = this.files.filter((item) => {
+            return item.id !== id;
+        });
+        this.fire('file-removed', id);
+        this.fire('files-changed', { files: this.files }, true);
+    }
+    /**
+     * Removes the file out of the files array.
+     * @fires file-removed
+     * @param e
+     * @param id
+     */
+    _handleRemove(e) {
+        const idToRemove = e.detail;
+        this.removeFile(idToRemove);
+    }
+    /**
+     * Handles crop done and toggles cropping state
+     * @fires crop-done
+     * @param e
+     */
+    async _handleCropDone(e) {
+        this._isCropping = false;
+        const item = e.detail;
+        this.removeFile(item === null || item === void 0 ? void 0 : item.id);
+        this.prepareFiles([item.file]);
+        this.fire('crop-done', e.detail);
+    }
+    /**
+     * Handles crop cancel and toggles cropping state
+     * @fires crop-cancel
+     */
+    cancelActiveCrop() {
+        this._isCropping = false;
+        this.fire('crop-cancel', {}, true);
+    }
+    saveActiveCrop() {
+        var _a;
+        (_a = this.cropSection) === null || _a === void 0 ? void 0 : _a.saveCropArea();
+    }
+    /**
+     * Error handling helper function used for all validation
+     * @param message
+     * @param item
+     */
+    _handleError(message, item) {
+        item.invalid = true;
+        item.status = 'INVALID';
+        item.error = message;
+    }
+    openFileSelector() {
+        var _a;
+        const fileInput = (_a = this === null || this === void 0 ? void 0 : this.shadowRoot) === null || _a === void 0 ? void 0 : _a.querySelector('#file');
+        if (fileInput) {
+            fileInput.click();
+        }
+    }
+    renderDescription() {
+        const { accept, maxSize, fixedResolution } = this;
+        return `Only ${accept ? accept.replace(/,/g, ' ') : ''} files${fixedResolution ? ` of resolution ${fixedResolution} px` : ''} that do not exceed ${maxSize} in size`;
+    }
+    /**
+     * Renders the file items
+     */
+    renderFileItems() {
+        return repeat(this.files || [], (file) => file.id, (item) => html `&lt;exmg-upload-item
+          class="item"
+          id=${item.id}
+          @edit-image=${this._handleCropping}
+          @remove-item=${this._handleRemove}
+          uploadUrl=${ifDefined(this.uploadUrl)}
+          customAdapterPath=${ifDefined(this.customAdapterPath)}
+          serverType=${this.serverType}
+          responseType=${this.responseType}
+          ?allowCropping=${!this.fixedResolution &amp;&amp; this.allowCropping}
+          .item=${item}
+        >&lt;/exmg-upload-item>`);
+    }
+    renderUploadCrop() {
+        const { _cropperConfig } = this;
+        return html `
+      &lt;exmg-upload-crop
+        id="crop-dialog"
+        ?hideActions=${this.isModeDialog}
+        @crop-done=${this._handleCropDone}
+        @crop-cancel=${this.cancelActiveCrop}
+        .cropperConfig=${_cropperConfig}
+      >&lt;/exmg-upload-crop>
+    `;
+    }
+    renderUploadDropArea() {
+        const { disabled } = this;
+        return html `
+      &lt;exmg-upload-drop-area
+        description=${this.renderDescription()}
+        ?disabled=${disabled}
+        @browse-files=${this.openFileSelector}
+        @remove-file=${this._handleRemove}
+        @drop=${this._handleChange}
+      >
+        &lt;slot slot="drop-icon" name="drop-icon">
+          &lt;svg xmlns="http://www.w3.org/2000/svg" width="48px" height="48px" viewBox="0 0 24 24">
+            &lt;g>&lt;rect fill="none" height="24" width="24" />&lt;/g>
+            &lt;g>
+              &lt;path
+                d="M18,15v3H6v-3H4v3c0,1.1,0.9,2,2,2h12c1.1,0,2-0.9,2-2v-3H18z M7,9l1.41,1.41L11,7.83V16h2V7.83l2.59,2.58L17,9l-5-5L7,9z"
+              />
+            &lt;/g>
+          &lt;/svg>
+        &lt;/slot>
+        &lt;slot slot="drop-text" name="drop-text"
+          >Drag and drop, or &lt;a href="#" @click=${this.openFileSelector}>browse&lt;/a> your files&lt;/slot
+        >
+      &lt;/exmg-upload-drop-area>
+    `;
+    }
+    render() {
+        const { _isCropping, accept, disabled } = this;
+        if (_isCropping) {
+            return this.renderUploadCrop();
+        }
+        return html `
+      &lt;div class="image-upload-wrapper ${classMap({ disabled: !!this.disabled })}">
+        ${this.renderUploadDropArea()}
+
+        &lt;form id="form-upload" enctype="multipart/form-data">
+          &lt;input
+            id="file"
+            type="file"
+            name="file"
+            tabindex="-1"
+            accept=${ifDefined(accept)}
+            ?disabled=${disabled}
+            @change=${this._handleChange}
+            ?multiple=${this.multiple}
+            hidden
+          />
+        &lt;/form>
+      &lt;/div>
+
+      &lt;!-- Upload Items list -->
+      &lt;div class="item-container">${this.renderFileItems()}&lt;/div>
+    `;
+    }
+}
+__decorate([
+    property({ type: Array })
+], ExmgUploadBase.prototype, "files", void 0);
+__decorate([
+    property({ type: String })
+], ExmgUploadBase.prototype, "accept", void 0);
+__decorate([
+    property({ type: String })
+], ExmgUploadBase.prototype, "maxSize", void 0);
+__decorate([
+    property({ type: Boolean })
+], ExmgUploadBase.prototype, "multiple", void 0);
+__decorate([
+    property({ type: Number })
+], ExmgUploadBase.prototype, "maxAmount", void 0);
+__decorate([
+    property({ type: Boolean })
+], ExmgUploadBase.prototype, "disabled", void 0);
+__decorate([
+    property({ type: String })
+], ExmgUploadBase.prototype, "customAdapterPath", void 0);
+__decorate([
+    property({ type: String })
+], ExmgUploadBase.prototype, "uploadUrl", void 0);
+__decorate([
+    property({ type: String })
+], ExmgUploadBase.prototype, "responseType", void 0);
+__decorate([
+    property({ type: String })
+], ExmgUploadBase.prototype, "serverType", void 0);
+__decorate([
+    property({ type: Object }),
+    observer(function (value) {
+        this._cropperConfig = Object.assign(Object.assign({}, this._cropperConfig), value);
+    })
+], ExmgUploadBase.prototype, "cropperConfig", void 0);
+__decorate([
+    state()
+], ExmgUploadBase.prototype, "_cropperConfig", void 0);
+__decorate([
+    state()
+], ExmgUploadBase.prototype, "_isCropping", void 0);
+__decorate([
+    property({ type: Boolean })
+], ExmgUploadBase.prototype, "isModeDialog", void 0);
+__decorate([
+    state()
+], ExmgUploadBase.prototype, "_uploaded", void 0);
+__decorate([
+    query('#crop-dialog')
+], ExmgUploadBase.prototype, "cropSection", void 0);
+__decorate([
+    property({ type: Boolean })
+], ExmgUploadBase.prototype, "allowCropping", void 0);
+__decorate([
+    property({ type: String })
+], ExmgUploadBase.prototype, "fixedResolution", void 0);
+__decorate([
+    query('#file')
+], ExmgUploadBase.prototype, "fileElement", void 0);
+__decorate([
+    query('.item-container')
+], ExmgUploadBase.prototype, "itemContainer", void 0);
+//# sourceMappingURL=exmg-upload-base.js.map</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<footer>
+    <img class="logo" src="https://www.exmachinagroup.com/images/svg/ExMachinaPrimary.svg" style="width: 100px; height: 50px">
+    <div class="footer-text">NHN Entertainment. Frontend Development Lab</div>
+</footer>
+<script>prettyPrint();</script>
+<script src="scripts/jquery.min.js"></script>
+<script src="scripts/tui-doc.js"></script>
+<script src="scripts/linenumber.js"></script>
+
+    <script>
+        var id = '_sub'.replace(/"/g, '_');
+        var selectedApi = document.getElementById(id); // do not use jquery selector
+        var $selectedApi = $(selectedApi);
+
+        $selectedApi.removeClass('hidden');
+        $selectedApi.parent().find('.glyphicon').removeClass('glyphicon-plus').addClass('glyphicon-minus');
+        showLnbApi();
+    </script>
+
+</body>
+</html>

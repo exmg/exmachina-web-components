@@ -1,0 +1,1 @@
+import{_ as e,s as r,x as t,e as s,a as o}from"../query-assigned-elements-3c47ed19.js";let i=class extends r{constructor(){super(),this.registerForReset=!0}reset(){}render(){return t` <main>Test El</main> `}};e([s({type:Boolean,attribute:"register-for-reset",reflect:!0})],i.prototype,"registerForReset",void 0),i=e([o("cust-el")],i);export{i as CustEl};
