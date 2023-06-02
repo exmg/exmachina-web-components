@@ -240,6 +240,10 @@ export class ExmgUploadBase extends ExmgElement {
     setTimeout(() => this.cropSection?.crop(file));
   }
 
+  /**
+   * Removes file from files array
+   * @param id
+   */
   private removeFile(id: string) {
     this.files = this.files.filter((item) => {
       return item.id !== id;
