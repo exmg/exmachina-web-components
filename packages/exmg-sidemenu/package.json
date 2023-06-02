@@ -1,6 +1,6 @@
 {
   "name": "@exmg/exmg-sidemenu",
-  "version": "8.1.32",
+  "version": "8.1.33",
   "description": "Paper style collapsible sidemenu",
   "contributors": [
     "Ex Machina Group"
@@ -24,7 +24,7 @@
   "license": "MIT",
   "homepage": "https://github.com/exmg/exmachina-web-components",
   "dependencies": {
-    "@exmg/exmg-tooltip": "^8.1.32",
+    "@exmg/exmg-tooltip": "^8.1.33",
     "@exmg/lit-base": "^1.1.8",
     "@material/mwc-base": "^0.25.2",
     "@material/theme": "^13.0.0",

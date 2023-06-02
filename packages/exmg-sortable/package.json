@@ -1,6 +1,6 @@
 {
   "name": "@exmg/exmg-sortable",
-  "version": "8.1.32",
+  "version": "8.1.33",
   "description": "Enables drag and drop sorting of items in a list or table",
   "contributors": [
     "Ex Machina Group"

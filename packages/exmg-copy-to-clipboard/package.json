@@ -1,6 +1,6 @@
 {
   "name": "@exmg/exmg-copy-to-clipboard",
-  "version": "8.1.32",
+  "version": "8.1.33",
   "dependencies": {
     "@exmg/lit-base": "^1.1.8",
     "@material/mwc-base": "=0.25.3",
