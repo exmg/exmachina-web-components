@@ -18,8 +18,8 @@
 
 set -e
 
-npm exec lerna bootstrap
-npm exec -- lerna clean --yes
+`npm bin`/lerna bootstrap
+`npm bin`/lerna clean --yes
 
 packages=(`find packages -name "package.json" -maxdepth 3 | xargs -I '{}' dirname '{}'`)
 
