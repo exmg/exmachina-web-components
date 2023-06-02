@@ -315,7 +315,6 @@ export class ExmgUploadBase extends ExmgElement {
 
   /**
    * Renders the file items
-   * @returns
    */
   renderFileItems() {
     return repeat(
