@@ -3,5 +3,5 @@ module.exports = {
   env: {
     jest: true,
   },
-  ignorePatterns: ['**/*-css.ts', 'dist', '.*.js', '*.config.*'],
+  ignorePatterns: ['**/*-css.ts', 'dist', '.*.js', '*.config.*', '*.d.ts'],
 };
