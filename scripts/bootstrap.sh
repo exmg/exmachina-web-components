@@ -18,7 +18,7 @@
 
 set -e
 
-npm exec lerna bootstrap
+npm exec npx lerna link
 npm exec -- lerna clean --yes
 
 packages=(`find packages -name "package.json" -maxdepth 3 | xargs -I '{}' dirname '{}'`)

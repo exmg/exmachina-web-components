@@ -21,7 +21,7 @@ export class ExmgSnackbar extends SnackbarBase {
   @property({type: Number})
   yOffset: number = 0;
 
-  public static styles = [styles, newStyles];
+  static styles = [styles, newStyles];
 
   protected override render() {
     const classes = {
