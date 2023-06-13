@@ -24,7 +24,7 @@
   "license": "MIT",
   "homepage": "https://github.com/exmg/exmachina-web-components",
   "dependencies": {
-    "@exmg/exmg-tooltip": "^8.1.33",
+    "@exmg/exmg-tooltip": "file:../exmg-tooltip",
     "@exmg/lit-base": "^1.1.8",
     "@material/mwc-base": "^0.25.2",
     "@material/theme": "^13.0.0",

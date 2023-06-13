@@ -23,15 +23,15 @@
   },
   "license": "MIT",
   "dependencies": {
-    "@exmg/exmg-button": "^8.1.33",
-    "@exmg/exmg-form": "^8.1.34",
+    "@exmg/exmg-button": "file:../exmg-button",
+    "@exmg/exmg-form": "file:../exmg-form",
     "@polymer/neon-animation": "^3.0.1",
     "@polymer/paper-dialog": "^3.0.1",
     "lit": "^2.0.0",
     "tslib": "^2.0.1"
   },
   "devDependencies": {
-    "@exmg/exmg-markdown-editor": "^8.1.33",
+    "@exmg/exmg-markdown-editor": "file:../exmg-markdown-editor",
     "@exmg/exmg-paper-combobox": "^8.0.1",
     "@exmg/exmg-paper-token-input": "^8.0.0",
     "@exmg/lit-cli": "1.1.9",
