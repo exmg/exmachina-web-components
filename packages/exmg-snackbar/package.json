@@ -1,6 +1,6 @@
 {
   "name": "@exmg/exmg-snackbar",
-  "version": "8.1.35",
+  "version": "8.1.34",
   "dependencies": {
     "@material/mwc-base": "=0.25.3",
     "@material/mwc-snackbar": "=0.25.3",
