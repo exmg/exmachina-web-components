@@ -8,7 +8,6 @@ export class ButtonDemo extends LitElement {
     css`
       :host {
         font-family: var(--mdc-typography-headline3-font-family, var(--mdc-typography-font-family, Roboto, sans-serif));
-        font-size: 15px;
         --mdc-theme-primary: var(--md-sys-color-primary);
         --mdc-theme-on-primary: var(--md-sys-color-on-primary);
       }
@@ -16,8 +15,9 @@ export class ButtonDemo extends LitElement {
         --exmg-spinner-stroke-width: 2px;
         --exmg-spinner-color: '#eee';
       }
-      h3 {
+      h1 {
         color: var(--md-sys-color-on-surface);
+        padding-top: 1.5rem;
       }
       .main {
         display: flex;
@@ -28,7 +28,6 @@ export class ButtonDemo extends LitElement {
       }
       .main > div {
         width: 100%;
-        border-bottom: 1px solid #666;
       }
       div > * {
         padding: 8px;
@@ -45,7 +44,7 @@ export class ButtonDemo extends LitElement {
     return html`
       <div class="main">
         <div>
-          <h3>Dense & Unelevated</h3>
+          <h1>Dense & Unelevated</h1>
           <demo-snippet>
             <template>
               <exmg-button unelevated dense">BUTTON</exmg-button>
@@ -53,7 +52,7 @@ export class ButtonDemo extends LitElement {
           </demo-snippet>
         </div>
         <div>
-          <h3>Loading (click it!)</h3>
+          <h1>Loading (click it!)</h1>
           <demo-snippet>
             <template>
               <exmg-button loading>LOADING</exmg-button>
@@ -61,7 +60,7 @@ export class ButtonDemo extends LitElement {
           </demo-snippet>
         </div>
         <div>
-          <h3>Disabled</h3>
+          <h1>Disabled</h1>
           <demo-snippet>
             <template>
               <exmg-button class="dark" unelevated disabled>Disabled</exmg-button>
@@ -69,7 +68,7 @@ export class ButtonDemo extends LitElement {
           </demo-snippet>
         </div>
         <div>
-          <h3>With icon</h3>
+          <h1>With icon</h1>
           <demo-snippet>
             <template>
               <exmg-button class="dark" unelevated"
@@ -79,7 +78,7 @@ export class ButtonDemo extends LitElement {
           </demo-snippet>
         </div>
         <div>
-          <h3>With progress</h3>
+          <h1>With progress</h1>
           <demo-snippet>
             <template>
               <exmg-button class="progress-button" unelevated progress="50"

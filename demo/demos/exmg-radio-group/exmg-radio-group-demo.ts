@@ -61,8 +61,9 @@ export class ExmgRadioGroupDemo extends LitElement {
           flex-basis: calc(50% - 1rem);
           max-width: calc(50% - 1rem);
         }
-        h3 {
+        h1 {
           color: var(--md-sys-color-on-surface);
+          padding-top: 1.5rem;
         }
         .center {
           text-align: center;
@@ -83,7 +84,7 @@ export class ExmgRadioGroupDemo extends LitElement {
 
       <div class="main">
         <div>
-          <h3>Flex wrap example</h3>
+          <h1>Flex wrap example</h1>
           <demo-snippet>
             <template>
               <exmg-radio-group
@@ -114,7 +115,7 @@ export class ExmgRadioGroupDemo extends LitElement {
         </div>
 
         <div>
-          <h3>Clean yes/no example</h3>
+          <h1>Clean yes/no example</h1>
           <demo-snippet>
             <template>
               <exmg-radio-group class="custom-style" name="YesNo">
@@ -130,7 +131,7 @@ export class ExmgRadioGroupDemo extends LitElement {
         </div>
 
         <div>
-          <h3>Image horizontal</h3>
+          <h1>Image horizontal</h1>
           <demo-snippet>
             <template>
               <exmg-radio-group class="custom-style" name="Choice">
@@ -156,7 +157,7 @@ export class ExmgRadioGroupDemo extends LitElement {
         </div>
 
         <div>
-          <h3>Image vertical</h3>
+          <h1>Image vertical</h1>
           <demo-snippet>
             <template>
               <exmg-radio-group class="custom-style" name="Choice" vertical>
@@ -182,7 +183,7 @@ export class ExmgRadioGroupDemo extends LitElement {
         </div>
 
         <div>
-          <h3>Image vertical</h3>
+          <h1>Image vertical</h1>
           <demo-snippet>
             <template>
               <exmg-radio-group class="custom-style" name="Choice" vertical>

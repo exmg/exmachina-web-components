@@ -24,34 +24,34 @@ export class ExmgGridDemo extends ExmgBaseGridDemo {
       .expandable-toggle {
         cursor: pointer;
       }
-      h3 {
+      h1 {
         color: var(--md-sys-color-on-surface);
-        padding-top: 1rem;
+        padding-top: 1.5rem;
       }
     `,
   ];
 
   protected render() {
     return html`
-      <h3>Complex Grid With Toolbar</h3>
+      <h1>Complex Grid With Toolbar</h1>
       <demo-complex-grid-with-slotted-toolbar></demo-complex-grid-with-slotted-toolbar>
 
-      <h3>Complex Grid With Sortable Row</h3>
+      <h1>Complex Grid With Sortable Row</h1>
       <demo-complex-grid-sortable></demo-complex-grid-sortable>
 
-      <h3>Complex Grid</h3>
+      <h1>Complex Grid</h1>
       <demo-complex-grid></demo-complex-grid>
 
-      <h3>Base Toolbar</h3>
+      <h1>Base Toolbar</h1>
       <exmg-grid-base-toolbar-demo></exmg-grid-base-toolbar-demo>
 
-      <h3>Pagination</h3>
+      <h1>Pagination</h1>
       <exmg-grid-pagination-demo></exmg-grid-pagination-demo>
 
-      <h3>Smart Toolbar</h3>
+      <h1>Smart Toolbar</h1>
       <exmg-grid-smart-toolbar-demo></exmg-grid-smart-toolbar-demo>
 
-      <h3>Searchbar</h3>
+      <h1>Searchbar</h1>
       <search-toolbar-demo></search-toolbar-demo>
     `;
   }

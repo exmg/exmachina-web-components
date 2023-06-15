@@ -36,6 +36,10 @@ export class ExmgTooltipDemo extends LitElement {
       .red {
         background-color: red;
       }
+      h1 {
+        color: var(--md-sys-color-on-surface);
+        padding-top: 1.5rem;
+      }
       .custom-style {
         --exmg-tooltip-font-size: 14px;
         --exmg-tooltip-line-height: 16px;
@@ -69,15 +73,11 @@ export class ExmgTooltipDemo extends LitElement {
         }
         .main > div {
           width: 100%;
-          border-bottom: 1px solid #666;
-        }
-        div > * {
-          padding: 8px;
         }
       </style>
       <div class="main">
         <div>
-          <h3>Simple Usage</h3>
+          <h1>Simple Usage</h1>
           <demo-snippet>
             <template>
               <div tabindex="0" style="display:inline-block; position:relative;">
@@ -97,7 +97,7 @@ export class ExmgTooltipDemo extends LitElement {
         </div>
 
         <div style="display:inline-block; position:relative;">
-          <h3>Positioning</h3>
+          <h1>Positioning</h1>
           <demo-snippet>
             <template>
               <div id="dir_1" class="avatar red" tabindex="0"></div>
@@ -114,7 +114,7 @@ export class ExmgTooltipDemo extends LitElement {
         </div>
 
         <div style="display:inline-block; position:relative;">
-          <h3>Offsets</h3>
+          <h1>Offsets</h1>
           <demo-snippet>
             <template>
               <div id="dir_5" class="avatar red" tabindex="0"></div>
@@ -131,7 +131,7 @@ export class ExmgTooltipDemo extends LitElement {
         </div>
 
         <div>
-          <h3>Styling</h3>
+          <h1>Styling</h1>
           <demo-snippet>
             <template>
               <div tabindex="0" style="display:inline-block; position:relative;">

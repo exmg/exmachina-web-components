@@ -11,8 +11,9 @@ export class BreadcrumbsDemo extends LitElement {
         font-family: Roboto;
         --mdc-theme-surface: var(--md-sys-color-primary);
       }
-      h3 {
+      h1 {
         color: var(--md-sys-color-on-surface);
+        padding-top: 1.5rem;
       }
       exmg-breadcrumbs {
         font-family: Roboto;
@@ -46,25 +47,25 @@ export class BreadcrumbsDemo extends LitElement {
   render() {
     return html`
       <div class="main">
-        <h3>Default</h3>
+        <h1>Default</h1>
         <div class="toolbar">
           <exmg-breadcrumbs .items="${this.items}"></exmg-breadcrumbs>
         </div>
       </div>
       <div class="main">
-        <h3>Arrow separator</h3>
+        <h1>Arrow separator</h1>
         <div class="toolbar">
           <exmg-breadcrumbs .items="${this.items}" arrow-separator></exmg-breadcrumbs>
         </div>
       </div>
       <div class="main">
-        <h3>Themed</h3>
+        <h1>Themed</h1>
         <div class="toolbar theme">
           <exmg-breadcrumbs .items="${this.items}" arrow-separator></exmg-breadcrumbs>
         </div>
       </div>
       <div class="main">
-        <h3>Page Example Mixin</h3>
+        <h1>Page Example Mixin</h1>
         <page-example></page-example>
       </div>
     `;
