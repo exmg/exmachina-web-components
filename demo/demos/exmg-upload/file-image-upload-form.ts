@@ -1,15 +1,15 @@
-import {html, css} from 'lit';
-import {customElement, property} from 'lit/decorators.js';
-import {ifDefined} from 'lit/directives/if-defined';
-import {ExmgElement} from '@exmg/lit-base';
+import { html, css } from 'lit';
+import { customElement, property } from 'lit/decorators.js';
+import { ifDefined } from 'lit/directives/if-defined.js';
+import { ExmgElement } from '@exmg/lit-base';
 
 @customElement('file-image-upload-form')
 export class FileImageUploadForm extends ExmgElement {
-  @property({type: String}) accept?: string;
-  @property({type: String}) maxSize?: string;
-  @property({type: String}) fixedResolution?: string;
-  @property({type: Boolean}) allowCropping?: boolean;
-  @property({type: String}) aspectRatio?: string;
+  @property({ type: String }) accept?: string;
+  @property({ type: String }) maxSize?: string;
+  @property({ type: String }) fixedResolution?: string;
+  @property({ type: Boolean }) allowCropping?: boolean;
+  @property({ type: String }) aspectRatio?: string;
 
   static styles = [
     css`
@@ -31,12 +31,12 @@ export class FileImageUploadForm extends ExmgElement {
 
   _handleBlur(e: FocusEvent, name: string) {
     // @ts-ignore
-    this.fire('property-changed', {name, value: e.target.value});
+    this.fire('property-changed', { name, value: e.target.value });
   }
 
   _handleChange(e, name: string) {
     // @ts-ignore
-    this.fire('property-changed', {name, value: e.target.checked});
+    this.fire('property-changed', { name, value: e.target.checked });
   }
 
   render() {

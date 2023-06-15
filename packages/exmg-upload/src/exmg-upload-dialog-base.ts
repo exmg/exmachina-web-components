@@ -1,9 +1,9 @@
-import {html} from 'lit';
-import {property, query, state} from 'lit/decorators.js';
-import {ifDefined} from 'lit/directives/if-defined.js';
+import { html } from 'lit';
+import { property, query, state } from 'lit/decorators.js';
+import { ifDefined } from 'lit/directives/if-defined.js';
 
-import {ExmgElement} from '@exmg/lit-base/src/exmg-element';
-import {PaperDialogElement} from '@polymer/paper-dialog';
+import { ExmgElement } from '@exmg/lit-base/src/exmg-element.js';
+import { PaperDialogElement } from '@polymer/paper-dialog';
 
 import '@polymer/paper-dialog';
 import '@polymer/paper-dialog-scrollable';
@@ -11,34 +11,34 @@ import '@exmg/exmg-button/exmg-button';
 import '@polymer/iron-form';
 import '@material/mwc-icon-button';
 
-import {closeIcon} from '@exmg/exmg-dialogs/exmg-dialog-icons.js';
+import { closeIcon } from '@exmg/exmg-dialogs/exmg-dialog-icons.js';
 
 export class ExmgUploadDialogBase extends ExmgElement {
   /**
    * Title of the dialog
    */
-  @property({type: String})
+  @property({ type: String })
   title = '';
 
   /**
    * Copy for done button
    */
-  @property({type: String})
+  @property({ type: String })
   buttonSaveCopy = 'Save';
 
   /**
    * Copy for image crop done button
    */
-  @property({type: String})
+  @property({ type: String })
   buttonCropDoneCopy = 'Done';
 
   /**
    * Hide close button ?
    */
-  @property({type: Boolean})
+  @property({ type: Boolean })
   hideCloseButton = false;
 
-  @property({type: String, attribute: 'scroll-action'})
+  @property({ type: String, attribute: 'scroll-action' })
   scrollAction?: 'lock' | 'refit' | 'cancel' | undefined;
 
   @query('#dialog')
@@ -77,7 +77,7 @@ export class ExmgUploadDialogBase extends ExmgElement {
     const uploadElement = this._getImageUploadElement();
     if (uploadElement) {
       const urls = uploadElement.getValues();
-      this.fire('upload-save', {urls}, true);
+      this.fire('upload-save', { urls }, true);
     }
   }
 

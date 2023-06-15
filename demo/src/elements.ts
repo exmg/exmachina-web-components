@@ -24,23 +24,23 @@
       url: 'https://www.npmjs.com/package/@exmg/exmg-copy-to-clipboard',
     },{
       name: '@exmg/exmg-dialogs',
-      version: '8.1.33',
+      version: '8.1.35',
       url: 'https://www.npmjs.com/package/@exmg/exmg-dialogs',
     },{
       name: '@exmg/exmg-form',
-      version: '8.1.33',
+      version: '8.1.35',
       url: 'https://www.npmjs.com/package/@exmg/exmg-form',
     },{
       name: '@exmg/exmg-form-drawer',
-      version: '8.1.33',
+      version: '8.1.35',
       url: 'https://www.npmjs.com/package/@exmg/exmg-form-drawer',
     },{
       name: '@exmg/exmg-grid',
-      version: '8.1.33',
+      version: '8.1.34',
       url: 'https://www.npmjs.com/package/@exmg/exmg-grid',
     },{
       name: '@exmg/exmg-markdown-editor',
-      version: '8.1.32',
+      version: '8.1.34',
       url: 'https://www.npmjs.com/package/@exmg/exmg-markdown-editor',
     },{
       name: '@exmg/exmg-radio-group',
@@ -48,11 +48,11 @@
       url: 'https://www.npmjs.com/package/@exmg/exmg-radio-group',
     },{
       name: '@exmg/exmg-sidemenu',
-      version: '8.1.33',
+      version: '8.1.34',
       url: 'https://www.npmjs.com/package/@exmg/exmg-sidemenu',
     },{
       name: '@exmg/exmg-snackbar',
-      version: '8.1.33',
+      version: '8.1.35',
       url: 'https://www.npmjs.com/package/@exmg/exmg-snackbar',
     },{
       name: '@exmg/exmg-sortable',
@@ -64,7 +64,7 @@
       url: 'https://www.npmjs.com/package/@exmg/exmg-tooltip',
     },{
       name: '@exmg/exmg-upload',
-      version: '1.0.2',
+      version: '1.0.7',
       url: 'https://www.npmjs.com/package/@exmg/exmg-upload',
     },
   ];

@@ -2,10 +2,12 @@
   "extends": "../tsconfig.json",
   "compilerOptions": {
     "composite": true,
+    "module": "esnext",
+    "moduleResolution": "node",
     "rootDir": ".",
     "outDir": ".",
     "tsBuildInfoFile": ".tsbuildinfo"
   },
   "include": ["src/*.ts", "src/styles/*.ts", "demos/**/*.ts"],
-  "references": [{"path": "../packages/exmg-form"}]
+  "references": [{ "path": "../packages/exmg-form" }, { "path": "../packages/exmg-upload" }]
 }

@@ -3,6 +3,7 @@
   "workspaces": [
     "packages/*"
   ],
+  "type": "module",
   "private": true,
   "repository": {
     "type": "git",
@@ -55,14 +56,14 @@
     "lint:fix": "npm run lint:typescript -- --fix && npm run lint:eslint -- --fix",
     "lint:eslint": "eslint \"packages/**/*.ts\" \"demo/**/*.ts\"",
     "lint:prettier": "prettier \"**/*.js\" \"**/*.ts\" --check --ignore-path .gitignore",
-    "start": "node ./scripts/parseElements.js && npm run build && concurrently --names watch,serve \"npm run watch\" \"web-dev-server --config ./web-dev-server.config.js\"",
-    "watch": "node scripts/watcher.js",
+    "start": "node ./scripts/parseElements.cjs && npm run build && concurrently --names watch,serve \"npm run watch\" \"web-dev-server --config ./web-dev-server.config.cjs\"",
+    "watch": "node scripts/watcher.cjs",
     "watch:styles": "exmg-lit-cli sass",
     "build": "npm run build:styles && npm run build:typescript",
     "build:typescript": "tsc --build --verbose",
     "build:demo-styles": "exmg-lit-cli sass -f \"demo/**/*.scss\"",
     "build:styles": "npx lerna run --stream build:styles && npm run build:demo-styles",
-    "build:demo": "node ./scripts/parseElements.js && npm run build && rollup --config ./rollup.config.js",
+    "build:demo": "node ./scripts/parseElements.cjs && npm run build && rollup --config ./rollup.config.js",
     "run:demo": "web-dev-server ./docs/demo/index.html",
     "build:docs": "npm run build && rm -rf ./docs && npm run build:demo && ./node_modules/.bin/jsdoc -c ./jsdoc.conf.json -R README.md && node ./scripts/processDemoInDocumentation.js",
     "run:docs": "web-dev-server /docs/index.html"

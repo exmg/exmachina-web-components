@@ -8,5 +8,5 @@
     "tsBuildInfoFile": ".tsbuildinfo"
   },
   "include": ["**/*.ts", "src/styles/*.ts"],
-  "references": [{"path": "../exmg-dialogs"}, {"path": "../exmg-button"}]
+  "references": [{ "path": "../exmg-dialogs" }, { "path": "../exmg-button" }, { "path": "../exmg-collapsed" }]
 }

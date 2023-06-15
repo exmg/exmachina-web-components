@@ -1,10 +1,10 @@
-import {html} from 'lit';
-import {property, query, state} from 'lit/decorators.js';
-import {ifDefined} from 'lit/directives/if-defined.js';
-import {repeat} from 'lit/directives/repeat.js';
+import { html } from 'lit';
+import { property, query, state } from 'lit/decorators.js';
+import { ifDefined } from 'lit/directives/if-defined.js';
+import { repeat } from 'lit/directives/repeat.js';
 
-import {ExmgUploadCrop} from './exmg-upload-crop.js';
-import {FileData, FileUploadError} from './types.js';
+import { ExmgUploadCrop } from './exmg-upload-crop.js';
+import { FileData, FileUploadError } from './types.js';
 import '@exmg/exmg-button';
 
 // File upload imports
@@ -12,79 +12,85 @@ import './exmg-upload-item.js';
 import './exmg-upload-crop.js';
 import './exmg-upload-drop-area.js';
 
-import {isCorrectResolution, isImage, isSizeValid, isTypeValidExtension} from './utils.js';
-import {classMap} from 'lit/directives/class-map.js';
-import {ExmgElement, observer} from '@exmg/lit-base';
+import { isCorrectResolution, isImage, isSizeValid, isTypeValidExtension } from './utils.js';
+import { classMap } from 'lit/directives/class-map.js';
+import { ExmgElement, observer } from '@exmg/lit-base';
 
 import Cropper from 'cropperjs';
 
 export class ExmgUploadBase extends ExmgElement {
   /**
+   * The id of the element that the upload is anchored to. This element
+   * must be a sibling of the upload.
+   */
+  @property({ type: String })
+  for?: string;
+  /**
    * Files addded to component
    */
-  @property({type: Array})
+  @property({ type: Array })
   files: FileData[] = [];
 
   /**
    * Accepted file types seperated by comma
    */
-  @property({type: String})
+  @property({ type: String })
   accept? = '';
 
   /**
    * The max file size allowed to upload e.g. '20mb'
    */
-  @property({type: String})
+  @property({ type: String })
   maxSize: string = '100mb';
 
   /**
    * Determines if multiple files can be selected. When false maxAmount is set to 1 automatically
    */
-  @property({type: Boolean})
+  @property({ type: Boolean })
   multiple = false;
 
   /**
    * The max amount of items allowed to upload when in multiple mode
    */
-  @property({type: Number})
+  @property({ type: Number })
   maxAmount?: number;
 
   /**
    * Disable the upload component useful for forms
    */
-  @property({type: Boolean})
+  @property({ type: Boolean })
   disabled = false;
 
   /**
    * Admin User session will be set on request header for authentication
    */
-  @property({type: String})
+  @property({ type: String })
   customAdapterPath?: string;
 
   /**
    * Optional property. If not set it will look for the window.emconfig.backendHost
    */
-  @property({type: String})
+  @property({ type: String })
   uploadUrl?: string;
 
   /**
    * The upload response type
    */
-  @property({type: String})
+  @property({ type: String })
   responseType: '' | 'json' | 'text' | 'blob' | 'arraybuffer' = 'json';
 
   /**
    * The upload response type
    */
-  @property({type: String})
+  @property({ type: String })
   serverType: 'xhr' | 'custom' | 'local' = 'xhr';
 
   /**
    * The CropperJS config see: https://github.com/fengyuanchen/cropperjs#options
    */
-  @property({type: Object})
+  @property({ type: Object })
   @observer(function (this: ExmgUploadBase, value: Cropper.Options) {
-    this._cropperConfig = {...this._cropperConfig, ...value};
+    this._cropperConfig = { ...this._cropperConfig, ...value };
   })
   cropperConfig: Cropper.Options = {};
 
@@ -107,7 +113,7 @@ export class ExmgUploadBase extends ExmgElement {
   @state()
   _isCropping = false;
 
-  @property({type: Boolean})
+  @property({ type: Boolean })
   isModeDialog = false;
 
   /**
@@ -122,13 +128,13 @@ export class ExmgUploadBase extends ExmgElement {
   /**
    * Allow cropping can only be used when fixedResolution is not set
    */
-  @property({type: Boolean})
+  @property({ type: Boolean })
   allowCropping: boolean = false;
 
   /**
    * when set the image must be exactly the given resolution (for example 600x400)
    */
-  @property({type: String})
+  @property({ type: String })
   fixedResolution?: string;
 
   @query('#file')
@@ -142,12 +148,33 @@ export class ExmgUploadBase extends ExmgElement {
   }
 
   /**
+   * Returns the target element that this upload is anchored to. It is
+   * either the element given by the `for` attribute, or the immediate parent
+   * of the upload.
+   */
+  get target() {
+    const parentNode = this.parentNode;
+    // If the parentNode is a document fragment, then we need to use the host.
+    const ownerRoot = parentNode!.getRootNode();
+
+    let target;
+    if (this.for) {
+      target = (ownerRoot as HTMLElement).querySelector<HTMLElement>('#' + this.for);
+    } else {
+      // @ts-ignore
+      target = parentNode!.nodeType == Node.DOCUMENT_FRAGMENT_NODE ? ownerRoot.host : parentNode;
+    }
+
+    return target;
+  }
+
+  /**
    * Extract files from either file input or drop event
    * @param event
    * @returns FileList[] | []
    */
   private _getFiles(event: Event | DragEvent) {
-    const {files} =
+    const { files } =
       (event.type === 'drop' ? (event as DragEvent).dataTransfer : (event.target as HTMLInputElement)) ?? {};
     return Array.from(files ?? []);
   }
@@ -160,6 +187,17 @@ export class ExmgUploadBase extends ExmgElement {
     this._uploaded = false;
     this.files = [];
     this.cancelActiveCrop();
+  }
+
+  _updateTarget() {
+    const target = this.target;
+    if (target) {
+      if (!this.multiple && this.getValues().length > 0) {
+        target.value = this.getValues()[0];
+      } else {
+        target.value = '';
+      }
+    }
   }
 
   private prepareFiles(addedFiles: File[]) {
@@ -178,7 +216,7 @@ export class ExmgUploadBase extends ExmgElement {
       this.files = [...this.files, file];
     }
 
-    this.fire('files-changed', {files: this.files}, true);
+    this.fire('files-changed', { files: this.files }, true);
 
     this._uploaded = true;
 
@@ -250,7 +288,7 @@ export class ExmgUploadBase extends ExmgElement {
     });
 
     this.fire('file-removed', id);
-    this.fire('files-changed', {files: this.files}, true);
+    this.fire('files-changed', { files: this.files }, true);
   }
 
   /**
@@ -311,7 +349,7 @@ export class ExmgUploadBase extends ExmgElement {
   }
 
   renderDescription() {
-    const {accept, maxSize, fixedResolution} = this;
+    const { accept, maxSize, fixedResolution } = this;
     return `Only ${accept ? accept.replace(/,/g, ' ') : ''} files${
       fixedResolution ? ` of resolution ${fixedResolution} px` : ''
     } that do not exceed ${maxSize} in size`;
@@ -328,6 +366,7 @@ export class ExmgUploadBase extends ExmgElement {
         html`<exmg-upload-item
           class="item"
           id=${item.id}
+          @upload-success=${this._updateTarget}
           @edit-image=${this._handleCropping}
           @remove-item=${this._handleRemove}
           uploadUrl=${ifDefined(this.uploadUrl)}
@@ -341,7 +380,7 @@ export class ExmgUploadBase extends ExmgElement {
   }
 
   renderUploadCrop() {
-    const {_cropperConfig} = this;
+    const { _cropperConfig } = this;
     return html`
       <exmg-upload-crop
         id="crop-dialog"
@@ -354,7 +393,7 @@ export class ExmgUploadBase extends ExmgElement {
   }
 
   renderUploadDropArea() {
-    const {disabled} = this;
+    const { disabled } = this;
     return html`
       <exmg-upload-drop-area
         description=${this.renderDescription()}
@@ -381,14 +420,14 @@ export class ExmgUploadBase extends ExmgElement {
   }
 
   render() {
-    const {_isCropping, accept, disabled} = this;
+    const { _isCropping, accept, disabled } = this;
 
     if (_isCropping) {
       return this.renderUploadCrop();
     }
 
     return html`
-      <div class="image-upload-wrapper ${classMap({disabled: !!this.disabled})}">
+      <div class="image-upload-wrapper ${classMap({ disabled: !!this.disabled })}">
         ${this.renderUploadDropArea()}
 
         <form id="form-upload" enctype="multipart/form-data">

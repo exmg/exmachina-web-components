@@ -2,6 +2,8 @@
   "extends": "@exmg/ts-config-lit",
   "compilerOptions": {
     "lib": ["esnext", "dom", "dom.iterable"],
+    "module": "esnext",
+    "moduleResolution": "node16",
     "declaration": true,
     "sourceMap": true,
     "inlineSources": true,
