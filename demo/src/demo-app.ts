@@ -6,10 +6,14 @@ import {elements} from './elements.js';
 import {style} from './styles/demo-app-css.js';
 import {style as theme} from './styles/theme-css.js';
 import '@material/web/switch/switch.js';
+import '@material/web/list/list.js';
+import '@material/web/list/list-item.js';
 import '@material/web/button/filled-button.js';
 import {Switch} from '@material/web/switch/lib/switch.js';
 import '../demos/exmg-breadcrumbs/exmg-breadcrumbs-demo.js';
 import {demos} from '../demos/demos.js';
+import {repeat} from 'lit/directives/repeat.js';
+
 @customElement('demo-app')
 export class DemoApp extends LitElement {
   static styles = [style, theme];
@@ -81,13 +85,16 @@ export class DemoApp extends LitElement {
   }
 
   private renderElements() {
-    return elements.map((element) => {
+    return repeat(elements, (element) => {
       const active = this.selectedElement && this.selectedElement.name === element.name;
       const elementHref = element.name.replace('@exmg/', '');
       return html`
-        <li @click=${() => this.handleNavigation(elementHref)} class=${`element ${active ? 'active' : ''}`}>
-          <a> ${element.name.substr(11)} </a>
-        </li>
+        <md-list-item
+          @click=${() => this.handleNavigation(elementHref)}
+          headline=${element.name.substr(11).replaceAll('-', ' ')}
+          class=${`element ${active ? 'active' : ''}`}
+        >
+        </md-list-item>
       `;
     });
   }
@@ -172,14 +179,13 @@ export class DemoApp extends LitElement {
                 <md-filled-button class="npm" raised>NPMJS</md-filled-button>
               </a>
               <md-switch id="darkModeSwitch" ?selected=${this.darkMode} @click=${this.handleDarkMode} icons></md-switch>
+              <div class="version">Dark mode</div>
             </div>
           </div>
         </section>
         <div class="content">
           <aside class="sidemenu">
-            <ol class="sidemenu-elements">
-              ${this.renderElements()}
-            </ol>
+            <md-list class="sidemenu-elements"> ${this.renderElements()} </md-list>
           </aside>
           <main class="main">
             ${staticHtml`<${demos[`${elementHref}-demo`].tag}></${demos[`${elementHref}-demo`].tag}>`}

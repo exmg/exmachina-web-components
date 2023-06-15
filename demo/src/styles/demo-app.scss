@@ -1,7 +1,7 @@
 :host {
   font-family: Roboto;
   --toolbar-height: 100px;
-  --sidebar-width: 140px;
+  --sidebar-width: 190px;
   overflow: hidden;
   --mdc-theme-primary: var(--md-sys-color-primary);
   --mdc-theme-on-primary: var(--md-sys-color-on-primary);
@@ -27,7 +27,7 @@ main {
   height: calc(100vh - var(--toolbar-height));
   background-color: var(--md-sys-color-background);
   section {
-    background-color: var(--md-sys-color-surface-secondary);
+    background-color: var(--md-sys-color-surface-container);
     display: flex;
     flex-direction: row;
     height: var(--toolbar-height);
@@ -78,6 +78,19 @@ main {
       }
     }
   }
+  md-list {
+    --md-list-margin-inline: 12px;
+    --md-list-container-color: transparent;
+    --md-list-item-list-item-container-color: transparent;
+    background-color: transparent;
+  }
+  md-list-item {
+    text-transform: capitalize;
+    --md-list-item-list-item-container-shape: 28px;
+  }
+  .active {
+    --md-list-item-list-item-container-color: var(--md-sys-color-surface-container-highest);
+  }
   .content {
     margin-top: var(--toolbar-height);
     display: flex;
@@ -101,8 +114,9 @@ main {
     .sidemenu {
       position: sticky;
       text-align: center;
-      background: var(--md-sys-color-surface-secondary);
+      background: var(--md-sys-color-surface-container);
       height: calc(100vh - var(--toolbar-height));
+      padding: 12px;
       li a {
         text-decoration: none;
         padding: 1rem;
@@ -116,6 +130,7 @@ main {
       }
       li a:hover {
         background: var(--md-sys-color-primary-container);
+        cursor: pointer;
       }
       li {
         &.active {
