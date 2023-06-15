@@ -1,21 +1,37 @@
 import {html, LitElement, nothing} from 'lit';
-import {state} from 'lit/decorators.js';
+import {html as staticHtml} from 'lit/static-html.js';
+import {query, state} from 'lit/decorators.js';
 import {customElement} from 'lit/decorators/custom-element.js';
 import {elements} from './elements.js';
 import {style} from './styles/demo-app-css.js';
-
+import {style as theme} from './styles/theme-css.js';
+import '@material/web/switch/switch.js';
+import '@material/web/button/filled-button.js';
+import {Switch} from '@material/web/switch/lib/switch.js';
+import '../demos/exmg-breadcrumbs/exmg-breadcrumbs-demo.js';
+import {demos} from '../demos/demos.js';
 @customElement('demo-app')
 export class DemoApp extends LitElement {
-  static styles = [style];
+  static styles = [style, theme];
 
   @state()
   private selectedElement?: any;
+
+  @query('#darkModeSwitch')
+  private darkModeSwitch?: Switch;
+
+  @state()
+  darkMode = window.matchMedia('(prefers-color-scheme:dark)').matches;
 
   boundLocationChanged?: any;
 
   constructor() {
     super();
     this.boundLocationChanged = this._handleLocationChanged.bind(this);
+  }
+
+  firstUpdated() {
+    this.setDarkMode();
   }
 
   private _handleLocationChanged() {
@@ -55,23 +71,40 @@ export class DemoApp extends LitElement {
     super.disconnectedCallback();
   }
 
+  handleDarkMode() {
+    this.darkMode = this.darkModeSwitch?.selected!;
+    this.setDarkMode();
+  }
+
+  setDarkMode() {
+    this.darkMode ? document.body.classList.add('dark') : document.body.classList.remove('dark');
+  }
+
   private renderElements() {
     return elements.map((element) => {
       const active = this.selectedElement && this.selectedElement.name === element.name;
       const elementHref = element.name.replace('@exmg/', '');
-      const url = new URL(window.location.href);
-      url.searchParams.set('el', elementHref);
       return html`
-        <li class=${`element ${active ? 'active' : ''}`}>
-          <a href=${url}> ${element.name.substr(11)} </a>
+        <li @click=${() => this.handleNavigation(elementHref)} class=${`element ${active ? 'active' : ''}`}>
+          <a> ${element.name.substr(11)} </a>
         </li>
       `;
     });
   }
 
+  handleNavigation(elementName: string) {
+    this.selectedElement = elements.find((e) => e.name === `@exmg/${elementName}`);
+    const url = new URL(window.location.href);
+    url.searchParams.set('el', elementName);
+    //@ts-ignore
+    window.history.pushState({}, '', url);
+  }
+
   protected render() {
     if (!this.selectedElement) return nothing;
     const elementHref = this.selectedElement.name.replace('@exmg/', '');
+    console.log('href', elementHref);
+    console.log('element', demos[`${elementHref}-demo`]);
     return html`
       <main>
         <section>
@@ -80,10 +113,10 @@ export class DemoApp extends LitElement {
               <defs>
                 <style>
                   .a {
-                    fill: #fff;
+                    fill: var(--md-sys-color-primary);
                   }
                   .b {
-                    fill: #14a5d0;
+                    fill: var(--md-sys-color-primary);
                   }
                 </style>
               </defs>
@@ -136,20 +169,21 @@ export class DemoApp extends LitElement {
             </div>
             <div class="actions">
               <a href=${this.selectedElement.url} target="_blank">
-                <button class="npm" raised>NPMJS</button>
+                <md-filled-button class="npm" raised>NPMJS</md-filled-button>
               </a>
+              <md-switch id="darkModeSwitch" ?selected=${this.darkMode} @click=${this.handleDarkMode} icons></md-switch>
             </div>
           </div>
         </section>
         <div class="content">
-          <div class="sidemenu">
+          <aside class="sidemenu">
             <ol class="sidemenu-elements">
               ${this.renderElements()}
             </ol>
-          </div>
-          <div class="main">
-            <iframe src="./demos/${elementHref}/index.html"></iframe>
-          </div>
+          </aside>
+          <main class="main">
+            ${staticHtml`<${demos[`${elementHref}-demo`].tag}></${demos[`${elementHref}-demo`].tag}>`}
+          </main>
         </div>
       </main>
     `;

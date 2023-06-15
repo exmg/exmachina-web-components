@@ -15,7 +15,7 @@ import {style as tableStyles} from '@exmg/exmg-grid/src/styles/exmg-grid-styles-
 import {style as demoStyles} from './demo-common-css.js';
 
 import {createIcon} from './exmg-icons.js';
-import {DEFAULT_SORT_COLUMN, DEFAULT_SORT_DIRECTION, ExmgBaseGridDemo} from './exmg-grid-demo.js';
+import {DEFAULT_SORT_COLUMN, DEFAULT_SORT_DIRECTION, ExmgBaseGridDemo} from './exmg-grid-base.js';
 
 @customElement('demo-complex-grid-with-slotted-toolbar')
 export class ExmgComplexGridWithSlottedToolbar extends ExmgBaseGridDemo {
@@ -88,12 +88,6 @@ export class ExmgComplexGridWithSlottedToolbar extends ExmgBaseGridDemo {
         <button class="demo-button" @click="${this.unSelectFirstRows}">Unselect first rows</button>
         <button class="demo-button" @click="${() => (this.dark = !this.dark)}">Toggle Dark Theme</button>
       </div>
-      <h1>Complex table with slotted toolbar and custom styles</h1>
-      <ul>
-        <li>Some custom styles</li>
-        <li>Implemented toolbar with slots exmg-grid-base-toolbar</li>
-        <li>auto table layout</li>
-      </ul>
       <exmg-grid
         table-layout="auto"
         .items="${this.items}"

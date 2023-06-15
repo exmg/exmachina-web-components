@@ -199,12 +199,12 @@ body,
 html {
   margin: 0;
   padding: 1rem;
-  background: white;
-  font-family: 'Roboto';
+  font-family: Roboto;
   -webkit-font-smoothing: antialiased;
 }
 
 .centered {
   max-width: 1000px;
   margin: 3rem auto;
+  border-radius: 16px;
 }

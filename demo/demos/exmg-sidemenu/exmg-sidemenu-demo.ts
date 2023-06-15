@@ -10,12 +10,16 @@ import '@material/mwc-icon-button/mwc-icon-button.js';
 import '@polymer/paper-item/paper-item.js';
 import '@exmg/exmg-tooltip/exmg-tooltip.js';
 import '@polymer/app-layout/app-drawer/app-drawer.js';
+import '@polymer/app-layout/app-drawer-layout/app-drawer-layout.js';
 import '@polymer/app-layout/app-toolbar/app-toolbar.js';
 
 import {menu} from './menu.js';
 import {isItemGroup, MenuItem, MenuGroupItem, MenuItemOrGroupItem} from '@exmg/exmg-sidemenu/exmg-sidemenu-types.js';
 
-export const installMediaQueryWatcher = (mediaQuery: string, layoutChangedCallback: (mediaQueryMatches: boolean) => void) => {
+export const installMediaQueryWatcher = (
+  mediaQuery: string,
+  layoutChangedCallback: (mediaQueryMatches: boolean) => void,
+) => {
   const mql = window.matchMedia(mediaQuery);
   mql.addListener((e) => layoutChangedCallback(e.matches));
   layoutChangedCallback(mql.matches);
@@ -43,8 +47,12 @@ export class SidemenuDemo extends LitElement {
     themeStyles,
     css`
       :host {
-        display: inline-block;
         height: 100vh;
+        width: 100%;
+      }
+
+      .wrapper {
+        height: 100%;
         width: 100%;
       }
 
@@ -54,6 +62,16 @@ export class SidemenuDemo extends LitElement {
 
       app-toolbar {
         background: yellow;
+      }
+      exmg-sidemenu {
+        width: 220px;
+        height: 100%;
+        float: left;
+      }
+      article {
+        color: var(--md-sys-color-on-surface);
+        height: 100vh;
+        overflow-y: scroll;
       }
     `,
   ];
@@ -102,7 +120,9 @@ export class SidemenuDemo extends LitElement {
     return html`
       <a href=${this.debug ? '#' : i.path} data-path=${i.path} tabindex="-1" class="menu-item solo">
         <paper-item data-path=${i.path} role="menuitem">
-          ${i.iconPath ? html`<svg height="24" viewBox="0 0 24 24" width="24"><path d="${i.iconPath}"></path></svg>` : i.icon}
+          ${i.iconPath
+            ? html`<svg height="24" viewBox="0 0 24 24" width="24"><path d="${i.iconPath}"></path></svg>`
+            : i.icon}
           <span class="title">${i.title}</span>
           ${i.badge
             ? html`<exmg-sidemenu-badge ?collapsed=${this.collapsed}
@@ -117,11 +137,9 @@ export class SidemenuDemo extends LitElement {
   }
 
   private renderMenu() {
-    return html` ${(menu || []).map((i: MenuItemOrGroupItem) => (isItemGroup(i) ? this.renderGroupItem(i) : this.renderItem(i)))} `;
-  }
-
-  private openChanged(e: CustomEvent) {
-    this.drawerOpened = e.detail.value;
+    return html`
+      ${(menu || []).map((i: MenuItemOrGroupItem) => (isItemGroup(i) ? this.renderGroupItem(i) : this.renderItem(i)))}
+    `;
   }
 
   private _handleSelectedChanged() {
@@ -161,15 +179,7 @@ export class SidemenuDemo extends LitElement {
     const classes = {collapsed: this.collapsed, narrow: this.narrow};
 
     return html`
-      <app-drawer
-        swipe-open
-        position="left"
-        class=${classMap(classes)}
-        collapsed=${this.collapsed}
-        ?persistent=${!this.narrow}
-        ?opened=${this.drawerOpened}
-        @opened-changed="${this.openChanged}"
-      >
+      <div class="wrapper">
         <exmg-sidemenu
           selected="rooms/"
           ?collapsed=${this.collapsed}
@@ -180,39 +190,43 @@ export class SidemenuDemo extends LitElement {
           <exmg-sidemenu-header slot="header" ?collapsed=${this.collapsed}></exmg-sidemenu-header>
           ${this.renderMenu()} ${this.renderFooterButton()}
         </exmg-sidemenu>
-      </app-drawer>
 
-      <article class="main-content ${classMap(classes)}">
-        <app-toolbar>
-          <mwc-icon-button icon="menu" ?hidden=${!this.narrow} @click=${this._handleMenuClick}></mwc-icon-button>
-        </app-toolbar>
-        <main role="main">
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-            enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
-            in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident,
-            sunt in culpa qui officia deserunt mollit anim id est laborum.
-          </p>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-            enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
-            in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident,
-            sunt in culpa qui officia deserunt mollit anim id est laborum.
-          </p>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-            enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
-            in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident,
-            sunt in culpa qui officia deserunt mollit anim id est laborum.
-          </p>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-            enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
-            in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident,
-            sunt in culpa qui officia deserunt mollit anim id est laborum.
-          </p>
-        </main>
-      </article>
+        <article class="main-content ${classMap(classes)}">
+          <app-toolbar>
+            <mwc-icon-button icon="menu" ?hidden=${!this.narrow} @click=${this._handleMenuClick}></mwc-icon-button>
+          </app-toolbar>
+          <main role="main">
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+              dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
+              ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
+              fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
+              mollit anim id est laborum.
+            </p>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+              dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
+              ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
+              fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
+              mollit anim id est laborum.
+            </p>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+              dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
+              ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
+              fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
+              mollit anim id est laborum.
+            </p>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+              dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
+              ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
+              fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
+              mollit anim id est laborum.
+            </p>
+          </main>
+        </article>
+      </div>
     `;
   }
 }

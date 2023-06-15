@@ -28,6 +28,9 @@ export class SnackbarDemo extends LitElement {
         width: 100%;
         border-bottom: 1px solid #666;
       }
+      h3 {
+        color: var(--md-sys-color-on-surface);
+      }
       div > * {
         padding: 8px;
       }
@@ -45,25 +48,31 @@ export class SnackbarDemo extends LitElement {
     return html`
       <div class="main">
         <div>
-          <h4>Default auto close</h4>
-          <exmg-button unelevated @click=${() =>
-            this.shadowRoot?.querySelector<ExmgSnackbar>('#default-snackbar')?.show()}>
+          <h3>Default auto close</h3>
+          <exmg-button
+            unelevated
+            @click=${() => this.shadowRoot?.querySelector<ExmgSnackbar>('#default-snackbar')?.show()}
+          >
             Open default
           </exmg-button>
           <exmg-snackbar id="default-snackbar" labelText="Default auto close"></exmg-snackbar>
         </div>
         <div>
-          <h4>Default leading</h4>
-          <exmg-button unelevated @click=${() =>
-            this.shadowRoot?.querySelector<ExmgSnackbar>('#leading-snackbar')?.show()}>
+          <h3>Default leading</h3>
+          <exmg-button
+            unelevated
+            @click=${() => this.shadowRoot?.querySelector<ExmgSnackbar>('#leading-snackbar')?.show()}
+          >
             Open leading
           </exmg-button>
           <exmg-snackbar id="leading-snackbar" leading labelText="Default leading"></exmg-snackbar>
         </div>
         <div>
-          <h4>Auto close with custom timing (10 sec)</h4>
-          <exmg-button unelevated @click=${() =>
-            this.shadowRoot?.querySelector<ExmgSnackbar>('#custom-time-snackbar')?.show()}>
+          <h3>Auto close with custom timing (10 sec)</h3>
+          <exmg-button
+            unelevated
+            @click=${() => this.shadowRoot?.querySelector<ExmgSnackbar>('#custom-time-snackbar')?.show()}
+          >
             Open custom timing
           </exmg-button>
           <exmg-snackbar
@@ -74,9 +83,11 @@ export class SnackbarDemo extends LitElement {
           ></exmg-snackbar>
         </div>
         <div>
-          <h4>Stacked</h4>
-          <exmg-button unelevated @click=${() =>
-            this.shadowRoot?.querySelector<ExmgSnackbar>('#stacked-snackbar')?.show()}>
+          <h3>Stacked</h3>
+          <exmg-button
+            unelevated
+            @click=${() => this.shadowRoot?.querySelector<ExmgSnackbar>('#stacked-snackbar')?.show()}
+          >
             Open stacked
           </exmg-button>
           <exmg-snackbar
@@ -89,9 +100,11 @@ export class SnackbarDemo extends LitElement {
           </exmg-snackbar>
         </div>
         <div>
-          <h4>Manual close</h4>
-          <exmg-button unelevated @click=${() =>
-            this.shadowRoot?.querySelector<ExmgSnackbar>('#manual-snackbar')?.show()}>
+          <h3>Manual close</h3>
+          <exmg-button
+            unelevated
+            @click=${() => this.shadowRoot?.querySelector<ExmgSnackbar>('#manual-snackbar')?.show()}
+          >
             Open manual close
           </exmg-button>
           <exmg-snackbar
@@ -104,9 +117,11 @@ export class SnackbarDemo extends LitElement {
           </exmg-snackbar>
         </div>
         <div>
-          <h4>Dismiss button</h4>
-          <exmg-button unelevated @click=${() =>
-            this.shadowRoot?.querySelector<ExmgSnackbar>('#dismiss-snackbar')?.show()}>
+          <h3>Dismiss button</h3>
+          <exmg-button
+            unelevated
+            @click=${() => this.shadowRoot?.querySelector<ExmgSnackbar>('#dismiss-snackbar')?.show()}
+          >
             Open dismiss
           </exmg-button>
           <exmg-snackbar
@@ -119,9 +134,11 @@ export class SnackbarDemo extends LitElement {
           </exmg-snackbar>
         </div>
         <div>
-          <h4>Positive snackbar</h4>
-          <exmg-button unelevated @click=${() =>
-            this.shadowRoot?.querySelector<ExmgSnackbar>('#positive-snackbar')?.show()}>
+          <h3>Positive snackbar</h3>
+          <exmg-button
+            unelevated
+            @click=${() => this.shadowRoot?.querySelector<ExmgSnackbar>('#positive-snackbar')?.show()}
+          >
             Open positive
           </exmg-button>
           <exmg-snackbar
@@ -136,9 +153,11 @@ export class SnackbarDemo extends LitElement {
           </exmg-snackbar>
         </div>
         <div>
-          <h4>Negative snackbar</h4>
-          <exmg-button unelevated @click=${() =>
-            this.shadowRoot?.querySelector<ExmgSnackbar>('#negative-snackbar')?.show()}>
+          <h3>Negative snackbar</h3>
+          <exmg-button
+            unelevated
+            @click=${() => this.shadowRoot?.querySelector<ExmgSnackbar>('#negative-snackbar')?.show()}
+          >
             Open negative
           </exmg-button>
           <exmg-snackbar
@@ -153,9 +172,11 @@ export class SnackbarDemo extends LitElement {
           </exmg-snackbar>
         </div>
         <div>
-          <h4>Info snackbar</h4>
-          <exmg-button unelevated @click=${() =>
-            this.shadowRoot?.querySelector<ExmgSnackbar>('#info-snackbar')?.show()}>
+          <h3>Info snackbar</h3>
+          <exmg-button
+            unelevated
+            @click=${() => this.shadowRoot?.querySelector<ExmgSnackbar>('#info-snackbar')?.show()}
+          >
             Open info
           </exmg-button>
           <exmg-snackbar
@@ -170,9 +191,11 @@ export class SnackbarDemo extends LitElement {
           </exmg-snackbar>
         </div>
         <div>
-          <h4>Snackbar with custom offset</h4>
-          <exmg-button unelevated @click=${() =>
-            this.shadowRoot?.querySelector<ExmgSnackbar>('#offset-snackbar')?.show()}>
+          <h3>Snackbar with custom offset</h3>
+          <exmg-button
+            unelevated
+            @click=${() => this.shadowRoot?.querySelector<ExmgSnackbar>('#offset-snackbar')?.show()}
+          >
             Open custom offset
           </exmg-button>
           <exmg-snackbar
@@ -188,9 +211,11 @@ export class SnackbarDemo extends LitElement {
           </exmg-snackbar>
         </div>
         <div>
-          <h4>Custom color snackbar</h4>
-          <exmg-button unelevated @click=${() =>
-            this.shadowRoot?.querySelector<ExmgSnackbar>('#custom-snackbar')?.show()}>
+          <h3>Custom color snackbar</h3>
+          <exmg-button
+            unelevated
+            @click=${() => this.shadowRoot?.querySelector<ExmgSnackbar>('#custom-snackbar')?.show()}
+          >
             Open custom
           </exmg-button>
           <exmg-snackbar

@@ -18,9 +18,6 @@ export class Tab3El extends LitElement {
         display: flex;
         flex-direction: column;
       }
-      #horizontal > * {
-        flex: 1;
-      }
     `,
   ];
 

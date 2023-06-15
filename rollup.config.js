@@ -76,6 +76,10 @@ export default [
             dest: 'docs/demo/src/styles',
           },
           {
+            src: 'demo/src/styles/m3/theme.css',
+            dest: 'docs/demo/src/styles',
+          },
+          {
             src: 'demo/index.html',
             dest: 'docs/demo',
           },

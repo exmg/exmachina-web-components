@@ -7,7 +7,7 @@ import '@exmg/exmg-grid/src/table/exmg-grid.js';
 import '@exmg/exmg-grid/src/table/exmg-grid-pagination.js';
 import {dragIcon, expandIcon} from './exmg-icons.js';
 import '@exmg/exmg-grid/src/table/exmg-grid-smart-toolbar.js';
-import {ExmgBaseGridDemo} from './exmg-grid-demo.js';
+import {ExmgBaseGridDemo} from './exmg-grid-base.js';
 
 import {style as tableStyles} from '@exmg/exmg-grid/src/styles/exmg-grid-styles-css.js';
 import {style as demoStyles} from './demo-common-css.js';
@@ -19,10 +19,6 @@ export class ExmgComplexGridWithSortableRows extends ExmgBaseGridDemo {
     demoStyles,
     // language=CSS
     css`
-      exmg-grid {
-        --exmg-table-card-width: 500px;
-      }
-
       table th {
         min-width: 100px;
       }
@@ -73,14 +69,6 @@ export class ExmgComplexGridWithSortableRows extends ExmgBaseGridDemo {
         <button class="demo-button" @click="${this.unSelectFirstRows}">Unselect first rows</button>
         <button class="demo-button" @click="${() => (this.dark = !this.dark)}">Toggle Dark Theme</button>
       </div>
-      <h1>Complex table with sortable rows</h1>
-      <h2>Current theme ${this.theme}</h2>
-      <ul>
-        <li>Sortable rows</li>
-        <li>Implemented toolbar with slots exmg-grid-smart-toolbar</li>
-        <li>auto table layout</li>
-        <li>fixed table width</li>
-      </ul>
       <exmg-grid
         data-theme="${this.theme}"
         .items="${this.items}"

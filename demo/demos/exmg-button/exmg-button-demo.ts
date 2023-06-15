@@ -9,10 +9,15 @@ export class ButtonDemo extends LitElement {
       :host {
         font-family: var(--mdc-typography-headline3-font-family, var(--mdc-typography-font-family, Roboto, sans-serif));
         font-size: 15px;
+        --mdc-theme-primary: var(--md-sys-color-primary);
+        --mdc-theme-on-primary: var(--md-sys-color-on-primary);
       }
       exmg-button[unelevated] {
         --exmg-spinner-stroke-width: 2px;
         --exmg-spinner-color: '#eee';
+      }
+      h3 {
+        color: var(--md-sys-color-on-surface);
       }
       .main {
         display: flex;
@@ -40,7 +45,7 @@ export class ButtonDemo extends LitElement {
     return html`
       <div class="main">
         <div>
-          <h4>Dense & Unelevated</h4>
+          <h3>Dense & Unelevated</h3>
           <demo-snippet>
             <template>
               <exmg-button unelevated dense">BUTTON</exmg-button>
@@ -48,7 +53,7 @@ export class ButtonDemo extends LitElement {
           </demo-snippet>
         </div>
         <div>
-          <h4>Loading (click it!)</h4>
+          <h3>Loading (click it!)</h3>
           <demo-snippet>
             <template>
               <exmg-button loading>LOADING</exmg-button>
@@ -56,7 +61,7 @@ export class ButtonDemo extends LitElement {
           </demo-snippet>
         </div>
         <div>
-          <h4>Disabled</h4>
+          <h3>Disabled</h3>
           <demo-snippet>
             <template>
               <exmg-button class="dark" unelevated disabled>Disabled</exmg-button>
@@ -64,7 +69,7 @@ export class ButtonDemo extends LitElement {
           </demo-snippet>
         </div>
         <div>
-          <h4>With icon</h4>
+          <h3>With icon</h3>
           <demo-snippet>
             <template>
               <exmg-button class="dark" unelevated"
@@ -74,7 +79,7 @@ export class ButtonDemo extends LitElement {
           </demo-snippet>
         </div>
         <div>
-          <h4>With progress</h4>
+          <h3>With progress</h3>
           <demo-snippet>
             <template>
               <exmg-button class="progress-button" unelevated progress="50"
