@@ -5,7 +5,6 @@ import { repeat } from 'lit/directives/repeat.js';
 
 import { ExmgUploadCrop } from './exmg-upload-crop.js';
 import { FileData, FileUploadError } from './types.js';
-import '@exmg/exmg-button';
 
 // File upload imports
 import './exmg-upload-item.js';
