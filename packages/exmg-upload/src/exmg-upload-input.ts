@@ -1,20 +1,52 @@
-import { LitElement, html, css } from 'lit';
+import { LitElement, html } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
 import '@exmg/exmg-collapsed';
+import { style } from './styles/exmg-upload-input-css.js';
+import { ExmgUpload } from './exmg-upload.js';
 
 @customElement('exmg-upload-input')
 export class ExmgUploadInput extends LitElement {
   @property({ type: Boolean })
   opened = false;
 
-  static styles = [
-    css`
-      :host {
-        display: block;
+  @property({ type: Number })
+  closeDelay = 400;
+
+  static styles = [style];
+
+  getUploadElement() {
+    return this.querySelector('exmg-upload') as ExmgUpload;
+  }
+
+  getInputElement() {
+    return this.querySelector('[slot="input"]') as HTMLInputElement;
+  }
+
+  protected firstUpdated() {
+    const upload = this.getUploadElement();
+    if (upload) {
+      if (upload.multiple) {
+        console.warn('exmg-upload-input: multiple is not supported, forcing to false');
+        upload.multiple = false;
       }
-    `,
-  ];
-  // TODO: force multi off
+    }
+  }
+
+  _uploadSuccess() {
+    const upload = this.getUploadElement();
+    const input = this.getInputElement();
+
+    if (!input || !upload) {
+      return;
+    }
+
+    input.value = upload.getValues()[0]!;
+
+    setTimeout(() => {
+      upload.reset();
+      this.opened = false;
+    }, this.closeDelay);
+  }
 
   render() {
     return html`
@@ -29,7 +61,9 @@ export class ExmgUploadInput extends LitElement {
               /></svg></slot
         ></span>
       </div>
-      <exmg-collapsed id="collapsed" ?opened=${this.opened}> <slot name="upload"></slot> </exmg-collapsed>
+      <exmg-collapsed id="collapsed" ?opened=${this.opened}>
+        <slot name="upload" @upload-success=${this._uploadSuccess}></slot>
+      </exmg-collapsed>
     `;
   }
 }

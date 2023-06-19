@@ -147,27 +147,6 @@ export class ExmgUploadBase extends ExmgElement {
   }
 
   /**
-   * Returns the target element that this upload is anchored to. It is
-   * either the element given by the `for` attribute, or the immediate parent
-   * of the upload.
-   */
-  get target() {
-    const parentNode = this.parentNode;
-    // If the parentNode is a document fragment, then we need to use the host.
-    const ownerRoot = parentNode!.getRootNode();
-
-    let target;
-    if (this.for) {
-      target = (ownerRoot as HTMLElement).querySelector<HTMLElement>('#' + this.for);
-    } else {
-      // @ts-ignore
-      target = parentNode!.nodeType == Node.DOCUMENT_FRAGMENT_NODE ? ownerRoot.host : parentNode;
-    }
-
-    return target;
-  }
-
-  /**
    * Extract files from either file input or drop event
    * @param event
    * @returns FileList[] | []
@@ -186,17 +165,6 @@ export class ExmgUploadBase extends ExmgElement {
     this._uploaded = false;
     this.files = [];
     this.cancelActiveCrop();
-  }
-
-  _updateTarget() {
-    const target = this.target;
-    if (target) {
-      if (!this.multiple && this.getValues().length > 0) {
-        target.value = this.getValues()[0];
-      } else {
-        target.value = '';
-      }
-    }
   }
 
   private prepareFiles(addedFiles: File[]) {
@@ -365,7 +333,6 @@ export class ExmgUploadBase extends ExmgElement {
         html`<exmg-upload-item
           class="item"
           id=${item.id}
-          @upload-success=${this._updateTarget}
           @edit-image=${this._handleCropping}
           @remove-item=${this._handleRemove}
           uploadUrl=${ifDefined(this.uploadUrl)}
