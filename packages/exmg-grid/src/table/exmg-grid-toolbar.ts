@@ -1,8 +1,8 @@
-import {css, html} from 'lit';
-import {ExmgElement} from '@exmg/lit-base/index.js';
-import {customElement, property} from 'lit/decorators.js';
-import {ifDefined} from 'lit/directives/if-defined.js';
-import {repeat} from 'lit/directives/repeat.js';
+import { css, html } from 'lit';
+import { ExmgElement } from '@exmg/lit-base/index.js';
+import { customElement, property } from 'lit/decorators.js';
+import { ifDefined } from 'lit/directives/if-defined.js';
+import { repeat } from 'lit/directives/repeat.js';
 import '@material/mwc-icon-button';
 import './exmg-grid-toolbar-combobox.js';
 import '@polymer/paper-item/paper-item.js';
@@ -22,7 +22,7 @@ import {
   SettingConfigType,
   SettingSelectionListConfig,
   SettingSelectionListItem,
-} from './types/exmg-grid-toolbar-types';
+} from './types/exmg-grid-toolbar-types.js';
 
 @customElement('exmg-grid-toolbar')
 export class ExmgGridToolbar extends ExmgElement {
@@ -35,25 +35,25 @@ export class ExmgGridToolbar extends ExmgElement {
       }
     `,
   ];
-  @property({type: String})
+  @property({ type: String })
   description = '';
 
-  @property({type: Array})
+  @property({ type: Array })
   actions: Action[] = [];
 
-  @property({type: Array})
+  @property({ type: Array })
   filters: Filter[] = [];
 
-  @property({type: Array})
+  @property({ type: Array })
   settings: Setting[] = [];
 
-  @property({type: Boolean})
+  @property({ type: Boolean })
   searchEnabled = false;
 
-  @property({type: String})
+  @property({ type: String })
   searchPlaceholder = 'Search';
 
-  @property({type: Boolean})
+  @property({ type: Boolean })
   disableSeperator = false;
 
   private emitActionExecutedEvent(action: Action) {
@@ -102,7 +102,7 @@ export class ExmgGridToolbar extends ExmgElement {
   }
 
   private emitSettingChangedEvent(setting: Setting) {
-    return (event: CustomEvent<{value: SettingSelectionListItem[]}>) => {
+    return (event: CustomEvent<{ value: SettingSelectionListItem[] }>) => {
       this.dispatchEvent(
         new CustomEvent<EventDetailGridToolbarSettingChanged>('exmg-grid-toolbar-setting-changed', {
           detail: {

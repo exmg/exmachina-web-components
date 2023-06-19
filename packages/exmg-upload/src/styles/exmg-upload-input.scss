@@ -1,0 +1,18 @@
+:host {
+  display: block;
+}
+
+.input {
+  display: flex;
+  align-items: center;
+}
+
+.icon {
+  margin-left: var(--exmg-upload-input-icon-margin-left, 8px);
+}
+
+.icon svg {
+  width: var(--exmg-upload-input-icon-size, 24px);
+  height: var(--exmg-upload-input-icon-size, 24px);
+  fill: var(--exmg-upload-input-icon-fill, #0071dc);
+}

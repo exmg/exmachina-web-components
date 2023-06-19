@@ -1,10 +1,10 @@
-import {UploadAdapter, UploadConfig} from './types';
+import { UploadAdapter, UploadConfig } from './types.js';
 
 async function instantiateClass(path?: string, config?: UploadConfig): Promise<UploadAdapter> {
   if (!path) {
     throw new Error(`Class UploadAdapter path not set.`);
   }
-  const {UploadAdapter} = await import(path);
+  const { UploadAdapter } = await import(path);
 
   if (typeof UploadAdapter === 'function') {
     return new UploadAdapter(config);
@@ -48,4 +48,4 @@ class UploadService {
   }
 }
 
-export {UploadService};
+export { UploadService };

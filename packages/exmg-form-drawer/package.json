@@ -1,6 +1,7 @@
 {
   "name": "@exmg/exmg-form-drawer",
   "version": "8.1.35",
+  "type": "module",
   "description": "Form side drawer element",
   "contributors": [
     "Ex Machina"

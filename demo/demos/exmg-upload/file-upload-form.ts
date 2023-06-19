@@ -1,17 +1,17 @@
-import {html, css} from 'lit';
-import {customElement, property} from 'lit/decorators.js';
-import {ifDefined} from 'lit/directives/if-defined';
-import {ExmgElement} from '@exmg/lit-base';
+import { html, css } from 'lit';
+import { customElement, property } from 'lit/decorators.js';
+import { ifDefined } from 'lit/directives/if-defined.js';
+import { ExmgElement } from '@exmg/lit-base';
 
 @customElement('file-upload-form')
 export class FileUploadForm extends ExmgElement {
-  @property({type: String}) accept?: string;
-  @property({type: String}) maxSize: string = '1gb';
-  @property({type: Boolean}) multiple = true;
-  @property({type: Number}) maxAmount?: number;
-  @property({type: Boolean}) disabled = false;
-  @property({type: String}) uploadUrl = 'http://localhost:3000/upload';
-  @property({type: String}) serverType = 'local';
+  @property({ type: String }) accept?: string;
+  @property({ type: String }) maxSize: string = '1gb';
+  @property({ type: Boolean }) multiple = true;
+  @property({ type: Number }) maxAmount?: number;
+  @property({ type: Boolean }) disabled = false;
+  @property({ type: String }) uploadUrl = 'http://localhost:3000/upload';
+  @property({ type: String }) serverType = 'local';
 
   static styles = [
     css`
@@ -33,18 +33,18 @@ export class FileUploadForm extends ExmgElement {
 
   _handleBlur(e: FocusEvent, name: string) {
     // @ts-ignore
-    this.fire('property-changed', {name, value: e.target.value});
+    this.fire('property-changed', { name, value: e.target.value });
   }
 
   _handleChange(e, name: string) {
     // @ts-ignore
-    this.fire('property-changed', {name, value: e.target.checked});
+    this.fire('property-changed', { name, value: e.target.checked });
   }
 
   _handleRadio() {
     // @ts-ignore
     const value = this.shadowRoot?.querySelector('input[name="serverType"]:checked')?.value;
-    this.fire('property-changed', {name: 'serverType', value});
+    this.fire('property-changed', { name: 'serverType', value });
   }
 
   render() {

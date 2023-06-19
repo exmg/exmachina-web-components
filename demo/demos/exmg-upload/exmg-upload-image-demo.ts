@@ -1,10 +1,10 @@
-import {LitElement, html, css} from 'lit';
-import {customElement, property, query} from 'lit/decorators.js';
+import { LitElement, html, css } from 'lit';
+import { customElement, property, query } from 'lit/decorators.js';
 import '@exmg/exmg-upload';
-import {ExmgUpload} from '@exmg/exmg-upload';
-import {ifDefined} from 'lit/directives/if-defined';
+import { ExmgUpload } from '@exmg/exmg-upload';
+import { ifDefined } from 'lit/directives/if-defined.js';
 import './file-image-upload-form.js';
-import {observer} from '../exmg-form-drawer/form-drawer-base.js';
+import { observer } from '../exmg-form-drawer/form-drawer-base.js';
 
 const convertStringToRatio = (ratioString: string) => {
   const ratioParts = ratioString.split('/');
@@ -42,11 +42,11 @@ export class ExmgUploadImageDemo extends LitElement {
   @query('exmg-upload')
   upload?: ExmgUpload;
 
-  @property({type: String}) accept? = '.png,.jpg,.jpeg';
-  @property({type: String}) maxSize? = '256kb';
-  @property({type: String}) fixedResolution? = '1200x677';
-  @property({type: Boolean}) allowCropping = true;
-  @property({type: String})
+  @property({ type: String }) accept? = '.png,.jpg,.jpeg';
+  @property({ type: String }) maxSize? = '256kb';
+  @property({ type: String }) fixedResolution? = '1200x677';
+  @property({ type: Boolean }) allowCropping = true;
+  @property({ type: String })
   @observer(function (this: ExmgUploadImageDemo, value: string) {
     const aspectRatio = convertStringToRatio(value);
     this.cropperConfig = aspectRatio
@@ -57,8 +57,8 @@ export class ExmgUploadImageDemo extends LitElement {
   })
   aspectRatio = '16/9';
 
-  @property({type: Number})
-  cropperConfig: Cropper.Options = {};
+  @property({ type: Number })
+  cropperConfig: any = {};
 
   static styles = [
     css`
@@ -68,8 +68,8 @@ export class ExmgUploadImageDemo extends LitElement {
     `,
   ];
 
-  _handlePropertyChange(e: CustomEvent<{name: string; value: string}>) {
-    const {name, value} = e.detail;
+  _handlePropertyChange(e: CustomEvent<{ name: string; value: string }>) {
+    const { name, value } = e.detail;
     this[name] = value;
   }
 

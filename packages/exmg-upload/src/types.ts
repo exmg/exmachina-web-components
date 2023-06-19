@@ -29,7 +29,7 @@ declare global {
     uploadDefaults: {
       customAdapterPath?: string;
       uploadUrl?: string;
-      headers?: {[key: string]: string};
+      headers?: { [key: string]: string };
     };
   }
 }

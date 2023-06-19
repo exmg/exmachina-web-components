@@ -7,5 +7,5 @@
     "tsBuildInfoFile": ".tsbuildinfo"
   },
   "include": ["src/*.ts", "src/styles/*.ts", "demos/**/*.ts"],
-  "references": [{"path": "../packages/exmg-form"}]
+  "references": [{ "path": "../packages/exmg-form" }, { "path": "../packages/exmg-upload" }]
 }

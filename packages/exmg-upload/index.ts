@@ -10,6 +10,8 @@ export { ExmgUploadItem } from './src/exmg-upload-item.js';
 export { ExmgUploadItemBase } from './src/exmg-upload-item-base.js';
 
 export { FileData, FileUploadConfig } from './src/types.js';
+export { UploadAdapter, UploadConfig } from './src/upload/types.js';
+
 export { UploadService } from './src/upload/index.js';
 
 export { style as exmgUploadStyles } from './src/styles/exmg-upload-styles-css.js';

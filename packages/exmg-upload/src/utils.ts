@@ -11,6 +11,7 @@ export const isMimeType = (value: string) => {
  * @returns True if the file type is valid, false otherwise.
  */
 export const isTypeValidExtension = (file: File, accept: string) => {
+  if (accept.trim() === '') return true;
   const acceptedTypes = new Set(accept.split(','));
   const fileExtensionRegExp = /\.[^.]+$/;
   const name = file.name;

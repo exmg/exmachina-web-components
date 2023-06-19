@@ -1,4 +1,4 @@
-import {UploadAdapter} from '../types';
+import { UploadAdapter } from '../types.js';
 
 class LocalStorageUploadAdapter implements UploadAdapter {
   private async readFileAsDataURL(file: File): Promise<string> {
@@ -23,4 +23,4 @@ class LocalStorageUploadAdapter implements UploadAdapter {
   }
 }
 
-export {LocalStorageUploadAdapter as UploadAdapter};
+export { LocalStorageUploadAdapter as UploadAdapter };
