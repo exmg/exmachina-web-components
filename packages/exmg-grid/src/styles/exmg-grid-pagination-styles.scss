@@ -1,4 +1,3 @@
-// @import '../../node_modules/@material/theme/mdc-theme';
 @use '@material/typography/mixins' as typography;
 
 $exmg-grid-pagination-bg-color: #ffffff;
@@ -13,7 +12,10 @@ $exmg-grid-pagination-color-disabled: rgba($exmg-grid-pagination-color, 0.38);
   justify-content: flex-end;
   padding: 8px 10px;
   @include typography.base;
-  background-color: var(--exmg-theme-table-pagination-bg-color, var(--mdc-theme-surface, $exmg-grid-pagination-bg-color));
+  background-color: var(
+    --exmg-theme-table-pagination-bg-color,
+    var(--mdc-theme-surface, $exmg-grid-pagination-bg-color)
+  );
   color: var(--exmg-theme-table-pagination-color, var(--mdc-theme-on-surface, $exmg-grid-pagination-color));
   overflow-x: auto;
   white-space: nowrap;

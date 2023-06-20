@@ -1,10 +1,10 @@
-import {html} from 'lit';
-import {customElement, property} from 'lit/decorators.js';
-import {classMap} from 'lit/directives/class-map.js';
-import {SnackbarBase} from '@material/mwc-snackbar/mwc-snackbar-base.js';
-import {accessibleSnackbarLabel} from '@material/mwc-snackbar/accessible-snackbar-label-directive';
-import {style as newStyles} from './styles/exmg-snackbar-styles-css.js';
-import {styles} from '@material/mwc-snackbar/mwc-snackbar.css.js';
+import { html } from 'lit';
+import { customElement, property } from 'lit/decorators.js';
+import { classMap } from 'lit/directives/class-map.js';
+import { SnackbarBase } from '@material/mwc-snackbar/mwc-snackbar-base.js';
+import { accessibleSnackbarLabel } from '@material/mwc-snackbar/accessible-snackbar-label-directive.js';
+import { style as newStyles } from './styles/exmg-snackbar-styles-css.js';
+import { styles } from '@material/mwc-snackbar/mwc-snackbar.css.js';
 
 @customElement('exmg-snackbar')
 export class ExmgSnackbar extends SnackbarBase {
@@ -12,16 +12,16 @@ export class ExmgSnackbar extends SnackbarBase {
    * Sets the Snackbar variant, options from MWC
    * @type {String}
    */
-  @property({type: String})
+  @property({ type: String })
   variant: 'positive' | 'negative' | 'info' | null = null;
 
-  @property({type: Number})
+  @property({ type: Number })
   xOffset: number = 0;
 
-  @property({type: Number})
+  @property({ type: Number })
   yOffset: number = 0;
 
-  public static styles = [styles, newStyles];
+  static styles = [styles, newStyles];
 
   protected override render() {
     const classes = {

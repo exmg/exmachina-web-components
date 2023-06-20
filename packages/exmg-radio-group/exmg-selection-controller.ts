@@ -1,4 +1,4 @@
-import {ExmgRadioGroupItem} from './exmg-radio-group-item';
+import { ExmgRadioGroupItem } from './exmg-radio-group-item.js';
 
 /**
  * Unique symbol for marking roots
@@ -13,7 +13,7 @@ class SelectionSet {
 }
 
 export class SelectionController {
-  private sets: {[name: string]: SelectionSet} = {};
+  private sets: { [name: string]: SelectionSet } = {};
 
   private mouseIsDown = false;
 

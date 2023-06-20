@@ -1,58 +1,64 @@
-import {html, nothing} from 'lit';
-import {property} from 'lit/decorators.js';
-import {FileData} from './types';
+import { html, nothing } from 'lit';
+import { property } from 'lit/decorators.js';
+import { FileData } from './types.js';
 import '@material/mwc-icon-button';
-import {formatBytes, isImage} from './utils';
-import {ifDefined} from 'lit/directives/if-defined.js';
-import {UploadService} from './upload';
-import {ExmgElement} from '@exmg/lit-base';
-import {checkIcon, closeIcon, editIcon, errorIcon, warningIcon} from './exmg-upload-icons';
+import { formatBytes, isImage } from './utils.js';
+import { ifDefined } from 'lit/directives/if-defined.js';
+import { UploadService } from './upload/index.js';
+import { ExmgElement } from '@exmg/lit-base';
+import { checkIcon, closeIcon, editIcon, errorIcon, warningIcon } from './exmg-upload-icons.js';
+import { UploadConfig } from './upload/types.js';
 
 export class ExmgUploadItemBase extends ExmgElement {
   /**
    * Optional property. If not set it will look for the window.emconfig.backendHost
    */
-  @property({type: String})
+  @property({ type: String })
   uploadUrl?: string;
 
-  @property({type: String})
+  @property({ type: String })
   customAdapterPath?: string;
 
   /**
    * The upload response type
    */
-  @property({type: String})
+  @property({ type: String })
   serverType: 'xhr' | 'local' | 'custom' = 'xhr';
 
   /**
    * The upload response type
    */
-  @property({type: String})
+  @property({ type: String })
   responseType?: '' | 'json' | 'text' | 'blob' | 'arraybuffer';
 
-  @property({type: Object})
+  @property({ type: Object })
   uploadService?: UploadService;
 
-  @property({type: Object})
+  @property({ type: Object })
   item?: FileData;
 
-  @property({type: Boolean})
+  @property({ type: Boolean })
   allowCropping?: boolean;
 
-  @property({type: Number})
+  @property({ type: Number })
   aspectRatio?: number;
 
   async firstUpdated() {
     // @ts-ignore
     const uploadUrl = this.uploadUrl;
-    const headers = window.uploadDefaults.headers;
+    const headers = window.uploadDefaults ? window.uploadDefaults.headers || {} : {};
 
-    this.uploadService = await UploadService.create(this.serverType!, {
-      customAdapterPath: this.customAdapterPath || window.uploadDefaults.customAdapterPath,
-      uploadUrl: uploadUrl || window.uploadDefaults.uploadUrl,
+    const payload: UploadConfig = {
+      uploadUrl: uploadUrl || window.uploadDefaults?.uploadUrl || undefined,
       headers,
       responseType: this.responseType,
-    });
+    };
+
+    if (this.customAdapterPath) {
+      payload.customAdapterPath = this.customAdapterPath || window.uploadDefaults.customAdapterPath;
+    }
+
+    this.uploadService = await UploadService.create(this.serverType!, payload);
 
     this.handleFileUpload();
   }
@@ -96,6 +102,7 @@ export class ExmgUploadItemBase extends ExmgElement {
         this.item.url = url;
         this.item.status = 'UPLOADED';
         this.requestUpdate('item');
+        this.fire('upload-success', this.item, true);
       } catch (error) {
         this.handleError(error as string);
         throw new Error(error as string);
@@ -104,7 +111,7 @@ export class ExmgUploadItemBase extends ExmgElement {
   }
 
   private renderStatus() {
-    const {status} = this.item!;
+    const { status } = this.item!;
     switch (status) {
       case 'UPLOADING':
         return this.renderUploading();
@@ -121,8 +128,8 @@ export class ExmgUploadItemBase extends ExmgElement {
   }
 
   private renderActions() {
-    const {item, allowCropping} = this;
-    const {status} = item!;
+    const { item, allowCropping } = this;
+    const { status } = item!;
     return html`${status === 'UPLOADED' && isImage(item!.file) && allowCropping
         ? html`<mwc-icon-button @click=${this._handleEditClick}>${editIcon}</mwc-icon-button>`
         : nothing} <mwc-icon-button @click=${this._handleRemoveClick}>${closeIcon}</mwc-icon-button>`;
@@ -146,7 +153,7 @@ export class ExmgUploadItemBase extends ExmgElement {
 
   render() {
     const file = this.item?.file;
-    const {progress, status} = this.item!;
+    const { progress, status } = this.item!;
     const originalName = file?.name!;
     const fileName = originalName.substring(0, originalName.lastIndexOf('.'));
     const fileType = originalName.substring(originalName.lastIndexOf('.') + 1, originalName.length);

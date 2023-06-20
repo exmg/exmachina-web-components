@@ -1,11 +1,4 @@
 {
-  "packages": ["packages/*"],
-  "command": {
-    "bootstrap": {
-      "hoist": true,
-      "npmClientArgs": ["--no-package-lock"]
-    }
-  },
-  "useNx": false,
+  "$schema": "node_modules/lerna/schemas/lerna-schema.json",
   "version": "independent"
 }

@@ -1,8 +1,11 @@
 {
   "name": "@exmg/exmg-upload",
-  "version": "1.0.2",
+  "version": "1.0.7",
   "dependencies": {
     "@exmg/lit-base": "^1.1.8",
+    "@exmg/exmg-button": "file:../exmg-button",
+    "@exmg/exmg-sortable": "file:../exmg-sortable",
+    "@exmg/exmg-dialogs": "file:../exmg-dialogs",
     "@material/mwc-base": "=0.25.3",
     "@polymer/paper-dialog": "^3.0.0",
     "@polymer/paper-dialog-scrollable": "^3.0.0",
@@ -29,6 +32,7 @@
     "./exmg-upload-item.js": "./src/exmg-upload-item.js",
     "./exmg-upload-drop-area.js": "./src/exmg-upload-drop-area.js",
     "./exmg-upload-dialog.js": "./src/exmg-upload-dialog.js",
+    "./exmg-upload-input.js": "./src/exmg-upload-input.js",
     "./exmg-upload-crop.js": "./src/exmg-upload-crop.js"
   },
   "homepage": "https://github.com/exmg/exmachina-web-components",
@@ -46,5 +50,6 @@
   },
   "publishConfig": {
     "access": "public"
-  }
+  },
+  "gitHead": "9cc37bdc36b4117c1192349443f4eec03d62fa50"
 }

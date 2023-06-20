@@ -1,4 +1,4 @@
-import {UploadAdapter, UploadConfig} from '@exmg/exmg-upload/src/upload/types';
+import { UploadAdapter, UploadConfig } from '@exmg/exmg-upload';
 
 interface FileUploadPayload {
   filename: string;
@@ -45,7 +45,7 @@ class XHRJSONUploadAdapter implements UploadAdapter {
     } as FileUploadPayload;
 
     return new Promise<string>((resolve, reject) => {
-      const {uploadUrl} = this.config;
+      const { uploadUrl } = this.config;
 
       if (!uploadUrl) reject(new Error(`Upload url not found`));
       xhr.open('POST', uploadUrl!, true);
@@ -74,4 +74,4 @@ class XHRJSONUploadAdapter implements UploadAdapter {
   }
 }
 
-export {XHRJSONUploadAdapter as UploadAdapter};
+export { XHRJSONUploadAdapter as UploadAdapter };

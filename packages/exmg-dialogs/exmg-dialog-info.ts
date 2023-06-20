@@ -1,17 +1,17 @@
-import {html} from 'lit';
-import {property} from 'lit/decorators/property.js';
-import {ifDefined} from 'lit/directives/if-defined.js';
-import {customElement} from 'lit/decorators/custom-element.js';
-import {query} from 'lit/decorators/query.js';
-import {ExmgElement} from '@exmg/lit-base/index.js';
+import { html } from 'lit';
+import { property } from 'lit/decorators/property.js';
+import { ifDefined } from 'lit/directives/if-defined.js';
+import { customElement } from 'lit/decorators/custom-element.js';
+import { query } from 'lit/decorators/query.js';
+import { ExmgElement } from '@exmg/lit-base/index.js';
 import '@polymer/paper-dialog';
 import '@polymer/paper-dialog-scrollable';
 import '@exmg/exmg-button/exmg-button';
 import '@polymer/iron-form';
 import '@material/mwc-icon-button';
-import {style} from './styles/exmg-dialog-styles-css.js';
-import {PaperDialogElement} from '@polymer/paper-dialog';
-import {closeIcon} from './exmg-dialog-icons';
+import { style } from './styles/exmg-dialog-styles-css.js';
+import { PaperDialogElement } from '@polymer/paper-dialog';
+import { closeIcon } from './exmg-dialog-icons.js';
 
 /**
  * exmg-dialog-info
@@ -27,35 +27,35 @@ export class ExmgInfoDialog extends ExmgElement {
    * Title of the dialog
    * @type {String}
    */
-  @property({type: String})
+  @property({ type: String })
   title = '';
 
   /**
    * Copy for done button
    * @type {String}
    */
-  @property({type: String, attribute: 'button-copy'})
+  @property({ type: String, attribute: 'button-copy' })
   buttonCopy = '';
 
   /**
    * Hide close button ?
    * @type {Boolean}
    */
-  @property({type: Boolean, attribute: 'hide-close-button'})
+  @property({ type: Boolean, attribute: 'hide-close-button' })
   hideCloseButton = false;
 
   /**
    * Show close button as unelevated
    * @type {Boolean}
    */
-  @property({type: Boolean, attribute: 'button-unelevated'})
+  @property({ type: Boolean, attribute: 'button-unelevated' })
   buttonUnelevated?: boolean = false;
 
   /**
    * Sets the action for scroll behaviour within the dialog
    * @type {String}
    */
-  @property({type: String, attribute: 'scroll-action'})
+  @property({ type: String, attribute: 'scroll-action' })
   scrollAction?: 'lock' | 'refit' | 'cancel' | undefined;
 
   @query('#dialog')

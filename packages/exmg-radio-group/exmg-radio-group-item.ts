@@ -1,23 +1,23 @@
-import {FormElement} from '@material/mwc-base/form-element.js';
-import {observer} from '@exmg/lit-base/index.js';
-import {html} from 'lit';
-import {query} from 'lit/decorators/query.js';
-import {property} from 'lit/decorators/property.js';
-import {customElement} from 'lit/decorators/custom-element.js';
-import {eventOptions} from 'lit/decorators/event-options.js';
-import {MDCFoundation} from '@material/base';
-import {styles} from '@material/mwc-radio/mwc-radio.css';
-import {RippleHandlers} from '@material/mwc-ripple/ripple-handlers.js';
-import foundation from '@material/radio/foundation';
-import {SelectionController} from './exmg-selection-controller';
-import {style as exmgRadioGroupItemStyles} from './styles/exmg-radio-group-item-styles-css.js';
+import { FormElement } from '@material/mwc-base/form-element.js';
+import { observer } from '@exmg/lit-base/index.js';
+import { html } from 'lit';
+import { query } from 'lit/decorators/query.js';
+import { property } from 'lit/decorators/property.js';
+import { customElement } from 'lit/decorators/custom-element.js';
+import { eventOptions } from 'lit/decorators/event-options.js';
+import { MDCFoundation } from '@material/base';
+import { styles } from '@material/mwc-radio/mwc-radio.css.js';
+import { RippleHandlers } from '@material/mwc-ripple/ripple-handlers.js';
+import foundation from '@material/radio/foundation.js';
+import { SelectionController } from './exmg-selection-controller.js';
+import { style as exmgRadioGroupItemStyles } from './styles/exmg-radio-group-item-styles-css.js';
 import '@material/mwc-ripple';
 
 export interface RadioFoundation extends MDCFoundation {
   setDisabled(disabled: boolean): void;
 }
 
-export declare const RadioFoundation: {
+export declare const RadioFoundationBase: {
   prototype: RadioFoundation;
   new (adapter: Record<string, any>): RadioFoundation;
 };
@@ -34,7 +34,7 @@ export class ExmgRadioGroupItem extends FormElement {
    * Marks the item as checked
    * @type {Boolean}
    */
-  @property({type: Boolean, reflect: true})
+  @property({ type: Boolean, reflect: true })
   @observer(function (this: ExmgRadioGroupItem, checked: boolean) {
     this.formElement.checked = checked;
   })
@@ -44,7 +44,7 @@ export class ExmgRadioGroupItem extends FormElement {
    * Marks the item as disabled
    * @type {Boolean}
    */
-  @property({type: Boolean, reflect: true})
+  @property({ type: Boolean, reflect: true })
   @observer(function (this: ExmgRadioGroupItem, disabled: boolean) {
     this.mdcFoundation.setDisabled(disabled);
   })
@@ -54,7 +54,7 @@ export class ExmgRadioGroupItem extends FormElement {
    * Set value of item
    * @type {String}
    */
-  @property({type: String})
+  @property({ type: String })
   @observer(function (this: ExmgRadioGroupItem, value: string) {
     this.formElement.value = value;
   })
@@ -64,22 +64,22 @@ export class ExmgRadioGroupItem extends FormElement {
    * Set name of item
    * @type {String}
    */
-  @property({type: String})
+  @property({ type: String })
   name = '';
 
   /**
    * Enable radio button for selecting
    * @type {Boolean}
    */
-  @property({type: Boolean, attribute: 'enable-radio-button'})
+  @property({ type: Boolean, attribute: 'enable-radio-button' })
   enableRadioButton = false;
 
-  @property({type: Object})
+  @property({ type: Object })
   rippleHandlers: RippleHandlers | null = null;
 
   private shouldRenderRipple = false;
 
-  protected mdcFoundationClass: typeof RadioFoundation = foundation as unknown as typeof RadioFoundation;
+  protected mdcFoundationClass: typeof RadioFoundationBase = foundation as unknown as typeof RadioFoundationBase;
 
   protected mdcFoundation!: RadioFoundation;
 
@@ -130,7 +130,11 @@ export class ExmgRadioGroupItem extends FormElement {
     if (this.selectionController) {
       this.selectionController.update(this);
       this.dispatchEvent(
-        new CustomEvent('exmg-radio-group-item-changed', {detail: {value: this.value}, composed: false, bubbles: true}),
+        new CustomEvent('exmg-radio-group-item-changed', {
+          detail: { value: this.value },
+          composed: false,
+          bubbles: true,
+        }),
       );
     }
   }
@@ -189,7 +193,7 @@ export class ExmgRadioGroupItem extends FormElement {
     }
   }
 
-  @eventOptions({passive: true})
+  @eventOptions({ passive: true })
   private handleRippleActivateA(evt?: Event) {
     const onUp = () => {
       window.removeEventListener('mouseup', onUp);

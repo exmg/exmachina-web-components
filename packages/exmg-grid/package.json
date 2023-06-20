@@ -1,6 +1,7 @@
 {
   "name": "@exmg/exmg-grid",
-  "version": "8.1.33",
+  "version": "8.1.34",
+  "type": "module",
   "description": "exmg grid element",
   "contributors": [
     "Ex Machina"
@@ -27,7 +28,7 @@
     "directory": "packages/exmg-grid"
   },
   "dependencies": {
-    "@exmg/exmg-sortable": "^8.1.33",
+    "@exmg/exmg-sortable": "file:../exmg-sortable",
     "@exmg/lit-base": "^1.1.8",
     "@material/mwc-base": "^0.25.2",
     "@material/mwc-button": "^0.25.2",
@@ -35,7 +36,6 @@
     "@material/mwc-icon-button": "^0.25.2",
     "@material/mwc-list": "^0.25.2",
     "@material/mwc-menu": "^0.25.2",
-    "@material/theme": "^13.0.0",
     "@material/typography": "^13.0.0",
     "@polymer/iron-dropdown": "^3.0.1",
     "@polymer/iron-flex-layout": "^3.0.1",
