@@ -1,22 +1,21 @@
-import {html, LitElement, nothing} from 'lit';
-import {html as staticHtml} from 'lit/static-html.js';
-import {query, state} from 'lit/decorators.js';
-import {customElement} from 'lit/decorators/custom-element.js';
-import {elements} from './elements.js';
-import {style} from './styles/demo-app-css.js';
-import {style as theme} from './styles/theme-css.js';
+import { html, LitElement, nothing } from 'lit';
+import { html as staticHtml } from 'lit/static-html.js';
+import { query, state } from 'lit/decorators.js';
+import { customElement } from 'lit/decorators/custom-element.js';
+import { elements } from './elements.js';
+import { style } from './styles/demo-app-css.js';
 import '@material/web/switch/switch.js';
 import '@material/web/list/list.js';
 import '@material/web/list/list-item.js';
 import '@material/web/button/filled-button.js';
-import {Switch} from '@material/web/switch/lib/switch.js';
+import { Switch } from '@material/web/switch/lib/switch.js';
 import '../demos/exmg-breadcrumbs/exmg-breadcrumbs-demo.js';
-import {demos} from '../demos/demos.js';
-import {repeat} from 'lit/directives/repeat.js';
+import { demos } from '../demos/demos.js';
+import { repeat } from 'lit/directives/repeat.js';
 
 @customElement('demo-app')
 export class DemoApp extends LitElement {
-  static styles = [style, theme];
+  static styles = [style];
 
   @state()
   private selectedElement?: any;

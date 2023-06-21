@@ -1,4 +1,4 @@
-import {LitElement, html, customElement, property} from 'lit-element';
+import { LitElement, html } from 'lit';
 import '@polymer/paper-input/paper-input.js';
 import '@polymer/paper-input/paper-textarea.js';
 import '@polymer/paper-item/paper-item.js';
@@ -7,11 +7,12 @@ import '@exmg/exmg-paper-token-input/exmg-paper-token-input.js';
 import '@exmg/exmg-markdown-editor/exmg-markdown-editor.js';
 
 import '@exmg/exmg-form/exmg-form.js';
-import {ExmgForm} from '@exmg/exmg-form/exmg-form.js';
+import { ExmgForm } from '@exmg/exmg-form/exmg-form.js';
+import { customElement, property } from 'lit/decorators.js';
 
 @customElement('tab-2')
 export class Tab2El extends LitElement {
-  @property({type: Boolean})
+  @property({ type: Boolean })
   dirty = false;
 
   render() {
@@ -23,7 +24,13 @@ export class Tab2El extends LitElement {
         <paper-input label="password input" type="password"></paper-input>
         <paper-input label="disabled input" disabled value="batman"></paper-input>
         <paper-input name="name" label="Summary" required always-float-label></paper-input>
-        <paper-input name="estimate" label="Estimates" type="number" always-float-label style="max-width:180px;"></paper-input>
+        <paper-input
+          name="estimate"
+          label="Estimates"
+          type="number"
+          always-float-label
+          style="max-width:180px;"
+        ></paper-input>
 
         <paper-textarea label="autoresizing textarea input"></paper-textarea>
 
@@ -31,7 +38,9 @@ export class Tab2El extends LitElement {
           <paper-item>PlayToTV</paper-item>
           <paper-item>Website</paper-item>
         </exmg-paper-combobox>
-        <p class="help">Some issue types are unavailable due to incompatible field configuration and/or workflow associations.</p>
+        <p class="help">
+          Some issue types are unavailable due to incompatible field configuration and/or workflow associations.
+        </p>
         <hr />
         <p class="help">Start typing to get a list of possible matches.</p>
         <exmg-paper-token-input name="tokens" label="Components" always-float-label>
@@ -58,7 +67,7 @@ export class Tab2El extends LitElement {
     }, 1500);
   }
 
-  _handleDirty(e: CustomEvent<{dirty: boolean}>) {
+  _handleDirty(e: CustomEvent<{ dirty: boolean }>) {
     this.dirty = e.detail.dirty;
   }
 
