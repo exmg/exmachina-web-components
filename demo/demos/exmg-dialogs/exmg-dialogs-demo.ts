@@ -47,7 +47,7 @@ export class DialogDemo extends LitElement {
           <md-filled-button @click=${clickHandler}>Open Confirm</md-filled-button>
           <exmg-dialog-confirm-v2
             message="Deleting the selected users"
-            @delete=${this.handleSubmit}
+            @confirmed=${this.handleSubmit}
           ></exmg-dialog-confirm-v2>
         </div>
 

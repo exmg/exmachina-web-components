@@ -171,7 +171,7 @@ export class ExmgDialogConfirmV2Base extends ExmgElement {
         }
       }
     } else {
-      this.fire('delete', {}, true);
+      this.fire('confirmed', {}, true);
     }
   }
 

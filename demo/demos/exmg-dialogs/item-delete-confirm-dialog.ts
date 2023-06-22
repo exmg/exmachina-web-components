@@ -1,6 +1,6 @@
 import { ExmgDialogConfirmV2Base } from '@exmg/exmg-dialogs/exmg-dialog-confirm-v2-base.js';
-import { styles } from '@material/web/dialog/lib/dialog-styles.css.js';
-import { css } from 'lit';
+import { style } from '@exmg/exmg-dialogs/styles/exmg-dialog-confirm-css.js';
+
 import { customElement } from 'lit/decorators.js';
 
 function sleep(ms) {
@@ -9,15 +9,7 @@ function sleep(ms) {
 
 @customElement('item-delete-confirm-dialog')
 export class ItemDeleteConfirmDialog extends ExmgDialogConfirmV2Base {
-  static override styles = [
-    styles,
-    css`
-      .description {
-        color: var(--md-sys-color-on-surface);
-        opacity: 0.67;
-      }
-    `,
-  ];
+  static override styles = [style];
 
   async doAction() {
     // Simulate slow connection
