@@ -1,4 +1,4 @@
-import {literal} from 'lit/static-html.js';
+import { literal } from 'lit/static-html.js';
 
 import './exmg-breadcrumbs/exmg-breadcrumbs-demo.js';
 import './exmg-button/exmg-button-demo.js';
