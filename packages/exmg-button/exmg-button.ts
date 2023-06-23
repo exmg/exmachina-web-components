@@ -35,37 +35,6 @@ export class ExmgButton extends MdFilledButton {
   @property({ type: Boolean, reflect: true }) disabled = false;
 
   /**
-   * The URL that the link button points to.
-   */
-  @property() href?: string;
-
-  /**
-   * Where to display the linked `href` URL for a link button. Common options
-   * include `_blank` to open in a new tab.
-   */
-  @property() target?: string;
-
-  /**
-   * Whether to render the icon at the inline end of the label rather than the
-   * inline start.
-   *
-   * _Note:_ Link buttons cannot have trailing icons.
-   */
-  @property({ type: Boolean, attribute: 'trailing-icon' }) trailingIcon = false;
-
-  /**
-   * Whether to display the icon or not.
-   */
-  @property({ type: Boolean, attribute: 'has-icon' }) hasIcon = false;
-
-  /**
-   * Whether `preventDefault()` should be called on the underlying button.
-   * Useful for preventing certain native functionalities like preventing form
-   * submissions.
-   */
-  @property({ type: Boolean }) preventClickDefault = false;
-
-  /**
    * Specifies the type of button, used for controlling forms. When type
    * is `submit`, the containing form is submitted; when it is `reset` the
    * form is reset.
@@ -80,7 +49,7 @@ export class ExmgButton extends MdFilledButton {
     const isDisabled = this.disabled && !this.href;
     // Needed for closure conformance
     return html`
-      <md-filled-button ?disabled=${isDisabled}>
+      <md-filled-button ?disabled=${isDisabled} type=${this.type}>
         ${isLoading ? html` <md-circular-progress indeterminate></md-circular-progress>` : html`<slot></slot>`}
       </md-filled-button>
     `;
