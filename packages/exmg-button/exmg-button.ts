@@ -23,33 +23,17 @@ export class ExmgButton extends MdFilledButton {
   loading = false;
 
   /**
-   * Whether or not the button is in loading state
-   * @type {Boolean}
-   */
-  @property({ type: Boolean })
-  elevated = true;
-
-  /**
    * Whether or not the button is disabled.
    */
   @property({ type: Boolean, reflect: true }) disabled = false;
 
-  /**
-   * Specifies the type of button, used for controlling forms. When type
-   * is `submit`, the containing form is submitted; when it is `reset` the
-   * form is reset.
-   */
-  @property() type: '' | 'submit' | 'reset' = '';
-
   static styles = [style];
 
   protected override render() {
-    // Link buttons may not be disabled
     const isLoading = this.loading;
-    const isDisabled = this.disabled && !this.href;
-    // Needed for closure conformance
+    const isDisabled = this.disabled;
     return html`
-      <md-filled-button ?disabled=${isDisabled} type=${this.type}>
+      <md-filled-button ?disabled=${isDisabled}>
         ${isLoading ? html` <md-circular-progress indeterminate></md-circular-progress>` : html`<slot></slot>`}
       </md-filled-button>
     `;
