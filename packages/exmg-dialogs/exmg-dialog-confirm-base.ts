@@ -6,7 +6,7 @@ import '@material/web/button/tonal-button.js';
 import '@material/web/button/text-button.js';
 import '@material/web/icon/icon.js';
 
-import { property, query, state } from 'lit/decorators.js';
+import { property, query } from 'lit/decorators.js';
 import { ExmgElement } from '@exmg/lit-base';
 
 export const CLOSE_ACTION = 'close';
