@@ -1,0 +1,34 @@
+@use '@material/web/dialog/lib/dialog-styles';
+
+[slot='header'] {
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+}
+
+[showing-fullscreen] [slot='header'] {
+  flex-direction: row;
+}
+
+.headline {
+  flex: 1;
+}
+
+form .row {
+  display: flex;
+  gap: 8px;
+}
+
+form .row > * {
+  flex: 1;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+form > * {
+  display: contents;
+}

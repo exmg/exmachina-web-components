@@ -11,7 +11,7 @@ import { ExmgElement } from '@exmg/lit-base';
 
 export const CLOSE_ACTION = 'close';
 
-export class ExmgDialogConfirmV2Base extends ExmgElement {
+export class ExmgDialogConfirmBase extends ExmgElement {
   /**
    * Opens the dialog when set to `true` and closes it when set to `false`.
    */
@@ -108,6 +108,21 @@ export class ExmgDialogConfirmV2Base extends ExmgElement {
   @property({ type: String }) title = 'Permantly delete?';
 
   /**
+   * Submit button copy
+   */
+  @property({ type: String }) submitBtn = 'Delete';
+
+  /**
+   * Cancel button copy
+   */
+  @property({ type: String }) cancelBtn = 'Cancel';
+
+  /**
+   * Icon of the dialog
+   */
+  @property({ type: String }) icon = 'delete';
+
+  /**
    * Transition kind. Supported options include: grow, shrink, grow-down,
    * grow-up, grow-left, and grow-right.
    *
@@ -116,9 +131,9 @@ export class ExmgDialogConfirmV2Base extends ExmgElement {
   @property({ reflect: true }) transition = 'grow-down';
 
   /**
-   * Internall used to show button spinner.
+   * Used to show button spinner.
    */
-  @state() private submitting = false;
+  @property({ type: Boolean }) public submitting = false;
 
   @query('md-dialog') protected dialog!: MdDialog;
 
@@ -155,23 +170,18 @@ export class ExmgDialogConfirmV2Base extends ExmgElement {
    */
   doAction?(): Promise<void> | void;
 
-  private async handleDelete() {
-    let errorOccured = false;
+  private async handleSubmit() {
     if (this.doAction) {
       try {
         this.submitting = true;
         await this.doAction();
       } catch (error) {
-        console.error(error instanceof Error ? error.message : 'Unkbnown error');
-        errorOccured = false;
+        this.fire('dialog-error', { message: error instanceof Error ? error.message : 'Unknown error' }, true);
       } finally {
         this.submitting = false;
-        if (!errorOccured) {
-          this.open = false;
-        }
       }
     } else {
-      this.fire('confirmed', {}, true);
+      this.fire('dialog-confirmed', {}, true);
     }
   }
 
@@ -186,11 +196,13 @@ export class ExmgDialogConfirmV2Base extends ExmgElement {
       .transition=${transition!}
       .open=${this.open}
     >
-      <md-icon slot="headline-prefix">delete</md-icon>
-      <span slot="headline">Permanently delete?</span>
+      <md-icon slot="headline-prefix">${this.icon}</md-icon>
+      <span slot="headline">${this.title}</span>
       <span class="description">${this.message}</span>
-      <md-text-button slot="footer" dialogFocus @click=${() => this.close()}>Cancel</md-text-button>
-      <md-tonal-button slot="footer" @click=${this.handleDelete} ?disabled=${this.submitting}>Delete</md-tonal-button>
+      <md-text-button slot="footer" dialogFocus @click=${() => this.close()}>${this.cancelBtn}</md-text-button>
+      <md-tonal-button slot="footer" @click=${this.handleSubmit} ?disabled=${this.submitting}
+        >${this.submitBtn}</md-tonal-button
+      >
     </md-dialog>`;
   }
 }

@@ -11,7 +11,7 @@
   --md-sys-color-surface-container-highest: var(--md-sys-color-surface-container-highest-dark);
   --md-sys-color-on-surface: var(--md-sys-color-on-surface-dark);
   --md-sys-color-surface-variant: var(--md-sys-color-surface-variant-dark);
-  --md-sys-color-on-surface-variant: var(--md-sys-color-surface-on-variant-dark);
+  --md-sys-color-on-surface-variant: var(--md-sys-color-on-surface-variant-dark);
   --md-sys-color-inverse-surface: var(--md-sys-color-inverse-surface-dark);
   --md-sys-color-inverse-on-surface: var(--md-sys-color-inverse-on-surface-dark);
   --md-sys-color-outline: var(--md-sys-color-outline-dark);

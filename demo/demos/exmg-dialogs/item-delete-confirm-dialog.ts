@@ -1,4 +1,4 @@
-import { ExmgDialogConfirmV2Base } from '@exmg/exmg-dialogs/exmg-dialog-confirm-v2-base.js';
+import { ExmgDialogConfirmBase } from '@exmg/exmg-dialogs/exmg-dialog-confirm-base.js';
 import { style } from '@exmg/exmg-dialogs/styles/exmg-dialog-confirm-css.js';
 
 import { customElement } from 'lit/decorators.js';
@@ -8,7 +8,7 @@ function sleep(ms) {
 }
 
 @customElement('item-delete-confirm-dialog')
-export class ItemDeleteConfirmDialog extends ExmgDialogConfirmV2Base {
+export class ItemDeleteConfirmDialog extends ExmgDialogConfirmBase {
   static override styles = [style];
 
   async doAction() {
