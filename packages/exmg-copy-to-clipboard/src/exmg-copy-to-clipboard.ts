@@ -1,7 +1,7 @@
-import {html} from 'lit';
-import {customElement, state, property, query} from 'lit/decorators.js';
-import {ExmgElement} from '@exmg/lit-base/index.js';
-import {style} from './styles/exmg-copy-to-clipboard-styles-css.js';
+import { html } from 'lit';
+import { customElement, state, property, query } from 'lit/decorators.js';
+import { ExmgElement } from '@exmg/lit-base/index.js';
+import { style } from './styles/exmg-copy-to-clipboard-styles-css.js';
 
 /**
  * `<exmg-copy-to-clipboard>` Helper element to create icon/buttons that
@@ -23,7 +23,7 @@ export class ExmgCopyToClipboard extends ExmgElement {
    * Value to be copied
    * @type {String}
    */
-  @property({type: String})
+  @property({ type: String })
   value?: string;
 
   @state()
@@ -62,14 +62,14 @@ export class ExmgCopyToClipboard extends ExmgElement {
     });
 
     // Start observing the target node for configured mutations
-    this._observer.observe(this, {attributes: true, childList: true, subtree: false});
+    this._observer.observe(this, { attributes: true, childList: true, subtree: false });
   }
 
   firstUpdated() {
     this.addClickListener();
     if (!this.isCopySupported && this.htmlElement) {
       this.htmlElement.style.display = 'none';
-      this.dispatchEvent(new CustomEvent('copy-not-supported', {bubbles: this.bubbles, composed: true}));
+      this.dispatchEvent(new CustomEvent('copy-not-supported', { bubbles: this.bubbles, composed: true }));
     }
   }
 
