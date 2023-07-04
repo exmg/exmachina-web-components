@@ -1,0 +1,20 @@
+@use '@material/web/dialog/lib/dialog-styles';
+
+exmg-upload,
+::slotted(exmg-upload) {
+  width: 460px;
+}
+
+[slot='header'] {
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+}
+
+[showing-fullscreen] [slot='header'] {
+  flex-direction: row;
+}
+
+.headline {
+  flex: 1;
+}

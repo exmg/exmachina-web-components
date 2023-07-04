@@ -281,7 +281,7 @@ export class ExmgUploadBase extends ExmgElement {
     this.removeFile(item?.id);
     this.prepareFiles([item.file]);
 
-    this.fire('crop-done', e.detail);
+    this.fire('crop-done', e.detail, true);
   }
 
   /**

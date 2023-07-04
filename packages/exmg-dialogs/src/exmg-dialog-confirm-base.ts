@@ -4,24 +4,14 @@ import '@material/web/dialog/dialog.js';
 import { MdDialog } from '@material/web/dialog/dialog.js';
 import '@material/web/button/tonal-button.js';
 import '@material/web/button/text-button.js';
-import '@material/web/iconbutton/standard-icon-button.js';
 import '@material/web/icon/icon.js';
 
-import { property, query, state } from 'lit/decorators.js';
+import { property, query } from 'lit/decorators.js';
 import { ExmgElement } from '@exmg/lit-base';
 
 export const CLOSE_ACTION = 'close';
 
-const serializeForm = (form) => {
-  var obj = {};
-  var formData = new FormData(form);
-  for (var key of formData.keys()) {
-    obj[key] = formData.get(key);
-  }
-  return obj;
-};
-
-export class ExmgDialogFormBase extends ExmgElement {
+export class ExmgDialogConfirmBase extends ExmgElement {
   /**
    * Opens the dialog when set to `true` and closes it when set to `false`.
    */
@@ -44,7 +34,7 @@ export class ExmgDialogFormBase extends ExmgElement {
    * These are typically configured via media queries and are independent of the
    * fullscreen setting.
    */
-  @property({ type: Boolean }) fullscreen = true;
+  @property({ type: Boolean }) fullscreen = false;
 
   /**
    * A media query string specifying the breakpoint at which the dialog
@@ -69,32 +59,6 @@ export class ExmgDialogFormBase extends ExmgElement {
   @property({ type: Boolean }) stacked = false;
 
   /**
-   * When the dialog is closed it disptaches `closing` and `closed` events.
-   * These events have an action property which has a default value of
-   * the value of this property. Specific actions have explicit values but when
-   * a value is not specified, the default is used. For example, clicking the
-   * scrim, pressing escape, or clicking a button with an action attribute set
-   * produce an explicit action.
-   *
-   * Defaults to `close`.
-   */
-  @property() defaultAction = CLOSE_ACTION;
-
-  /**
-   * Clicking on the scrim surrounding the dialog closes the dialog.
-   * The `closing` and `closed` events this produces have an `action` property
-   * which is the value of this property and defaults to `close`.
-   */
-  @property() scrimClickAction = CLOSE_ACTION;
-
-  /**
-   * Pressing the `escape` key while the dialog is open closes the dialog.
-   * The `closing` and `closed` events this produces have an `action` property
-   * which is the value of this property and defaults to `close`.
-   */
-  @property() escapeKeyAction = CLOSE_ACTION;
-
-  /**
    * When opened, the dialog is displayed modeless or non-modal. This
    * allows users to interact with content outside the dialog without
    * closing the dialog and does not display the scrim around the dialog.
@@ -110,17 +74,17 @@ export class ExmgDialogFormBase extends ExmgElement {
    * Set to make the dialog position draggable.
    */
   @property({ type: String })
-  message = `The selected item will be permantly removed from the system. Are you sure you want to delete`;
+  message = `The selected item will be permanently removed from the system. Are you sure you want to delete`;
 
   /**
    * Title of the dialog
    */
-  @property({ type: String }) title = 'Create entry';
+  @property({ type: String }) title = 'Permanently delete?';
 
   /**
    * Submit button copy
    */
-  @property({ type: String }) submitBtn = 'Save';
+  @property({ type: String }) submitBtn = 'Delete';
 
   /**
    * Cancel button copy
@@ -130,7 +94,7 @@ export class ExmgDialogFormBase extends ExmgElement {
   /**
    * Icon of the dialog
    */
-  @property({ type: String }) icon = 'close';
+  @property({ type: String }) icon = 'delete';
 
   /**
    * Transition kind. Supported options include: grow, shrink, grow-down,
@@ -141,25 +105,17 @@ export class ExmgDialogFormBase extends ExmgElement {
   @property({ reflect: true }) transition = 'grow-down';
 
   /**
-   * Internall used to show button spinner.
+   * Used to show button spinner.
    */
   @property({ type: Boolean }) public submitting = false;
 
-  @state() private formValid = false;
-
   @query('md-dialog') protected dialog!: MdDialog;
-
-  boundHandleBlur?: (e: Event) => void;
-
-  protected getForm() {
-    return this.shadowRoot!.querySelector('form');
-  }
 
   /**
    * Opens and shows the dialog. This is equivalent to setting the `open`
    * property to true.
    */
-  public show() {
+  show() {
     this.open = true;
   }
 
@@ -167,14 +123,14 @@ export class ExmgDialogFormBase extends ExmgElement {
    * Closes the dialog. This is equivalent to setting the `open`
    * property to false.
    */
-  public close() {
+  close() {
     this.open = false;
   }
 
   /**
    * Opens and shows the dialog if it is closed; otherwise closes it.
    */
-  public toggleShow() {
+  toggleShow() {
     if (this.open) {
       this.close();
     } else {
@@ -182,85 +138,31 @@ export class ExmgDialogFormBase extends ExmgElement {
     }
   }
 
-  protected _handleBlur(e: Event) {
-    // @ts-ignore
-    typeof e.target.reportValidity === 'function' && e.target.reportValidity();
-
-    this._checkFormValidity();
-  }
-
-  protected firstUpdated() {
-    const form = this.getForm();
-
-    this.boundHandleBlur = this._handleBlur.bind(this);
-    form!.addEventListener('blur', this.boundHandleBlur, true);
-  }
-
-  disconnectedCallback() {
-    const form = this.getForm();
-    this.boundHandleBlur && form!.addEventListener('blur', this.boundHandleBlur, true);
-    super.disconnectedCallback();
-  }
-
-  protected _checkFormValidity() {
-    const form = this.getForm();
-
-    const formElements = form?.elements;
-    let allValid = true;
-
-    for (const el of formElements || []) {
-      // @ts-ignore
-      const isValid = typeof el.reportValidity === 'function' && el.checkValidity();
-      if (!isValid) {
-        allValid = false;
-      }
-    }
-
-    this.formValid = allValid;
-  }
-
   /**
    * Action method that needs to be implemented
    * @param {CustomEvent} e
    */
-  doAction?(formData: unknown): Promise<void> | void;
+  doAction?(): Promise<void> | void;
 
-  protected async handleSubmit() {
-    const form = this.getForm();
-
-    // Return when there are invalid fields
-    if (!this.formValid) {
-      return;
-    }
-
-    // Serialize form data
-    const data = serializeForm(form!);
-
+  private async handleSubmit() {
     if (this.doAction) {
       try {
         this.submitting = true;
-        await this.doAction(data);
+        await this.doAction();
       } catch (error) {
-        this.fire('dialog-error', { message: error instanceof Error ? error.message : 'Unkbnown error' }, true);
+        this.fire('dialog-error', { message: error instanceof Error ? error.message : 'Unknown error' }, true);
       } finally {
         this.submitting = false;
-        this.open = false;
       }
     } else {
-      this.fire('dialog-submit', data, true);
+      this.fire('dialog-confirmed', {}, true);
     }
   }
 
-  /**
-   * Method should be overriden to render form content
-   */
-  protected renderFormContent() {
-    return html`<slot></slot>`;
-  }
-
-  protected render() {
+  protected override render() {
     const { fullscreen, modeless, stacked, draggable, transition } = this;
     return html` <md-dialog
+      style="--md-dialog-container-max-inline-size: 320px;"
       .fullscreen=${fullscreen}
       .modeless=${modeless}
       .stacked=${stacked}
@@ -268,13 +170,11 @@ export class ExmgDialogFormBase extends ExmgElement {
       .transition=${transition!}
       .open=${this.open}
     >
-      <span slot="header">
-        <md-standard-icon-button @click=${() => this.close()}><md-icon>close</md-icon></md-standard-icon-button>
-        <span class="headline">${this.title}</span>
-      </span>
-      <div class="content">${this.renderFormContent()}</div>
+      <md-icon slot="headline-prefix">${this.icon}</md-icon>
+      <span slot="headline">${this.title}</span>
+      <span class="description">${this.message}</span>
       <md-text-button slot="footer" dialogFocus @click=${() => this.close()}>${this.cancelBtn}</md-text-button>
-      <md-tonal-button slot="footer" @click=${this.handleSubmit} ?disabled=${this.submitting || !this.formValid}
+      <md-tonal-button slot="footer" @click=${this.handleSubmit} ?disabled=${this.submitting}
         >${this.submitBtn}</md-tonal-button
       >
     </md-dialog>`;

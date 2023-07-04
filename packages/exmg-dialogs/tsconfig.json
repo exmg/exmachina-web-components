@@ -2,10 +2,11 @@
   "extends": "../../tsconfig.json",
   "compilerOptions": {
     "composite": true,
+    "experimentalDecorators": true,
     "rootDir": ".",
     "outDir": ".",
     "tsBuildInfoFile": ".tsbuildinfo"
   },
-  "include": ["*.ts", "styles/*.ts"],
+  "include": ["**/*.ts", "src/styles/*.ts"],
   "references": []
 }

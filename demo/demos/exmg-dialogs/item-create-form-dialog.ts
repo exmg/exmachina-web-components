@@ -1,5 +1,4 @@
-import { ExmgDialogFormBase } from '@exmg/exmg-dialogs/exmg-dialog-form-base.js';
-import { style } from '@exmg/exmg-dialogs/styles/exmg-dialog-form-css.js';
+import { ExmgDialogFormBase, exmgDialogFormStyles } from '@exmg/exmg-dialogs';
 import { html } from 'lit';
 
 import { customElement } from 'lit/decorators.js';
@@ -10,7 +9,7 @@ function sleep(ms) {
 
 @customElement('item-create-form-dialog')
 export class ItemCreateFormDialog extends ExmgDialogFormBase {
-  static override styles = [style];
+  static override styles = [exmgDialogFormStyles];
 
   async doAction(formData: unknown) {
     // Simulate slow connection

@@ -1,6 +1,7 @@
 import { LitElement, html } from 'lit';
 import { customElement } from 'lit/decorators/custom-element.js';
 import '@material/web/button/filled-button.js';
+import '@polymer/paper-input/paper-input.js';
 
 import '@exmg/exmg-dialogs/exmg-dialog-confirm.js';
 import { ExmgDialogConfirm } from '@exmg/exmg-dialogs/exmg-dialog-confirm.js';
@@ -105,7 +106,7 @@ export class DialogDemo extends LitElement {
         </div>
 
         <div class="example">
-          <md-filled-button @click=${clickHandler}>Open Confirm (Custom)</md-filled-button>
+          <md-filled-button @click=${clickHandler}>Open Confirm (extends base class)</md-filled-button>
           <item-delete-confirm-dialog></item-delete-confirm-dialog>
         </div>
 
@@ -139,7 +140,7 @@ export class DialogDemo extends LitElement {
         </div>
 
         <div class="example">
-          <md-filled-button @click=${clickHandler}>Open Form (Custom)</md-filled-button>
+          <md-filled-button @click=${clickHandler}>Open Form (extends base class)</md-filled-button>
           <item-create-form-dialog></item-create-form-dialog>
         </div>
       </div>

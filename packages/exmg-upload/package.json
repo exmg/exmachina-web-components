@@ -31,9 +31,9 @@
     "./exmg-upload.js": "./src/exmg-upload.js",
     "./exmg-upload-item.js": "./src/exmg-upload-item.js",
     "./exmg-upload-drop-area.js": "./src/exmg-upload-drop-area.js",
-    "./exmg-upload-dialog.js": "./src/exmg-upload-dialog.js",
     "./exmg-upload-input.js": "./src/exmg-upload-input.js",
-    "./exmg-upload-crop.js": "./src/exmg-upload-crop.js"
+    "./exmg-upload-crop.js": "./src/exmg-upload-crop.js",
+    "./exmg-dialog-upload.js": "./src/exmg-dialog-upload.js"
   },
   "homepage": "https://github.com/exmg/exmachina-web-components",
   "repository": {

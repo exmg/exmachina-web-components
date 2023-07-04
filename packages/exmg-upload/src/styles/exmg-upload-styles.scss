@@ -1,11 +1,18 @@
 :host {
   display: flex;
   color: var(--exmg-upload-text-color, #000);
+  color: var(--_supporting-text-color);
+  font: var(--_supporting-text-type);
   flex-direction: column;
   justify-content: center;
   align-items: center;
   gap: 0.5rem;
   padding: 8px 0 8px 0;
+  --_supporting-text-color: var(--md-dialog-supporting-text-color, var(--md-sys-color-on-surface-variant, #49454f));
+  --_supporting-text-type: var(
+    --md-dialog-supporting-text-type,
+    400 0.875rem / 1.25rem var(--md-ref-typeface-plain, Roboto)
+  );
 }
 
 .image-upload-wrapper {

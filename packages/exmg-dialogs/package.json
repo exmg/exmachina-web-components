@@ -2,7 +2,13 @@
   "name": "@exmg/exmg-dialogs",
   "version": "8.1.35",
   "type": "module",
-  "main": "exmg-dialog-form.js",
+  "main": "index.js",
+  "module": "index.js",
+  "exports": {
+    ".": "./index.js",
+    "./exmg-dialog-confirm.js": "./src/exmg-dialog-confirm.js",
+    "./exmg-dialog-form.js": "./src/exmg-dialog-form.js"
+  },
   "repository": {
     "type": "git",
     "url": "git@github.com:exmg/exmg-web-components.git",
