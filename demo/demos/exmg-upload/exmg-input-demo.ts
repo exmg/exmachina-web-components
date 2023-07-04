@@ -13,6 +13,7 @@ export class ExmgInputDemo extends LitElement {
     css`
       :host {
         display: block;
+        width: 100%;
       }
 
       exmg-upload a {

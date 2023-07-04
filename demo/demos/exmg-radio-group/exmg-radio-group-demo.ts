@@ -1,12 +1,13 @@
-import {LitElement, html, property, customElement} from 'lit-element';
+import { LitElement, html } from 'lit';
 import './exmg-icons.js';
 import '@exmg/exmg-radio-group/exmg-radio-group.js';
 import '@exmg/exmg-radio-group/exmg-radio-group-item.js';
 import '@polymer/iron-demo-helpers/demo-snippet.js';
+import { customElement, property } from 'lit/decorators.js';
 
 @customElement('exmg-radio-group-demo')
 export class ExmgRadioGroupDemo extends LitElement {
-  @property({type: String})
+  @property({ type: String })
   selected = 'option2';
 
   constructor() {
@@ -87,12 +88,7 @@ export class ExmgRadioGroupDemo extends LitElement {
           <h1>Flex wrap example</h1>
           <demo-snippet>
             <template>
-              <exmg-radio-group
-                name="license"
-                selected="${this.selected}"
-                @exmg-radio-group-changed="${this.onPaperRadioGroupChanged}"
-                wrap
-              >
+              <exmg-radio-group name="license" wrap>
                 <exmg-radio-group-item value="option1" class="g6">
                   <div slot="title"><span class="large">128</span>GB</div>
                   <div slot="body">From $1099 or $45.79/mo.per month for 24 mo. *months before trade-in</div>

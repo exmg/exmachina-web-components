@@ -64,6 +64,7 @@ export class ExmgUploadImageDemo extends LitElement {
     css`
       :host {
         display: block;
+        width: 100%;
       }
     `,
   ];
