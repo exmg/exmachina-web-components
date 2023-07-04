@@ -1,21 +1,21 @@
-import {html, nothing} from 'lit';
-import {query, property, state} from 'lit/decorators.js';
+import { html, nothing } from 'lit';
+import { query, property, state } from 'lit/decorators.js';
 
-import '@exmg/exmg-button';
+import '@material/web/button/filled-button.js';
 
-import {FileData} from './types.js';
-import {ExmgElement} from '@exmg/lit-base';
+import { FileData } from './types.js';
+import { ExmgElement } from '@exmg/lit-base';
 
 import Cropper from 'cropperjs';
 
 export class ExmgUploadCropBase extends ExmgElement {
-  @property({type: Object})
+  @property({ type: Object })
   cropperConfig: any = {};
 
   @query('#image')
   cropArea?: HTMLImageElement;
 
-  @property({type: Boolean})
+  @property({ type: Boolean })
   hideActions = false;
 
   @state()
@@ -54,7 +54,7 @@ export class ExmgUploadCropBase extends ExmgElement {
       if (!this._item || !blob) {
         return;
       }
-      const file = new File([blob], `cropped-${this._item.file.name}`, {type: this._item.file.type});
+      const file = new File([blob], `cropped-${this._item.file.name}`, { type: this._item.file.type });
       this._item.file = file;
       this.fire('crop-done', this._item);
     }, this._item?.file.type);
@@ -63,8 +63,8 @@ export class ExmgUploadCropBase extends ExmgElement {
   renderActions() {
     return html`
       <div class="actions">
-        <exmg-button @click=${this._cancel}>Cancel</exmg-button>
-        <exmg-button @click=${this.saveCropArea}>Crop</exmg-button>
+        <md-filled-button @click=${this._cancel}>Cancel</md-filled-button>
+        <md-filled-button @click=${this.saveCropArea}>Crop</md-filled-button>
       </div>
     `;
   }

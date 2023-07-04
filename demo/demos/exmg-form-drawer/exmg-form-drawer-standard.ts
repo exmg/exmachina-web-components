@@ -1,6 +1,5 @@
-import {LitElement, css, html} from 'lit';
-import {customElement, property, query} from 'lit/decorators.js';
-import '@exmg/exmg-button/exmg-button.js';
+import { LitElement, css, html } from 'lit';
+import { customElement, property, query } from 'lit/decorators.js';
 import '@exmg/exmg-markdown-editor/exmg-markdown-editor.js';
 import '@polymer/paper-input/paper-input.js';
 import '@exmg/exmg-paper-combobox/exmg-paper-combobox.js';
@@ -8,7 +7,7 @@ import '@polymer/paper-item/paper-item.js';
 import '@exmg/exmg-form/exmg-form.js';
 import '@vaadin/vaadin-date-picker/vaadin-date-picker.js';
 import '@exmg/exmg-form-drawer/exmg-form-drawer.js';
-import {ExmgFormDrawer} from '@exmg/exmg-form-drawer/exmg-form-drawer.js';
+import { ExmgFormDrawer } from '@exmg/exmg-form-drawer/exmg-form-drawer.js';
 
 @customElement('exmg-form-drawer-standard')
 export class Drawer extends LitElement {
@@ -19,10 +18,6 @@ export class Drawer extends LitElement {
         font-size: 15px;
         --mdc-theme-primary: var(--md-sys-color-primary);
         --mdc-theme-on-primary: var(--md-sys-color-on-primary);
-      }
-      exmg-button[unelevated] {
-        --exmg-spinner-stroke-width: 2px;
-        --exmg-spinner-color: '#eee';
       }
       h3 {
         color: var(--md-sys-color-on-surface);
@@ -41,36 +36,31 @@ export class Drawer extends LitElement {
       div > * {
         padding: 8px;
       }
-
-      exmg-button[progress] {
-        --exmg-button-progress-color: red;
-        --exmg-button-progress-direction: ltr;
-      }
     `,
   ];
 
-  @property({type: Boolean})
+  @property({ type: Boolean })
   opened = false;
 
-  @property({type: Boolean})
+  @property({ type: Boolean })
   shouldFail = false;
 
-  @property({type: Boolean})
+  @property({ type: Boolean })
   keepOpenedOnSubmitSuccess = false;
 
-  @property({type: Boolean})
+  @property({ type: Boolean })
   resetFormOnSubmitSuccess = false;
 
-  @property({type: Boolean})
+  @property({ type: Boolean })
   noCancelOnOutsideClick = false;
 
-  @property({type: Boolean})
+  @property({ type: Boolean })
   submitBtnHidden = false;
 
-  @property({type: Boolean})
+  @property({ type: Boolean })
   disableStickyHeader = true;
 
-  @property({type: String})
+  @property({ type: String })
   markdownValue?: string = '123';
 
   @query('exmg-form-drawer')

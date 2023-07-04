@@ -1,6 +1,6 @@
-import {LitElement, html} from 'lit';
-import {customElement, property} from 'lit/decorators.js';
-import '@exmg/exmg-button/exmg-button.js';
+import { LitElement, html } from 'lit';
+import { customElement, property } from 'lit/decorators.js';
+import '@exmg/exmg-button/exmg-filled-button.js';
 import '@polymer/paper-input/paper-input.js';
 import '@exmg/exmg-paper-combobox/exmg-paper-combobox.js';
 import '@exmg/exmg-form/exmg-form.js';
@@ -8,11 +8,11 @@ import '@exmg/exmg-form-drawer/exmg-form-drawer.js';
 
 @customElement('exmg-drawer-demo-styled')
 export class Drawer extends LitElement {
-  @property({type: Boolean}) opened = false;
-  @property({type: Boolean}) shouldFail = false;
-  @property({type: Boolean}) keepOpenedOnSubmitSuccess = false;
-  @property({type: Boolean}) resetFormOnSubmitSuccess = false;
-  @property({type: Boolean}) noCancelOnOutsideClick = false;
+  @property({ type: Boolean }) opened = false;
+  @property({ type: Boolean }) shouldFail = false;
+  @property({ type: Boolean }) keepOpenedOnSubmitSuccess = false;
+  @property({ type: Boolean }) resetFormOnSubmitSuccess = false;
+  @property({ type: Boolean }) noCancelOnOutsideClick = false;
 
   handleOpenedChanged(e: CustomEvent) {
     this.opened = e.detail.value;
@@ -132,7 +132,7 @@ export class Drawer extends LitElement {
         <paper-input name="answer_b" label="Answer B" value="Eminem"></paper-input>
         <paper-input name="answer_c" label="Answer C" value="Ariana Grande"></paper-input>
         <br />
-        <exmg-button unelevated> + Add answer </exmg-button>
+        <exmg-filled-button unelevated> + Add answer </exmg-filled-button>
       </exmg-form-drawer>
     `;
   }

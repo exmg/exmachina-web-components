@@ -4,11 +4,9 @@
   "dependencies": {
     "@exmg/lit-base": "^1.1.8",
     "@exmg/exmg-button": "file:../exmg-button",
-    "@exmg/exmg-sortable": "file:../exmg-sortable",
+    "@exmg/exmg-collapsed": "file:../exmg-collapsed",
     "@exmg/exmg-dialogs": "file:../exmg-dialogs",
-    "@material/mwc-base": "=0.25.3",
-    "@polymer/paper-dialog": "^3.0.0",
-    "@polymer/paper-dialog-scrollable": "^3.0.0",
+    "@material/web": "^1.0.0-pre.11",
     "cropperjs": "^1.5.13",
     "lit": "^2.0.0",
     "tslib": "^2.0.1"

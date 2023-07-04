@@ -1,9 +1,9 @@
-import {LitElement, html} from 'lit';
-import {customElement, query} from 'lit/decorators.js';
-import '@exmg/exmg-button/exmg-button.js';
+import { LitElement, html } from 'lit';
+import { customElement, query } from 'lit/decorators.js';
+import '@exmg/exmg-button/exmg-filled-button.js';
 import '@exmg/exmg-form-drawer/exmg-form-drawer.js';
 import './user-update-drawer.js';
-import {UserUpdateDrawer} from './user-update-drawer.js';
+import { UserUpdateDrawer } from './user-update-drawer.js';
 
 @customElement('exmg-base-drawer-demo')
 export class BaseDrawer extends LitElement {
@@ -12,7 +12,7 @@ export class BaseDrawer extends LitElement {
 
   render() {
     return html`
-        <exmg-button
+        <exmg-filled-button
           @click=${() =>
             this.userDrawer!.open({
               from: '1111',
@@ -22,7 +22,7 @@ export class BaseDrawer extends LitElement {
               contentHtml: '5555',
               contentPlain: '6666',
             })}
-          >Open User Drawer</exmg-button
+          >Open User Drawer</exmg-filled-button
         >
       </div>
 

@@ -21,10 +21,11 @@ export class ExmgUploadDemo extends LitElement {
 
   static styles = [
     css`
-      .centered {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
+      :host {
+        display: block;
+      }
+      main {
+        margin-top: 3rem;
       }
     `,
   ];

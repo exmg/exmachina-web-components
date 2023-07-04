@@ -1,6 +1,5 @@
-import {LitElement, css, html} from 'lit';
-import {customElement, property} from 'lit/decorators.js';
-import '@exmg/exmg-button/exmg-button.js';
+import { LitElement, css, html } from 'lit';
+import { customElement, property } from 'lit/decorators.js';
 import '@exmg/exmg-markdown-editor/exmg-markdown-editor.js';
 import '@polymer/paper-input/paper-input.js';
 import '@exmg/exmg-paper-combobox/exmg-paper-combobox.js';
@@ -22,10 +21,6 @@ export class Drawer extends LitElement {
         --mdc-theme-primary: var(--md-sys-color-primary);
         --mdc-theme-on-primary: var(--md-sys-color-on-primary);
       }
-      exmg-button[unelevated] {
-        --exmg-spinner-stroke-width: 2px;
-        --exmg-spinner-color: '#eee';
-      }
       h3 {
         color: var(--md-sys-color-on-surface);
       }
@@ -43,15 +38,10 @@ export class Drawer extends LitElement {
       div > * {
         padding: 8px;
       }
-
-      exmg-button[progress] {
-        --exmg-button-progress-color: red;
-        --exmg-button-progress-direction: ltr;
-      }
     `,
   ];
 
-  @property({type: Number})
+  @property({ type: Number })
   private activeTabIndex = 1;
 
   renderTab() {
@@ -70,7 +60,7 @@ export class Drawer extends LitElement {
     return html`
       <mwc-tab-bar
         activeIndex="1"
-        @MDCTabBar:activated=${(e: CustomEvent<{index: number}>) => (this.activeTabIndex = e.detail.index)}
+        @MDCTabBar:activated=${(e: CustomEvent<{ index: number }>) => (this.activeTabIndex = e.detail.index)}
       >
         <mwc-tab label="one"></mwc-tab>
         <mwc-tab label="two"></mwc-tab>

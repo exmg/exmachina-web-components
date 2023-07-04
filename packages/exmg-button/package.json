@@ -2,13 +2,15 @@
   "name": "@exmg/exmg-button",
   "version": "8.1.33",
   "type": "module",
+  "main": "index.js",
+  "module": "index.js",
+  "exports": {
+    ".": "./index.js",
+    "./exmg-filled-button.js": "./src/exmg-filled-button.js"
+  },
   "dependencies": {
     "@exmg/lit-base": "^1.1.8",
-    "@material/mwc-base": "=0.25.3",
-    "@material/mwc-button": "=0.25.3",
     "@material/web": "^1.0.0-pre.11",
-    "@material/mwc-ripple": "=0.25.3",
-    "@material/typography": "^13.0.0",
     "lit": "^2.0.0",
     "tslib": "^2.0.1"
   },
@@ -26,7 +28,6 @@
     "**/*.d.ts"
   ],
   "homepage": "https://github.com/exmg/exmachina-web-components",
-  "main": "exmg-button.js",
   "repository": {
     "type": "git",
     "url": "git@github.com:exmg/exmg-web-components.git",

@@ -1,10 +1,10 @@
-import {html} from 'lit';
-import {property, query, state} from 'lit/decorators.js';
-import {classMap} from 'lit/directives/class-map.js';
-import {observer, ExmgElement, debounce, async} from '@exmg/lit-base/index.js';
+import { html } from 'lit';
+import { property, query, state } from 'lit/decorators.js';
+import { classMap } from 'lit/directives/class-map.js';
+import { observer, ExmgElement, debounce, async } from '@exmg/lit-base/index.js';
 import '@polymer/iron-form/iron-form.js';
-import '@exmg/exmg-button/exmg-button.js';
-import {IronFormElement} from '@polymer/iron-form/iron-form.js';
+import '@exmg/exmg-button/exmg-filled-button.js';
+import { IronFormElement } from '@polymer/iron-form/iron-form.js';
 
 const ENTER_KEY_CODE = 13;
 
@@ -24,35 +24,35 @@ export class ExmgFormBase extends ExmgElement {
    * Option to hide submit button
    * @type {Boolean}
    */
-  @property({type: Boolean, attribute: 'hide-submit-button'})
+  @property({ type: Boolean, attribute: 'hide-submit-button' })
   hideSubmitButton = false;
 
   /**
    * Option to hide reset button
    * @type {Boolean}
    */
-  @property({type: Boolean, attribute: 'hide-reset-button'})
+  @property({ type: Boolean, attribute: 'hide-reset-button' })
   hideResetButton = false;
 
   /**
    * default submit button copy
    * @type {String}
    */
-  @property({type: String, attribute: 'submit-button-copy'})
+  @property({ type: String, attribute: 'submit-button-copy' })
   submitButtonCopy = 'Submit';
 
   /**
    * default reset button copy
    * @type {String}
    */
-  @property({type: String, attribute: 'reset-button-copy'})
+  @property({ type: String, attribute: 'reset-button-copy' })
   resetButtonCopy = 'Reset';
 
   /**
    * with this option the disable button will be disabled while there are no changes in the form
    * @type {Boolean}
    */
-  @property({type: Boolean, reflect: true, attribute: 'disable-submit-no-changes'})
+  @property({ type: Boolean, reflect: true, attribute: 'disable-submit-no-changes' })
   disableSubmitNoChanges = false;
 
   /**
@@ -80,7 +80,7 @@ export class ExmgFormBase extends ExmgElement {
    * By default, exmg-form events do not bubble. Setting this attribute will cause its
    * events to bubble to the window object.
    */
-  @property({type: Boolean})
+  @property({ type: Boolean })
   bubbles = false;
 
   @state()
@@ -246,7 +246,7 @@ export class ExmgFormBase extends ExmgElement {
   /**
    * Helper method to call serializeForm on iron form
    */
-  serializeForm(): {[key: string]: any} | undefined {
+  serializeForm(): { [key: string]: any } | undefined {
     return this.ironFormElem && this.ironFormElem.serializeForm();
   }
 
@@ -313,7 +313,7 @@ export class ExmgFormBase extends ExmgElement {
     super.connectedCallback();
 
     // Options for the observer (which mutations to observe)
-    const config = {attributes: false, childList: true, subtree: false};
+    const config = { attributes: false, childList: true, subtree: false };
 
     // Create an observer instance linked to the callback function
     this.observer = new MutationObserver((list: MutationRecord[]) => {
@@ -359,7 +359,11 @@ export class ExmgFormBase extends ExmgElement {
    */
   private _renderResetButton() {
     return !this.hideResetButton
-      ? html` <exmg-button class="reset" @click="${this.onResetBtnClick}">${this.resetButtonCopy}</exmg-button> `
+      ? html`
+          <exmg-filled-button class="reset" @click="${this.onResetBtnClick}"
+            >${this.resetButtonCopy}</exmg-filled-button
+          >
+        `
       : '';
   }
 
@@ -369,12 +373,12 @@ export class ExmgFormBase extends ExmgElement {
   private renderSubmitButton() {
     return !this.hideSubmitButton
       ? html`
-          <exmg-button
+          <exmg-filled-button
             unelevated
             @click="${this._onSubmitBtnClick}"
             ?disabled="${this.submitting || (this.disableSubmitNoChanges && !this.dirty)}"
             ?loading=${this.submitting}
-            >${this.submitButtonCopy}</exmg-button
+            >${this.submitButtonCopy}</exmg-filled-button
           >
         `
       : '';
