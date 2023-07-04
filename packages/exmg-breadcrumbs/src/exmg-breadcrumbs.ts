@@ -1,6 +1,6 @@
-import {customElement} from 'lit/decorators.js';
-import {style} from './styles/exmg-breadcrumbs-styles-css.js';
-import {ExmgBreadcrumbsBase} from './exmg-breadcrumbs-base.js';
+import { customElement } from 'lit/decorators.js';
+import { style } from './styles/exmg-breadcrumbs-styles-css.js';
+import { ExmgBreadcrumbsBase } from './exmg-breadcrumbs-base.js';
 
 /**
  * exmg-breadcrumbs

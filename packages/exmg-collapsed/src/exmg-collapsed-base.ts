@@ -1,6 +1,6 @@
-import {html} from 'lit';
-import {property, state} from 'lit/decorators.js';
-import {observer, ExmgElement} from '@exmg/lit-base/index.js';
+import { html } from 'lit';
+import { property, state } from 'lit/decorators.js';
+import { observer, ExmgElement } from '@exmg/lit-base/index.js';
 
 /**
  * Helper function to toggle element
@@ -27,7 +27,7 @@ export class ExmgCollapsedBase extends ExmgElement {
    * Whether or not the element is opened or not
    * @type {Boolean}
    */
-  @property({type: Boolean, reflect: true})
+  @property({ type: Boolean, reflect: true })
   @observer(function (this: ExmgCollapsedBase) {
     this._openedChanged();
   })
@@ -37,7 +37,7 @@ export class ExmgCollapsedBase extends ExmgElement {
    * Whether the element is transitioning or not
    * @type {Boolean}
    */
-  @property({type: Boolean, reflect: true})
+  @property({ type: Boolean, reflect: true })
   transitioning = false;
 
   @state()
