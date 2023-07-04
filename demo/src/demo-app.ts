@@ -8,6 +8,7 @@ import '@material/web/switch/switch.js';
 import '@material/web/list/list.js';
 import '@material/web/list/list-item.js';
 import '@material/web/button/filled-button.js';
+
 import { Switch } from '@material/web/switch/lib/switch.js';
 import '../demos/exmg-breadcrumbs/exmg-breadcrumbs-demo.js';
 import { demos } from '../demos/demos.js';

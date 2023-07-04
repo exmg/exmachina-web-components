@@ -6,6 +6,7 @@
     "@exmg/lit-base": "^1.1.8",
     "@material/mwc-base": "=0.25.3",
     "@material/mwc-button": "=0.25.3",
+    "@material/web": "^1.0.0-pre.11",
     "@material/mwc-ripple": "=0.25.3",
     "@material/typography": "^13.0.0",
     "lit": "^2.0.0",
