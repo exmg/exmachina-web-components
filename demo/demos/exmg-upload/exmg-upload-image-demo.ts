@@ -66,6 +66,9 @@ export class ExmgUploadImageDemo extends LitElement {
         display: block;
         width: 100%;
       }
+      exmg-upload {
+        margin-bottom: 48px;
+      }
     `,
   ];
 

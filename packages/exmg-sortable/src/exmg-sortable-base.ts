@@ -1,21 +1,21 @@
-import {html, PropertyValues} from 'lit';
-import {ExmgElement} from '@exmg/lit-base/index.js';
-import {property} from 'lit/decorators.js';
-import {gestures} from '@exmg/lit-base/index.js';
+import { html, PropertyValues } from 'lit';
+import { ExmgElement } from '@exmg/lit-base/index.js';
+import { property } from 'lit/decorators.js';
+import { gestures } from '@exmg/lit-base/index.js';
 
 /**
  * Orientation map to limit dragging to horizontal or vertical.
  */
 const orientationMap = {
-  horizontal: {x: 1, y: 0},
-  vertical: {x: 0, y: 1},
+  horizontal: { x: 1, y: 0 },
+  vertical: { x: 0, y: 1 },
 };
 
 export class SortableElementBase extends ExmgElement {
-  @property({type: String, attribute: 'handle-selector'})
+  @property({ type: String, attribute: 'handle-selector' })
   handleSelector?: string;
 
-  @property({type: String, attribute: 'item-selector'})
+  @property({ type: String, attribute: 'item-selector' })
   itemSelector = 'li';
 
   /**
@@ -23,22 +23,22 @@ export class SortableElementBase extends ExmgElement {
    * is `exmg-sortable` itself.
    * Note that style `sortableHostNode.style.position` will be set to `relative`
    */
-  @property({type: Object})
+  @property({ type: Object })
   sortableHostNode?: HTMLElement;
 
-  @property({type: Boolean, attribute: 'animation-enabled'})
+  @property({ type: Boolean, attribute: 'animation-enabled' })
   animationEnabled = false;
 
-  @property({type: String, attribute: 'cloned-class'})
+  @property({ type: String, attribute: 'cloned-class' })
   clonedClass = 'cloned';
 
-  @property({type: String, attribute: 'dragged-class'})
+  @property({ type: String, attribute: 'dragged-class' })
   draggedClass = 'dragged';
 
-  @property({type: Object, attribute: 'animation-timing'})
-  animationTiming: any = {duration: 200, easing: 'ease-out'};
+  @property({ type: Object, attribute: 'animation-timing' })
+  animationTiming: any = { duration: 200, easing: 'ease-out' };
 
-  @property({type: String})
+  @property({ type: String })
   orientation?: 'horizontal' | 'vertical';
 
   private dragRequestPending = false;
@@ -199,7 +199,7 @@ export class SortableElementBase extends ExmgElement {
       return;
     }
 
-    let {dx, dy} = (e as any).detail;
+    let { dx, dy } = (e as any).detail;
     const scrollTop = Math.max(window.pageYOffset, document.documentElement.scrollTop, document.body.scrollTop);
 
     if (this.orientation) {
@@ -247,12 +247,12 @@ export class SortableElementBase extends ExmgElement {
    * @return {Array<HTMLElement>} matches
    */
   private hitTest(node: HTMLElement, targets: HTMLElement[]): HTMLElement[] {
-    const {left: l, top: t, width: w, height: h} = node.getBoundingClientRect();
+    const { left: l, top: t, width: w, height: h } = node.getBoundingClientRect();
     const x = l + w / 2;
     const y = t + h / 2;
 
     return targets.filter((item) => {
-      const {left, right, top, bottom} = item.getBoundingClientRect();
+      const { left, right, top, bottom } = item.getBoundingClientRect();
       return !(x < left || x > right || y < top || y > bottom);
     });
   }
@@ -309,7 +309,7 @@ export class SortableElementBase extends ExmgElement {
     // animate from dx/dy (old node position) to none (new node position)
     this.animationPromise = new Promise((resolve) => {
       node
-        .animate([{transform: `translate3d(${dx}px, ${dy}px, 0)`}, {transform: 'none'}], this.animationTiming)
+        .animate([{ transform: `translate3d(${dx}px, ${dy}px, 0)` }, { transform: 'none' }], this.animationTiming)
         .addEventListener('finish', () => {
           const index = this.animatedElements.indexOf(node);
           Object.assign(node.style, {
@@ -352,7 +352,7 @@ export class SortableElementBase extends ExmgElement {
 
     if (this.animationEnabled) {
       this.sortableNodes.forEach((sortableNode, i) => {
-        const {x, y} = offsets[i];
+        const { x, y } = offsets[i];
         const dx = x - sortableNode.offsetLeft;
         const dy = y - sortableNode.offsetTop;
         if (dx !== 0 || dy !== 0) {
@@ -394,7 +394,7 @@ export class SortableElementBase extends ExmgElement {
       .filter((prop) => prop.startsWith('__'))
       .forEach((prop) => ((clone as any)[prop] = (node as any)[prop]));
 
-    const {offsetLeft: x, offsetTop: y} = node;
+    const { offsetLeft: x, offsetTop: y } = node;
 
     this.initialScrollTop = Math.max(window.pageYOffset, document.documentElement.scrollTop, document.body.scrollTop);
 

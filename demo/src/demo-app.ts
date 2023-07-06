@@ -11,6 +11,9 @@ import '@material/web/button/filled-button.js';
 import { Switch } from '@material/web/switch/lib/switch.js';
 import { demos } from '../demos/demos.js';
 import { repeat } from 'lit/directives/repeat.js';
+import { setupTheme } from './theme-module.js';
+
+setupTheme();
 
 @customElement('demo-app')
 export class DemoApp extends LitElement {

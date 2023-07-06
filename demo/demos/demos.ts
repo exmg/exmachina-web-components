@@ -13,6 +13,7 @@ import './exmg-sidemenu/exmg-sidemenu-demo.js';
 import './exmg-snackbar/exmg-snackbar-demo.js';
 import './exmg-tooltip/exmg-tooltip-demo.js';
 import './exmg-upload/exmg-upload-demo.js';
+import './exmg-sortable/exmg-sortable-demo.js';
 
 export const demos = {
   'exmg-breadcrumbs-demo': {
