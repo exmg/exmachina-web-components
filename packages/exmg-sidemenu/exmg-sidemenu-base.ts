@@ -1,6 +1,6 @@
-import {html} from 'lit';
-import {ExmgElement, observer} from '@exmg/lit-base/index.js';
-import {property} from 'lit/decorators.js';
+import { html } from 'lit';
+import { ExmgElement, observer } from '@exmg/lit-base/index.js';
+import { property } from 'lit/decorators.js';
 import '@polymer/paper-listbox';
 
 export const chevronLeftIcon = html`
@@ -16,31 +16,28 @@ export const settingsIcon = html`
 `;
 
 export class ExmgSidemenuBase extends ExmgElement {
-  @property({type: Boolean, reflect: true})
+  @property({ type: Boolean, reflect: true })
   @observer(function (this: ExmgElement, collapsed: boolean) {
-    this.dispatchEvent(new CustomEvent('collapsed', {bubbles: false, composed: true, detail: collapsed}));
+    this.dispatchEvent(new CustomEvent('collapsed', { bubbles: false, composed: true, detail: collapsed }));
   })
   collapsed = false;
 
   /**
    * Contains the path of the selected menu item
    */
-  @property({type: String})
-  @observer(function (this: ExmgElement, selected: string) {
-    this.dispatchEvent(new CustomEvent('selected-changed', {bubbles: false, composed: true, detail: selected}));
-  })
+  @property({ type: String, reflect: true })
   selected!: string;
 
   /**
    *  Disable collapse functionailty
    */
-  @property({type: Boolean, reflect: true, attribute: 'disable-collapse'})
+  @property({ type: Boolean, reflect: true, attribute: 'disable-collapse' })
   disableCollapse = false;
 
   /**
    *  Menu has footer item
    */
-  @property({type: Boolean, reflect: true, attribute: 'footer-item'})
+  @property({ type: Boolean, reflect: true, attribute: 'footer-item' })
   footerItem = false;
 
   firstUpdated() {
@@ -92,8 +89,9 @@ export class ExmgSidemenuBase extends ExmgElement {
   /**
    *  Update the selected value
    */
-  _handleSelectionChange(e: CustomEvent<{value: string}>) {
+  _handleSelectionChange(e: CustomEvent<{ value: string }>) {
     this.selected = e.detail.value;
+    this.dispatchEvent(new CustomEvent('selected-changed', { bubbles: false, composed: true, detail: e.detail.value }));
   }
 
   /**
