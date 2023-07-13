@@ -1,21 +1,26 @@
-import {LitElement, html, css} from 'lit';
-import {property, customElement} from 'lit/decorators.js';
-import {classMap} from 'lit/directives/class-map.js';
-import {style as sidemenuStyles} from '@exmg/exmg-sidemenu/styles/exmg-sidemenu-styles-css.js';
-import {style as themeStyles} from '@exmg/exmg-sidemenu/styles/theme-styles-css.js';
+import { LitElement, html, css } from 'lit';
+import { property, customElement } from 'lit/decorators.js';
+import { classMap } from 'lit/directives/class-map.js';
+import { style as sidemenuStyles } from '@exmg/exmg-sidemenu/styles/exmg-sidemenu-styles-css.js';
+import { style as themeStyles } from '@exmg/exmg-sidemenu/styles/theme-styles-css.js';
 import '@exmg/exmg-sidemenu/exmg-sidemenu.js';
 import '@exmg/exmg-sidemenu/exmg-sidemenu-header.js';
 import '@exmg/exmg-sidemenu/exmg-sidemenu-badge.js';
 import '@material/mwc-icon-button/mwc-icon-button.js';
 import '@polymer/paper-item/paper-item.js';
 import '@exmg/exmg-tooltip/exmg-tooltip.js';
+import '@exmg/exmg-button/exmg-button.js';
 import '@polymer/app-layout/app-drawer/app-drawer.js';
 import '@polymer/app-layout/app-toolbar/app-toolbar.js';
 
-import {menu} from './menu.js';
-import {isItemGroup, MenuItem, MenuGroupItem, MenuItemOrGroupItem} from '@exmg/exmg-sidemenu/exmg-sidemenu-types.js';
+import { menu } from './menu.js';
+import { isItemGroup, MenuItem, MenuGroupItem, MenuItemOrGroupItem } from '@exmg/exmg-sidemenu/exmg-sidemenu-types.js';
+import { ifDefined } from 'lit/directives/if-defined.js';
 
-export const installMediaQueryWatcher = (mediaQuery: string, layoutChangedCallback: (mediaQueryMatches: boolean) => void) => {
+export const installMediaQueryWatcher = (
+  mediaQuery: string,
+  layoutChangedCallback: (mediaQueryMatches: boolean) => void,
+) => {
   const mql = window.matchMedia(mediaQuery);
   mql.addListener((e) => layoutChangedCallback(e.matches));
   layoutChangedCallback(mql.matches);
@@ -23,20 +28,23 @@ export const installMediaQueryWatcher = (mediaQuery: string, layoutChangedCallba
 
 @customElement('exmg-sidemenu-demo')
 export class SidemenuDemo extends LitElement {
-  @property({type: Array})
+  @property({ type: Array })
   menu: [] | undefined;
 
-  @property({type: Boolean})
+  @property({ type: Boolean })
   debug = true;
 
-  @property({type: Boolean, reflect: true})
+  @property({ type: Boolean, reflect: true })
   narrow = false;
 
-  @property({type: Boolean})
+  @property({ type: Boolean })
   collapsed = false;
 
-  @property({type: Boolean})
+  @property({ type: Boolean })
   drawerOpened = true;
+
+  @property({ type: String })
+  selectedItemMenu?: String;
 
   static styles = [
     sidemenuStyles,
@@ -102,7 +110,9 @@ export class SidemenuDemo extends LitElement {
     return html`
       <a href=${this.debug ? '#' : i.path} data-path=${i.path} tabindex="-1" class="menu-item solo">
         <paper-item data-path=${i.path} role="menuitem">
-          ${i.iconPath ? html`<svg height="24" viewBox="0 0 24 24" width="24"><path d="${i.iconPath}"></path></svg>` : i.icon}
+          ${i.iconPath
+            ? html`<svg height="24" viewBox="0 0 24 24" width="24"><path d="${i.iconPath}"></path></svg>`
+            : i.icon}
           <span class="title">${i.title}</span>
           ${i.badge
             ? html`<exmg-sidemenu-badge ?collapsed=${this.collapsed}
@@ -117,14 +127,17 @@ export class SidemenuDemo extends LitElement {
   }
 
   private renderMenu() {
-    return html` ${(menu || []).map((i: MenuItemOrGroupItem) => (isItemGroup(i) ? this.renderGroupItem(i) : this.renderItem(i)))} `;
+    return html`
+      ${(menu || []).map((i: MenuItemOrGroupItem) => (isItemGroup(i) ? this.renderGroupItem(i) : this.renderItem(i)))}
+    `;
   }
 
   private openChanged(e: CustomEvent) {
     this.drawerOpened = e.detail.value;
   }
 
-  private _handleSelectedChanged() {
+  private _handleSelectedChanged(e: CustomEvent) {
+    this.selectedItemMenu = e.detail;
     if (this.narrow) {
       this.drawerOpened = false;
     }
@@ -136,6 +149,10 @@ export class SidemenuDemo extends LitElement {
 
   private _handleMenuClick() {
     this.drawerOpened = !this.drawerOpened;
+  }
+
+  setItem() {
+    this.selectedItemMenu = 'content/';
   }
 
   renderFooterButton() {
@@ -158,7 +175,7 @@ export class SidemenuDemo extends LitElement {
   }
 
   render() {
-    const classes = {collapsed: this.collapsed, narrow: this.narrow};
+    const classes = { collapsed: this.collapsed, narrow: this.narrow };
 
     return html`
       <app-drawer
@@ -171,11 +188,11 @@ export class SidemenuDemo extends LitElement {
         @opened-changed="${this.openChanged}"
       >
         <exmg-sidemenu
-          selected="rooms/"
           ?collapsed=${this.collapsed}
           @collapsed=${this._handleCollapsed}
           @selected-changed=${this._handleSelectedChanged}
           ?narrow=${this.narrow}
+          selected="${ifDefined(this.selectedItemMenu)}"
         >
           <exmg-sidemenu-header slot="header" ?collapsed=${this.collapsed}></exmg-sidemenu-header>
           ${this.renderMenu()} ${this.renderFooterButton()}
@@ -187,29 +204,34 @@ export class SidemenuDemo extends LitElement {
           <mwc-icon-button icon="menu" ?hidden=${!this.narrow} @click=${this._handleMenuClick}></mwc-icon-button>
         </app-toolbar>
         <main role="main">
+          <exmg-button unelevated @click=${this.setItem}>Set Content as selected item</exmg-button>
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-            enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
-            in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident,
-            sunt in culpa qui officia deserunt mollit anim id est laborum.
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+            dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
+            ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat
+            nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit
+            anim id est laborum.
           </p>
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-            enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
-            in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident,
-            sunt in culpa qui officia deserunt mollit anim id est laborum.
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+            dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
+            ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat
+            nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit
+            anim id est laborum.
           </p>
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-            enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
-            in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident,
-            sunt in culpa qui officia deserunt mollit anim id est laborum.
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+            dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
+            ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat
+            nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit
+            anim id est laborum.
           </p>
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-            enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
-            in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident,
-            sunt in culpa qui officia deserunt mollit anim id est laborum.
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+            dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
+            ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat
+            nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit
+            anim id est laborum.
           </p>
         </main>
       </article>
