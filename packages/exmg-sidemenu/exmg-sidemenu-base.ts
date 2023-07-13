@@ -91,7 +91,7 @@ export class ExmgSidemenuBase extends ExmgElement {
    */
   _handleSelectionChange(e: CustomEvent<{ value: string }>) {
     this.selected = e.detail.value;
-    this.dispatchEvent(new CustomEvent('selected-changed', { bubbles: false, composed: true, detail: e.detail.value }));
+    this.fire('selected-change', this.selected, true);
   }
 
   /**
