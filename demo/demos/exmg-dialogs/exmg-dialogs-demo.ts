@@ -7,7 +7,7 @@ import '@exmg/exmg-dialogs/exmg-dialog-confirm.js';
 import { ExmgDialogConfirm } from '@exmg/exmg-dialogs/exmg-dialog-confirm.js';
 import '@exmg/exmg-dialogs/exmg-dialog-form.js';
 import { ExmgDialogForm } from '@exmg/exmg-dialogs/exmg-dialog-form.js';
-import '@material/web/textfield/filled-text-field.js';
+import '@material/web/textfield/outlined-text-field.js';
 
 import './item-delete-confirm-dialog.js';
 import './item-create-form-dialog.js';
@@ -90,6 +90,7 @@ export class DialogDemo extends LitElement {
           display: flex;
           flex-direction: column;
           gap: 8px;
+          margin-top: 0.5rem;
         }
 
         form > * {
@@ -115,26 +116,31 @@ export class DialogDemo extends LitElement {
           <exmg-dialog-form title="Create contact" @dialog-submit=${this.doFormAction}>
             <form>
               <div class="row">
-                <md-filled-text-field name="firstname" dialogFocus label="First Name" required></md-filled-text-field>
-                <md-filled-text-field name="lastname" label="Last Name" required></md-filled-text-field>
+                <md-outlined-text-field
+                  name="firstname"
+                  dialogFocus
+                  label="First Name"
+                  required
+                ></md-outlined-text-field>
+                <md-outlined-text-field name="lastname" label="Last Name" required></md-outlined-text-field>
               </div>
               <div class="row">
-                <md-filled-text-field name="company" label="Company"></md-filled-text-field>
-                <md-filled-text-field
+                <md-outlined-text-field name="company" label="Company"></md-outlined-text-field>
+                <md-outlined-text-field
                   name="amount"
                   label="Amount"
                   type="number"
                   min="0"
                   max="10"
-                ></md-filled-text-field>
+                ></md-outlined-text-field>
               </div>
-              <md-filled-text-field
+              <md-outlined-text-field
                 name="email"
                 label="Email"
                 pattern="[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,4}$"
                 required
-              ></md-filled-text-field>
-              <md-filled-text-field name="phone" label="Phone" required></md-filled-text-field>
+              ></md-outlined-text-field>
+              <md-outlined-text-field name="phone" label="Phone" required></md-outlined-text-field>
             </form>
           </exmg-dialog-form>
         </div>

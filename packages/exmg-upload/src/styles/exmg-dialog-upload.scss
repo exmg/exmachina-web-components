@@ -1,5 +1,9 @@
 @use '@material/web/dialog/lib/dialog-styles';
 
+md-dialog {
+  --md-dialog-container-color: var(--md-sys-color-surface);
+}
+
 exmg-upload,
 ::slotted(exmg-upload) {
   width: 460px;

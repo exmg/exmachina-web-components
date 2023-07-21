@@ -13,7 +13,6 @@
       "packages/exmg-collapsed",
       "packages/exmg-copy-to-clipboard",
       "packages/exmg-dialogs",
-      "packages/exmg-form",
       "packages/exmg-form-drawer",
       "packages/exmg-grid",
       "packages/exmg-markdown-editor",

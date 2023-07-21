@@ -1,6 +1,10 @@
 :host {
-  --breadcrumbs-seperator-color: var(--mdc-theme-surface, #0071dc);
-  --breadcrumbs-text-color: var(--mdc-theme-surface, #0071dc);
+  display: block;
+  --breadcrumbs-seperator-color: var(--md-sys-color-primary, #0071dc);
+  --breadcrumbs-text-color: var(--md-sys-color-primary, #0071dc);
+  --breadcrumbs-decoration-color: var(--md-sys-color-primary, #0071dc);
+  --breadcrumbs-visited-color: var(--md-sys-color-primary, #0071dc);
+  --breadcrumbs-current-color: var(--md-sys-color-primary, #0071dc);
   display: block;
   color: var(--breadcrumbs-text-color);
 }
@@ -28,14 +32,13 @@ li {
 }
 
 a[href] {
-  color: var(--mdc-theme-surface, #0071dc);
-  text-decoration-color: var(--mdc-theme-surface, #0071dc);
-  text-decoration-color: var(--mdc-theme-surface, #0071dc);
+  color: var(--breadcrumbs-text-color);
+  text-decoration-color: var(--breadcrumbs-decoration-color);
   text-decoration-skip-ink: none;
 }
 
 a:visited {
-  text-decoration-color: var(--mdc-theme-surface, #0071dc);
+  text-decoration-color: var(--breadcrumbs-visited-color);
 }
 
 nav.breadcrumb ol {
@@ -58,7 +61,7 @@ nav.breadcrumb li + li::before {
 }
 
 nav.breadcrumb [aria-current='page'] {
-  color: var(#0071dc, --mdc-theme-surface);
+  color: var(--breadcrumbs-current-color);
   font-weight: 600;
   text-decoration: none;
 }

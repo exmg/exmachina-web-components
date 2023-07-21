@@ -1,73 +1,66 @@
 import { LitElement, css, html } from 'lit';
-import { customElement, property } from 'lit/decorators.js';
-import '@exmg/exmg-markdown-editor/exmg-markdown-editor.js';
-import '@polymer/paper-input/paper-input.js';
-import '@exmg/exmg-paper-combobox/exmg-paper-combobox.js';
-import '@polymer/paper-item/paper-item.js';
-import '@exmg/exmg-form/exmg-form.js';
-import '@vaadin/vaadin-date-picker/vaadin-date-picker.js';
+import { customElement, query, state } from 'lit/decorators.js';
 import '@exmg/exmg-form-drawer/exmg-form-drawer.js';
-import './form-drawer-styled.js';
 import './exmg-form-drawer-standard.js';
 import './user-update-drawer.js';
+import { Tabs } from '@material/web/tabs/lib/tabs.js';
+import { UserData, UserUpdateDrawer } from './user-update-drawer.js';
+
+const user: UserData = {
+  firstname: 'John',
+  lastname: 'Doe',
+  company: 'Ex Machina Group',
+  amount: 5,
+  email: 'test@example.com',
+  phone: '+1234567890',
+};
 
 @customElement('exmg-form-drawer-demo')
 export class Drawer extends LitElement {
+  @query('md-tabs')
+  tabs?: Tabs;
+
+  @state()
+  selectedTab = 0;
+
+  @query('user-update-drawer')
+  form?: UserUpdateDrawer;
+
   static styles = [
     css`
       :host {
-        font-family: var(--mdc-typography-headline3-font-family, var(--mdc-typography-font-family, Roboto, sans-serif));
-        font-size: 15px;
-        --mdc-theme-primary: var(--md-sys-color-primary);
-        --mdc-theme-on-primary: var(--md-sys-color-on-primary);
+        display: block;
       }
-      h3 {
-        color: var(--md-sys-color-on-surface);
-      }
-      .main {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        width: 100%;
-      }
-      .main > div {
-        width: 100%;
-        border-bottom: 1px solid #666;
-      }
-      div > * {
-        padding: 8px;
+      main {
+        margin-top: 3rem;
       }
     `,
   ];
 
-  @property({ type: Number })
-  private activeTabIndex = 1;
-
-  renderTab() {
-    switch (this.activeTabIndex) {
-      case 0:
-        return html` <exmg-form-drawer-standard></exmg-form-drawer-standard> `;
-      case 1:
-        return html` <exmg-drawer-demo-styled></exmg-drawer-demo-styled> `;
-      case 2:
-        return html` <user-update-drawer></user-update-drawer> `;
-    }
-    return html` unknown `;
+  _handleChange() {
+    this.selectedTab = this.tabs?.selected ?? 0;
   }
 
+  renderContent() {
+    switch (this.selectedTab) {
+      case 0:
+        return html`<exmg-form-drawer-standard></exmg-form-drawer-standard> `;
+      default:
+        return html`
+          <md-text-button @click=${() => this.form!.show()}>Open Create</md-text-button>
+          <md-text-button @click="${() => this.form!.show(user)}">Open Update</md-text-button
+          ><user-update-drawer></user-update-drawer>
+        `;
+    }
+  }
   render() {
     return html`
-      <mwc-tab-bar
-        activeIndex="1"
-        @MDCTabBar:activated=${(e: CustomEvent<{ index: number }>) => (this.activeTabIndex = e.detail.index)}
-      >
-        <mwc-tab label="one"></mwc-tab>
-        <mwc-tab label="two"></mwc-tab>
-        <mwc-tab label="three"></mwc-tab>
-      </mwc-tab-bar>
+      <md-tabs .selected="${this.selectedTab}" @change=${this._handleChange}>
+        <md-tab> Normal </md-tab>
+        <md-tab> Extends base class </md-tab>
+      </md-tabs>
 
-      <main>${this.renderTab()}</main>
+      <main>${this.renderContent()}</main>
     `;
   }
 }

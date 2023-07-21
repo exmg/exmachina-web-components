@@ -2,7 +2,7 @@ import { html } from 'lit';
 
 import '@material/web/dialog/dialog.js';
 import { MdDialog } from '@material/web/dialog/dialog.js';
-import '@material/web/button/tonal-button.js';
+import '@exmg/exmg-button/exmg-filled-button.js';
 import '@material/web/button/text-button.js';
 import '@material/web/iconbutton/standard-icon-button.js';
 import '@material/web/icon/icon.js';
@@ -237,8 +237,12 @@ export class ExmgDialogFormBase extends ExmgElement {
       </span>
       <div class="content">${this.renderFormContent()}</div>
       <md-text-button slot="footer" dialogFocus @click=${() => this.close()}>${this.cancelBtn}</md-text-button>
-      <md-tonal-button slot="footer" @click=${this.handleSubmit} ?disabled=${this.submitting || !this.formValid}
-        >${this.submitBtn}</md-tonal-button
+      <exmg-filled-button
+        slot="footer"
+        @click=${this.handleSubmit}
+        ?disabled=${this.submitting || !this.formValid}
+        ?loading=${this.submitting}
+        >${this.submitBtn}</exmg-filled-button
       >
     </md-dialog>`;
   }

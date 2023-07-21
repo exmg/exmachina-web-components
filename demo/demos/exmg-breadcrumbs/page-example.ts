@@ -27,8 +27,6 @@ export class PageExample extends BreadcrumbsMixin(ExmgElement) {
     css`
       :host {
         display: block;
-      }
-      exmg-breadcrumbs {
         font-family: Roboto;
         font-size: 1rem;
       }

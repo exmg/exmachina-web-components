@@ -2,7 +2,7 @@
   display: flex;
   align-items: center;
   height: 65px;
-  border-bottom: 1px solid #e7e7e7;
+  border-bottom: 1px solid var(--md-sys-color-outline-variant);
   padding-bottom: 6px;
   margin-bottom: 6px;
 }
@@ -16,12 +16,6 @@
   align-items: center;
 }
 
-.progress {
-  justify-self: flex-end;
-  color: #a7a7a7;
-  font-size: 0.8rem;
-}
-
 .vertical-center {
   display: flex;
   align-items: center;
@@ -30,7 +24,7 @@
 .loader {
   width: 18px;
   height: 18px;
-  border: 3px solid #0071dc;
+  border: 3px solid var(--md-sys-color-primary);
   border-bottom-color: transparent;
   border-radius: 50%;
   display: inline-block;
@@ -86,21 +80,19 @@
   height: 32px;
 }
 
-.success-icon,
-.success-icon svg {
-  fill: green;
-  font-weight: bold;
-  width: 32px;
-  height: 32px;
+.success-icon {
+  --md-icon-color: green;
+  --md-icon-size: 32px;
+  --md-icon-weight: 400;
 }
 
 .badge {
   display: flex;
   align-items: center;
-  background-color: #aed8ff;
+  background-color: var(--md-ref-palette-primary-primary50);
   margin-right: 4px;
   border-radius: 4px;
-  color: #0071dc;
+  color: var(--md-ref-palette-primary-primary80);
   padding: 6px;
   font-size: 0.6rem;
   height: 0.4rem;
@@ -109,22 +101,9 @@
   letter-spacing: 0.5px;
 }
 
-mwc-icon-button {
-  color: #a7a7a7;
-  --mdc-icon-size: 20px;
-  --mdc-icon-button-size: 28px;
-}
-
 .status {
   display: flex;
   justify-content: center;
-}
-
-progress {
-  display: inline-block;
-  margin: 0;
-  padding: 0;
-  width: 100%;
 }
 
 @keyframes rotation {

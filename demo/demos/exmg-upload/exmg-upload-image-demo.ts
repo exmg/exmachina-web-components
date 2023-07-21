@@ -1,10 +1,10 @@
 import { LitElement, html, css } from 'lit';
 import { customElement, property, query } from 'lit/decorators.js';
 import '@exmg/exmg-upload';
+import { observer } from '@exmg/lit-base';
 import { ExmgUpload } from '@exmg/exmg-upload';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import './file-image-upload-form.js';
-import { observer } from '../exmg-form-drawer/form-drawer-base.js';
 
 const convertStringToRatio = (ratioString: string) => {
   const ratioParts = ratioString.split('/');
