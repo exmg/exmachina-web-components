@@ -1,9 +1,11 @@
-import {LitElement, html, css} from 'lit';
-import {customElement, property} from 'lit/decorators.js';
+import { LitElement, html, css } from 'lit';
+import { customElement, property } from 'lit/decorators.js';
 import '@exmg/exmg-collapsed/exmg-collapsed.js';
 import '@material/web/button/outlined-button.js';
 import '@material/web/list/list.js';
 import '@material/web/list/list-item.js';
+import '@material/web/icon/icon.js';
+
 export const downArrowIcon = html`
   <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24">
     <defs>
@@ -20,17 +22,17 @@ export const downArrowIcon = html`
 
 @customElement('exmg-collapsed-demo')
 export class CollapsedDemo extends LitElement {
-  @property({type: Boolean})
+  @property({ type: Boolean })
   opened = false;
 
-  @property({type: Boolean})
+  @property({ type: Boolean })
   openedMaterial = false;
 
-  @property({type: Array})
+  @property({ type: Array })
   faqs = [
-    {id: 1, title: 'How does this work?', opened: false},
-    {id: 2, title: 'Why does this work?', opened: false},
-    {id: 3, title: 'When does this take place?', opened: false},
+    { id: 1, title: 'How does this work?', opened: false },
+    { id: 2, title: 'Why does this work?', opened: false },
+    { id: 3, title: 'When does this take place?', opened: false },
   ];
 
   static styles = [
@@ -50,7 +52,7 @@ export class CollapsedDemo extends LitElement {
         display: flex;
         align-items: center;
         color: var(--md-sys-color-on-surface);
-
+        font-size: 1rem;
         padding: 1rem;
         cursor: pointer;
         justify-content: space-between;
@@ -77,8 +79,6 @@ export class CollapsedDemo extends LitElement {
       }
 
       .icon {
-        width: 24px;
-        height: 24px;
         color: var(--md-sys-color-on-surface);
       }
       p {
@@ -108,7 +108,7 @@ export class CollapsedDemo extends LitElement {
           aria-controls="collapsed"
         >
           See more
-          <span class="icon">${downArrowIcon}</span>
+          <md-icon class="icon">expand_more</md-icon>
         </div>
         <exmg-collapsed id="collapsed" ?opened=${this.opened}
           ><p>
@@ -129,7 +129,7 @@ export class CollapsedDemo extends LitElement {
           aria-controls="collapsed"
         >
           See more
-          <span slot="icon" class="icon">${downArrowIcon}</span>
+          <md-icon slot="icon" class="icon">expand_more</md-icon>
         </md-outlined-button>
         <exmg-collapsed id="collapsed" ?opened=${this.openedMaterial}
           ><p>
@@ -153,7 +153,7 @@ export class CollapsedDemo extends LitElement {
                 aria-controls="collapsed"
                 headline=${faq.title}
               >
-                <span slot="end" class="icon">${downArrowIcon}</span>
+                <md-icon slot="end" class="icon">expand_more</md-icon>
               </md-list-item>
               <exmg-collapsed id="collapsed" ?opened=${faq.opened}
                 ><p>

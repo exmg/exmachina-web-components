@@ -2,6 +2,12 @@
   "name": "@exmg/exmg-snackbar",
   "version": "8.1.35",
   "type": "module",
+  "main": "index.js",
+  "module": "index.js",
+  "exports": {
+    ".": "./index.js",
+    "./exmg-snackbar.js": "./src/exmg-snackbar.js"
+  },
   "dependencies": {
     "@material/mwc-snackbar": "=0.25.3",
     "lit": "^2.0.0",
@@ -21,7 +27,6 @@
     "**/*.d.ts"
   ],
   "homepage": "https://github.com/exmg/exmachina-web-components",
-  "main": "exmg-snackbar.js",
   "repository": {
     "type": "git",
     "url": "git@github.com:exmg/exmg-web-components.git",

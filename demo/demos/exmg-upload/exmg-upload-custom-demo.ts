@@ -23,8 +23,7 @@ export class ExmgUploadCustomDemo extends LitElement {
   ];
 
   render() {
-    return html` <h2>Custom Upload Adpater Example</h2>
-      <pre>
+    return html` <pre>
 window.uploadDefaults = {
     customAdapterPath: '/demo/demos/exmg-upload/xhr-json-adapter.js',
     uploadUrl: 'http://localhost:3000/upload',

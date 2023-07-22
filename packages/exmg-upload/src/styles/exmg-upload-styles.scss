@@ -134,17 +134,14 @@ img {
   user-select: none;
 }
 
-mwc-icon-button {
-  color: #0071dc;
-  --mdc-icon-size: 20px;
-  --mdc-icon-button-size: 28px;
-}
-
 exmg-upload-drop-area a {
-  color: #0071dc;
+  color: var(--md-sys-color-primary);
   text-decoration: none;
 }
 
-exmg-upload-drop-area svg {
+exmg-upload-drop-area md-icon {
   fill: #0071dc;
+  --md-icon-color: var(--md-sys-color-primary);
+  --md-icon-size: 48px;
+  --md-icon-weight: 600;
 }

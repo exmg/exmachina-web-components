@@ -1,0 +1,29 @@
+:host {
+  display: block;
+  position: absolute;
+  outline: none;
+  z-index: var(--exmg-tooltip-z-index, 1002);
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
+  cursor: default;
+}
+
+#tooltip {
+  display: block;
+  outline: none;
+  font-size: var(--exmg-tooltip-font-size, 12px);
+  line-height: var(--exmg-tooltip-line-height, 14px);
+  background-color: var(--md-sys-color-inverse-surface, #333);
+  color: var(--md-sys-color-inverse-on-surface, white);
+  padding: var(--exmg-tooltip-padding, 8px);
+  border-radius: var(--exmg-tooltip-border-radius, 2px);
+  min-width: var(--exmg-tooltip-min-width, initial);
+  transition: opacity 0.5s;
+}
+
+#tooltip.hidden {
+  opacity: 0;
+  display: none;
+}

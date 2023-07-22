@@ -1,43 +1,17 @@
-import { LitElement, css, html } from 'lit';
+import { LitElement, html } from 'lit';
 import { customElement, property, query } from 'lit/decorators.js';
-import '@exmg/exmg-markdown-editor/exmg-markdown-editor.js';
-import '@polymer/paper-input/paper-input.js';
-import '@exmg/exmg-paper-combobox/exmg-paper-combobox.js';
-import '@polymer/paper-item/paper-item.js';
-import '@exmg/exmg-form/exmg-form.js';
-import '@vaadin/vaadin-date-picker/vaadin-date-picker.js';
 import '@exmg/exmg-form-drawer/exmg-form-drawer.js';
-import { ExmgFormDrawer } from '@exmg/exmg-form-drawer/exmg-form-drawer.js';
+import '@material/web/button/text-button.js';
+import { ExmgFormDrawer, formDrawerStyles } from '@exmg/exmg-form-drawer';
+
+export const regexEmail = '[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,3}$';
+function sleep(ms: number) {
+  return new Promise((resolve) => setTimeout(resolve, ms));
+}
 
 @customElement('exmg-form-drawer-standard')
 export class Drawer extends LitElement {
-  static styles = [
-    css`
-      :host {
-        font-family: var(--mdc-typography-headline3-font-family, var(--mdc-typography-font-family, Roboto, sans-serif));
-        font-size: 15px;
-        --mdc-theme-primary: var(--md-sys-color-primary);
-        --mdc-theme-on-primary: var(--md-sys-color-on-primary);
-      }
-      h3 {
-        color: var(--md-sys-color-on-surface);
-      }
-      .main {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        width: 100%;
-      }
-      .main > div {
-        width: 100%;
-        border-bottom: 1px solid #666;
-      }
-      div > * {
-        padding: 8px;
-      }
-    `,
-  ];
+  static styles = [formDrawerStyles];
 
   @property({ type: Boolean })
   opened = false;
@@ -58,26 +32,13 @@ export class Drawer extends LitElement {
   submitBtnHidden = false;
 
   @property({ type: Boolean })
-  disableStickyHeader = true;
-
-  @property({ type: String })
-  markdownValue?: string = '123';
+  disableStickyHeader = false;
 
   @query('exmg-form-drawer')
   form?: ExmgFormDrawer;
 
   handleOpenedChanged(e: CustomEvent) {
     this.opened = e.detail.value;
-  }
-
-  openDialog() {
-    this.opened = true;
-    setTimeout(() => (this.markdownValue = 'ssdasdasdas'), 10);
-  }
-
-  openAndResetDialog() {
-    this.form!.reset();
-    this.opened = true;
   }
 
   handleShouldFailChange(e: CustomEvent) {
@@ -100,14 +61,26 @@ export class Drawer extends LitElement {
     this.disableStickyHeader = (e.composedPath()[0] as HTMLInputElement).checked;
   }
 
-  onSubmit() {
-    setTimeout(() => {
+  async doFormAction(e: CustomEvent) {
+    const formDialog = e.target as ExmgFormDrawer;
+    try {
+      formDialog.submitting = true;
+
+      await sleep(1000);
+
       if (this.shouldFail) {
-        this.form!.handleError('Internal error occurred');
-      } else {
-        this.form!.done();
+        throw Error('Internal error occurred');
       }
-    }, 1000);
+
+      console.log('Save ', e.detail);
+
+      formDialog.close();
+    } catch (error) {
+      console.error(error instanceof Error ? error.message : 'Unknown error');
+      formDialog.showError(error instanceof Error ? error.message : 'Unknown error');
+    } finally {
+      formDialog.submitting = false;
+    }
   }
 
   onCancel(event: CustomEvent) {
@@ -123,11 +96,8 @@ export class Drawer extends LitElement {
         }
       </style>
       <div style="padding: 20px">
-        <input type="button" @click="${this.openDialog}" value="Open dialog" /><input
-          type="button"
-          @click="${this.openAndResetDialog}"
-          value="Open dialog (reset form)"
-        />
+        <md-text-button @click="${() => this.form?.show()}">Open Create</md-text-button>
+
         <br /><br />
         <label>
           <input
@@ -147,16 +117,6 @@ export class Drawer extends LitElement {
             @change="${this.handleKeepOpenedOnSubmitSuccess}"
           />
           Keep opened on submit success
-        </label>
-        <br /><br />
-        <label>
-          <input
-            type="checkbox"
-            name="resetFormOnSubmitSuccess"
-            ?checked="${this.resetFormOnSubmitSuccess}"
-            @change="${this.handleResetFormOnSubmitSuccess}"
-          />
-          Reset form on submit success
         </label>
         <br /><br />
         <label>
@@ -190,35 +150,41 @@ export class Drawer extends LitElement {
         </label>
       </div>
       <exmg-form-drawer
-        ?opened="${this.opened}"
-        reset-form-on-submit-success
         @exmg-drawer-opened-changed="${this.handleOpenedChanged}"
+        ?no-cancel-on-outside-click="${this.noCancelOnOutsideClick}"
         submit-btn-title="Create"
         ?submit-btn-hidden=${this.submitBtnHidden}
         ?disable-sticky-header=${this.disableStickyHeader}
-        @submit="${this.onSubmit}"
+        @dialog-submit=${this.doFormAction}
       >
-        <span slot="title">New event</span>
-        <exmg-paper-combobox label="Type" name="type" selected="0" always-float-label>
-          <paper-item>Trivia</paper-item>
-          <paper-item>Other</paper-item>
-        </exmg-paper-combobox>
-        <paper-input
-          name="question"
-          label="Question"
-          value="Who's Dylan Hartigan's favorite artist?"
-          required
-        ></paper-input>
-        <paper-input name="answer_a" label="Answer A" value="Beyoncé"></paper-input>
-        <paper-input name="answer_b" label="Answer B" value="Eminem"></paper-input>
-        <paper-input name="answer_c" label="Answer C" value="Ariana Grande"></paper-input>
-        <exmg-markdown-editor
-          name="markdownContentBody"
-          split-view
-          show-helper-label
-          height="340"
-          .markdown=${this.markdownValue}
-        ></exmg-markdown-editor>
+        <div slot="title">Create User</div>
+        <form>
+          <div class="row">
+            <md-outlined-text-field name="firstname" dialogFocus label="First Name" required></md-outlined-text-field>
+            <md-outlined-text-field name="lastname" label="Last Name" required></md-outlined-text-field>
+          </div>
+          <div class="row">
+            <md-outlined-text-field name="company" label="Company"></md-outlined-text-field>
+            <md-outlined-text-field
+              name="amount"
+              label="Amount"
+              type="number"
+              min="0"
+              max="10"
+            ></md-outlined-text-field>
+          </div>
+          <div class="row">
+            <md-outlined-text-field
+              name="email"
+              label="Email"
+              pattern="${regexEmail}"
+              required
+            ></md-outlined-text-field>
+          </div>
+          <div class="row">
+            <md-outlined-text-field name="phone" label="Phone" required></md-outlined-text-field>
+          </div>
+        </form>
       </exmg-form-drawer>
     `;
   }

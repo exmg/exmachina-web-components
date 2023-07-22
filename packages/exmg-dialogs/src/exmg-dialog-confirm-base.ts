@@ -2,8 +2,8 @@ import { html } from 'lit';
 
 import '@material/web/dialog/dialog.js';
 import { MdDialog } from '@material/web/dialog/dialog.js';
-import '@material/web/button/tonal-button.js';
 import '@material/web/button/text-button.js';
+import '@exmg/exmg-button/exmg-filled-button.js';
 import '@material/web/icon/icon.js';
 
 import { property, query } from 'lit/decorators.js';
@@ -174,8 +174,12 @@ export class ExmgDialogConfirmBase extends ExmgElement {
       <span slot="headline">${this.title}</span>
       <span class="description">${this.message}</span>
       <md-text-button slot="footer" dialogFocus @click=${() => this.close()}>${this.cancelBtn}</md-text-button>
-      <md-tonal-button slot="footer" @click=${this.handleSubmit} ?disabled=${this.submitting}
-        >${this.submitBtn}</md-tonal-button
+      <exmg-filled-button
+        slot="footer"
+        @click=${this.handleSubmit}
+        ?disabled=${this.submitting}
+        ?loading=${this.submitting}
+        >${this.submitBtn}</exmg-filled-button
       >
     </md-dialog>`;
   }

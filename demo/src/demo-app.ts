@@ -11,6 +11,10 @@ import '@material/web/button/filled-button.js';
 import { Switch } from '@material/web/switch/lib/switch.js';
 import { demos } from '../demos/demos.js';
 import { repeat } from 'lit/directives/repeat.js';
+import { setupTheme, applyTheme } from './theme-module.js';
+
+const darkMode = window.matchMedia('(prefers-color-scheme:dark)').matches;
+setupTheme(darkMode);
 
 @customElement('demo-app')
 export class DemoApp extends LitElement {
@@ -23,17 +27,13 @@ export class DemoApp extends LitElement {
   private darkModeSwitch?: Switch;
 
   @state()
-  darkMode = window.matchMedia('(prefers-color-scheme:dark)').matches;
+  darkMode = darkMode;
 
   boundLocationChanged?: any;
 
   constructor() {
     super();
     this.boundLocationChanged = this._handleLocationChanged.bind(this);
-  }
-
-  firstUpdated() {
-    this.setDarkMode();
   }
 
   private _handleLocationChanged() {
@@ -75,11 +75,7 @@ export class DemoApp extends LitElement {
 
   handleDarkMode() {
     this.darkMode = this.darkModeSwitch?.selected!;
-    this.setDarkMode();
-  }
-
-  setDarkMode() {
-    this.darkMode ? document.body.classList.add('dark') : document.body.classList.remove('dark');
+    applyTheme(!!this.darkMode);
   }
 
   private renderElements() {

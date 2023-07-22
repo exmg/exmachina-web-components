@@ -1,0 +1,69 @@
+:host {
+  display: flex;
+
+  .header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    margin: 0;
+    padding: 20px;
+    border-bottom: 1px solid
+      var(--exmg-form-drawer-header-separator-color, var(--mdc-theme-on-surface, rgba(#02182b, 0.1)));
+
+    .title {
+      font-size: 1.4rem;
+    }
+  }
+
+  .form-elements {
+    padding: 0 20px;
+  }
+}
+
+.header-buttons {
+  display: flex;
+  flex-direction: row;
+  flex: 1;
+  justify-content: flex-end;
+
+  > * {
+    margin-left: 20px;
+  }
+}
+
+:host(:not([disable-sticky-header])) .header {
+  position: sticky;
+  top: 0;
+  background-color: var(--exmg-drawer-bg-color, var(--md-sys-color-surface, white));
+  z-index: 2;
+}
+
+form .row {
+  display: flex;
+  gap: 8px;
+}
+
+form .row > * {
+  flex: 1;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 0.5rem;
+}
+
+form > * {
+  display: contents;
+}
+
+.error {
+  background-color: var(--md-sys-color-error-container, red);
+  color: var(--md-sys-color-on-error-container, white);
+}
+
+.error > div {
+  padding: 1rem 0.8rem;
+}

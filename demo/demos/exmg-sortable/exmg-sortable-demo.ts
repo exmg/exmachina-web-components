@@ -1,114 +1,125 @@
-import {LitElement, html, css} from 'lit';
-import {customElement, property} from 'lit/decorators.js';
+import { LitElement, html, css } from 'lit';
+import { customElement, property } from 'lit/decorators.js';
 import '@exmg/exmg-sortable/exmg-sortable.js';
-import {USERS} from './data/users.js';
+import { USERS } from './data/users.js';
 
 @customElement('exmg-sortable-demo')
 export class SortableDemo extends LitElement {
-  @property({type: Array})
+  @property({ type: Array })
   users: any[] = USERS;
 
-  @property({type: Object})
+  @property({ type: Object })
   externalSortableHost?: HTMLElement;
 
-  static styles = [css`
-    ul,
-    li {
-      margin-left: 0;
-      padding-left: 0;
-    }
+  static styles = [
+    css`
+      :host {
+        color: var(--md-sys-color-on-surface);
+      }
+      ul,
+      li {
+        margin-left: 0;
+        padding-left: 0;
+      }
+      h2 {
+        margin-top: 2.5rem;
+      }
+      li {
+        display: flex;
+        padding: 10px 15px;
+        border-bottom: 1px solid var(--md-sys-color-outline);
+      }
 
-    li {
-      display: flex;
-      padding: 10px 15px;
-      border-bottom: 1px solid silver;
-    }
+      li.cloned {
+        background: var(--md-sys-color-surface);
+        width: 100%;
+        box-sizing: border-box;
+        box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+        opacity: 0.9;
+        border-bottom: 1px solid var(--md-sys-color-surface);
+      }
 
-    li.cloned {
-      background: white;
-      width: 100%;
-      box-sizing: border-box;
-      box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
-      opacity: 0.9;
-    }
+      li.dragged {
+        background: var(--md-sys-color-surface);
+        opacity: 0.25;
+        box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5) inset;
+      }
 
-    li.dragged {
-      background: #c0c0c0;
-      opacity: 0.25;
-      box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5) inset;
-    }
+      li > strong {
+        flex-grow: 1;
+      }
 
-    li > strong {
-      flex-grow: 1;
-    }
+      li > span {
+        width: 30%;
+      }
 
-    li > span {
-      width: 30%;
-    }
+      table {
+        border-collapse: collapse;
+        width: 100%;
+      }
 
-    table {
-      border-collapse: collapse;
-      width: 100%;
-    }
+      td,
+      th {
+        padding: 10px 15px;
+        border-bottom: 1px solid var(--md-sys-color-outline);
+      }
 
-    td,
-    th {
-      padding: 10px 15px;
-      border-bottom: 1px solid silver;
-    }
+      tr.dragged {
+        background: var(--md-sys-color-surface);
+        opacity: 0.25;
+        box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5) inset;
+      }
 
-    tr.dragged {
-      background: #c0c0c0;
-      opacity: 0.25;
-      box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5) inset;
-    }
+      tr.cloned {
+        background: var(--md-sys-color-surface);
+        width: 100%;
+        box-sizing: border-box;
+        box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+        opacity: 0.9;
+      }
 
-    tr.cloned {
-      background: white;
-      width: 100%;
-      box-sizing: border-box;
-      box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
-      opacity: 0.9;
-    }
+      td.handle {
+        padding: 0;
+        vertical-align: middle;
+        cursor: move;
+      }
+      td.handle span {
+        display: block;
+        background: gray;
+        width: 20px;
+        height: 20px;
+        margin: 10px;
+      }
 
-    td.handle {
-      padding: 0;
-      vertical-align: middle;
-    }
-    td.handle span {
-      display: block;
-      background: gray;
-      width: 20px;
-      height: 20px;
-      margin: 10px;
-    }
+      .boxes {
+        margin-top: 2em;
+        overflow: hidden;
+      }
 
-    .boxes {
-      margin-top: 2em;
-      overflow: hidden;
-    }
+      .box {
+        float: left;
+        width: 150px;
+        height: 150px;
+        padding: 10px;
+        margin: 20px;
+        box-sizing: border-box;
+        cursor: move;
+        background-color: var(--md-sys-color-surface-variant);
+        color: var(--md-sys-color-on-surface);
+        border: 1px solid var(--md-sys-color-outline);
+        border-radius: 10px;
+      }
 
-    .box {
-      float: left;
-      width: 150px;
-      height: 150px;
-      padding: 10px;
-      margin: 20px;
-      box-sizing: border-box;
-      background: #f0f0f0;
-      box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
-    }
-
-    .box.dragged {
-      opacity: 0;
-    }
-  `]
+      .box.dragged {
+        opacity: 0;
+      }
+    `,
+  ];
 
   protected async firstUpdated(): Promise<void> {
     await this.updateComplete;
-    setTimeout(() => {
-      this.externalSortableHost = this.shadowRoot!.querySelector<HTMLElement>('#externalSortableHost')!;
-    });
+
+    this.externalSortableHost = this.shadowRoot!.querySelector<HTMLElement>('#externalSortableHost')!;
   }
 
   constructor() {
@@ -122,7 +133,7 @@ export class SortableDemo extends LitElement {
    */
   private orderChange(e: CustomEvent) {
     setTimeout(() => {
-      const {sourceIndex, targetIndex} = e.detail;
+      const { sourceIndex, targetIndex } = e.detail;
       const items = [...this.users];
       const movedElement = items[sourceIndex];
 
@@ -137,7 +148,7 @@ export class SortableDemo extends LitElement {
 
   render() {
     return html`
-      <h2>List</h2>
+      <h2>List (Animated)</h2>
       <exmg-sortable animation-enabled orientation="vertical" @dom-order-change="${this.orderChange}">
         <ul>
           ${this.users.map((user) => {
@@ -151,11 +162,8 @@ export class SortableDemo extends LitElement {
           })}
         </ul>
       </exmg-sortable>
-      <h2>Cards with animation</h2>
-      <exmg-sortable
-        item-selector="div.box"
-        @dom-order-change="${this.orderChange}"
-      >
+      <h2>Cards (Animated))</h2>
+      <exmg-sortable item-selector="div.box" animation-enabled @dom-order-change="${this.orderChange}">
         <div class="boxes">
           ${this.users.map((user) => {
             return html` <div class="box">${user.firstName}</div> `;
@@ -166,7 +174,7 @@ export class SortableDemo extends LitElement {
       <h2>Table with custom handle</h2>
       <exmg-sortable
         item-selector="tr"
-        handle-selector=".handle span"
+        handle-selector=".handle"
         orientation="vertical"
         @dom-order-change="${this.orderChange}"
       >
@@ -174,7 +182,9 @@ export class SortableDemo extends LitElement {
           ${this.users.map((user) => {
             return html`
               <tr>
-                <td class="handle"><span></span></td>
+                <td class="handle">
+                  <md-icon style="pointer-events: none; margin: 6px;">drag_handle</md-icon>
+                </td>
                 <td>${user.firstName}</td>
                 <td>${user.lastName}</td>
                 <td>${user.email}</td>
