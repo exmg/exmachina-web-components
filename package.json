@@ -52,7 +52,7 @@
     "clean": "del-cli packages/*/node_modules packages/*/package-lock.json && npm run clean:styles & npm run clean:typescript",
     "clean:styles": "del-cli packages/**/*-css.*",
     "clean:typescript": "tsc --build --clean",
-    "lint": "npm run lint:typescript && npm run lint:eslint && npm run lint:prettier",
+    "lint": "npm run build:typescript && npm run lint:eslint && npm run lint:prettier",
     "lint:fix": "npm run lint:typescript -- --fix && npm run lint:eslint -- --fix",
     "lint:eslint": "eslint \"packages/**/*.ts\" \"demo/**/*.ts\"",
     "lint:prettier": "prettier \"**/*.js\" \"**/*.ts\" --check --ignore-path .gitignore",
