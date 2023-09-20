@@ -1,7 +1,8 @@
-import {LitElement, html, css} from 'lit';
-import {customElement} from 'lit/decorators/custom-element.js';
+import { LitElement, html, css } from 'lit';
+import { customElement } from 'lit/decorators/custom-element.js';
 import '@exmg/exmg-button/exmg-button.js';
 import '@polymer/iron-demo-helpers/demo-snippet.js';
+
 @customElement('exmg-button-demo')
 export class ButtonDemo extends LitElement {
   static styles = [
@@ -43,7 +44,7 @@ export class ButtonDemo extends LitElement {
           <h4>Dense & Unelevated</h4>
           <demo-snippet>
             <template>
-              <exmg-button unelevated dense">BUTTON</exmg-button>
+              <exmg-button unelevated dense>BUTTON</exmg-button>
             </template>
           </demo-snippet>
         </div>
@@ -67,9 +68,7 @@ export class ButtonDemo extends LitElement {
           <h4>With icon</h4>
           <demo-snippet>
             <template>
-              <exmg-button class="dark" unelevated"
-                ><mwc-icon>merge_type</mwc-icon>ICON</exmg-button
-              >
+              <exmg-button class="dark" unelevated><mwc-icon>merge_type</mwc-icon>ICON</exmg-button>
             </template>
           </demo-snippet>
         </div>
@@ -77,9 +76,7 @@ export class ButtonDemo extends LitElement {
           <h4>With progress</h4>
           <demo-snippet>
             <template>
-              <exmg-button class="progress-button" unelevated progress="50"
-                >PROGRESS</exmg-button
-              >
+              <exmg-button class="progress-button" unelevated progress="50">PROGRESS</exmg-button>
             </template>
           </demo-snippet>
         </div>

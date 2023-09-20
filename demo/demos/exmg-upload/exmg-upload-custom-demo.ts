@@ -1,5 +1,5 @@
-import {LitElement, html, css} from 'lit';
-import {customElement} from 'lit/decorators.js';
+import { LitElement, html, css } from 'lit';
+import { customElement } from 'lit/decorators.js';
 import '@exmg/exmg-upload';
 
 window.uploadDefaults = {

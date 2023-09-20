@@ -1,5 +1,5 @@
-import {customElement} from 'lit/decorators.js';
-import {SortableElementBase} from './exmg-sortable-base.js';
+import { customElement } from 'lit/decorators.js';
+import { SortableElementBase } from './exmg-sortable-base.js';
 
 /**
  * The `<exmg-sortable>` element Enables drag and drop sorting of nodes in a list, table or any other set of

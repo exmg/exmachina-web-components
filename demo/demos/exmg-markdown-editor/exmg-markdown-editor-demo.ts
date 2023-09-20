@@ -1,5 +1,5 @@
-import {html, LitElement} from 'lit';
-import {customElement} from 'lit/decorators.js';
+import { html, LitElement } from 'lit';
+import { customElement } from 'lit/decorators.js';
 import '@exmg/exmg-markdown-editor/exmg-markdown-editor.js';
 @customElement('exmg-mardkwon-editor-demo')
 export class DemoSimpleGridTable extends LitElement {

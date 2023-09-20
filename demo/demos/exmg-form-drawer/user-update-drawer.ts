@@ -1,11 +1,11 @@
-import {html} from 'lit';
-import {customElement, property, query} from 'lit/decorators.js';
-import {ExmgFormDrawer} from '@exmg/exmg-form-drawer/exmg-form-drawer.js';
+import { html } from 'lit';
+import { customElement, property, query } from 'lit/decorators.js';
+import { ExmgFormDrawer } from '@exmg/exmg-form-drawer/exmg-form-drawer.js';
 import '@exmg/exmg-markdown-editor/exmg-markdown-editor.js';
 import '@polymer/paper-input/paper-input.js';
 import '@polymer/paper-input/paper-textarea.js';
-import {FormDrawerBase} from './form-drawer-base.js';
-import {EditorElement} from '@exmg/exmg-markdown-editor/exmg-markdown-editor.js';
+import { FormDrawerBase } from './form-drawer-base.js';
+import { EditorElement } from '@exmg/exmg-markdown-editor/exmg-markdown-editor.js';
 
 interface UserData {
   from: string;
@@ -22,7 +22,7 @@ export const itemValue = <T>(prop: T | null | undefined, propertName: keyof T): 
 
 @customElement('user-update-drawer')
 export class UserUpdateDrawer extends FormDrawerBase<UserData> {
-  @property({type: String, attribute: 'update-title'})
+  @property({ type: String, attribute: 'update-title' })
   updateTitle = 'Update User';
 
   @query('#markdownEditor')
@@ -53,9 +53,21 @@ export class UserUpdateDrawer extends FormDrawerBase<UserData> {
 
   render() {
     return this.renderDrawer(html`
-      <paper-input name="from" label="From *" value=${itemValue(this.item, 'from')} required auto-validate></paper-input>
+      <paper-input
+        name="from"
+        label="From *"
+        value=${itemValue(this.item, 'from')}
+        required
+        auto-validate
+      ></paper-input>
 
-      <paper-input name="fromName" label="From Name *" value=${itemValue(this.item, 'fromName')} required auto-validate></paper-input>
+      <paper-input
+        name="fromName"
+        label="From Name *"
+        value=${itemValue(this.item, 'fromName')}
+        required
+        auto-validate
+      ></paper-input>
 
       <exmg-markdown-editor
         id="markdownEditor"
@@ -66,16 +78,52 @@ export class UserUpdateDrawer extends FormDrawerBase<UserData> {
         .markdown=${this.item!.fromName}
       ></exmg-markdown-editor>
 
-      <paper-input name="replyTo" label="Reply To *" value=${itemValue(this.item, 'replyTo')} required auto-validate></paper-input>
+      <paper-input
+        name="replyTo"
+        label="Reply To *"
+        value=${itemValue(this.item, 'replyTo')}
+        required
+        auto-validate
+      ></paper-input>
 
-      <paper-input name="subject" label="Subject *" value=${itemValue(this.item, 'subject')} required auto-validate></paper-input>
-      <paper-input name="from" label="From *" value=${itemValue(this.item, 'from')} required auto-validate></paper-input>
+      <paper-input
+        name="subject"
+        label="Subject *"
+        value=${itemValue(this.item, 'subject')}
+        required
+        auto-validate
+      ></paper-input>
+      <paper-input
+        name="from"
+        label="From *"
+        value=${itemValue(this.item, 'from')}
+        required
+        auto-validate
+      ></paper-input>
 
-      <paper-input name="fromName" label="From Name *" value=${itemValue(this.item, 'fromName')} required auto-validate></paper-input>
+      <paper-input
+        name="fromName"
+        label="From Name *"
+        value=${itemValue(this.item, 'fromName')}
+        required
+        auto-validate
+      ></paper-input>
 
-      <paper-input name="replyTo" label="Reply To *" value=${itemValue(this.item, 'replyTo')} required auto-validate></paper-input>
+      <paper-input
+        name="replyTo"
+        label="Reply To *"
+        value=${itemValue(this.item, 'replyTo')}
+        required
+        auto-validate
+      ></paper-input>
 
-      <paper-input name="subject" label="Subject *" value=${itemValue(this.item, 'subject')} required auto-validate></paper-input>
+      <paper-input
+        name="subject"
+        label="Subject *"
+        value=${itemValue(this.item, 'subject')}
+        required
+        auto-validate
+      ></paper-input>
       <paper-textarea
         name="contentHtml"
         label="Html Content *"
@@ -85,7 +133,12 @@ export class UserUpdateDrawer extends FormDrawerBase<UserData> {
         auto-validate
       ></paper-textarea>
 
-      <paper-textarea name="contentPlain" label="Text Content" value=${itemValue(this.item, 'contentPlain')} rows="6"></paper-textarea>
+      <paper-textarea
+        name="contentPlain"
+        label="Text Content"
+        value=${itemValue(this.item, 'contentPlain')}
+        rows="6"
+      ></paper-textarea>
       <paper-textarea
         name="contentHtml"
         label="Html Content *"
@@ -95,7 +148,12 @@ export class UserUpdateDrawer extends FormDrawerBase<UserData> {
         auto-validate
       ></paper-textarea>
 
-      <paper-textarea name="contentPlain" label="Text Content" value=${itemValue(this.item, 'contentPlain')} rows="6"></paper-textarea>
+      <paper-textarea
+        name="contentPlain"
+        label="Text Content"
+        value=${itemValue(this.item, 'contentPlain')}
+        rows="6"
+      ></paper-textarea>
     `);
   }
 }

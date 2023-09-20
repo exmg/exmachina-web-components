@@ -1,4 +1,5 @@
-import {LitElement, html, property, customElement} from 'lit-element';
+import { LitElement, html } from 'lit';
+import { customElement, property } from 'lit/decorators.js';
 import './exmg-icons.js';
 import '@exmg/exmg-radio-group/exmg-radio-group.js';
 import '@exmg/exmg-radio-group/exmg-radio-group-item.js';
@@ -6,7 +7,7 @@ import '@polymer/iron-demo-helpers/demo-snippet.js';
 
 @customElement('exmg-radio-group-demo')
 export class ExmgRadioGroupDemo extends LitElement {
-  @property({type: String})
+  @property({ type: String })
   selected = 'option2';
 
   constructor() {

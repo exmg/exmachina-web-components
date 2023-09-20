@@ -1,7 +1,7 @@
-import {html} from 'lit';
-import {customElement, property, state} from 'lit/decorators.js';
-import {ExmgElement} from '@exmg/lit-base/index.js';
-import {style} from '../styles/exmg-grid-base-toolbar-styles-css.js';
+import { html } from 'lit';
+import { customElement, property, state } from 'lit/decorators.js';
+import { ExmgElement } from '@exmg/lit-base/index.js';
+import { style } from '../styles/exmg-grid-base-toolbar-styles-css.js';
 
 /**
  * ### Styling
@@ -21,7 +21,7 @@ export class ExmgGridBaseToolbar extends ExmgElement {
   @state()
   private active = false;
 
-  @property({type: Boolean})
+  @property({ type: Boolean })
   disableSeperator = false;
 
   private observer?: MutationObserver;
@@ -49,7 +49,7 @@ export class ExmgGridBaseToolbar extends ExmgElement {
     this.actionsCount = this.getChildElementCount('div[slot=actions]');
     this.settingsCount = this.getChildElementCount('div[slot=settings]');
     this.active = this.actionsCount > 0;
-    this.observer!.observe(this, {attributes: false, childList: true, subtree: true});
+    this.observer!.observe(this, { attributes: false, childList: true, subtree: true });
   }
 
   disconnectedCallback() {

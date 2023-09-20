@@ -1,13 +1,13 @@
-import {LitElement, html} from 'lit';
-import {customElement, property, query} from 'lit/decorators.js';
-import {ifDefined} from 'lit/directives/if-defined.js';
+import { LitElement, html } from 'lit';
+import { customElement, property, query } from 'lit/decorators.js';
+import { ifDefined } from 'lit/directives/if-defined.js';
 import '@polymer/neon-animation/animations/slide-from-right-animation.js';
 import '@polymer/neon-animation/animations/slide-right-animation.js';
 import '@polymer/paper-dialog/paper-dialog.js';
 import './exmg-drawer.js';
-import {style} from './styles/exmg-form-drawer-styles-css.js';
+import { style } from './styles/exmg-form-drawer-styles-css.js';
 import '@exmg/exmg-form/exmg-form.js';
-import {ExmgForm} from '@exmg/exmg-form/exmg-form.js';
+import { ExmgForm } from '@exmg/exmg-form/exmg-form.js';
 import '@exmg/exmg-button/exmg-button.js';
 
 /**
@@ -25,77 +25,77 @@ export class ExmgFormDrawer extends LitElement {
    * Opened state of the form-drawer
    * @type {Boolean}
    */
-  @property({type: Boolean})
+  @property({ type: Boolean })
   opened = false;
 
   /**
    * The title of the 'submit' button
    * @type {String}
    */
-  @property({type: String, attribute: 'submit-btn-title'})
+  @property({ type: String, attribute: 'submit-btn-title' })
   submitBtnTitle = 'Submit';
 
   /**
    * Whether or not to hide the submit button
    * @type {Boolean}
    */
-  @property({type: Boolean, attribute: 'submit-btn-hidden'})
+  @property({ type: Boolean, attribute: 'submit-btn-hidden' })
   submitBtnHidden = false;
 
   /**
    * Title of the cancel button
    * @type {String}
    */
-  @property({type: String, attribute: 'cancel-btn-title'})
+  @property({ type: String, attribute: 'cancel-btn-title' })
   cancelBtnTitle = 'Cancel';
 
   /**
    * Whether or not to keep the form drawer opened on submit success
    * @type {Boolean}
    */
-  @property({type: Boolean, attribute: 'keep-opened-on-submit-success'})
+  @property({ type: Boolean, attribute: 'keep-opened-on-submit-success' })
   keepOpenedOnSubmitSuccess = false;
 
   /**
    * Reset form on submit success
    * @type {Boolean}
    */
-  @property({type: Boolean, attribute: 'reset-form-on-submit-success'})
+  @property({ type: Boolean, attribute: 'reset-form-on-submit-success' })
   resetFormOnSubmitSuccess = false;
 
   /**
    * Auto focus on open
    * @type {Boolean}
    */
-  @property({type: Boolean, attribute: 'autofocus-on-open'})
+  @property({ type: Boolean, attribute: 'autofocus-on-open' })
   autofocusOnOpen = false;
 
   /**
    * No cancel on outside click
    * @type {Boolean}
    */
-  @property({type: Boolean, attribute: 'no-cancel-on-outside-click'})
+  @property({ type: Boolean, attribute: 'no-cancel-on-outside-click' })
   noCancelOnOutsideClick = false;
 
   /**
    * Disable sticky header in drawer
    * @type {Boolean}
    */
-  @property({type: Boolean, attribute: 'disable-sticky-header'})
+  @property({ type: Boolean, attribute: 'disable-sticky-header' })
   disableStickyHeader = false;
 
   /**
    * Whether or not the form is submitting
    * @type {Boolean}
    */
-  @property({type: Boolean, reflect: true})
+  @property({ type: Boolean, reflect: true })
   submitting = false;
 
   /**
    * Scroll action of the drawer
    * @type {'lock' | 'refit' | 'cancel' | undefined}
    */
-  @property({type: String, attribute: 'scroll-action'})
+  @property({ type: String, attribute: 'scroll-action' })
   scrollAction?: 'lock' | 'refit' | 'cancel' | undefined;
 
   @query('exmg-form')
@@ -131,7 +131,7 @@ export class ExmgFormDrawer extends LitElement {
     }
   }
 
-  serializeForm(): {[key: string]: any} | undefined {
+  serializeForm(): { [key: string]: any } | undefined {
     if (this.form) {
       return this.form.serializeForm();
     }
@@ -160,7 +160,7 @@ export class ExmgFormDrawer extends LitElement {
     this.form!.error(errorMessage);
   }
 
-  private _handleOpenChanged(e: CustomEvent<{value: boolean}>) {
+  private _handleOpenChanged(e: CustomEvent<{ value: boolean }>) {
     setTimeout(() => {
       if (e.detail.value && this.autofocusOnOpen) {
         const firstChild = this.querySelector<HTMLInputElement>('*[name]');

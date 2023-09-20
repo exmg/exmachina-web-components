@@ -1,5 +1,5 @@
-import {LitElement, html, css} from 'lit';
-import {customElement, state} from 'lit/decorators.js';
+import { LitElement, html, css } from 'lit';
+import { customElement, state } from 'lit/decorators.js';
 import '@exmg/exmg-breadcrumbs/exmg-breadcrumbs.js';
 import './page-example.js';
 
@@ -32,10 +32,10 @@ export class BreadcrumbsDemo extends LitElement {
 
   @state()
   private items = [
-    {href: '/home', content: 'Home page'},
-    {href: '/users', content: 'User List'},
-    {href: '/users/1234', content: 'Mark'},
-    {href: '/users/1234/details', content: 'Details'},
+    { href: '/home', content: 'Home page' },
+    { href: '/users', content: 'User List' },
+    { href: '/users/1234', content: 'Mark' },
+    { href: '/users/1234/details', content: 'Details' },
   ];
 
   render() {

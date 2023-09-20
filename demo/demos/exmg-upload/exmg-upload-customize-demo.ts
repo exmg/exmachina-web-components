@@ -1,7 +1,7 @@
-import {LitElement, html, css} from 'lit';
-import {customElement} from 'lit/decorators.js';
+import { LitElement, html, css } from 'lit';
+import { customElement } from 'lit/decorators.js';
 import '@exmg/exmg-upload';
-import {ExmgUpload} from '@exmg/exmg-upload';
+import { ExmgUpload } from '@exmg/exmg-upload';
 
 @customElement('exmg-upload-customize-demo')
 export class ExmgUploadCustomizeDemo extends LitElement {

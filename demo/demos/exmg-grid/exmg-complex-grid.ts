@@ -1,7 +1,7 @@
-import {html, css} from 'lit';
-import {customElement} from 'lit/decorators.js';
-import {classMap} from 'lit/directives/class-map.js';
-import {repeat} from 'lit/directives/repeat.js';
+import { html, css } from 'lit';
+import { customElement } from 'lit/decorators.js';
+import { classMap } from 'lit/directives/class-map.js';
+import { repeat } from 'lit/directives/repeat.js';
 import '@material/mwc-checkbox';
 import '@material/mwc-icon-button';
 
@@ -13,11 +13,11 @@ import '@polymer/iron-dropdown/iron-dropdown.js';
 import '@exmg/exmg-grid/src/table/exmg-grid.js';
 import '@exmg/exmg-grid/src/table/exmg-grid-pagination.js';
 import '@exmg/exmg-grid/src/table/exmg-grid-smart-toolbar.js';
-import {style as tableStyles} from '@exmg/exmg-grid/src/styles/exmg-grid-styles-css.js';
-import {style as demoStyles} from './demo-common-css.js';
+import { style as tableStyles } from '@exmg/exmg-grid/src/styles/exmg-grid-styles-css.js';
+import { style as demoStyles } from './demo-common-css.js';
 
-import {createIcon} from './exmg-icons.js';
-import {DEFAULT_SORT_COLUMN, DEFAULT_SORT_DIRECTION, ExmgBaseGridDemo} from './exmg-grid-demo.js';
+import { createIcon } from './exmg-icons.js';
+import { DEFAULT_SORT_COLUMN, DEFAULT_SORT_DIRECTION, ExmgBaseGridDemo } from './exmg-grid-demo.js';
 
 @customElement('demo-complex-grid')
 export class ExmgComplexGrid extends ExmgBaseGridDemo {
@@ -36,12 +36,12 @@ export class ExmgComplexGrid extends ExmgBaseGridDemo {
     super();
     this.selectedRowIds = this.items
       .slice(0, 3)
-      .map(({id}) => id.toString())
-      .reduce((acc, item: string) => ({...acc, [item]: true}), {});
+      .map(({ id }) => id.toString())
+      .reduce((acc, item: string) => ({ ...acc, [item]: true }), {});
     this.expandedRowIds = this.items
       .slice(3, 5)
-      .map(({id}) => id.toString())
-      .reduce((acc, item: string) => ({...acc, [item]: true}), {});
+      .map(({ id }) => id.toString())
+      .reduce((acc, item: string) => ({ ...acc, [item]: true }), {});
   }
 
   // get more menu items for row
@@ -60,7 +60,7 @@ export class ExmgComplexGrid extends ExmgBaseGridDemo {
   private renderTableBody() {
     return repeat(
       this.items,
-      ({id}) => id,
+      ({ id }) => id,
       (i) => {
         return html`
           <tr data-row-key="${i.id}">
@@ -119,7 +119,7 @@ export class ExmgComplexGrid extends ExmgBaseGridDemo {
         ?sortable="${true}"
         @exmg-grid-sort-change="${this.onSortChange}"
         table-layout="fixed"
-        class=${classMap({dark: this.dark})}
+        class=${classMap({ dark: this.dark })}
       >
         <exmg-grid-smart-toolbar
           slot="toolbar"

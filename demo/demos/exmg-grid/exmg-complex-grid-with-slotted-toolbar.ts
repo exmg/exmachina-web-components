@@ -1,7 +1,7 @@
-import {html, css} from 'lit';
-import {customElement} from 'lit/decorators.js';
-import {classMap} from 'lit/directives/class-map.js';
-import {repeat} from 'lit/directives/repeat.js';
+import { html, css } from 'lit';
+import { customElement } from 'lit/decorators.js';
+import { classMap } from 'lit/directives/class-map.js';
+import { repeat } from 'lit/directives/repeat.js';
 import '@material/mwc-checkbox';
 import '@polymer/paper-item';
 import '@material/mwc-icon-button';
@@ -11,11 +11,11 @@ import '@exmg/exmg-grid/src/table/exmg-grid.js';
 import '@exmg/exmg-grid/src/table/exmg-grid-pagination.js';
 import '@exmg/exmg-grid/src/table/exmg-grid-base-toolbar.js';
 
-import {style as tableStyles} from '@exmg/exmg-grid/src/styles/exmg-grid-styles-css.js';
-import {style as demoStyles} from './demo-common-css.js';
+import { style as tableStyles } from '@exmg/exmg-grid/src/styles/exmg-grid-styles-css.js';
+import { style as demoStyles } from './demo-common-css.js';
 
-import {createIcon} from './exmg-icons.js';
-import {DEFAULT_SORT_COLUMN, DEFAULT_SORT_DIRECTION, ExmgBaseGridDemo} from './exmg-grid-demo.js';
+import { createIcon } from './exmg-icons.js';
+import { DEFAULT_SORT_COLUMN, DEFAULT_SORT_DIRECTION, ExmgBaseGridDemo } from './exmg-grid-demo.js';
 
 @customElement('demo-complex-grid-with-slotted-toolbar')
 export class ExmgComplexGridWithSlottedToolbar extends ExmgBaseGridDemo {
@@ -54,7 +54,7 @@ export class ExmgComplexGridWithSlottedToolbar extends ExmgBaseGridDemo {
   private renderTableBody() {
     return repeat(
       this.items,
-      ({id}) => id,
+      ({ id }) => id,
       (i) => {
         return html`
           <tr data-row-key="${i.id}">
@@ -107,7 +107,7 @@ export class ExmgComplexGridWithSlottedToolbar extends ExmgBaseGridDemo {
         default-sort-column="${DEFAULT_SORT_COLUMN}"
         default-sort-direction="${DEFAULT_SORT_DIRECTION}"
         ?sortable="${true}"
-        class=${classMap({dark: this.dark})}
+        class=${classMap({ dark: this.dark })}
         @exmg-grid-sort-change="${this.onSortChange}"
       >
         <exmg-grid-base-toolbar slot="toolbar">

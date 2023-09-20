@@ -1,16 +1,16 @@
-import {html, css} from 'lit';
-import {customElement} from 'lit/decorators.js';
-import {classMap} from 'lit/directives/class-map.js';
-import {repeat} from 'lit/directives/repeat.js';
+import { html, css } from 'lit';
+import { customElement } from 'lit/decorators.js';
+import { classMap } from 'lit/directives/class-map.js';
+import { repeat } from 'lit/directives/repeat.js';
 import '@material/mwc-checkbox';
 import '@exmg/exmg-grid/src/table/exmg-grid.js';
 import '@exmg/exmg-grid/src/table/exmg-grid-pagination.js';
-import {dragIcon, expandIcon} from './exmg-icons.js';
+import { dragIcon, expandIcon } from './exmg-icons.js';
 import '@exmg/exmg-grid/src/table/exmg-grid-smart-toolbar.js';
-import {ExmgBaseGridDemo} from './exmg-grid-demo.js';
+import { ExmgBaseGridDemo } from './exmg-grid-demo.js';
 
-import {style as tableStyles} from '@exmg/exmg-grid/src/styles/exmg-grid-styles-css.js';
-import {style as demoStyles} from './demo-common-css.js';
+import { style as tableStyles } from '@exmg/exmg-grid/src/styles/exmg-grid-styles-css.js';
+import { style as demoStyles } from './demo-common-css.js';
 
 @customElement('demo-complex-grid-sortable')
 export class ExmgComplexGridWithSortableRows extends ExmgBaseGridDemo {
@@ -36,7 +36,7 @@ export class ExmgComplexGridWithSortableRows extends ExmgBaseGridDemo {
   private renderTableBody() {
     return repeat(
       this.items,
-      ({id}) => id,
+      ({ id }) => id,
       (i) => {
         return html`
           <tr data-row-key="${i.id}">
@@ -92,7 +92,7 @@ export class ExmgComplexGridWithSortableRows extends ExmgBaseGridDemo {
         ?rows-selectable="${true}"
         expandable-toggle-selector=".expandable-toggle"
         table-layout="auto"
-        class=${classMap({dark: this.dark})}
+        class=${classMap({ dark: this.dark })}
         @exmg-grid-rows-order-changed="${this.onRowsOrderChanged}"
         @exmg-grid-selected-rows-change="${this.onSelectedRowsChange}"
       >

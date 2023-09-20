@@ -1,12 +1,12 @@
-import {html} from 'lit';
-import {property} from 'lit/decorators/property.js';
-import {customElement} from 'lit/decorators/custom-element.js';
-import {eventOptions} from 'lit/decorators/event-options.js';
+import { html } from 'lit';
+import { property } from 'lit/decorators/property.js';
+import { customElement } from 'lit/decorators/custom-element.js';
+import { eventOptions } from 'lit/decorators/event-options.js';
 
-import {classMap} from 'lit/directives/class-map.js';
-import {ButtonBase} from '@material/mwc-button/mwc-button-base.js';
-import {styles} from '@material/mwc-button/styles.css.js';
-import {style as newStyles} from './styles/exmg-button-styles-css.js';
+import { classMap } from 'lit/directives/class-map.js';
+import { ButtonBase } from '@material/mwc-button/mwc-button-base.js';
+import { styles } from '@material/mwc-button/styles.css.js';
+import { style as newStyles } from './styles/exmg-button-styles-css.js';
 import './exmg-spinner.js';
 
 /**
@@ -24,14 +24,14 @@ export class ExmgButton extends ButtonBase {
    * Whether or not the button is in loading state
    * @type {Boolean}
    */
-  @property({type: Boolean})
+  @property({ type: Boolean })
   loading = false;
 
   /**
    * Whether or not the button displays progress
    * @type {Number}
    */
-  @property({type: Number})
+  @property({ type: Number })
   progress?: number;
 
   static styles = [styles, newStyles];
@@ -82,7 +82,7 @@ export class ExmgButton extends ButtonBase {
     `;
   }
 
-  @eventOptions({passive: true})
+  @eventOptions({ passive: true })
   private handleRippleActivateA(evt?: Event) {
     const onUp = () => {
       window.removeEventListener('mouseup', onUp);

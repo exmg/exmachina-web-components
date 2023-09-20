@@ -1,5 +1,5 @@
-import {LitElement, html} from 'lit';
-import {customElement} from 'lit/decorators/custom-element.js';
+import { LitElement, html } from 'lit';
+import { customElement } from 'lit/decorators/custom-element.js';
 import '@exmg/exmg-copy-to-clipboard/exmg-copy-to-clipboard.js';
 import '@polymer/iron-demo-helpers/demo-snippet.js';
 

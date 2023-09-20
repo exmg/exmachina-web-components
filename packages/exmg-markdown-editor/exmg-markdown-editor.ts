@@ -368,7 +368,7 @@ export class EditorElement extends ExmgElement {
       extraKeys,
       lineWrapping: true,
     };
-
+    // eslint-disable-next-line
     const codeMirrorEditor: Editor = window.CodeMirror(this.editorElement!, editorConfig);
 
     /* Update markdown property with latest changes */
