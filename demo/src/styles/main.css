@@ -1,4 +1,4 @@
-html {
+body {
   /* Theme info */
   --mdc-theme-primary: #0071dc;
   --mdc-theme-primary-hover: #0060ca;
@@ -60,7 +60,7 @@ html {
   --paper-item-hover-background-color: yellow;
 }
 
-html[dark-theme] {
+body.dark {
   --dark-black: #000;
   --dark-ice: #f0f0ff;
   --dark-muted-black: rgb(24, 24, 27);
@@ -68,6 +68,7 @@ html[dark-theme] {
   --dark-hover-black: rgb(38, 38, 44);
 
   /* Theme info */
+  --mdc-theme-primary: #0057a8;
   --mdc-theme-secondary: var(--dark-ice);
   --mdc-theme-background: var(--dark-black);
   --mdc-theme-surface: var(--dark-double-muted-black);
@@ -199,7 +200,7 @@ body,
 html {
   margin: 0;
   padding: 1rem;
-  background: white;
+  background: var(--mdc-theme-surface);
   font-family: 'Roboto';
   -webkit-font-smoothing: antialiased;
 }

@@ -1,8 +1,8 @@
-import {html, LitElement, nothing} from 'lit';
-import {state} from 'lit/decorators.js';
-import {customElement} from 'lit/decorators/custom-element.js';
-import {elements} from './elements.js';
-import {style} from './styles/demo-app-css.js';
+import { html, LitElement, nothing, PropertyValueMap } from 'lit';
+import { query, state } from 'lit/decorators.js';
+import { customElement } from 'lit/decorators/custom-element.js';
+import { elements } from './elements.js';
+import { style } from './styles/demo-app-css.js';
 
 @customElement('demo-app')
 export class DemoApp extends LitElement {
@@ -10,6 +10,12 @@ export class DemoApp extends LitElement {
 
   @state()
   private selectedElement?: any;
+
+  @state()
+  darkMode = window.matchMedia('(prefers-color-scheme:dark)').matches;
+
+  @query('#darkSwitch')
+  darkSwitch?: HTMLInputElement;
 
   boundLocationChanged?: any;
 
@@ -20,6 +26,10 @@ export class DemoApp extends LitElement {
 
   private _handleLocationChanged() {
     this._updateFromUrl();
+  }
+
+  protected firstUpdated(_changedProperties: PropertyValueMap<any> | Map<PropertyKey, unknown>): void {
+    this.handleDarkMode();
   }
 
   _updateFromUrl() {
@@ -53,6 +63,15 @@ export class DemoApp extends LitElement {
     window.removeEventListener('popstate', this.boundLocationChanged);
 
     super.disconnectedCallback();
+  }
+
+  handleDarkMode() {
+    this.darkMode = this.darkSwitch?.checked ?? false;
+    this.setDarkMode();
+  }
+
+  setDarkMode() {
+    this.darkMode ? document.body.classList.add('dark') : document.body.classList.remove('dark');
   }
 
   private renderElements() {
@@ -138,6 +157,8 @@ export class DemoApp extends LitElement {
               <a href=${this.selectedElement.url} target="_blank">
                 <button class="npm" raised>NPMJS</button>
               </a>
+              <input id="darkSwitch" type="checkbox" ?checked=${this.darkMode} @change=${this.handleDarkMode} />
+              <div class="version">Dark mode</div>
             </div>
           </div>
         </section>
