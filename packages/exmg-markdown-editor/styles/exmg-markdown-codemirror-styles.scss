@@ -3,7 +3,7 @@
   /* Set height, width, borders, and global font properties here */
   font-family: monospace;
   height: 300px;
-  color: black;
+  color: var(--exmg-markdown-editor-code-color, black);
   direction: ltr;
 }
 /* PADDING */
@@ -22,8 +22,6 @@
   border-right: 1px solid #ddd;
   background-color: #f7f7f7;
   white-space: nowrap;
-}
-.CodeMirror-linenumbers {
 }
 .CodeMirror-linenumber {
   padding: 0 3px 0 5px;
@@ -229,7 +227,7 @@ div.CodeMirror span.CodeMirror-nonmatchingbracket {
 .CodeMirror {
   position: relative;
   overflow: hidden;
-  background: white;
+  background: var(--exmg-markdown-editor-code-background, white);
 }
 .CodeMirror-scroll {
   overflow: scroll !important; /* Things will break if this is overridden */
@@ -489,7 +487,7 @@ span.CodeMirror-selectedtext {
 }
 .preview-html {
   overflow: scroll;
-  background-color: #fff;
+  background-color: var(--exmg-markdown-editor-background-color, white);
 }
 :host([show-helper-label]) .preview-html {
   padding-top: 0px;
@@ -561,7 +559,7 @@ span.CodeMirror-selectedtext {
   box-shadow: inset 0 0 0 2px Highlight;
   box-shadow: inset 0 0 0 2px -webkit-focus-ring-color;
   overflow: hidden;
-  background: white;
+  background: var(--mdc-theme-surface, white);
 }
 .toolbar {
   position: relative;
