@@ -1,5 +1,5 @@
-import {ExmgQuerySelectors} from '../utils/exmg-query-selectors.js';
-import {EventDetailSelectedRowsChange} from '../types/exmg-grid-types.js';
+import { ExmgQuerySelectors } from '../utils/exmg-query-selectors.js';
+import { EventDetailSelectedRowsChange } from '../types/exmg-grid-types.js';
 
 const checkCheckbox = (checkboxElement: HTMLInputElement) => {
   checkboxElement.setAttribute('checked', 'checked');
@@ -43,7 +43,7 @@ export class ExmgRowSelectable {
     this.selectableCheckboxSelector = scs;
     this.disableRowClickSelection = drcs;
   }
-
+  // eslint-disable-next-line
   initFeature(bodyRows: NodeListOf<HTMLTableRowElement>) {
     const fireEvent = this.initAllCheckbox();
     const rowsSelectionSyncShouldTriggerEvent = this.syncRowSelectionWithBodyCheckboxes();
@@ -52,7 +52,7 @@ export class ExmgRowSelectable {
       this.fireSelectableRows();
     }
   }
-
+  // eslint-disable-next-line
   updateFeature(bodyRows: NodeListOf<HTMLTableRowElement>) {
     this.updateBodyRowsListeners(bodyRows);
     const rowsSelectionSyncShouldTriggerEvent = this.syncRowSelectionWithBodyCheckboxes();
@@ -79,7 +79,7 @@ export class ExmgRowSelectable {
       }),
     );
   }
-
+  // eslint-disable-next-line
   private updateBodyRowsListeners(bodyRows: NodeListOf<HTMLTableRowElement>) {
     bodyRows.forEach((row) => {
       row.setAttribute('data-is-selectable', '');
@@ -104,7 +104,8 @@ export class ExmgRowSelectable {
           this.selectedRows.push(row);
         }
 
-        const rowCheckbox = this.selectableCheckboxSelector && row.querySelector<HTMLInputElement>(this.selectableCheckboxSelector);
+        const rowCheckbox =
+          this.selectableCheckboxSelector && row.querySelector<HTMLInputElement>(this.selectableCheckboxSelector);
         if (rowCheckbox && rowCheckbox !== e.target) {
           if (isRowAlreadySelected) {
             uncheckCheckbox(rowCheckbox);
@@ -189,7 +190,9 @@ export class ExmgRowSelectable {
 
   private getBodyCheckboxes(): HTMLInputElement[] {
     return this.selectableCheckboxSelector
-      ? Array.from(this.querySelectors.getTableBody().querySelectorAll<HTMLInputElement>(this.selectableCheckboxSelector))
+      ? Array.from(
+          this.querySelectors.getTableBody().querySelectorAll<HTMLInputElement>(this.selectableCheckboxSelector),
+        )
       : [];
   }
 

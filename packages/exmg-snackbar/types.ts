@@ -1,4 +1,4 @@
 export interface SnackBarPayload {
-    message: string;
-    duration?: number;
+  message: string;
+  duration?: number;
 }

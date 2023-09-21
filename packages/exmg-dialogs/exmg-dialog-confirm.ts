@@ -1,14 +1,14 @@
-import {html} from 'lit';
-import {property, customElement, query} from 'lit/decorators.js';
-import {ifDefined} from 'lit/directives/if-defined.js';
-import {ExmgElement} from '@exmg/lit-base/index.js';
+import { html } from 'lit';
+import { property, customElement, query } from 'lit/decorators.js';
+import { ifDefined } from 'lit/directives/if-defined.js';
+import { ExmgElement } from '@exmg/lit-base/index.js';
 import '@material/mwc-icon-button';
-import {PaperDialogElement} from '@polymer/paper-dialog';
+import { PaperDialogElement } from '@polymer/paper-dialog';
 import '@polymer/paper-dialog';
 import '@exmg/exmg-button/exmg-button.js';
 import '@polymer/iron-form';
-import {style} from './styles/exmg-dialog-styles-css.js';
-import {closeIcon, warningIcon} from './exmg-dialog-icons.js';
+import { style } from './styles/exmg-dialog-styles-css.js';
+import { closeIcon, warningIcon } from './exmg-dialog-icons.js';
 
 /**
  * exmg-dialog-confirm
@@ -24,28 +24,28 @@ export class ExmgConfirmDialog extends ExmgElement {
    * Title of the dialog
    * @type {String}
    */
-  @property({type: String})
+  @property({ type: String })
   title = '';
 
   /**
    * Dialog message to display as confirmation question. Alternative would be to just add a slot body including a message.
    * @type {String}
    */
-  @property({type: String})
+  @property({ type: String })
   message = '';
 
   /**
    * Hide close button ?
    * @type {Boolean}
    */
-  @property({type: Boolean, attribute: 'hide-close-button'})
+  @property({ type: Boolean, attribute: 'hide-close-button' })
   hideCloseButton = false;
 
   /**
    * Copy for submit button
    * @type {String}
    */
-  @property({type: String, attribute: 'button-copy'})
+  @property({ type: String, attribute: 'button-copy' })
   buttonCopy = '';
 
   /**
@@ -53,14 +53,14 @@ export class ExmgConfirmDialog extends ExmgElement {
    * bar at the bottom of the dialog
    * @type {Boolean}
    */
-  @property({type: Boolean, reflect: true})
+  @property({ type: Boolean, reflect: true })
   submitting = false;
 
   /**
    * When set this will be shown in the error section of the dialog
    * @type {String}
    */
-  @property({type: String, attribute: 'error-message'})
+  @property({ type: String, attribute: 'error-message' })
   errorMessage?: string;
 
   @query('#dialog')
@@ -73,14 +73,14 @@ export class ExmgConfirmDialog extends ExmgElement {
    * Determine if a slot needs to be used or show the message
    * @type {Boolean}
    */
-  @property({type: Boolean})
+  @property({ type: Boolean })
   hasSlotContent = false;
 
   /**
    * Sets the action for scroll behaviour within the dialog
    * @type {String}
    */
-  @property({type: String, attribute: 'scroll-action'})
+  @property({ type: String, attribute: 'scroll-action' })
   scrollAction?: 'lock' | 'refit' | 'cancel' | undefined;
 
   private observer?: MutationObserver;
@@ -98,7 +98,7 @@ export class ExmgConfirmDialog extends ExmgElement {
     super.connectedCallback();
 
     // Options for the observer (which mutations to observe)
-    const config = {attributes: false, childList: true, subtree: false};
+    const config = { attributes: false, childList: true, subtree: false };
 
     // Create an observer instance linked to the callback function
     this.observer = new MutationObserver((list: MutationRecord[]) => {
@@ -205,7 +205,7 @@ export class ExmgConfirmDialog extends ExmgElement {
    * @private
    */
   private cancel() {
-    this.dispatchEvent(new CustomEvent('cancel', {bubbles: false, composed: true}));
+    this.dispatchEvent(new CustomEvent('cancel', { bubbles: false, composed: true }));
   }
 
   /**
@@ -223,7 +223,7 @@ export class ExmgConfirmDialog extends ExmgElement {
     }
 
     // dispatch event
-    this.dispatchEvent(new CustomEvent('submit', {bubbles: false, composed: true}));
+    this.dispatchEvent(new CustomEvent('submit', { bubbles: false, composed: true }));
   }
 
   /**

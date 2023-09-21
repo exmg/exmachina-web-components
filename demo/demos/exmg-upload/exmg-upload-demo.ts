@@ -1,5 +1,5 @@
-import {LitElement, html, css} from 'lit';
-import {customElement} from 'lit/decorators.js';
+import { LitElement, html, css } from 'lit';
+import { customElement } from 'lit/decorators.js';
 
 import './file-upload-section.js';
 

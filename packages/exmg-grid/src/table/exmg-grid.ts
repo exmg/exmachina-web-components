@@ -1,15 +1,15 @@
-import {html} from 'lit';
-import {ExmgElement} from '@exmg/lit-base/index.js';
-import {property, customElement, state} from 'lit/decorators.js';
-import {cache} from 'lit/directives/cache.js';
+import { html } from 'lit';
+import { ExmgElement } from '@exmg/lit-base/index.js';
+import { property, customElement, state } from 'lit/decorators.js';
+import { cache } from 'lit/directives/cache.js';
 import '@exmg/exmg-sortable/exmg-sortable.js';
-import {style as exmgGridTableStyles} from '../styles/exmg-grid-styles-css.js';
-import {ExmgRowSelectable} from './featrues/exmg-row-selectable.js';
-import {ExmgQuerySelectors} from './utils/exmg-query-selectors.js';
-import {ExmgRowExpandable} from './featrues/exmg-row-expandable.js';
-import {ExmgColumnSortable} from './featrues/exmg-column-sortable.js';
-import {ExmgRowSortable} from './featrues/exmg-row-sortable.js';
-import {EventDetailRowsOrderChanged, EventDetailRowsOrderUpdated, SORT_DIRECTION} from './types/exmg-grid-types.js';
+import { style as exmgGridTableStyles } from '../styles/exmg-grid-styles-css.js';
+import { ExmgRowSelectable } from './featrues/exmg-row-selectable.js';
+import { ExmgQuerySelectors } from './utils/exmg-query-selectors.js';
+import { ExmgRowExpandable } from './featrues/exmg-row-expandable.js';
+import { ExmgColumnSortable } from './featrues/exmg-column-sortable.js';
+import { ExmgRowSortable } from './featrues/exmg-row-sortable.js';
+import { EventDetailRowsOrderChanged, EventDetailRowsOrderUpdated, SORT_DIRECTION } from './types/exmg-grid-types.js';
 
 type GenericPropertyValues<T, V = unknown> = Map<T, V>;
 type Props = Exclude<keyof ExmgGrid, number | symbol>;
@@ -56,89 +56,89 @@ export class ExmgGrid extends ExmgElement {
   /**
    * Array of data which mapped to rows
    */
-  @property({type: Array})
+  @property({ type: Array })
   items: unknown[] = [];
 
   /**
    * Feature that turn on sort by column
    */
-  @property({type: Boolean, reflect: true})
+  @property({ type: Boolean, reflect: true })
   sortable = false;
 
   /**
    * Name of sort column which should be sorted by default
    */
-  @property({type: String, attribute: 'default-sort-column'})
+  @property({ type: String, attribute: 'default-sort-column' })
   defaultSortColumn?: string;
 
   /**
    * Default sort direction
    */
-  @property({type: String, attribute: 'default-sort-direction'})
+  @property({ type: String, attribute: 'default-sort-direction' })
   defaultSortDirection?: SORT_DIRECTION;
 
   /**
    * Feature that allow sort rows
    * If table has turn on feature `selectable` then it takes precedence and `rowSelectable` will be ignored
    */
-  @property({type: Boolean, reflect: true, attribute: 'rows-sortable'})
+  @property({ type: Boolean, reflect: true, attribute: 'rows-sortable' })
   rowsSortable = false;
 
   /**
    * Feature that allow select rows
    */
-  @property({type: Boolean, attribute: 'rows-selectable'})
+  @property({ type: Boolean, attribute: 'rows-selectable' })
   rowsSelectable = false;
 
   /**
    * By default a ros is also selactable by clicking anywhere inside the row when the rowSElectable option is enabled
    */
-  @property({type: Boolean, attribute: 'disable-row-click-selection'})
+  @property({ type: Boolean, attribute: 'disable-row-click-selection' })
   disableRowClickSelection = false;
 
   /**
    * If rows are selectable you can also pass selector to checkboxes.
    * We can have checkboxes in thead or / and tbody.
    */
-  @property({type: String, attribute: 'selectable-checkbox-selector'})
+  @property({ type: String, attribute: 'selectable-checkbox-selector' })
   selectableCheckboxSelector?: string;
 
   /**
    * Map of column names that should be hidden
    */
-  @property({type: Object})
+  @property({ type: Object })
   hiddenColumnNames: Record<string, string> = {};
 
   /**
    * Map of row id and selection state
    * Useful for setup default selection or manipulating programmatically
    */
-  @property({type: Object})
+  @property({ type: Object })
   selectedRowIds: Record<string, boolean> = {};
 
   /**
    * Map of row id and expandable row state
    * Useful for setup default expanded rows or manipulating programmatically
    */
-  @property({type: Object})
+  @property({ type: Object })
   expandedRowIds: Record<string, boolean> = {};
 
   /**
    * Selector to element inside row which will trigger expand / collapse action on related row detail
    */
-  @property({type: String, attribute: 'expandable-toggle-selector', reflect: true})
+  @property({ type: String, attribute: 'expandable-toggle-selector', reflect: true })
   expandableToggleSelector?: string;
 
   /**
    * Set table layout. If fixed then text overflow will be hidden and ellipsis added.
    */
-  @property({type: String, attribute: 'table-layout', reflect: true})
+  @property({ type: String, attribute: 'table-layout', reflect: true })
   tableLayout: 'fixed' | 'auto' = 'auto';
 
   @state()
   private querySelectors?: ExmgQuerySelectors;
 
-  @property({type: Boolean, reflect: true, attribute: 'data-with-toolbar'})
+  @property({ type: Boolean, reflect: true, attribute: 'data-with-toolbar' })
   withToolbar = false;
 
   private rowSelectableFeature?: ExmgRowSelectable;
@@ -172,7 +172,7 @@ export class ExmgGrid extends ExmgElement {
     }
     return undefined;
   }
-
+  // eslint-disable-next-line
   private getColumns(selector = 'th'): NodeListOf<HTMLElement> {
     return this.getQuerySelectors().getColumns(selector);
   }
@@ -187,7 +187,7 @@ export class ExmgGrid extends ExmgElement {
 
   private rowsOrderChange(e: CustomEvent) {
     setTimeout(() => {
-      const {sourceIndex, targetIndex} = e.detail;
+      const { sourceIndex, targetIndex } = e.detail;
       const items = [...this.items];
       const movedElement = items[sourceIndex];
 
@@ -198,14 +198,14 @@ export class ExmgGrid extends ExmgElement {
         new CustomEvent<EventDetailRowsOrderUpdated>('exmg-grid-rows-order-updated', {
           composed: true,
           bubbles: true,
-          detail: {sourceIndex, targetIndex},
+          detail: { sourceIndex, targetIndex },
         }),
       );
       this.dispatchEvent(
         new CustomEvent<EventDetailRowsOrderChanged<any>>('exmg-grid-rows-order-changed', {
           composed: true,
           bubbles: true,
-          detail: {items},
+          detail: { items },
         }),
       );
     }, 0);

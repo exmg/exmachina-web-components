@@ -1,15 +1,15 @@
-import {html} from 'lit';
-import {property, customElement} from 'lit/decorators.js';
-import {ExmgElement, observer} from '@exmg/lit-base/index.js';
-import {classMap} from 'lit/directives/class-map.js';
-import {style} from './styles/exmg-spinner-styles-css.js';
+import { html } from 'lit';
+import { property, customElement } from 'lit/decorators.js';
+import { ExmgElement, observer } from '@exmg/lit-base/index.js';
+import { classMap } from 'lit/directives/class-map.js';
+import { style } from './styles/exmg-spinner-styles-css.js';
 
 @customElement('exmg-button-spinner')
 export class ExmgSpinner extends ExmgElement {
-  @property({type: Boolean})
+  @property({ type: Boolean })
   coolingDown = false;
 
-  @property({type: Boolean, reflect: true})
+  @property({ type: Boolean, reflect: true })
   @observer(function (this: ExmgSpinner, value: boolean) {
     this.setAriaHidden(!value);
     this.coolingDown = !value;

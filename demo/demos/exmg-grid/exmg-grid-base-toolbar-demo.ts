@@ -1,6 +1,6 @@
-import {html, LitElement} from 'lit';
-import {customElement, state} from 'lit/decorators.js';
-import {repeat} from 'lit/directives/repeat.js';
+import { html, LitElement } from 'lit';
+import { customElement, state } from 'lit/decorators.js';
+import { repeat } from 'lit/directives/repeat.js';
 import '@exmg/exmg-grid/src/table/exmg-grid-toolbar-combobox.js';
 import '@exmg/exmg-grid/src/table/exmg-grid-base-toolbar.js';
 import '@polymer/paper-item/paper-item.js';

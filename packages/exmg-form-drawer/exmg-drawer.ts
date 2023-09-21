@@ -1,10 +1,10 @@
-import {LitElement, html} from 'lit';
-import {customElement, property} from 'lit/decorators.js';
-import {ifDefined} from 'lit/directives/if-defined.js';
+import { LitElement, html } from 'lit';
+import { customElement, property } from 'lit/decorators.js';
+import { ifDefined } from 'lit/directives/if-defined.js';
 import '@polymer/neon-animation/animations/slide-from-right-animation.js';
 import '@polymer/neon-animation/animations/slide-right-animation.js';
 import '@polymer/paper-dialog/paper-dialog.js';
-import {style} from './styles/exmg-drawer-styles-css.js';
+import { style } from './styles/exmg-drawer-styles-css.js';
 
 /**
  * ### Styling
@@ -22,21 +22,21 @@ export class ExmgDrawer extends LitElement {
    * The opened state of the drawer
    * @type {Boolean}
    */
-  @property({type: Boolean})
+  @property({ type: Boolean })
   opened = false;
 
   /**
    * Prevent cancel on outside click or not
    * @type {Boolean}
    */
-  @property({type: Boolean, attribute: 'no-cancel-on-outside-click'})
+  @property({ type: Boolean, attribute: 'no-cancel-on-outside-click' })
   noCancelOnOutsideClick = false;
 
   /**
    * Scroll action of the drawer
    * @type {'lock' | 'refit' | 'cancel' | undefined}
    */
-  @property({type: String, attribute: 'scroll-action'})
+  @property({ type: String, attribute: 'scroll-action' })
   scrollAction?: 'lock' | 'refit' | 'cancel' | undefined;
 
   handleOpenedChanged(e: CustomEvent) {

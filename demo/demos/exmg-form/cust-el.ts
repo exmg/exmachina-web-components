@@ -1,9 +1,9 @@
-import {LitElement, html} from 'lit';
-import {customElement, property} from 'lit/decorators.js';
+import { LitElement, html } from 'lit';
+import { customElement, property } from 'lit/decorators.js';
 
 @customElement('cust-el')
 export class CustEl extends LitElement {
-  @property({type: Boolean, attribute: 'register-for-reset', reflect: true})
+  @property({ type: Boolean, attribute: 'register-for-reset', reflect: true })
   // @ts-ignore
   private registerForReset?: boolean;
 

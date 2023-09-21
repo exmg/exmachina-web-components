@@ -1,5 +1,5 @@
-import {LitElement, html} from 'lit';
-import {customElement, property} from 'lit/decorators.js';
+import { LitElement, html } from 'lit';
+import { customElement, property } from 'lit/decorators.js';
 import '@polymer/paper-input/paper-input.js';
 import '@polymer/paper-checkbox/paper-checkbox.js';
 import '@exmg/exmg-markdown-editor/exmg-markdown-editor.js';
@@ -8,7 +8,7 @@ import './wrapper-el.js';
 
 @customElement('tab-1')
 export class Tab1El extends LitElement {
-  @property({type: Boolean})
+  @property({ type: Boolean })
   dirty = false;
 
   render() {
@@ -35,7 +35,7 @@ export class Tab1El extends LitElement {
     `;
   }
 
-  _handleDirty(e: CustomEvent<{dirty: boolean}>) {
+  _handleDirty(e: CustomEvent<{ dirty: boolean }>) {
     this.dirty = e.detail.dirty;
   }
 }

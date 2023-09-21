@@ -1,5 +1,5 @@
-import {html} from 'lit';
-import {ExmgElement} from '@exmg/lit-base/index.js';
+import { html } from 'lit';
+import { ExmgElement } from '@exmg/lit-base/index.js';
 
 export class ExmgSidemenuBadgeBase extends ExmgElement {
   render() {

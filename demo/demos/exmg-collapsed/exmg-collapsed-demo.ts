@@ -1,5 +1,5 @@
-import {LitElement, html, css} from 'lit';
-import {customElement, property} from 'lit/decorators.js';
+import { LitElement, html, css } from 'lit';
+import { customElement, property } from 'lit/decorators.js';
 import '@exmg/exmg-collapsed/exmg-collapsed.js';
 
 export const downArrowIcon = html`
@@ -11,42 +11,44 @@ export const downArrowIcon = html`
 
 @customElement('exmg-collapsed-demo')
 export class CollapsedDemo extends LitElement {
-  @property({type: Boolean})
+  @property({ type: Boolean })
   opened = false;
 
-  static styles = [css`
-    .main {
-      box-sizing: border-box;
-      padding: 1rem;
-      width: 400px;
-    }
-    .button {
-      display: flex;
-      align-items: center;
+  static styles = [
+    css`
+      .main {
+        box-sizing: border-box;
+        padding: 1rem;
+        width: 400px;
+      }
+      .button {
+        display: flex;
+        align-items: center;
 
-      padding: 1rem;
-      cursor: pointer;
-      justify-content: space-between;
-    }
-    .button:hover {
-      background: #ececec;
-    }
-    .button > * {
-      margin-right: 1rem;
-    }
-    .button[aria-expanded='true'] .icon {
-      -ms-transform: rotate(180deg);
-      transform: rotate(180deg);
-      transition: transform 150ms ease;
-    }
-    .icon {
-      width: 24px;
-      height: 24px;
-    }
-    p {
-      padding: 0 1rem;
-    }
-  `];
+        padding: 1rem;
+        cursor: pointer;
+        justify-content: space-between;
+      }
+      .button:hover {
+        background: #ececec;
+      }
+      .button > * {
+        margin-right: 1rem;
+      }
+      .button[aria-expanded='true'] .icon {
+        -ms-transform: rotate(180deg);
+        transform: rotate(180deg);
+        transition: transform 150ms ease;
+      }
+      .icon {
+        width: 24px;
+        height: 24px;
+      }
+      p {
+        padding: 0 1rem;
+      }
+    `,
+  ];
 
   render() {
     return html`
@@ -64,10 +66,12 @@ export class CollapsedDemo extends LitElement {
         </div>
         <exmg-collapsed id="collapsed" ?opened=${this.opened}
           ><p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure 
-            dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat 
-            non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+            dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
+            ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat
+            nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit
+            anim id est laborum.
+          </p>
         </exmg-collapsed>
       </div>
     `;

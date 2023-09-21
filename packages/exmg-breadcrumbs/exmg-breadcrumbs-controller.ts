@@ -1,7 +1,7 @@
-import {ReactiveControllerHost} from 'lit';
-import {observer} from '@exmg/lit-base/index.js';
-import {BreadcrumbItem} from './types.js';
-import {ExmgBreadcrumbs} from './exmg-breadcrumbs.js';
+import { ReactiveControllerHost } from 'lit';
+import { observer } from '@exmg/lit-base/index.js';
+import { BreadcrumbItem } from './types.js';
+import { ExmgBreadcrumbs } from './exmg-breadcrumbs.js';
 
 export interface BreadcrumbsControllerConfig {
   breadcrumbsElement?: ExmgBreadcrumbs;
@@ -11,7 +11,7 @@ export class BreadcrumbsController {
   _host: ReactiveControllerHost;
   breadcrumbsElement?: ExmgBreadcrumbs;
 
-  setBreadcrumbsBind: (e: CustomEvent<{items: BreadcrumbItem[]}>) => void;
+  setBreadcrumbsBind: (e: CustomEvent<{ items: BreadcrumbItem[] }>) => void;
   resetBreadcrumbsBind: () => void;
 
   @observer(function (this: BreadcrumbsController, breadcrumbs: BreadcrumbItem[]) {
@@ -19,7 +19,7 @@ export class BreadcrumbsController {
   })
   breadcrumbs?: BreadcrumbItem[] = [];
 
-  constructor(host: ReactiveControllerHost, {breadcrumbsElement}: BreadcrumbsControllerConfig) {
+  constructor(host: ReactiveControllerHost, { breadcrumbsElement }: BreadcrumbsControllerConfig) {
     (this._host = host).addController(this);
     this.breadcrumbsElement = breadcrumbsElement;
     this.setBreadcrumbsBind = this.setBreadcrumbs.bind(this);
@@ -35,7 +35,7 @@ export class BreadcrumbsController {
       new CustomEvent('breadcrumbs-set', {
         bubbles: true,
         composed: true,
-        detail: {items},
+        detail: { items },
       }),
     );
   }
@@ -54,7 +54,7 @@ export class BreadcrumbsController {
     this.breadcrumbsElement && (this.breadcrumbsElement.items = []);
   }
 
-  setBreadcrumbs(e: CustomEvent<{items: BreadcrumbItem[]}>) {
+  setBreadcrumbs(e: CustomEvent<{ items: BreadcrumbItem[] }>) {
     console.log('BONJOUR', this.breadcrumbsElement);
     this.breadcrumbsElement && (this.breadcrumbsElement.items = e.detail.items);
   }

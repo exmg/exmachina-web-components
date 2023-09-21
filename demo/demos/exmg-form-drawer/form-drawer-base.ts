@@ -1,8 +1,8 @@
-import {html, PropertyValues} from 'lit';
-import {property} from 'lit/decorators.js';
+import { html, PropertyValues } from 'lit';
+import { property } from 'lit/decorators.js';
 import '@exmg/exmg-form-drawer/exmg-form-drawer.js';
-import {style} from './form-drawer-base-styles.js';
-import {BaseElement} from './base-element.js';
+import { style } from './form-drawer-base-styles.js';
+import { BaseElement } from './base-element.js';
 
 export interface Observer {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -10,14 +10,15 @@ export interface Observer {
 }
 
 // eslint-disable-next-line
-export const observer = (observer: Observer) =>
+export const observer =
+  (observer: Observer) =>
   // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
   (proto: any, propName: PropertyKey) => {
     // if we haven't wrapped `updated` in this class, do so
     if (!proto.constructor._observers) {
       proto.constructor._observers = new Map<PropertyKey, Observer>();
       const userUpdated = proto.updated;
-      proto.updated = function(changedProperties: PropertyValues) {
+      proto.updated = function (changedProperties: PropertyValues) {
         userUpdated.call(this, changedProperties);
         changedProperties.forEach((v, k) => {
           const o = this.constructor._observers.get(k);
@@ -41,25 +42,25 @@ export const observer = (observer: Observer) =>
   };
 
 export abstract class FormDrawerBase<T> extends BaseElement {
-  @property({type: Object})
-  @observer(function(t: FormDrawerBase<T>, item: T) {
+  @property({ type: Object })
+  @observer(function (t: FormDrawerBase<T>, item: T) {
     t.itemChanged && t.itemChanged(item);
   })
   item?: T | null;
 
-  @property({type: Boolean})
+  @property({ type: Boolean })
   opened = false;
 
-  @property({type: String, attribute: 'update-title'})
+  @property({ type: String, attribute: 'update-title' })
   updateTitle = 'Update';
 
-  @property({type: String, attribute: 'add-title'})
+  @property({ type: String, attribute: 'add-title' })
   addTitle = 'Add';
 
-  @property({type: String, attribute: 'update-button'})
+  @property({ type: String, attribute: 'update-button' })
   updateButton = 'Update';
 
-  @property({type: String, attribute: 'add-button'})
+  @property({ type: String, attribute: 'add-button' })
   addButton = 'Add';
 
   static styles = [style];
@@ -95,7 +96,9 @@ export abstract class FormDrawerBase<T> extends BaseElement {
         submit-btn-title=${this.item ? this.updateButton : this.addButton}
         @submit=${this.item ? this.updateItem : this.createItem}
       >
-        ${this.item ? html` <span slot="title">${this.updateTitle}</span> ` : html` <span slot="title">${this.addTitle}</span> `}
+        ${this.item
+          ? html` <span slot="title">${this.updateTitle}</span> `
+          : html` <span slot="title">${this.addTitle}</span> `}
         ${this.opened ? body : html``}
       </exmg-form-drawer>
     `;

@@ -1,10 +1,10 @@
-import {LitElement, css, html} from 'lit';
-import {customElement, property, query} from 'lit/decorators.js';
-import {ifDefined} from 'lit/directives/if-defined.js';
+import { LitElement, css, html } from 'lit';
+import { customElement, property, query } from 'lit/decorators.js';
+import { ifDefined } from 'lit/directives/if-defined.js';
 
-import {ExmgFormDialog} from '@exmg/exmg-dialogs';
+import { ExmgFormDialog } from '@exmg/exmg-dialogs';
 import '@exmg/exmg-upload';
-import {ExmgUpload} from '@exmg/exmg-upload';
+import { ExmgUpload } from '@exmg/exmg-upload';
 import '@exmg/exmg-upload/src/exmg-upload-dialog.js';
 
 @customElement('file-upload-dialog')
@@ -18,7 +18,7 @@ export class FileUploadDialog extends LitElement {
   /**
    * Optional property. If not set it will look for the window.emconfig.backendHost
    */
-  @property({type: String})
+  @property({ type: String })
   uploadUrl = 'http://localhost:3000/upload';
 
   static styles = [
@@ -56,7 +56,7 @@ export class FileUploadDialog extends LitElement {
     this.dialog && this.dialog.done();
   }
 
-  _save(e: CustomEvent<{urls: string[]}>) {
+  _save(e: CustomEvent<{ urls: string[] }>) {
     // Implement call to save url(s)
     console.log('save', e.detail);
     this.dialog?.close();

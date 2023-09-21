@@ -1,10 +1,10 @@
-import {LitElement, html} from 'lit';
-import {customElement} from 'lit/decorators/custom-element.js';
+import { LitElement, html } from 'lit';
+import { customElement } from 'lit/decorators/custom-element.js';
 
 import '@exmg/exmg-dialogs/exmg-dialog-confirm';
 import '@exmg/exmg-dialogs/exmg-dialog-form';
 import '@exmg/exmg-dialogs/exmg-dialog-info';
-import {ExmgConfirmDialog} from '@exmg/exmg-dialogs/exmg-dialog-confirm.js';
+import { ExmgConfirmDialog } from '@exmg/exmg-dialogs/exmg-dialog-confirm.js';
 
 @customElement('exmg-dialogs-demo')
 export class DialogDemo extends LitElement {
@@ -52,9 +52,7 @@ export class DialogDemo extends LitElement {
     setTimeout(() => {
       try {
         // Throw error to simulate error
-        if (true) {
-          throw Error('User does not have permission to save data');
-        }
+        throw Error('User does not have permission to save data');
       } catch (err) {
         target.handleError(err instanceof Error ? err.message : 'Unknown Error');
       }
@@ -88,10 +86,7 @@ export class DialogDemo extends LitElement {
       </style>
       <div class="main">
         <div>
-          <exmg-button
-            @click=${() => this.getElementBySelector('#dialog0')!.open()}
-            >Dialog Confirm</exmg-button
-          >
+          <exmg-button @click=${() => this.getElementBySelector('#dialog0')!.open()}>Dialog Confirm</exmg-button>
           <exmg-dialog-confirm
             id="dialog0"
             class="dark"
@@ -103,8 +98,7 @@ export class DialogDemo extends LitElement {
           ></exmg-dialog-confirm>
         </div>
         <div>
-          <exmg-button
-            @click=${() => this.getElementBySelector('#dialog00')!.open()}
+          <exmg-button @click=${() => this.getElementBySelector('#dialog00')!.open()}
             >Dialog Confirm (Using slot)</exmg-button
           >
           <exmg-dialog-confirm
@@ -119,10 +113,7 @@ export class DialogDemo extends LitElement {
           </exmg-dialog-confirm>
         </div>
         <div>
-          <exmg-button
-            @click=${() => this.getElementBySelector('#dialog1')!.open()}
-            >Dialog Normal</exmg-button
-          >
+          <exmg-button @click=${() => this.getElementBySelector('#dialog1')!.open()}>Dialog Normal</exmg-button>
           <exmg-dialog-form
             class="dark"
             id="dialog1"
@@ -136,10 +127,7 @@ export class DialogDemo extends LitElement {
           </exmg-dialog-form>
         </div>
         <div>
-          <exmg-button
-            @click=${() => this.getElementBySelector('#dialog2')!.open()}
-            >Dialog Error</exmg-button
-          >
+          <exmg-button @click=${() => this.getElementBySelector('#dialog2')!.open()}>Dialog Error</exmg-button>
           <exmg-dialog-form
             id="dialog2"
             class="dark"
@@ -149,103 +137,81 @@ export class DialogDemo extends LitElement {
             @submit="${this._saveDataError}"
           >
             <p>
-              This setting either prevents or allows users to create multiple
-              accounts using the same email address if they sign in to your app
-              using different authentication providers.
+              This setting either prevents or allows users to create multiple accounts using the same email address if
+              they sign in to your app using different authentication providers.
             </p>
             <paper-input name="name" label="Name" required></paper-input>
-            <paper-input
-              name="password"
-              label="Password"
-              required
-            ></paper-input>
+            <paper-input name="password" label="Password" required></paper-input>
           </exmg-dialog-form>
         </div>
         <div>
-          <exmg-button
-            @click=${() => this.getElementBySelector('#dialog4a')!.open()}
+          <exmg-button @click=${() => this.getElementBySelector('#dialog4a')!.open()}
             >Dialog Info with scroll and normal title</exmg-button
           >
-          <exmg-dialog-info
-            class="dark"
-            id="dialog4a"
-            title="Title"
-            button-copy="Close"
-            @done="${this._done}"
-          >
+          <exmg-dialog-info class="dark" id="dialog4a" title="Title" button-copy="Close" @done="${this._done}">
             <div>
               <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam sit
-                amet pharetra turpis. Nullam tincidunt aliquet condimentum.
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam sit amet pharetra turpis. Nullam tincidunt
+                aliquet condimentum.
               </p>
               <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam sit
-                amet pharetra turpis. Nullam tincidunt aliquet condimentum.
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam sit amet pharetra turpis. Nullam tincidunt
+                aliquet condimentum.
               </p>
               <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam sit
-                amet pharetra turpis. Nullam tincidunt aliquet condimentum.
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam sit amet pharetra turpis. Nullam tincidunt
+                aliquet condimentum.
               </p>
               <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam sit
-                amet pharetra turpis. Nullam tincidunt aliquet condimentum.
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam sit amet pharetra turpis. Nullam tincidunt
+                aliquet condimentum.
               </p>
               <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam sit
-                amet pharetra turpis. Nullam tincidunt aliquet condimentum.
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam sit amet pharetra turpis. Nullam tincidunt
+                aliquet condimentum.
               </p>
               <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam sit
-                amet pharetra turpis. Nullam tincidunt aliquet condimentum.
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam sit amet pharetra turpis. Nullam tincidunt
+                aliquet condimentum.
               </p>
               <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam sit
-                amet pharetra turpis. Nullam tincidunt aliquet condimentum.
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam sit amet pharetra turpis. Nullam tincidunt
+                aliquet condimentum.
               </p>
               <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam sit
-                amet pharetra turpis. Nullam tincidunt aliquet condimentum.
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam sit amet pharetra turpis. Nullam tincidunt
+                aliquet condimentum.
               </p>
               <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam sit
-                amet pharetra turpis. Nullam tincidunt aliquet condimentum.
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam sit amet pharetra turpis. Nullam tincidunt
+                aliquet condimentum.
               </p>
               <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam sit
-                amet pharetra turpis. Nullam tincidunt aliquet condimentum.
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam sit amet pharetra turpis. Nullam tincidunt
+                aliquet condimentum.
               </p>
             </div>
           </exmg-dialog-info>
         </div>
         <div>
-          <exmg-button
-            @click=${() => this.getElementBySelector('#dialog4b')!.open()}
+          <exmg-button @click=${() => this.getElementBySelector('#dialog4b')!.open()}
             >Dialog Info without close btn</exmg-button
           >
-          <exmg-dialog-info
-            id="dialog4b"
-            title="Test"
-            hide-close-button
-            button-copy="Close"
-            @done="${this._done}"
-          >
+          <exmg-dialog-info id="dialog4b" title="Test" hide-close-button button-copy="Close" @done="${this._done}">
             <div>
               <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam sit
-                amet pharetra turpis. Nullam tincidunt aliquet condimentum.
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam sit amet pharetra turpis. Nullam tincidunt
+                aliquet condimentum.
               </p>
               <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam sit
-                amet pharetra turpis. Nullam tincidunt aliquet condimentum.
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam sit amet pharetra turpis. Nullam tincidunt
+                aliquet condimentum.
               </p>
             </div>
           </exmg-dialog-info>
         </div>
         <div>
-          <exmg-button
-            @click=${() => this.getElementBySelector('#dialog3')!.open()}
-            >Dialog Large</exmg-button
-          >
+          <exmg-button @click=${() => this.getElementBySelector('#dialog3')!.open()}>Dialog Large</exmg-button>
           <exmg-dialog-form
             id="dialog3"
             title="Create Ticket"
@@ -254,54 +220,26 @@ export class DialogDemo extends LitElement {
             @submit="${this._saveDataTicket}"
             large
           >
-            <exmg-paper-combobox
-              label="Project"
-              style="max-width:280px;"
-              always-float-label
-              required
-            >
+            <exmg-paper-combobox label="Project" style="max-width:280px;" always-float-label required>
               <paper-item>PlayToTV</paper-item>
               <paper-item>Website</paper-item>
             </exmg-paper-combobox>
-            <exmg-paper-combobox
-              label="Issue Type"
-              style="max-width:280px;"
-              always-float-label
-              required
-            >
+            <exmg-paper-combobox label="Issue Type" style="max-width:280px;" always-float-label required>
               <paper-item>Story</paper-item>
               <paper-item>Bug</paper-item>
             </exmg-paper-combobox>
             <p class="help">
-              Some issue types are unavailable due to incompatible field
-              configuration and/or workflow associations.
+              Some issue types are unavailable due to incompatible field configuration and/or workflow associations.
             </p>
             <hr />
-            <paper-input
-              name="name"
-              label="Summary"
-              required
-              always-float-label
-            ></paper-input>
-            <paper-input
-              name="reporter"
-              label="Reporter"
-              required
-              always-float-label
-            ></paper-input>
+            <paper-input name="name" label="Summary" required always-float-label></paper-input>
+            <paper-input name="reporter" label="Reporter" required always-float-label></paper-input>
             <p class="help">Start typing to get a list of possible matches.</p>
-            <exmg-paper-token-input
-              name="components"
-              label="Components"
-              always-float-label
-            >
+            <exmg-paper-token-input name="components" label="Components" always-float-label>
               <paper-item>javascript</paper-item>
               <paper-item>css</paper-item>
             </exmg-paper-token-input>
-            <p class="help">
-              Start typing to get a list of possible matches or press down to
-              select.
-            </p>
+            <p class="help">Start typing to get a list of possible matches or press down to select.</p>
             <paper-input
               name="estimate"
               label="Estimates"
@@ -309,21 +247,14 @@ export class DialogDemo extends LitElement {
               always-float-label
               style="max-width:180px;"
             ></paper-input>
-            <p class="help">
-              Estimated time needed to resolve this issue in hours.
-            </p>
+            <p class="help">Estimated time needed to resolve this issue in hours.</p>
             <label>Message</label>
             <exmg-markdown-editor>
               <marked-element markdown="# Hello Word!">
                 <div slot="markdown-html"></div>
               </marked-element>
             </exmg-markdown-editor>
-            <paper-input
-              name="test"
-              label="Test"
-              type="number"
-              always-float-label
-            ></paper-input>
+            <paper-input name="test" label="Test" type="number" always-float-label></paper-input>
           </exmg-dialog-form>
         </div>
       </div>

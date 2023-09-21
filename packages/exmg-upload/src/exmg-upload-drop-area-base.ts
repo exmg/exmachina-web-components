@@ -1,15 +1,15 @@
-import {html} from 'lit';
-import {property} from 'lit/decorators.js';
-import {classMap} from 'lit/directives/class-map.js';
+import { html } from 'lit';
+import { property } from 'lit/decorators.js';
+import { classMap } from 'lit/directives/class-map.js';
 
-import {DragAndDropMixin} from './mixins/exmg-upload-drag-drop-mixin.js';
-import {ExmgElement} from '@exmg/lit-base';
+import { DragAndDropMixin } from './mixins/exmg-upload-drag-drop-mixin.js';
+import { ExmgElement } from '@exmg/lit-base';
 
 export class ExmgUploadDropAreaBase extends DragAndDropMixin(ExmgElement) {
-  @property({type: String})
+  @property({ type: String })
   description?: string;
 
-  @property({type: Boolean})
+  @property({ type: Boolean })
   disabled?: boolean;
 
   render() {

@@ -1,11 +1,11 @@
-import {html} from 'lit';
-import {customElement, property} from 'lit/decorators.js';
-import {ExmgElement} from '@exmg/lit-base/index.js';
-import {repeat} from 'lit/directives/repeat.js';
+import { html } from 'lit';
+import { customElement, property } from 'lit/decorators.js';
+import { ExmgElement } from '@exmg/lit-base/index.js';
+import { repeat } from 'lit/directives/repeat.js';
 import '@material/mwc-icon-button';
 import '@polymer/paper-item/paper-item.js';
 import './exmg-grid-toolbar-combobox.js';
-import {style} from '../styles/exmg-grid-pagination-styles-css.js';
+import { style } from '../styles/exmg-grid-pagination-styles-css.js';
 
 /**
  * ### Styling
@@ -20,19 +20,19 @@ import {style} from '../styles/exmg-grid-pagination-styles-css.js';
 export class ExmgGridPagination extends ExmgElement {
   static styles = [style];
 
-  @property({type: String, attribute: 'page-size-label'})
+  @property({ type: String, attribute: 'page-size-label' })
   pageSizeLabel = 'Rows per page:';
 
-  @property({type: Array, attribute: 'page-size-options'})
+  @property({ type: Array, attribute: 'page-size-options' })
   pageSizeOptions: number[] = [10, 20, 30];
 
-  @property({type: Number, attribute: 'page-size'})
+  @property({ type: Number, attribute: 'page-size' })
   pageSize: number = this.pageSizeOptions[0];
 
-  @property({type: Number, attribute: 'page-index'})
+  @property({ type: Number, attribute: 'page-index' })
   pageIndex = 0;
 
-  @property({type: Number, attribute: 'item-count'})
+  @property({ type: Number, attribute: 'item-count' })
   itemCount = 0;
 
   private renderPageSizeLabel() {
@@ -106,7 +106,7 @@ export class ExmgGridPagination extends ExmgElement {
 
   private fireEventPageChanged(page: number) {
     this.dispatchEvent(
-      new CustomEvent('exmg-grid-pagination-page-changed', {bubbles: true, composed: true, detail: {page}}),
+      new CustomEvent('exmg-grid-pagination-page-changed', { bubbles: true, composed: true, detail: { page } }),
     );
   }
 
@@ -126,7 +126,7 @@ export class ExmgGridPagination extends ExmgElement {
   }
 
   private handleOnPageSizeChanged(e: CustomEvent) {
-    const {value} = e.detail;
+    const { value } = e.detail;
 
     if (typeof value !== 'undefined') {
       this.pageSize = parseInt(value, 10);
@@ -136,7 +136,7 @@ export class ExmgGridPagination extends ExmgElement {
         new CustomEvent('exmg-grid-pagination-page-size-changed', {
           bubbles: true,
           composed: true,
-          detail: {pageSize: this.pageSize, page: this.pageIndex},
+          detail: { pageSize: this.pageSize, page: this.pageIndex },
         }),
       );
     }

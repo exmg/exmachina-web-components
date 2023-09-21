@@ -1,23 +1,23 @@
-import {html} from 'lit';
-import {customElement, property, query} from 'lit/decorators.js';
-import {ExmgElement} from '@exmg/lit-base/index.js';
+import { html } from 'lit';
+import { customElement, property, query } from 'lit/decorators.js';
+import { ExmgElement } from '@exmg/lit-base/index.js';
 import '@material/mwc-menu';
 import '@material/mwc-list/mwc-list-item';
 import '@material/mwc-icon-button';
 
-import {SettingSelectionListItem} from './types/exmg-grid-toolbar-types.js';
-import {style} from '../styles/exmg-grid-setting-selection-list-styles-css.js';
-import {Menu} from '@material/mwc-menu';
+import { SettingSelectionListItem } from './types/exmg-grid-toolbar-types.js';
+import { style } from '../styles/exmg-grid-setting-selection-list-styles-css.js';
+import { Menu } from '@material/mwc-menu';
 
 @customElement('exmg-grid-setting-selection-list')
 export class ExmgGridSettingSelectionList extends ExmgElement {
-  @property({type: String})
+  @property({ type: String })
   tooltip = '';
 
-  @property({type: String})
+  @property({ type: String })
   icon = 'filter_list';
 
-  @property({type: Array})
+  @property({ type: Array })
   settingData: SettingSelectionListItem[] = [];
 
   @query('#menu')
@@ -34,7 +34,7 @@ export class ExmgGridSettingSelectionList extends ExmgElement {
 
   private dispatchSettingsChanged() {
     this.dispatchEvent(
-      new CustomEvent<{value: SettingSelectionListItem[]}>('exmg-grid-setting-changed', {
+      new CustomEvent<{ value: SettingSelectionListItem[] }>('exmg-grid-setting-changed', {
         bubbles: true,
         composed: true,
         detail: {

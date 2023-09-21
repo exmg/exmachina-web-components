@@ -1,5 +1,5 @@
-import {ExmgQuerySelectors} from '../utils/exmg-query-selectors.js';
-import {EventDetailSortChange, SORT_DIRECTION} from '../types/exmg-grid-types.js';
+import { ExmgQuerySelectors } from '../utils/exmg-query-selectors.js';
+import { EventDetailSortChange, SORT_DIRECTION } from '../types/exmg-grid-types.js';
 
 export class ExmgColumnSortable {
   private querySelectors: ExmgQuerySelectors;
@@ -30,13 +30,16 @@ export class ExmgColumnSortable {
   private registerListeners(column: HTMLElement, columnId: string) {
     column.addEventListener('click', () => {
       const columnSortDirection = column.getAttribute('data-sort-direction');
-      const nextSortDirection = columnSortDirection === 'ASC' ? 'DESC' : columnSortDirection === 'DESC' ? undefined : 'ASC';
+      const nextSortDirection =
+        columnSortDirection === 'ASC' ? 'DESC' : columnSortDirection === 'DESC' ? undefined : 'ASC';
       // reset previous
-      this.querySelectors.getColumns('th[data-sort-direction=ASC], th[data-sort-direction=DESC]').forEach((alreadySortedColumn) => {
-        if (alreadySortedColumn !== column) {
-          alreadySortedColumn.removeAttribute('data-sort-direction');
-        }
-      });
+      this.querySelectors
+        .getColumns('th[data-sort-direction=ASC], th[data-sort-direction=DESC]')
+        .forEach((alreadySortedColumn) => {
+          if (alreadySortedColumn !== column) {
+            alreadySortedColumn.removeAttribute('data-sort-direction');
+          }
+        });
 
       if (nextSortDirection) {
         column.setAttribute('data-sort-direction', nextSortDirection);

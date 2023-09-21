@@ -1,12 +1,12 @@
-import {LitElement, html} from 'lit';
-import {customElement, property} from 'lit/decorators.js';
+import { LitElement, html } from 'lit';
+import { customElement, property } from 'lit/decorators.js';
 
 import '@exmg/exmg-form/exmg-form.js';
-import {ExmgForm} from '@exmg/exmg-form/exmg-form.js';
+import { ExmgForm } from '@exmg/exmg-form/exmg-form.js';
 
 @customElement('wrapper-el')
 export class WrapperEl extends LitElement {
-  @property({type: String})
+  @property({ type: String })
   selectedValue = '';
 
   render() {

@@ -1,5 +1,5 @@
-import {Editor, KeyMap} from 'codemirror';
-import {ToolBarConfigItem, ToolBarOption} from './exmg-custom-types.js';
+import { Editor, KeyMap } from 'codemirror';
+import { ToolBarConfigItem, ToolBarOption } from './exmg-custom-types.js';
 
 const isMac = /Mac/.test(navigator.platform);
 export const convertShortcut = (name: string): string => {
@@ -26,6 +26,7 @@ export const debounce = (time: number) => {
   return (cb?: unknown): void => {
     clearTimeout(timer);
     if (cb) {
+      // eslint-disable-next-line
       timer = window.setTimeout(cb as TimerHandler, time);
     }
   };
@@ -35,7 +36,7 @@ export const ENTER_KEY_CODE = 13;
 
 /* initialize key map */
 export const KEY_MAPS: KeyMap = {
-  'Tab': (codeMirror: Editor) => {
+  Tab: (codeMirror: Editor) => {
     const ranges = codeMirror.getDoc().listSelections();
     const pos = ranges[0].head;
     const eolState = codeMirror.getStateAfter(pos.line);
@@ -76,15 +77,15 @@ export const KEY_MAPS: KeyMap = {
 };
 
 export const SHORTCUTS = {
-  'undo': 'Cmd-Z',
-  'redo': 'Cmd-Y',
-  'strong': 'Cmd-B',
-  'italic': 'Cmd-I',
-  'quote': "Cmd-'",
+  undo: 'Cmd-Z',
+  redo: 'Cmd-Y',
+  strong: 'Cmd-B',
+  italic: 'Cmd-I',
+  quote: "Cmd-'",
   'unordered-list': 'Cmd-Alt-L',
   'ordered-list': 'Cmd-L',
   'split-view': 'F9',
-  'fullscreen': 'F11',
+  fullscreen: 'F11',
 };
 
 export const DEFAULT_TOOLBAR_OPTIONS: ToolBarOption[] = [

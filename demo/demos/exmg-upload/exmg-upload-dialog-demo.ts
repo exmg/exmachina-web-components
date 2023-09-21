@@ -1,7 +1,7 @@
-import {LitElement, html, css} from 'lit';
-import {customElement, query} from 'lit/decorators.js';
+import { LitElement, html, css } from 'lit';
+import { customElement, query } from 'lit/decorators.js';
 import './file-upload-dialog.js';
-import {FileUploadDialog} from './file-upload-dialog.js';
+import { FileUploadDialog } from './file-upload-dialog.js';
 
 window.uploadDefaults = {
   headers: {

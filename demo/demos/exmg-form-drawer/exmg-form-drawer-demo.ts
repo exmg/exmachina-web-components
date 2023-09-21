@@ -1,5 +1,5 @@
-import {LitElement, html} from 'lit';
-import {customElement, property, query} from 'lit/decorators.js';
+import { LitElement, html } from 'lit';
+import { customElement, property, query } from 'lit/decorators.js';
 import '@exmg/exmg-button/exmg-button.js';
 import '@exmg/exmg-markdown-editor/exmg-markdown-editor.js';
 import '@polymer/paper-input/paper-input.js';
@@ -8,32 +8,32 @@ import '@polymer/paper-item/paper-item.js';
 import '@exmg/exmg-form/exmg-form.js';
 import '@vaadin/vaadin-date-picker/vaadin-date-picker.js';
 import '@exmg/exmg-form-drawer/exmg-form-drawer.js';
-import {ExmgFormDrawer} from '@exmg/exmg-form-drawer/exmg-form-drawer.js';
+import { ExmgFormDrawer } from '@exmg/exmg-form-drawer/exmg-form-drawer.js';
 
 @customElement('exmg-drawer-demo')
 export class Drawer extends LitElement {
-  @property({type: Boolean})
+  @property({ type: Boolean })
   opened = false;
 
-  @property({type: Boolean})
+  @property({ type: Boolean })
   shouldFail = false;
 
-  @property({type: Boolean})
+  @property({ type: Boolean })
   keepOpenedOnSubmitSuccess = false;
 
-  @property({type: Boolean})
+  @property({ type: Boolean })
   resetFormOnSubmitSuccess = false;
 
-  @property({type: Boolean})
+  @property({ type: Boolean })
   noCancelOnOutsideClick = false;
 
-  @property({type: Boolean})
+  @property({ type: Boolean })
   submitBtnHidden = false;
 
-  @property({type: Boolean})
+  @property({ type: Boolean })
   disableStickyHeader = true;
 
-  @property({type: String})
+  @property({ type: String })
   markdownValue?: string = '123';
 
   @query('exmg-form-drawer')
@@ -103,7 +103,12 @@ export class Drawer extends LitElement {
         />
         <br /><br />
         <label>
-          <input type="checkbox" name="shouldFail" ?checked="${this.shouldFail}" @change="${this.handleShouldFailChange}" />
+          <input
+            type="checkbox"
+            name="shouldFail"
+            ?checked="${this.shouldFail}"
+            @change="${this.handleShouldFailChange}"
+          />
           Should Fail
         </label>
         <br /><br />
@@ -139,7 +144,11 @@ export class Drawer extends LitElement {
 
         <br /><br />
         <label>
-          <input type="checkbox" name="hodeSubmitButton" @change="${() => (this.submitBtnHidden = !this.submitBtnHidden)}" />
+          <input
+            type="checkbox"
+            name="hodeSubmitButton"
+            @change="${() => (this.submitBtnHidden = !this.submitBtnHidden)}"
+          />
           Hide submit button
         </label>
         <br /><br />
@@ -167,7 +176,12 @@ export class Drawer extends LitElement {
           <paper-item>Trivia</paper-item>
           <paper-item>Other</paper-item>
         </exmg-paper-combobox>
-        <paper-input name="question" label="Question" value="Who's Dylan Hartigan's favorite artist?" required></paper-input>
+        <paper-input
+          name="question"
+          label="Question"
+          value="Who's Dylan Hartigan's favorite artist?"
+          required
+        ></paper-input>
         <paper-input name="answer_a" label="Answer A" value="Beyoncé"></paper-input>
         <paper-input name="answer_b" label="Answer B" value="Eminem"></paper-input>
         <paper-input name="answer_c" label="Answer C" value="Ariana Grande"></paper-input>

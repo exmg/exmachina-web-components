@@ -1,5 +1,5 @@
-import {LitElement, html} from 'lit';
-import {customElement, property} from 'lit/decorators.js';
+import { LitElement, html } from 'lit';
+import { customElement, property } from 'lit/decorators.js';
 import '@material/mwc-tab';
 import '@material/mwc-tab-bar';
 
@@ -9,7 +9,7 @@ import './tab-3.js';
 
 @customElement('form-demo')
 export class FormDemo extends LitElement {
-  @property({type: Number})
+  @property({ type: Number })
   private activeTabIndex = 1;
 
   renderTab() {
@@ -26,7 +26,10 @@ export class FormDemo extends LitElement {
 
   render() {
     return html`
-      <mwc-tab-bar activeIndex="1" @MDCTabBar:activated=${(e: CustomEvent<{index: number}>) => (this.activeTabIndex = e.detail.index)}>
+      <mwc-tab-bar
+        activeIndex="1"
+        @MDCTabBar:activated=${(e: CustomEvent<{ index: number }>) => (this.activeTabIndex = e.detail.index)}
+      >
         <mwc-tab label="one"></mwc-tab>
         <mwc-tab label="two"></mwc-tab>
         <mwc-tab label="three"></mwc-tab>

@@ -1,6 +1,6 @@
-import {html, css} from 'lit';
-import {customElement, property} from 'lit/decorators.js';
-import {ExmgElement} from '@exmg/lit-base/index.js';
+import { html, css } from 'lit';
+import { customElement, property } from 'lit/decorators.js';
+import { ExmgElement } from '@exmg/lit-base/index.js';
 import './exmg-grid-toolbar.js';
 import {
   Filter,
@@ -19,40 +19,40 @@ import {
 
 @customElement('exmg-grid-smart-toolbar')
 export class ExmgGridSmartToolbar extends ExmgElement {
-  @property({type: String})
+  @property({ type: String })
   description = '';
 
-  @property({type: Array})
+  @property({ type: Array })
   actions: ActionWithCondition[] = [];
 
-  @property({type: Array})
+  @property({ type: Array })
   filters: Filter[] = [];
 
-  @property({type: Array})
+  @property({ type: Array })
   settings: Setting[] = [];
 
-  @property({type: Number, attribute: 'amount-of-selected-items'})
+  @property({ type: Number, attribute: 'amount-of-selected-items' })
   amountOfSelectedItems = 0;
 
-  @property({type: Boolean, attribute: 'show-column-filter'})
+  @property({ type: Boolean, attribute: 'show-column-filter' })
   showColumnFilter = false;
 
-  @property({type: String, attribute: 'column-filter-button-tooltip'})
+  @property({ type: String, attribute: 'column-filter-button-tooltip' })
   columnFilterButtonTooltip = 'Column selection';
 
-  @property({type: String, attribute: 'column-filter-dialog-title'})
+  @property({ type: String, attribute: 'column-filter-dialog-title' })
   columnFilterDialogTitle = 'Select columns';
 
-  @property({type: Array, attribute: 'column-filter-columns'})
+  @property({ type: Array, attribute: 'column-filter-columns' })
   columnFilterColumns: SettingSelectionListItem[] = [];
 
-  @property({type: Boolean})
+  @property({ type: Boolean })
   searchEnabled = false;
 
-  @property({type: String})
+  @property({ type: String })
   searchPlaceholder = 'Search';
 
-  @property({type: Boolean})
+  @property({ type: Boolean })
   disableSeperator = false;
 
   static styles = [

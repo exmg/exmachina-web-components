@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/explicit-module-boundary-types */
-import {LitElement} from 'lit';
-import {property, state} from 'lit/decorators.js';
+import { LitElement } from 'lit';
+import { property, state } from 'lit/decorators.js';
 import '@material/mwc-checkbox';
 import '@exmg/exmg-grid/src/table/exmg-grid.js';
 import '@exmg/exmg-grid/src/table/exmg-grid-pagination.js';
@@ -18,8 +18,12 @@ import {
   SettingConfigId,
   SettingSelectionListItem,
 } from '@exmg/exmg-grid/src/table/types/exmg-grid-toolbar-types.js';
-import {EventDetailRowsOrderChanged, EventDetailSelectedRowsChange, EventDetailSortChange} from '@exmg/exmg-grid/src/table/types/exmg-grid-types.js';
-import {EventSelectPayload} from '@exmg/exmg-grid/src/table/exmg-grid-toolbar-combobox.js';
+import {
+  EventDetailRowsOrderChanged,
+  EventDetailSelectedRowsChange,
+  EventDetailSortChange,
+} from '@exmg/exmg-grid/src/table/types/exmg-grid-types.js';
+import { EventSelectPayload } from '@exmg/exmg-grid/src/table/exmg-grid-toolbar-combobox.js';
 
 function isString(x: any): x is string {
   return typeof x === 'string';
@@ -35,9 +39,9 @@ export interface Income {
 const generateRows = (length = 50, startId = 1): Income[] => {
   const randomAmount = () => Number.parseFloat((Math.random() * 1000).toFixed(2));
   const source: Income[] = [
-    {id: 1, month: 'January', amount: randomAmount(), year: 2000, test: '1'},
-    {id: 2, month: 'February', amount: randomAmount(), year: 2000, test: '1'},
-    {id: 3, month: 'March', amount: randomAmount(), year: 2000, test: '1'},
+    { id: 1, month: 'January', amount: randomAmount(), year: 2000, test: '1' },
+    { id: 2, month: 'February', amount: randomAmount(), year: 2000, test: '1' },
+    { id: 3, month: 'March', amount: randomAmount(), year: 2000, test: '1' },
   ];
 
   const rows: Income[] = [];
@@ -45,7 +49,7 @@ const generateRows = (length = 50, startId = 1): Income[] => {
   while (rows.length < length) {
     const items = source.map((it) => {
       id = id + 1;
-      return {...it, id, amount: randomAmount()};
+      return { ...it, id, amount: randomAmount() };
     });
     rows.push(...items);
   }
@@ -66,10 +70,10 @@ const getItemByPage = (pageIndex: number, pageSize: number): Income[] => {
 };
 
 export abstract class ExmgBaseGridDemo extends LitElement {
-  @property({type: Array})
+  @property({ type: Array })
   items: Income[];
 
-  @property({type: Boolean})
+  @property({ type: Boolean })
   dark = false;
 
   @state()
@@ -166,13 +170,13 @@ export abstract class ExmgBaseGridDemo extends LitElement {
   ];
 
   protected columns: SettingSelectionListItem[] = [
-    {id: 'month', title: 'Month', selected: true},
-    {id: 'year', title: 'Year', selected: true},
-    {id: 'amount', title: 'Amount', selected: true},
+    { id: 'month', title: 'Month', selected: true },
+    { id: 'year', title: 'Year', selected: true },
+    { id: 'amount', title: 'Amount', selected: true },
   ];
 
   // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
-  protected onActionExecuted(e: CustomEvent<{id: string}>) {
+  protected onActionExecuted(e: CustomEvent<{ id: string }>) {
     this.handleAction(e.detail.id);
   }
 
@@ -185,8 +189,8 @@ export abstract class ExmgBaseGridDemo extends LitElement {
     switch (actionId) {
       case 'delete': {
         const rowIds = this.selectedRows.map((row) => row.getAttribute('data-row-key'));
-        allItems = allItems.filter(({id}) => !rowIds.includes(id.toString()));
-        filteredItems = filteredItems.filter(({id}) => !rowIds.includes(id.toString()));
+        allItems = allItems.filter(({ id }) => !rowIds.includes(id.toString()));
+        filteredItems = filteredItems.filter(({ id }) => !rowIds.includes(id.toString()));
         this.selectedRows = [];
         this.items = getItemByPage(this.pageIndex, this.pageSize);
         break;
@@ -195,29 +199,29 @@ export abstract class ExmgBaseGridDemo extends LitElement {
         const rowIds = this.selectedRows.map((row) => row.getAttribute('data-row-key'));
         const [idToReplace, ...idsToRemove] = rowIds;
         const mergedRow = allItems
-          .filter(({id}) => rowIds.includes(id.toString()))
+          .filter(({ id }) => rowIds.includes(id.toString()))
           .reduce((acc: Income | void, item) => {
             if (acc) {
-              return {...acc, amount: acc.amount + item.amount};
+              return { ...acc, amount: acc.amount + item.amount };
             }
 
-            return {...item};
+            return { ...item };
           }, undefined)! as Income;
 
         allItems = allItems
-          .filter(({id}) => !idsToRemove.includes(id.toString()))
+          .filter(({ id }) => !idsToRemove.includes(id.toString()))
           .map((it) => {
             if (it.id.toString() === idToReplace) {
-              return {...mergedRow};
+              return { ...mergedRow };
             }
             return it;
           });
 
         filteredItems = filteredItems
-          .filter(({id}) => !idsToRemove.includes(id.toString()))
+          .filter(({ id }) => !idsToRemove.includes(id.toString()))
           .map((it) => {
             if (it.id.toString() === idToReplace) {
-              return {...mergedRow};
+              return { ...mergedRow };
             }
             return it;
           });
@@ -245,13 +249,13 @@ export abstract class ExmgBaseGridDemo extends LitElement {
     this.items = getItemByPage(this.pageIndex, this.pageSize);
   }
 
-  protected onSearchChanged(e: CustomEvent<{value: string}>) {
+  protected onSearchChanged(e: CustomEvent<{ value: string }>) {
     this.searchValue = e.detail.value;
     this.updateSearchItems();
   }
 
-  protected onFilterChanged(e: CustomEvent<{id: string; value: string}>) {
-    const {id, value} = e.detail;
+  protected onFilterChanged(e: CustomEvent<{ id: string; value: string }>) {
+    const { id, value } = e.detail;
     this.handleFilterChanged(id, value);
   }
 
@@ -266,7 +270,7 @@ export abstract class ExmgBaseGridDemo extends LitElement {
     const filterId = value !== 'all' ? id : null;
     switch (filterId) {
       case 'month':
-        filteredItems = allItems.filter(({month}) => month.toLowerCase() === value);
+        filteredItems = allItems.filter(({ month }) => month.toLowerCase() === value);
         break;
       default:
         filteredItems = [...allItems];
@@ -276,26 +280,26 @@ export abstract class ExmgBaseGridDemo extends LitElement {
   }
 
   protected onSettingChanged(e: CustomEvent<EventDetailGridToolbarSettingChanged>) {
-    const {id, value} = e.detail;
+    const { id, value } = e.detail;
     if (id === SettingConfigId.ColumnSelector) {
       this.hiddenColumns = value
         .filter((it: SettingSelectionListItem) => !it.selected)
         .reduce((acc: Record<string, string>, item: SettingSelectionListItem) => {
-          return {...acc, [item.id]: item.id};
+          return { ...acc, [item.id]: item.id };
         }, {});
     }
   }
 
   protected toggleMonthColumn(event: Event) {
     event.preventDefault();
-    const {month, ...rest} = this.hiddenColumns;
-    this.hiddenColumns = month ? {...rest} : {...rest, month: 'month'};
+    const { month, ...rest } = this.hiddenColumns;
+    this.hiddenColumns = month ? { ...rest } : { ...rest, month: 'month' };
   }
 
   protected toggleYearColumn(event: Event) {
     event.preventDefault();
-    const {year, ...rest} = this.hiddenColumns;
-    this.hiddenColumns = year ? {...rest} : {...rest, year: 'year'};
+    const { year, ...rest } = this.hiddenColumns;
+    this.hiddenColumns = year ? { ...rest } : { ...rest, year: 'year' };
   }
 
   protected refreshTable() {
@@ -307,11 +311,11 @@ export abstract class ExmgBaseGridDemo extends LitElement {
   }
 
   private createRowIdToStateMap(state: boolean, start = 0, end = 3): Record<string, boolean> {
-    return this.items.slice(start, end).reduce((acc, it) => ({...acc, [it.id.toString()]: state}), {});
+    return this.items.slice(start, end).reduce((acc, it) => ({ ...acc, [it.id.toString()]: state }), {});
   }
 
   protected collapseRow(rowId: string) {
-    this.expandedRowIds = {[rowId]: false};
+    this.expandedRowIds = { [rowId]: false };
   }
 
   protected expandFirstRows() {
@@ -341,7 +345,7 @@ export abstract class ExmgBaseGridDemo extends LitElement {
   protected sortItems(column: string, sortDirection?: 'ASC' | 'DESC') {
     if (!sortDirection) {
       // reset - sort by ID
-      filteredItems.sort(({id: xId}, {id: yId}) => (xId > yId ? 1 : xId < yId ? -1 : 0));
+      filteredItems.sort(({ id: xId }, { id: yId }) => (xId > yId ? 1 : xId < yId ? -1 : 0));
     } else {
       const comparisonValue = sortDirection === 'ASC' ? 1 : -1;
       filteredItems.sort((x: Record<string, any>, y: Record<string, any>) => {
@@ -353,7 +357,7 @@ export abstract class ExmgBaseGridDemo extends LitElement {
   }
 
   protected onSortChange(event: CustomEvent<EventDetailSortChange>) {
-    const {column, sortDirection} = event.detail;
+    const { column, sortDirection } = event.detail;
     this.sortItems(column, sortDirection);
     this.pageIndex = 0;
     this.items = getItemByPage(this.pageIndex, this.pageSize);
