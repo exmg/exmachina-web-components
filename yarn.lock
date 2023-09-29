@@ -1074,7 +1074,7 @@
 
 "@exmg/exmg-dialogs@file:../exmg-dialogs", "@exmg/exmg-dialogs@file:/Users/rodriguecouanon/Desktop/Work/exmachina-web-components/packages/exmg-dialogs":
   "resolved" "file:packages/exmg-dialogs"
-  "version" "8.1.37"
+  "version" "8.1.38"
   dependencies:
     "@exmg/exmg-button" "file:../exmg-button"
     "@exmg/lit-base" "^1.1.8"
@@ -1087,7 +1087,7 @@
 
 "@exmg/exmg-form-drawer@file:/Users/rodriguecouanon/Desktop/Work/exmachina-web-components/packages/exmg-form-drawer":
   "resolved" "file:packages/exmg-form-drawer"
-  "version" "8.1.37"
+  "version" "8.1.38"
   dependencies:
     "@exmg/exmg-button" "file:../exmg-button"
     "@exmg/exmg-form" "file:../exmg-form"
@@ -1098,7 +1098,7 @@
 
 "@exmg/exmg-form@file:../exmg-form", "@exmg/exmg-form@file:/Users/rodriguecouanon/Desktop/Work/exmachina-web-components/packages/exmg-form":
   "resolved" "file:packages/exmg-form"
-  "version" "8.1.37"
+  "version" "8.1.38"
   dependencies:
     "@exmg/exmg-button" "file:../exmg-button"
     "@exmg/lit-base" "^1.1.8"
@@ -1135,7 +1135,7 @@
 
 "@exmg/exmg-markdown-editor@file:../exmg-markdown-editor", "@exmg/exmg-markdown-editor@file:/Users/rodriguecouanon/Desktop/Work/exmachina-web-components/packages/exmg-markdown-editor":
   "resolved" "file:packages/exmg-markdown-editor"
-  "version" "8.1.36"
+  "version" "8.1.37"
   dependencies:
     "@exmg/lit-base" "^1.1.8"
     "@material/mwc-base" "=0.25.3"
@@ -1269,7 +1269,7 @@
 
 "@exmg/exmg-upload@file:/Users/rodriguecouanon/Desktop/Work/exmachina-web-components/packages/exmg-upload":
   "resolved" "file:packages/exmg-upload"
-  "version" "1.0.9"
+  "version" "1.0.10"
   dependencies:
     "@exmg/exmg-button" "file:../exmg-button"
     "@exmg/exmg-dialogs" "file:../exmg-dialogs"
