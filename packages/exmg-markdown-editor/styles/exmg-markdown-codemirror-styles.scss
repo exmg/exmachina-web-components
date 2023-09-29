@@ -38,7 +38,7 @@
 }
 /* CURSOR */
 .CodeMirror-cursor {
-  border-left: 1px solid black;
+  border-left: 1px solid var(--exmg-markdown-editor-code-cursor-color, black);
   border-right: none;
   width: 0;
 }

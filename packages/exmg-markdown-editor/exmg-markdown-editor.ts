@@ -82,6 +82,7 @@ import { MarkedOptions, Renderer } from 'marked';
  *  `--exmg-markdown-editor-code-hover` | Editor code part hover background color | `white`
  *  `--exmg-markdown-editor-code-color` | Editor code color | `black`
  *  `--exmg-markdown-editor-code-background` | Editor code background | `white`
+ *  `--exmg-markdown-editor-code-cursor-color` | Editor cursor color | `black`
  *
  *  # Events:
  *  - value-change - where detail is current markdown value
