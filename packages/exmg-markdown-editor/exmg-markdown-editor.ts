@@ -783,7 +783,6 @@ export class EditorElement extends ExmgElement {
       </div>
       <div class="container" style="height: ${this.height && !this.fullscreen ? `${this.height}px` : 'inherit'};">
         <div id="editor"></div>
-        <div id="preview" class="preview-html"><slot></slot></div>
       </div>
     `;
   }
