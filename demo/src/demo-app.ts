@@ -8,13 +8,16 @@ import '@material/web/switch/switch.js';
 import '@material/web/list/list.js';
 import '@material/web/list/list-item.js';
 import '@material/web/button/filled-button.js';
-import { Switch } from '@material/web/switch/internal/switch.js';
+import '@material/web/iconbutton/icon-button.js';
+import '@material/web/menu/menu.js';
 import { demos } from '../demos/demos.js';
 import { repeat } from 'lit/directives/repeat.js';
-import { setupTheme, applyTheme } from './theme-module.js';
 
-const darkMode = window.matchMedia('(prefers-color-scheme:dark)').matches;
-setupTheme(darkMode);
+import './theme/theme-changer.js';
+// import { setupTheme } from './theme-module.js';
+
+// const darkMode = window.matchMedia('(prefers-color-scheme:dark)').matches;
+// setupTheme(darkMode);
 
 @customElement('demo-app')
 export class DemoApp extends LitElement {
@@ -23,11 +26,14 @@ export class DemoApp extends LitElement {
   @state()
   private selectedElement?: any;
 
-  @query('#darkModeSwitch')
-  private darkModeSwitch?: Switch;
-
+  /**
+   * Whether or not the color picker menu is open.
+   */
   @state()
-  darkMode = darkMode;
+  private menuOpen = false;
+
+  @query('theme-changer')
+  private themeChanger!: HTMLElement;
 
   boundLocationChanged?: any;
 
@@ -73,11 +79,6 @@ export class DemoApp extends LitElement {
     super.disconnectedCallback();
   }
 
-  handleDarkMode() {
-    this.darkMode = this.darkModeSwitch?.selected!;
-    applyTheme(!!this.darkMode);
-  }
-
   private renderElements() {
     return repeat(elements, (element) => {
       const active = this.selectedElement && this.selectedElement.name === element.name;
@@ -96,6 +97,37 @@ export class DemoApp extends LitElement {
     url.searchParams.set('el', elementName);
     //@ts-ignore
     window.history.pushState({}, '', url);
+  }
+
+  /**
+   * Opens the theme changer menu and inerts the rest of the page.
+   */
+  private onPaletteClick() {
+    this.menuOpen = true;
+    // inertContentSignal.value = true;
+    // inertSidebarSignal.value = true;
+    // drawerOpenSignal.value = false;
+  }
+
+  /**
+   * Syncs current menu state with actual menu state and makes the rest of the
+   * page interactive again.
+   */
+  private onMenuClosed() {
+    this.menuOpen = false;
+    // inertContentSignal.value = false;
+    // inertSidebarSignal.value = false;
+  }
+
+  private onMenuOpened() {
+    this.themeChanger.focus();
+  }
+
+  private onKeydown(e: KeyboardEvent) {
+    if (!e.defaultPrevented && e.key === 'Escape') {
+      e.preventDefault();
+      this.menuOpen = false;
+    }
   }
 
   protected render() {
@@ -169,8 +201,30 @@ export class DemoApp extends LitElement {
               <a href=${this.selectedElement.url} target="_blank">
                 <md-filled-button class="npm" raised>NPMJS</md-filled-button>
               </a>
-              <md-switch id="darkModeSwitch" ?selected=${this.darkMode} @click=${this.handleDarkMode} icons></md-switch>
-              <div class="version">Dark mode</div>
+              <md-icon-button
+                id="theme-button"
+                @click="${this.onPaletteClick}"
+                title="Page theme controls"
+                aria-label="Page theme controls"
+                aria-haspopup="dialog"
+                aria-expanded=${this.menuOpen ? 'true' : 'false'}
+              >
+                <md-icon>palette</md-icon>
+              </md-icon-button>
+              <md-menu
+                anchor="theme-button"
+                menu-corner="start-end"
+                anchor-corner="end-end"
+                default-focus="none"
+                role="dialog"
+                aria-label="Page color theme controls"
+                .open=${this.menuOpen}
+                @opened=${this.onMenuOpened}
+                @closed=${this.onMenuClosed}
+                @keydown=${this.onKeydown}
+              >
+                <theme-changer></theme-changer>
+              </md-menu>
             </div>
           </div>
         </section>
