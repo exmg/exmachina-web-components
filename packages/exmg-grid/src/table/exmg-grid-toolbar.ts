@@ -3,7 +3,7 @@ import { ExmgElement } from '@exmg/lit-base/index.js';
 import { customElement, property } from 'lit/decorators.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import { repeat } from 'lit/directives/repeat.js';
-import '@material/mwc-icon-button';
+import '@material/web/iconbutton/icon-button.js';
 import './exmg-grid-toolbar-combobox.js';
 import '@polymer/paper-item/paper-item.js';
 import './exmg-grid-base-toolbar.js';
@@ -31,7 +31,6 @@ export class ExmgGridToolbar extends ExmgElement {
       exmg-grid-toolbar-combobox {
         padding-left: 10px;
         border-radius: 4px;
-        --paper-icon-button-ink-color: var(--mdc-theme-primary);
       }
     `,
   ];
@@ -120,12 +119,12 @@ export class ExmgGridToolbar extends ExmgElement {
     return repeat(
       this.actions,
       (action) => html`
-        <mwc-icon-button
+        <md-icon-button
           class="action"
           icon="${ifDefined(action.icon)}"
           title="${ifDefined(action.tooltip)}"
           @click="${this.emitActionExecutedEvent(action)}"
-        ></mwc-icon-button>
+        ></md-icon-button>
       `,
     );
   }

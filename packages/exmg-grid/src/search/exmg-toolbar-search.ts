@@ -1,9 +1,8 @@
-import {html, css} from 'lit';
-import {property, customElement, query, state} from 'lit/decorators.js';
-import {ExmgElement} from '@exmg/lit-base/index.js';
-import {classMap} from 'lit/directives/class-map.js';
-import '@polymer/paper-icon-button/paper-icon-button.js';
-import {async, debounce} from '@exmg/lit-base/index.js';
+import { html, css } from 'lit';
+import { property, customElement, query, state } from 'lit/decorators.js';
+import { ExmgElement } from '@exmg/lit-base/index.js';
+import { classMap } from 'lit/directives/class-map.js';
+import { async, debounce } from '@exmg/lit-base/index.js';
 
 export const searchIcon = html`
   <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24">
@@ -27,10 +26,10 @@ export class ToolbarSearch extends ExmgElement {
   @state()
   _isSearch = false;
 
-  @property({type: String})
+  @property({ type: String })
   filterValue?: string | null;
 
-  @property({type: String})
+  @property({ type: String })
   placeHolder = 'Search';
 
   @query('#searchInput')
@@ -170,7 +169,7 @@ export class ToolbarSearch extends ExmgElement {
         new CustomEvent('exmg-grid-toolbar-search-changed', {
           bubbles: false,
           composed: true,
-          detail: {value: this.filterValue},
+          detail: { value: this.filterValue },
         }),
       );
     });

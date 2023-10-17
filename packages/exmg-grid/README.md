@@ -350,7 +350,7 @@ row selection:
   <table>
     <thead>
       <tr class="grid-columns">
-        <th class="grid-checkbox-cell"><mwc-checkbox class="selectable-checkbox"></mwc-checkbox></th>
+        <th class="grid-checkbox-cell"><md-checkbox class="selectable-checkbox"></md-checkbox></th>
       </tr>
     </thead>
     <tbody class="grid-data">

@@ -5,7 +5,7 @@ import '@exmg/exmg-snackbar/exmg-snackbar.js';
 import '@material/web/button/text-button.js';
 import '@material/web/button/filled-button.js';
 import '@material/web/icon/icon.js';
-import '@material/web/iconbutton/standard-icon-button.js';
+import '@material/web/iconbutton/icon-button.js';
 import { ExmgSnackbar } from '@exmg/exmg-snackbar';
 
 @customElement('exmg-snackbar-demo')
@@ -32,8 +32,6 @@ export class SnackbarDemo extends LitElement {
       h1 {
         color: var(--md-sys-color-on-surface);
         padding-top: 1.5rem;
-      }
-      div > * {
       }
       #custom-snackbar {
         --exmg-snackbar-info-background-color: pink;
@@ -125,7 +123,7 @@ export class SnackbarDemo extends LitElement {
             timeoutMs="-1"
             labelText="This will only close when pressing the dismiss button"
           >
-            <md-standard-icon-button slot="dismiss"><md-icon>close</md-icon></md-standard-icon-button>
+            <md-icon-button slot="dismiss"><md-icon>close</md-icon></md-icon-button>
           </exmg-snackbar>
         </div>
         <div>
@@ -144,7 +142,7 @@ export class SnackbarDemo extends LitElement {
             labelText="This will only close when pressing the dismiss button"
           >
             <md-icon slot="icon">check_circle</md-icon>
-            <md-standard-icon-button slot="dismiss"><md-icon>close</md-icon></md-standard-icon-button>
+            <md-icon-button slot="dismiss"><md-icon>close</md-icon></md-icon-button>
           </exmg-snackbar>
         </div>
         <div>
@@ -162,8 +160,8 @@ export class SnackbarDemo extends LitElement {
             leading
             labelText="WARNING: This will only close when pressing the dismiss button"
           >
-            <mwc-icon slot="icon">warning</mwc-icon>
-            <mwc-icon-button icon="close" slot="dismiss"></mwc-icon-button>
+            <md-icon slot="icon">warning</md-icon>
+            <md-icon-button icon="close" slot="dismiss"></md-icon-button>
           </exmg-snackbar>
         </div>
         <div>
@@ -182,7 +180,7 @@ export class SnackbarDemo extends LitElement {
             labelText="INFO: This will only close when pressing the dismiss button"
           >
             <md-icon slot="icon">info</md-icon>
-            <md-standard-icon-button slot="dismiss"><md-icon>close</md-icon></md-standard-icon-button>
+            <md-icon-button slot="dismiss"><md-icon>close</md-icon></md-icon-button>
           </exmg-snackbar>
         </div>
         <div>
@@ -202,7 +200,7 @@ export class SnackbarDemo extends LitElement {
             yOffset="300"
           >
             <md-icon slot="icon">info</md-icon>
-            <md-standard-icon-button slot="dismiss"><md-icon>close</md-icon></md-standard-icon-button>
+            <md-icon-button slot="dismiss"><md-icon>close</md-icon></md-icon-button>
           </exmg-snackbar>
         </div>
         <div>
@@ -221,7 +219,7 @@ export class SnackbarDemo extends LitElement {
             labelText="INFO: This will only close when pressing the dismiss button"
           >
             <md-icon slot="icon">shopping_cart</md-icon>
-            <md-standard-icon-button slot="dismiss"><md-icon>close</md-icon></md-standard-icon-button>
+            <md-icon-button slot="dismiss"><md-icon>close</md-icon></md-icon-button>
           </exmg-snackbar>
         </div>
       </div>

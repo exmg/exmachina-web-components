@@ -1,7 +1,12 @@
-import {html, LitElement} from 'lit';
-import {customElement, state} from 'lit/decorators.js';
-import '@material/mwc-button';
-import {Filter, FilterSingleSelectConfig, FilterConfigType, SettingSelectionListItem} from '@exmg/exmg-grid/src/table/types/exmg-grid-toolbar-types.js';
+import { html, LitElement } from 'lit';
+import { customElement, state } from 'lit/decorators.js';
+import '@material/web/button/filled-button.js';
+import {
+  Filter,
+  FilterSingleSelectConfig,
+  FilterConfigType,
+  SettingSelectionListItem,
+} from '@exmg/exmg-grid/src/table/types/exmg-grid-toolbar-types.js';
 import {
   ActionAmountSelectedItemsCondition,
   ActionWithCondition,
@@ -102,7 +107,10 @@ export class ExmgGridSmartToolbarDemo extends LitElement {
   }
 
   private updateSelectedItems() {
-    this.amountOfSelectedItems = parseInt(this.shadowRoot!.querySelector<HTMLInputElement>('#amount-of-selected-items')!.value, 10);
+    this.amountOfSelectedItems = parseInt(
+      this.shadowRoot!.querySelector<HTMLInputElement>('#amount-of-selected-items')!.value,
+      10,
+    );
   }
 
   render() {
@@ -148,7 +156,7 @@ export class ExmgGridSmartToolbarDemo extends LitElement {
         @exmg-grid-toolbar-action-executed="${this.onActionExecuted}"
         @exmg-grid-toolbar-filter-changed="${this.onFilterChanged}"
       >
-        <mwc-button slot="extra">+ Add User</mwc-button>
+        <md-filled-button slot="extra">+ Add User</md-filled-button>
       </exmg-grid-smart-toolbar>
     `;
   }

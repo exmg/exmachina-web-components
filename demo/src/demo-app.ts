@@ -8,7 +8,7 @@ import '@material/web/switch/switch.js';
 import '@material/web/list/list.js';
 import '@material/web/list/list-item.js';
 import '@material/web/button/filled-button.js';
-import { Switch } from '@material/web/switch/lib/switch.js';
+import { Switch } from '@material/web/switch/internal/switch.js';
 import { demos } from '../demos/demos.js';
 import { repeat } from 'lit/directives/repeat.js';
 import { setupTheme, applyTheme } from './theme-module.js';
@@ -83,11 +83,8 @@ export class DemoApp extends LitElement {
       const active = this.selectedElement && this.selectedElement.name === element.name;
       const elementHref = element.name.replace('@exmg/', '');
       return html`
-        <md-list-item
-          @click=${() => this.handleNavigation(elementHref)}
-          headline=${element.name.substr(11).replaceAll('-', ' ')}
-          class=${`element ${active ? 'active' : ''}`}
-        >
+        <md-list-item @click=${() => this.handleNavigation(elementHref)} class=${`element ${active ? 'active' : ''}`}
+          >${element.name.substr(11).replaceAll('-', ' ')}
         </md-list-item>
       `;
     });

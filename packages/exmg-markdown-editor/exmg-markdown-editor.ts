@@ -1,19 +1,19 @@
-import {html, TemplateResult} from 'lit';
-import {ExmgElement, observer} from '@exmg/lit-base/index.js';
-import {customElement, query, property, state} from 'lit/decorators.js';
-import {repeat} from 'lit/directives/repeat.js';
-import {classMap} from 'lit/directives/class-map.js';
+import { html, TemplateResult } from 'lit';
+import { ExmgElement, observer } from '@exmg/lit-base/index.js';
+import { customElement, query, property, state } from 'lit/decorators.js';
+import { repeat } from 'lit/directives/repeat.js';
+import { classMap } from 'lit/directives/class-map.js';
 
 import '@polymer/iron-flex-layout/iron-flex-layout.js';
 import '@polymer/iron-icon/iron-icon.js';
-import '@material/mwc-icon/mwc-icon.js';
+import '@material/web/icon/icon.js';
 
-import {afterNextRender} from '@polymer/polymer/lib/utils/render-status.js';
+import { afterNextRender } from '@polymer/polymer/lib/utils/render-status.js';
 import './exmg-import-helper.js';
 
 import './exmg-markdown-editor-icons.js';
-import {style as codeMirrorStylesText} from './styles/exmg-markdown-codemirror-styles-css.js';
-import {ToolBarOption, ToolBarConfigItem, Position, ChangedProps} from './exmg-custom-types.js';
+import { style as codeMirrorStylesText } from './styles/exmg-markdown-codemirror-styles-css.js';
+import { ToolBarOption, ToolBarConfigItem, Position, ChangedProps } from './exmg-custom-types.js';
 
 // eslint-disable-next-line no-undef
 import Editor = CodeMirror.Editor;
@@ -27,8 +27,8 @@ import {
   KEY_MAPS,
   SHORTCUTS,
 } from './exmg-markdown-utils.js';
-import {EditorConfiguration} from 'codemirror';
-import {MarkedOptions, Renderer} from 'marked';
+import { EditorConfiguration } from 'codemirror';
+import { MarkedOptions, Renderer } from 'marked';
 // import * as marked from 'marked';
 
 /**
@@ -97,19 +97,19 @@ import {MarkedOptions, Renderer} from 'marked';
  */
 @customElement('exmg-markdown-editor')
 export class EditorElement extends ExmgElement {
-  @property({type: Boolean, attribute: 'auto-focus'})
+  @property({ type: Boolean, attribute: 'auto-focus' })
   autoFocus = false;
 
-  @property({type: Number, attribute: 'height'})
+  @property({ type: Number, attribute: 'height' })
   height?: number = undefined;
 
-  @property({type: Boolean, attribute: 'line-numbers'})
+  @property({ type: Boolean, attribute: 'line-numbers' })
   lineNumbers = false;
 
-  @property({type: Boolean, attribute: 'indent-with-tabs'})
+  @property({ type: Boolean, attribute: 'indent-with-tabs' })
   indentWithTabs = true;
 
-  @property({type: String})
+  @property({ type: String })
   @observer(function (this: EditorElement, markdown: string) {
     if (this.codeMirrorEditor && this.codeMirrorEditor.getValue() !== markdown) {
       this.codeMirrorEditor.setValue(markdown || '');
@@ -123,13 +123,13 @@ export class EditorElement extends ExmgElement {
   })
   markdown?: string;
 
-  @property({type: Boolean, attribute: 'show-helper-label'})
+  @property({ type: Boolean, attribute: 'show-helper-label' })
   showHelperLabel = false;
 
-  @property({type: Boolean, reflect: true, attribute: 'split-view'})
+  @property({ type: Boolean, reflect: true, attribute: 'split-view' })
   splitView = false;
 
-  @property({type: Boolean, reflect: true, attribute: 'fullscreen'})
+  @property({ type: Boolean, reflect: true, attribute: 'fullscreen' })
   @observer(function (this: EditorElement, fullscreen: boolean) {
     if (!this.codeMirrorEditor) {
       return;
@@ -143,16 +143,16 @@ export class EditorElement extends ExmgElement {
   })
   fullscreen = false;
 
-  @property({type: Array, attribute: 'toolbar-buttons'})
+  @property({ type: Array, attribute: 'toolbar-buttons' })
   toolbarButtons: ToolBarOption[] = DEFAULT_TOOLBAR_OPTIONS;
 
-  @property({type: String})
+  @property({ type: String })
   name?: string;
 
-  @property({type: Boolean, attribute: 'required'})
+  @property({ type: Boolean, attribute: 'required' })
   required = false;
 
-  @property({type: Boolean, reflect: true, attribute: 'invalid'})
+  @property({ type: Boolean, reflect: true, attribute: 'invalid' })
   invalid = false;
 
   bubbles = false;
@@ -168,7 +168,7 @@ export class EditorElement extends ExmgElement {
   @state()
   private toolbarButtonsConfig: ToolBarConfigItem[] = defaultToolBarConfig;
 
-  @property({type: Object, attribute: 'shortcuts'})
+  @property({ type: Object, attribute: 'shortcuts' })
   shortcuts: Record<string, string> = SHORTCUTS;
 
   @query('#editor')
@@ -247,7 +247,7 @@ export class EditorElement extends ExmgElement {
    * @event syntax-highlight
    */
   _highlight(code: string, lang: string): string {
-    this.fire<{code: string; lang: string}>('syntax-highlight', {code: code, lang: lang});
+    this.fire<{ code: string; lang: string }>('syntax-highlight', { code: code, lang: lang });
     return code;
   }
 
@@ -269,7 +269,7 @@ export class EditorElement extends ExmgElement {
     const extensions = window.markdownEditorConfig?.extensions || [];
 
     // @ts-ignore
-    window.marked.use({renderer: customRenderer, extensions});
+    window.marked.use({ renderer: customRenderer, extensions });
 
     this.innerHTML = `<div class="preview-body">${window.marked(this.markdown, opts)}</div>`;
     this.focus();
@@ -297,7 +297,7 @@ export class EditorElement extends ExmgElement {
     if (!this.codeMirrorEditor) {
       return;
     }
-    const {undo, redo} = this.codeMirrorEditor.getDoc().historySize();
+    const { undo, redo } = this.codeMirrorEditor.getDoc().historySize();
 
     const undoEl = this.shadowRoot!.querySelector('.btn-undo');
     if (undoEl) {
@@ -387,8 +387,8 @@ export class EditorElement extends ExmgElement {
   private replaceRangeLine(text: string, lineNumber: number) {
     this.codeMirrorEditor!.getDoc().replaceRange(
       text,
-      {line: lineNumber, ch: 0},
-      {line: lineNumber, ch: 99999999999999},
+      { line: lineNumber, ch: 0 },
+      { line: lineNumber, ch: 99999999999999 },
     );
   }
 
@@ -477,7 +477,7 @@ export class EditorElement extends ExmgElement {
 
     let lineCount = 0;
     for (let i = cursorStart.line; i <= cursorEnd.line; i += 1) {
-      const lineStart = Object.assign(Object.assign({}, cursorStart), {line: i, ch: 0, sticky: 'after'});
+      const lineStart = Object.assign(Object.assign({}, cursorStart), { line: i, ch: 0, sticky: 'after' });
       const states = this.getStates(lineStart);
       let text = codeMirror.getDoc().getLine(i);
       const stateFound = states.includes(type);
@@ -545,7 +545,7 @@ export class EditorElement extends ExmgElement {
 
   private getStates(position?: Position) {
     const codeMirror = this.codeMirrorEditor!;
-    const pos: Position = position || {...codeMirror.getDoc().getCursor('start')};
+    const pos: Position = position || { ...codeMirror.getDoc().getCursor('start') };
     if (pos.sticky === 'after') {
       pos.ch = +1;
     }
@@ -740,7 +740,7 @@ export class EditorElement extends ExmgElement {
   }
 
   protected render(): TemplateResult {
-    const classes = {fullscreen: this.fullscreen, labels: true};
+    const classes = { fullscreen: this.fullscreen, labels: true };
     return html`
       <div id="toolbar" class="toolbar">
         <div class="items">
@@ -761,7 +761,7 @@ export class EditorElement extends ExmgElement {
                     }}
                   >
                     ${hasMaterialIcon
-                      ? html`<mwc-icon>${it.icon}</mwc-icon>`
+                      ? html`<md-icon>${it.icon}</md-icon>`
                       : html`<iron-icon icon="${it.icon}"></iron-icon>`}
                   </a>
                 `;

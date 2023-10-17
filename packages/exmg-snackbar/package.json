@@ -9,12 +9,12 @@
     "./exmg-snackbar.js": "./src/exmg-snackbar.js"
   },
   "dependencies": {
-    "@material/mwc-snackbar": "=0.25.3",
-    "lit": "^2.0.0",
-    "tslib": "^2.0.1"
+    "@material/mwc-snackbar": "=0.27.0",
+    "lit": "^3.0.0",
+    "tslib": "^2.6.2"
   },
   "devDependencies": {
-    "@exmg/lit-cli": "1.1.9"
+    "@exmg/lit-cli": "1.1.13"
   },
   "keywords": [
     "web-components",
