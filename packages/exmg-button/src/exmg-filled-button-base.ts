@@ -1,7 +1,8 @@
 import { html, nothing } from 'lit';
 import { property } from 'lit/decorators/property.js';
 import { MdFilledButton } from '@material/web/button/filled-button.js';
-import '@material/web/circularprogress/circular-progress.js';
+import '@material/web/progress/circular-progress.js';
+import { FormSubmitterType } from '@material/web/internal/controller/form-submitter.js';
 
 export class ExmgFilledButtonBase extends MdFilledButton {
   /**
@@ -18,20 +19,20 @@ export class ExmgFilledButtonBase extends MdFilledButton {
   /**
    * The URL that the link button points to.
    */
-  @property() href?: string;
+  href: string = '';
 
   /**
    * Where to display the linked `href` URL for a link button. Common options
    * include `_blank` to open in a new tab.
    */
-  @property() target?: string;
+  target: '_blank' | '_parent' | '_self' | '_top' | '' = '';
 
   /**
    * Specifies the type of button, used for controlling forms. When type
    * is `submit`, the containing form is submitted; when it is `reset` the
    * form is reset.
    */
-  @property() type: '' | 'submit' | 'reset' = '';
+  type: FormSubmitterType = 'button';
 
   protected override render() {
     const { loading, disabled, type, target, href } = this;

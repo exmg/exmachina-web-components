@@ -151,8 +151,8 @@ export class CollapsedDemo extends LitElement {
                 aria-expanded=${faq.opened}
                 @click=${() => this.handleOpen(faq.id)}
                 aria-controls="collapsed"
-                headline=${faq.title}
               >
+                ${faq.title}
                 <md-icon slot="end" class="icon">expand_more</md-icon>
               </md-list-item>
               <exmg-collapsed id="collapsed" ?opened=${faq.opened}

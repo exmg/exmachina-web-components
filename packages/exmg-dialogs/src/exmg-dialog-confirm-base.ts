@@ -46,6 +46,8 @@ export class ExmgDialogConfirmBase extends ExmgElement {
    */
   @property() fullscreenBreakpoint = '(max-width: 600px), (max-height: 400px)';
 
+  @property({ type: String }) type?: 'alert' | undefined = 'alert';
+
   /**
    * Hides the dialog footer, making any content slotted into the footer
    * inaccessible.
@@ -160,27 +162,17 @@ export class ExmgDialogConfirmBase extends ExmgElement {
   }
 
   protected override render() {
-    const { fullscreen, modeless, stacked, draggable, transition } = this;
-    return html` <md-dialog
-      style="--md-dialog-container-max-inline-size: 320px;"
-      .fullscreen=${fullscreen}
-      .modeless=${modeless}
-      .stacked=${stacked}
-      .draggable=${draggable}
-      .transition=${transition!}
-      .open=${this.open}
-    >
+    const { type, draggable } = this;
+    return html` <md-dialog .type=${type} .draggable=${draggable} .open=${this.open}>
       <md-icon slot="headline-prefix">${this.icon}</md-icon>
       <span slot="headline">${this.title}</span>
-      <span class="description">${this.message}</span>
-      <md-text-button slot="footer" dialogFocus @click=${() => this.close()}>${this.cancelBtn}</md-text-button>
-      <exmg-filled-button
-        slot="footer"
-        @click=${this.handleSubmit}
-        ?disabled=${this.submitting}
-        ?loading=${this.submitting}
-        >${this.submitBtn}</exmg-filled-button
-      >
+      <div slot="content"><span class="description">${this.message}</span></div>
+      <div slot="actions">
+        <md-text-button dialogFocus @click=${() => this.close()}>${this.cancelBtn}</md-text-button>
+        <exmg-filled-button @click=${this.handleSubmit} ?disabled=${this.submitting} ?loading=${this.submitting}
+          >${this.submitBtn}</exmg-filled-button
+        >
+      </div>
     </md-dialog>`;
   }
 }

@@ -1,22 +1,22 @@
-import {html, css} from 'lit';
-import {ExmgElement} from '@exmg/lit-base/index.js';
-import {customElement, property, query, state} from 'lit/decorators.js';
-import {classMap} from 'lit/directives/class-map.js';
-import {ifDefined} from 'lit/directives/if-defined.js';
+import { html, css } from 'lit';
+import { ExmgElement } from '@exmg/lit-base/index.js';
+import { customElement, property, query, state } from 'lit/decorators.js';
+import { classMap } from 'lit/directives/class-map.js';
+import { ifDefined } from 'lit/directives/if-defined.js';
 
 import '@polymer/paper-listbox/paper-listbox.js';
-import '@material/mwc-icon-button/mwc-icon-button.js';
+import '@material/web/iconbutton/icon-button.js';
+import '@material/web/button/text-button.js';
 import '@polymer/iron-dropdown/iron-dropdown.js';
-import {IronDropdownElement} from '@polymer/iron-dropdown/iron-dropdown.js';
+import { IronDropdownElement } from '@polymer/iron-dropdown/iron-dropdown.js';
 
 import '@polymer/iron-input/iron-input.js';
 import '@polymer/paper-input/paper-input-error.js';
-import '@polymer/paper-button/paper-button.js';
 import '@polymer/paper-input/paper-input-container.js';
 import '@polymer/paper-styles/paper-styles.js';
-import {afterNextRender} from '@polymer/polymer/lib/utils/render-status.js';
+import { afterNextRender } from '@polymer/polymer/lib/utils/render-status.js';
 
-import {PaperListboxElement} from '@polymer/paper-listbox/paper-listbox.js';
+import { PaperListboxElement } from '@polymer/paper-listbox/paper-listbox.js';
 
 const copyElementStyle = (source: HTMLElement, target: HTMLElement) => {
   const computedStyle = window.getComputedStyle(source, null);
@@ -72,7 +72,7 @@ export class PaperGridTooolbarComboboxElement extends ExmgElement {
    * selection works in both cases. (Use `attr-or-property-name` instead of
    * `attrOrPropertyName`.)
    */
-  @property({type: String, attribute: 'attr-for-selected'}) attrForSelected = '';
+  @property({ type: String, attribute: 'attr-for-selected' }) attrForSelected = '';
 
   /**
    * By default the textContent of the paper-item/paper-icon-item or paper-item-body
@@ -80,27 +80,27 @@ export class PaperGridTooolbarComboboxElement extends ExmgElement {
    * you probably want an alternative. The selector can be used to be a bit more
    * specific on which element can be used for display purposes.
    */
-  @property({type: String, attribute: 'selected-item-selector'}) selectedItemSelector?: string;
+  @property({ type: String, attribute: 'selected-item-selector' }) selectedItemSelector?: string;
 
   /**
    * Returns currently selected item.
    * @type {?Object}
    */
-  @property({type: Object, attribute: 'selected-item'})
+  @property({ type: Object, attribute: 'selected-item' })
   selectedItem?: Element;
 
   /**
    * Gets or sets the selected element. The default is to use the index of the item.
    * @type {string|number}
    */
-  @property({type: String})
+  @property({ type: String })
   selected?: string | number;
 
   /**
    * Set custom max width of menu list with items
    * @type {number}
    */
-  @property({type: Number, attribute: 'max-width-menu-list'})
+  @property({ type: Number, attribute: 'max-width-menu-list' })
   maxWidthMenuList = 200;
 
   @state()
@@ -109,30 +109,30 @@ export class PaperGridTooolbarComboboxElement extends ExmgElement {
   /**
    * The label for this input.
    */
-  @property({type: String}) label?: string;
+  @property({ type: String }) label?: string;
 
   /**
    * Set to true to auto-validate the input value.
    */
-  @property({type: Boolean, attribute: 'auto-validate'})
+  @property({ type: Boolean, attribute: 'auto-validate' })
   autoValidate = false;
 
-  @property({type: Boolean})
+  @property({ type: Boolean })
   autofocus = false;
 
   /**
    * Set to true to disable this input.
    */
-  @property({type: Boolean})
+  @property({ type: Boolean })
   disabled = false;
 
   /**
    * The error message to display when the input is invalid.
    */
-  @property({type: String, attribute: 'error-message'})
+  @property({ type: String, attribute: 'error-message' })
   errorMessage?: string = '';
 
-  @property({type: Boolean, attribute: 'always-float-label'})
+  @property({ type: Boolean, attribute: 'always-float-label' })
   alwaysFloatLabel = false;
 
   /**
@@ -140,14 +140,14 @@ export class PaperGridTooolbarComboboxElement extends ExmgElement {
    * implement your own paper-input-like element, bind this to
    * the `<input is="iron-input">`'s `required` property.
    */
-  @property({type: Boolean}) required = false;
+  @property({ type: Boolean }) required = false;
 
-  @property({type: String}) name?: string;
+  @property({ type: String }) name?: string;
 
   /**
    * This field will be bind to the actual input field.
    */
-  @property({type: String, attribute: 'input-value'})
+  @property({ type: String, attribute: 'input-value' })
   inputValue = '';
 
   @state()
@@ -156,37 +156,37 @@ export class PaperGridTooolbarComboboxElement extends ExmgElement {
   /**
    * Invalid is true if validation fails and is passed on.
    */
-  @property({type: Boolean})
+  @property({ type: Boolean })
   invalid = false;
 
   /**
    * Focus input field if value has been set on element.
    */
-  @property({type: Boolean, attribute: 'input-focused'})
+  @property({ type: Boolean, attribute: 'input-focused' })
   inputFocused = false;
 
-  @property({type: Boolean, attribute: 'no-float-label'})
+  @property({ type: Boolean, attribute: 'no-float-label' })
   noFloatLabel = false;
 
   /**
    * Is menu button state open
    */
-  @property({type: Boolean})
+  @property({ type: Boolean })
   opened = false;
 
-  @property({type: Boolean, attribute: 'dynamic-align'})
+  @property({ type: Boolean, attribute: 'dynamic-align' })
   dynamicAlign = false;
 
-  @property({type: String, attribute: 'horizontal-align'})
+  @property({ type: String, attribute: 'horizontal-align' })
   horizontalAlign = 'right';
 
-  @property({type: String, attribute: 'vertical-align'})
+  @property({ type: String, attribute: 'vertical-align' })
   verticalAlign = 'top';
 
-  @property({type: String, attribute: 'vertical-offset'})
+  @property({ type: String, attribute: 'vertical-offset' })
   verticalOffset = '4';
 
-  @property({type: String, attribute: 'horizontal-offset'})
+  @property({ type: String, attribute: 'horizontal-offset' })
   horizontalOffset = '4';
 
   @query('#listbox')
@@ -210,7 +210,7 @@ export class PaperGridTooolbarComboboxElement extends ExmgElement {
   private isElementInitialized = false;
 
   // eslint-disable-next-line @typescript-eslint/ban-types
-  private readonly observers: {[K in Props]?: Function} = this.getObservers();
+  private readonly observers: { [K in Props]?: Function } = this.getObservers();
 
   // eslint-disable-next-line @typescript-eslint/ban-types
   private readonly keyDownBackspaceDebounce: (cb?: Function) => void = debounce(200);
@@ -234,7 +234,7 @@ export class PaperGridTooolbarComboboxElement extends ExmgElement {
         --paper-listbox-color: var(--exmg-paper-combobox-dropdown-list-color, #000);
         --paper-listbox-background-color: var(--exmg-paper-combobox-dropdown-list-bg-color, #fff);
       }
-      mwc-icon-button {
+      md-icon-button {
         color: var(--primary-color, #000);
         background-color: var(--paper-icon-button-ink-bg-color);
       }
@@ -291,7 +291,7 @@ export class PaperGridTooolbarComboboxElement extends ExmgElement {
         width: auto;
         max-width: 100%;
       }
-      paper-button {
+      md-filled-button {
         padding: 0;
         color: var(--paper-button-color);
         background-color: var(--paper-button-bg-color);
@@ -335,7 +335,7 @@ export class PaperGridTooolbarComboboxElement extends ExmgElement {
    * Register observed properties and actions to perform
    */
   // eslint-disable-next-line @typescript-eslint/ban-types
-  private getObservers(): {[K in Props]?: Function} {
+  private getObservers(): { [K in Props]?: Function } {
     return {
       inputValue: () => this.observeInputChange(),
       selectedItem: () => this.observeSelectedItem(),
@@ -410,7 +410,7 @@ export class PaperGridTooolbarComboboxElement extends ExmgElement {
 
     const text = (content && content.textContent) || '';
 
-    this.token = {id, text};
+    this.token = { id, text };
   }
 
   /**
@@ -562,7 +562,7 @@ export class PaperGridTooolbarComboboxElement extends ExmgElement {
     afterNextRender(this, () => this.focus());
   }
 
-  private onItemSelected(e: CustomEvent<{item: Element}>) {
+  private onItemSelected(e: CustomEvent<{ item: Element }>) {
     e.stopPropagation();
 
     if (this.selected && !this.selectedItem) {
@@ -576,7 +576,7 @@ export class PaperGridTooolbarComboboxElement extends ExmgElement {
         item: this.selectedItem!,
         token: this.token!,
       };
-      this.dispatchEvent(new CustomEvent('change', {detail: payload, composed: true, bubbles: true}));
+      this.dispatchEvent(new CustomEvent('change', { detail: payload, composed: true, bubbles: true }));
     }
     this.resetInput();
   }
@@ -586,11 +586,11 @@ export class PaperGridTooolbarComboboxElement extends ExmgElement {
     this.selectedItem = undefined;
     this.selected = undefined;
 
-    this.dispatchEvent(new CustomEvent('change', {detail: {}, composed: true, bubbles: true}));
+    this.dispatchEvent(new CustomEvent('change', { detail: {}, composed: true, bubbles: true }));
     this.resetInput();
   }
 
-  private onItemActivated(e: CustomEvent<{selected: string | number}>) {
+  private onItemActivated(e: CustomEvent<{ selected: string | number }>) {
     // when user select same item then don't receive iron-select event but we still want to
     // prepare input
     if (this.selected === e.detail.selected) {
@@ -647,8 +647,8 @@ export class PaperGridTooolbarComboboxElement extends ExmgElement {
   private onIronResize() {
     const element: HTMLElement = this.shadowRoot!.querySelector<HTMLElement>('.dropdown-content')!;
 
-    const {left: elementLeft} = element.getBoundingClientRect();
-    const {scrollWidth: elementScrollWidth} = element;
+    const { left: elementLeft } = element.getBoundingClientRect();
+    const { scrollWidth: elementScrollWidth } = element;
     const getGreater = (...values: number[]): number => Math.max(...values);
     const getLower = (...values: number[]): number => Math.min(...values);
 
@@ -657,8 +657,8 @@ export class PaperGridTooolbarComboboxElement extends ExmgElement {
       element.style.maxWidth = `${getLower(getGreater(elementMaximumWidthFromRight, 100), this.maxWidthMenuList)}px`;
     }
 
-    const {top: elementTop} = element.getBoundingClientRect();
-    const {scrollHeight: elementScrollHeight} = element;
+    const { top: elementTop } = element.getBoundingClientRect();
+    const { scrollHeight: elementScrollHeight } = element;
     if (elementScrollHeight > 0) {
       const elementMaximumHeightToBottom = document.documentElement!.clientHeight - elementTop;
       element.style.maxHeight = `${getGreater(elementMaximumHeightToBottom - 10, 100)}px`;
@@ -674,7 +674,7 @@ export class PaperGridTooolbarComboboxElement extends ExmgElement {
         changedProperties.has(it) && changedProperties.get(it) !== this[it],
     );
 
-    const {id = undefined} = this.token || {};
+    const { id = undefined } = this.token || {};
     return anyPropChanged && id === this.selected;
   }
 
@@ -696,9 +696,9 @@ export class PaperGridTooolbarComboboxElement extends ExmgElement {
           token: this.token!,
         };
 
-        this.dispatchEvent(new CustomEvent('exmg-combobox-select', {detail: payload, composed: true, bubbles: true}));
+        this.dispatchEvent(new CustomEvent('exmg-combobox-select', { detail: payload, composed: true, bubbles: true }));
       } else {
-        this.dispatchEvent(new CustomEvent('exmg-combobox-deselect', {composed: true, bubbles: true}));
+        this.dispatchEvent(new CustomEvent('exmg-combobox-deselect', { composed: true, bubbles: true }));
       }
     }
   }
@@ -740,7 +740,7 @@ export class PaperGridTooolbarComboboxElement extends ExmgElement {
         >
           <iron-input bind-value="${this.inputValue}" slot="input">
             <slot name="prefix"></slot>
-            <span class="${classMap({tokens: true, selected: !!this.token})}">
+            <span class="${classMap({ tokens: true, selected: !!this.token })}">
               ${this.renderTokenButton()}
               <input
                 id="inputValue"
@@ -758,15 +758,15 @@ export class PaperGridTooolbarComboboxElement extends ExmgElement {
         </paper-input-container>
 
         <span id="inputWidthHelper">${this.inputValue} </span>
-        <mwc-icon-button ?disabled="${this.disabled}" @click=${() => this.toggle()}>
+        <md-icon-button ?disabled="${this.disabled}" @click=${() => this.toggle()}>
           <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px">
             <path d="M0 0h24v24H0V0z" fill="none" />
             <path d="M7 10l5 5 5-5H7z" />
           </svg>
-        </mwc-icon-button>
+        </md-icon-button>
         <iron-dropdown
           id="menu"
-          @opened-changed=${(e: CustomEvent<{value: boolean}>) => (this.opened = e.detail.value)}
+          @opened-changed=${(e: CustomEvent<{ value: boolean }>) => (this.opened = e.detail.value)}
           ?opened="${this.opened}"
           no-overlap
           restore-focus-on-close
@@ -800,9 +800,9 @@ export class PaperGridTooolbarComboboxElement extends ExmgElement {
       return null;
     }
     return html`
-      <paper-button tabindex="-1" @click="${this.onTokenClick}">
+      <md-text-button tabindex="-1" @click="${this.onTokenClick}">
         <span>${this.token!.text}</span>
-      </paper-button>
+      </md-text-button>
     `;
   }
 }

@@ -17,11 +17,11 @@
     "@babel/runtime": "^7.9.6",
     "@babel/traverse": "^7.15.4",
     "@exmg/eslint-config-lit": "^1.0.26",
-    "@exmg/lit-cli": "1.1.9",
+    "@exmg/lit-cli": "1.1.13",
     "@exmg/prettier-config": "^1.0.26",
     "@exmg/ts-config-lit": "^1.0.26",
     "@material/material-color-utilities": "^0.2.7",
-    "@material/typography": "^13.0.0",
+    "@material/typography": "^14.0.0",
     "@polymer/iron-demo-helpers": "^3.1.0",
     "@polymer/polymer": "^3.4.1",
     "@rollup/plugin-node-resolve": "^13.0.5",
@@ -36,7 +36,7 @@
     "eslint": "^8.29.0",
     "jsdoc": "^3.6.10",
     "lerna": "^7.0.0",
-    "lit": "^2.0.0",
+    "lit": "^3.0.0",
     "lit-analyzer": "^1.2.1",
     "rollup": "^2.57.0",
     "rollup-plugin-copy": "^3.4.0",
@@ -70,7 +70,7 @@
     "run:docs": "web-dev-server /docs/index.html"
   },
   "dependencies": {
-    "@material/web": "^1.0.0-pre.10",
+    "@material/web": "^1.0.0",
     "@open-wc/building-rollup": "^2.0.2",
     "@vaadin/vaadin-date-picker": "^23.2.2"
   }

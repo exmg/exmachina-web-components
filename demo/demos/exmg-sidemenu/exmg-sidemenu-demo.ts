@@ -1,20 +1,20 @@
-import {LitElement, html, css} from 'lit';
-import {property, customElement} from 'lit/decorators.js';
-import {classMap} from 'lit/directives/class-map.js';
-import {style as sidemenuStyles} from '@exmg/exmg-sidemenu/styles/exmg-sidemenu-styles-css.js';
-import {style as themeStyles} from '@exmg/exmg-sidemenu/styles/theme-styles-css.js';
+import { LitElement, html, css } from 'lit';
+import { property, customElement } from 'lit/decorators.js';
+import { classMap } from 'lit/directives/class-map.js';
+import { style as sidemenuStyles } from '@exmg/exmg-sidemenu/styles/exmg-sidemenu-styles-css.js';
+import { style as themeStyles } from '@exmg/exmg-sidemenu/styles/theme-styles-css.js';
 import '@exmg/exmg-sidemenu/exmg-sidemenu.js';
 import '@exmg/exmg-sidemenu/exmg-sidemenu-header.js';
 import '@exmg/exmg-sidemenu/exmg-sidemenu-badge.js';
-import '@material/mwc-icon-button/mwc-icon-button.js';
+import '@material/web/iconbutton/icon-button.js';
 import '@polymer/paper-item/paper-item.js';
 import '@exmg/exmg-tooltip/exmg-tooltip.js';
 import '@polymer/app-layout/app-drawer/app-drawer.js';
 import '@polymer/app-layout/app-drawer-layout/app-drawer-layout.js';
 import '@polymer/app-layout/app-toolbar/app-toolbar.js';
 
-import {menu} from './menu.js';
-import {isItemGroup, MenuItem, MenuGroupItem, MenuItemOrGroupItem} from '@exmg/exmg-sidemenu/exmg-sidemenu-types.js';
+import { menu } from './menu.js';
+import { isItemGroup, MenuItem, MenuGroupItem, MenuItemOrGroupItem } from '@exmg/exmg-sidemenu/exmg-sidemenu-types.js';
 
 export const installMediaQueryWatcher = (
   mediaQuery: string,
@@ -27,19 +27,19 @@ export const installMediaQueryWatcher = (
 
 @customElement('exmg-sidemenu-demo')
 export class SidemenuDemo extends LitElement {
-  @property({type: Array})
+  @property({ type: Array })
   menu: [] | undefined;
 
-  @property({type: Boolean})
+  @property({ type: Boolean })
   debug = true;
 
-  @property({type: Boolean, reflect: true})
+  @property({ type: Boolean, reflect: true })
   narrow = false;
 
-  @property({type: Boolean})
+  @property({ type: Boolean })
   collapsed = false;
 
-  @property({type: Boolean})
+  @property({ type: Boolean })
   drawerOpened = true;
 
   static styles = [
@@ -176,7 +176,7 @@ export class SidemenuDemo extends LitElement {
   }
 
   render() {
-    const classes = {collapsed: this.collapsed, narrow: this.narrow};
+    const classes = { collapsed: this.collapsed, narrow: this.narrow };
 
     return html`
       <div class="wrapper">
@@ -193,7 +193,7 @@ export class SidemenuDemo extends LitElement {
 
         <article class="main-content ${classMap(classes)}">
           <app-toolbar>
-            <mwc-icon-button icon="menu" ?hidden=${!this.narrow} @click=${this._handleMenuClick}></mwc-icon-button>
+            <md-icon-button icon="menu" ?hidden=${!this.narrow} @click=${this._handleMenuClick}></md-icon-button>
           </app-toolbar>
           <main role="main">
             <p>

@@ -4,14 +4,11 @@ import { html } from 'lit';
 import { query } from 'lit/decorators/query.js';
 import { property } from 'lit/decorators/property.js';
 import { customElement } from 'lit/decorators/custom-element.js';
-import { eventOptions } from 'lit/decorators/event-options.js';
 import { MDCFoundation } from '@material/base';
 import { styles } from '@material/mwc-radio/mwc-radio.css.js';
-import { RippleHandlers } from '@material/mwc-ripple/ripple-handlers.js';
 import foundation from '@material/radio/foundation.js';
 import { SelectionController } from './exmg-selection-controller.js';
 import { style as exmgRadioGroupItemStyles } from './styles/exmg-radio-group-item-styles-css.js';
-import '@material/mwc-ripple';
 
 export interface RadioFoundation extends MDCFoundation {
   setDisabled(disabled: boolean): void;
@@ -74,11 +71,6 @@ export class ExmgRadioGroupItem extends FormElement {
   @property({ type: Boolean, attribute: 'enable-radio-button' })
   enableRadioButton = false;
 
-  @property({ type: Object })
-  rippleHandlers: RippleHandlers | null = null;
-
-  private shouldRenderRipple = false;
-
   protected mdcFoundationClass: typeof RadioFoundationBase = foundation as unknown as typeof RadioFoundationBase;
 
   protected mdcFoundation!: RadioFoundation;
@@ -91,10 +83,6 @@ export class ExmgRadioGroupItem extends FormElement {
     if (!(window as any)['ShadyDOM'] || !(window as any)['ShadyDOM']['inUse']) {
       this.selectionController = SelectionController.getController(this.parentNode!);
     }
-    this.rippleHandlers = new RippleHandlers(() => {
-      this.shouldRenderRipple = true;
-      return this.ripple ? this.ripple : Promise.resolve(null);
-    });
   }
 
   connectedCallback() {
@@ -143,14 +131,6 @@ export class ExmgRadioGroupItem extends FormElement {
     return;
   }
 
-  renderRipple() {
-    return this.shouldRenderRipple ? this.renderRippleTemplate() : '';
-  }
-  /** @soyTemplate */
-  renderRippleTemplate() {
-    return html`<mwc-ripple .disabled="${this.disabled}" unbounded></mwc-ripple>`;
-  }
-
   render() {
     return html`
       <label class="item ${this.checked ? 'checked' : ''} ${this.disabled ? 'disabled' : ''}">
@@ -162,14 +142,6 @@ export class ExmgRadioGroupItem extends FormElement {
             .checked="${this.checked}"
             .value="${this.value}"
             @change="${this.changeHandler}"
-            @focus="${this.handleRippleFocusA}"
-            @blur="${this.handleRippleBlurA}"
-            @mousedown="${this.handleRippleActivateA}"
-            @mouseenter="${this.handleRippleMouseEnterA}"
-            @mouseleave="${this.handleRippleMouseLeaveA}"
-            @touchstart="${this.handleRippleActivateA}"
-            @touchend="${this.handleRippleDeactivateA}"
-            @touchcancel="${this.handleRippleDeactivateA}"
           />
           <div class="mdc-radio__background">
             <div class="mdc-radio__outer-circle"></div>
@@ -181,7 +153,6 @@ export class ExmgRadioGroupItem extends FormElement {
           <slot class="title" name="title"></slot>
           <slot class="body" name="body"></slot>
         </div>
-        ${this.renderRipple()}
       </label>
     `;
   }
@@ -191,38 +162,6 @@ export class ExmgRadioGroupItem extends FormElement {
     if (this.selectionController) {
       this.selectionController.update(this);
     }
-  }
-
-  @eventOptions({ passive: true })
-  private handleRippleActivateA(evt?: Event) {
-    const onUp = () => {
-      window.removeEventListener('mouseup', onUp);
-
-      this.handleRippleDeactivateA();
-    };
-
-    window.addEventListener('mouseup', onUp);
-    this.rippleHandlers!.startPress(evt);
-  }
-
-  private handleRippleDeactivateA() {
-    this.rippleHandlers!.endPress();
-  }
-
-  private handleRippleMouseEnterA() {
-    this.rippleHandlers!.startHover();
-  }
-
-  private handleRippleMouseLeaveA() {
-    this.rippleHandlers!.endHover();
-  }
-
-  private handleRippleFocusA() {
-    this.rippleHandlers!.startFocus();
-  }
-
-  private handleRippleBlurA() {
-    this.rippleHandlers!.endFocus();
   }
 }
 

@@ -1,10 +1,10 @@
-import {html, LitElement} from 'lit';
-import {customElement, state} from 'lit/decorators.js';
-import {repeat} from 'lit/directives/repeat.js';
+import { html, LitElement } from 'lit';
+import { customElement, state } from 'lit/decorators.js';
+import { repeat } from 'lit/directives/repeat.js';
 import '@exmg/exmg-grid/src/table/exmg-grid-toolbar-combobox.js';
 import '@exmg/exmg-grid/src/table/exmg-grid-base-toolbar.js';
 import '@polymer/paper-item/paper-item.js';
-import '@material/mwc-icon-button';
+import '@material/web/iconbutton/icon-button.js';
 
 @customElement('exmg-grid-base-toolbar-demo')
 export class ExmgGridBaseToolbarDemo extends LitElement {
@@ -92,13 +92,13 @@ export class ExmgGridBaseToolbarDemo extends LitElement {
         <div slot="actions">
           ${repeat(this.actions, (action) => {
             return html`
-              <mwc-icon-button
+              <md-icon-button
                 class="action"
                 icon="${action.icon}"
                 label="${action.text}"
                 title="${action.tooltip}"
                 @click="${this.onActionExecuted(action)}"
-              ></mwc-icon-button>
+              ></md-icon-button>
             `;
           })}
         </div>

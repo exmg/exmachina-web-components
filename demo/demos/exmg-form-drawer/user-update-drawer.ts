@@ -20,8 +20,6 @@ export interface UserData {
 export class UserUpdateDrawer extends ExmgFormDrawerBase {
   static override styles = [formDrawerStyles];
 
-  title = 'Create User';
-
   @property({ type: Object })
   user?: UserData;
 

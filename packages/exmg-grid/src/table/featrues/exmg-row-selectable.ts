@@ -1,5 +1,5 @@
-import {ExmgQuerySelectors} from '../utils/exmg-query-selectors.js';
-import {EventDetailSelectedRowsChange} from '../types/exmg-grid-types.js';
+import { ExmgQuerySelectors } from '../utils/exmg-query-selectors.js';
+import { EventDetailSelectedRowsChange } from '../types/exmg-grid-types.js';
 
 const checkCheckbox = (checkboxElement: HTMLInputElement) => {
   checkboxElement.setAttribute('checked', 'checked');
@@ -86,10 +86,10 @@ export class ExmgRowSelectable {
 
       row.addEventListener('click', (e: Event) => {
         const target = e.target as HTMLElement;
-        // Also TR needed for initial auto selected rows on init / if disable row selection it is only possible to use the mwc-checkbox
+        // Also TR needed for initial auto selected rows on init / if disable row selection it is only possible to use the md-checkbox
         if (
-          (this.disableRowClickSelection && target.tagName !== 'MWC-CHECKBOX' && target.tagName !== 'TR') ||
-          (target.tagName !== 'TR' && target.tagName !== 'TD' && target.tagName !== 'MWC-CHECKBOX')
+          (this.disableRowClickSelection && target.tagName !== 'MD-CHECKBOX' && target.tagName !== 'TR') ||
+          (target.tagName !== 'TR' && target.tagName !== 'TD' && target.tagName !== 'MD-CHECKBOX')
         ) {
           return;
         }
@@ -104,7 +104,8 @@ export class ExmgRowSelectable {
           this.selectedRows.push(row);
         }
 
-        const rowCheckbox = this.selectableCheckboxSelector && row.querySelector<HTMLInputElement>(this.selectableCheckboxSelector);
+        const rowCheckbox =
+          this.selectableCheckboxSelector && row.querySelector<HTMLInputElement>(this.selectableCheckboxSelector);
         if (rowCheckbox && rowCheckbox !== e.target) {
           if (isRowAlreadySelected) {
             uncheckCheckbox(rowCheckbox);
@@ -189,7 +190,9 @@ export class ExmgRowSelectable {
 
   private getBodyCheckboxes(): HTMLInputElement[] {
     return this.selectableCheckboxSelector
-      ? Array.from(this.querySelectors.getTableBody().querySelectorAll<HTMLInputElement>(this.selectableCheckboxSelector))
+      ? Array.from(
+          this.querySelectors.getTableBody().querySelectorAll<HTMLInputElement>(this.selectableCheckboxSelector),
+        )
       : [];
   }
 

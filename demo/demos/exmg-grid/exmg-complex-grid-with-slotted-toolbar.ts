@@ -1,21 +1,21 @@
-import {html, css} from 'lit';
-import {customElement} from 'lit/decorators.js';
-import {classMap} from 'lit/directives/class-map.js';
-import {repeat} from 'lit/directives/repeat.js';
-import '@material/mwc-checkbox';
+import { html, css } from 'lit';
+import { customElement } from 'lit/decorators.js';
+import { classMap } from 'lit/directives/class-map.js';
+import { repeat } from 'lit/directives/repeat.js';
+import '@material/web/checkbox/checkbox.js';
 import '@polymer/paper-item';
-import '@material/mwc-icon-button';
+import '@material/web/iconbutton/icon-button.js';
 
 import '@exmg/exmg-grid/src/table/exmg-grid-toolbar-combobox.js';
 import '@exmg/exmg-grid/src/table/exmg-grid.js';
 import '@exmg/exmg-grid/src/table/exmg-grid-pagination.js';
 import '@exmg/exmg-grid/src/table/exmg-grid-base-toolbar.js';
 
-import {style as tableStyles} from '@exmg/exmg-grid/src/styles/exmg-grid-styles-css.js';
-import {style as demoStyles} from './demo-common-css.js';
+import { style as tableStyles } from '@exmg/exmg-grid/src/styles/exmg-grid-styles-css.js';
+import { style as demoStyles } from './demo-common-css.js';
 
-import {createIcon} from './exmg-icons.js';
-import {DEFAULT_SORT_COLUMN, DEFAULT_SORT_DIRECTION, ExmgBaseGridDemo} from './exmg-grid-base.js';
+import { createIcon } from './exmg-icons.js';
+import { DEFAULT_SORT_COLUMN, DEFAULT_SORT_DIRECTION, ExmgBaseGridDemo } from './exmg-grid-base.js';
 
 @customElement('demo-complex-grid-with-slotted-toolbar')
 export class ExmgComplexGridWithSlottedToolbar extends ExmgBaseGridDemo {
@@ -54,11 +54,11 @@ export class ExmgComplexGridWithSlottedToolbar extends ExmgBaseGridDemo {
   private renderTableBody() {
     return repeat(
       this.items,
-      ({id}) => id,
+      ({ id }) => id,
       (i) => {
         return html`
           <tr data-row-key="${i.id}">
-            <td class="grid-checkbox-cell"><mwc-checkbox class="selectable-checkbox"></mwc-checkbox></td>
+            <td class="grid-checkbox-cell"><md-checkbox class="selectable-checkbox"></md-checkbox></td>
             <td>#${i.id}</td>
             <td>${i.month}</td>
             <td class="grid-col-number">${i.year}</td>
@@ -101,19 +101,19 @@ export class ExmgComplexGridWithSlottedToolbar extends ExmgBaseGridDemo {
         default-sort-column="${DEFAULT_SORT_COLUMN}"
         default-sort-direction="${DEFAULT_SORT_DIRECTION}"
         ?sortable="${true}"
-        class=${classMap({dark: this.dark})}
+        class=${classMap({ dark: this.dark })}
         @exmg-grid-sort-change="${this.onSortChange}"
       >
         <exmg-grid-base-toolbar slot="toolbar">
           <div slot="actions">
             ${this.selectedRows.length
               ? html`
-                  <mwc-icon-button
+                  <md-icon-button
                     class="action"
                     icon="merge_type"
                     title="Merge"
                     @click="${this.onActionDelegate('merge')}"
-                  ></mwc-icon-button>
+                  ></md-icon-button>
                 `
               : null}
           </div>
@@ -134,7 +134,7 @@ export class ExmgComplexGridWithSlottedToolbar extends ExmgBaseGridDemo {
         <table>
           <thead>
             <tr class="grid-columns">
-              <th class="grid-checkbox-cell"><mwc-checkbox class="selectable-checkbox"></mwc-checkbox></th>
+              <th class="grid-checkbox-cell"><md-checkbox class="selectable-checkbox"></md-checkbox></th>
               <th><span>ID</span></th>
               <th data-column-key="month" data-sort><span>Month</span></th>
               <th class="grid-col-number" data-column-key="year" data-sort><span>Year</span></th>

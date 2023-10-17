@@ -1,10 +1,9 @@
 import { html, nothing } from 'lit';
 import { property } from 'lit/decorators.js';
 
-import '@material/mwc-icon-button';
 import '@material/web/icon/icon.js';
-import '@material/web/iconbutton/standard-icon-button.js';
-import '@material/web/linearprogress/linear-progress.js';
+import '@material/web/iconbutton/icon-button.js';
+import '@material/web/progress/linear-progress.js';
 
 import { FileData } from './types.js';
 import { formatBytes, isImage } from './utils.js';
@@ -135,13 +134,13 @@ export class ExmgUploadItemBase extends ExmgElement {
     const { item, allowCropping } = this;
     const { status } = item!;
     return html`${status === 'UPLOADED' && isImage(item!.file) && allowCropping
-        ? html`<md-standard-icon-button @click=${this._handleEditClick}>
+        ? html`<md-icon-button @click=${this._handleEditClick}>
             <md-icon>edit</md-icon>
-          </md-standard-icon-button>`
+          </md-icon-button>`
         : nothing}
-      <md-standard-icon-button @click=${this._handleRemoveClick}>
+      <md-icon-button @click=${this._handleRemoveClick}>
         <md-icon>close</md-icon>
-      </md-standard-icon-button>`;
+      </md-icon-button>`;
   }
 
   private _renderWarning() {

@@ -80,19 +80,18 @@ main {
   }
   md-list {
     --md-list-margin-inline: 12px;
-    //   --md-list-container-color: transparent;
-    //   --md-list-item-list-item-container-color: transparent;
-    //   background-color: transparent;
   }
   md-list-item {
+    border-radius: 28px;
+    cursor: pointer;
     text-transform: capitalize;
-    --md-list-item-list-item-container-shape: 28px;
   }
   .active {
-    --md-list-item-list-item-container-color: var(--md-sys-color-primary);
-    --md-list-item-list-item-label-text-color: var(--md-sys-color-on-primary);
-    --md-list-item-list-item-focus-label-text-color: var(--md-sys-color-on-primary);
-    --md-list-item-list-item-hover-label-text-color: var(--md-sys-color-on-primary);
+    background-color: var(--mdc-theme-primary);
+    --md-list-item-label-text-color: var(--md-sys-color-primary);
+    --md-list-item-label-text-color: var(--md-sys-color-on-primary);
+    --md-list-item-focus-label-text-color: var(--md-sys-color-on-primary);
+    --md-list-item-hover-label-text-color: var(--md-sys-color-on-primary);
   }
   .content {
     margin-top: var(--toolbar-height);

@@ -1,9 +1,9 @@
-import {html, css} from 'lit';
-import {customElement} from 'lit/decorators.js';
-import {classMap} from 'lit/directives/class-map.js';
-import {repeat} from 'lit/directives/repeat.js';
-import '@material/mwc-checkbox';
-import '@material/mwc-icon-button';
+import { html, css } from 'lit';
+import { customElement } from 'lit/decorators.js';
+import { classMap } from 'lit/directives/class-map.js';
+import { repeat } from 'lit/directives/repeat.js';
+import '@material/web/checkbox/checkbox.js';
+import '@material/web/iconbutton/icon-button.js';
 
 import '@polymer/paper-listbox/paper-listbox.js';
 import '@polymer/paper-item/paper-item.js';
@@ -13,11 +13,11 @@ import '@polymer/iron-dropdown/iron-dropdown.js';
 import '@exmg/exmg-grid/src/table/exmg-grid.js';
 import '@exmg/exmg-grid/src/table/exmg-grid-pagination.js';
 import '@exmg/exmg-grid/src/table/exmg-grid-smart-toolbar.js';
-import {style as tableStyles} from '@exmg/exmg-grid/src/styles/exmg-grid-styles-css.js';
-import {style as demoStyles} from './demo-common-css.js';
+import { style as tableStyles } from '@exmg/exmg-grid/src/styles/exmg-grid-styles-css.js';
+import { style as demoStyles } from './demo-common-css.js';
 
-import {createIcon} from './exmg-icons.js';
-import {DEFAULT_SORT_COLUMN, DEFAULT_SORT_DIRECTION, ExmgBaseGridDemo} from './exmg-grid-base.js';
+import { createIcon } from './exmg-icons.js';
+import { DEFAULT_SORT_COLUMN, DEFAULT_SORT_DIRECTION, ExmgBaseGridDemo } from './exmg-grid-base.js';
 
 @customElement('demo-complex-grid')
 export class ExmgComplexGrid extends ExmgBaseGridDemo {
@@ -36,19 +36,19 @@ export class ExmgComplexGrid extends ExmgBaseGridDemo {
     super();
     this.selectedRowIds = this.items
       .slice(0, 3)
-      .map(({id}) => id.toString())
-      .reduce((acc, item: string) => ({...acc, [item]: true}), {});
+      .map(({ id }) => id.toString())
+      .reduce((acc, item: string) => ({ ...acc, [item]: true }), {});
     this.expandedRowIds = this.items
       .slice(3, 5)
-      .map(({id}) => id.toString())
-      .reduce((acc, item: string) => ({...acc, [item]: true}), {});
+      .map(({ id }) => id.toString())
+      .reduce((acc, item: string) => ({ ...acc, [item]: true }), {});
   }
 
   // get more menu items for row
   moreMenu() {
     return html`
       <paper-menu-button dynamic-align>
-        <mwc-icon-button class="ignore-select" icon="more_vert" slot="dropdown-trigger"></mwc-icon-button>
+        <md-icon-button class="ignore-select" icon="more_vert" slot="dropdown-trigger"></md-icon-button>
         <paper-listbox slot="dropdown-content">
           <paper-item>Edit 1</paper-item>
           <paper-item>Edit 2</paper-item>
@@ -60,11 +60,11 @@ export class ExmgComplexGrid extends ExmgBaseGridDemo {
   private renderTableBody() {
     return repeat(
       this.items,
-      ({id}) => id,
+      ({ id }) => id,
       (i) => {
         return html`
           <tr data-row-key="${i.id}">
-            <td class="grid-checkbox-cell"><mwc-checkbox class="selectable-checkbox"></mwc-checkbox></td>
+            <td class="grid-checkbox-cell"><md-checkbox class="selectable-checkbox"></md-checkbox></td>
             <td>#${i.id}</td>
             <td>${i.month}</td>
             <td class="grid-col-number">${i.year}</td>
@@ -111,7 +111,7 @@ export class ExmgComplexGrid extends ExmgBaseGridDemo {
         ?sortable="${true}"
         @exmg-grid-sort-change="${this.onSortChange}"
         table-layout="fixed"
-        class=${classMap({dark: this.dark})}
+        class=${classMap({ dark: this.dark })}
       >
         <exmg-grid-smart-toolbar
           slot="toolbar"
@@ -128,7 +128,7 @@ export class ExmgComplexGrid extends ExmgBaseGridDemo {
         <table>
           <thead>
             <tr class="grid-columns">
-              <th class="grid-checkbox-cell"><mwc-checkbox class="selectable-checkbox"></mwc-checkbox></th>
+              <th class="grid-checkbox-cell"><md-checkbox class="selectable-checkbox"></md-checkbox></th>
               <th><span>ID</span></th>
               <th style="width: 60%" data-column-key="month" data-sort>
                 <span>Month with quite long name which should stay on one line</span>

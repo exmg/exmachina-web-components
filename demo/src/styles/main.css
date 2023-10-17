@@ -9,6 +9,8 @@ html {
   --mdc-theme-on-secondary: #03182a;
   --mdc-theme-on-surface: #03182a;
 
+  --md-filled-button-container-shape: 22px;
+
   /* Global vars */
   --app-seperator-color: rgba(0, 0, 0, 0.1);
 
