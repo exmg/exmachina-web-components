@@ -23,7 +23,7 @@
   "license": "MIT",
   "dependencies": {
     "@exmg/exmg-button": "file:../exmg-button",
-    "@exmg/lit-base": "^1.1.8",
+    "@exmg/lit-base": "^2.0.1",
     "@polymer/iron-form": "^3.0.0",
     "@polymer/paper-dialog": "^3.0.0",
     "@polymer/paper-dialog-scrollable": "^3.0.0",

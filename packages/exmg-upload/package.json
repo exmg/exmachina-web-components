@@ -2,7 +2,7 @@
   "name": "@exmg/exmg-upload",
   "version": "1.0.7",
   "dependencies": {
-    "@exmg/lit-base": "^1.1.8",
+    "@exmg/lit-base": "^2.0.1",
     "@exmg/exmg-button": "file:../exmg-button",
     "@exmg/exmg-collapsed": "file:../exmg-collapsed",
     "@exmg/exmg-dialogs": "file:../exmg-dialogs",
