@@ -2,9 +2,14 @@
   "name": "@exmg/exmg-copy-to-clipboard",
   "version": "8.1.35",
   "type": "module",
+  "main": "index.js",
+  "module": "index.js",
+  "exports": {
+    ".": "./index.js",
+    "./exmg-copy-to-clipboard.js": "./src/exmg-copy-to-clipboard.js"
+  },
   "dependencies": {
     "@exmg/lit-base": "^1.1.8",
-    "@material/mwc-base": "=0.25.3",
     "lit": "^2.0.0",
     "tslib": "^2.0.1"
   },
@@ -18,7 +23,6 @@
     "lit",
     "clipboard"
   ],
-  "main": "exmg-copy-to-clipboard.js",
   "homepage": "https://github.com/exmg/exmachina-web-components",
   "repository": {
     "type": "git",

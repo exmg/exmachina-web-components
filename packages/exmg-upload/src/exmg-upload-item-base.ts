@@ -1,12 +1,16 @@
 import { html, nothing } from 'lit';
 import { property } from 'lit/decorators.js';
-import { FileData } from './types.js';
+
 import '@material/mwc-icon-button';
+import '@material/web/icon/icon.js';
+import '@material/web/iconbutton/standard-icon-button.js';
+import '@material/web/linearprogress/linear-progress.js';
+
+import { FileData } from './types.js';
 import { formatBytes, isImage } from './utils.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import { UploadService } from './upload/index.js';
 import { ExmgElement } from '@exmg/lit-base';
-import { checkIcon, closeIcon, editIcon, errorIcon, warningIcon } from './exmg-upload-icons.js';
 import { UploadConfig } from './upload/types.js';
 
 export class ExmgUploadItemBase extends ExmgElement {
@@ -131,12 +135,17 @@ export class ExmgUploadItemBase extends ExmgElement {
     const { item, allowCropping } = this;
     const { status } = item!;
     return html`${status === 'UPLOADED' && isImage(item!.file) && allowCropping
-        ? html`<mwc-icon-button @click=${this._handleEditClick}>${editIcon}</mwc-icon-button>`
-        : nothing} <mwc-icon-button @click=${this._handleRemoveClick}>${closeIcon}</mwc-icon-button>`;
+        ? html`<md-standard-icon-button @click=${this._handleEditClick}>
+            <md-icon>edit</md-icon>
+          </md-standard-icon-button>`
+        : nothing}
+      <md-standard-icon-button @click=${this._handleRemoveClick}>
+        <md-icon>close</md-icon>
+      </md-standard-icon-button>`;
   }
 
   private _renderWarning() {
-    return html`<span class="warning-icon">${warningIcon}</span>`;
+    return html`<md-icon class="warning-icon">warning</md-icon>`;
   }
 
   private renderUploading() {
@@ -144,11 +153,11 @@ export class ExmgUploadItemBase extends ExmgElement {
   }
 
   private renderUploaded() {
-    return html`<span class="success-icon">${checkIcon}</span>`;
+    return html`<md-icon class="success-icon">check</md-icon>`;
   }
 
   private renderInvalid() {
-    return html`<span class="error-icon">${errorIcon}</span>`;
+    return html`<md-icon class="error-icon">error</md-icon>`;
   }
 
   render() {
@@ -164,7 +173,11 @@ export class ExmgUploadItemBase extends ExmgElement {
         <div class="name-container">
           <span class="file-name">${fileName}</span>
           ${status !== 'INVALID' && status !== 'WARNING'
-            ? html` <progress id="file" max="100" value=${ifDefined(progress || 0)}></progress>`
+            ? html` <md-linear-progress
+                max="100"
+                class="progress"
+                progress="${ifDefined(progress || 0)}"
+              ></md-linear-progress>`
             : nothing}
           ${this.item?.error
             ? html` <span class="file-error">${this.item?.error}</span> `

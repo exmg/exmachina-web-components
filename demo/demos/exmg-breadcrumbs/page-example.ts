@@ -1,7 +1,7 @@
 import { html, css } from 'lit';
 import { customElement, query } from 'lit/decorators.js';
 import { ExmgElement } from '@exmg/lit-base/index.js';
-import { BreadcrumbsMixin } from '@exmg/exmg-breadcrumbs/exmg-breadcrumb-mixin.js';
+import { BreadcrumbsMixin } from '@exmg/exmg-breadcrumbs';
 import '@exmg/exmg-breadcrumbs/exmg-breadcrumbs.js';
 import { ExmgBreadcrumbs } from '@exmg/exmg-breadcrumbs/exmg-breadcrumbs.js';
 
@@ -27,8 +27,6 @@ export class PageExample extends BreadcrumbsMixin(ExmgElement) {
     css`
       :host {
         display: block;
-      }
-      exmg-breadcrumbs {
         font-family: Roboto;
         font-size: 1rem;
       }

@@ -1,0 +1,24 @@
+@use '@material/web/dialog/lib/dialog-styles';
+
+md-dialog {
+  --md-dialog-container-color: var(--md-sys-color-surface);
+}
+
+exmg-upload,
+::slotted(exmg-upload) {
+  width: 460px;
+}
+
+[slot='header'] {
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+}
+
+[showing-fullscreen] [slot='header'] {
+  flex-direction: row;
+}
+
+.headline {
+  flex: 1;
+}

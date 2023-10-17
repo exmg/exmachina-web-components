@@ -200,12 +200,17 @@ body,
 html {
   margin: 0;
   padding: 1rem;
+<<<<<<< HEAD
   background: var(--mdc-theme-surface);
   font-family: 'Roboto';
+=======
+  font-family: Roboto;
+>>>>>>> b54177a7db768d67ead57029569f09caa50d0878
   -webkit-font-smoothing: antialiased;
 }
 
 .centered {
   max-width: 1000px;
   margin: 3rem auto;
+  border-radius: 16px;
 }

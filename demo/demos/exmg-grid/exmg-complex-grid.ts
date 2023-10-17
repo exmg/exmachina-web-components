@@ -16,8 +16,13 @@ import '@exmg/exmg-grid/src/table/exmg-grid-smart-toolbar.js';
 import { style as tableStyles } from '@exmg/exmg-grid/src/styles/exmg-grid-styles-css.js';
 import { style as demoStyles } from './demo-common-css.js';
 
+<<<<<<< HEAD
 import { createIcon } from './exmg-icons.js';
 import { DEFAULT_SORT_COLUMN, DEFAULT_SORT_DIRECTION, ExmgBaseGridDemo } from './exmg-grid-demo.js';
+=======
+import {createIcon} from './exmg-icons.js';
+import {DEFAULT_SORT_COLUMN, DEFAULT_SORT_DIRECTION, ExmgBaseGridDemo} from './exmg-grid-base.js';
+>>>>>>> b54177a7db768d67ead57029569f09caa50d0878
 
 @customElement('demo-complex-grid')
 export class ExmgComplexGrid extends ExmgBaseGridDemo {
@@ -95,14 +100,6 @@ export class ExmgComplexGrid extends ExmgBaseGridDemo {
         <button class="demo-button" @click="${this.unSelectFirstRows}">Unselect first rows</button>
         <button class="demo-button" @click="${() => (this.dark = !this.dark)}">Toggle Dark Theme</button>
       </div>
-      <h1>Complex table with sortable columns</h1>
-      <h2>Current theme ${this.theme}</h2>
-      <ul>
-        <li>default sort column</li>
-        <li>preselected rows</li>
-        <li>expanded rows</li>
-        <li>fixed table layout - squeeze content and ellipsis overflow</li>
-      </ul>
       <exmg-grid
         data-theme="${this.theme}"
         .items="${this.items}"

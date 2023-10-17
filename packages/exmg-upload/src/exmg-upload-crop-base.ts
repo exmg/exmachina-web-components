@@ -1,7 +1,7 @@
 import { html, nothing } from 'lit';
 import { query, property, state } from 'lit/decorators.js';
 
-import '@exmg/exmg-button';
+import '@material/web/button/filled-button.js';
 
 import { FileData } from './types.js';
 import { ExmgElement } from '@exmg/lit-base';
@@ -63,8 +63,8 @@ export class ExmgUploadCropBase extends ExmgElement {
   renderActions() {
     return html`
       <div class="actions">
-        <exmg-button @click=${this._cancel}>Cancel</exmg-button>
-        <exmg-button @click=${this.saveCropArea}>Crop</exmg-button>
+        <md-filled-button @click=${this._cancel}>Cancel</md-filled-button>
+        <md-filled-button @click=${this.saveCropArea}>Crop</md-filled-button>
       </div>
     `;
   }

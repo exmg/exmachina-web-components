@@ -2,9 +2,14 @@
   "name": "@exmg/exmg-tooltip",
   "version": "8.1.35",
   "type": "module",
+  "main": "index.js",
+  "module": "index.js",
+  "exports": {
+    ".": "./index.js",
+    "./exmg-tooltip.js": "./src/exmg-tooltip.js"
+  },
   "dependencies": {
     "@exmg/lit-base": "^1.1.8",
-    "@material/mwc-base": "=0.25.3",
     "lit": "^2.0.0",
     "tslib": "^2.0.1"
   },
@@ -18,7 +23,6 @@
     "lit-element",
     "tooltip"
   ],
-  "main": "exmg-tooltip.js",
   "homepage": "https://github.com/exmg/exmachina-web-components",
   "repository": {
     "type": "git",

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /* eslint-disable @typescript-eslint/explicit-module-boundary-types */
 import { LitElement } from 'lit';
 import { property, state } from 'lit/decorators.js';
@@ -24,18 +25,15 @@ import {
   EventDetailSortChange,
 } from '@exmg/exmg-grid/src/table/types/exmg-grid-types.js';
 import { EventSelectPayload } from '@exmg/exmg-grid/src/table/exmg-grid-toolbar-combobox.js';
+=======
+import {html, css} from 'lit';
+import {customElement} from 'lit/decorators.js';
+>>>>>>> b54177a7db768d67ead57029569f09caa50d0878
 
-function isString(x: any): x is string {
-  return typeof x === 'string';
-}
-export interface Income {
-  id: number;
-  month: string;
-  amount: number;
-  year: number;
-  test: string;
-}
+import {style as tableStyles} from '@exmg/exmg-grid/src/styles/exmg-grid-styles-css.js';
+import {style as demoStyles} from './demo-common-css.js';
 
+<<<<<<< HEAD
 const generateRows = (length = 50, startId = 1): Income[] => {
   const randomAmount = () => Number.parseFloat((Math.random() * 1000).toFixed(2));
   const source: Income[] = [
@@ -227,28 +225,44 @@ export abstract class ExmgBaseGridDemo extends LitElement {
           });
         this.items = getItemByPage(this.pageIndex, this.pageSize);
         break;
+=======
+import './exmg-complex-grid-with-slotted-toolbar.js';
+import './exmg-complex-grid-with-sortable-rows.js';
+import './exmg-complex-grid.js';
+import './exmg-grid-base-toolbar-demo.js';
+import './exmg-grid-pagination-demo.js';
+import './exmg-grid-smart-toolbar-demo.js';
+import './exmg-grid-toolbar-demo.js';
+import './search-toolbar-demo.js';
+import {ExmgBaseGridDemo} from './exmg-grid-base.js';
+
+@customElement('exmg-grid-demo')
+export class ExmgGridDemo extends ExmgBaseGridDemo {
+  // language=CSS
+  static styles = [
+    tableStyles,
+    demoStyles,
+    css`
+      .expandable-toggle {
+        cursor: pointer;
       }
-    }
-  }
+      h1 {
+        color: var(--md-sys-color-on-surface);
+        padding-top: 1.5rem;
+>>>>>>> b54177a7db768d67ead57029569f09caa50d0878
+      }
+    `,
+  ];
 
-  updateSearchItems() {
-    const fi: any[] = [];
-    allItems.forEach((i: any) => {
-      this.searchProperties!.some((prop: any) => {
-        if (isString(i[prop])) {
-          const v = i[prop].toUpperCase();
-          const s = (this.searchValue || '').toUpperCase();
-          return v.indexOf(s) !== -1;
-        }
-        return false;
-      }) && fi.push(i);
-    });
+  protected render() {
+    return html`
+      <h1>Complex Grid With Toolbar</h1>
+      <demo-complex-grid-with-slotted-toolbar></demo-complex-grid-with-slotted-toolbar>
 
-    filteredItems = [...fi];
-    this.pageIndex = 0;
-    this.items = getItemByPage(this.pageIndex, this.pageSize);
-  }
+      <h1>Complex Grid With Sortable Row</h1>
+      <demo-complex-grid-sortable></demo-complex-grid-sortable>
 
+<<<<<<< HEAD
   protected onSearchChanged(e: CustomEvent<{ value: string }>) {
     this.searchValue = e.detail.value;
     this.updateSearchItems();
@@ -258,14 +272,18 @@ export abstract class ExmgBaseGridDemo extends LitElement {
     const { id, value } = e.detail;
     this.handleFilterChanged(id, value);
   }
+=======
+      <h1>Complex Grid</h1>
+      <demo-complex-grid></demo-complex-grid>
 
-  protected onFilterChangedComboboxDelegate(filterId: string) {
-    return (e: CustomEvent<EventSelectPayload>) => {
-      const filterValue = e.detail.value as string;
-      this.handleFilterChanged(filterId, filterValue);
-    };
-  }
+      <h1>Base Toolbar</h1>
+      <exmg-grid-base-toolbar-demo></exmg-grid-base-toolbar-demo>
+>>>>>>> b54177a7db768d67ead57029569f09caa50d0878
 
+      <h1>Pagination</h1>
+      <exmg-grid-pagination-demo></exmg-grid-pagination-demo>
+
+<<<<<<< HEAD
   private handleFilterChanged(id: string, value: string) {
     const filterId = value !== 'all' ? id : null;
     switch (filterId) {
@@ -376,5 +394,13 @@ export abstract class ExmgBaseGridDemo extends LitElement {
 
   protected getTotalCount(): number {
     return filteredItems.length;
+=======
+      <h1>Smart Toolbar</h1>
+      <exmg-grid-smart-toolbar-demo></exmg-grid-smart-toolbar-demo>
+
+      <h1>Searchbar</h1>
+      <search-toolbar-demo></search-toolbar-demo>
+    `;
+>>>>>>> b54177a7db768d67ead57029569f09caa50d0878
   }
 }

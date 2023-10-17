@@ -3,12 +3,18 @@
   "version": "1.0.9",
   "dependencies": {
     "@exmg/exmg-button": "file:../exmg-button",
+<<<<<<< HEAD
     "@exmg/exmg-dialogs": "file:../exmg-dialogs",
     "@exmg/exmg-sortable": "file:../exmg-sortable",
     "@exmg/lit-base": "^1.1.8",
     "@material/mwc-base": "=0.25.3",
     "@polymer/paper-dialog": "^3.0.0",
     "@polymer/paper-dialog-scrollable": "^3.0.0",
+=======
+    "@exmg/exmg-collapsed": "file:../exmg-collapsed",
+    "@exmg/exmg-dialogs": "file:../exmg-dialogs",
+    "@material/web": "^1.0.0-pre.11",
+>>>>>>> b54177a7db768d67ead57029569f09caa50d0878
     "cropperjs": "^1.5.13",
     "lit": "^2.0.0",
     "tslib": "^2.0.1"
@@ -31,9 +37,9 @@
     "./exmg-upload.js": "./src/exmg-upload.js",
     "./exmg-upload-item.js": "./src/exmg-upload-item.js",
     "./exmg-upload-drop-area.js": "./src/exmg-upload-drop-area.js",
-    "./exmg-upload-dialog.js": "./src/exmg-upload-dialog.js",
     "./exmg-upload-input.js": "./src/exmg-upload-input.js",
-    "./exmg-upload-crop.js": "./src/exmg-upload-crop.js"
+    "./exmg-upload-crop.js": "./src/exmg-upload-crop.js",
+    "./exmg-dialog-upload.js": "./src/exmg-dialog-upload.js"
   },
   "homepage": "https://github.com/exmg/exmachina-web-components",
   "repository": {

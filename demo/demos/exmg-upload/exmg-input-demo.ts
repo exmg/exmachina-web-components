@@ -3,6 +3,7 @@ import { customElement, query } from 'lit/decorators.js';
 import '@exmg/exmg-upload/exmg-upload.js';
 import '@exmg/exmg-upload/exmg-upload-input.js';
 import { ExmgUploadInput } from '@exmg/exmg-upload/exmg-upload-input.js';
+import '@material/web/textfield/outlined-text-field.js';
 
 @customElement('exmg-input-demo')
 export class ExmgInputDemo extends LitElement {
@@ -13,6 +14,7 @@ export class ExmgInputDemo extends LitElement {
     css`
       :host {
         display: block;
+        width: 100%;
       }
 
       exmg-upload a {
@@ -24,11 +26,8 @@ export class ExmgInputDemo extends LitElement {
         fill: #0071dc;
       }
 
-      input {
+      md-outlined-text-field {
         width: 100%;
-        padding: 8px;
-        border: 1px solid #999;
-        border-radius: 4px;
       }
     `,
   ];
@@ -36,7 +35,7 @@ export class ExmgInputDemo extends LitElement {
   render() {
     return html`
       <exmg-upload-input>
-        <input slot="input" label="imageUrl" name="imageUrl" />
+        <md-outlined-text-field slot="input" label="imageUrl" name="imageUrl"></md-outlined-text-field>
         <exmg-upload slot="upload" for="imageUrl" maxSize="10mb" serverType="local"> </exmg-upload>
       </exmg-upload-input>
     `;

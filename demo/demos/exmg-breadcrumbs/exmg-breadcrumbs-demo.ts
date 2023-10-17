@@ -8,24 +8,24 @@ export class BreadcrumbsDemo extends LitElement {
   static styles = [
     css`
       :host {
-        --mdc-theme-surface: #0071dc;
-      }
-      exmg-breadcrumbs {
         font-family: Roboto;
-        font-size: 1rem;
+        --mdc-theme-surface: var(--md-sys-color-primary);
+      }
+      h1 {
+        color: var(--md-sys-color-on-surface);
+        padding-top: 1.5rem;
       }
       .toolbar {
         padding: 0.8em 1em;
         border: 1 px solid hsl(0, 0%, 90%);
-        background-color: hsl(300, 14%, 97%);
+        border-radius: 4px;
+        background-color: var(--md-sys-color-surface-variant);
       }
       .toolbar.theme {
-        background-color: var(--mdc-theme-primary);
+        background-color: var(--md-sys-color-primary);
       }
       .theme exmg-breadcrumbs {
-        --mdc-theme-primary: #cecece;
-        --mdc-theme-on-primary: var(--mdc-theme-primary);
-        --mdc-theme-surface: white;
+        --md-sys-color-primary: green;
       }
     `,
   ];
@@ -41,25 +41,25 @@ export class BreadcrumbsDemo extends LitElement {
   render() {
     return html`
       <div class="main">
-        <h4>Default</h4>
+        <h1>Default</h1>
         <div class="toolbar">
           <exmg-breadcrumbs .items="${this.items}"></exmg-breadcrumbs>
         </div>
       </div>
       <div class="main">
-        <h4>Arrow separator</h4>
+        <h1>Arrow separator</h1>
         <div class="toolbar">
           <exmg-breadcrumbs .items="${this.items}" arrow-separator></exmg-breadcrumbs>
         </div>
       </div>
       <div class="main">
-        <h4>Themed</h4>
+        <h1>Themed</h1>
         <div class="toolbar theme">
           <exmg-breadcrumbs .items="${this.items}" arrow-separator></exmg-breadcrumbs>
         </div>
       </div>
       <div class="main">
-        <h4>Page Example Mixin</h4>
+        <h1>Page Example Mixin</h1>
         <page-example></page-example>
       </div>
     `;

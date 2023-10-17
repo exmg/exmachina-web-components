@@ -27,10 +27,13 @@
       version: '8.1.37',
       url: 'https://www.npmjs.com/package/@exmg/exmg-dialogs',
     },{
+<<<<<<< HEAD
       name: '@exmg/exmg-form',
       version: '8.1.37',
       url: 'https://www.npmjs.com/package/@exmg/exmg-form',
     },{
+=======
+>>>>>>> b54177a7db768d67ead57029569f09caa50d0878
       name: '@exmg/exmg-form-drawer',
       version: '8.1.37',
       url: 'https://www.npmjs.com/package/@exmg/exmg-form-drawer',

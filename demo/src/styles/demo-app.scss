@@ -1,35 +1,16 @@
-@use '@material/typography/mixins' as typography;
-
 :host {
-  font-family: var(--mdc-typography-headline3-font-family, var(--mdc-typography-font-family, Roboto, sans-serif));
+  font-family: Roboto;
   --toolbar-height: 100px;
-  --sidebar-width: 300px;
-}
-
-h1 {
-  @include typography.typography(headline1);
-}
-
-h2 {
-  @include typography.typography(headline2);
+  --sidebar-width: 190px;
+  overflow: hidden;
+  --mdc-theme-primary: var(--md-sys-color-primary);
+  --mdc-theme-on-primary: var(--md-sys-color-on-primary);
+  --mdc-theme-surface: var(--md-sys-color-on-primary);
 }
 
 h3 {
-  @include typography.typography(headline3);
+  color: var(--md-sys-color-on-surface);
 }
-
-h4 {
-  @include typography.typography(headline4);
-}
-
-h5 {
-  @include typography.typography(headline5);
-}
-
-h6 {
-  @include typography.typography(headline6);
-}
-
 ol {
   list-style: none;
   margin: 0;
@@ -39,12 +20,14 @@ ol {
 main {
   display: flex;
   flex-direction: column;
-  font-family: 'Roboto Mono', monospace;
+  font-family: Roboto;
   -webkit-font-smoothing: antialiased;
   font-size: 1rem;
   line-height: 1.4rem;
+  height: calc(100vh - var(--toolbar-height));
+  background-color: var(--md-sys-color-background);
   section {
-    background-color: black;
+    background-color: var(--md-sys-color-surface-container);
     display: flex;
     flex-direction: row;
     height: var(--toolbar-height);
@@ -58,14 +41,11 @@ main {
     letter-spacing: 0.02em;
     display: flex;
     align-items: center;
-    padding: 8px 12px;
+    padding: 1rem;
     box-sizing: border-box;
-    color: rgb(255, 255, 255);
-    box-shadow: rgb(0 0 0 / 20%) 0px 2px 4px -1px, rgb(0 0 0 / 14%) 0px 4px 5px 0px, rgb(0 0 0 / 12%) 0px 1px 10px 0px;
+    color: var(--md-sys-color-on-surface);
     .logo {
-      display: flex;
-      justify-content: center;
-      min-width: var(--sidebar-width);
+      max-width: var(--sidebar-width);
       svg {
         width: 80%;
       }
@@ -76,66 +56,94 @@ main {
       display: flex;
       .element {
         flex: 1;
+        font-size: 0.9rem;
       }
       .version {
-        font-size: 0.9rem;
-        color: rgba(255, 255, 255, 0.75);
+        font-size: 0.7rem;
+        color: var(--md-sys-color-on-surface-variant);
+        opacity: 0.8;
       }
       .actions {
         display: flex;
         justify-content: center;
         align-items: center;
+        gap: 12px;
         button {
-          background: #14a5d0;
+          background: var(--md-sys-color-primary);
           border: none;
           padding: 0.6rem 1rem;
-          color: white;
+          color: var(--md-sys-color-on-primary);
           font-weight: 600;
         }
       }
     }
   }
+  md-list {
+    --md-list-margin-inline: 12px;
+    //   --md-list-container-color: transparent;
+    //   --md-list-item-list-item-container-color: transparent;
+    //   background-color: transparent;
+  }
+  md-list-item {
+    text-transform: capitalize;
+    --md-list-item-list-item-container-shape: 28px;
+  }
+  .active {
+    --md-list-item-list-item-container-color: var(--md-sys-color-primary);
+    --md-list-item-list-item-label-text-color: var(--md-sys-color-on-primary);
+    --md-list-item-list-item-focus-label-text-color: var(--md-sys-color-on-primary);
+    --md-list-item-list-item-hover-label-text-color: var(--md-sys-color-on-primary);
+  }
   .content {
     margin-top: var(--toolbar-height);
     display: flex;
     flex-direction: row;
+    height: calc(100vh - var(--toolbar-height));
     .main,
     .sidemenu {
       height: calc(100vh - var(--toolbar-height));
       min-width: var(--sidebar-width);
+      font-size: 0.8rem;
+      overflow-y: scroll;
     }
     .main {
       flex: 1;
+      padding: 1rem 10% 1rem 10%;
+      box-sizing: border-box;
+    }
+    .name {
+      font-weight: bold;
     }
     .sidemenu {
-      background: #eee;
+      position: sticky;
+      text-align: center;
+      background: var(--md-sys-color-surface-container);
+      height: calc(100vh - var(--toolbar-height));
+      padding: 12px;
       li a {
         text-decoration: none;
-        padding: 0.8rem 1rem;
+        padding: 1rem;
         box-sizing: border-box;
         display: block;
-        border-bottom: 1px solid #ddd;
-        color: black;
+        color: var(--md-sys-color-on-surface);
       }
       li a:visited {
         text-decoration: none;
-        color: black;
+        color: var(--md-sys-color-on-surface);
       }
       li a:hover {
-        background: #ddd;
+        background: var(--md-sys-color-primary-container);
+        cursor: pointer;
       }
       li {
         &.active {
+          font-weight: bold;
+          background: var(--md-sys-color-primary-container);
           a {
-            color: rgb(74, 163, 204);
+            color: var(--md-sys-color-on-surface);
           }
         }
       }
     }
-  }
-  iframe {
-    border: none;
-    height: 100%;
-    width: 100%;
   }
 }

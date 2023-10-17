@@ -1,0 +1,19 @@
+md-filled-button {
+  --md-circular-progress-size: 32px;
+  --md-filled-button-with-icon-spacing-trailing: 8px;
+  --md-circular-progress-active-indicator-color: var(--md-sys-color-on-primary);
+}
+
+md-filled-button[disabled] {
+  --md-circular-progress-active-indicator-color: var(--md-sys-color-on-surface);
+}
+
+md-filled-button[loading='true'] > slot.label {
+  visibility: hidden;
+}
+
+md-circular-progress {
+  position: absolute;
+  left: calc(50% - 14px);
+  top: 4px;
+}

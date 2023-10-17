@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import { LitElement, html } from 'lit';
 import { customElement, property, query } from 'lit/decorators.js';
 import '@exmg/exmg-button/exmg-button.js';
@@ -9,9 +10,28 @@ import '@exmg/exmg-form/exmg-form.js';
 import '@vaadin/vaadin-date-picker/vaadin-date-picker.js';
 import '@exmg/exmg-form-drawer/exmg-form-drawer.js';
 import { ExmgFormDrawer } from '@exmg/exmg-form-drawer/exmg-form-drawer.js';
+=======
+import { LitElement, css, html } from 'lit';
+import { customElement, query, state } from 'lit/decorators.js';
+import '@exmg/exmg-form-drawer/exmg-form-drawer.js';
+import './exmg-form-drawer-standard.js';
+import './user-update-drawer.js';
+import { Tabs } from '@material/web/tabs/lib/tabs.js';
+import { UserData, UserUpdateDrawer } from './user-update-drawer.js';
+>>>>>>> b54177a7db768d67ead57029569f09caa50d0878
 
-@customElement('exmg-drawer-demo')
+const user: UserData = {
+  firstname: 'John',
+  lastname: 'Doe',
+  company: 'Ex Machina Group',
+  amount: 5,
+  email: 'test@example.com',
+  phone: '+1234567890',
+};
+
+@customElement('exmg-form-drawer-demo')
 export class Drawer extends LitElement {
+<<<<<<< HEAD
   @property({ type: Boolean })
   opened = false;
 
@@ -79,17 +99,47 @@ export class Drawer extends LitElement {
         this.form!.handleError('Internal error occurred');
       } else {
         this.form!.done();
+=======
+  @query('md-tabs')
+  tabs?: Tabs;
+
+  @state()
+  selectedTab = 0;
+
+  @query('user-update-drawer')
+  form?: UserUpdateDrawer;
+
+  static styles = [
+    css`
+      :host {
+        display: block;
+>>>>>>> b54177a7db768d67ead57029569f09caa50d0878
       }
-    }, 1000);
+      main {
+        margin-top: 3rem;
+      }
+    `,
+  ];
+
+  _handleChange() {
+    this.selectedTab = this.tabs?.selected ?? 0;
   }
 
-  onCancel(event: CustomEvent) {
-    // eslint-disable-next-line no-console
-    console.log('cancel', event);
+  renderContent() {
+    switch (this.selectedTab) {
+      case 0:
+        return html`<exmg-form-drawer-standard></exmg-form-drawer-standard> `;
+      default:
+        return html`
+          <md-text-button @click=${() => this.form!.show()}>Open Create</md-text-button>
+          <md-text-button @click="${() => this.form!.show(user)}">Open Update</md-text-button
+          ><user-update-drawer></user-update-drawer>
+        `;
+    }
   }
-
   render() {
     return html`
+<<<<<<< HEAD
       <style>
         exmg-form-drawer {
           --mdc-theme-primary: #0071dc;
@@ -193,6 +243,14 @@ export class Drawer extends LitElement {
           .markdown=${this.markdownValue}
         ></exmg-markdown-editor>
       </exmg-form-drawer>
+=======
+      <md-tabs .selected="${this.selectedTab}" @change=${this._handleChange}>
+        <md-tab> Normal </md-tab>
+        <md-tab> Extends base class </md-tab>
+      </md-tabs>
+
+      <main>${this.renderContent()}</main>
+>>>>>>> b54177a7db768d67ead57029569f09caa50d0878
     `;
   }
 }

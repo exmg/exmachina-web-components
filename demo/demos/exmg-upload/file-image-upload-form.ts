@@ -2,6 +2,8 @@ import { html, css } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import { ExmgElement } from '@exmg/lit-base';
+import '@material/web/textfield/outlined-text-field.js';
+import '@material/web/checkbox/checkbox.js';
 
 @customElement('file-image-upload-form')
 export class FileImageUploadForm extends ExmgElement {
@@ -17,14 +19,14 @@ export class FileImageUploadForm extends ExmgElement {
         display: block;
       }
 
-      input[type='text'] {
-        width: 300px;
-        padding: 6px;
+      .row {
+        display: flex;
+        flex-direction: row;
+        margin-bottom: 1rem;
       }
 
-      input[type='text'],
-      input[type='checkbox'] {
-        margin-bottom: 8px;
+      .row > * {
+        margin-right: 1rem;
       }
     `,
   ];
@@ -41,45 +43,51 @@ export class FileImageUploadForm extends ExmgElement {
 
   render() {
     return html`
-      <div>
-        <label for="accept">Accept</label><br />
-        <input
+      <div class="row">
+        <md-outlined-text-field
           id="accept"
           type="text"
+          label="Accept"
           value=${ifDefined(this.accept)}
           @blur=${(e: FocusEvent) => this._handleBlur(e, 'accept')}
-        /><br />
-        <label for="maxSize">Max Size</label><br />
-        <input
+        ></md-outlined-text-field>
+        <md-outlined-text-field
           id="maxSize"
           type="text"
+          label="Max Size"
           value=${ifDefined(this.maxSize)}
           @blur=${(e: FocusEvent) => this._handleBlur(e, 'maxSize')}
-        /><br />
-        <label for="uploadUrl">fixedResolution</label><br />
-        <input
+        ></md-outlined-text-field>
+        </div>
+        <div class="row">
+        <md-outlined-text-field
           id="fixedResolution"
           type="text"
+          label="Fixed Resolution"
           value=${this.fixedResolution}
           @blur=${(e: FocusEvent) => this._handleBlur(e, 'fixedResolution')}
-        /><br />
-        <label for="maxSize">Allow Cropping</label><br />
-        <input
-          id="allowCropping"
-          type="checkbox"
-          ?disabled=${!!this.fixedResolution}
-          name="allowCropping"
-          ?checked=${!!this.allowCropping}
-          @change=${(e: Event) => this._handleChange(e, 'allowCropping')}
-        /><br />
-        <label for="maxAmount">Aspect Ratio</label><br />
-        <input
+        ></md-outlined-text-field>
+        <label>
+          Allow Cropping
+          <md-checkbox
+            id="allowCropping"
+            ?disabled=${!!this.fixedResolution}
+            name="allowCropping"
+            ?checked=${!!this.allowCropping}
+            @change=${(e: Event) => this._handleChange(e, 'allowCropping')}
+          ></md-checkbox
+        ></label>
+        </div>
+        <div class="row">
+        <md-outlined-text-field
           id="aspectRatio"
           type="text"
+          label="Aspect Ratio"
           ?disabled=${!!this.fixedResolution}
           value=${ifDefined(this.aspectRatio)}
           @blur=${(e: FocusEvent) => this._handleBlur(e, 'aspectRatio')}
-        /><br />
+        ></md-outlined-text-field
+        ></div
       </div>
     `;
   }

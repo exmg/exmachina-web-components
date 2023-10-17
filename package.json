@@ -20,6 +20,7 @@
     "@exmg/lit-cli": "1.1.9",
     "@exmg/prettier-config": "^1.0.26",
     "@exmg/ts-config-lit": "^1.0.26",
+    "@material/material-color-utilities": "^0.2.7",
     "@material/typography": "^13.0.0",
     "@polymer/iron-demo-helpers": "^3.1.0",
     "@polymer/polymer": "^3.4.1",
@@ -69,6 +70,7 @@
     "run:docs": "web-dev-server /docs/index.html"
   },
   "dependencies": {
+    "@material/web": "^1.0.0-pre.10",
     "@open-wc/building-rollup": "^2.0.2",
     "@vaadin/vaadin-date-picker": "^23.2.2"
   }

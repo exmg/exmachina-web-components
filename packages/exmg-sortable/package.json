@@ -2,6 +2,12 @@
   "name": "@exmg/exmg-sortable",
   "version": "8.1.35",
   "type": "module",
+  "main": "index.js",
+  "module": "index.js",
+  "exports": {
+    ".": "./index.js",
+    "./exmg-sortable.js": "./src/exmg-sortable.js"
+  },
   "description": "Enables drag and drop sorting of items in a list or table",
   "contributors": [
     "Ex Machina Group"
@@ -25,7 +31,6 @@
     "@exmg/lit-cli": "1.1.9"
   },
   "homepage": "https://github.com/exmg/exmachina-web-components",
-  "main": "exmg-sortable.js",
   "repository": {
     "type": "git",
     "url": "git@github.com:exmg/exmg-web-components.git",

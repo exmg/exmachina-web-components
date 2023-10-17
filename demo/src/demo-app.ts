@@ -1,8 +1,27 @@
+<<<<<<< HEAD
 import { html, LitElement, nothing, PropertyValueMap } from 'lit';
+=======
+import { html, LitElement, nothing } from 'lit';
+import { html as staticHtml } from 'lit/static-html.js';
+>>>>>>> b54177a7db768d67ead57029569f09caa50d0878
 import { query, state } from 'lit/decorators.js';
 import { customElement } from 'lit/decorators/custom-element.js';
 import { elements } from './elements.js';
 import { style } from './styles/demo-app-css.js';
+<<<<<<< HEAD
+=======
+import '@material/web/switch/switch.js';
+import '@material/web/list/list.js';
+import '@material/web/list/list-item.js';
+import '@material/web/button/filled-button.js';
+import { Switch } from '@material/web/switch/lib/switch.js';
+import { demos } from '../demos/demos.js';
+import { repeat } from 'lit/directives/repeat.js';
+import { setupTheme, applyTheme } from './theme-module.js';
+
+const darkMode = window.matchMedia('(prefers-color-scheme:dark)').matches;
+setupTheme(darkMode);
+>>>>>>> b54177a7db768d67ead57029569f09caa50d0878
 
 @customElement('demo-app')
 export class DemoApp extends LitElement {
@@ -11,11 +30,19 @@ export class DemoApp extends LitElement {
   @state()
   private selectedElement?: any;
 
+<<<<<<< HEAD
   @state()
   darkMode = window.matchMedia('(prefers-color-scheme:dark)').matches;
 
   @query('#darkSwitch')
   darkSwitch?: HTMLInputElement;
+=======
+  @query('#darkModeSwitch')
+  private darkModeSwitch?: Switch;
+
+  @state()
+  darkMode = darkMode;
+>>>>>>> b54177a7db768d67ead57029569f09caa50d0878
 
   boundLocationChanged?: any;
 
@@ -66,31 +93,47 @@ export class DemoApp extends LitElement {
   }
 
   handleDarkMode() {
+<<<<<<< HEAD
     this.darkMode = this.darkSwitch?.checked ?? false;
     this.setDarkMode();
   }
 
   setDarkMode() {
     this.darkMode ? document.body.classList.add('dark') : document.body.classList.remove('dark');
+=======
+    this.darkMode = this.darkModeSwitch?.selected!;
+    applyTheme(!!this.darkMode);
+>>>>>>> b54177a7db768d67ead57029569f09caa50d0878
   }
 
   private renderElements() {
-    return elements.map((element) => {
+    return repeat(elements, (element) => {
       const active = this.selectedElement && this.selectedElement.name === element.name;
       const elementHref = element.name.replace('@exmg/', '');
-      const url = new URL(window.location.href);
-      url.searchParams.set('el', elementHref);
       return html`
-        <li class=${`element ${active ? 'active' : ''}`}>
-          <a href=${url}> ${element.name.substr(11)} </a>
-        </li>
+        <md-list-item
+          @click=${() => this.handleNavigation(elementHref)}
+          headline=${element.name.substr(11).replaceAll('-', ' ')}
+          class=${`element ${active ? 'active' : ''}`}
+        >
+        </md-list-item>
       `;
     });
+  }
+
+  handleNavigation(elementName: string) {
+    this.selectedElement = elements.find((e) => e.name === `@exmg/${elementName}`);
+    const url = new URL(window.location.href);
+    url.searchParams.set('el', elementName);
+    //@ts-ignore
+    window.history.pushState({}, '', url);
   }
 
   protected render() {
     if (!this.selectedElement) return nothing;
     const elementHref = this.selectedElement.name.replace('@exmg/', '');
+    console.log('href', elementHref);
+    console.log('element', demos[`${elementHref}-demo`]);
     return html`
       <main>
         <section>
@@ -99,10 +142,10 @@ export class DemoApp extends LitElement {
               <defs>
                 <style>
                   .a {
-                    fill: #fff;
+                    fill: var(--md-sys-color-primary);
                   }
                   .b {
-                    fill: #14a5d0;
+                    fill: var(--md-sys-color-primary);
                   }
                 </style>
               </defs>
@@ -155,22 +198,24 @@ export class DemoApp extends LitElement {
             </div>
             <div class="actions">
               <a href=${this.selectedElement.url} target="_blank">
-                <button class="npm" raised>NPMJS</button>
+                <md-filled-button class="npm" raised>NPMJS</md-filled-button>
               </a>
+<<<<<<< HEAD
               <input id="darkSwitch" type="checkbox" ?checked=${this.darkMode} @change=${this.handleDarkMode} />
+=======
+              <md-switch id="darkModeSwitch" ?selected=${this.darkMode} @click=${this.handleDarkMode} icons></md-switch>
+>>>>>>> b54177a7db768d67ead57029569f09caa50d0878
               <div class="version">Dark mode</div>
             </div>
           </div>
         </section>
         <div class="content">
-          <div class="sidemenu">
-            <ol class="sidemenu-elements">
-              ${this.renderElements()}
-            </ol>
-          </div>
-          <div class="main">
-            <iframe src="./demos/${elementHref}/index.html"></iframe>
-          </div>
+          <aside class="sidemenu">
+            <md-list class="sidemenu-elements"> ${this.renderElements()} </md-list>
+          </aside>
+          <main class="main">
+            ${staticHtml`<${demos[`${elementHref}-demo`].tag}></${demos[`${elementHref}-demo`].tag}>`}
+          </main>
         </div>
       </main>
     `;

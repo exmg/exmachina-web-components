@@ -9,6 +9,7 @@ export class ExmgUploadCustomizeDemo extends LitElement {
     css`
       :host {
         display: block;
+        width: 100%;
       }
       exmg-upload a {
         color: #0071dc;

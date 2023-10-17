@@ -5,19 +5,23 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>ExMachina Web Components</title>
-
+    <!--link rel="stylesheet" href="./src/styles/m3/theme.css"></link-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Symbols+Outlined" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet" />
+    <script src="../../../node_modules/web-animations-js/web-animations-next-lite.min.js"></script>
+    <script type="module" src="./src/demo-app.js"></script>
     <style>
       body,
       html {
         margin: 0;
-        background: white;
+        background-color: var(--md-sys-color-background);
+        color: var(--md-sys-color-on-surface);
         font-family: 'Roboto';
+        height: 100vh;
+        overflow: hidden;
         -webkit-font-smoothing: antialiased;
       }
     </style>
-    <script type="module">
-      import './src/demo-app.js';
-    </script>
   </head>
   <body>
     <demo-app></demo-app>

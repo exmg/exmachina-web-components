@@ -7,7 +7,11 @@ import '@exmg/exmg-grid/src/table/exmg-grid-pagination.js';
 import { style as tableStyles } from '@exmg/exmg-grid/src/styles/exmg-grid-styles-css.js';
 import { style as demoStyles } from './demo-common-css.js';
 
+<<<<<<< HEAD
 import { ExmgBaseGridDemo } from './exmg-grid-demo.js';
+=======
+import {ExmgBaseGridDemo} from './exmg-grid-base.js';
+>>>>>>> b54177a7db768d67ead57029569f09caa50d0878
 
 @customElement('demo-simple-grid')
 export class DemoSimpleGridTable extends ExmgBaseGridDemo {

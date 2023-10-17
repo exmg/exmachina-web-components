@@ -2,6 +2,12 @@
   "name": "@exmg/exmg-breadcrumbs",
   "version": "8.1.35",
   "type": "module",
+  "main": "index.js",
+  "module": "index.js",
+  "exports": {
+    ".": "./index.js",
+    "./exmg-breadcrumbs.js": "./src/exmg-breadcrumbs.js"
+  },
   "dependencies": {
     "@exmg/lit-base": "^1.1.8",
     "@material/typography": "^13.0.0",
@@ -22,7 +28,6 @@
     "**/*.d.ts"
   ],
   "homepage": "https://github.com/exmg/exmachina-web-components",
-  "main": "exmg-breadcrumbs.js",
   "repository": {
     "type": "git",
     "url": "git@github.com:exmg/exmg-web-components.git",

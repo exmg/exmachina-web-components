@@ -24,6 +24,7 @@ export class FileUploadSection extends LitElement {
     css`
       :host {
         display: block;
+        width 100%;
       }
 
       hr,
@@ -52,7 +53,6 @@ export class FileUploadSection extends LitElement {
       >
       </exmg-upload>
 
-      <hr />
       <file-upload-form
         accept=${ifDefined(this.accept)}
         maxSize=${this.maxSize}
