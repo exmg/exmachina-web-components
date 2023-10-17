@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "@exmg/lit-base": "^1.1.8",
-    "@material/web": "^1.0.0-pre.11",
+    "@material/web": "^1.0.0",
     "lit": "^2.0.0",
     "tslib": "^2.0.1"
   },

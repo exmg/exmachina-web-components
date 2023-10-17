@@ -1,6 +1,6 @@
 import { customElement } from 'lit/decorators.js';
 import { ExmgFormBase } from './exmg-form-base.js';
-import { style } from './styles/exmg-form-styles-css.js';
+// import { style } from './styles/exmg-form-styles-css.js';
 
 /**
  * Emxg form element that serialize data to json and also facilitates dirty data detection.
@@ -23,7 +23,7 @@ import { style } from './styles/exmg-form-styles-css.js';
  */
 @customElement('exmg-form')
 export class ExmgForm extends ExmgFormBase {
-  static styles = [style];
+  // static styles = [style];
 }
 
 declare global {

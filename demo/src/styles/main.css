@@ -58,6 +58,19 @@ body {
   --content-menu-hover-background-color: #efefef;
 
   --paper-item-hover-background-color: yellow;
+
+  --exmg-markdown-editor-border: var(--mdc-theme-primary);
+  --exmg-markdown-editor-toolbar-background: var(--mdc-theme-primary);
+  --exmg-markdown-editor-toolbar-label-background: var(--mdc-theme-primary);
+  --exmg-markdown-editor-toolbar-button-background-hover: var(--mdc-theme-primary-hover);
+  --exmg-markdown-editor-toolbar-seperator-color: var(--mdc-theme-on-primary);
+  --exmg-markdown-editor-label-color: var(--mdc-theme-on-primary);
+  --exmg-markdown-editor-toolbar-color: var(--mdc-theme-on-primary);
+  --exmg-markdown-editor-toolbar-color-disabled: #aaa;
+  --exmg-markdown-editor-preview-background: var(--mdc-theme-surface);
+  --exmg-markdown-editor-code-hover: var(--mdc-theme-surface-hover);
+  --exmg-markdown-editor-code-color: var(--mdc-theme-on-surface);
+  --exmg-markdown-editor-code-background: var(--mdc-theme-surface);
 }
 
 body.dark {
@@ -194,6 +207,19 @@ body.dark {
 
   --paper-checkbox-label-color: var(--mdc-theme-on-surface);
   --paper-checkbox-unchecked-color: var(--mdc-theme-on-surface);
+
+  --exmg-markdown-editor-border: var(--mdc-theme-primary);
+  --exmg-markdown-editor-toolbar-background: var(--mdc-theme-primary);
+  --exmg-markdown-editor-toolbar-label-background: var(--mdc-theme-primary);
+  --exmg-markdown-editor-toolbar-button-background-hover: var(--mdc-theme-primary-hover);
+  --exmg-markdown-editor-toolbar-seperator-color: var(--mdc-theme-on-primary);
+  --exmg-markdown-editor-label-color: var(--mdc-theme-on-primary);
+  --exmg-markdown-editor-toolbar-color: var(--mdc-theme-on-primary);
+  --exmg-markdown-editor-toolbar-color-disabled: #aaa;
+  --exmg-markdown-editor-preview-background: var(--mdc-theme-surface);
+  --exmg-markdown-editor-code-hover: var(--mdc-theme-surface-hover);
+  --exmg-markdown-editor-code-color: var(--mdc-theme-on-surface);
+  --exmg-markdown-editor-code-background: var(--mdc-theme-surface);
 }
 
 body,

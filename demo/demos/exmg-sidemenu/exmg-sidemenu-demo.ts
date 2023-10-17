@@ -145,13 +145,6 @@ export class SidemenuDemo extends LitElement {
     return html`
       ${(menu || []).map((i: MenuItemOrGroupItem) => (isItemGroup(i) ? this.renderGroupItem(i) : this.renderItem(i)))}
     `;
-<<<<<<< HEAD
-  }
-
-  private openChanged(e: CustomEvent) {
-    this.drawerOpened = e.detail.value;
-=======
->>>>>>> b54177a7db768d67ead57029569f09caa50d0878
   }
 
   private _handleSelectedChanged(e: CustomEvent) {
@@ -208,44 +201,6 @@ export class SidemenuDemo extends LitElement {
           ${this.renderMenu()} ${this.renderFooterButton()}
         </exmg-sidemenu>
 
-<<<<<<< HEAD
-      <article class="main-content ${classMap(classes)}">
-        <app-toolbar>
-          <mwc-icon-button icon="menu" ?hidden=${!this.narrow} @click=${this._handleMenuClick}></mwc-icon-button>
-        </app-toolbar>
-        <main role="main">
-          <exmg-button unelevated @click=${this.setItem}>Set Content as selected item</exmg-button>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-            dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
-            ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat
-            nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit
-            anim id est laborum.
-          </p>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-            dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
-            ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat
-            nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit
-            anim id est laborum.
-          </p>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-            dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
-            ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat
-            nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit
-            anim id est laborum.
-          </p>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-            dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
-            ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat
-            nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit
-            anim id est laborum.
-          </p>
-        </main>
-      </article>
-=======
         <article class="main-content ${classMap(classes)}">
           <app-toolbar>
             <mwc-icon-button icon="menu" ?hidden=${!this.narrow} @click=${this._handleMenuClick}></mwc-icon-button>
@@ -282,7 +237,6 @@ export class SidemenuDemo extends LitElement {
           </main>
         </article>
       </div>
->>>>>>> b54177a7db768d67ead57029569f09caa50d0878
     `;
   }
 }

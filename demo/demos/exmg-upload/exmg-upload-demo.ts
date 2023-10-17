@@ -1,11 +1,7 @@
 import { LitElement, html, css } from 'lit';
-<<<<<<< HEAD
-import { customElement } from 'lit/decorators.js';
-=======
 import { customElement, query, state } from 'lit/decorators.js';
 import '@material/web/tabs/tabs.js';
 import '@material/web/tabs/tab.js';
->>>>>>> b54177a7db768d67ead57029569f09caa50d0878
 
 import './exmg-upload-dialog-demo.js';
 import './exmg-upload-default-demo.js';
@@ -13,7 +9,7 @@ import './exmg-upload-custom-demo.js';
 import './exmg-upload-customize-demo.js';
 import './exmg-upload-image-demo.js';
 import './exmg-input-demo.js';
-import { Tabs } from '@material/web/tabs/lib/tabs.js';
+import { Tabs } from '@material/web/tabs/internal/tabs.js';
 
 @customElement('exmg-upload-demo')
 export class ExmgUploadDemo extends LitElement {
@@ -35,7 +31,7 @@ export class ExmgUploadDemo extends LitElement {
   ];
 
   _handleChange() {
-    this.selectedTab = this.tabs?.selected ?? 0;
+    this.selectedTab = this.tabs?.activeTabIndex ?? 0;
   }
 
   renderContent() {

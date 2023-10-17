@@ -2,7 +2,7 @@ import { LitElement, css, html } from 'lit';
 import { customElement, property, query } from 'lit/decorators.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
 
-import { ExmgFormDialog } from '@exmg/exmg-dialogs';
+import { ExmgDialogForm } from '@exmg/exmg-dialogs';
 import '@exmg/exmg-upload';
 import { ExmgUpload } from '@exmg/exmg-upload';
 import '@exmg/exmg-upload/src/exmg-upload-dialog.js';
@@ -13,7 +13,7 @@ export class FileUploadDialog extends LitElement {
    * Reference to dialog
    */
   @query('#dialog')
-  dialog?: ExmgFormDialog;
+  dialog?: ExmgDialogForm;
 
   /**
    * Optional property. If not set it will look for the window.emconfig.backendHost
@@ -49,11 +49,11 @@ export class FileUploadDialog extends LitElement {
   };
 
   open() {
-    this.dialog!.open();
+    this.dialog!.show();
   }
 
   close() {
-    this.dialog && this.dialog.done();
+    this.dialog && this.dialog.close();
   }
 
   _save(e: CustomEvent<{ urls: string[] }>) {

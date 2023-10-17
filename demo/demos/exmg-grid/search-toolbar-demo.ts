@@ -7,13 +7,8 @@ import {
 } from '@exmg/exmg-grid/src/table/types/exmg-grid-smart-toolbar-types.js';
 import '@exmg/exmg-grid/src/table/exmg-grid-smart-toolbar.js';
 import '@exmg/exmg-grid/src/table/exmg-grid-smart-toolbar.js';
-<<<<<<< HEAD
-import { repeat } from 'lit/directives/repeat.js';
-import { ExmgBaseGridDemo } from './exmg-grid-demo.js';
-=======
 import {repeat} from 'lit/directives/repeat.js';
 import {ExmgBaseGridDemo} from './exmg-grid-base.js';
->>>>>>> b54177a7db768d67ead57029569f09caa50d0878
 import '@exmg/exmg-grid/src/table/exmg-grid.js';
 import '@exmg/exmg-grid/src/table/exmg-grid-pagination.js';
 import { style as tableStyles } from '@exmg/exmg-grid/src/styles/exmg-grid-styles-css.js';

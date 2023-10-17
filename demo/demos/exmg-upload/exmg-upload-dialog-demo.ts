@@ -1,14 +1,9 @@
 import { LitElement, html, css } from 'lit';
 import { customElement, query } from 'lit/decorators.js';
-<<<<<<< HEAD
-import './file-upload-dialog.js';
-import { FileUploadDialog } from './file-upload-dialog.js';
-=======
 import { ExmgDialogUpload } from '@exmg/exmg-upload/exmg-dialog-upload.js';
 import '@exmg/exmg-upload/exmg-upload.js';
 import './example-upload-dialog.js';
 import { ExampleUploadDialog } from './example-upload-dialog.js';
->>>>>>> b54177a7db768d67ead57029569f09caa50d0878
 
 window.uploadDefaults = {
   headers: {

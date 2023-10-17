@@ -57,12 +57,6 @@ export class CollapsedDemo extends LitElement {
         cursor: pointer;
         justify-content: space-between;
       }
-<<<<<<< HEAD
-      .button:hover {
-        background: #ececec;
-      }
-=======
->>>>>>> b54177a7db768d67ead57029569f09caa50d0878
       .button > * {
         margin-right: 1rem;
       }
@@ -71,13 +65,6 @@ export class CollapsedDemo extends LitElement {
         transform: rotate(180deg);
         transition: transform 150ms ease;
       }
-<<<<<<< HEAD
-      .icon {
-        width: 24px;
-        height: 24px;
-      }
-      p {
-=======
 
       md-outlined-button[aria-expanded='true'] .icon {
         -ms-transform: rotate(180deg);
@@ -96,21 +83,17 @@ export class CollapsedDemo extends LitElement {
       }
       p {
         color: var(--md-sys-color-on-surface);
->>>>>>> b54177a7db768d67ead57029569f09caa50d0878
         padding: 0 1rem;
       }
     `,
   ];
-<<<<<<< HEAD
-=======
 
   handleOpen(id: number) {
-    let faq = this.faqs.find((x) => x.id === id);
+    const faq = this.faqs.find((x) => x.id === id);
     if (!faq) return;
     faq.opened = !faq.opened;
     this.faqs = [...this.faqs];
   }
->>>>>>> b54177a7db768d67ead57029569f09caa50d0878
 
   render() {
     return html`

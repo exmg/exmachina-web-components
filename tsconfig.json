@@ -73,6 +73,9 @@
       "path": "packages/exmg-markdown-editor"
     },
     {
+      "path": "packages/exmg-markdown-editor-two"
+    },
+    {
       "path": "packages/exmg-copy-to-clipboard"
     },
     {

@@ -14,13 +14,13 @@ export class BaseDrawer extends LitElement {
     return html`
         <exmg-button
           @click=${() =>
-            this.userDrawer!.open({
-              from: '1111',
-              fromName: '222222',
-              replyTo: '33333',
-              subject: '4444',
-              contentHtml: '5555',
-              contentPlain: '6666',
+            this.userDrawer!.show({
+              firstname: 'John',
+  lastname: 'Doe',
+  company: 'Ex Machina Group',
+  amount: 5,
+  email: 'test@example.com',
+  phone: '+1234567890',
             })}
           >Open User Drawer</exmg-button
         >
