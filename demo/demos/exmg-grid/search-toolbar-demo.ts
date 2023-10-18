@@ -73,16 +73,8 @@ export class SearchToolbarDemo extends ExmgBaseGridDemo {
     return html`
       <style>
         :host {
-          --mdc-theme-primary: #0071dc;
-          --exmg-theme-grid-setting-checkbox-bg-color: #0071dc;
-          --exmg-theme-table-toolbar-setting-list-item-active-bg-color: #0071dc;
-          --exmg-theme-table-toolbar-background-color: none;
-          --exmg-theme-table-surface: none;
-          --exmg-theme-table-pagination-bg-color: none;
-
           padding: 10px;
           display: block;
-          background-color: #f6f6f6;
         }
 
         table {

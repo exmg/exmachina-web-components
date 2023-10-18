@@ -46,27 +46,74 @@ $exmgOnBackground: #02182b !default;
   $exmgBackground: transparent !default;
   $exmgOnBackground: #02182b !default;
 
+  // $md-sys-color-on-surface: yellow;
+  // $exmg-table-row-hover-background-color: rgba($md-sys-color-on-surface, 0.60);
+
+
+  /*
+
+  :root,:host{
+    --md-sys-color-background:#15130d;
+    --md-sys-color-on-background:#e8e2d7;
+    --md-sys-color-surface:#15130d;
+    --md-sys-color-surface-dim:#15130d;
+    --md-sys-color-surface-bright:#3c3932;
+    --md-sys-color-surface-container-lowest:#100e08;
+    --md-sys-color-surface-container-low:#1d1b15;
+    --md-sys-color-surface-container:#221f19;
+    --md-sys-color-surface-container-high:#2c2a23;
+    --md-sys-color-surface-container-highest:#37352d;
+    --md-sys-color-on-surface:#e8e2d7;
+    --md-sys-color-surface-variant:#4b4738;
+    --md-sys-color-on-surface-variant:#cdc6b3;
+    --md-sys-color-inverse-surface:#e8e2d7;
+    --md-sys-color-inverse-on-surface:#333029;
+    --md-sys-color-outline:#97907f;
+    --md-sys-color-outline-variant:#4b4738;
+    --md-sys-color-shadow:#000000;
+    --md-sys-color-scrim:#000000;
+    --md-sys-color-surface-tint:#dcc669;
+    --md-sys-color-primary:#dcc669;
+    --md-sys-color-on-primary:#393000;
+    --md-sys-color-primary-container:#5d4f00;
+    --md-sys-color-on-primary-container:#ffefb6;
+    --md-sys-color-inverse-primary:#6e5e05;
+    --md-sys-color-secondary:#d3c69a;
+    --md-sys-color-on-secondary:#373010;
+    --md-sys-color-secondary-container:#473f1e;
+    --md-sys-color-on-secondary-container:#e0d4a7;
+    --md-sys-color-tertiary:#afd187;
+    --md-sys-color-on-tertiary:#1d3700;
+    --md-sys-color-tertiary-container:#3c581c;
+    --md-sys-color-on-tertiary-container:#d8fcad;
+    --md-sys-color-error:#ffb4ab;
+    --md-sys-color-on-error:#690005;
+    --md-sys-color-error-container:#93000a;
+    --md-sys-color-on-error-container:#ffdad6;
+}
+*/
+
   --exmg-arrow-upward-url: url('/node_modules/@exmg/exmg-grid/assets/arrow-upward.svg');
   --exmg-table-card-width: var(--exmg-theme-table-card-width, 100%);
   --exmg-table-card-margin-bottom: var(--exmg-theme-table-card-margin-bottom, 5px);
 
-  --exmg-table-color: var(--exmg-theme-table-on-surface, #{$exmgOnSurfaceColor});
-  --exmg-table-card-background-color: var(--exmg-theme-table-surface, #{$exmgSurfaceColor});
-  --exmg-table-row-divider-color: var(--exmg-theme-table-row-divider-color, #{rgba($exmgOnSurfaceColor, 0.14)});
+  --exmg-table-color: var(--exmg-theme-table-on-surface, var(--md-sys-color-on-surface-container));
+  --exmg-table-card-background-color: var(--exmg-theme-table-surface, var(--md-sys-color-surface-container));
+  --exmg-table-row-divider-color: var(--exmg-theme-table-row-divider-color, var(--md-sys-color-surface-variant));
 
-  --exmg-table-row-selected-color: var(--exmg-theme-table-row-selected-color, #{$exmgOnSurfaceColor});
-  --exmg-table-row-selected-background-color: var(--exmg-theme-table-row-selected-background-color, #eef4fa);
-  --exmg-table-row-hover-color: var(--exmg-theme-table-row-hover-color, #{$exmgOnSurfaceColor});
-  --exmg-table-row-hover-background-color: var(--exmg-theme-table-row-hover-background-color, #f1f1f1);
-  --exmg-table-row-dragged-background-color: var(--exmg-theme-table-row-dragged-background-color, #{$exmgOnSurfaceColor});
+  --exmg-table-row-selected-color: var(--exmg-theme-table-row-selected-color, var(--md-sys-color-on-secondary-container));
+  --exmg-table-row-selected-background-color: var(--exmg-theme-table-row-selected-background-color, var(--md-sys-color-secondary-container));
+  --exmg-table-row-hover-color: var(--exmg-theme-table-row-hover-color, var(--md-sys-color-on-surface));
+  --exmg-table-row-hover-background-color: var(--exmg-theme-table-row-hover-background-color, yellow);
+  --exmg-table-row-dragged-background-color: var(--exmg-theme-table-row-dragged-background-color, var(--md-sys-color-on-surface));
   --exmg-table-rows-expanded-divider-border: var(--exmg-theme-table-rows-expanded-divider-border, none);
   --exmg-table-rows-expanded-border: var(--exmg-theme-table-rows-expanded-border, none);
-  --exmg-table-rows-expanded-background-color: var(--exmg-theme-table-rows-expanded-background-color, #{$exmgSurfaceColor});
-  --exmg-table-rows-expanded-color: var(--exmg-theme-table-rows-expanded-color, #{$exmgOnSurfaceColor});
-  --exmg-table-th-color: var(--exmg-theme-table-th-on-surface, #{$exmgOnSurfaceColor});
-  --exmg-table-th-background-color: var(--exmg-theme-table-th-surface, #{$exmgSurfaceColor});
-  --exmg-table-th-sortable-hover-color: var(--exmg-theme-table-th-sortable-hover-color, #{$exmgOnSurfaceColor});
-  --exmg-table-columns-background-color: var(--exmg-theme-table-columns-background-color, #{$exmgSurfaceColor});
+  --exmg-table-rows-expanded-background-color: var(--exmg-theme-table-rows-expanded-background-color, var(--md-sys-color-surface));
+  --exmg-table-rows-expanded-color: var(--exmg-theme-table-rows-expanded-color, var(--md-sys-color-on-surface));
+  --exmg-table-th-color: var(--exmg-theme-table-th-on-surface, var(--md-sys-color-on-surface));
+  --exmg-table-th-background-color: var(--exmg-theme-table-th-surface, var(--md-sys-color-surface));
+  --exmg-table-th-sortable-hover-color: var(--exmg-theme-table-th-sortable-hover-color, var(--md-sys-color-on-surface));
+  --exmg-table-columns-background-color: var(--exmg-theme-table-columns-background-color, var(--md-sys-color-surface));
 
   --exmg-table-th-height: var(--exmg-theme-table-th-height, 48px);
   --exmg-table-th-sort-margin-left: var(--exmg-theme-table-th-sort-margin-left, 0px);

@@ -14,9 +14,9 @@ $exmg-grid-pagination-color-disabled: rgba($exmg-grid-pagination-color, 0.38);
   @include typography.base;
   background-color: var(
     --exmg-theme-table-pagination-bg-color,
-    var(--mdc-theme-surface, $exmg-grid-pagination-bg-color)
+    var(--md-sys-color-surface-container, $exmg-grid-pagination-bg-color)
   );
-  color: var(--exmg-theme-table-pagination-color, var(--mdc-theme-on-surface, $exmg-grid-pagination-color));
+  color: var(--exmg-theme-table-pagination-color, var(--md-sys-color-on-surface-container, $exmg-grid-pagination-color));
   overflow-x: auto;
   white-space: nowrap;
 

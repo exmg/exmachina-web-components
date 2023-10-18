@@ -1,4 +1,4 @@
-import { html, css } from 'lit';
+import { html } from 'lit';
 import { customElement } from 'lit/decorators.js';
 import { classMap } from 'lit/directives/class-map.js';
 import { repeat } from 'lit/directives/repeat.js';
@@ -22,33 +22,6 @@ export class ExmgComplexGridWithSlottedToolbar extends ExmgBaseGridDemo {
   static styles = [
     tableStyles,
     demoStyles,
-    // language=CSS
-    css`
-      :host {
-        --mdc-theme-primary: #0070db;
-        --mdc-theme-on-surface: #091e2e;
-        --exmg-grid-toolbar-active-bg-color: #e1f0fe;
-        --exmg-theme-table-toolbar-filter-item-active-bg-color: #b8ddfe;
-        --exmg-theme-table-pagination-bg-color: #4a4a4a;
-        --exmg-theme-table-pagination-color: #ffffff;
-      }
-      table {
-        --exmg-table-color: #000;
-        --exmg-table-card-background-color: #4a4a4a;
-        --exmg-table-row-divider-color: white;
-        --exmg-table-row-selected-color: white;
-        --exmg-table-row-selected-background-color: #850e13;
-        --exmg-table-row-hover-color: white;
-        --exmg-table-row-hover-background-color: #b42636;
-        --exmg-table-row-dragged-background-color: #f1f1f1;
-        --exmg-table-th-color: #0071dc;
-        --exmg-table-columns-background-color: #4a4a4a;
-        --exmg-table-th-sortable-hover-color: #0092ff;
-      }
-      table .expandable-toggle > svg {
-        fill: white;
-      }
-    `,
   ];
 
   private renderTableBody() {
