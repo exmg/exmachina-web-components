@@ -4,7 +4,7 @@ import '@material/web/dialog/dialog.js';
 import { MdDialog } from '@material/web/dialog/dialog.js';
 import '@exmg/exmg-button/exmg-filled-button.js';
 import '@material/web/button/text-button.js';
-import '@material/web/iconbutton/standard-icon-button.js';
+import '@material/web/iconbutton/icon-button.js';
 import '@material/web/icon/icon.js';
 
 import { property, query, state } from 'lit/decorators.js';
@@ -56,18 +56,7 @@ export class ExmgDialogFormBase extends ExmgElement {
    */
   @property() fullscreenBreakpoint = '(max-width: 600px), (max-height: 400px)';
 
-  /**
-   * Renders footer content in a vertically stacked alignment rather than the
-   * normal horizontal alignment.
-   */
-  @property({ type: Boolean }) stacked = false;
-
-  /**
-   * When opened, the dialog is displayed modeless or non-modal. This
-   * allows users to interact with content outside the dialog without
-   * closing the dialog and does not display the scrim around the dialog.
-   */
-  @property({ type: Boolean, reflect: true }) modeless = false;
+  @property({ type: String }) type?: 'alert' | undefined;
 
   /**
    * Set to make the dialog position draggable.
@@ -221,29 +210,25 @@ export class ExmgDialogFormBase extends ExmgElement {
   }
 
   protected render() {
-    const { fullscreen, modeless, stacked, draggable, transition } = this;
-    return html` <md-dialog
-      .fullscreen=${fullscreen}
-      .fullscreenBreakpoint=${this.fullscreenBreakpoint}
-      .modeless=${modeless}
-      .stacked=${stacked}
-      .draggable=${draggable}
-      .transition=${transition!}
-      .open=${this.open}
-    >
-      <span slot="header">
-        <md-standard-icon-button @click=${() => this.close()}><md-icon>close</md-icon></md-standard-icon-button>
+    const { draggable, type } = this;
+    return html` <md-dialog .draggable=${draggable} .type=${type} .open=${this.open}>
+      <span slot="headline">
+        <md-icon-button @click=${() => this.close()}><md-icon>close</md-icon></md-icon-button>
         <span class="headline">${this.title}</span>
       </span>
-      <div class="content">${this.renderFormContent()}</div>
-      <md-text-button slot="footer" dialogFocus @click=${() => this.close()}>${this.cancelBtn}</md-text-button>
-      <exmg-filled-button
-        slot="footer"
-        @click=${this.handleSubmit}
-        ?disabled=${this.submitting || !this.formValid}
-        ?loading=${this.submitting}
-        >${this.submitBtn}</exmg-filled-button
-      >
+      <div slot="content">
+        <div class="content">${this.renderFormContent()}</div>
+      </div>
+      <div slot="actions">
+        <md-text-button slot="footer" dialogFocus @click=${() => this.close()}>${this.cancelBtn}</md-text-button>
+        <exmg-filled-button
+          slot="footer"
+          @click=${this.handleSubmit}
+          ?disabled=${this.submitting || !this.formValid}
+          ?loading=${this.submitting}
+          >${this.submitBtn}</exmg-filled-button
+        >
+      </div>
     </md-dialog>`;
   }
 }

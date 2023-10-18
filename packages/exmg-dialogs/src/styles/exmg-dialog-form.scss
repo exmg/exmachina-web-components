@@ -1,21 +1,19 @@
 @use '@material/web/dialog/internal/dialog-styles';
 
-md-dialog {
-  --md-dialog-container-color: var(--md-sys-color-surface);
-}
-
-[slot='header'] {
+[slot='headline'] {
   display: flex;
   flex-direction: row-reverse;
   align-items: center;
 }
 
-[showing-fullscreen] [slot='header'] {
+[showing-fullscreen] [slot='headline'] {
   flex-direction: row;
 }
 
 .headline {
   flex: 1;
+  display: block;
+  text-align: left;
 }
 
 form .row {

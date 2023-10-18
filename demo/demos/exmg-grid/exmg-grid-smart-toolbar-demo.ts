@@ -1,6 +1,6 @@
 import { html, LitElement } from 'lit';
 import { customElement, state } from 'lit/decorators.js';
-import '@material/mwc-button';
+import '@material/web/button/filled-button.js';
 import {
   Filter,
   FilterSingleSelectConfig,
@@ -156,7 +156,7 @@ export class ExmgGridSmartToolbarDemo extends LitElement {
         @exmg-grid-toolbar-action-executed="${this.onActionExecuted}"
         @exmg-grid-toolbar-filter-changed="${this.onFilterChanged}"
       >
-        <mwc-button slot="extra">+ Add User</mwc-button>
+        <md-filled-button slot="extra">+ Add User</md-filled-button>
       </exmg-grid-smart-toolbar>
     `;
   }

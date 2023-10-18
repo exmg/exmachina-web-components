@@ -6,7 +6,7 @@ import { classMap } from 'lit/directives/class-map.js';
 
 import '@polymer/iron-flex-layout/iron-flex-layout.js';
 import '@polymer/iron-icon/iron-icon.js';
-import '@material/mwc-icon/mwc-icon.js';
+import '@material/web/icon/icon.js';
 
 import { afterNextRender } from '@polymer/polymer/lib/utils/render-status.js';
 import './exmg-import-helper.js';
@@ -763,7 +763,7 @@ export class EditorElement extends ExmgElement {
                     }}
                   >
                     ${hasMaterialIcon
-                      ? html`<mwc-icon>${it.icon}</mwc-icon>`
+                      ? html`<md-icon>${it.icon}</md-icon>`
                       : html`<iron-icon icon="${it.icon}"></iron-icon>`}
                   </a>
                 `;

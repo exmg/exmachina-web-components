@@ -48,11 +48,11 @@ $exmg-grid-pagination-color-disabled: rgba($exmg-grid-pagination-color, 0.38);
   }
 }
 
-mwc-icon-button {
+md-icon-button {
   color: var(--mdc-theme-primary);
 }
 
-mwc-icon-button[disabled] {
+md-icon-button[disabled] {
   color: var(--exmg-theme-table-on-surface-disabled, var(--mdc-theme-disabled, $exmg-grid-pagination-color-disabled));
 }
 

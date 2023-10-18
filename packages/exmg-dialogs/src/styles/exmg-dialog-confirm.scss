@@ -1,5 +1,5 @@
 @use '@material/web/dialog/internal/dialog-styles';
 
 md-dialog {
-  --md-dialog-container-color: var(--md-sys-color-surface);
+  --md-dialog-container-max-inline-size: 320px;
 }

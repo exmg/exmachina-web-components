@@ -9,12 +9,12 @@
     "./exmg-collapsed.js": "./src/exmg-collapsed.js"
   },
   "dependencies": {
-    "@exmg/lit-base": "^1.1.8",
-    "lit": "^2.0.0",
-    "tslib": "^2.0.1"
+    "@exmg/lit-base": "^2.0.1",
+    "lit": "^3.0.0",
+    "tslib": "^2.6.2"
   },
   "devDependencies": {
-    "@exmg/lit-cli": "1.1.9"
+    "@exmg/lit-cli": "1.1.13"
   },
   "keywords": [
     "web-components",

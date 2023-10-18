@@ -2,9 +2,9 @@ import { html } from 'lit';
 
 import '@material/web/dialog/dialog.js';
 import { MdDialog } from '@material/web/dialog/dialog.js';
-import '@material/web/button/tonal-button.js';
+import '@material/web/button/filled-button.js';
 import '@material/web/button/text-button.js';
-import '@material/web/iconbutton/standard-icon-button.js';
+import '@material/web/iconbutton/icon-button.js';
 import '@material/web/icon/icon.js';
 
 import { property, query, state } from 'lit/decorators.js';
@@ -229,13 +229,13 @@ export class ExmgDialogUploadBase extends ExmgElement {
     if (this._cropMode) {
       return html`
         <md-text-button slot="footer" dialogFocus @click=${this._cancelActiveCrop}>Back</md-text-button>
-        <md-tonal-button slot="footer" @click=${this._saveActiveCrop}>${this.buttonCropDoneCopy}</md-tonal-button>
+        <md-filled-button slot="footer" @click=${this._saveActiveCrop}>${this.buttonCropDoneCopy}</md-filled-button>
       `;
     }
     return html`
       <md-text-button slot="footer" dialogFocus @click=${() => this.close()}>${this.cancelBtn}</md-text-button>
-      <md-tonal-button slot="footer" @click=${this._handleSubmit} ?disabled=${!this._hasItems || this.submitting}
-        >${this.buttonSaveCopy}</md-tonal-button
+      <md-filled-button slot="footer" @click=${this._handleSubmit} ?disabled=${!this._hasItems || this.submitting}
+        >${this.buttonSaveCopy}</md-filled-button
       >
     `;
   }
@@ -252,7 +252,7 @@ export class ExmgDialogUploadBase extends ExmgElement {
       .open=${this.open}
     >
       <span slot="header">
-        <md-standard-icon-button @click=${() => this.close()}><md-icon>close</md-icon></md-standard-icon-button>
+        <md-icon-button @click=${() => this.close()}><md-icon>close</md-icon></md-icon-button>
         <span class="headline">${this.title}</span>
       </span>
       <div class="content">

@@ -10,7 +10,7 @@ import { style } from './styles/exmg-copy-to-clipboard-styles-css.js';
  *
  * ```html
  *  <exmg-copy-to-clipboard value="mark@test.com">
- *    <paper-icon-button icon="content-copy"></paper-icon-button>
+ *    <md-icon-button icon="content-copy"></md-icon-button>
  *  </exmg-copy-to-clipboard>
  * ```
  *

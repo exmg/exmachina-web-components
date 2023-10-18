@@ -2,7 +2,6 @@ import { LitElement, html } from 'lit';
 import './exmg-icons.js';
 import '@exmg/exmg-radio-group/exmg-radio-group.js';
 import '@exmg/exmg-radio-group/exmg-radio-group-item.js';
-import '@polymer/iron-demo-helpers/demo-snippet.js';
 import { customElement, property } from 'lit/decorators.js';
 
 @customElement('exmg-radio-group-demo')
@@ -86,122 +85,119 @@ export class ExmgRadioGroupDemo extends LitElement {
       <div class="main">
         <div>
           <h1>Flex wrap example</h1>
-          <demo-snippet>
-            <template>
-              <exmg-radio-group name="license" wrap>
-                <exmg-radio-group-item value="option1" class="g6">
-                  <div slot="title"><span class="large">128</span>GB</div>
-                  <div slot="body">From $1099 or $45.79/mo.per month for 24 mo. *months before trade-in</div>
-                </exmg-radio-group-item>
-                <exmg-radio-group-item value="option2" class="g6">
-                  <div slot="title"><span class="large">256</span>GB</div>
-                  <div slot="body">From $1099 or $45.79/mo.per month for 24 mo. *months before trade-in</div>
-                </exmg-radio-group-item>
-                <exmg-radio-group-item value="option3" class="g6">
-                  <div slot="title"><span class="large">512</span>GB</div>
-                  <div slot="body">From $1099 or $45.79/mo.per month for 24 mo. *months before trade-in</div>
-                </exmg-radio-group-item>
-                <exmg-radio-group-item value="option4" class="g6">
-                  <div slot="title"><span class="large">1</span>TB</div>
-                  <div slot="body">From $1099 or $45.79/mo.per month for 24 mo. *months before trade-in</div>
-                </exmg-radio-group-item>
-              </exmg-radio-group>
-            </template>
-          </demo-snippet>
+
+          <exmg-radio-group name="license" wrap>
+            <exmg-radio-group-item value="option1" class="g6">
+              <div slot="title"><span class="large">128</span>GB</div>
+              <div slot="body">From $1099 or $45.79/mo.per month for 24 mo. *months before trade-in</div>
+            </exmg-radio-group-item>
+            <exmg-radio-group-item value="option2" class="g6">
+              <div slot="title"><span class="large">256</span>GB</div>
+              <div slot="body">From $1099 or $45.79/mo.per month for 24 mo. *months before trade-in</div>
+            </exmg-radio-group-item>
+            <exmg-radio-group-item value="option3" class="g6">
+              <div slot="title"><span class="large">512</span>GB</div>
+              <div slot="body">From $1099 or $45.79/mo.per month for 24 mo. *months before trade-in</div>
+            </exmg-radio-group-item>
+            <exmg-radio-group-item value="option4" class="g6">
+              <div slot="title"><span class="large">1</span>TB</div>
+              <div slot="body">From $1099 or $45.79/mo.per month for 24 mo. *months before trade-in</div>
+            </exmg-radio-group-item>
+          </exmg-radio-group>
         </div>
 
         <div>
           <h1>Clean yes/no example</h1>
-          <demo-snippet>
-            <template>
-              <exmg-radio-group class="custom-style" name="YesNo">
-                <exmg-radio-group-item value="option1" class="g6">
-                  <div class="center">Yes</div>
-                </exmg-radio-group-item>
-                <exmg-radio-group-item value="option2" class="g6">
-                  <div class="center">No</div>
-                </exmg-radio-group-item>
-              </exmg-radio-group>
-            </template>
-          </demo-snippet>
+
+          <exmg-radio-group class="custom-style" name="YesNo">
+            <exmg-radio-group-item value="option1" class="g6">
+              <div class="center">Yes</div>
+            </exmg-radio-group-item>
+            <exmg-radio-group-item value="option2" class="g6">
+              <div class="center">No</div>
+            </exmg-radio-group-item>
+          </exmg-radio-group>
         </div>
 
         <div>
           <h1>Image horizontal</h1>
-          <demo-snippet>
-            <template>
-              <exmg-radio-group class="custom-style" name="Choice">
-                <exmg-radio-group-item value="option1" class="g6">
-                  <div class="figure">
-                    <figure>
-                      <img src="logo-att-2x.png" alt="test1" width="74" height="34" />
-                    </figure>
-                    <label>$1,399.00 or $58.29/mo.per month for 24 mo.monthsFootnote* before trade-in</label>
-                  </div>
-                </exmg-radio-group-item>
-                <exmg-radio-group-item value="option2" class="g6">
-                  <div class="figure">
-                    <figure>
-                      <img src="logo-sprint-2x.png" alt="test2" width="71" height="34" />
-                    </figure>
-                    <label>$1,399.00 or $58.29/mo.per month for 24 mo.monthsFootnote* before trade-in</label>
-                  </div>
-                </exmg-radio-group-item>
-              </exmg-radio-group>
-            </template>
-          </demo-snippet>
+
+          <exmg-radio-group class="custom-style" name="Choice">
+            <exmg-radio-group-item value="option1" class="g6">
+              <div class="figure">
+                <figure>
+                  <img src="/demo/demos/exmg-radio-group/logo-att-2x.png" alt="test1" width="74" height="34" />
+                </figure>
+                <label>$1,399.00 or $58.29/mo.per month for 24 mo.monthsFootnote* before trade-in</label>
+              </div>
+            </exmg-radio-group-item>
+            <exmg-radio-group-item value="option2" class="g6">
+              <div class="figure">
+                <figure>
+                  <img src="/demo/demos/exmg-radio-group/logo-sprint-2x.png" alt="test2" width="71" height="34" />
+                </figure>
+                <label>$1,399.00 or $58.29/mo.per month for 24 mo.monthsFootnote* before trade-in</label>
+              </div>
+            </exmg-radio-group-item>
+          </exmg-radio-group>
         </div>
 
         <div>
           <h1>Image vertical</h1>
-          <demo-snippet>
-            <template>
-              <exmg-radio-group class="custom-style" name="Choice" vertical>
-                <exmg-radio-group-item value="option1">
-                  <div class="figure horizontal">
-                    <figure>
-                      <img src="logo-att-2x.png" alt="test1" width="74" height="34" />
-                    </figure>
-                    <label>$1,399.00 or $58.29/mo.per month for 24 mo.monthsFootnote* before trade-in</label>
-                  </div>
-                </exmg-radio-group-item>
-                <exmg-radio-group-item value="option2" disabled>
-                  <div class="figure horizontal">
-                    <figure>
-                      <img src="logo-sprint-2x.png" alt="test2" width="71" height="34" style="margin-right:3px;" />
-                    </figure>
-                    <label>$1,399.00 or $58.29/mo.per month for 24 mo.monthsFootnote* before trade-in</label>
-                  </div>
-                </exmg-radio-group-item>
-              </exmg-radio-group>
-            </template>
-          </demo-snippet>
+
+          <exmg-radio-group class="custom-style" name="Choice" vertical>
+            <exmg-radio-group-item value="option1">
+              <div class="figure horizontal">
+                <figure>
+                  <img src="/demo/demos/exmg-radio-group/logo-att-2x.png" alt="test1" width="74" height="34" />
+                </figure>
+                <label>$1,399.00 or $58.29/mo.per month for 24 mo.monthsFootnote* before trade-in</label>
+              </div>
+            </exmg-radio-group-item>
+            <exmg-radio-group-item value="option2" disabled>
+              <div class="figure horizontal">
+                <figure>
+                  <img
+                    src="/demo/demos/exmg-radio-group/logo-sprint-2x.png"
+                    alt="test2"
+                    width="71"
+                    height="34"
+                    style="margin-right:3px;"
+                  />
+                </figure>
+                <label>$1,399.00 or $58.29/mo.per month for 24 mo.monthsFootnote* before trade-in</label>
+              </div>
+            </exmg-radio-group-item>
+          </exmg-radio-group>
         </div>
 
         <div>
           <h1>Image vertical</h1>
-          <demo-snippet>
-            <template>
-              <exmg-radio-group class="custom-style" name="Choice" vertical>
-                <exmg-radio-group-item value="option1" enable-radio-button>
-                  <div class="figure horizontal">
-                    <figure>
-                      <img src="logo-att-2x.png" alt="test1" width="74" height="34" />
-                    </figure>
-                    <label>$1,399.00 or $58.29/mo.per month for 24 mo.monthsFootnote* before trade-in</label>
-                  </div>
-                </exmg-radio-group-item>
-                <exmg-radio-group-item value="option2" enable-radio-button>
-                  <div class="figure horizontal">
-                    <figure>
-                      <img src="logo-sprint-2x.png" alt="test2" width="71" height="34" style="margin-right:3px;" />
-                    </figure>
-                    <label>$1,399.00 or $58.29/mo.per month for 24 mo.monthsFootnote* before trade-in</label>
-                  </div>
-                </exmg-radio-group-item>
-              </exmg-radio-group>
-            </template>
-          </demo-snippet>
+
+          <exmg-radio-group class="custom-style" name="Choice" vertical>
+            <exmg-radio-group-item value="option1" enable-radio-button>
+              <div class="figure horizontal">
+                <figure>
+                  <img src="/demo/demos/exmg-radio-group/logo-att-2x.png" alt="test1" width="74" height="34" />
+                </figure>
+                <label>$1,399.00 or $58.29/mo.per month for 24 mo.monthsFootnote* before trade-in</label>
+              </div>
+            </exmg-radio-group-item>
+            <exmg-radio-group-item value="option2" enable-radio-button>
+              <div class="figure horizontal">
+                <figure>
+                  <img
+                    src="/demo/demos/exmg-radio-group/logo-sprint-2x.png"
+                    alt="test2"
+                    width="71"
+                    height="34"
+                    style="margin-right:3px;"
+                  />
+                </figure>
+                <label>$1,399.00 or $58.29/mo.per month for 24 mo.monthsFootnote* before trade-in</label>
+              </div>
+            </exmg-radio-group-item>
+          </exmg-radio-group>
         </div>
       </div>
     `;

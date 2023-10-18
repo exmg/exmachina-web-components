@@ -3,6 +3,8 @@ import { customElement, query, state } from 'lit/decorators.js';
 import '@exmg/exmg-form-drawer/exmg-form-drawer.js';
 import './exmg-form-drawer-standard.js';
 import './user-update-drawer.js';
+import '@material/web/tabs/internal/tabs.js';
+import '@material/web/tabs/internal/primary-tab.js';
 import { Tabs } from '@material/web/tabs/internal/tabs.js';
 import { UserData, UserUpdateDrawer } from './user-update-drawer.js';
 
@@ -56,8 +58,8 @@ export class Drawer extends LitElement {
   render() {
     return html`
       <md-tabs .selected="${this.selectedTab}" @change=${this._handleChange}>
-        <md-tab> Normal </md-tab>
-        <md-tab> Extends base class </md-tab>
+        <md-primary-tab> Normal </md-primary-tab>
+        <md-primary-tab> Extends base class </md-primary-tab>
       </md-tabs>
 
       <main>${this.renderContent()}</main>

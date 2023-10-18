@@ -5,13 +5,13 @@ import { classMap } from 'lit/directives/class-map.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
 
 import '@polymer/paper-listbox/paper-listbox.js';
-import '@material/mwc-icon-button/mwc-icon-button.js';
+import '@material/web/iconbutton/icon-button.js';
+import '@material/web/button/text-button.js';
 import '@polymer/iron-dropdown/iron-dropdown.js';
 import { IronDropdownElement } from '@polymer/iron-dropdown/iron-dropdown.js';
 
 import '@polymer/iron-input/iron-input.js';
 import '@polymer/paper-input/paper-input-error.js';
-import '@polymer/paper-button/paper-button.js';
 import '@polymer/paper-input/paper-input-container.js';
 import '@polymer/paper-styles/paper-styles.js';
 import { afterNextRender } from '@polymer/polymer/lib/utils/render-status.js';
@@ -234,7 +234,7 @@ export class PaperGridTooolbarComboboxElement extends ExmgElement {
         --paper-listbox-color: var(--exmg-paper-combobox-dropdown-list-color, #000);
         --paper-listbox-background-color: var(--exmg-paper-combobox-dropdown-list-bg-color, #fff);
       }
-      mwc-icon-button {
+      md-icon-button {
         color: var(--primary-color, #000);
         background-color: var(--paper-icon-button-ink-bg-color);
       }
@@ -291,7 +291,7 @@ export class PaperGridTooolbarComboboxElement extends ExmgElement {
         width: auto;
         max-width: 100%;
       }
-      paper-button {
+      md-filled-button {
         padding: 0;
         color: var(--paper-button-color);
         background-color: var(--paper-button-bg-color);
@@ -759,12 +759,12 @@ export class PaperGridTooolbarComboboxElement extends ExmgElement {
         </paper-input-container>
 
         <span id="inputWidthHelper">${this.inputValue} </span>
-        <mwc-icon-button ?disabled="${this.disabled}" @click=${() => this.toggle()}>
+        <md-icon-button ?disabled="${this.disabled}" @click=${() => this.toggle()}>
           <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px">
             <path d="M0 0h24v24H0V0z" fill="none" />
             <path d="M7 10l5 5 5-5H7z" />
           </svg>
-        </mwc-icon-button>
+        </md-icon-button>
         <iron-dropdown
           id="menu"
           @opened-changed=${(e: CustomEvent<{ value: boolean }>) => (this.opened = e.detail.value)}
@@ -801,9 +801,9 @@ export class PaperGridTooolbarComboboxElement extends ExmgElement {
       return null;
     }
     return html`
-      <paper-button tabindex="-1" @click="${this.onTokenClick}">
+      <md-text-button tabindex="-1" @click="${this.onTokenClick}">
         <span>${this.token!.text}</span>
-      </paper-button>
+      </md-text-button>
     `;
   }
 }

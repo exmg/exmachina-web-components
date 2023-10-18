@@ -26,16 +26,15 @@
   "homepage": "https://github.com/exmg/exmachina-web-components",
   "dependencies": {
     "@exmg/exmg-tooltip": "file:../exmg-tooltip",
-    "@exmg/lit-base": "^1.1.8",
-    "@material/mwc-base": "^0.25.2",
-    "@material/typography": "^13.0.0",
+    "@exmg/lit-base": "^2.0.1",
+    "@material/typography": "^14.0.0",
     "@polymer/paper-item": "^3.0.1",
     "@polymer/paper-listbox": "^3.0.0",
-    "lit": "^2.0.0",
-    "tslib": "^2.0.1"
+    "lit": "^3.0.0",
+    "tslib": "^2.6.2"
   },
   "devDependencies": {
-    "@exmg/lit-cli": "1.1.9",
+    "@exmg/lit-cli": "1.1.13",
     "@polymer/app-layout": "^3.1.0"
   },
   "scripts": {

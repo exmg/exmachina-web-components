@@ -2,12 +2,12 @@ import { html, css } from 'lit';
 import { customElement } from 'lit/decorators.js';
 import { classMap } from 'lit/directives/class-map.js';
 import { repeat } from 'lit/directives/repeat.js';
-import '@material/mwc-checkbox';
+import '@material/web/checkbox/checkbox.js';
 import '@exmg/exmg-grid/src/table/exmg-grid.js';
 import '@exmg/exmg-grid/src/table/exmg-grid-pagination.js';
 import { dragIcon, expandIcon } from './exmg-icons.js';
 import '@exmg/exmg-grid/src/table/exmg-grid-smart-toolbar.js';
-import {ExmgBaseGridDemo} from './exmg-grid-base.js';
+import { ExmgBaseGridDemo } from './exmg-grid-base.js';
 
 import { style as tableStyles } from '@exmg/exmg-grid/src/styles/exmg-grid-styles-css.js';
 import { style as demoStyles } from './demo-common-css.js';
@@ -36,7 +36,7 @@ export class ExmgComplexGridWithSortableRows extends ExmgBaseGridDemo {
       (i) => {
         return html`
           <tr data-row-key="${i.id}">
-            <td class="grid-checkbox-cell"><mwc-checkbox class="selectable-checkbox"></mwc-checkbox></td>
+            <td class="grid-checkbox-cell"><md-checkbox class="selectable-checkbox"></md-checkbox></td>
             <td><span class="grid-row-drag-handler">${dragIcon}</span></td>
             <td>#${i.id}</td>
             <td>${i.month}</td>
@@ -96,7 +96,7 @@ export class ExmgComplexGridWithSortableRows extends ExmgBaseGridDemo {
         <table>
           <thead>
             <tr class="grid-columns">
-              <th width="5%"><mwc-checkbox class="selectable-checkbox"></mwc-checkbox></th>
+              <th width="5%"><md-checkbox class="selectable-checkbox"></md-checkbox></th>
               <th width="5%"></th>
               <th title="ID"><span>ID</span></th>
               <th title="Month" data-column-key="month"><span>Month</span></th>

@@ -29,15 +29,15 @@
   "license": "MIT",
   "dependencies": {
     "@exmg/lit-base": "^1.1.8",
-    "@material/mwc-base": "=0.25.3",
-    "@material/mwc-radio": "=0.25.3",
-    "@material/mwc-ripple": "=0.25.3",
+    "@material/mwc-base": "=0.27.0",
+    "@material/mwc-radio": "=0.27.0",
+    "@material/mwc-ripple": "=0.27.0",
     "@material/radio": "^13.0.0",
     "lit": "^2.0.0",
-    "tslib": "^2.0.1"
+    "tslib": "^2.6.2"
   },
   "devDependencies": {
-    "@exmg/lit-cli": "1.1.9"
+    "@exmg/lit-cli": "1.1.13"
   },
   "scripts": {
     "build:styles": "exmg-lit-cli sass -f \"./styles/*.scss\""

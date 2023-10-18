@@ -2,7 +2,7 @@ import { html } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
 import { ExmgElement } from '@exmg/lit-base/index.js';
 import { repeat } from 'lit/directives/repeat.js';
-import '@material/mwc-icon-button';
+import '@material/web/iconbutton/icon-button.js';
 import '@polymer/paper-item/paper-item.js';
 import './exmg-grid-toolbar-combobox.js';
 import { style } from '../styles/exmg-grid-pagination-styles-css.js';
@@ -78,14 +78,14 @@ export class ExmgGridPagination extends ExmgElement {
     const enabled = this.pageIndex > 0;
 
     return html`
-      <mwc-icon-button
+      <md-icon-button
         icon="navigate_before"
         id="prevPageBtn"
         ?disabled="${!enabled}"
         class="actions"
         title="Previous page"
         @click="${enabled ? this.handleOnClickPrev : undefined}"
-      ></mwc-icon-button>
+      ></md-icon-button>
     `;
   }
 
@@ -93,14 +93,14 @@ export class ExmgGridPagination extends ExmgElement {
     const enabled = this.itemCount && this.itemCount > (this.pageIndex + 1) * this.pageSize;
 
     return html`
-      <mwc-icon-button
+      <md-icon-button
         icon="navigate_next"
         id="nextPageBtn"
         ?disabled="${!enabled}"
         class="actions"
         title="Next page"
         @click="${enabled ? this.handleOnClickNext : undefined}"
-      ></mwc-icon-button>
+      ></md-icon-button>
     `;
   }
 

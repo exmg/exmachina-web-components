@@ -153,11 +153,11 @@ export class Drawer extends LitElement {
         @exmg-drawer-opened-changed="${this.handleOpenedChanged}"
         ?no-cancel-on-outside-click="${this.noCancelOnOutsideClick}"
         submit-btn-title="Create"
+        title="Create User"
         ?submit-btn-hidden=${this.submitBtnHidden}
         ?disable-sticky-header=${this.disableStickyHeader}
         @dialog-submit=${this.doFormAction}
       >
-        <div slot="title">Create User</div>
         <form>
           <div class="row">
             <md-outlined-text-field name="firstname" dialogFocus label="First Name" required></md-outlined-text-field>
