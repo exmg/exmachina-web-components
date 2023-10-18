@@ -11,5 +11,5 @@ paper-dialog {
 
   color: var(--exmg-drawer-color, var(--md-sys-color-on-surface, black));
   // background-color: var(--exmg-drawer-bg-color, var(--mdc-theme-surface, $exmg-drawer-bg-color));
-  background-color: var(--exmg-drawer-bg-color, var(--md-sys-color-surface, white));
+  background-color: var(--exmg-drawer-bg-color, var(--md-sys-color-surface-variant, white));
 }

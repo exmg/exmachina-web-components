@@ -230,7 +230,7 @@ export class DemoApp extends LitElement {
         </section>
         <div class="content">
           <aside class="sidemenu">
-            <md-list class="sidemenu-elements"> ${this.renderElements()} </md-list>
+            <md-list class="nav"> ${this.renderElements()} </md-list>
           </aside>
           <main class="main">
             ${staticHtml`<${demos[`${elementHref}-demo`].tag}></${demos[`${elementHref}-demo`].tag}>`}

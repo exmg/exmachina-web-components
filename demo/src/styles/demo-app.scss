@@ -78,10 +78,11 @@ main {
       }
     }
   }
-  md-list {
-    --md-list-margin-inline: 12px;
+
+  .sidemenu md-list.nav {
+    --md-list-container-color: transparent;
   }
-  md-list-item {
+  .sidemenu md-list.nav md-list-item {
     border-radius: 28px;
     cursor: pointer;
     text-transform: capitalize;

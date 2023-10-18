@@ -22,7 +22,6 @@ type WithStylesheet = typeof globalThis & { [stylesheetName: string]: CSSStyleSh
  *     used to generate the localstorage name.
  */
 export function applyThemeString(doc: DocumentOrShadowRoot, themeString: string, ssName = 'material-theme') {
-  debugger;
   // Get constructable stylesheet
   let sheet = (globalThis as WithStylesheet)[ssName];
   // Create a new sheet if it doesn't exist already and save it globally.
