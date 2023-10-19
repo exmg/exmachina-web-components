@@ -97,7 +97,7 @@ import { MarkedOptions, Renderer } from 'marked';
  * @extends ExmgElement
  * @summary Markdown editor element
  */
-@customElement('exmg-markdown-editor')
+@customElement('exmg-markdown-editor-old')
 export class EditorElement extends ExmgElement {
   @property({ type: Boolean, attribute: 'auto-focus' })
   autoFocus = false;
@@ -785,11 +785,5 @@ export class EditorElement extends ExmgElement {
         <div id="editor"></div>
       </div>
     `;
-  }
-}
-
-declare global {
-  interface HTMLElementTagNameMap {
-    'exmg-markdown-editor': EditorElement;
   }
 }

@@ -137,8 +137,6 @@ export class DemoApp extends LitElement {
   protected render() {
     if (!this.selectedElement) return nothing;
     const elementHref = this.selectedElement.name.replace('@exmg/', '');
-    console.log('href', elementHref);
-    console.log('element', demos[`${elementHref}-demo`]);
     return html`
       <main>
         <section>

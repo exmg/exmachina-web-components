@@ -9,7 +9,7 @@ import '@exmg/exmg-sidemenu/exmg-sidemenu-badge.js';
 import '@material/web/iconbutton/icon-button.js';
 import '@polymer/paper-item/paper-item.js';
 import '@exmg/exmg-tooltip/exmg-tooltip.js';
-import '@exmg/exmg-button/exmg-button.js';
+import '@exmg/exmg-button';
 import '@polymer/app-layout/app-drawer/app-drawer.js';
 import '@polymer/app-layout/app-drawer-layout/app-drawer-layout.js';
 import '@polymer/app-layout/app-toolbar/app-toolbar.js';
