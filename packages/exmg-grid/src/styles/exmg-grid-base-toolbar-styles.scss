@@ -10,7 +10,7 @@ $exmg-grid-toolbar-active-color: #000000;
   @include typography.base;
 
   --toolbar-bg-color: var(--exmg-theme-table-toolbar-background-color, var(--md-sys-color-surface-container));
-  --toolbar-color: var(--exmg-theme-table-toolbar-color,var(--md-sys-color-on-surface-container));
+  --toolbar-color: var(--exmg-theme-table-toolbar-color, var(--md-sys-color-on-surface-container));
   background-color: var(--toolbar-bg-color);
   color: var(--toolbar-color);
 
@@ -29,8 +29,8 @@ $exmg-grid-toolbar-active-color: #000000;
   white-space: nowrap;
 
   &.active {
-    --active-toolbar-bg-color: var(--exmg-theme-table-toolbar-active-bg-color, var(--md-sys-color-primary));
-    --active-toolbar-color: var(--exmg-theme-table-toolbar-active-color, var(--md-sys-color-on-primary));
+    --active-toolbar-bg-color: var(--exmg-theme-table-toolbar-active-bg-color, var(--md-sys-color-secondary-container));
+    --active-toolbar-color: var(--exmg-theme-table-toolbar-active-color, var(--md-sys-color-on-secondary-container));
 
     background-color: var(--active-toolbar-bg-color);
     color: var(--active-toolbar-color);

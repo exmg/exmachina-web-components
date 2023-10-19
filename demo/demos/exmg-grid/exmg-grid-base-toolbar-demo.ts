@@ -4,6 +4,7 @@ import { repeat } from 'lit/directives/repeat.js';
 import '@exmg/exmg-grid/src/table/exmg-grid-toolbar-combobox.js';
 import '@exmg/exmg-grid/src/table/exmg-grid-base-toolbar.js';
 import '@polymer/paper-item/paper-item.js';
+import '@material/web/icon/icon.js';
 import '@material/web/iconbutton/icon-button.js';
 
 @customElement('exmg-grid-base-toolbar-demo')
@@ -94,11 +95,11 @@ export class ExmgGridBaseToolbarDemo extends LitElement {
             return html`
               <md-icon-button
                 class="action"
-                icon="${action.icon}"
                 label="${action.text}"
                 title="${action.tooltip}"
                 @click="${this.onActionExecuted(action)}"
-              ></md-icon-button>
+                ><md-icon>${action.icon}</md-icon></md-icon-button
+              >
             `;
           })}
         </div>

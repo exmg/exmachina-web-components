@@ -5,6 +5,7 @@ import { classMap } from 'lit/directives/class-map.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
 
 import '@polymer/paper-listbox/paper-listbox.js';
+import '@material/web/icon/icon.js';
 import '@material/web/iconbutton/icon-button.js';
 import '@material/web/button/text-button.js';
 import '@polymer/iron-dropdown/iron-dropdown.js';
@@ -235,8 +236,7 @@ export class PaperGridTooolbarComboboxElement extends ExmgElement {
         --paper-listbox-background-color: var(--exmg-paper-combobox-dropdown-list-bg-color, #fff);
       }
       md-icon-button {
-        color: var(--primary-color, #000);
-        background-color: var(--paper-icon-button-ink-bg-color);
+        fill: var(--exmg-paper-combobox-color, #000);
       }
       :host([focused]) {
         outline: none;

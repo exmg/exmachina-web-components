@@ -1,9 +1,5 @@
 @use '@material/typography/mixins' as typography;
 
-$exmg-grid-pagination-bg-color: #ffffff;
-$exmg-grid-pagination-color: #02182b;
-$exmg-grid-pagination-color-disabled: rgba($exmg-grid-pagination-color, 0.38);
-
 .wrapper {
   display: flex;
   flex: 1;
@@ -12,11 +8,8 @@ $exmg-grid-pagination-color-disabled: rgba($exmg-grid-pagination-color, 0.38);
   justify-content: flex-end;
   padding: 8px 10px;
   @include typography.base;
-  background-color: var(
-    --exmg-theme-table-pagination-bg-color,
-    var(--md-sys-color-surface-container, $exmg-grid-pagination-bg-color)
-  );
-  color: var(--exmg-theme-table-pagination-color, var(--md-sys-color-on-surface-container, $exmg-grid-pagination-color));
+  background-color: var(--exmg-theme-table-pagination-bg-color, var(--md-sys-color-surface-container));
+  color: var(--exmg-theme-table-pagination-color, var(--md-sys-color-on-surface-container));
   overflow-x: auto;
   white-space: nowrap;
 
@@ -46,14 +39,6 @@ $exmg-grid-pagination-color-disabled: rgba($exmg-grid-pagination-color, 0.38);
       user-select: none;
     }
   }
-}
-
-md-icon-button {
-  color: var(--mdc-theme-primary);
-}
-
-md-icon-button[disabled] {
-  color: var(--exmg-theme-table-on-surface-disabled, var(--mdc-theme-disabled, $exmg-grid-pagination-color-disabled));
 }
 
 @media (max-width: 600px) {

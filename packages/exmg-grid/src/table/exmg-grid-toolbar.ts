@@ -3,6 +3,7 @@ import { ExmgElement } from '@exmg/lit-base/index.js';
 import { customElement, property } from 'lit/decorators.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import { repeat } from 'lit/directives/repeat.js';
+import '@material/web/icon/icon.js';
 import '@material/web/iconbutton/icon-button.js';
 import './exmg-grid-toolbar-combobox.js';
 import '@polymer/paper-item/paper-item.js';
@@ -121,10 +122,10 @@ export class ExmgGridToolbar extends ExmgElement {
       (action) => html`
         <md-icon-button
           class="action"
-          icon="${ifDefined(action.icon)}"
           title="${ifDefined(action.tooltip)}"
           @click="${this.emitActionExecutedEvent(action)}"
-        ></md-icon-button>
+          ><md-icon>${action.icon}</md-icon></md-icon-button
+        >
       `,
     );
   }

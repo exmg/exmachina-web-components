@@ -1,13 +1,12 @@
-import {html} from 'lit';
-import {customElement} from 'lit/decorators.js';
-import {classMap} from 'lit/directives/class-map.js';
-import {repeat} from 'lit/directives/repeat.js';
+import { html } from 'lit';
+import { customElement } from 'lit/decorators.js';
+import { repeat } from 'lit/directives/repeat.js';
 import '@exmg/exmg-grid/src/table/exmg-grid.js';
 import '@exmg/exmg-grid/src/table/exmg-grid-pagination.js';
-import {style as tableStyles} from '@exmg/exmg-grid/src/styles/exmg-grid-styles-css.js';
-import {style as demoStyles} from './demo-common-css.js';
+import { style as tableStyles } from '@exmg/exmg-grid/src/styles/exmg-grid-styles-css.js';
+import { style as demoStyles } from './demo-common-css.js';
 
-import {ExmgBaseGridDemo} from './exmg-grid-base.js';
+import { ExmgBaseGridDemo } from './exmg-grid-base.js';
 
 @customElement('demo-simple-grid')
 export class DemoSimpleGridTable extends ExmgBaseGridDemo {
@@ -16,7 +15,7 @@ export class DemoSimpleGridTable extends ExmgBaseGridDemo {
   private renderTableBody() {
     return repeat(
       this.items,
-      ({id}) => id,
+      ({ id }) => id,
       (i) => {
         return html`
           <tr data-row-key="${i.id}">
@@ -32,12 +31,9 @@ export class DemoSimpleGridTable extends ExmgBaseGridDemo {
 
   protected render() {
     return html`
-      <div>
-        <button class="demo-button" @click="${() => (this.dark = !this.dark)}">Toggle Dark Theme</button>
-      </div>
       <h1>Simple table</h1>
       <h2>Exmg Theme</h2>
-      <exmg-grid .items="${this.items}" class=${classMap({dark: this.dark})}>
+      <exmg-grid .items="${this.items}">
         <table>
           <thead>
             <tr class="grid-columns">

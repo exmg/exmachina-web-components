@@ -1,5 +1,5 @@
-import {html} from 'lit';
-import {customElement} from 'lit/decorators.js';
+import { html } from 'lit';
+import { customElement } from 'lit/decorators.js';
 import {
   ActionAmountSelectedItemsCondition,
   ActionWithCondition,
@@ -7,12 +7,12 @@ import {
 } from '@exmg/exmg-grid/src/table/types/exmg-grid-smart-toolbar-types.js';
 import '@exmg/exmg-grid/src/table/exmg-grid-smart-toolbar.js';
 import '@exmg/exmg-grid/src/table/exmg-grid-smart-toolbar.js';
-import {repeat} from 'lit/directives/repeat.js';
-import {ExmgBaseGridDemo} from './exmg-grid-base.js';
+import { repeat } from 'lit/directives/repeat.js';
+import { ExmgBaseGridDemo } from './exmg-grid-base.js';
 import '@exmg/exmg-grid/src/table/exmg-grid.js';
 import '@exmg/exmg-grid/src/table/exmg-grid-pagination.js';
-import {style as tableStyles} from '@exmg/exmg-grid/src/styles/exmg-grid-styles-css.js';
-import {style as demoStyles} from './demo-common-css.js';
+import { style as tableStyles } from '@exmg/exmg-grid/src/styles/exmg-grid-styles-css.js';
+import { style as demoStyles } from './demo-common-css.js';
 
 @customElement('search-toolbar-demo')
 export class SearchToolbarDemo extends ExmgBaseGridDemo {
@@ -55,7 +55,7 @@ export class SearchToolbarDemo extends ExmgBaseGridDemo {
   private renderTableBody() {
     return repeat(
       this.items,
-      ({id}) => id,
+      ({ id }) => id,
       (i) => {
         return html`
           <tr data-row-key="${i.id}">
@@ -76,12 +76,7 @@ export class SearchToolbarDemo extends ExmgBaseGridDemo {
           padding: 10px;
           display: block;
         }
-
-        table {
-          background: white;
-        }
       </style>
-      <button class="demo-button" @click="${this.toggleMonthColumn}">Toggle Month</button>
       <exmg-grid .items="${this.items}" .hiddenColumnNames="${this.hiddenColumns}">
         <exmg-grid-smart-toolbar
           searchEnabled

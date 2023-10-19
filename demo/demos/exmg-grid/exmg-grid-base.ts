@@ -73,9 +73,6 @@ export abstract class ExmgBaseGridDemo extends LitElement {
   @property({ type: Array })
   items: Income[];
 
-  @property({ type: Boolean })
-  dark = false;
-
   @state()
   pageIndex = 0;
 
@@ -95,9 +92,6 @@ export abstract class ExmgBaseGridDemo extends LitElement {
 
   @state()
   protected selectedRowIds: Record<string, boolean> = {};
-
-  @state()
-  protected theme = 'dark';
 
   constructor() {
     super();

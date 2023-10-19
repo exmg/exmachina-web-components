@@ -1,17 +1,11 @@
 @use '@material/typography/mixins' as typography;
 
-$exmgPrimaryColor: #0070db !default;
-$exmgSecondaryColor: #0070db !default;
-$exmgSurfaceColor: #ffffff !default;
-$exmgOnSurfaceColor: #02182b !default;
-$exmgBackground: transparent !default;
-$exmgOnBackground: #02182b !default;
-
 @mixin sortable-col-padding() {
   padding-right: calc(var(--exmg-table-th-sort-icon-height) + var(--exmg-table-th-sort-margin-left));
   &.grid-col-number {
     padding-right: calc(
-      var(--exmg-table-th-sort-icon-height) + var(--exmg-table-th-sort-margin-left) + var(--exmg-table-col-number-padding-right)
+      var(--exmg-table-th-sort-icon-height) + var(--exmg-table-th-sort-margin-left) +
+        var(--exmg-table-col-number-padding-right)
     );
   }
 }
@@ -19,7 +13,7 @@ $exmgOnBackground: #02182b !default;
 @mixin table-layout-fixed() {
   &[data-table-layout='fixed'] {
     table-layout: fixed;
-    td:not(.grid-checkbox-cell) {
+    td:not(.grid-checkbox-cell):not(.menu-cell) {
       overflow: hidden;
       white-space: nowrap;
       text-overflow: ellipsis;
@@ -39,16 +33,8 @@ $exmgOnBackground: #02182b !default;
 :host {
   @include typography.base;
 
-  $exmgPrimaryColor: #0070db !default;
-  $exmgSecondaryColor: #0070db !default;
-  $exmgSurfaceColor: #ffffff !default;
-  $exmgOnSurfaceColor: #02182b !default;
-  $exmgBackground: transparent !default;
-  $exmgOnBackground: #02182b !default;
-
   // $md-sys-color-on-surface: yellow;
   // $exmg-table-row-hover-background-color: rgba($md-sys-color-on-surface, 0.60);
-
 
   /*
 
@@ -101,17 +87,32 @@ $exmgOnBackground: #02182b !default;
   --exmg-table-card-background-color: var(--exmg-theme-table-surface, var(--md-sys-color-surface-container));
   --exmg-table-row-divider-color: var(--exmg-theme-table-row-divider-color, var(--md-sys-color-surface-variant));
 
-  --exmg-table-row-selected-color: var(--exmg-theme-table-row-selected-color, var(--md-sys-color-on-secondary-container));
-  --exmg-table-row-selected-background-color: var(--exmg-theme-table-row-selected-background-color, var(--md-sys-color-secondary-container));
+  --exmg-table-row-selected-color: var(
+    --exmg-theme-table-row-selected-color,
+    var(--md-sys-color-on-secondary-container)
+  );
+  --exmg-table-row-selected-background-color: var(
+    --exmg-theme-table-row-selected-background-color,
+    var(--md-sys-color-secondary-container)
+  );
   --exmg-table-row-hover-color: var(--exmg-theme-table-row-hover-color, var(--md-sys-color-on-surface));
-  --exmg-table-row-hover-background-color: var(--exmg-theme-table-row-hover-background-color, yellow);
-  --exmg-table-row-dragged-background-color: var(--exmg-theme-table-row-dragged-background-color, var(--md-sys-color-on-surface));
+  --exmg-table-row-hover-background-color: var(
+    --exmg-theme-table-row-hover-background-color,
+    var(--md-sys-color-surface-container-highest)
+  );
+  --exmg-table-row-dragged-background-color: var(
+    --exmg-theme-table-row-dragged-background-color,
+    var(--md-sys-color-surface-container-low)
+  );
   --exmg-table-rows-expanded-divider-border: var(--exmg-theme-table-rows-expanded-divider-border, none);
   --exmg-table-rows-expanded-border: var(--exmg-theme-table-rows-expanded-border, none);
-  --exmg-table-rows-expanded-background-color: var(--exmg-theme-table-rows-expanded-background-color, var(--md-sys-color-surface));
+  --exmg-table-rows-expanded-background-color: var(
+    --exmg-theme-table-rows-expanded-background-color,
+    var(--md-sys-color-surface-container-low)
+  );
   --exmg-table-rows-expanded-color: var(--exmg-theme-table-rows-expanded-color, var(--md-sys-color-on-surface));
-  --exmg-table-th-color: var(--exmg-theme-table-th-on-surface, var(--md-sys-color-on-surface));
-  --exmg-table-th-background-color: var(--exmg-theme-table-th-surface, var(--md-sys-color-surface));
+  --exmg-table-th-color: var(--exmg-theme-table-th-on-surface, var(--md-sys-color-on-surface-container));
+  --exmg-table-th-background-color: var(--exmg-theme-table-th-surface, var(--md-sys-color-surface-container));
   --exmg-table-th-sortable-hover-color: var(--exmg-theme-table-th-sortable-hover-color, var(--md-sys-color-on-surface));
   --exmg-table-columns-background-color: var(--exmg-theme-table-columns-background-color, var(--md-sys-color-surface));
 
@@ -123,6 +124,9 @@ $exmgOnBackground: #02182b !default;
 
   --exmg-table-col-number-padding-right: var(--exmg-theme-table-col-number-padding-right, 10px);
   --exmg-table-checkbox-cell-width: var(--exmg-theme-table-checkbox-cell-width, 24px);
+
+  --exmg-paper-combobox-selected-item-color: var(var(--md-sys-color-primary), #000000);
+  --exmg-paper-combobox-color: var(--md-sys-color-on-surface);
 
   /* Adjust toolbar to grid */
   --exmg-table-toolbar-setting-position: var(--exmg-theme-table-toolbar-setting-position, absolute);
@@ -168,9 +172,9 @@ $exmgOnBackground: #02182b !default;
   margin-bottom: var(--exmg-table-card-margin-bottom);
 }
 
-.table-container {
-  overflow-x: auto;
-}
+/*.table-container {
+   overflow-x: auto;
+}*/
 
 table {
   @include table-layout-fixed();

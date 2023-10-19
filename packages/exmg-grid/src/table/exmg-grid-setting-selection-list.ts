@@ -3,8 +3,8 @@ import { customElement, property, query } from 'lit/decorators.js';
 import { ExmgElement } from '@exmg/lit-base/index.js';
 import '@material/mwc-menu';
 import '@material/mwc-list/mwc-list-item';
+import '@material/web/icon/icon.js';
 import '@material/web/iconbutton/icon-button.js';
-
 import { SettingSelectionListItem } from './types/exmg-grid-toolbar-types.js';
 import { style } from '../styles/exmg-grid-setting-selection-list-styles-css.js';
 import { Menu } from '@material/mwc-menu';
@@ -113,12 +113,12 @@ export class ExmgGridSettingSelectionList extends ExmgElement {
   render() {
     return html`
       <md-icon-button
-        icon="${this.icon}"
         @click="${this.toggleMenuOpenState}"
         class="mdc-icon-button material-icons action"
         title="${this.tooltip}"
         data-mdc-ripple-is-unbounded="true"
-      ></md-icon-button>
+        ><md-icon>${this.icon}</md-icon></md-icon-button
+      >
 
       <mwc-menu id="menu" absolute activatable multi @action="${this.handleListAction}">
         ${this.settingData.map(

@@ -1,9 +1,9 @@
-import { html } from 'lit';
+import { html, css } from 'lit';
 import { customElement } from 'lit/decorators.js';
-import { classMap } from 'lit/directives/class-map.js';
 import { repeat } from 'lit/directives/repeat.js';
 import '@material/web/checkbox/checkbox.js';
 import '@polymer/paper-item';
+import '@material/web/icon/icon.js';
 import '@material/web/iconbutton/icon-button.js';
 
 import '@exmg/exmg-grid/src/table/exmg-grid-toolbar-combobox.js';
@@ -14,7 +14,6 @@ import '@exmg/exmg-grid/src/table/exmg-grid-base-toolbar.js';
 import { style as tableStyles } from '@exmg/exmg-grid/src/styles/exmg-grid-styles-css.js';
 import { style as demoStyles } from './demo-common-css.js';
 
-import { createIcon } from './exmg-icons.js';
 import { DEFAULT_SORT_COLUMN, DEFAULT_SORT_DIRECTION, ExmgBaseGridDemo } from './exmg-grid-base.js';
 
 @customElement('demo-complex-grid-with-slotted-toolbar')
@@ -22,6 +21,11 @@ export class ExmgComplexGridWithSlottedToolbar extends ExmgBaseGridDemo {
   static styles = [
     tableStyles,
     demoStyles,
+    css`
+      .expandable-toggle {
+        cursor: pointer;
+      }
+    `,
   ];
 
   private renderTableBody() {
@@ -36,7 +40,9 @@ export class ExmgComplexGridWithSlottedToolbar extends ExmgBaseGridDemo {
             <td>${i.month}</td>
             <td class="grid-col-number">${i.year}</td>
             <td class="grid-col-number">${i.amount}</td>
-            <td class="grid-cell-visible-on-hover"><span class="expandable-toggle">${createIcon}</span></td>
+            <td class="grid-cell-visible-on-hover">
+              <span class="expandable-toggle"><md-icon style="pointer-events: none;">create</md-icon></span>
+            </td>
           </tr>
           <tr class="grid-row-detail" data-row-detail-key="${i.id}">
             <td data-auto-colspan>
@@ -51,16 +57,6 @@ export class ExmgComplexGridWithSlottedToolbar extends ExmgBaseGridDemo {
 
   protected render() {
     return html`
-      <div>
-        <button class="demo-button" @click="${this.toggleMonthColumn}">Toggle Month</button>
-        <button class="demo-button" @click="${this.toggleYearColumn}">Toggle Year</button>
-        <button class="demo-button" @click="${this.refreshTable}">Refresh Table</button>
-        <button class="demo-button" @click="${this.expandFirstRows}">Expand first Rows</button>
-        <button class="demo-button" @click="${this.collapseFirstRows}">Collapse first Rows</button>
-        <button class="demo-button" @click="${this.selectFirstRows}">Select first rows</button>
-        <button class="demo-button" @click="${this.unSelectFirstRows}">Unselect first rows</button>
-        <button class="demo-button" @click="${() => (this.dark = !this.dark)}">Toggle Dark Theme</button>
-      </div>
       <exmg-grid
         table-layout="auto"
         .items="${this.items}"
@@ -74,7 +70,6 @@ export class ExmgComplexGridWithSlottedToolbar extends ExmgBaseGridDemo {
         default-sort-column="${DEFAULT_SORT_COLUMN}"
         default-sort-direction="${DEFAULT_SORT_DIRECTION}"
         ?sortable="${true}"
-        class=${classMap({ dark: this.dark })}
         @exmg-grid-sort-change="${this.onSortChange}"
       >
         <exmg-grid-base-toolbar slot="toolbar">
@@ -86,7 +81,8 @@ export class ExmgComplexGridWithSlottedToolbar extends ExmgBaseGridDemo {
                     icon="merge_type"
                     title="Merge"
                     @click="${this.onActionDelegate('merge')}"
-                  ></md-icon-button>
+                    ><md-icon>merge_type</md-icon></md-icon-button
+                  >
                 `
               : null}
           </div>
