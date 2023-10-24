@@ -9,21 +9,20 @@ $exmg-grid-toolbar-active-color: #000000;
   display: block;
   @include typography.base;
 
+  border-top-left-radius: var(--exmg-theme-table-radius, var(--exmg-surface-border-radius, 16px));
+  border-top-right-radius: var(--exmg-theme-table-radius, var(--exmg-surface-border-radius, 16px));
+
   --toolbar-bg-color: var(--exmg-theme-table-toolbar-background-color, var(--md-sys-color-surface-container));
   --toolbar-color: var(--exmg-theme-table-toolbar-color, var(--md-sys-color-on-surface-container));
   background-color: var(--toolbar-bg-color);
   color: var(--toolbar-color);
-
-  border-radius: var(--exmg-theme-table-toolbar-border-top-radius, 0)
-    var(--exmg-theme-table-toolbar-border-top-radius, 0) var(--exmg-theme-table-toolbar-border-bottom-radius, 0)
-    var(--exmg-theme-table-toolbar-border-bottom-radius, 0);
 }
 .wrapper {
   display: flex;
   flex: 1;
   flex-direction: row;
   align-items: center;
-  padding: 10px 16px 10px 0;
+  padding: 10px 16px 10px 16px;
 
   overflow-x: var(--exmg-theme-table-toolbar-overflow-x, initial);
   white-space: nowrap;
@@ -43,6 +42,7 @@ $exmg-grid-toolbar-active-color: #000000;
     .description {
       color: var(--active-toolbar-color);
       flex: 1;
+      margin-left: 8px;
     }
   }
   .seperator {
@@ -54,14 +54,17 @@ $exmg-grid-toolbar-active-color: #000000;
   .description {
     @include typography.typography('headline5');
     color: var(--toolbar-color);
-    padding: 0 16px;
+    font-size: 1.25rem;
+    padding: 0;
     height: 48px;
     flex: 1;
+    display: flex;
+    align-items: center;
   }
 }
 
 .actions {
-  padding: 0 16px 0 16px;
+  padding: 0 8px 0 0;
   color: var(--mdc-theme-primary);
 }
 

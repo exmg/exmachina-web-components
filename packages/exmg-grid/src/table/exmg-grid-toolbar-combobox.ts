@@ -61,6 +61,9 @@ const debounce = (time: number) => {
   };
 };
 
+/**
+ * @deprecated Use `exmg-paper-toolbar-filters` instead.
+ */
 @customElement('exmg-grid-toolbar-combobox')
 export class PaperGridTooolbarComboboxElement extends ExmgElement {
   /**

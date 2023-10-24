@@ -32,52 +32,7 @@
 
 :host {
   @include typography.base;
-
-  // $md-sys-color-on-surface: yellow;
-  // $exmg-table-row-hover-background-color: rgba($md-sys-color-on-surface, 0.60);
-
-  /*
-
-  :root,:host{
-    --md-sys-color-background:#15130d;
-    --md-sys-color-on-background:#e8e2d7;
-    --md-sys-color-surface:#15130d;
-    --md-sys-color-surface-dim:#15130d;
-    --md-sys-color-surface-bright:#3c3932;
-    --md-sys-color-surface-container-lowest:#100e08;
-    --md-sys-color-surface-container-low:#1d1b15;
-    --md-sys-color-surface-container:#221f19;
-    --md-sys-color-surface-container-high:#2c2a23;
-    --md-sys-color-surface-container-highest:#37352d;
-    --md-sys-color-on-surface:#e8e2d7;
-    --md-sys-color-surface-variant:#4b4738;
-    --md-sys-color-on-surface-variant:#cdc6b3;
-    --md-sys-color-inverse-surface:#e8e2d7;
-    --md-sys-color-inverse-on-surface:#333029;
-    --md-sys-color-outline:#97907f;
-    --md-sys-color-outline-variant:#4b4738;
-    --md-sys-color-shadow:#000000;
-    --md-sys-color-scrim:#000000;
-    --md-sys-color-surface-tint:#dcc669;
-    --md-sys-color-primary:#dcc669;
-    --md-sys-color-on-primary:#393000;
-    --md-sys-color-primary-container:#5d4f00;
-    --md-sys-color-on-primary-container:#ffefb6;
-    --md-sys-color-inverse-primary:#6e5e05;
-    --md-sys-color-secondary:#d3c69a;
-    --md-sys-color-on-secondary:#373010;
-    --md-sys-color-secondary-container:#473f1e;
-    --md-sys-color-on-secondary-container:#e0d4a7;
-    --md-sys-color-tertiary:#afd187;
-    --md-sys-color-on-tertiary:#1d3700;
-    --md-sys-color-tertiary-container:#3c581c;
-    --md-sys-color-on-tertiary-container:#d8fcad;
-    --md-sys-color-error:#ffb4ab;
-    --md-sys-color-on-error:#690005;
-    --md-sys-color-error-container:#93000a;
-    --md-sys-color-on-error-container:#ffdad6;
-}
-*/
+  display: block;
 
   --exmg-arrow-upward-url: url('/node_modules/@exmg/exmg-grid/assets/arrow-upward.svg');
   --exmg-table-card-width: var(--exmg-theme-table-card-width, 100%);
@@ -137,15 +92,11 @@
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  overflow-x: auto;
+  //  overflow-x: auto;
   border-top: 1px solid var(--exmg-table-row-divider-color);
-  border-bottom-left-radius: 4px;
-  border-bottom-right-radius: 4px;
 }
 
 ::slotted([slot='toolbar']) {
-  border-top-left-radius: 4px;
-  border-top-right-radius: 4px;
   display: block;
 }
 
@@ -170,6 +121,10 @@
   width: var(--exmg-table-card-width);
   background-color: var(--exmg-table-card-background-color);
   margin-bottom: var(--exmg-table-card-margin-bottom);
+  border-top-left-radius: var(--exmg-theme-table-radius, var(--exmg-surface-border-radius, 16px));
+  border-top-right-radius: var(--exmg-theme-table-radius, var(--exmg-surface-border-radius, 16px));
+  border-bottom-left-radius: var(--exmg-theme-table-radius, var(--exmg-surface-border-radius, 16px));
+  border-bottom-right-radius: var(--exmg-theme-table-radius, var(--exmg-surface-border-radius, 16px));
 }
 
 /*.table-container {

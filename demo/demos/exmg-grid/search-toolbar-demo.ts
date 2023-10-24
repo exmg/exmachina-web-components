@@ -1,54 +1,18 @@
 import { html } from 'lit';
 import { customElement } from 'lit/decorators.js';
-import {
-  ActionAmountSelectedItemsCondition,
-  ActionWithCondition,
-  ActionConditionType,
-} from '@exmg/exmg-grid/src/table/types/exmg-grid-smart-toolbar-types.js';
-import '@exmg/exmg-grid/src/table/exmg-grid-smart-toolbar.js';
-import '@exmg/exmg-grid/src/table/exmg-grid-smart-toolbar.js';
 import { repeat } from 'lit/directives/repeat.js';
 import { ExmgBaseGridDemo } from './exmg-grid-base.js';
+
+import '@exmg/exmg-grid/src/table/exmg-grid-smart-toolbar.js';
 import '@exmg/exmg-grid/src/table/exmg-grid.js';
 import '@exmg/exmg-grid/src/table/exmg-grid-pagination.js';
+
 import { style as tableStyles } from '@exmg/exmg-grid/src/styles/exmg-grid-styles-css.js';
 import { style as demoStyles } from './demo-common-css.js';
 
 @customElement('search-toolbar-demo')
 export class SearchToolbarDemo extends ExmgBaseGridDemo {
   static styles = [demoStyles, tableStyles];
-  protected actions: ActionWithCondition<ActionAmountSelectedItemsCondition>[] = [
-    {
-      id: 'export',
-      text: '',
-      tooltip: 'Export',
-      icon: 'get_app',
-      condition: {
-        type: ActionConditionType.AmountOfSelectedItemsRange,
-        min: 0,
-      },
-    },
-    {
-      id: 'merge',
-      text: '',
-      tooltip: 'Merge',
-      icon: 'merge_type',
-      condition: {
-        type: ActionConditionType.AmountOfSelectedItemsRange,
-        min: 1,
-      },
-    },
-    {
-      id: 'delete',
-      text: '',
-      tooltip: 'Delete',
-      icon: 'delete',
-      condition: {
-        type: ActionConditionType.AmountOfSelectedItemsRange,
-        min: 2,
-      },
-    },
-  ];
 
   private description = 'Table 1';
 
@@ -81,7 +45,6 @@ export class SearchToolbarDemo extends ExmgBaseGridDemo {
         <exmg-grid-smart-toolbar
           searchEnabled
           searchPlaceholder="Search for income by month or year"
-          .actions="${this.actions}"
           description="${this.description}"
           .filters="${this.filters}"
           show-column-filter

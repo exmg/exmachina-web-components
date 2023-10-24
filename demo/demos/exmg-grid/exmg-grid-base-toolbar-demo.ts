@@ -1,9 +1,8 @@
 import { html, LitElement } from 'lit';
 import { customElement, state } from 'lit/decorators.js';
 import { repeat } from 'lit/directives/repeat.js';
-import '@exmg/exmg-grid/src/table/exmg-grid-toolbar-combobox.js';
+import '@exmg/exmg-grid/src/table/exmg-grid-toolbar-filters.js';
 import '@exmg/exmg-grid/src/table/exmg-grid-base-toolbar.js';
-import '@polymer/paper-item/paper-item.js';
 import '@material/web/icon/icon.js';
 import '@material/web/iconbutton/icon-button.js';
 
@@ -71,24 +70,14 @@ export class ExmgGridBaseToolbarDemo extends LitElement {
     };
   }
 
-  private removeOneAction() {
-    this.actions.shift();
-    this.actions = [...this.actions];
-  }
-
   render() {
     return html`
       <style>
         :host {
-          --mdc-theme-primary: #0071dc;
           padding: 10px;
           display: block;
-          background-color: #f6f6f6;
         }
       </style>
-      <h1>With actions</h1>
-      <button @click=${this.removeOneAction}>Remove one action</button>
-      <hr />
       <exmg-grid-base-toolbar>
         <div slot="actions">
           ${repeat(this.actions, (action) => {
@@ -106,19 +95,14 @@ export class ExmgGridBaseToolbarDemo extends LitElement {
         <div slot="description">${this.description}</div>
         <div slot="filters">
           ${repeat(this.filters, (filter) => {
+            const items = (filter.config.data || []).map((item: any) => ({ label: item.title, value: item.id }));
             return html`
-              <exmg-grid-toolbar-combobox
+              <exmg-grid-toolbar-filters
                 id="pageSizeOptions"
-                attr-for-selected="data-id"
                 selected="${filter.selected}"
-                @exmg-combobox-select="${this.onFilterChanged(filter)}"
-              >
-                ${repeat(
-                  filter.config.data,
-                  (item: any) => item,
-                  (item) => html` <paper-item data-id="${item.id}">${filter.name}: ${item.title}</paper-item> `,
-                )}
-              </exmg-grid-toolbar-combobox>
+                .items=${items}
+                @exmg-grid-toolbar-filter-changed="${this.onFilterChanged(filter)}"
+              ></exmg-grid-toolbar-filters>
             `;
           })}
         </div>

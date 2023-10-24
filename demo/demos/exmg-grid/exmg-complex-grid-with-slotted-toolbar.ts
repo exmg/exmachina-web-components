@@ -6,7 +6,7 @@ import '@polymer/paper-item';
 import '@material/web/icon/icon.js';
 import '@material/web/iconbutton/icon-button.js';
 
-import '@exmg/exmg-grid/src/table/exmg-grid-toolbar-combobox.js';
+import '@exmg/exmg-grid/src/table/exmg-grid-toolbar-filters.js';
 import '@exmg/exmg-grid/src/table/exmg-grid.js';
 import '@exmg/exmg-grid/src/table/exmg-grid-pagination.js';
 import '@exmg/exmg-grid/src/table/exmg-grid-base-toolbar.js';
@@ -40,8 +40,10 @@ export class ExmgComplexGridWithSlottedToolbar extends ExmgBaseGridDemo {
             <td>${i.month}</td>
             <td class="grid-col-number">${i.year}</td>
             <td class="grid-col-number">${i.amount}</td>
-            <td class="grid-cell-visible-on-hover">
-              <span class="expandable-toggle"><md-icon style="pointer-events: none;">create</md-icon></span>
+            <td class="grid-col-number">
+              <span class="expandable-toggle"
+                ><md-icon-button style="pointer-events: none;"><md-icon>expand_more</md-icon></md-icon-button></span
+              >
             </td>
           </tr>
           <tr class="grid-row-detail" data-row-detail-key="${i.id}">
@@ -88,26 +90,28 @@ export class ExmgComplexGridWithSlottedToolbar extends ExmgBaseGridDemo {
           </div>
           <div slot="description">Income table</div>
           <div slot="filters">
-            <exmg-grid-toolbar-combobox
-              attr-for-selected="data-id"
+            <exmg-grid-toolbar-filters
               selected="all"
-              @exmg-combobox-select="${this.onFilterChangedComboboxDelegate('month')}"
-            >
-              <paper-item data-id="all">Month: All</paper-item>
-              <paper-item data-id="january">Month: January</paper-item>
-              <paper-item data-id="february">Month: February</paper-item>
-              <paper-item data-id="march">Month: March</paper-item>
-            </exmg-grid-toolbar-combobox>
+              .items=${[
+                { label: 'Month: All', value: 'all' },
+                { label: 'Month: January', value: 'january' },
+                { label: 'Month: February', value: 'february' },
+                { label: 'Month: March', value: 'march' },
+              ]}
+              @exmg-grid-toolbar-filter-changed="${this.onFilterChangedComboboxDelegate('month')}"
+            ></exmg-grid-toolbar-filters>
           </div>
         </exmg-grid-base-toolbar>
         <table>
           <thead>
             <tr class="grid-columns">
               <th class="grid-checkbox-cell"><md-checkbox class="selectable-checkbox"></md-checkbox></th>
-              <th><span>ID</span></th>
-              <th data-column-key="month" data-sort><span>Month</span></th>
-              <th class="grid-col-number" data-column-key="year" data-sort><span>Year</span></th>
-              <th class="grid-col-number" data-column-key="amount" data-sort=""><span>Income</span></th>
+              <th style="width: 23%;"><span>ID</span></th>
+              <th data-column-key="month" style="width: 23%;" data-sort><span>Month</span></th>
+              <th class="grid-col-number" style="width: 23%;" data-column-key="year" data-sort><span>Year</span></th>
+              <th class="grid-col-number" style="width: 23%;" data-column-key="amount" data-sort="">
+                <span>Income</span>
+              </th>
               <th></th>
             </tr>
           </thead>

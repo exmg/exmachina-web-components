@@ -1,12 +1,11 @@
 import { html } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
 import { ExmgElement } from '@exmg/lit-base/index.js';
-import { repeat } from 'lit/directives/repeat.js';
 import '@material/web/iconbutton/icon-button.js';
 import '@material/web/icon/icon.js';
-import '@polymer/paper-item/paper-item.js';
-import './exmg-grid-toolbar-combobox.js';
+import './exmg-grid-toolbar-filters.js';
 import { style } from '../styles/exmg-grid-pagination-styles-css.js';
+import { FilterItem } from './exmg-grid-toolbar-filters.js';
 
 /**
  * ### Styling
@@ -41,20 +40,17 @@ export class ExmgGridPagination extends ExmgElement {
   }
 
   private renderPageSizeOptions() {
+    const items = (this.pageSizeOptions || []).map(
+      (item: number) => ({ label: `${item}`, value: `${item}` } as FilterItem),
+    );
+    console.log('pageSize', this.pageSize);
     return html`
-      <exmg-grid-toolbar-combobox
+      <exmg-grid-toolbar-filters
         id="pageSizeOptions"
-        attr-for-selected="data-id"
         selected="${this.pageSize}"
-        @exmg-combobox-select="${this.handleOnPageSizeChanged}"
-        style="display: inline-block;min-width: 0;"
-      >
-        ${repeat(
-          this.pageSizeOptions,
-          (item) => item,
-          (item) => html` <paper-item data-id="${item}">${item}</paper-item> `,
-        )}
-      </exmg-grid-toolbar-combobox>
+        .items=${items}
+        @exmg-grid-toolbar-filter-changed="${this.handleOnPageSizeChanged}"
+      ></exmg-grid-toolbar-filters>
     `;
   }
 
@@ -186,9 +182,6 @@ export class ExmgGridPagination extends ExmgElement {
 
           md-icon-button {
             fill: var(--md-sys-color-on-surface);
-          }
-          exmg-grid-toolbar-combobox {
-            --exmg-paper-combobox-background-color: var(--exmg-theme-table-pagination-bg-color);
           }
         }
       </style>

@@ -3,23 +3,9 @@ import { property, customElement, query, state } from 'lit/decorators.js';
 import { ExmgElement } from '@exmg/lit-base/index.js';
 import { classMap } from 'lit/directives/class-map.js';
 import { async, debounce } from '@exmg/lit-base/index.js';
-
-export const searchIcon = html`
-  <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24">
-    <path d="M0 0h24v24H0z" fill="none" />
-    <path
-      d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"
-    />
-  </svg>
-`;
-
-export const clearIcon = html`
-  <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24">
-    <path d="M0 0h24v24H0z" fill="none" />
-    <path d="M0 0h24v24H0z" fill="none" />
-    <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z" />
-  </svg>
-`;
+import '@material/web/icon/icon.js';
+import '@material/web/iconbutton/icon-button.js';
+import '@material/web/focus/md-focus-ring.js';
 
 @customElement('exmg-toolbar-search')
 export class ToolbarSearch extends ExmgElement {
@@ -39,6 +25,9 @@ export class ToolbarSearch extends ExmgElement {
     css`
       :host {
         display: block;
+        color: var(--md-sys-color-on-surface-variant);
+        background-color: var(--md-sys-color-surface-container-low);
+        border-radius: var(--exmg-toolbar-search-border-radius, var(--exmg-surface-border-radius, 16px));
       }
       :host > div {
         display: flex;
@@ -54,10 +43,12 @@ export class ToolbarSearch extends ExmgElement {
       }
       input {
         width: 100%;
+        caret-color: var(--md-sys-color-on-surface);
+        color: var(--md-sys-color-on-surface);
       }
-      svg {
-        margin: 0 0 0 16px;
-        fill: rgba(0, 0, 0, 0.38);
+      md-icon {
+        margin: 0 8px 0 16px;
+        fill: var(--md-sys-color-on-surface);
         cursor: pointer;
       }
       :host > div > svg {
@@ -69,7 +60,6 @@ export class ToolbarSearch extends ExmgElement {
       span.interactive-content {
         white-space: nowrap;
         overflow: hidden;
-        color: rgba(0, 0, 0, 0.38);
         font-size: 14px;
 
         text-overflow: ellipsis;
@@ -79,15 +69,20 @@ export class ToolbarSearch extends ExmgElement {
         font-weight: 400;
         cursor: pointer;
         flex: 1;
-        @apply --layout-flex;
       }
       .search {
-        display: absolut;
+        display: absolute;
         background: none;
-        outline-color: rgb(77, 144, 254);
-        outline-offset: -2px;
+        /* outline-color: rgb(77, 144, 254);
+        outline-offset: 1px;
         outline-style: auto;
-        outline-width: 4px;
+        outline-width: 1px; */
+      }
+      .search > div {
+        width: 100%;
+        position: relative;
+        display: flex;
+        align-items: center;
       }
       .search input {
         font-size: 14px;
@@ -100,11 +95,16 @@ export class ToolbarSearch extends ExmgElement {
         box-sizing: border-box;
       }
       .clear-button {
-        position: relative;
+        position: absolute;
+        right: 0;
         background: transparent;
         border: none !important;
         font-size: 0;
         margin-right: 1rem;
+      }
+
+      md-focus-ring {
+        --md-focus-ring-shape: 16px;
       }
     `,
   ];
@@ -118,21 +118,28 @@ export class ToolbarSearch extends ExmgElement {
       <div class=${classMap(classMapValues)} @click=${this._showSearch}>
         ${this._isSearch
           ? html`
-              ${searchIcon}
-              <input
-                id="searchInput"
-                placeholder=${this.placeHolder}
-                value=${this.filterValue ? this.filterValue : ''}
-                onfocus="let value = this.value; this.value = null; this.value = value"
-                @keyup=${this._handleKeyUp}
-                @blur=${this._handleInputBlur}
-              />
-              ${this.filterValue
-                ? html` <button class="clear-button" @mousedown=${this._handleClear}>${clearIcon}</button> `
-                : html``}
+              <div style="position: relative">
+                <md-focus-ring style="--md-focus-ring-shape: 8px" for="searchInput"></md-focus-ring>
+                <md-icon>search</md-icon>
+                <input
+                  id="searchInput"
+                  placeholder=${this.placeHolder}
+                  value=${this.filterValue ? this.filterValue : ''}
+                  onfocus="let value = this.value; this.value = null; this.value = value"
+                  @keyup=${this._handleKeyUp}
+                  @blur=${this._handleInputBlur}
+                />
+                ${this.filterValue
+                  ? html`
+                      <md-icon-button class="clear-button" @click=${this._handleClear}
+                        ><md-icon>close</md-icon></md-icon-button
+                      >
+                    `
+                  : html``}
+              </div>
             `
           : html`
-              ${searchIcon}
+              <md-icon>search</md-icon>
               <span class="interactive-content">${this._getValue()}</span>
               <slot></slot>
             `}

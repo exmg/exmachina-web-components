@@ -1,5 +1,13 @@
 @use '@material/typography/mixins' as typography;
 
+:host {
+  display: block;
+  @include typography.base;
+  // background-color: var(--exmg-theme-table-pagination-bg-color, var(--md-sys-color-surface-container));
+  color: var(--exmg-theme-table-pagination-color, var(--md-sys-color-on-surface-container));
+  border-bottom-left-radius: var(--exmg-theme-table-radius, var(--exmg-surface-border-radius, 16px));
+  border-bottom-right-radius: var(--exmg-theme-table-radius, var(--exmg-surface-border-radius, 16px));
+}
 .wrapper {
   display: flex;
   flex: 1;
@@ -7,12 +15,9 @@
   align-items: center;
   justify-content: flex-end;
   padding: 8px 10px;
-  @include typography.base;
-  background-color: var(--exmg-theme-table-pagination-bg-color, var(--md-sys-color-surface-container));
-  color: var(--exmg-theme-table-pagination-color, var(--md-sys-color-on-surface-container));
-  overflow-x: auto;
-  white-space: nowrap;
 
+  // overflow-x: auto;
+  white-space: nowrap;
   .page-size {
     display: flex;
     flex-direction: row;

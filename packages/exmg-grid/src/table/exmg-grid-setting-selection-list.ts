@@ -1,13 +1,13 @@
 import { html } from 'lit';
 import { customElement, property, query } from 'lit/decorators.js';
 import { ExmgElement } from '@exmg/lit-base/index.js';
-import '@material/mwc-menu';
-import '@material/mwc-list/mwc-list-item';
+import '@material/web/menu/menu.js';
+import '@material/web/menu/menu-item.js';
 import '@material/web/icon/icon.js';
 import '@material/web/iconbutton/icon-button.js';
 import { SettingSelectionListItem } from './types/exmg-grid-toolbar-types.js';
 import { style } from '../styles/exmg-grid-setting-selection-list-styles-css.js';
-import { Menu } from '@material/mwc-menu';
+import { Menu } from '@material/web/menu/menu.js';
 
 @customElement('exmg-grid-setting-selection-list')
 export class ExmgGridSettingSelectionList extends ExmgElement {
@@ -23,15 +23,6 @@ export class ExmgGridSettingSelectionList extends ExmgElement {
   @query('#menu')
   private menu?: Menu;
 
-  private toggleMenuOpenState(e: Event) {
-    e.stopPropagation();
-    if (!this.menu) {
-      return;
-    }
-    this.menu.anchor = e.target as HTMLElement;
-    this.menu.open = true;
-  }
-
   private dispatchSettingsChanged() {
     this.dispatchEvent(
       new CustomEvent<{ value: SettingSelectionListItem[] }>('exmg-grid-setting-changed', {
@@ -44,9 +35,8 @@ export class ExmgGridSettingSelectionList extends ExmgElement {
     );
   }
 
-  private handleListAction(e: CustomEvent) {
-    e.stopPropagation();
-    const index = e.detail.index;
+  private handleListAction(id: string) {
+    const index = this.settingData.findIndex((d) => d.id === id);
     this.settingData[index].selected = !this.settingData[index].selected;
     this.settingData = [...this.settingData];
     this.saveSettingsListToLocalStorage();
@@ -113,21 +103,31 @@ export class ExmgGridSettingSelectionList extends ExmgElement {
   render() {
     return html`
       <md-icon-button
-        @click="${this.toggleMenuOpenState}"
+        id="filterBtn"
+        @click=${() => this.menu!.show()}
+        aria-controls="menu"
         class="mdc-icon-button material-icons action"
         title="${this.tooltip}"
         data-mdc-ripple-is-unbounded="true"
         ><md-icon>${this.icon}</md-icon></md-icon-button
       >
 
-      <mwc-menu id="menu" absolute activatable multi @action="${this.handleListAction}">
+      <md-menu
+        id="menu"
+        menu-corner="start-end"
+        anchor="filterBtn"
+        role="listbox"
+        aria-label="Column filter options"
+        multi
+        @action="${this.handleListAction}"
+      >
         ${this.settingData.map(
           (item) =>
-            html` <mwc-list-item ?selected=${item.selected} ?activated=${item.selected}>
-              ${item.title}
-            </mwc-list-item>`,
+            html` <md-menu-item type="option" keep-open ?selected=${item.selected}>
+              <div slot="headline" @click=${() => this.handleListAction(item.id)}>${item.title}</div>
+            </md-menu-item>`,
         )}
-      </mwc-menu>
+      </md-menu>
     `;
   }
 }

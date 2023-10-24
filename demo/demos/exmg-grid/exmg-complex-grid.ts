@@ -33,14 +33,14 @@ export class ExmgComplexGrid extends ExmgBaseGridDemo {
 
   constructor() {
     super();
-    this.selectedRowIds = this.items
-      .slice(0, 3)
-      .map(({ id }) => id.toString())
-      .reduce((acc, item: string) => ({ ...acc, [item]: true }), {});
-    this.expandedRowIds = this.items
-      .slice(3, 5)
-      .map(({ id }) => id.toString())
-      .reduce((acc, item: string) => ({ ...acc, [item]: true }), {});
+    // this.selectedRowIds = this.items
+    //   .slice(0, 3)
+    //   .map(({ id }) => id.toString())
+    //   .reduce((acc, item: string) => ({ ...acc, [item]: true }), {});
+    // this.expandedRowIds = this.items
+    //   .slice(3, 5)
+    //   .map(({ id }) => id.toString())
+    //   .reduce((acc, item: string) => ({ ...acc, [item]: true }), {});
   }
 
   // get more menu items for row
