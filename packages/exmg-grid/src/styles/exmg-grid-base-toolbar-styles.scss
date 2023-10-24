@@ -33,6 +33,8 @@ $exmg-grid-toolbar-active-color: #000000;
 
     background-color: var(--active-toolbar-bg-color);
     color: var(--active-toolbar-color);
+    border-top-left-radius: var(--exmg-theme-table-radius, var(--exmg-surface-border-radius, 16px));
+    border-top-right-radius: var(--exmg-theme-table-radius, var(--exmg-surface-border-radius, 16px));
 
     .seperator {
       &.with-action-separator {
