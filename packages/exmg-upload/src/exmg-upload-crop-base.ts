@@ -50,14 +50,17 @@ export class ExmgUploadCropBase extends ExmgElement {
     if (!canvas) {
       throw new Error('Cropper canvas not found');
     }
-    canvas?.toBlob((blob) => {
-      if (!this._item || !blob) {
-        return;
-      }
-      const file = new File([blob], `cropped-${this._item.file.name}`, { type: this._item.file.type });
-      this._item.file = file;
-      this.fire('crop-done', this._item);
-    }, this._item?.file.type);
+    canvas?.toBlob(
+      (blob) => {
+        if (!this._item || !blob) {
+          return;
+        }
+        const file = new File([blob], `cropped-${this._item.file.name}`, { type: this._item.file.type });
+        this._item.file = file;
+        this.fire('crop-done', this._item);
+      },
+      this._item?.file.type,
+    );
   }
 
   renderActions() {

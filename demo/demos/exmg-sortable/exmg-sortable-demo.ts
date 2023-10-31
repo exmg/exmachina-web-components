@@ -13,101 +13,14 @@ export class SortableDemo extends LitElement {
 
   static styles = [
     css`
-<<<<<<< HEAD
-=======
       :host {
         color: var(--md-sys-color-on-surface);
       }
->>>>>>> b54177a7db768d67ead57029569f09caa50d0878
       ul,
       li {
         margin-left: 0;
         padding-left: 0;
       }
-<<<<<<< HEAD
-
-      li {
-        display: flex;
-        padding: 10px 15px;
-        border-bottom: 1px solid silver;
-      }
-
-      li.cloned {
-        background: white;
-        width: 100%;
-        box-sizing: border-box;
-        box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
-        opacity: 0.9;
-      }
-
-      li.dragged {
-        background: #c0c0c0;
-        opacity: 0.25;
-        box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5) inset;
-      }
-
-      li > strong {
-        flex-grow: 1;
-      }
-
-      li > span {
-        width: 30%;
-      }
-
-      table {
-        border-collapse: collapse;
-        width: 100%;
-      }
-
-      td,
-      th {
-        padding: 10px 15px;
-        border-bottom: 1px solid silver;
-      }
-
-      tr.dragged {
-        background: #c0c0c0;
-        opacity: 0.25;
-        box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5) inset;
-      }
-
-      tr.cloned {
-        background: white;
-        width: 100%;
-        box-sizing: border-box;
-        box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
-        opacity: 0.9;
-      }
-
-      td.handle {
-        padding: 0;
-        vertical-align: middle;
-      }
-      td.handle span {
-        display: block;
-        background: gray;
-        width: 20px;
-        height: 20px;
-        margin: 10px;
-      }
-
-      .boxes {
-        margin-top: 2em;
-        overflow: hidden;
-      }
-
-      .box {
-        float: left;
-        width: 150px;
-        height: 150px;
-        padding: 10px;
-        margin: 20px;
-        box-sizing: border-box;
-        background: #f0f0f0;
-        box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
-      }
-
-=======
       h2 {
         margin-top: 2.5rem;
       }
@@ -197,7 +110,6 @@ export class SortableDemo extends LitElement {
         border-radius: 10px;
       }
 
->>>>>>> b54177a7db768d67ead57029569f09caa50d0878
       .box.dragged {
         opacity: 0;
       }
@@ -250,13 +162,8 @@ export class SortableDemo extends LitElement {
           })}
         </ul>
       </exmg-sortable>
-<<<<<<< HEAD
-      <h2>Cards with animation</h2>
-      <exmg-sortable item-selector="div.box" @dom-order-change="${this.orderChange}">
-=======
       <h2>Cards (Animated))</h2>
       <exmg-sortable item-selector="div.box" animation-enabled @dom-order-change="${this.orderChange}">
->>>>>>> b54177a7db768d67ead57029569f09caa50d0878
         <div class="boxes">
           ${this.users.map((user) => {
             return html` <div class="box">${user.firstName}</div> `;

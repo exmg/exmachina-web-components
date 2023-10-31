@@ -7,9 +7,9 @@ import '@material/web/button/text-button.js';
 import { ExmgElement } from '@exmg/lit-base';
 
 const serializeForm = (form) => {
-  var obj = {};
-  var formData = new FormData(form);
-  for (var key of formData.keys()) {
+  const obj = {};
+  const formData = new FormData(form);
+  for (const key of formData.keys()) {
     obj[key] = formData.get(key);
   }
   return obj;
@@ -68,7 +68,7 @@ export class ExmgFormDrawerBase extends ExmgElement {
   /**
    * Internall used to show button spinner.
    */
-  @property({ type: Boolean }) public submitting = false;
+  @property({ type: Boolean }) submitting = false;
 
   @state() private formValid = false;
 
@@ -110,21 +110,21 @@ export class ExmgFormDrawerBase extends ExmgElement {
   /**
    * Opens and shows the drawer.
    */
-  public show() {
+  show() {
     this.opened = true;
   }
 
   /**
    * Closes the drawer.
    */
-  public close() {
+  close() {
     this.opened = false;
   }
 
   /**
    * Opens and shows the dialog if it is closed; otherwise closes it.
    */
-  public toggleShow() {
+  toggleShow() {
     if (this.opened) {
       this.close();
     } else {

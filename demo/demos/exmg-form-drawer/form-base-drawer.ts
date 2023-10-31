@@ -16,11 +16,11 @@ export class BaseDrawer extends LitElement {
           @click=${() =>
             this.userDrawer!.show({
               firstname: 'John',
-  lastname: 'Doe',
-  company: 'Ex Machina Group',
-  amount: 5,
-  email: 'test@example.com',
-  phone: '+1234567890',
+              lastname: 'Doe',
+              company: 'Ex Machina Group',
+              amount: 5,
+              email: 'test@example.com',
+              phone: '+1234567890',
             })}
           >Open User Drawer</exmg-button
         >

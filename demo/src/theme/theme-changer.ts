@@ -63,6 +63,7 @@ export class ThemeChanger extends LitElement {
   @state() tone = 0;
 
   @query('input') private inputEl!: HTMLInputElement;
+  // eslint-disable-next-line no-undef
   @queryAll('hct-slider') private sliders!: NodeListOf<HCTSlider>;
 
   render() {

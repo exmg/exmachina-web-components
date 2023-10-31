@@ -109,7 +109,7 @@ export class ExmgDialogConfirmBase extends ExmgElement {
   /**
    * Used to show button spinner.
    */
-  @property({ type: Boolean }) public submitting = false;
+  @property({ type: Boolean }) submitting = false;
 
   @query('md-dialog') protected dialog!: MdDialog;
 

@@ -39,13 +39,13 @@
       version: '8.1.36',
       url: 'https://www.npmjs.com/package/@exmg/exmg-grid',
     },{
-      name: '@exmg/exmg-markdown-editor-old',
-      version: '8.1.36',
-      url: 'https://www.npmjs.com/package/@exmg/exmg-markdown-editor',
-    },{
       name: '@exmg/exmg-markdown-editor',
       version: '8.1.36',
       url: 'https://www.npmjs.com/package/@exmg/exmg-markdown-editor',
+    },{
+      name: '@exmg/exmg-markdown-editor-old',
+      version: '8.1.36',
+      url: 'https://www.npmjs.com/package/@exmg/exmg-markdown-editor-old',
     },{
       name: '@exmg/exmg-radio-group',
       version: '8.1.35',

@@ -98,7 +98,7 @@ export class ExmgDialogUploadBase extends ExmgElement {
   /**
    * Internall used to show button spinner.
    */
-  @property({ type: Boolean }) public submitting = false;
+  @property({ type: Boolean }) submitting = false;
 
   @query('md-dialog') protected dialog!: MdDialog;
 
@@ -143,7 +143,7 @@ export class ExmgDialogUploadBase extends ExmgElement {
    * Opens and shows the dialog. This is equivalent to setting the `open`
    * property to true.
    */
-  public show() {
+  show() {
     this.open = true;
   }
 
@@ -151,14 +151,14 @@ export class ExmgDialogUploadBase extends ExmgElement {
    * Closes the dialog. This is equivalent to setting the `open`
    * property to false.
    */
-  public close() {
+  close() {
     this.open = false;
   }
 
   /**
    * Opens and shows the dialog if it is closed; otherwise closes it.
    */
-  public toggleShow() {
+  toggleShow() {
     if (this.open) {
       this.close();
     } else {

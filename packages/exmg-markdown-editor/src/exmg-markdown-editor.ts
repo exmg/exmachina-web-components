@@ -1,5 +1,8 @@
 import { customElement } from 'lit/decorators.js';
-import {MarkdownEditorElementBase} from './exmg-markdown-editor-base.js';
+import { MarkdownEditorElementBase } from './exmg-markdown-editor-base.js';
+
+import { style as codeMirrorStyles } from './styles/exmg-markdown-codemirror-css.js';
+import {style as markdownEditorStyles} from './styles/exmg-markdown-editor-css.js';
 
 /**
  * Markdown WYSIWYG editor element.
@@ -69,8 +72,8 @@ import {MarkdownEditorElementBase} from './exmg-markdown-editor-base.js';
  */
 @customElement('exmg-markdown-editor')
 export class MarkdownEditorElement extends MarkdownEditorElementBase {
+  static styles = [markdownEditorStyles, codeMirrorStyles];
 }
-
 
 declare global {
   interface HTMLElementTagNameMap {

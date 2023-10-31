@@ -110,7 +110,6 @@ export class FileUploadForm extends ExmgElement {
 
         <md-outlined-text-field
           id="maxAmount"
-          type="text"
           label="Max Amount"
           type="number"
           min="1"

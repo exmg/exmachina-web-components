@@ -99,23 +99,22 @@ export class SidemenuDemo extends LitElement {
     return html`
       <div class="menu-group-title">${i.title}</div>
       ${(i.items || []).map(
-        (subitem: MenuItem) =>
-          html`
-            <a href="${this.debug ? '#' : subitem.path}" data-path="${subitem.path}" tabindex="-1" class="menu-item">
-              <paper-item data-path=${subitem.path} role="menuitem">
-                ${subitem.iconPath
-                  ? html`<svg height="24" viewBox="0 0 24 24" width="24"><path d="${subitem.iconPath}"></path></svg>`
-                  : subitem.icon}
-                <span class="title"> ${subitem.title} </span>
-                ${subitem.badge
-                  ? html`<exmg-sidemenu-badge ?collapsed=${this.collapsed}
-                      >${subitem.badge === true ? html`&nbsp;` : subitem.badge}</exmg-sidemenu-badge
-                    >`
-                  : ''}
-              </paper-item>
-              <exmg-tooltip position="right">${subitem.title}</exmg-tooltip>
-            </a>
-          `,
+        (subitem: MenuItem) => html`
+          <a href="${this.debug ? '#' : subitem.path}" data-path="${subitem.path}" tabindex="-1" class="menu-item">
+            <paper-item data-path=${subitem.path} role="menuitem">
+              ${subitem.iconPath
+                ? html`<svg height="24" viewBox="0 0 24 24" width="24"><path d="${subitem.iconPath}"></path></svg>`
+                : subitem.icon}
+              <span class="title"> ${subitem.title} </span>
+              ${subitem.badge
+                ? html`<exmg-sidemenu-badge ?collapsed=${this.collapsed}
+                    >${subitem.badge === true ? html`&nbsp;` : subitem.badge}</exmg-sidemenu-badge
+                  >`
+                : ''}
+            </paper-item>
+            <exmg-tooltip position="right">${subitem.title}</exmg-tooltip>
+          </a>
+        `,
       )}
       <hr />
     `;

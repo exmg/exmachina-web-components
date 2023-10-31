@@ -57,6 +57,7 @@ export class CopyCodeButton extends LitElement {
   @query('md-icon-button') private copyButton!: MdIconButton;
 
   @queryAssignedElements({ flatten: true, selector: '*' })
+  // eslint-disable-next-line no-undef
   private slottedEls!: NodeListOf<HTMLElement>;
 
   render() {

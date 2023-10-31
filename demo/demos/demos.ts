@@ -20,7 +20,7 @@ export const demos = {
   'exmg-breadcrumbs-demo': {
     tag: literal`exmg-breadcrumbs-demo`,
   },
-  'exmg-button-demo': { 
+  'exmg-button-demo': {
     tag: literal`exmg-button-demo`,
   },
   'exmg-collapsed-demo': {

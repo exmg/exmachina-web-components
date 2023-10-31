@@ -14,7 +14,7 @@
     "outDir": "./",
     "baseUrl": "./packages",
     "paths": {
-      "@exmg/exmg-*": ["./*"]
+      "@exmg/": ["./*"]
     },
     "composite": true,
     "importHelpers": true,
@@ -74,7 +74,7 @@
       "path": "packages/exmg-markdown-editor"
     },
     {
-      "path": "packages/exmg-markdown-editor-two"
+      "path": "packages/exmg-markdown-editor-old"
     },
     {
       "path": "packages/exmg-copy-to-clipboard"

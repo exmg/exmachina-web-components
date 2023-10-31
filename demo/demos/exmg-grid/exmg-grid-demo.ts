@@ -1,8 +1,8 @@
-import {html, css} from 'lit';
-import {customElement} from 'lit/decorators.js';
+import { html, css } from 'lit';
+import { customElement } from 'lit/decorators.js';
 
-import {style as tableStyles} from '@exmg/exmg-grid/src/styles/exmg-grid-styles-css.js';
-import {style as demoStyles} from './demo-common-css.js';
+import { style as tableStyles } from '@exmg/exmg-grid/src/styles/exmg-grid-styles-css.js';
+import { style as demoStyles } from './demo-common-css.js';
 
 import './exmg-complex-grid-with-slotted-toolbar.js';
 import './exmg-complex-grid-with-sortable-rows.js';
@@ -12,7 +12,7 @@ import './exmg-grid-pagination-demo.js';
 import './exmg-grid-smart-toolbar-demo.js';
 import './exmg-grid-toolbar-demo.js';
 import './search-toolbar-demo.js';
-import {ExmgBaseGridDemo} from './exmg-grid-base.js';
+import { ExmgBaseGridDemo } from './exmg-grid-base.js';
 
 @customElement('exmg-grid-demo')
 export class ExmgGridDemo extends ExmgBaseGridDemo {

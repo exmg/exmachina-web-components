@@ -115,6 +115,7 @@ export function themeFromSourceColor(color: string, isDark: boolean): Theme {
  * @param ssName Optional global identifier of the constructable stylesheet and
  *     used to generate the localstorage name.
  */
+// eslint-disable-next-line no-undef
 export function applyMaterialTheme(doc: DocumentOrShadowRoot, theme: Theme, ssName = 'material-theme') {
   let styleString = ':root,:host{';
   for (const [key, value] of Object.entries(theme)) {
