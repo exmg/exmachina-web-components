@@ -23,7 +23,7 @@ import {
   EventDetailSelectedRowsChange,
   EventDetailSortChange,
 } from '@exmg/exmg-grid/src/table/types/exmg-grid-types.js';
-import { EventSelectPayload } from '@exmg/exmg-grid/src/table/exmg-grid-toolbar-combobox.js';
+import { EventSelectPayload } from '@exmg/exmg-grid/src/table/exmg-grid-toolbar-filters.js';
 
 function isString(x: any): x is string {
   return typeof x === 'string';
@@ -73,9 +73,6 @@ export abstract class ExmgBaseGridDemo extends LitElement {
   @property({ type: Array })
   items: Income[];
 
-  @property({ type: Boolean })
-  dark = false;
-
   @state()
   pageIndex = 0;
 
@@ -95,9 +92,6 @@ export abstract class ExmgBaseGridDemo extends LitElement {
 
   @state()
   protected selectedRowIds: Record<string, boolean> = {};
-
-  @state()
-  protected theme = 'dark';
 
   constructor() {
     super();
@@ -271,6 +265,7 @@ export abstract class ExmgBaseGridDemo extends LitElement {
     switch (filterId) {
       case 'month':
         filteredItems = allItems.filter(({ month }) => month.toLowerCase() === value);
+        debugger;
         break;
       default:
         filteredItems = [...allItems];

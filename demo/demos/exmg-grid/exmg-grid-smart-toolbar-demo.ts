@@ -76,7 +76,7 @@ export class ExmgGridSmartToolbarDemo extends LitElement {
   ];
 
   @state()
-  private amountOfSelectedItems = 1;
+  private amountOfSelectedItems = 0;
 
   private columns: SettingSelectionListItem[] = [
     {
@@ -117,13 +117,8 @@ export class ExmgGridSmartToolbarDemo extends LitElement {
     return html`
       <style>
         :host {
-          --mdc-theme-primary: #0071dc;
-          --exmg-theme-grid-setting-checkbox-bg-color: #0071dc;
-          --exmg-theme-table-toolbar-setting-list-item-active-bg-color: #0071dc;
-
           padding: 10px;
           display: block;
-          background-color: #f6f6f6;
         }
       </style>
       <h1>With actions</h1>

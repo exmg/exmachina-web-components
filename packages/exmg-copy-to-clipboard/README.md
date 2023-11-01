@@ -17,7 +17,7 @@ npm install @exmg/exmg-copy-to-clipboard
 
 ```html
 <exmg-copy-to-clipboard value="mark@test.com">
-  <md-icon-button icon="content-copy"></md-icon-button>
+  <md-icon-button><md-icon>content-copy</md-icon></md-icon-button>
 </exmg-copy-to-clipboard>
 ```
 

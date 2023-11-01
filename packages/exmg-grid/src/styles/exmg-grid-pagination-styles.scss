@@ -1,9 +1,13 @@
 @use '@material/typography/mixins' as typography;
 
-$exmg-grid-pagination-bg-color: #ffffff;
-$exmg-grid-pagination-color: #02182b;
-$exmg-grid-pagination-color-disabled: rgba($exmg-grid-pagination-color, 0.38);
-
+:host {
+  display: block;
+  @include typography.base;
+  // background-color: var(--exmg-theme-table-pagination-bg-color, var(--md-sys-color-surface-container));
+  color: var(--exmg-theme-table-pagination-color, var(--md-sys-color-on-surface-container));
+  border-bottom-left-radius: var(--exmg-theme-table-radius, var(--exmg-surface-border-radius, 16px));
+  border-bottom-right-radius: var(--exmg-theme-table-radius, var(--exmg-surface-border-radius, 16px));
+}
 .wrapper {
   display: flex;
   flex: 1;
@@ -11,15 +15,9 @@ $exmg-grid-pagination-color-disabled: rgba($exmg-grid-pagination-color, 0.38);
   align-items: center;
   justify-content: flex-end;
   padding: 8px 10px;
-  @include typography.base;
-  background-color: var(
-    --exmg-theme-table-pagination-bg-color,
-    var(--mdc-theme-surface, $exmg-grid-pagination-bg-color)
-  );
-  color: var(--exmg-theme-table-pagination-color, var(--mdc-theme-on-surface, $exmg-grid-pagination-color));
-  overflow-x: auto;
-  white-space: nowrap;
 
+  // overflow-x: auto;
+  white-space: nowrap;
   .page-size {
     display: flex;
     flex-direction: row;
@@ -46,14 +44,6 @@ $exmg-grid-pagination-color-disabled: rgba($exmg-grid-pagination-color, 0.38);
       user-select: none;
     }
   }
-}
-
-md-icon-button {
-  color: var(--mdc-theme-primary);
-}
-
-md-icon-button[disabled] {
-  color: var(--exmg-theme-table-on-surface-disabled, var(--mdc-theme-disabled, $exmg-grid-pagination-color-disabled));
 }
 
 @media (max-width: 600px) {

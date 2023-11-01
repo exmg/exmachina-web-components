@@ -1,11 +1,10 @@
 import { html, css } from 'lit';
 import { customElement } from 'lit/decorators.js';
-import { classMap } from 'lit/directives/class-map.js';
 import { repeat } from 'lit/directives/repeat.js';
 import '@material/web/checkbox/checkbox.js';
+import '@material/web/icon/icon.js';
 import '@exmg/exmg-grid/src/table/exmg-grid.js';
 import '@exmg/exmg-grid/src/table/exmg-grid-pagination.js';
-import { dragIcon, expandIcon } from './exmg-icons.js';
 import '@exmg/exmg-grid/src/table/exmg-grid-smart-toolbar.js';
 import { ExmgBaseGridDemo } from './exmg-grid-base.js';
 
@@ -22,6 +21,9 @@ export class ExmgComplexGridWithSortableRows extends ExmgBaseGridDemo {
       table th {
         min-width: 100px;
       }
+      .expandable-toggle {
+        cursor: pointer;
+      }
     `,
   ];
 
@@ -37,13 +39,15 @@ export class ExmgComplexGridWithSortableRows extends ExmgBaseGridDemo {
         return html`
           <tr data-row-key="${i.id}">
             <td class="grid-checkbox-cell"><md-checkbox class="selectable-checkbox"></md-checkbox></td>
-            <td><span class="grid-row-drag-handler">${dragIcon}</span></td>
+            <td>
+              <span class="grid-row-drag-handler"><md-icon style="pointer-events: none;">drag_handle</md-icon></span>
+            </td>
             <td>#${i.id}</td>
             <td>${i.month}</td>
             <td class="grid-col-number">${i.year}</td>
             <td class="grid-col-number">${i.amount}</td>
             <td class="grid-cell-visible-on-hover">
-              <span class="expandable-toggle grid-icon-rotate">${expandIcon}</span>
+              <span class="expandable-toggle grid-icon-rotate"><md-icon>expand_more</md-icon></span>
             </td>
           </tr>
           <tr class="grid-row-detail" data-row-detail-key="${i.id}">
@@ -59,18 +63,7 @@ export class ExmgComplexGridWithSortableRows extends ExmgBaseGridDemo {
 
   protected render() {
     return html`
-      <div>
-        <button class="demo-button" @click="${this.toggleMonthColumn}">Toggle Month</button>
-        <button class="demo-button" @click="${this.toggleYearColumn}">Toggle Year</button>
-        <button class="demo-button" @click="${this.refreshTable}">Refresh Table</button>
-        <button class="demo-button" @click="${this.expandFirstRows}">Expand first Rows</button>
-        <button class="demo-button" @click="${this.collapseFirstRows}">Collapse first Rows</button>
-        <button class="demo-button" @click="${this.selectFirstRows}">Select first rows</button>
-        <button class="demo-button" @click="${this.unSelectFirstRows}">Unselect first rows</button>
-        <button class="demo-button" @click="${() => (this.dark = !this.dark)}">Toggle Dark Theme</button>
-      </div>
       <exmg-grid
-        data-theme="${this.theme}"
         .items="${this.items}"
         .hiddenColumnNames="${this.hiddenColumns}"
         .expandedRowIds="${this.expandedRowIds}"
@@ -79,8 +72,7 @@ export class ExmgComplexGridWithSortableRows extends ExmgBaseGridDemo {
         selectable-checkbox-selector=".selectable-checkbox"
         ?rows-selectable="${true}"
         expandable-toggle-selector=".expandable-toggle"
-        table-layout="auto"
-        class=${classMap({ dark: this.dark })}
+        table-layout="fixed"
         @exmg-grid-rows-order-changed="${this.onRowsOrderChanged}"
         @exmg-grid-selected-rows-change="${this.onSelectedRowsChange}"
       >
@@ -96,12 +88,12 @@ export class ExmgComplexGridWithSortableRows extends ExmgBaseGridDemo {
         <table>
           <thead>
             <tr class="grid-columns">
-              <th width="5%"><md-checkbox class="selectable-checkbox"></md-checkbox></th>
-              <th width="5%"></th>
-              <th title="ID"><span>ID</span></th>
-              <th title="Month" data-column-key="month"><span>Month</span></th>
-              <th class="grid-col-number" title="Year" data-column-key="year"><span>Year</span></th>
-              <th class="grid-col-number" title="Income"><span>Income</span></th>
+              <th class="grid-checkbox-cell"><md-checkbox class="selectable-checkbox"></md-checkbox></th>
+              <th style="width: 40px;"></th>
+              <th style="width: 40px;"><span>ID</span></th>
+              <th style="width: 30%;" data-column-key="month"><span>Month</span></th>
+              <th style="width: 30%;" class="grid-col-number" data-column-key="year"><span>Year</span></th>
+              <th style="width: 30%;" class="grid-col-number"><span>Income</span></th>
               <th></th>
             </tr>
           </thead>

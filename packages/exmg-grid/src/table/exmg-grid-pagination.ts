@@ -1,11 +1,11 @@
 import { html } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
 import { ExmgElement } from '@exmg/lit-base/index.js';
-import { repeat } from 'lit/directives/repeat.js';
 import '@material/web/iconbutton/icon-button.js';
-import '@polymer/paper-item/paper-item.js';
-import './exmg-grid-toolbar-combobox.js';
+import '@material/web/icon/icon.js';
+import './exmg-grid-toolbar-filters.js';
 import { style } from '../styles/exmg-grid-pagination-styles-css.js';
+import { FilterItem } from './exmg-grid-toolbar-filters.js';
 
 /**
  * ### Styling
@@ -40,20 +40,17 @@ export class ExmgGridPagination extends ExmgElement {
   }
 
   private renderPageSizeOptions() {
+    const items = (this.pageSizeOptions || []).map(
+      (item: number) => ({ label: `${item}`, value: `${item}` } as FilterItem),
+    );
+    console.log('pageSize', this.pageSize);
     return html`
-      <exmg-grid-toolbar-combobox
+      <exmg-grid-toolbar-filters
         id="pageSizeOptions"
-        attr-for-selected="data-id"
         selected="${this.pageSize}"
-        @exmg-combobox-select="${this.handleOnPageSizeChanged}"
-        style="display: inline-block;min-width: 0;"
-      >
-        ${repeat(
-          this.pageSizeOptions,
-          (item) => item,
-          (item) => html` <paper-item data-id="${item}">${item}</paper-item> `,
-        )}
-      </exmg-grid-toolbar-combobox>
+        .items=${items}
+        @exmg-grid-toolbar-filter-changed="${this.handleOnPageSizeChanged}"
+      ></exmg-grid-toolbar-filters>
     `;
   }
 
@@ -79,13 +76,13 @@ export class ExmgGridPagination extends ExmgElement {
 
     return html`
       <md-icon-button
-        icon="navigate_before"
         id="prevPageBtn"
         ?disabled="${!enabled}"
         class="actions"
         title="Previous page"
         @click="${enabled ? this.handleOnClickPrev : undefined}"
-      ></md-icon-button>
+        ><md-icon>navigate_before</md-icon></md-icon-button
+      >
     `;
   }
 
@@ -94,13 +91,13 @@ export class ExmgGridPagination extends ExmgElement {
 
     return html`
       <md-icon-button
-        icon="navigate_next"
         id="nextPageBtn"
         ?disabled="${!enabled}"
         class="actions"
         title="Next page"
         @click="${enabled ? this.handleOnClickNext : undefined}"
-      ></md-icon-button>
+        ><md-icon>navigate_next</md-icon></md-icon-button
+      >
     `;
   }
 
@@ -150,41 +147,41 @@ export class ExmgGridPagination extends ExmgElement {
           --paper-item-focused: {
             background-color: var(
               --exmg-theme-table-toolbar-filter-item-active-bg-color,
-              var(--exmg-theme-table-on-surface-low, var(--mdc-theme-surface))
+              var(--exmg-theme-table-on-surface-low, var(--md-sys-color-surface))
             );
           }
           --paper-item-selected: {
             background-color: var(
               --exmg-theme-table-toolbar-filter-item-active-bg-color,
-              var(--exmg-theme-table-on-surface-low, var(--mdc-theme-surface))
+              var(--exmg-theme-table-on-surface-low, var(--md-sys-color-surface))
             );
           }
           --paper-button-ink-color: var(
             --exmg-theme-table-toolbar-filter-item-active-bg-color,
-            var(--mdc-theme-surface)
+            var(--md-sys-color-surface)
           );
 
           --exmg-paper-combobox-selected-item-color: var(
             --exmg-theme-table-pagination-color,
-            var(--mdc-theme-on-surface)
+            var(--md-sys-color-on-surface)
           );
           --exmg-paper-combobox-selected-item-bg-color: var(--exmg-theme-table-pagination-bg-color, transparent);
           --exmg-paper-combobox-dropdown-button-color: var(
             --exmg-theme-table-pagination-color,
-            var(--mdc-theme-on-surface)
+            var(--md-sys-color-on-surface)
           );
           --exmg-paper-combobox-dropdown-button-bg-color: var(--exmg-theme-table-pagination-bg-color, transparent);
           --exmg-paper-combobox-dropdown-list-color: var(
             --exmg-theme-table-pagination-color,
-            var(--mdc-theme-on-surface)
+            var(--md-sys-color-on-surface)
           );
           --exmg-paper-combobox-dropdown-list-bg-color: var(
             --exmg-theme-table-pagination-bg-color,
-            var(--mdc-theme-surface)
+            var(--md-sys-color-surface)
           );
 
-          exmg-grid-toolbar-combobox {
-            --exmg-paper-combobox-background-color: var(--exmg-theme-table-pagination-bg-color);
+          md-icon-button {
+            fill: var(--md-sys-color-on-surface);
           }
         }
       </style>

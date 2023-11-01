@@ -7,6 +7,7 @@ export * from './src/table/types/exmg-grid-smart-toolbar-types.js';
 export * from './src/table/exmg-grid-toolbar.js';
 export * from './src/table/types/exmg-grid-toolbar-types.js';
 export * from './src/search/exmg-toolbar-search.js';
+export * from './src/table/exmg-grid-toolbar-filters.js';
 
 export { style as gridStyles } from './src/styles/exmg-grid-styles-css.js';
 export { style as gridBaseToolbarStyles } from './src/styles/exmg-grid-base-toolbar-styles-css.js';

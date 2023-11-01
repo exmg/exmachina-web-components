@@ -286,6 +286,7 @@ export class ThemeChanger extends LitElement {
 
     #hex .label {
       flex-grow: 1;
+      font-size: 1rem;
     }
 
     #hex .input-wrapper {

@@ -1,12 +1,12 @@
 import { html, css } from 'lit';
 import { customElement } from 'lit/decorators.js';
-import { classMap } from 'lit/directives/class-map.js';
 import { repeat } from 'lit/directives/repeat.js';
 import '@material/web/checkbox/checkbox.js';
 import '@polymer/paper-item';
+import '@material/web/icon/icon.js';
 import '@material/web/iconbutton/icon-button.js';
 
-import '@exmg/exmg-grid/src/table/exmg-grid-toolbar-combobox.js';
+import '@exmg/exmg-grid/src/table/exmg-grid-toolbar-filters.js';
 import '@exmg/exmg-grid/src/table/exmg-grid.js';
 import '@exmg/exmg-grid/src/table/exmg-grid-pagination.js';
 import '@exmg/exmg-grid/src/table/exmg-grid-base-toolbar.js';
@@ -14,7 +14,6 @@ import '@exmg/exmg-grid/src/table/exmg-grid-base-toolbar.js';
 import { style as tableStyles } from '@exmg/exmg-grid/src/styles/exmg-grid-styles-css.js';
 import { style as demoStyles } from './demo-common-css.js';
 
-import { createIcon } from './exmg-icons.js';
 import { DEFAULT_SORT_COLUMN, DEFAULT_SORT_DIRECTION, ExmgBaseGridDemo } from './exmg-grid-base.js';
 
 @customElement('demo-complex-grid-with-slotted-toolbar')
@@ -22,31 +21,9 @@ export class ExmgComplexGridWithSlottedToolbar extends ExmgBaseGridDemo {
   static styles = [
     tableStyles,
     demoStyles,
-    // language=CSS
     css`
-      :host {
-        --mdc-theme-primary: #0070db;
-        --mdc-theme-on-surface: #091e2e;
-        --exmg-grid-toolbar-active-bg-color: #e1f0fe;
-        --exmg-theme-table-toolbar-filter-item-active-bg-color: #b8ddfe;
-        --exmg-theme-table-pagination-bg-color: #4a4a4a;
-        --exmg-theme-table-pagination-color: #ffffff;
-      }
-      table {
-        --exmg-table-color: #000;
-        --exmg-table-card-background-color: #4a4a4a;
-        --exmg-table-row-divider-color: white;
-        --exmg-table-row-selected-color: white;
-        --exmg-table-row-selected-background-color: #850e13;
-        --exmg-table-row-hover-color: white;
-        --exmg-table-row-hover-background-color: #b42636;
-        --exmg-table-row-dragged-background-color: #f1f1f1;
-        --exmg-table-th-color: #0071dc;
-        --exmg-table-columns-background-color: #4a4a4a;
-        --exmg-table-th-sortable-hover-color: #0092ff;
-      }
-      table .expandable-toggle > svg {
-        fill: white;
+      .expandable-toggle {
+        cursor: pointer;
       }
     `,
   ];
@@ -63,7 +40,11 @@ export class ExmgComplexGridWithSlottedToolbar extends ExmgBaseGridDemo {
             <td>${i.month}</td>
             <td class="grid-col-number">${i.year}</td>
             <td class="grid-col-number">${i.amount}</td>
-            <td class="grid-cell-visible-on-hover"><span class="expandable-toggle">${createIcon}</span></td>
+            <td class="grid-col-number">
+              <span class="expandable-toggle"
+                ><md-icon-button style="pointer-events: none;"><md-icon>expand_more</md-icon></md-icon-button></span
+              >
+            </td>
           </tr>
           <tr class="grid-row-detail" data-row-detail-key="${i.id}">
             <td data-auto-colspan>
@@ -78,16 +59,6 @@ export class ExmgComplexGridWithSlottedToolbar extends ExmgBaseGridDemo {
 
   protected render() {
     return html`
-      <div>
-        <button class="demo-button" @click="${this.toggleMonthColumn}">Toggle Month</button>
-        <button class="demo-button" @click="${this.toggleYearColumn}">Toggle Year</button>
-        <button class="demo-button" @click="${this.refreshTable}">Refresh Table</button>
-        <button class="demo-button" @click="${this.expandFirstRows}">Expand first Rows</button>
-        <button class="demo-button" @click="${this.collapseFirstRows}">Collapse first Rows</button>
-        <button class="demo-button" @click="${this.selectFirstRows}">Select first rows</button>
-        <button class="demo-button" @click="${this.unSelectFirstRows}">Unselect first rows</button>
-        <button class="demo-button" @click="${() => (this.dark = !this.dark)}">Toggle Dark Theme</button>
-      </div>
       <exmg-grid
         table-layout="auto"
         .items="${this.items}"
@@ -101,7 +72,6 @@ export class ExmgComplexGridWithSlottedToolbar extends ExmgBaseGridDemo {
         default-sort-column="${DEFAULT_SORT_COLUMN}"
         default-sort-direction="${DEFAULT_SORT_DIRECTION}"
         ?sortable="${true}"
-        class=${classMap({ dark: this.dark })}
         @exmg-grid-sort-change="${this.onSortChange}"
       >
         <exmg-grid-base-toolbar slot="toolbar">
@@ -113,32 +83,35 @@ export class ExmgComplexGridWithSlottedToolbar extends ExmgBaseGridDemo {
                     icon="merge_type"
                     title="Merge"
                     @click="${this.onActionDelegate('merge')}"
-                  ></md-icon-button>
+                    ><md-icon>merge_type</md-icon></md-icon-button
+                  >
                 `
               : null}
           </div>
           <div slot="description">Income table</div>
           <div slot="filters">
-            <exmg-grid-toolbar-combobox
-              attr-for-selected="data-id"
+            <exmg-grid-toolbar-filters
               selected="all"
-              @exmg-combobox-select="${this.onFilterChangedComboboxDelegate('month')}"
-            >
-              <paper-item data-id="all">Month: All</paper-item>
-              <paper-item data-id="january">Month: January</paper-item>
-              <paper-item data-id="february">Month: February</paper-item>
-              <paper-item data-id="march">Month: March</paper-item>
-            </exmg-grid-toolbar-combobox>
+              .items=${[
+                { label: 'Month: All', value: 'all' },
+                { label: 'Month: January', value: 'january' },
+                { label: 'Month: February', value: 'february' },
+                { label: 'Month: March', value: 'march' },
+              ]}
+              @exmg-grid-toolbar-filter-changed="${this.onFilterChangedComboboxDelegate('month')}"
+            ></exmg-grid-toolbar-filters>
           </div>
         </exmg-grid-base-toolbar>
         <table>
           <thead>
             <tr class="grid-columns">
               <th class="grid-checkbox-cell"><md-checkbox class="selectable-checkbox"></md-checkbox></th>
-              <th><span>ID</span></th>
-              <th data-column-key="month" data-sort><span>Month</span></th>
-              <th class="grid-col-number" data-column-key="year" data-sort><span>Year</span></th>
-              <th class="grid-col-number" data-column-key="amount" data-sort=""><span>Income</span></th>
+              <th style="width: 23%;"><span>ID</span></th>
+              <th data-column-key="month" style="width: 23%;" data-sort><span>Month</span></th>
+              <th class="grid-col-number" style="width: 23%;" data-column-key="year" data-sort><span>Year</span></th>
+              <th class="grid-col-number" style="width: 23%;" data-column-key="amount" data-sort="">
+                <span>Income</span>
+              </th>
               <th></th>
             </tr>
           </thead>

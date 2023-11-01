@@ -1,14 +1,13 @@
 import { html, css } from 'lit';
 import { customElement } from 'lit/decorators.js';
-import { classMap } from 'lit/directives/class-map.js';
 import { repeat } from 'lit/directives/repeat.js';
-import '@material/web/checkbox/checkbox.js';
-import '@material/web/iconbutton/icon-button.js';
 
-import '@polymer/paper-listbox/paper-listbox.js';
-import '@polymer/paper-item/paper-item.js';
-import '@polymer/paper-menu-button/paper-menu-button.js';
-import '@polymer/iron-dropdown/iron-dropdown.js';
+import '@material/web/checkbox/checkbox.js';
+import '@material/web/menu/menu.js';
+import { Menu } from '@material/web/menu/menu.js';
+import '@material/web/menu/menu-item.js';
+import '@material/web/icon/icon.js';
+import '@material/web/iconbutton/icon-button.js';
 
 import '@exmg/exmg-grid/src/table/exmg-grid.js';
 import '@exmg/exmg-grid/src/table/exmg-grid-pagination.js';
@@ -34,26 +33,37 @@ export class ExmgComplexGrid extends ExmgBaseGridDemo {
 
   constructor() {
     super();
-    this.selectedRowIds = this.items
-      .slice(0, 3)
-      .map(({ id }) => id.toString())
-      .reduce((acc, item: string) => ({ ...acc, [item]: true }), {});
-    this.expandedRowIds = this.items
-      .slice(3, 5)
-      .map(({ id }) => id.toString())
-      .reduce((acc, item: string) => ({ ...acc, [item]: true }), {});
+    // this.selectedRowIds = this.items
+    //   .slice(0, 3)
+    //   .map(({ id }) => id.toString())
+    //   .reduce((acc, item: string) => ({ ...acc, [item]: true }), {});
+    // this.expandedRowIds = this.items
+    //   .slice(3, 5)
+    //   .map(({ id }) => id.toString())
+    //   .reduce((acc, item: string) => ({ ...acc, [item]: true }), {});
   }
 
   // get more menu items for row
-  moreMenu() {
+  moreMenu(id: string) {
     return html`
-      <paper-menu-button dynamic-align>
-        <md-icon-button class="ignore-select" icon="more_vert" slot="dropdown-trigger"></md-icon-button>
-        <paper-listbox slot="dropdown-content">
-          <paper-item>Edit 1</paper-item>
-          <paper-item>Edit 2</paper-item>
-        </paper-listbox>
-      </paper-menu-button>
+      <span style="position: relative">
+        <md-icon-button
+          id="moreBtn-${id}"
+          @click=${(e) => ((e.target.parentNode.querySelector('md-menu') as Menu).open = true)}
+          ><md-icon>more_vert</md-icon></md-icon-button
+        >
+        <md-menu id="more-menu-${id}" menu-corner="start-end" anchor="moreBtn-${id}">
+          <md-menu-item>
+            <div slot="headline">Apple</div>
+          </md-menu-item>
+          <md-menu-item>
+            <div slot="headline">Banana</div>
+          </md-menu-item>
+          <md-menu-item>
+            <div slot="headline">Cucumber</div>
+          </md-menu-item>
+        </md-menu>
+      </span>
     `;
   }
 
@@ -70,7 +80,7 @@ export class ExmgComplexGrid extends ExmgBaseGridDemo {
             <td class="grid-col-number">${i.year}</td>
             <td class="grid-col-number">${i.amount}</td>
             <td class="grid-cell-visible-on-hover"><span class="expandable-toggle">${createIcon}</span></td>
-            <td class="grid-col no-ellipsis">${this.moreMenu()}</td>
+            <td class="grid-col no-ellipsis menu-cell">${this.moreMenu(`${i.id}`)}</td>
           </tr>
           <tr class="grid-row-detail" data-row-detail-key="${i.id}">
             <td data-auto-colspan>
@@ -85,18 +95,7 @@ export class ExmgComplexGrid extends ExmgBaseGridDemo {
 
   protected render() {
     return html`
-      <div>
-        <button class="demo-button" @click="${this.toggleMonthColumn}">Toggle Month</button>
-        <button class="demo-button" @click="${this.toggleYearColumn}">Toggle Year</button>
-        <button class="demo-button" @click="${this.refreshTable}">Refresh Table</button>
-        <button class="demo-button" @click="${this.expandFirstRows}">Expand first Rows</button>
-        <button class="demo-button" @click="${this.collapseFirstRows}">Collapse first Rows</button>
-        <button class="demo-button" @click="${this.selectFirstRows}">Select first rows</button>
-        <button class="demo-button" @click="${this.unSelectFirstRows}">Unselect first rows</button>
-        <button class="demo-button" @click="${() => (this.dark = !this.dark)}">Toggle Dark Theme</button>
-      </div>
       <exmg-grid
-        data-theme="${this.theme}"
         .items="${this.items}"
         .hiddenColumnNames="${this.hiddenColumns}"
         .expandedRowIds="${this.expandedRowIds}"
@@ -111,7 +110,6 @@ export class ExmgComplexGrid extends ExmgBaseGridDemo {
         ?sortable="${true}"
         @exmg-grid-sort-change="${this.onSortChange}"
         table-layout="fixed"
-        class=${classMap({ dark: this.dark })}
       >
         <exmg-grid-smart-toolbar
           slot="toolbar"
@@ -131,10 +129,10 @@ export class ExmgComplexGrid extends ExmgBaseGridDemo {
               <th class="grid-checkbox-cell"><md-checkbox class="selectable-checkbox"></md-checkbox></th>
               <th><span>ID</span></th>
               <th style="width: 60%" data-column-key="month" data-sort>
-                <span>Month with quite long name which should stay on one line</span>
+                <span>Month</span>
               </th>
               <th class="grid-col-number" data-column-key="year" data-sort>
-                <span>Year with quite short name with one line inside inside span tag</span>
+                <span>Year</span>
               </th>
               <th class="grid-col-number" data-column-key="amount" data-sort=""><span>Income</span></th>
               <th></th>

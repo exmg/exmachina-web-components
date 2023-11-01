@@ -6,6 +6,7 @@ import { style as themeStyles } from '@exmg/exmg-sidemenu/styles/theme-styles-cs
 import '@exmg/exmg-sidemenu/exmg-sidemenu.js';
 import '@exmg/exmg-sidemenu/exmg-sidemenu-header.js';
 import '@exmg/exmg-sidemenu/exmg-sidemenu-badge.js';
+import '@material/web/icon/icon.js';
 import '@material/web/iconbutton/icon-button.js';
 import '@polymer/paper-item/paper-item.js';
 import '@exmg/exmg-tooltip/exmg-tooltip.js';
@@ -178,7 +179,7 @@ export class SidemenuDemo extends LitElement {
             </svg>
             <span class="title"> Mark </span>
           </paper-item>
-          <paper-tooltip position="right" role="tooltip" tabindex="-1">Signout</paper-tooltip>
+          <exmg-tooltip position="right" role="tooltip" tabindex="-1">Signout</exmg-tooltip>
         </a>
       </div>
     `;
@@ -202,7 +203,9 @@ export class SidemenuDemo extends LitElement {
 
         <article class="main-content ${classMap(classes)}">
           <app-toolbar>
-            <md-icon-button icon="menu" ?hidden=${!this.narrow} @click=${this._handleMenuClick}></md-icon-button>
+            <md-icon-button ?hidden=${!this.narrow} @click=${this._handleMenuClick}
+              ><md-icon>menu</md-icon></md-icon-button
+            >
           </app-toolbar>
           <main role="main">
             <p>

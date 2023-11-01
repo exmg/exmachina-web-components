@@ -443,51 +443,7 @@ export class DemoSimpleGridTable extends LitELement {
 }
 ```
 
-It is also possible to compose custom theme.
-
-Example of dark theme:
-
-```scss
-exmg-grid.dark {
-  --mdc-theme-primary: rgba(0, 112, 219, 1);
-  --mdc-theme-secondary: rgba(0, 112, 219, 1);
-  --mdc-theme-surface: black;
-  --mdc-theme-on-surface: white;
-
-  --exmg-theme-table-on-surface: var(--mdc-theme-on-surface);
-  --exmg-theme-table-surface: var(--mdc-theme-surface);
-  --exmg-theme-table-row-divider-color: #333;
-  --exmg-theme-table-row-selected-color: var(--mdc-theme-on-surface);
-  --exmg-theme-table-row-selected-background-color: rgba(0, 112, 219, 0.4);
-  --exmg-theme-table-row-hover-color: var(--mdc-theme-on-surface);
-  --exmg-theme-table-row-hover-background-color: rgba(0, 112, 219, 0.2);
-  --exmg-theme-table-row-dragged-background-color: var(--mdc-theme-on-surface);
-  --exmg-theme-table-rows-expanded-divider-border: none;
-  --exmg-theme-table-rows-expanded-border: none;
-  --exmg-theme-table-rows-expanded-background-color: var(--mdc-theme-surface);
-  --exmg-theme-table-rows-expanded-color: var(--mdc-theme-on-surface);
-  --exmg-theme-table-th-on-surface: var(--mdc-theme-on-surface);
-  --exmg-theme-table-th-surface: var(--mdc-theme-surface);
-  --exmg-theme-table-th-sortable-hover-color: var(--mdc-theme-on-surface);
-  --exmg-theme-table-columns-background-color: var(--mdc-theme-surface);
-
-  // Toolbar
-  --exmg-theme-table-toolbar-color: var(--mdc-theme-on-surface);
-  --exmg-theme-table-toolbar-background-color: var(--mdc-theme-surface);
-  --exmg-theme-table-toolbar-border-top-radius: 1rem;
-  --exmg-theme-table-toolbar-border-bottom-radius: 0rem;
-  --exmg-theme-table-toolbar-active-bg-color: rgba(0, 112, 219, 0.2);
-  --exmg-theme-table-toolbar-active-color: white;
-}
-
-exmg-grid.dark .selectable-checkbox {
-  --mdc-checkbox-unchecked-color: white;
-  --mdc-checkbox-disabled-color: #adadad;
-  --mdc-checkbox-ink-color: #363636;
-}
-```
-
-Additionally you cna also override css variables:
+Additionally you can also override css variables:
 
 | Custom property                                                | Description                                             | Default                                                         |
 | -------------------------------------------------------------- | ------------------------------------------------------- | --------------------------------------------------------------- |

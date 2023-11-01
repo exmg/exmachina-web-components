@@ -1,17 +1,11 @@
 @use '@material/typography/mixins' as typography;
 
-$exmgPrimaryColor: #0070db !default;
-$exmgSecondaryColor: #0070db !default;
-$exmgSurfaceColor: #ffffff !default;
-$exmgOnSurfaceColor: #02182b !default;
-$exmgBackground: transparent !default;
-$exmgOnBackground: #02182b !default;
-
 @mixin sortable-col-padding() {
   padding-right: calc(var(--exmg-table-th-sort-icon-height) + var(--exmg-table-th-sort-margin-left));
   &.grid-col-number {
     padding-right: calc(
-      var(--exmg-table-th-sort-icon-height) + var(--exmg-table-th-sort-margin-left) + var(--exmg-table-col-number-padding-right)
+      var(--exmg-table-th-sort-icon-height) + var(--exmg-table-th-sort-margin-left) +
+        var(--exmg-table-col-number-padding-right)
     );
   }
 }
@@ -19,7 +13,7 @@ $exmgOnBackground: #02182b !default;
 @mixin table-layout-fixed() {
   &[data-table-layout='fixed'] {
     table-layout: fixed;
-    td:not(.grid-checkbox-cell) {
+    td:not(.grid-checkbox-cell):not(.menu-cell) {
       overflow: hidden;
       white-space: nowrap;
       text-overflow: ellipsis;
@@ -38,35 +32,44 @@ $exmgOnBackground: #02182b !default;
 
 :host {
   @include typography.base;
-
-  $exmgPrimaryColor: #0070db !default;
-  $exmgSecondaryColor: #0070db !default;
-  $exmgSurfaceColor: #ffffff !default;
-  $exmgOnSurfaceColor: #02182b !default;
-  $exmgBackground: transparent !default;
-  $exmgOnBackground: #02182b !default;
+  display: block;
 
   --exmg-arrow-upward-url: url('/node_modules/@exmg/exmg-grid/assets/arrow-upward.svg');
   --exmg-table-card-width: var(--exmg-theme-table-card-width, 100%);
   --exmg-table-card-margin-bottom: var(--exmg-theme-table-card-margin-bottom, 5px);
 
-  --exmg-table-color: var(--exmg-theme-table-on-surface, #{$exmgOnSurfaceColor});
-  --exmg-table-card-background-color: var(--exmg-theme-table-surface, #{$exmgSurfaceColor});
-  --exmg-table-row-divider-color: var(--exmg-theme-table-row-divider-color, #{rgba($exmgOnSurfaceColor, 0.14)});
+  --exmg-table-color: var(--exmg-theme-table-on-surface, var(--md-sys-color-on-surface-container));
+  --exmg-table-card-background-color: var(--exmg-theme-table-surface, var(--md-sys-color-surface-container));
+  --exmg-table-row-divider-color: var(--exmg-theme-table-row-divider-color, var(--md-sys-color-surface-variant));
 
-  --exmg-table-row-selected-color: var(--exmg-theme-table-row-selected-color, #{$exmgOnSurfaceColor});
-  --exmg-table-row-selected-background-color: var(--exmg-theme-table-row-selected-background-color, #eef4fa);
-  --exmg-table-row-hover-color: var(--exmg-theme-table-row-hover-color, #{$exmgOnSurfaceColor});
-  --exmg-table-row-hover-background-color: var(--exmg-theme-table-row-hover-background-color, #f1f1f1);
-  --exmg-table-row-dragged-background-color: var(--exmg-theme-table-row-dragged-background-color, #{$exmgOnSurfaceColor});
+  --exmg-table-row-selected-color: var(
+    --exmg-theme-table-row-selected-color,
+    var(--md-sys-color-on-secondary-container)
+  );
+  --exmg-table-row-selected-background-color: var(
+    --exmg-theme-table-row-selected-background-color,
+    var(--md-sys-color-secondary-container)
+  );
+  --exmg-table-row-hover-color: var(--exmg-theme-table-row-hover-color, var(--md-sys-color-on-surface));
+  --exmg-table-row-hover-background-color: var(
+    --exmg-theme-table-row-hover-background-color,
+    var(--md-sys-color-surface-container-highest)
+  );
+  --exmg-table-row-dragged-background-color: var(
+    --exmg-theme-table-row-dragged-background-color,
+    var(--md-sys-color-surface-container-low)
+  );
   --exmg-table-rows-expanded-divider-border: var(--exmg-theme-table-rows-expanded-divider-border, none);
   --exmg-table-rows-expanded-border: var(--exmg-theme-table-rows-expanded-border, none);
-  --exmg-table-rows-expanded-background-color: var(--exmg-theme-table-rows-expanded-background-color, #{$exmgSurfaceColor});
-  --exmg-table-rows-expanded-color: var(--exmg-theme-table-rows-expanded-color, #{$exmgOnSurfaceColor});
-  --exmg-table-th-color: var(--exmg-theme-table-th-on-surface, #{$exmgOnSurfaceColor});
-  --exmg-table-th-background-color: var(--exmg-theme-table-th-surface, #{$exmgSurfaceColor});
-  --exmg-table-th-sortable-hover-color: var(--exmg-theme-table-th-sortable-hover-color, #{$exmgOnSurfaceColor});
-  --exmg-table-columns-background-color: var(--exmg-theme-table-columns-background-color, #{$exmgSurfaceColor});
+  --exmg-table-rows-expanded-background-color: var(
+    --exmg-theme-table-rows-expanded-background-color,
+    var(--md-sys-color-surface-container-low)
+  );
+  --exmg-table-rows-expanded-color: var(--exmg-theme-table-rows-expanded-color, var(--md-sys-color-on-surface));
+  --exmg-table-th-color: var(--exmg-theme-table-th-on-surface, var(--md-sys-color-on-surface-container));
+  --exmg-table-th-background-color: var(--exmg-theme-table-th-surface, var(--md-sys-color-surface-container));
+  --exmg-table-th-sortable-hover-color: var(--exmg-theme-table-th-sortable-hover-color, var(--md-sys-color-on-surface));
+  --exmg-table-columns-background-color: var(--exmg-theme-table-columns-background-color, var(--md-sys-color-surface));
 
   --exmg-table-th-height: var(--exmg-theme-table-th-height, 48px);
   --exmg-table-th-sort-margin-left: var(--exmg-theme-table-th-sort-margin-left, 0px);
@@ -77,6 +80,9 @@ $exmgOnBackground: #02182b !default;
   --exmg-table-col-number-padding-right: var(--exmg-theme-table-col-number-padding-right, 10px);
   --exmg-table-checkbox-cell-width: var(--exmg-theme-table-checkbox-cell-width, 24px);
 
+  --exmg-paper-combobox-selected-item-color: var(var(--md-sys-color-primary), #000000);
+  --exmg-paper-combobox-color: var(--md-sys-color-on-surface);
+
   /* Adjust toolbar to grid */
   --exmg-table-toolbar-setting-position: var(--exmg-theme-table-toolbar-setting-position, absolute);
   /* End Adjust toolbar to grid */
@@ -86,15 +92,11 @@ $exmgOnBackground: #02182b !default;
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  overflow-x: auto;
+  //  overflow-x: auto;
   border-top: 1px solid var(--exmg-table-row-divider-color);
-  border-bottom-left-radius: 4px;
-  border-bottom-right-radius: 4px;
 }
 
 ::slotted([slot='toolbar']) {
-  border-top-left-radius: 4px;
-  border-top-right-radius: 4px;
   display: block;
 }
 
@@ -119,11 +121,15 @@ $exmgOnBackground: #02182b !default;
   width: var(--exmg-table-card-width);
   background-color: var(--exmg-table-card-background-color);
   margin-bottom: var(--exmg-table-card-margin-bottom);
+  border-top-left-radius: var(--exmg-theme-table-radius, var(--exmg-surface-border-radius, 16px));
+  border-top-right-radius: var(--exmg-theme-table-radius, var(--exmg-surface-border-radius, 16px));
+  border-bottom-left-radius: var(--exmg-theme-table-radius, var(--exmg-surface-border-radius, 16px));
+  border-bottom-right-radius: var(--exmg-theme-table-radius, var(--exmg-surface-border-radius, 16px));
 }
 
-.table-container {
-  overflow-x: auto;
-}
+/*.table-container {
+   overflow-x: auto;
+}*/
 
 table {
   @include table-layout-fixed();

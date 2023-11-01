@@ -161,7 +161,7 @@ export class SnackbarDemo extends LitElement {
             labelText="WARNING: This will only close when pressing the dismiss button"
           >
             <md-icon slot="icon">warning</md-icon>
-            <md-icon-button icon="close" slot="dismiss"></md-icon-button>
+            <md-icon-button slot="dismiss"><md-icon>close</md-icon></md-icon-button>
           </exmg-snackbar>
         </div>
         <div>
