@@ -1,7 +1,10 @@
 import { html, LitElement } from 'lit';
 import { customElement, query } from 'lit/decorators.js';
 import { ExmgDialogUpload } from '@exmg/exmg-upload/exmg-dialog-upload.js';
+import { MarkdownEditorElement } from '@exmg/exmg-markdown-editor/src/exmg-markdown-editor.js';
 import demoStyles from './demo-common-css.js';
+
+import './exmg-markdown-editor-custom-demo.js'
 
 import '@exmg/exmg-markdown-editor/src/exmg-markdown-editor.js';
 import '@exmg/exmg-upload/exmg-dialog-upload.js';
@@ -12,6 +15,7 @@ export class DemoSimpleGridTable extends LitElement {
   styles = [demoStyles];
 
   @query('exmg-dialog-upload') imageUploadDialog?: ExmgDialogUpload;
+  @query('#upload') uploadImageMardown?: MarkdownEditorElement;
 
   markdown = `
 # Markdown syntax guide
@@ -95,7 +99,8 @@ This web site is using \`markedjs/marked\`.
   }
 
   handleDialogSubmit (e: CustomEvent) {
-    console.log('E', e);
+    this.uploadImageMardown && this.uploadImageMardown.handleInsertImage(e.detail.url);
+    this.imageUploadDialog && this.imageUploadDialog.toggleShow();
   }
 
   protected render() {
@@ -112,16 +117,16 @@ This web site is using \`markedjs/marked\`.
       </div>
       <div class="centered">
         <h1>Markdown Editor with custom image upload</h1>
-        <exmg-markdown-editor upload markdown=${this.markdown} @insert-image=${this.handleImageUpload}>
+        <exmg-markdown-editor id="upload" upload markdown=${this.markdown} @insert-image=${this.handleImageUpload}>
         </exmg-markdown-editor>
         <exmg-dialog-upload @dialog-error=${this.handleDialogError} @dialog-submit=${this.handleDialogSubmit}>
-          <exmg-upload></exmg-upload>
+          <exmg-upload maxSize="1mb" accept=".jpg,.jpeg,.png,.webp,.svg" serverType="local" allowCropping></exmg-upload>
         </exmg-dialog-upload>
       </div>
       <div class="centered">
         <h1>Markdown Editor with custom actions and toolbar</h1>
-        <exmg-markdown-editor markdown=${this.markdown}>
-        </exmg-markdown-editor>
+        <exmg-markdown-editor-custom-demo markdown=${`${'-- Underline --'}\n${this.markdown}`}>
+        </exmg-markdown-editor-custom-demo>
       </div>
     `;
   }

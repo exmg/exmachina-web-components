@@ -4,17 +4,23 @@ import { query, property, state } from 'lit/decorators.js';
 import { Editor, EditorConfiguration } from 'codemirror';
 import { defaultConfiguration } from './utils/configurations.js';
 import { ExmgElement, observer } from '@exmg/lit-base';
+import { markdownActions } from './actions.js';
+import { MarkdownActions, ToolbarIcons, ToolbarItem } from './types.js';
+import { classMap } from 'lit/directives/class-map.js';
+import { ifDefined } from 'lit/directives/if-defined.js';
+import { TokenizerAndRendererExtension, marked } from 'marked';
 
 import './exmg-markdown-editor-toolbar.js';
-import { markdownActions } from './actions.js';
-import { MarkdownActions } from './types.js';
-import { classMap } from 'lit/directives/class-map.js';
+
 
 export class MarkdownEditorElementBase extends ExmgElement {
   @property() markdown?: string;
   @property() html?: string;
   @property({type: Number}) height: number = 400;
   @property({type: Boolean}) upload = false;
+  @property({ type: Array}) toolbarActions?: ToolbarItem[];
+  @property({ type: Object}) toolbarIcons?: ToolbarIcons;
+  @property({type: Array}) markedExtension?: TokenizerAndRendererExtension[];
   @query('#editor') editorElement?: HTMLDivElement;
   @state() previewElement?: Element | null;
   
@@ -31,7 +37,6 @@ export class MarkdownEditorElementBase extends ExmgElement {
   editorActions: MarkdownActions = markdownActions;
   codeMirrorEditor?: Editor;
   blurHandlerBinding: any;
-  insertLinkHandlerBinding: any;
   internalTextareaField?: HTMLTextAreaElement;
   heightStyleMap?: any;
 
@@ -49,14 +54,10 @@ export class MarkdownEditorElementBase extends ExmgElement {
     /** Blur global handling */
     this.blurHandlerBinding = this.handleBlur.bind(this);
     this.addEventListener('blur', this.handleBlur);
-    /** Insert custom link handler */
-    this.insertLinkHandlerBinding = this.handleInsertLink.bind(this);
-    this.addEventListener('insert-link', this.insertLinkHandlerBinding);
   }
 
   protected disconectedCallback() {
     this.removeEventListener('blur', this.handleBlur);
-    this.removeEventListener('insert-link', this.insertLinkHandlerBinding);
   }
 
   protected getPreviewElement() {
@@ -67,6 +68,10 @@ export class MarkdownEditorElementBase extends ExmgElement {
     if (!this.editorElement) {
       console.log('Error');
       return;
+    }
+
+    if (this.markedExtension) {
+      marked.use({extensions: this.markedExtension});
     }
 
     if (this.markdown) {
@@ -113,20 +118,21 @@ export class MarkdownEditorElementBase extends ExmgElement {
     this.codeMirrorEditor?.focus();
   }
 
-  handleInsertLink(_e: CustomEvent) {
-    console.log('link');
+  handleInsertImage(url: string) {
+    this.editorActions['image'](this.codeMirrorEditor, url);
   }
 
   updateValue(newValue?: string) {
     // @ts-ignore
     // eslint-disable-next-line
-    this.html = marked.parse(newValue!);
+    this.html = marked.parse(newValue);
     if (newValue === this.markdown) {
       return;
     }
     this.markdown = newValue;
 
     /* Fire update event */
+    this.fire('change', this.markdown);
   }
 
   disablePreview() {
@@ -139,8 +145,13 @@ export class MarkdownEditorElementBase extends ExmgElement {
     })
     return html`
       <div class="container ${visibleClassMap}" @click=${this.disablePreview}>
-        <exmg-markdown-editor-toolbar ?upload=${this.upload} @action=${this.handleAction}></exmg-markdown-editor-toolbar>
-        <div id="editor" class=${visibleClassMap} style=${this.heightStyleMap} ></div>
+        <exmg-markdown-editor-toolbar 
+          ?upload=${this.upload} 
+          @action=${this.handleAction} 
+          .actions=${ifDefined(this.toolbarActions)} 
+          .icons=${ifDefined(this.toolbarIcons)}
+        ></exmg-markdown-editor-toolbar>
+        <div id="editor" class=${visibleClassMap} style=${this.heightStyleMap}></div>
         <div id="preview" class=${visibleClassMap} style=${this.heightStyleMap}></div>
         <slot name="preview" class=${visibleClassMap}></slot>
       </div>

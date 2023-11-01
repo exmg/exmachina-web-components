@@ -1,4 +1,5 @@
 import { EditorConfiguration } from 'codemirror';
+import { MarkedOptions } from 'marked';
 
 export const defaultConfiguration: EditorConfiguration = {
   mode: 'markdown',
@@ -9,3 +10,8 @@ export const defaultConfiguration: EditorConfiguration = {
   autofocus: false,
   lineWrapping: true,
 };
+
+export const markedConfiguration: MarkedOptions = {
+  breaks: false,
+  pedantic: false,
+}

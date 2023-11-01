@@ -85,7 +85,7 @@ export const markdownActions: MarkdownActions = {
   strikethrough: (editor: Editor) => emphasis(editor, ['~~']),
   quote: (editor: Editor) => emphasis(editor, ['`']),
   link: (editor: Editor) => insertLink(editor),
-  image: (editor: Editor) => insertImage(editor),
+  image: (editor: Editor, url?: string) => insertImage(editor, url),
   code: (editor: Editor) => insertCode(editor),
   hr: (editor: Editor) => insertHr(editor),
   table: (editor: Editor) => insertTable(editor),
@@ -143,13 +143,13 @@ const insertLink = (editor: Editor) => {
   }
 }
 
-const insertImage = (editor: Editor) => {
+const insertImage = (editor: Editor, url?: string) => {
   const selection = editor.getSelection();
   let text = selection;
   if (text) {
-    text = `![Alternative ${text}](Your link here "${text}")`;
+    text = `![Alternative ${text}](${url ? url : 'Your link here'} "${text}")`;
   } else {
-    text = `![This is an alt text.](http://placekitten.com/g/200/300 "This is a sample image.")`;
+    text = `![This is an alt text.](${url ? url :'http://placekitten.com/g/200/300'} "This is a sample image.")`;
   }
   editor.getDoc().replaceSelection(text);
   const cursor = editor.getDoc().getCursor();

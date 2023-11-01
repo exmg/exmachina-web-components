@@ -11,12 +11,11 @@ import '@material/web/icon/icon.js';
 
 export class MarkdownEditorToolbarBase extends ExmgElement {
   @property({type: Boolean}) upload = false;
-  
-  toolbarActions: ToolbarItem[] = toolbarActions;
-  toolbarIcons: ToolbarIcons = toolbarIcons;
+  @property({ type: Array}) actions: ToolbarItem[] = toolbarActions;
+  @property({ type: Object}) icons: ToolbarIcons = toolbarIcons;
 
   renderActionButtons() {
-    const buttons = this.toolbarActions.map((button) => {
+    const buttons = this.actions.map((button) => {
       const displayedName = button.name.replace('_', '').toLocaleUpperCase();
       return html` <md-icon-button
         aria-label=${displayedName}
@@ -27,7 +26,7 @@ export class MarkdownEditorToolbarBase extends ExmgElement {
         }}
       >
         <md-icon>
-          ${toolbarIcons[button.icon] ? toolbarIcons[button.icon] : button.icon}
+          ${this.icons[button.icon] ? this.icons[button.icon] : button.icon}
         </md-icon>
       </md-icon-button>`;
     });
