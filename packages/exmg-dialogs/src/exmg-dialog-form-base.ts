@@ -211,7 +211,12 @@ export class ExmgDialogFormBase extends ExmgElement {
 
   protected render() {
     const { draggable, type } = this;
-    return html` <md-dialog .draggable=${draggable} .type=${type} .open=${this.open}>
+    return html` <md-dialog
+      .draggable=${draggable}
+      .type=${type}
+      .open=${this.open}
+      @closed=${() => (this.open = false)}
+    >
       <span slot="headline">
         <md-icon-button @click=${() => this.close()}><md-icon>close</md-icon></md-icon-button>
         <span class="headline">${this.title}</span>
