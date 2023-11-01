@@ -1,13 +1,17 @@
 import { html } from 'lit';
 import { toolbarActions } from './actions.js';
 import { ToolbarIcons, ToolbarItem } from './types.js';
+import { toolbarIcons } from './icons.js';
+import { ExmgElement } from '@exmg/lit-base';
+import { property } from 'lit/decorators.js';
 
 import '@material/web/iconbutton/icon-button.js';
 import '@material/web/icon/icon.js';
-import { toolbarIcons } from './icons.js';
-import { ExmgElement } from '@exmg/lit-base';
+
 
 export class MarkdownEditorToolbarBase extends ExmgElement {
+  @property({type: Boolean}) upload = false;
+  
   toolbarActions: ToolbarItem[] = toolbarActions;
   toolbarIcons: ToolbarIcons = toolbarIcons;
 
@@ -31,10 +35,16 @@ export class MarkdownEditorToolbarBase extends ExmgElement {
   }
 
   action(action: string) {
+    if (action === 'image' && this.upload) {
+      this.fire('insert-image', undefined, true);
+      return;
+    }
     this.fire('action', action, true);
   }
 
   protected render() {
-    return html` <div class="toolbar-container">${this.renderActionButtons()}</div> `;
+    return html`
+      <div class="toolbar-container">${this.renderActionButtons()}</div>
+    `;
   }
 }

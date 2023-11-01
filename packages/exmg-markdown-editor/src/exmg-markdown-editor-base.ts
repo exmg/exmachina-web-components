@@ -11,14 +11,13 @@ import { MarkdownActions } from './types.js';
 import { classMap } from 'lit/directives/class-map.js';
 
 export class MarkdownEditorElementBase extends ExmgElement {
-  @property()
-  markdown?: string;
-
-  @property()
-  html?: string;
-
-  @property({type: Number})
-  height: number = 400;
+  @property() markdown?: string;
+  @property() html?: string;
+  @property({type: Number}) height: number = 400;
+  @property({type: Boolean}) upload = false;
+  @query('#editor') editorElement?: HTMLDivElement;
+  @state() previewElement?: Element | null;
+  
 
   @state()
   @observer(function (this: MarkdownEditorElementBase, preview: boolean) {
@@ -28,37 +27,36 @@ export class MarkdownEditorElementBase extends ExmgElement {
   })
   preview = false;
 
-  @query('#editor')
-  editorElement?: HTMLDivElement;
-
-  @state()
-  previewElement?: Element | null;
-
   editorConfiguration: EditorConfiguration = defaultConfiguration;
   editorActions: MarkdownActions = markdownActions;
   codeMirrorEditor?: Editor;
-  focusTimerHandler: any;
   blurHandlerBinding: any;
+  insertLinkHandlerBinding: any;
   internalTextareaField?: HTMLTextAreaElement;
   heightStyleMap?: any;
 
   protected firstUpdated() {
     this.codeMirrorSetup();
-    /* Height */
-    this.heightStyleMap = styleMap({height: `${this.height}px`});
-    this.codeMirrorEditor!.getWrapperElement().style.height = `${this.height}px`;
-    /** */
-    this.blurHandlerBinding = this.handleBlur.bind(this);
-    this.addEventListener('blur', this.handleBlur);
     this.previewElement = this.getPreviewElement();
+
+    /* Height */
     if(this.previewElement!.hasAttribute('slot')) {
       this.shadowRoot!.querySelector('#preview')?.remove();
       this.previewElement!.setAttribute('style', `height: ${this.height}px;`);
     }
+    this.heightStyleMap = styleMap({height: `${this.height}px`});
+    this.codeMirrorEditor!.getWrapperElement().style.height = `${this.height}px`;
+    /** Blur global handling */
+    this.blurHandlerBinding = this.handleBlur.bind(this);
+    this.addEventListener('blur', this.handleBlur);
+    /** Insert custom link handler */
+    this.insertLinkHandlerBinding = this.handleInsertLink.bind(this);
+    this.addEventListener('insert-link', this.insertLinkHandlerBinding);
   }
 
   protected disconectedCallback() {
     this.removeEventListener('blur', this.handleBlur);
+    this.removeEventListener('insert-link', this.insertLinkHandlerBinding);
   }
 
   protected getPreviewElement() {
@@ -93,6 +91,7 @@ export class MarkdownEditorElementBase extends ExmgElement {
   }
 
   handleFocus(_editor: Editor) {
+    
   }
 
   handleBlur() {
@@ -112,6 +111,10 @@ export class MarkdownEditorElementBase extends ExmgElement {
     this.editorActions[actionName](this.codeMirrorEditor);
     this.preview = false;
     this.codeMirrorEditor?.focus();
+  }
+
+  handleInsertLink(_e: CustomEvent) {
+    console.log('link');
   }
 
   updateValue(newValue?: string) {
@@ -136,7 +139,7 @@ export class MarkdownEditorElementBase extends ExmgElement {
     })
     return html`
       <div class="container ${visibleClassMap}" @click=${this.disablePreview}>
-        <exmg-markdown-editor-toolbar @action=${this.handleAction}></exmg-markdown-editor-toolbar>
+        <exmg-markdown-editor-toolbar ?upload=${this.upload} @action=${this.handleAction}></exmg-markdown-editor-toolbar>
         <div id="editor" class=${visibleClassMap} style=${this.heightStyleMap} ></div>
         <div id="preview" class=${visibleClassMap} style=${this.heightStyleMap}></div>
         <slot name="preview" class=${visibleClassMap}></slot>

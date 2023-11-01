@@ -174,6 +174,10 @@ export class ExmgDialogUploadBase extends ExmgElement {
     this._hasItems = true;
   }
 
+  _handleClose() {
+    this.open = false;
+  }
+
   _handleFilesChanged(e: CustomEvent<{ files: FileData[] }>) {
     const hasFiles = (e.detail.files || []).filter((f) => f.status === 'UPLOADED').length > 0;
     this._hasItems = hasFiles;
@@ -250,6 +254,7 @@ export class ExmgDialogUploadBase extends ExmgElement {
       .draggable=${draggable}
       .transition=${transition!}
       .open=${this.open}
+      @close=${this._handleClose}
     >
       <span slot="header">
         <md-icon-button @click=${() => this.close()}><md-icon>close</md-icon></md-icon-button>

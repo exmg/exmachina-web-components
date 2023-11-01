@@ -1,15 +1,17 @@
 import { html, LitElement } from 'lit';
 import { customElement, query } from 'lit/decorators.js';
-import demoStyles from './demon-common-css.js';
+import { ExmgDialogUpload } from '@exmg/exmg-upload/exmg-dialog-upload.js';
+import demoStyles from './demo-common-css.js';
 
-import '@exmg/exmg-markdown-editor-two/src/exmg-markdown-editor.js';
+import '@exmg/exmg-markdown-editor/src/exmg-markdown-editor.js';
+import '@exmg/exmg-upload/exmg-dialog-upload.js';
+import '@exmg/exmg-upload/exmg-upload.js';
 
 @customElement('exmg-markdown-editor-demo')
 export class DemoSimpleGridTable extends LitElement {
   styles = [demoStyles];
 
-  @query('exmg-markdown-editor')
-  editor?: any;
+  @query('exmg-dialog-upload') imageUploadDialog?: ExmgDialogUpload;
 
   markdown = `
 # Markdown syntax guide
@@ -81,16 +83,44 @@ alert(message);
 This web site is using \`markedjs/marked\`.
 `;
 
+  handleImageUpload() {
+    if (this.imageUploadDialog) {
+      this.imageUploadDialog.toggleShow();
+    }
+  }
+
+  handleDialogError (e: CustomEvent) {
+    console.log('Errr', e);
+
+  }
+
+  handleDialogSubmit (e: CustomEvent) {
+    console.log('E', e);
+  }
+
   protected render() {
     return html`
       <div class="centered">
-        <label>Markdown Editor</label>
+        <h1>Markdown Editor</h1>
         <exmg-markdown-editor markdown=${this.markdown}></exmg-markdown-editor>
       </div>
       <div class="centered">
-        <label>Markdown Editor with custom CSS for rendered HTML</label>
+        <h1>Markdown Editor with custom CSS for rendered HTML</h1>
         <exmg-markdown-editor markdown=${this.markdown}>
           <div slot="preview"></div>
+        </exmg-markdown-editor>
+      </div>
+      <div class="centered">
+        <h1>Markdown Editor with custom image upload</h1>
+        <exmg-markdown-editor upload markdown=${this.markdown} @insert-image=${this.handleImageUpload}>
+        </exmg-markdown-editor>
+        <exmg-dialog-upload @dialog-error=${this.handleDialogError} @dialog-submit=${this.handleDialogSubmit}>
+          <exmg-upload></exmg-upload>
+        </exmg-dialog-upload>
+      </div>
+      <div class="centered">
+        <h1>Markdown Editor with custom actions and toolbar</h1>
+        <exmg-markdown-editor markdown=${this.markdown}>
         </exmg-markdown-editor>
       </div>
     `;
