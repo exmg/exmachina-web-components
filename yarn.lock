@@ -1169,12 +1169,12 @@
   version "8.1.33"
   resolved "file:packages/exmg-radio-group"
   dependencies:
-    "@exmg/lit-base" "^2.0.1"
+    "@exmg/lit-base" "^1.1.8"
     "@material/mwc-base" "=0.27.0"
     "@material/mwc-radio" "=0.27.0"
     "@material/mwc-ripple" "=0.27.0"
     "@material/radio" "^13.0.0"
-    lit "^3.0.0"
+    lit "^2.0.0"
     tslib "^2.6.2"
 
 "@exmg/exmg-sidemenu@file:/Users/marksmits/work/exmachina-web-components/packages/exmg-sidemenu":
@@ -1554,56 +1554,10 @@
     "@material/touch-target" "14.0.0-canary.53b3cad2f.0"
     tslib "^2.1.0"
 
-"@material/list@=14.0.0-canary.53b3cad2f.0", "@material/list@14.0.0-canary.53b3cad2f.0":
-  version "14.0.0-canary.53b3cad2f.0"
-  resolved "https://registry.npmjs.org/@material/list/-/list-14.0.0-canary.53b3cad2f.0.tgz"
-  integrity sha512-mkMpltSKAYLBtFnTTCk/mQIDzwxF/VLh1gh59ehOtmRXt7FvTz83RoAa4tqe53hpVrbX4HoLDBu+vILhq/wkjw==
-  dependencies:
-    "@material/base" "14.0.0-canary.53b3cad2f.0"
-    "@material/density" "14.0.0-canary.53b3cad2f.0"
-    "@material/dom" "14.0.0-canary.53b3cad2f.0"
-    "@material/feature-targeting" "14.0.0-canary.53b3cad2f.0"
-    "@material/ripple" "14.0.0-canary.53b3cad2f.0"
-    "@material/rtl" "14.0.0-canary.53b3cad2f.0"
-    "@material/shape" "14.0.0-canary.53b3cad2f.0"
-    "@material/theme" "14.0.0-canary.53b3cad2f.0"
-    "@material/typography" "14.0.0-canary.53b3cad2f.0"
-    tslib "^2.1.0"
-
 "@material/material-color-utilities@^0.2.7":
   version "0.2.7"
   resolved "https://registry.npmjs.org/@material/material-color-utilities/-/material-color-utilities-0.2.7.tgz"
   integrity sha512-0FCeqG6WvK4/Cc06F/xXMd/pv4FeisI0c1tUpBbfhA2n9Y8eZEv4Karjbmf2ZqQCPUWMrGp8A571tCjizxoTiQ==
-
-"@material/menu-surface@=14.0.0-canary.53b3cad2f.0", "@material/menu-surface@14.0.0-canary.53b3cad2f.0":
-  version "14.0.0-canary.53b3cad2f.0"
-  resolved "https://registry.npmjs.org/@material/menu-surface/-/menu-surface-14.0.0-canary.53b3cad2f.0.tgz"
-  integrity sha512-IQWb/n15FpLnn+kHp0EqzLE+UoWSPumq3eze2QifiowvGb37bNFR9oSe7CaOzPMrHdkrZ5SBWnDU41wPZN5kOg==
-  dependencies:
-    "@material/animation" "14.0.0-canary.53b3cad2f.0"
-    "@material/base" "14.0.0-canary.53b3cad2f.0"
-    "@material/elevation" "14.0.0-canary.53b3cad2f.0"
-    "@material/feature-targeting" "14.0.0-canary.53b3cad2f.0"
-    "@material/rtl" "14.0.0-canary.53b3cad2f.0"
-    "@material/shape" "14.0.0-canary.53b3cad2f.0"
-    "@material/theme" "14.0.0-canary.53b3cad2f.0"
-    tslib "^2.1.0"
-
-"@material/menu@=14.0.0-canary.53b3cad2f.0":
-  version "14.0.0-canary.53b3cad2f.0"
-  resolved "https://registry.npmjs.org/@material/menu/-/menu-14.0.0-canary.53b3cad2f.0.tgz"
-  integrity sha512-MmYKVrMIqOtP3TN4vdrrnQrS8P81+tMaA6bKiT9V79R1U6+mKsBYTzaLtLbzyem5vF8O0q7bSwyPwhWPtJr75Q==
-  dependencies:
-    "@material/base" "14.0.0-canary.53b3cad2f.0"
-    "@material/dom" "14.0.0-canary.53b3cad2f.0"
-    "@material/elevation" "14.0.0-canary.53b3cad2f.0"
-    "@material/feature-targeting" "14.0.0-canary.53b3cad2f.0"
-    "@material/list" "14.0.0-canary.53b3cad2f.0"
-    "@material/menu-surface" "14.0.0-canary.53b3cad2f.0"
-    "@material/ripple" "14.0.0-canary.53b3cad2f.0"
-    "@material/rtl" "14.0.0-canary.53b3cad2f.0"
-    "@material/theme" "14.0.0-canary.53b3cad2f.0"
-    tslib "^2.1.0"
 
 "@material/mwc-base@^0.27.0", "@material/mwc-base@=0.27.0":
   version "0.27.0"
@@ -1615,46 +1569,7 @@
     lit "^2.0.0"
     tslib "^2.0.1"
 
-"@material/mwc-checkbox@^0.27.0":
-  version "0.27.0"
-  resolved "https://registry.npmjs.org/@material/mwc-checkbox/-/mwc-checkbox-0.27.0.tgz"
-  integrity sha512-EY0iYZLwo8qaqMwR5da4fdn0xI0BZNAvKTcwoubYWpDDHlGxDcqwvjp/40ChGo3Q/zv8/4/A0Qp7cwapI82EkA==
-  dependencies:
-    "@material/mwc-base" "^0.27.0"
-    "@material/mwc-ripple" "^0.27.0"
-    lit "^2.0.0"
-    tslib "^2.0.1"
-
-"@material/mwc-list@^0.27.0":
-  version "0.27.0"
-  resolved "https://registry.npmjs.org/@material/mwc-list/-/mwc-list-0.27.0.tgz"
-  integrity sha512-oAhNQsBuAOgF3ENOIY8PeWjXsl35HoYaUkl0ixBQk8jJP2HIEf+MdbS5688y/UXxFbSjr0m//LfwR5gauEashg==
-  dependencies:
-    "@material/base" "=14.0.0-canary.53b3cad2f.0"
-    "@material/dom" "=14.0.0-canary.53b3cad2f.0"
-    "@material/list" "=14.0.0-canary.53b3cad2f.0"
-    "@material/mwc-base" "^0.27.0"
-    "@material/mwc-checkbox" "^0.27.0"
-    "@material/mwc-radio" "^0.27.0"
-    "@material/mwc-ripple" "^0.27.0"
-    lit "^2.0.0"
-    tslib "^2.0.1"
-
-"@material/mwc-menu@=0.27.0":
-  version "0.27.0"
-  resolved "https://registry.npmjs.org/@material/mwc-menu/-/mwc-menu-0.27.0.tgz"
-  integrity sha512-K+L/t267ZGrlhjK/iSKUVZQKRMkWELArKVglfS5of93ALP4in0RGnj1sOG2u3IFI2F/mEZxRi+wr7HgNxpe0wA==
-  dependencies:
-    "@material/menu" "=14.0.0-canary.53b3cad2f.0"
-    "@material/menu-surface" "=14.0.0-canary.53b3cad2f.0"
-    "@material/mwc-base" "^0.27.0"
-    "@material/mwc-list" "^0.27.0"
-    "@material/shape" "=14.0.0-canary.53b3cad2f.0"
-    "@material/theme" "=14.0.0-canary.53b3cad2f.0"
-    lit "^2.0.0"
-    tslib "^2.0.1"
-
-"@material/mwc-radio@^0.27.0", "@material/mwc-radio@=0.27.0":
+"@material/mwc-radio@=0.27.0":
   version "0.27.0"
   resolved "https://registry.npmjs.org/@material/mwc-radio/-/mwc-radio-0.27.0.tgz"
   integrity sha512-+rSO9a373BgyMgQOM0Z8vVkuieobBylPJ8qpltytM+yGPj8+n+MtwRZyg+ry3WwEjYYDMP6GxZPHwLgWs6lMpQ==
@@ -1759,7 +1674,7 @@
     "@material/theme" "14.0.0-canary.53b3cad2f.0"
     tslib "^2.1.0"
 
-"@material/shape@=14.0.0-canary.53b3cad2f.0", "@material/shape@14.0.0-canary.53b3cad2f.0":
+"@material/shape@14.0.0-canary.53b3cad2f.0":
   version "14.0.0-canary.53b3cad2f.0"
   resolved "https://registry.npmjs.org/@material/shape/-/shape-14.0.0-canary.53b3cad2f.0.tgz"
   integrity sha512-RyjInLCNe+nI/ulKea0ZLHphXQDiDqYazS25SRn18g8Hoa5qGNaY5oOBncDXUYn3jm5oI5kFc9oif//kulkbjg==
@@ -1802,14 +1717,6 @@
   integrity sha512-6/SENWNIFuXzeHMPHrYwbsXKgkvCtWuzzQ3cUu4UEt3KcQ5YpViazIM6h8ByYKZP8A9d8QpkJ0WGX5btGDcVoA==
   dependencies:
     "@material/feature-targeting" "^14.0.0"
-    tslib "^2.1.0"
-
-"@material/theme@=14.0.0-canary.53b3cad2f.0":
-  version "14.0.0-canary.53b3cad2f.0"
-  resolved "https://registry.npmjs.org/@material/theme/-/theme-14.0.0-canary.53b3cad2f.0.tgz"
-  integrity sha512-S06XAevDCDWMe+GgsEpITMS07imUidzadNaTbJsqssFajBLr53QWVZsG84BpjXKXoYvyEJvb0hX5U0lq6ip9UQ==
-  dependencies:
-    "@material/feature-targeting" "14.0.0-canary.53b3cad2f.0"
     tslib "^2.1.0"
 
 "@material/theme@14.0.0-canary.53b3cad2f.0":

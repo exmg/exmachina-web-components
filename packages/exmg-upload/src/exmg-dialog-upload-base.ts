@@ -21,48 +21,6 @@ export class ExmgDialogUploadBase extends ExmgElement {
   @property({ type: Boolean }) open = false;
 
   /**
-   * Setting fullscreen displays the dialog fullscreen on small screens.
-   * This can be customized via the `fullscreenBreakpoint` property.
-   * When showing fullscreen, the header will take up less vertical space, and
-   * the dialog will have a `showing-fullscreen`attribute, allowing content to
-   * be styled in this state.
-   *
-   * Dialogs can be sized by setting:
-   *
-   * * --md-dialog-container-min-block-size
-   * * --md-dialog-container-max-block-size
-   * * --md-dialog-container-min-inline-size
-   * * --md-dialog-container-max-inline-size
-   *
-   * These are typically configured via media queries and are independent of the
-   * fullscreen setting.
-   */
-  @property({ type: Boolean }) fullscreen = true;
-
-  /**
-   * A media query string specifying the breakpoint at which the dialog
-   * should be shown fullscreen. Note, this only applies when the `fullscreen`
-   * property is set.
-   *
-   * By default, the dialog is shown fullscreen on screens less than 600px wide
-   * or 400px tall.
-   */
-  @property() fullscreenBreakpoint = '(max-width: 600px), (max-height: 400px)';
-
-  /**
-   * Renders footer content in a vertically stacked alignment rather than the
-   * normal horizontal alignment.
-   */
-  @property({ type: Boolean }) stacked = false;
-
-  /**
-   * When opened, the dialog is displayed modeless or non-modal. This
-   * allows users to interact with content outside the dialog without
-   * closing the dialog and does not display the scrim around the dialog.
-   */
-  @property({ type: Boolean, reflect: true }) modeless = false;
-
-  /**
    * Set to make the dialog position draggable.
    */
   @property({ type: Boolean }) override draggable = false;
@@ -71,6 +29,8 @@ export class ExmgDialogUploadBase extends ExmgElement {
    * Title of the dialog
    */
   @property({ type: String }) title = 'Upload files';
+
+  @property({ type: String }) type?: 'alert' | undefined = 'alert';
 
   /**
    * Submit button copy
@@ -86,14 +46,6 @@ export class ExmgDialogUploadBase extends ExmgElement {
    * Icon of the dialog
    */
   @property({ type: String }) icon = 'close';
-
-  /**
-   * Transition kind. Supported options include: grow, shrink, grow-down,
-   * grow-up, grow-left, and grow-right.
-   *
-   * Defaults to grow-down.
-   */
-  @property({ reflect: true }) transition = 'grow-down';
 
   /**
    * Internall used to show button spinner.
@@ -240,32 +192,26 @@ export class ExmgDialogUploadBase extends ExmgElement {
     `;
   }
 
-  protected render() {
-    const { fullscreen, modeless, stacked, draggable, transition } = this;
-    return html` <md-dialog
-      .fullscreen=${fullscreen}
-      .fullscreenBreakpoint=${this.fullscreenBreakpoint}
-      .modeless=${modeless}
-      .stacked=${stacked}
-      .draggable=${draggable}
-      .transition=${transition!}
-      .open=${this.open}
-    >
-      <span slot="header">
+  protected override render() {
+    const { type, draggable } = this;
+    return html` <md-dialog .draggable=${draggable} .type=${type} .open=${this.open}>
+      <span slot="headline">
         <md-icon-button @click=${() => this.close()}><md-icon>close</md-icon></md-icon-button>
         <span class="headline">${this.title}</span>
       </span>
-      <div class="content">
-        <span
-          @files-changed=${this._handleFilesChanged}
-          @upload-success=${this._handleSuccess}
-          @crop-cancel=${this._stopCrop}
-          @crop-done=${this._stopCrop}
-          @crop-start=${this._startCrop}
-          >${this.renderContent()}</span
-        >
+      <div slot="content">
+        <div class="content">
+          <span
+            @files-changed=${this._handleFilesChanged}
+            @upload-success=${this._handleSuccess}
+            @crop-cancel=${this._stopCrop}
+            @crop-done=${this._stopCrop}
+            @crop-start=${this._startCrop}
+            >${this.renderContent()}</span
+          >
+        </div>
       </div>
-      ${this.renderActions()}
+      <div slot="actions">${this.renderActions()}</div>
     </md-dialog>`;
   }
 }
