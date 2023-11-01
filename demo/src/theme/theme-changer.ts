@@ -192,6 +192,7 @@ export class ThemeChanger extends LitElement {
     }
 
     this.updateHctFromHex(this.hexColor);
+    this.dispatchEvent(new ChangeColorEvent(this.hexColor));
   }
 
   private onColorModeSelection(

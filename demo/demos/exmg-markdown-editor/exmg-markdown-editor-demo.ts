@@ -1,9 +1,13 @@
 import { html, LitElement } from 'lit';
 import { customElement, query } from 'lit/decorators.js';
+import demoStyles from './demon-common-css.js';
+
 import '@exmg/exmg-markdown-editor-two/src/exmg-markdown-editor.js';
 
 @customElement('exmg-markdown-editor-demo')
 export class DemoSimpleGridTable extends LitElement {
+  styles = [demoStyles];
+
   @query('exmg-markdown-editor')
   editor?: any;
 
@@ -80,8 +84,14 @@ This web site is using \`markedjs/marked\`.
   protected render() {
     return html`
       <div class="centered">
-        <label>Markdown Editor refactor</label>
+        <label>Markdown Editor</label>
         <exmg-markdown-editor markdown=${this.markdown}></exmg-markdown-editor>
+      </div>
+      <div class="centered">
+        <label>Markdown Editor with custom CSS for rendered HTML</label>
+        <exmg-markdown-editor markdown=${this.markdown}>
+          <div slot="preview"></div>
+        </exmg-markdown-editor>
       </div>
     `;
   }

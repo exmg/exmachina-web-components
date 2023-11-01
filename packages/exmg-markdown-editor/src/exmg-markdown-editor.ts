@@ -73,6 +73,10 @@ import {style as markdownEditorStyles} from './styles/exmg-markdown-editor-css.j
 @customElement('exmg-markdown-editor')
 export class MarkdownEditorElement extends MarkdownEditorElementBase {
   static styles = [markdownEditorStyles, codeMirrorStyles];
+  override getPreviewElement() {
+    const slot = this.querySelector('*[slot=preview]');
+    return slot ? slot : this.shadowRoot!.querySelector('#preview');
+  }
 }
 
 declare global {

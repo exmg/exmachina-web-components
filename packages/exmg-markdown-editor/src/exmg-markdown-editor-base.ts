@@ -1,5 +1,5 @@
 import { html } from 'lit';
-import { classMap } from 'lit/directives/class-map.js';
+import { styleMap } from 'lit/directives/style-map.js';
 import { query, property, state } from 'lit/decorators.js';
 import { Editor, EditorConfiguration } from 'codemirror';
 import { defaultConfiguration } from './utils/configurations.js';
@@ -8,6 +8,7 @@ import { ExmgElement, observer } from '@exmg/lit-base';
 import './exmg-markdown-editor-toolbar.js';
 import { markdownActions } from './actions.js';
 import { MarkdownActions } from './types.js';
+import { classMap } from 'lit/directives/class-map.js';
 
 export class MarkdownEditorElementBase extends ExmgElement {
   @property()
@@ -15,6 +16,9 @@ export class MarkdownEditorElementBase extends ExmgElement {
 
   @property()
   html?: string;
+
+  @property({type: Number})
+  height: number = 400;
 
   @state()
   @observer(function (this: MarkdownEditorElementBase, preview: boolean) {
@@ -27,8 +31,8 @@ export class MarkdownEditorElementBase extends ExmgElement {
   @query('#editor')
   editorElement?: HTMLDivElement;
 
-  @query('#preview')
-  previewElement?: HTMLDivElement;
+  @state()
+  previewElement?: Element | null;
 
   editorConfiguration: EditorConfiguration = defaultConfiguration;
   editorActions: MarkdownActions = markdownActions;
@@ -36,18 +40,32 @@ export class MarkdownEditorElementBase extends ExmgElement {
   focusTimerHandler: any;
   blurHandlerBinding: any;
   internalTextareaField?: HTMLTextAreaElement;
+  heightStyleMap?: any;
 
   protected firstUpdated() {
-    this.setup();
+    this.codeMirrorSetup();
+    /* Height */
+    this.heightStyleMap = styleMap({height: `${this.height}px`});
+    this.codeMirrorEditor!.getWrapperElement().style.height = `${this.height}px`;
+    /** */
     this.blurHandlerBinding = this.handleBlur.bind(this);
     this.addEventListener('blur', this.handleBlur);
+    this.previewElement = this.getPreviewElement();
+    if(this.previewElement!.hasAttribute('slot')) {
+      this.shadowRoot!.querySelector('#preview')?.remove();
+      this.previewElement!.setAttribute('style', `height: ${this.height}px;`);
+    }
   }
 
   protected disconectedCallback() {
     this.removeEventListener('blur', this.handleBlur);
   }
 
-  setup() {
+  protected getPreviewElement() {
+    return this.shadowRoot!.querySelector('#preview');
+  }
+
+  codeMirrorSetup() {
     if (!this.editorElement) {
       console.log('Error');
       return;
@@ -75,7 +93,6 @@ export class MarkdownEditorElementBase extends ExmgElement {
   }
 
   handleFocus(_editor: Editor) {
-    this.preview = false;
   }
 
   handleBlur() {
@@ -109,18 +126,20 @@ export class MarkdownEditorElementBase extends ExmgElement {
     /* Fire update event */
   }
 
-  disablePreview(e: CustomEvent) {
-    console.log(e);
+  disablePreview() {
     this.preview = false;
   }
 
   protected render() {
-    const visibleClassMap = classMap({ preview: this.preview });
+    const visibleClassMap = classMap({
+      preview: this.preview,
+    })
     return html`
-      <div class="container">
+      <div class="container ${visibleClassMap}" @click=${this.disablePreview}>
         <exmg-markdown-editor-toolbar @action=${this.handleAction}></exmg-markdown-editor-toolbar>
-        <div id="editor" class=${visibleClassMap}></div>
-        <div id="preview" class=${visibleClassMap} @click=${this.disablePreview}>preview</div>
+        <div id="editor" class=${visibleClassMap} style=${this.heightStyleMap} ></div>
+        <div id="preview" class=${visibleClassMap} style=${this.heightStyleMap}></div>
+        <slot name="preview" class=${visibleClassMap}></slot>
       </div>
     `;
   }
