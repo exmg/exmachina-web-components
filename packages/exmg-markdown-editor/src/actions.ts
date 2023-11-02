@@ -103,10 +103,11 @@ const header = (editor: Editor, symbol: string) => {
     editor.getDoc().replaceSelection(text);
   } else {
     editor.getDoc().replaceSelection(text);
-    text.startsWith(symbol) && editor.getDoc().setCursor({
-      line: editor.getDoc().getCursor().line + 1, 
-      ch: editor.getDoc().getCursor().ch
-    });
+    text.startsWith(symbol) &&
+      editor.getDoc().setCursor({
+        line: editor.getDoc().getCursor().line + 1,
+        ch: editor.getDoc().getCursor().ch,
+      });
   }
 };
 
@@ -114,14 +115,19 @@ const emphasis = (editor: Editor, symbols: string[]) => {
   const selection = editor.getDoc().getSelection();
   let text = selection;
   symbols.forEach((symbol) => {
-    const regex = new RegExp(`(?<sa>[\\${symbol.slice(0, 1)}]{${symbol.length}})(?<text>.*?)(?<sb>[\\${symbol.slice(0, 1)}]{1,${symbol.length}})`, 'g');
+    const regex = new RegExp(
+      `(?<sa>[\\${symbol.slice(0, 1)}]{${symbol.length}})(?<text>.*?)(?<sb>[\\${symbol.slice(0, 1)}]{1,${
+        symbol.length
+      }})`,
+      'g',
+    );
     text = processText(text, regex, symbol);
   });
   if (text === selection) {
-    text = `${symbols[0]}${text.length > 0 ? text : symbols[0] === '`' ? 'quote': 'emphasis'}${symbols[0]}`;
+    text = `${symbols[0]}${text.length > 0 ? text : symbols[0] === '`' ? 'quote' : 'emphasis'}${symbols[0]}`;
   }
   editor.getDoc().replaceSelection(text);
-}
+};
 
 const insertLink = (editor: Editor) => {
   const selection = editor.getSelection();
@@ -134,14 +140,17 @@ const insertLink = (editor: Editor) => {
   editor.getDoc().replaceSelection(text);
   const cursor = editor.getDoc().getCursor();
   if (text.split('')[text.length - 2] === 'e') {
-    editor.setSelection({
-      line: cursor.line,
-      ch: cursor.ch - 15
-    }, {...cursor, ch: cursor.ch - 1});
+    editor.setSelection(
+      {
+        line: cursor.line,
+        ch: cursor.ch - 15,
+      },
+      { ...cursor, ch: cursor.ch - 1 },
+    );
   } else {
-    editor.setCursor({...cursor, ch: cursor.ch - 1});
+    editor.setCursor({ ...cursor, ch: cursor.ch - 1 });
   }
-}
+};
 
 const insertImage = (editor: Editor, url?: string) => {
   const selection = editor.getSelection();
@@ -149,28 +158,34 @@ const insertImage = (editor: Editor, url?: string) => {
   if (text) {
     text = `![Alternative ${text}](${url ? url : 'Your link here'} "${text}")`;
   } else {
-    text = `![This is an alt text.](${url ? url :'http://placekitten.com/g/200/300'} "This is a sample image.")`;
+    text = `![This is an alt text.](${url ? url : 'http://placekitten.com/g/200/300'} "This is a sample image.")`;
   }
   editor.getDoc().replaceSelection(text);
   const cursor = editor.getDoc().getCursor();
   if (text.startsWith('![A')) {
-    editor.setSelection({
-      line: cursor.line,
-      ch: cursor.ch - 4 - text.length
-    }, {
-      line: cursor.line,
-      ch: cursor.ch - 18 - text.length
-    });
+    editor.setSelection(
+      {
+        line: cursor.line,
+        ch: cursor.ch - 4 - text.length,
+      },
+      {
+        line: cursor.line,
+        ch: cursor.ch - 18 - text.length,
+      },
+    );
   } else {
-    editor.setSelection({
-      line: cursor.line,
-      ch: cursor.ch - 25
-    }, {
-      line: cursor.line,
-      ch: cursor.ch - 2
-    });
+    editor.setSelection(
+      {
+        line: cursor.line,
+        ch: cursor.ch - 25,
+      },
+      {
+        line: cursor.line,
+        ch: cursor.ch - 2,
+      },
+    );
   }
-}
+};
 
 const insertCode = (editor: Editor) => {
   const selection = editor.getSelection();
@@ -184,12 +199,12 @@ const insertCode = (editor: Editor) => {
     text = `\`\`\`${text}\n\`\`\``;
   }
   editor.replaceSelection(text);
-}
+};
 
 const insertHr = (editor: Editor) => {
   const selection = editor.getSelection();
   editor.replaceSelection(`${selection}\n___\n`);
-}
+};
 
 const insertTable = (editor: Editor) => {
   const selection = editor.getSelection();
@@ -200,30 +215,36 @@ const insertTable = (editor: Editor) => {
 | left bar      | right bar      | right foo     |
 | left baz      | right baz      | right foo     |
 \n`);
-}
+};
 
 const insertList = (editor: Editor, symbol: '*' | '#') => {
   const selection = editor.getSelection();
   let text = '';
-  for(let i = 0; i < 3; i++) {
-    const bullet = `${symbol === '*' ? symbol : `${i+1}.`}`;
-    const item = (i === 0 && selection.length > 0) ? selection : `Item ${i+1}`;
+  for (let i = 0; i < 3; i++) {
+    const bullet = `${symbol === '*' ? symbol : `${i + 1}.`}`;
+    const item = i === 0 && selection.length > 0 ? selection : `Item ${i + 1}`;
     text += `${bullet} ${item}\n`;
   }
   editor.replaceSelection(`${text}\n`);
-  editor.setSelection({
-    ch: symbol === '*' ? 2 : 3,
-    line: editor.getCursor().line - 4
-  }, {
-    ch: selection.length > 0 ? selection.length + symbol === '*' ? 2 : 3 : 8,
-    line: editor.getCursor().line - 4
-  });
-}
+  editor.setSelection(
+    {
+      ch: symbol === '*' ? 2 : 3,
+      line: editor.getCursor().line - 4,
+    },
+    {
+      ch: selection.length > 0 ? (selection.length + symbol === '*' ? 2 : 3) : 8,
+      line: editor.getCursor().line - 4,
+    },
+  );
+};
 
 const processText = (text: string, regex: RegExp, symbol: string) => {
   const matchList = regex.exec(text);
   if (matchList) {
-    text = text.split(regex).filter((v => v !== symbol)).join('');
+    text = text
+      .split(regex)
+      .filter((v) => v !== symbol)
+      .join('');
   }
   return text.trim();
-}
+};

@@ -3,20 +3,20 @@
 
 :host {
   display: block;
-  --exmg-markdown-editor-border-color: var(--md-sys-color-primary);
-  --exmg-markdown-editor-background-color: var(--md-sys-color-surface-container-high);
-  --exmg-markdown-editor-code-background-color: var(--md-sys-color-surface-container-highest);
+  --editor-border-color: var(--exmg-markdown-editor-border-color, var(--md-sys-color-primary));
+  --editor-background-color: var(--exmg-markdown-editor-background-color, var(--md-sys-color-surface-container-high));
+  --editor-code-background-color: var(--exmg-markdown-editor-code-background-color, var(--md-sys-color-surface-container-highest));
 }
 
 .container {
   display: flex;
   flex-direction: column;
-  border-bottom: 1px solid var(--exmg-markdown-editor-border-color, --md-sys-color-primary);
+  border-bottom: 1px solid var(--editor-border-color, --md-sys-color-primary);
   border-top-right-radius: 4px;
-  background-color: var(--exmg-markdown-editor-code-background-color, --md-sys-color-surface-container-high);
+  background-color: var(--editor-code-background-color, --md-sys-color-surface-container-high);
   border-top-left-radius: 4px;
   &.preview {
-    background-color: var(--exmg-markdown-editor-background-color, --md-sys-color-surface-container-high);
+    background-color: var(--editor-background-color, --md-sys-color-surface-container-high);
   }
 }
 
@@ -44,6 +44,10 @@ slot[name='preview'] {
 
 ::slotted([slot='preview']) {
   overflow: scroll;
+}
+
+md-focus-ring {
+  --md-focus-ring-shape: 16px;
 }
 
 /* Html rendering CSS */

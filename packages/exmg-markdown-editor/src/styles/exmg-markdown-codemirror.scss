@@ -1,8 +1,15 @@
 /* BASICS */
 .CodeMirror {
+  /* Variables to use internaly */
+  --editor-code-color: var(--exmg-markdown-editor-code-color, var(--md-sys-color-on-surface));
+  --editor-code-cursor-color: var(--exmg-markdown-editor-code-cursor-color, var(--md-sys-color-on-surface));
+  --editor-code-header-color: var(--exmg-markdown-editor-code-header-color, #4a8fc0);
+  --editor-code-inline-code-color: var(--exmg-markdown-editor-code-inline-code-color, #ea881f);
+  // --editor-code-background-color: var(--exmg-markdown-editor-code-background-color, var(--md-sys-color-surface));
+  --editor-code-list-color: var(--exmg-markdown-editor-code-list-color, rgb(25, 165, 28));
+  --editor-selected-code-color: var(--exmg-markdown-editor-selected-code-color, rgb(140, 140, 140));
   /* Set height, width, borders, and global font properties here */
-  // font-family: monospace; 
-  color: var(--exmg-markdown-editor-code-color, black);
+  color: var(--editor-code-color, var(--md-sys-color-on-surface, black));
   direction: ltr;
 }
 /* PADDING */
@@ -37,9 +44,7 @@
 }
 /* CURSOR */
 .CodeMirror-cursor {
-  border-left: 1px solid black;
-  border-right: none;
-  width: 0;
+  border-left: 1px solid var(--editor-code-cursor-color, var(--md-sys-color-on-surface, black));
 }
 /* Shown when moving in bi-directional text */
 .CodeMirror div.CodeMirror-secondarycursor {
@@ -117,10 +122,10 @@
 }
 /* DEFAULT THEME */
 .cm-s-default .cm-header {
-  color: blue;
+  color: var(--editor-code-header-color);
 }
 .cm-s-default .cm-quote {
-  color: #090;
+  color: var(--editor-code-quote-color);
 }
 .cm-negative {
   color: #d44;
@@ -148,7 +153,7 @@
   color: #219;
 }
 .cm-s-default .cm-number {
-  color: #164;
+  color: var(--editor-code-list-color);
 }
 .cm-s-default .cm-def {
   color: #00f;
@@ -159,11 +164,11 @@
 .cm-s-default .cm-operator {
 }
 .cm-s-default .cm-variable-2 {
-  color: #05a;
+  color: var(--editor-code-list-color);
 }
 .cm-s-default .cm-variable-3,
 .cm-s-default .cm-type {
-  color: #085;
+  color: var(--editor-code-list-color);
 }
 .cm-s-default .cm-comment {
   color: #a50;
@@ -172,7 +177,7 @@
   color: #a11;
 }
 .cm-s-default .cm-string-2 {
-  color: #f50;
+  color: var(--editor-code-inline-code-color, #f50);
 }
 .cm-s-default .cm-meta {
   color: #555;
@@ -226,7 +231,6 @@ div.CodeMirror span.CodeMirror-nonmatchingbracket {
 .CodeMirror {
   position: relative;
   overflow: hidden;
-  background: var(--exmg-markdown-editor-code-background-color, white);
 }
 .CodeMirror-scroll {
   overflow: scroll !important; /* Things will break if this is overridden */
@@ -399,7 +403,7 @@ div.CodeMirror-dragcursors {
   background: #d9d9d9;
 }
 .CodeMirror-focused .CodeMirror-selected {
-  background: #d7d4f0;
+  background: var(--editor-selected-code-color);
 }
 .CodeMirror-crosshair {
   cursor: crosshair;

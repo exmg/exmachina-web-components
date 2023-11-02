@@ -14,4 +14,4 @@ export const defaultConfiguration: EditorConfiguration = {
 export const markedConfiguration: MarkedOptions = {
   breaks: false,
   pedantic: false,
-}
+};

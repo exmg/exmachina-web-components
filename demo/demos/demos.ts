@@ -13,7 +13,6 @@ import './exmg-snackbar/exmg-snackbar-demo.js';
 import './exmg-tooltip/exmg-tooltip-demo.js';
 import './exmg-upload/exmg-upload-demo.js';
 import './exmg-sortable/exmg-sortable-demo.js';
-import './exmg-markdown-editor-old/exmg-markdown-editor-old-demo.js';
 import './exmg-markdown-editor/exmg-markdown-editor-demo.js';
 
 export const demos = {
@@ -37,9 +36,6 @@ export const demos = {
   },
   'exmg-grid-demo': {
     tag: literal`exmg-grid-demo`,
-  },
-  'exmg-markdown-editor-old-demo': {
-    tag: literal`exmg-markdown-editor-old-demo`,
   },
   'exmg-markdown-editor-demo': {
     tag: literal`exmg-markdown-editor-demo`,

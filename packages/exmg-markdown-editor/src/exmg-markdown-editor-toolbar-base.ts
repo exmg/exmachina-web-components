@@ -8,11 +8,10 @@ import { property } from 'lit/decorators.js';
 import '@material/web/iconbutton/icon-button.js';
 import '@material/web/icon/icon.js';
 
-
 export class MarkdownEditorToolbarBase extends ExmgElement {
-  @property({type: Boolean}) upload = false;
-  @property({ type: Array}) actions: ToolbarItem[] = toolbarActions;
-  @property({ type: Object}) icons: ToolbarIcons = toolbarIcons;
+  @property({ type: Boolean }) upload = false;
+  @property({ type: Array }) actions: ToolbarItem[] = toolbarActions;
+  @property({ type: Object }) icons: ToolbarIcons = toolbarIcons;
 
   renderActionButtons() {
     const buttons = this.actions.map((button) => {
@@ -22,12 +21,10 @@ export class MarkdownEditorToolbarBase extends ExmgElement {
         title=${displayedName}
         @click=${(e: CustomEvent) => {
           e.preventDefault();
-          this.action(button.name)
+          this.action(button.name);
         }}
       >
-        <md-icon>
-          ${this.icons[button.icon] ? this.icons[button.icon] : button.icon}
-        </md-icon>
+        <md-icon> ${this.icons[button.icon] ? this.icons[button.icon] : button.icon} </md-icon>
       </md-icon-button>`;
     });
     return buttons;
@@ -42,8 +39,6 @@ export class MarkdownEditorToolbarBase extends ExmgElement {
   }
 
   protected render() {
-    return html`
-      <div class="toolbar-container">${this.renderActionButtons()}</div>
-    `;
+    return html` <div class="toolbar-container">${this.renderActionButtons()}</div> `;
   }
 }

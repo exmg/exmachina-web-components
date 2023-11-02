@@ -2,6 +2,7 @@ import { LitElement, html, css } from 'lit';
 import { customElement, state } from 'lit/decorators.js';
 import { styleMap } from 'lit/directives/style-map.js';
 
+// eslint-disable-next-line no-undef
 type WithStylesheet = typeof globalThis & { [stylesheetName: string]: CSSStyleSheet | undefined };
 type PropType = { name: string; value: string };
 
@@ -48,15 +49,17 @@ export class ColorPallet extends LitElement {
 
   protected firstUpdated() {
     // Get constructable stylesheet
-    let sheet = (globalThis as WithStylesheet)['material-theme'];
 
-    let customProperties: PropType[] = [];
+    // eslint-disable-next-line no-undef
+    const sheet = (globalThis as WithStylesheet)['material-theme'];
+
+    const customProperties: PropType[] = [];
     // @ts-ignore
-    for (let rule of sheet.cssRules) {
+    for (const rule of sheet.cssRules) {
       // @ts-ignore
       if (rule.style) {
         // @ts-ignore
-        for (let property of rule.style) {
+        for (const property of rule.style) {
           if (property.startsWith('--md-sys')) {
             customProperties.push({
               name: property,
