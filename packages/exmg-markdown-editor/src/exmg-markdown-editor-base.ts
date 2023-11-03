@@ -1,4 +1,4 @@
-import { html } from 'lit';
+import { html, nothing } from 'lit';
 import { styleMap } from 'lit/directives/style-map.js';
 import { query, property, state } from 'lit/decorators.js';
 import { Editor, EditorConfiguration } from 'codemirror';
@@ -6,7 +6,6 @@ import { defaultConfiguration } from './utils/configurations.js';
 import { ExmgElement, observer } from '@exmg/lit-base';
 import { markdownActions } from './actions.js';
 import { MarkdownActions, ToolbarIcons, ToolbarItem } from './types.js';
-import { classMap } from 'lit/directives/class-map.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import { TokenizerAndRendererExtension, marked } from 'marked';
 
@@ -46,13 +45,16 @@ import './exmg-markdown-editor-toolbar.js';
 export class MarkdownEditorElementBase extends ExmgElement {
   @property() markdown?: string;
   @property() html?: string;
-  @property({ type: Number }) height: number = 400;
+  @property() label?: string;
   @property({ type: Boolean }) upload = false;
   @property({ type: Array }) toolbarActions?: ToolbarItem[];
   @property({ type: Object }) toolbarIcons?: ToolbarIcons;
   @property({ type: Array }) markedExtension?: TokenizerAndRendererExtension[];
   @query('#editor') editorElement?: HTMLDivElement;
   @state() previewElement?: Element | null;
+
+  @property({ type: Number })
+  height: number = 400;
 
   @state()
   @observer(function (this: MarkdownEditorElementBase, preview: boolean) {
@@ -175,21 +177,22 @@ export class MarkdownEditorElementBase extends ExmgElement {
     this.preview = false;
   }
 
+
   protected render() {
-    const visibleClassMap = classMap({
-      preview: this.preview,
-    });
     return html`
-      <div id="markdowdEditorContainer" class="container ${visibleClassMap}" @click=${this.disablePreview}>
+      <div id="markdowdEditorContainer" class="container" @click=${this.disablePreview} style=${this.heightStyleMap} ?label=${this.label} ?preview=${this.preview}>
+        ${this.label ? html`<label ?preview=${this.preview} for="markdowdEditorContainer">${this.label}</label>` : nothing}
         <exmg-markdown-editor-toolbar
+          ?label=${this.label}
+          ?preview=${this.preview}
           ?upload=${this.upload}
           @action=${this.handleAction}
           .actions=${ifDefined(this.toolbarActions)}
           .icons=${ifDefined(this.toolbarIcons)}
         ></exmg-markdown-editor-toolbar>
-        <div id="editor" class=${visibleClassMap} style=${this.heightStyleMap}></div>
-        <div id="preview" class=${visibleClassMap} style=${this.heightStyleMap}></div>
-        <slot name="preview" class=${visibleClassMap}></slot>
+        <div id="editor" ?preview=${this.preview} style=${this.heightStyleMap}></div>
+        <div id="preview" ?preview=${this.preview} style=${this.heightStyleMap}></div>
+        <slot name="preview" ?preview=${this.preview}></slot>
       </div>
     `;
   }

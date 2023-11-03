@@ -1,5 +1,4 @@
-export const markdown = `
-# Markdown syntax guide
+export const markdown = `# Markdown syntax guide
 
 ## Headers	
 
