@@ -1,6 +1,6 @@
 {
   "name": "@exmg/exmg-dialogs",
-  "version": "8.1.38",
+  "version": "8.1.39",
   "type": "module",
   "main": "exmg-dialog-form.js",
   "repository": {
