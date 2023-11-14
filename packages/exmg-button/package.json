@@ -6,7 +6,8 @@
   "module": "index.js",
   "exports": {
     ".": "./index.js",
-    "./exmg-filled-button.js": "./src/exmg-filled-button.js"
+    "./exmg-filled-button.js": "./src/exmg-filled-button.js",
+    "./exmg-text-button.js": "./src/exmg-text-button.js"
   },
   "dependencies": {
     "@exmg/lit-base": "^2.0.1",

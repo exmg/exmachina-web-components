@@ -21,9 +21,6 @@ export class BreadcrumbsDemo extends LitElement {
         border-radius: 4px;
         background-color: var(--md-sys-color-surface-variant);
       }
-      .toolbar.theme {
-        background-color: var(--md-sys-color-primary);
-      }
       .theme exmg-breadcrumbs {
         --md-sys-color-primary: green;
       }
@@ -49,12 +46,6 @@ export class BreadcrumbsDemo extends LitElement {
       <div class="main">
         <h1>Arrow separator</h1>
         <div class="toolbar">
-          <exmg-breadcrumbs .items="${this.items}" arrow-separator></exmg-breadcrumbs>
-        </div>
-      </div>
-      <div class="main">
-        <h1>Themed</h1>
-        <div class="toolbar theme">
           <exmg-breadcrumbs .items="${this.items}" arrow-separator></exmg-breadcrumbs>
         </div>
       </div>

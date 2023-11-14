@@ -1048,7 +1048,7 @@
   resolved "file:packages/exmg-button"
   dependencies:
     "@exmg/lit-base" "^2.0.1"
-    "@material/web" "^1.0.0"
+    "@material/web" "^1.0.1"
     lit "^3.0.0"
     tslib "^2.6.2"
 
@@ -1092,7 +1092,8 @@
     lit "^3.0.0"
     tslib "^2.6.2"
 
-"@exmg/exmg-form@file:../exmg-form":
+"@exmg/exmg-form@file:../exmg-form", "@exmg/exmg-form@file:/Users/marksmits/work/exmachina-web-components/packages/exmg-form":
+  version "9.0.0"
   resolved "file:packages/exmg-form"
 
 "@exmg/exmg-grid@file:/Users/marksmits/work/exmachina-web-components/packages/exmg-grid":
@@ -1102,7 +1103,7 @@
     "@exmg/exmg-sortable" "file:../exmg-sortable"
     "@exmg/lit-base" "^2.0.1"
     "@material/typography" "^14.0.0"
-    "@material/web" "~1.0.0"
+    "@material/web" "^1.0.1"
     "@polymer/iron-dropdown" "^3.0.1"
     "@polymer/iron-flex-layout" "^3.0.1"
     "@polymer/iron-input" "^3.0.1"
@@ -1120,7 +1121,7 @@
   resolved "file:packages/exmg-markdown-editor"
   dependencies:
     "@exmg/lit-base" "^2.0.1"
-    "@material/web" "^1.0.0"
+    "@material/web" "^1.0.1"
     "@polymer/iron-flex-layout" "^3.0.1"
     "@polymer/iron-icon" "^3.0.1"
     "@polymer/iron-iconset-svg" "^3.0.1"
@@ -1220,7 +1221,7 @@
     "@exmg/exmg-collapsed" "file:../exmg-collapsed"
     "@exmg/exmg-dialogs" "file:../exmg-dialogs"
     "@exmg/lit-base" "^2.0.1"
-    "@material/web" "^1.0.0"
+    "@material/web" "^1.0.1"
     cropperjs "^1.5.13"
     lit "^3.0.0"
     tslib "^2.6.2"

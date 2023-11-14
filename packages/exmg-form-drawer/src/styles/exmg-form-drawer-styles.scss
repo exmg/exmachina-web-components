@@ -42,10 +42,12 @@
 form .row {
   display: flex;
   gap: 8px;
+  align-items: flex-start;
 }
 
 form .row > * {
   flex: 1;
+  height: fit-content;
 }
 
 form {

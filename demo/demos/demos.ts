@@ -6,6 +6,7 @@ import './exmg-collapsed/exmg-collapsed-demo.js';
 import './exmg-copy-to-clipboard/exmg-copy-to-clipboard-demo.js';
 import './exmg-dialogs/exmg-dialogs-demo.js';
 import './exmg-form-drawer/exmg-form-drawer-demo.js';
+import './exmg-form/exmg-form-demo.js';
 import './exmg-grid/exmg-grid-demo.js';
 import './exmg-radio-group/exmg-radio-group-demo.js';
 import './exmg-sidemenu/exmg-sidemenu-demo.js';
@@ -32,6 +33,9 @@ export const demos = {
   },
   'exmg-form-drawer-demo': {
     tag: literal`exmg-form-drawer-demo`,
+  },
+  'exmg-form-demo': {
+    tag: literal`exmg-form-demo`,
   },
   'exmg-grid-demo': {
     tag: literal`exmg-grid-demo`,

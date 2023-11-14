@@ -1,14 +1,12 @@
 import { html } from 'lit';
+import { property, state } from 'lit/decorators.js';
 
-import '@material/web/dialog/dialog.js';
-import { MdDialog } from '@material/web/dialog/dialog.js';
-import '@exmg/exmg-button/exmg-filled-button.js';
+import '@exmg/exmg-button/exmg-text-button.js';
 import '@material/web/button/text-button.js';
-import '@material/web/iconbutton/icon-button.js';
-import '@material/web/icon/icon.js';
+import '@material/web/divider/divider.js';
 
-import { property, query, state } from 'lit/decorators.js';
 import { ExmgElement } from '@exmg/lit-base';
+import { classMap } from 'lit/directives/class-map.js';
 
 export const CLOSE_ACTION = 'close';
 
@@ -21,24 +19,7 @@ const serializeForm = (form) => {
   return obj;
 };
 
-export class ExmgDialogFormBase extends ExmgElement {
-  /**
-   * Opens the dialog when set to `true` and closes it when set to `false`.
-   */
-  @property({ type: Boolean }) open = false;
-
-  @property({ type: String }) type?: 'alert' | undefined;
-
-  /**
-   * Set to make the dialog position draggable.
-   */
-  @property({ type: Boolean }) override draggable = false;
-
-  /**
-   * Title of the dialog
-   */
-  @property({ type: String }) title = 'Create entry';
-
+export class ExmgFormBase extends ExmgElement {
   /**
    * Submit button copy
    */
@@ -50,58 +31,18 @@ export class ExmgDialogFormBase extends ExmgElement {
   @property({ type: String }) cancelBtn = 'Cancel';
 
   /**
-   * Icon of the dialog
-   */
-  @property({ type: String }) icon = 'close';
-
-  /**
-   * Transition kind. Supported options include: grow, shrink, grow-down,
-   * grow-up, grow-left, and grow-right.
-   *
-   * Defaults to grow-down.
-   */
-  @property({ reflect: true }) transition = 'grow-down';
-
-  /**
    * Internall used to show button spinner.
    */
   @property({ type: Boolean }) public submitting = false;
 
   @state() private formValid = false;
 
-  @query('md-dialog') protected dialog!: MdDialog;
-
   boundHandleBlur?: (e: Event) => void;
+
+  @property({ type: Boolean }) hasAsideContent = false;
 
   protected getForm() {
     return this.shadowRoot!.querySelector('form');
-  }
-
-  /**
-   * Opens and shows the dialog. This is equivalent to setting the `open`
-   * property to true.
-   */
-  public show() {
-    this.open = true;
-  }
-
-  /**
-   * Closes the dialog. This is equivalent to setting the `open`
-   * property to false.
-   */
-  public close() {
-    this.open = false;
-  }
-
-  /**
-   * Opens and shows the dialog if it is closed; otherwise closes it.
-   */
-  public toggleShow() {
-    if (this.open) {
-      this.close();
-    } else {
-      this.show();
-    }
   }
 
   protected _handleBlur(e: Event) {
@@ -166,45 +107,49 @@ export class ExmgDialogFormBase extends ExmgElement {
         this.fire('dialog-error', { message: error instanceof Error ? error.message : 'Unkbnown error' }, true);
       } finally {
         this.submitting = false;
-        this.open = false;
       }
     } else {
       this.fire('dialog-submit', data, true);
     }
   }
 
-  /**
-   * Method should be overriden to render form content
-   */
+  protected renderToolbar() {
+    return html`<slot name="toolbar"></slot>`;
+  }
+
   protected renderFormContent() {
     return html`<slot></slot>`;
   }
 
+  protected renderAside() {
+    return html`<slot name="aside" @slotchange="${this.handleAsideSlotChange}"></slot>`;
+  }
+
+  handleAsideSlotChange(e: CustomEvent) {
+    const slot = e.target;
+    // @ts-ignore
+    const nodes = slot.assignedNodes({ flatten: true });
+    this.hasAsideContent = nodes.length > 0;
+  }
+
   protected render() {
-    const { draggable, type } = this;
-    return html` <md-dialog
-      .draggable=${draggable}
-      .type=${type}
-      .open=${this.open}
-      @closed=${() => (this.open = false)}
-    >
-      <span slot="headline">
-        <md-icon-button @click=${() => this.close()}><md-icon>close</md-icon></md-icon-button>
-        <span class="headline">${this.title}</span>
-      </span>
-      <div slot="content">
+    return html` <div class="toolbar-container">${this.renderToolbar()}</div>
+      <div class="container">
         <div class="content">${this.renderFormContent()}</div>
+        <div class="aside ${classMap({ empty: !this.hasAsideContent })}">${this.renderAside()}</div>
       </div>
-      <div slot="actions">
-        <md-text-button slot="footer" dialogFocus @click=${() => this.close()}>${this.cancelBtn}</md-text-button>
-        <exmg-filled-button
+      <div class="divider"><md-divider></md-divider></div>
+      <div class="actions">
+        <md-text-button slot="footer" dialogFocus @click=${() => this.fire('form-cancel')}
+          >${this.cancelBtn}</md-text-button
+        >
+        <exmg-text-button
           slot="footer"
           @click=${this.handleSubmit}
           ?disabled=${this.submitting || !this.formValid}
           ?loading=${this.submitting}
-          >${this.submitBtn}</exmg-filled-button
+          >${this.submitBtn}</exmg-text-button
         >
-      </div>
-    </md-dialog>`;
+      </div>`;
   }
 }
