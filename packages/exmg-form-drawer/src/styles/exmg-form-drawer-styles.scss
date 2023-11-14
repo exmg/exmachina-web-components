@@ -17,7 +17,7 @@
   }
 
   .form-elements {
-    padding: 0 20px;
+    padding: 0 0px;
   }
 }
 
@@ -39,26 +39,6 @@
   z-index: 2;
 }
 
-form .row {
-  display: flex;
-  gap: 8px;
-}
-
-form .row > * {
-  flex: 1;
-}
-
-form {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  margin-top: 0.5rem;
-}
-
-form > * {
-  display: contents;
-}
-
 .error {
   background-color: var(--md-sys-color-error-container, red);
   color: var(--md-sys-color-on-error-container, white);
@@ -66,4 +46,10 @@ form > * {
 
 .error > div {
   padding: 1rem 0.8rem;
+}
+
+form {
+  margin: 0 !important;
+  padding: 0.5rem 1rem;
+  box-sizing: border-box;
 }

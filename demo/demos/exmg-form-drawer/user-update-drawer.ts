@@ -2,6 +2,7 @@ import { html } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
 import { ExmgFormDrawerBase, formDrawerStyles } from '@exmg/exmg-form-drawer';
 import { ifDefined } from 'lit/directives/if-defined.js';
+import { exmgFormStyles } from '@exmg/exmg-form';
 
 function sleep(ms: number) {
   return new Promise((resolve) => setTimeout(resolve, ms));
@@ -18,7 +19,7 @@ export interface UserData {
 
 @customElement('user-update-drawer')
 export class UserUpdateDrawer extends ExmgFormDrawerBase {
-  static override styles = [formDrawerStyles];
+  static override styles = [formDrawerStyles, exmgFormStyles];
 
   @property({ type: Object })
   user?: UserData;

@@ -79,6 +79,9 @@
       "path": "packages/exmg-form-drawer"
     },
     {
+      "path": "packages/exmg-form"
+    },
+    {
       "path": "packages/exmg-breadcrumbs"
     },
     {

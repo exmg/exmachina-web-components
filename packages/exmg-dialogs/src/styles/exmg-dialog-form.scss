@@ -15,23 +15,3 @@
   display: block;
   text-align: left;
 }
-
-form .row {
-  display: flex;
-  gap: 8px;
-}
-
-form .row > * {
-  flex: 1;
-}
-
-form {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  margin-top: 0.5rem;
-}
-
-form > * {
-  display: contents;
-}

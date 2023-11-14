@@ -1,0 +1,46 @@
+{
+  "name": "@exmg/exmg-form",
+  "version": "9.0.0",
+  "type": "module",
+  "main": "index.js",
+  "module": "index.js",
+  "exports": {
+    ".": "./index.js",
+    "./exmg-form.js": "./src/exmg-form.js"
+  },
+  "description": "Form element",
+  "contributors": [
+    "Ex Machina"
+  ],
+  "keywords": [
+    "web-components",
+    "lit",
+    "form"
+  ],
+  "files": [
+    "**/*.scss",
+    "**/*.js",
+    "**/*.d.ts"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:exmg/exmg-web-components.git",
+    "directory": "packages/exmg-form"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "@exmg/exmg-button": "file:../exmg-button",
+    "@material/typography": "^14.0.0",
+    "lit": "^3.0.0",
+    "tslib": "^2.6.2"
+  },
+  "devDependencies": {
+    "@exmg/lit-cli": "1.1.13"
+  },
+  "scripts": {
+    "build:styles": "exmg-lit-cli sass -f \"./**/*.scss\""
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}
