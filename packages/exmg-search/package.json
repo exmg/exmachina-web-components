@@ -1,0 +1,43 @@
+{
+  "name": "@exmg/exmg-search",
+  "version": "1.0.0",
+  "type": "module",
+  "main": "index.js",
+  "module": "index.js",
+  "exports": {
+    ".": "./index.js",
+    "./exmg-search.js": "./src/exmg-search.js"
+  },
+  "dependencies": {
+    "@exmg/lit-base": "^2.0.1",
+    "@material/web": "^1.0.1",
+    "lit": "^3.0.0",
+    "tslib": "^2.6.2"
+  },
+  "devDependencies": {
+    "@exmg/lit-cli": "1.1.13"
+  },
+  "keywords": [
+    "web-components",
+    "lit",
+    "search"
+  ],
+  "files": [
+    "**/*.scss",
+    "**/*.js",
+    "**/*.d.ts"
+  ],
+  "homepage": "https://github.com/exmg/exmachina-web-components",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:exmg/exmg-web-components.git",
+    "directory": "packages/exmg-search"
+  },
+  "license": "MIT",
+  "scripts": {
+    "build:styles": "exmg-lit-cli sass -f \"./**/*.scss\""
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

@@ -1,4 +1,4 @@
-import { html } from 'lit';
+import { html, nothing } from 'lit';
 import { property, state } from 'lit/decorators.js';
 
 import '@exmg/exmg-button/exmg-text-button.js';
@@ -40,6 +40,8 @@ export class ExmgFormBase extends ExmgElement {
   boundHandleBlur?: (e: Event) => void;
 
   @property({ type: Boolean }) hasAsideContent = false;
+
+  @property({ type: String }) errorMessage?: string | null;
 
   protected getForm() {
     return this.shadowRoot!.querySelector('form');
@@ -89,6 +91,7 @@ export class ExmgFormBase extends ExmgElement {
   doAction?(formData: unknown): Promise<void> | void;
 
   protected async handleSubmit() {
+    this.errorMessage = null;
     const form = this.getForm();
 
     // Return when there are invalid fields
@@ -104,13 +107,18 @@ export class ExmgFormBase extends ExmgElement {
         this.submitting = true;
         await this.doAction(data);
       } catch (error) {
-        this.fire('dialog-error', { message: error instanceof Error ? error.message : 'Unkbnown error' }, true);
+        this.showError(error instanceof Error ? error.message : 'Unknown error');
+        this.fire('dialog-error', { message: error instanceof Error ? error.message : 'Unknown error' }, true);
       } finally {
         this.submitting = false;
       }
     } else {
       this.fire('dialog-submit', data, true);
     }
+  }
+
+  showError(message: string) {
+    this.errorMessage = message;
   }
 
   protected renderToolbar() {
@@ -132,8 +140,13 @@ export class ExmgFormBase extends ExmgElement {
     this.hasAsideContent = nodes.length > 0;
   }
 
+  protected renderError() {
+    return html`<div class="form-error"><div>${this.errorMessage}</div></div>`;
+  }
+
   protected render() {
     return html` <div class="toolbar-container">${this.renderToolbar()}</div>
+      ${this.errorMessage ? this.renderError() : nothing}
       <div class="container">
         <div class="content">${this.renderFormContent()}</div>
         <div class="aside ${classMap({ empty: !this.hasAsideContent })}">${this.renderAside()}</div>

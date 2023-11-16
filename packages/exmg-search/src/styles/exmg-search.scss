@@ -1,0 +1,191 @@
+:host {
+  display: block;
+
+  --_hover-outline-color: var(--exmg-search-hover-outline-color, var(--md-sys-color-on-surface, #1d1b20));
+  --_outline-width: var(--exmg-search-outline-width, 1px);
+  --_outline-color: var(--exmg-search-outline-color, var(--md-outlined-field-hover-outline-width, 1px));
+  --_container-shape: var(--exmg-search-container-shape, 4px);
+  --_focus-input-text-color: var(--exmg-search-focus-input-text-color, var(--md-sys-color-on-surface, #1d1b20));
+  --_focus-label-text-color: var(--exmg-search-focus-label-text-color, var(--md-sys-color-primary, #6750a4));
+  --_focus-icon-color: var(--exmg-search-focus-icon-color, var(--md-sys-color-on-surface-variant, #49454f));
+  --_focus-outline-color: var(--exmg-search-focus-outline-color, var(--md-sys-color-primary, #6750a4));
+  --_focus-outline-width: var(--exmg-search-focus-outline-width, 1px);
+  --_hover-input-text-color: var(--exmg-search-hover-input-text-color, var(--md-sys-color-on-surface, #1d1b20));
+  --_hover-label-text-color: var(--exmg-search-hover-label-text-color, var(--md-sys-color-on-surface, #1d1b20));
+  --_hover-icon-color: var(--exmg-search-hover-icon-color, var(--md-sys-color-on-surface-variant, #49454f));
+  --_hover-outline-color: var(--exmg-search-hover-outline-color, var(--md-sys-color-on-surface, #1d1b20));
+  --_input-text-color: var(--exmg-search-input-text-color, var(--md-sys-color-on-surface, #1d1b20));
+  --_input-text-font: var(
+    --exmg-search-input-text-font,
+    var(--md-sys-typescale-body-large-font, var(--md-ref-typeface-plain, Roboto))
+  );
+  --_input-text-line-height: var(
+    --exmg-search-input-text-line-height,
+    var(--md-sys-typescale-body-large-line-height, 1.5rem)
+  );
+  --_input-text-placeholder-color: var(
+    --exmg-search-input-text-placeholder-color,
+    var(--md-sys-color-on-surface-variant, #49454f)
+  );
+  --_input-text-prefix-color: var(
+    --exmg-search-input-text-prefix-color,
+    var(--md-sys-color-on-surface-variant, #49454f)
+  );
+  --_input-text-size: var(--exmg-search-input-text-size, var(--md-sys-typescale-body-large-size, 1rem));
+  --_input-text-suffix-color: var(
+    --exmg-search-input-text-suffix-color,
+    var(--md-sys-color-on-surface-variant, #49454f)
+  );
+  --_input-text-weight: var(
+    --exmg-search-input-text-weight,
+    var(--md-sys-typescale-body-large-weight, var(--md-ref-typeface-weight-regular, 400))
+  );
+  --_label-text-color: var(--exmg-search-label-text-color, var(--md-sys-color-on-surface-variant, #49454f));
+  --_label-text-font: var(
+    --exmg-search-label-text-font,
+    var(--md-sys-typescale-body-large-font, var(--md-ref-typeface-plain, Roboto))
+  );
+  --_label-text-line-height: var(
+    --exmg-search-label-text-line-height,
+    var(--md-sys-typescale-body-large-line-height, 1.5rem)
+  );
+  --_label-text-size: var(--exmg-search-label-text-size, var(--md-sys-typescale-body-large-size, 1rem));
+  --_label-text-weight: var(
+    --exmg-search-label-text-weight,
+    var(--md-sys-typescale-body-large-weight, var(--md-ref-typeface-weight-regular, 400))
+  );
+  --_icon-color: var(--exmg-search-icon-color, var(--md-sys-color-on-surface-variant, #49454f));
+  --_icon-size: var(--exmg-search-icon-size, 24px);
+  --_outline-color: var(--exmg-search-outline-color, var(--md-sys-color-outline, #79747e));
+  --_outline-width: var(--exmg-search-outline-width, 1px);
+
+  --md-focus-ring-shape: var(--_container-shape);
+
+  color: var(--_label-text-color);
+  background-color: var(--md-sys-color-surface-container-low);
+  border-radius: var(--_container-shape);
+  border-width: var(--_outline-width);
+  border-color: var(--_outline-color);
+  border-style: solid;
+}
+
+:host(:hover) {
+  border-color: var(--_hover-outline-color);
+  color: var(--_hover-label-text-color);
+}
+
+:host(:focus) {
+  border-color: var(--_focus-outline-color);
+  color: var(--_focus-label-text-color);
+  border-width: var(--_focus-outline-width);
+}
+
+:host > div {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  height: 48px;
+}
+
+h2 {
+  max-width: 936px;
+  width: 100%;
+  margin: 20px auto;
+}
+
+input {
+  width: 100%;
+  caret-color: var(--md-sys-color-on-surface);
+  color: var(--md-sys-color-on-surface);
+}
+
+:host(:hover) input {
+  color: var(--_hover-input-text-color);
+}
+
+:host(:focus) input {
+  color: var(--_focus-input-text-color);
+}
+
+md-icon {
+  fill: var(--_icon-color);
+}
+
+md-icon.search {
+  margin: 0 0.5rem 0 1rem;
+}
+
+:host(:hover) md-icon {
+  fill: var(--_hover-icon-color);
+}
+
+:host(:focus) md-icon {
+  fill: var(--_focus-icon-color);
+}
+
+md-icon-button.clear {
+  margin-right: 0.5rem;
+  min-width: 40px;
+}
+
+:host > div > svg {
+  margin-right: 10px;
+}
+
+span.interactive-content {
+  white-space: nowrap;
+  overflow: hidden;
+  font-size: var(--_label-text-size);
+
+  text-overflow: ellipsis;
+  letter-spacing: 0.005em;
+  box-sizing: border-box;
+  line-height: var(--_label-text-line-height);
+  font-weight: var(--_label-text-weight);
+  cursor: text;
+  flex: 1;
+}
+
+.search {
+  display: absolute;
+  background: none;
+}
+
+.search > div {
+  width: 100%;
+  position: relative;
+  align-items: center;
+}
+
+.search input {
+  font-size: var(--_label-text-size);
+  height: inherit;
+  padding: 2px;
+  border: 0px;
+  width: 100%;
+  letter-spacing: 0.005em;
+  line-height: var(--_label-text-line-height);
+  font-weight: var(--_label-text-weight);
+  outline: none;
+  background: none;
+  box-sizing: border-box;
+}
+
+.mode-default {
+  display: flex;
+}
+
+.mode-input {
+  display: none;
+  height: inherit;
+}
+
+.search.hasFocus {
+  .mode-default {
+    display: none;
+  }
+  .mode-input {
+    display: flex;
+  }
+}
