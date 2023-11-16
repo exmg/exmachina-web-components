@@ -39,15 +39,6 @@
   z-index: 2;
 }
 
-.error {
-  background-color: var(--md-sys-color-error-container, red);
-  color: var(--md-sys-color-on-error-container, white);
-}
-
-.error > div {
-  padding: 1rem 0.8rem;
-}
-
 form {
   margin: 0 !important;
   padding: 0.5rem 1rem;

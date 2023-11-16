@@ -47,6 +47,10 @@
       version: '8.1.33',
       url: 'https://www.npmjs.com/package/@exmg/exmg-radio-group',
     },{
+      name: '@exmg/exmg-search',
+      version: '1.0.0',
+      url: 'https://www.npmjs.com/package/@exmg/exmg-search',
+    },{
       name: '@exmg/exmg-sidemenu',
       version: '8.1.34',
       url: 'https://www.npmjs.com/package/@exmg/exmg-sidemenu',

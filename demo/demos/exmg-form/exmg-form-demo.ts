@@ -41,28 +41,15 @@ export class ExmgFormDemo extends LitElement {
     `,
   ];
 
-  async handleSubmit(e: Event) {
-    const dialog = e.target as ExmgForm;
-    try {
-      dialog.submitting = true;
-
-      await sleep(1000);
-      console.log('Delete item');
-    } catch (error) {
-      console.error(error instanceof Error ? error.message : 'Unknown error');
-    } finally {
-      dialog.submitting = false;
-    }
-  }
-
   async doFormAction(e: CustomEvent<unknown>) {
     const formDialog = e.target as ExmgForm;
     try {
       formDialog.submitting = true;
 
       await sleep(1000);
-      console.log('Save ', e.detail);
+      throw new Error('Error saving data');
     } catch (error) {
+      formDialog.showError(error instanceof Error ? error.message : 'Unknown error');
       console.error(error instanceof Error ? error.message : 'Unknown error');
     } finally {
       formDialog.submitting = false;

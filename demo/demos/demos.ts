@@ -14,6 +14,7 @@ import './exmg-snackbar/exmg-snackbar-demo.js';
 import './exmg-tooltip/exmg-tooltip-demo.js';
 import './exmg-upload/exmg-upload-demo.js';
 import './exmg-sortable/exmg-sortable-demo.js';
+import './exmg-search/exmg-search-demo.js';
 
 export const demos = {
   'exmg-breadcrumbs-demo': {
@@ -57,5 +58,8 @@ export const demos = {
   },
   'exmg-upload-demo': {
     tag: literal`exmg-upload-demo`,
+  },
+  'exmg-search-demo': {
+    tag: literal`exmg-search-demo`,
   },
 };

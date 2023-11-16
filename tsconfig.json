@@ -94,6 +94,9 @@
       "path": "packages/exmg-upload"
     },
     {
+      "path": "packages/exmg-search"
+    },
+    {
       "path": "demo"
     }
   ],

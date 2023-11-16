@@ -1,5 +1,5 @@
 import resolve from '@rollup/plugin-node-resolve';
-import {terser} from 'rollup-plugin-terser';
+import { terser } from 'rollup-plugin-terser';
 
 import strip from '@rollup/plugin-strip';
 import copy from 'rollup-plugin-copy';
@@ -20,6 +20,7 @@ const elements = [
   'exmg-form',
   'exmg-form-drawer',
   'exmg-collapsed',
+  'exmg-search',
   'exmg-snackbar',
   'exmg-breadcrumbs',
   'exmg-markdown-editor',
@@ -35,7 +36,7 @@ const elementsConfigs = elements.map((element) => {
       sourcemap: false,
     },
     plugins: [
-      multiInput({relative: 'demo/demos/'}),
+      multiInput({ relative: 'demo/demos/' }),
       resolve({
         moduleDirectories: ['./node_modules', './packages'],
       }),
