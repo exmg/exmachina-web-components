@@ -55,8 +55,8 @@ export class ExmgComplexGrid extends ExmgBaseGridDemo {
     return html`
         <mwc-icon-button class="ignore-select" icon="more_vert" id=${`more-menu-button-${index}`} @click=${() => this.openMenu(index)}></mwc-icon-button>
         <md-menu id=${`more-menu-${index}`} anchor=${`more-menu-button-${index}`}>
-          <md-menu-item>Edit 1</md-menu-item>
-          <md-menu-item>Edit 2</md-menu-item>
+          <md-menu-item>Edit Button 1</md-menu-item>
+          <md-menu-item>Edit Button 2</md-menu-item>
         </md-menu>
     `;
   }
