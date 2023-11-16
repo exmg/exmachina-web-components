@@ -31,10 +31,8 @@ $exmg-grid-toolbar-active-color: #000000;
   &.active {
     --active-toolbar-bg-color: var(--exmg-theme-table-toolbar-active-bg-color);
     --active-toolbar-color: var(--exmg-theme-table-toolbar-active-color, #{$exmg-grid-toolbar-active-color});
-
     background-color: var(--active-toolbar-bg-color);
     color: var(--active-toolbar-color);
-
     .seperator {
       &.with-action-separator {
         border-left: 1px solid var(--active-toolbar-color);
