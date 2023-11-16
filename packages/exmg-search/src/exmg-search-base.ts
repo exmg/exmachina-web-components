@@ -25,7 +25,7 @@ export class ExmgSearchBase extends ExmgElement {
   constructor() {
     super();
 
-    // Set defatul tabindex to 0
+    // Set default tabindex to 0
     const tabindex = this.getAttribute('tabindex');
     this.setAttribute('tabindex', tabindex || '0');
 
@@ -85,7 +85,7 @@ export class ExmgSearchBase extends ExmgElement {
       </div>
     `;
   }
-  
+
   _getValue() {
     return this.filterValue || this.placeHolder;
   }
@@ -100,7 +100,7 @@ export class ExmgSearchBase extends ExmgElement {
     if (this.search) {
       this.search.value = '';
     }
-    this._notifyChange()
+    this._notifyChange();
   }
 
   _handleKeyUp(e: KeyboardEvent) {
@@ -108,7 +108,7 @@ export class ExmgSearchBase extends ExmgElement {
 
     if (this.filterValue !== input.value) {
       this.filterValue = input.value;
-      this._notifyChange()s);
+      this._notifyChange();
     }
 
     if (e.key === 'Escape') {

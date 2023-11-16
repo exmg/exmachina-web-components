@@ -23,19 +23,7 @@
     --exmg-search-input-text-line-height,
     var(--md-sys-typescale-body-large-line-height, 1.5rem)
   );
-  --_input-text-placeholder-color: var(
-    --exmg-search-input-text-placeholder-color,
-    var(--md-sys-color-on-surface-variant, #49454f)
-  );
-  --_input-text-prefix-color: var(
-    --exmg-search-input-text-prefix-color,
-    var(--md-sys-color-on-surface-variant, #49454f)
-  );
   --_input-text-size: var(--exmg-search-input-text-size, var(--md-sys-typescale-body-large-size, 1rem));
-  --_input-text-suffix-color: var(
-    --exmg-search-input-text-suffix-color,
-    var(--md-sys-color-on-surface-variant, #49454f)
-  );
   --_input-text-weight: var(
     --exmg-search-input-text-weight,
     var(--md-sys-typescale-body-large-weight, var(--md-ref-typeface-weight-regular, 400))
