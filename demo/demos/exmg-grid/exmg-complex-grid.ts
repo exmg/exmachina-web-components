@@ -2,22 +2,19 @@ import { html, css } from 'lit';
 import { customElement } from 'lit/decorators.js';
 import { classMap } from 'lit/directives/class-map.js';
 import { repeat } from 'lit/directives/repeat.js';
+import { style as tableStyles } from '@exmg/exmg-grid/src/styles/exmg-grid-styles-css.js';
+import { style as demoStyles } from './demo-common-css.js';
+import { createIcon } from './exmg-icons.js';
+import { DEFAULT_SORT_COLUMN, DEFAULT_SORT_DIRECTION, ExmgBaseGridDemo } from './exmg-grid-demo.js';
+import { Menu } from '@material/web/menu/menu.js';
+
 import '@material/mwc-checkbox';
 import '@material/mwc-icon-button';
-
-import '@polymer/paper-listbox/paper-listbox.js';
-import '@polymer/paper-item/paper-item.js';
-import '@polymer/paper-menu-button/paper-menu-button.js';
-import '@polymer/iron-dropdown/iron-dropdown.js';
-
+import '@material/web/menu/menu.js';
+import '@material/web/menu/menu-item.js';
 import '@exmg/exmg-grid/src/table/exmg-grid.js';
 import '@exmg/exmg-grid/src/table/exmg-grid-pagination.js';
 import '@exmg/exmg-grid/src/table/exmg-grid-smart-toolbar.js';
-import { style as tableStyles } from '@exmg/exmg-grid/src/styles/exmg-grid-styles-css.js';
-import { style as demoStyles } from './demo-common-css.js';
-
-import { createIcon } from './exmg-icons.js';
-import { DEFAULT_SORT_COLUMN, DEFAULT_SORT_DIRECTION, ExmgBaseGridDemo } from './exmg-grid-demo.js';
 
 @customElement('demo-complex-grid')
 export class ExmgComplexGrid extends ExmgBaseGridDemo {
@@ -28,6 +25,9 @@ export class ExmgComplexGrid extends ExmgBaseGridDemo {
     css`
       .expandable-toggle {
         cursor: pointer;
+      }
+      tr {
+        position: relative;
       }
     `,
   ];
@@ -44,16 +44,20 @@ export class ExmgComplexGrid extends ExmgBaseGridDemo {
       .reduce((acc, item: string) => ({ ...acc, [item]: true }), {});
   }
 
-  // get more menu items for row
-  moreMenu() {
+  openMenu(index: number) {
+    const menu = this.shadowRoot!.querySelector(`#more-menu-${index}`) as Menu;
+    if (menu) {
+      menu.open = !menu.open;
+    }
+  }
+
+  moreMenu(index: number) {
     return html`
-      <paper-menu-button dynamic-align>
-        <mwc-icon-button class="ignore-select" icon="more_vert" slot="dropdown-trigger"></mwc-icon-button>
-        <paper-listbox slot="dropdown-content">
-          <paper-item>Edit 1</paper-item>
-          <paper-item>Edit 2</paper-item>
-        </paper-listbox>
-      </paper-menu-button>
+        <mwc-icon-button class="ignore-select" icon="more_vert" id=${`more-menu-button-${index}`} @click=${() => this.openMenu(index)}></mwc-icon-button>
+        <md-menu id=${`more-menu-${index}`} anchor=${`more-menu-button-${index}`}>
+          <md-menu-item>Edit 1</md-menu-item>
+          <md-menu-item>Edit 2</md-menu-item>
+        </md-menu>
     `;
   }
 
@@ -61,7 +65,7 @@ export class ExmgComplexGrid extends ExmgBaseGridDemo {
     return repeat(
       this.items,
       ({ id }) => id,
-      (i) => {
+      (i, index) => {
         return html`
           <tr data-row-key="${i.id}">
             <td class="grid-checkbox-cell"><mwc-checkbox class="selectable-checkbox"></mwc-checkbox></td>
@@ -70,7 +74,7 @@ export class ExmgComplexGrid extends ExmgBaseGridDemo {
             <td class="grid-col-number">${i.year}</td>
             <td class="grid-col-number">${i.amount}</td>
             <td class="grid-cell-visible-on-hover"><span class="expandable-toggle">${createIcon}</span></td>
-            <td class="grid-col no-ellipsis">${this.moreMenu()}</td>
+            <td class="grid-col no-ellipsis">${this.moreMenu(index)}</td>
           </tr>
           <tr class="grid-row-detail" data-row-detail-key="${i.id}">
             <td data-auto-colspan>
