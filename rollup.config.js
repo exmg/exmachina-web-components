@@ -24,6 +24,7 @@ const elements = [
   'exmg-snackbar',
   'exmg-breadcrumbs',
   'exmg-markdown-editor',
+  'exmg-navigation',
   'exmg-upload',
 ];
 

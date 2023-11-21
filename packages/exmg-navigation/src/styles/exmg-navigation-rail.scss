@@ -1,0 +1,21 @@
+:host {
+  display: none;
+  position: fixed;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  background: var(--md-sys-color-surface-container);
+  overflow-y: auto;
+  z-index: 8;
+  box-sizing: border-box;
+}
+
+@media screen and (min-width: 961px) {
+  :host {
+    display: flex;
+  }
+}
+
+.nav {
+  flex: 1;
+}

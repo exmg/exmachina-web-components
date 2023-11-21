@@ -43,6 +43,10 @@
       version: '8.1.34',
       url: 'https://www.npmjs.com/package/@exmg/exmg-markdown-editor',
     },{
+      name: '@exmg/exmg-navigation',
+      version: '8.1.33',
+      url: 'https://www.npmjs.com/package/@exmg/exmg-navigation',
+    },{
       name: '@exmg/exmg-radio-group',
       version: '8.1.33',
       url: 'https://www.npmjs.com/package/@exmg/exmg-radio-group',

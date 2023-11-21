@@ -1,0 +1,48 @@
+{
+  "name": "@exmg/exmg-navigation",
+  "version": "8.1.33",
+  "type": "module",
+  "main": "index.js",
+  "module": "index.js",
+  "exports": {
+    ".": "./index.js",
+    "./exmg-navigation-rail.js": "./src/exmg-navigation-rail.js",
+    "./exmg-navigation-rail-nav.js": "./src/exmg-navigation-rail-nav.js",
+    "./exmg-navigation-rail-nav-item.js": "./src/exmg-navigation-rail-nav-item.js",
+    "./exmg-navigation-drawer.js": "./src/exmg-navigation-drawer.js"
+  },
+  "dependencies": {
+    "@exmg/lit-base": "^2.0.1",
+    "@material/web": "^1.0.1",
+    "@lit-labs/preact-signals": "^1.0.1",
+    "@material/mwc-drawer": "^0.27.0",
+    "lit": "^3.0.0",
+    "tslib": "^2.6.2"
+  },
+  "devDependencies": {
+    "@exmg/lit-cli": "1.1.13"
+  },
+  "keywords": [
+    "web-components",
+    "lit",
+    "navigation"
+  ],
+  "files": [
+    "**/*.scss",
+    "**/*.js",
+    "**/*.d.ts"
+  ],
+  "homepage": "https://github.com/exmg/exmachina-web-components",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:exmg/exmg-web-components.git",
+    "directory": "packages/exmg-navigation"
+  },
+  "license": "MIT",
+  "scripts": {
+    "build:styles": "exmg-lit-cli sass -f \"./**/*.scss\""
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}
