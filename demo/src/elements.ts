@@ -36,7 +36,7 @@
       url: 'https://www.npmjs.com/package/@exmg/exmg-form-drawer',
     },{
       name: '@exmg/exmg-grid',
-      version: '8.1.36',
+      version: '8.1.38',
       url: 'https://www.npmjs.com/package/@exmg/exmg-grid',
     },{
       name: '@exmg/exmg-markdown-editor',

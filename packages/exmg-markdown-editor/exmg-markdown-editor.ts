@@ -9,7 +9,6 @@ import '@polymer/iron-icon/iron-icon.js';
 import '@material/mwc-icon/mwc-icon.js';
 
 import { afterNextRender } from '@polymer/polymer/lib/utils/render-status.js';
-import './exmg-import-helper.js';
 
 import './exmg-markdown-editor-icons.js';
 import { style as codeMirrorStylesText } from './styles/exmg-markdown-codemirror-styles-css.js';
@@ -28,7 +27,7 @@ import {
   SHORTCUTS,
 } from './exmg-markdown-utils.js';
 import { EditorConfiguration } from 'codemirror';
-import { MarkedOptions, Renderer } from 'marked';
+import { Renderer, marked } from 'marked';
 // import * as marked from 'marked';
 
 /**
@@ -260,21 +259,11 @@ export class EditorElement extends ExmgElement {
       return;
     }
 
-    const opts: MarkedOptions = {
-      highlight: this._highlight.bind(this),
-      breaks: false,
-      sanitize: false,
-      pedantic: false,
-      smartypants: false,
-    };
-
     const customRenderer = (window.markdownEditorConfig?.renderer as Renderer) || undefined;
     const extensions = window.markdownEditorConfig?.extensions || [];
+    marked.use({ renderer: customRenderer, extensions });
 
-    // @ts-ignore
-    window.marked.use({ renderer: customRenderer, extensions });
-
-    this.innerHTML = `<div class="preview-body">${window.marked(this.markdown, opts)}</div>`;
+    this.innerHTML = `<div class="preview-body">${marked.parse(this.markdown)}</div>`;
     this.focus();
     this.fire('html-render-complete', {});
   }
