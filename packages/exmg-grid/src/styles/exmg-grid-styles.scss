@@ -11,7 +11,8 @@ $exmgOnBackground: #02182b !default;
   padding-right: calc(var(--exmg-table-th-sort-icon-height) + var(--exmg-table-th-sort-margin-left));
   &.grid-col-number {
     padding-right: calc(
-      var(--exmg-table-th-sort-icon-height) + var(--exmg-table-th-sort-margin-left) + var(--exmg-table-col-number-padding-right)
+      var(--exmg-table-th-sort-icon-height) + var(--exmg-table-th-sort-margin-left) +
+        var(--exmg-table-col-number-padding-right)
     );
   }
 }
@@ -38,7 +39,6 @@ $exmgOnBackground: #02182b !default;
 
 :host {
   @include typography.base;
-
   $exmgPrimaryColor: #0070db !default;
   $exmgSecondaryColor: #0070db !default;
   $exmgSurfaceColor: #ffffff !default;
@@ -58,10 +58,16 @@ $exmgOnBackground: #02182b !default;
   --exmg-table-row-selected-background-color: var(--exmg-theme-table-row-selected-background-color, #eef4fa);
   --exmg-table-row-hover-color: var(--exmg-theme-table-row-hover-color, #{$exmgOnSurfaceColor});
   --exmg-table-row-hover-background-color: var(--exmg-theme-table-row-hover-background-color, #f1f1f1);
-  --exmg-table-row-dragged-background-color: var(--exmg-theme-table-row-dragged-background-color, #{$exmgOnSurfaceColor});
+  --exmg-table-row-dragged-background-color: var(
+    --exmg-theme-table-row-dragged-background-color,
+    #{$exmgOnSurfaceColor}
+  );
   --exmg-table-rows-expanded-divider-border: var(--exmg-theme-table-rows-expanded-divider-border, none);
   --exmg-table-rows-expanded-border: var(--exmg-theme-table-rows-expanded-border, none);
-  --exmg-table-rows-expanded-background-color: var(--exmg-theme-table-rows-expanded-background-color, #{$exmgSurfaceColor});
+  --exmg-table-rows-expanded-background-color: var(
+    --exmg-theme-table-rows-expanded-background-color,
+    #{$exmgSurfaceColor}
+  );
   --exmg-table-rows-expanded-color: var(--exmg-theme-table-rows-expanded-color, #{$exmgOnSurfaceColor});
   --exmg-table-th-color: var(--exmg-theme-table-th-on-surface, #{$exmgOnSurfaceColor});
   --exmg-table-th-background-color: var(--exmg-theme-table-th-surface, #{$exmgSurfaceColor});
