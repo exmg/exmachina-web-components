@@ -40,6 +40,9 @@ export class ToolbarSearch extends ExmgElement {
     css`
       :host {
         display: block;
+        background-color: var(--exmg-table-card-background-color);
+        color: var(--exmg-table-color, black);
+        border-radius: 4px;
       }
       :host > div {
         display: flex;
@@ -55,10 +58,12 @@ export class ToolbarSearch extends ExmgElement {
       }
       input {
         width: 100%;
+        caret-color: var(--exmg-table-color, black);
+        color: var(--exmg-table-color, black);
       }
       svg {
         margin: 0 0 0 16px;
-        fill: rgba(0, 0, 0, 0.38);
+        fill: var(--exmg-table-color, black);
         cursor: pointer;
       }
       :host > div > svg {
@@ -70,9 +75,9 @@ export class ToolbarSearch extends ExmgElement {
       span.interactive-content {
         white-space: nowrap;
         overflow: hidden;
-        color: rgba(0, 0, 0, 0.38);
+        // color: rgba(0, 0, 0, 0.38);
         font-size: 14px;
-
+        opacity: 0.6;
         text-overflow: ellipsis;
         letter-spacing: 0.005em;
         box-sizing: border-box;
@@ -106,6 +111,7 @@ export class ToolbarSearch extends ExmgElement {
         border: none !important;
         font-size: 0;
         margin-right: 1rem;
+        color: var(--exmg-table-color, black);
       }
     `,
   ];
