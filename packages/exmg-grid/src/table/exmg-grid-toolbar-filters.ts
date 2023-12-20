@@ -53,12 +53,10 @@ export class ExmgGridToolbarFilters extends ExmgElement {
 
   selectedLabel() {
     const item = this.items?.find((i) => i.value === this.selected);
-    console.log(this.selected, item);
     return item ? item.label : 'No Filter Selected';
   }
 
   _handleMenuClick(value: string) {
-    console.log(value, this.selected);
     if (this.selected !== value) {
       this.selected = value;
       this.fire('exmg-grid-toolbar-filter-changed', { value });

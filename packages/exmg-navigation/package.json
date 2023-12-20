@@ -9,13 +9,17 @@
     "./exmg-navigation-rail.js": "./src/exmg-navigation-rail.js",
     "./exmg-navigation-rail-nav.js": "./src/exmg-navigation-rail-nav.js",
     "./exmg-navigation-rail-nav-item.js": "./src/exmg-navigation-rail-nav-item.js",
-    "./exmg-navigation-drawer.js": "./src/exmg-navigation-drawer.js"
+    "./exmg-navigation-drawer.js": "./src/exmg-navigation-drawer.js",
+    "./exmg-navigation-toolbar.js": "./src/exmg-navigation-toolbar.js",
+    "./exmg-navigation-drawer-nav.js": "./src/exmg-navigation-drawer-nav.js",
+    "./exmg-navigation-base.js": "./src/ExmgNavigationBase.js"
   },
   "dependencies": {
     "@exmg/lit-base": "^2.0.1",
-    "@material/web": "^1.0.1",
+    "@lit-labs/observers": "^2.0.2",
     "@lit-labs/preact-signals": "^1.0.1",
     "@material/mwc-drawer": "^0.27.0",
+    "@material/web": "^1.0.1",
     "lit": "^3.0.0",
     "tslib": "^2.6.2"
   },

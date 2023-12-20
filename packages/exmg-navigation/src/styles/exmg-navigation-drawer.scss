@@ -15,3 +15,13 @@ mwc-drawer {
     margin-left: 88px;
   }
 }
+
+@media screen and (max-width: 961px) {
+  :host {
+    padding-left: 0;
+  }
+  mwc-drawer {
+    margin-left: 0;
+    --mdc-drawer-width: 319px;
+  }
+}

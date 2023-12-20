@@ -1,6 +1,7 @@
 :host {
   display: flex;
   flex-direction: column;
-  width: 88px;
+  --_exmg-navigation-rail-nav-width: var(--exmg-navigation-rail-nav-width, 88px);
+  width: var(--_exmg-navigation-rail-nav-width);
   margin-top: 20px;
 }

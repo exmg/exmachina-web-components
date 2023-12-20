@@ -1,0 +1,25 @@
+:host {
+  display: block;
+  position: relative;
+  overflow: hidden;
+  border: 3px solid yellow;
+}
+
+.page-content {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  height: calc(var(--vh, 1vh) * 100);
+  min-height: calc(100vh - 64px);
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.card {
+  background-color: var(--md-sys-color-surface-container);
+  padding: 1rem;
+}
+
+main {
+  margin: 3rem;
+}

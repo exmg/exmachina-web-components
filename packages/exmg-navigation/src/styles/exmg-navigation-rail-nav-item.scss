@@ -1,13 +1,44 @@
 :host {
+  --_exmg-navigation-rail-nav-item-color: var(
+    --exmg-navigation-rail-nav-item-color,
+    var(--md-sys-color-on-surface-variant)
+  );
+  --_exmg-navigation-rail-nav-item-icon-color: var(
+    --exmg-navigation-rail-nav-item-icon-color,
+    var(--md-sys-color-on-surface-variant)
+  );
+  --_exmg-navigation-rail-nav-item-icon-color-hover: var(
+    --exmg-navigation-rail-nav-item-icon-color-hover,
+    var(--md-sys-color-surface-container-highest)
+  );
+  --_exmg-navigation-rail-nav-item-icon-color-selected: var(
+    --exmg-navigation-rail-nav-item-icon-color-selected,
+    var(--md-sys-color-secondary)
+  );
+  --_exmg-navigation-rail-nav-item-color-selected: var(
+    --exmg-navigation-rail-nav-item-color-selected,
+    var(--md-sys-color-on-secondary)
+  );
+
   display: flex;
   flex-direction: column;
   width: 80px;
   margin: -2px auto 14px;
   padding: 2px;
-  color: var(--md-sys-color-on-surface-variant);
   vertical-align: baseline;
   align-items: center;
   cursor: pointer;
+}
+
+button {
+  position: relative;
+  background: none;
+  border: none;
+  color: var(--_exmg-navigation-rail-nav-item-color);
+}
+
+button:focus {
+  outline: none;
 }
 
 .symbols {
@@ -56,11 +87,21 @@
 }
 
 .symbols {
-  color: var(--md-sys-color-on-surface-variant);
+  color: var(--_exmg-navigation-rail-nav-item-icon-color);
   font-variation-settings: 'FILL' 1, 'wght' 400, 'opsz' 24;
 }
 
 :host(:hover) .symbols {
-  background: var(--md-sys-color-surface-container-highest);
+  background: var(--_exmg-navigation-rail-nav-item-icon-color-hover);
   font-variation-settings: 'wght' 600, 'opsz' 24;
+}
+
+:host([selected]) .symbols {
+  background: var(--_exmg-navigation-rail-nav-item-icon-color-selected);
+  color: var(--_exmg-navigation-rail-nav-item-color-selected);
+  font-variation-settings: 'wght' 600, 'opsz' 24;
+}
+
+:host([selected]:hover) .symbols {
+  opacity: 0.7;
 }

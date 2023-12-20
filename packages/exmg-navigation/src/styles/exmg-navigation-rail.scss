@@ -1,10 +1,15 @@
 :host {
+  --_exmg-navigation-rail-background-color: var(
+    --exmg-navigation-rail-background-color,
+    var(--md-sys-color-surface-container)
+  );
+
   display: none;
   position: fixed;
   flex-direction: column;
   justify-content: space-between;
   height: 100%;
-  background: var(--md-sys-color-surface-container);
+  background: var(--_exmg-navigation-rail-background-color);
   overflow-y: auto;
   z-index: 8;
   box-sizing: border-box;

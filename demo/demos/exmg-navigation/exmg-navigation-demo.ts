@@ -1,108 +1,198 @@
-import { LitElement, html, css } from 'lit';
-import { customElement, property } from 'lit/decorators.js';
+import { html, nothing } from 'lit';
+import { customElement } from 'lit/decorators.js';
 
+import '@material/web/iconbutton/icon-button.js';
+
+import '@exmg/exmg-navigation/exmg-navigation-toolbar.js';
 import '@exmg/exmg-navigation/exmg-navigation-rail.js';
 import '@exmg/exmg-navigation/exmg-navigation-rail-nav.js';
 import '@exmg/exmg-navigation/exmg-navigation-rail-nav-item.js';
 import '@exmg/exmg-navigation/exmg-navigation-drawer.js';
+import '@exmg/exmg-navigation/exmg-navigation-drawer-nav.js';
+import '@exmg/exmg-collapsed/exmg-collapsed.js';
 
-import { itemHover, drawerHover, SignalWatcher } from '@exmg/exmg-navigation';
+import '@material/web/list/list.js';
+import '@material/web/list/list-item.js';
 
-interface MenuItem {
-  id?: string;
-  label: string;
-  url?: string;
-  icon?: string;
-  items?: MenuItem[];
-}
-
-const menu: MenuItem[] = [
-  {
-    id: 'mail',
-    label: 'Mail',
-    icon: 'mail',
-  },
-  {
-    id: 'chat',
-    label: 'Chat',
-    icon: 'chat',
-  },
-  {
-    id: 'spaces',
-    label: 'Spaces',
-    icon: 'groups',
-    items: [
-      {
-        id: 'space1',
-        label: 'Space 1',
-      },
-      {
-        id: 'space2',
-        label: 'Space 2',
-      },
-    ],
-  },
-  {
-    id: 'meet',
-    label: 'Meet',
-    icon: 'videocam',
-  },
-];
+import {
+  navigationItemHover,
+  navigationDrawerHover,
+  navigationDrawerOpen,
+  navigationRailSelected,
+  navigationRailHidden,
+  navigationRailActive,
+  navigationActiveHasSubmenu,
+  navigationDrawerPersistent,
+  navigationSubSelected,
+  ExmgNavigationBase,
+  exmgNavigationDrawerStyles,
+} from '@exmg/exmg-navigation';
+import { style } from './exmg-navigation-demo-styles-css.js';
+import { MenuItem, menu as MENU } from './menu.js';
 
 @customElement('exmg-navigation-demo')
-export class ExmgNavigationDemo extends SignalWatcher(LitElement) {
-  @property({ type: Boolean })
-  open = false;
+export class ExmgNavigationDemo extends ExmgNavigationBase {
+  static styles = [style, exmgNavigationDrawerStyles];
 
-  static styles = [
-    css`
-      :host {
-        display: block;
-        position: relative;
-        overflow: hidden;
-      }
+  menu = MENU;
 
-      .page-content {
-        display: flex;
-        flex-direction: column;
-        height: 100vh;
-        height: calc(var(--vh, 1vh) * 100);
-        min-height: calc(100vh - 64px);
-        overflow-y: auto;
-        -webkit-overflow-scrolling: touch;
-      }
+  pageId = 'chat';
 
-      .card {
-        margin: 1rem 0;
-        padding: 1rem;
-      }
-    `,
-  ];
+  renderInfoCard() {
+    return html`
+      <div class="card">
+        Drawer open: ${navigationDrawerOpen.value}<br />
+        Item hover: ${navigationItemHover.value}<br />
+        Nav Active item: ${navigationRailActive.value}<br />
+        Drawer hover: ${navigationDrawerHover.value} <br />
+        Nav selected: ${navigationRailSelected.value} <br />
+        Nav sub selected: ${navigationSubSelected.value} <br />
+        Nav hidden: ${navigationRailHidden.value} <br />
+        Drawer Persistent: ${navigationDrawerPersistent.value} <br />
+        navigationActiveHasSubmenu: ${JSON.stringify(navigationActiveHasSubmenu.value, null, '\t')} <br />
+      </div>
+    `;
+  }
+
+  /**
+   * Render page content based on the selected navigation item
+   */
+  renderPage() {
+    return html`<main>${this.renderInfoCard()}</main>`;
+  }
+
+  renderToolbar() {
+    return html`
+      <exmg-navigation-toolbar>
+        <!-- Menu button will automatically be hidden when the rail bar is visible -->
+        <md-icon-button @click=${() => this.drawer!.toggle()} slot="navigationIcon"
+          ><md-icon>menu</md-icon></md-icon-button
+        >
+        <div slot="title">${this.pageId || 'home'}</div>
+      </exmg-navigation-toolbar>
+    `;
+  }
+
+  renderSubMenu() {
+    const parentId = this.getActiveSubmenuParent();
+    if (parentId === null) {
+      return nothing;
+    }
+    const items = this.getItemsFromParentId(parentId);
+    return html`
+        <md-list>
+        ${items.map((i) =>
+          (i.items || []).length > 0
+            ? html`
+                <md-list-item
+                  type="button"
+                  ?selected=${navigationSubSelected.value === i.id}
+                  class="has-submenu"
+                  @click=${() => this.handleNavigationSubClicked(i, parentId)}
+                  >${i.label}
+                  <md-icon slot="end"
+                    >${this.isSubMenuExpanded(i.id) ? 'expand_less' : 'expand_more'}</md-icon
+                  ></md-list-item
+                >
+                <exmg-collapsed id="collapsed" ?opened=${this.isSubMenuExpanded(i.id)}>
+                  <div class="sub-menu">
+                    <md-list>
+                      ${(i.items || []).map(
+                        (i) =>
+                          html`<md-list-item
+                            class="collapsed-item"
+                            type="button"
+                            @click=${() => this.handleNavigationSubClicked(i, parentId)}
+                            ?selected=${this.pageId === i.id}
+                            >${i.label}</md-list-item
+                          >`,
+                      )}
+                    </md-list>
+                  </div>
+                </exmg-collapsed>
+              `
+            : html`
+                <md-list-item
+                  type="button"
+                  ?selected=${navigationSubSelected.value === i.id}
+                  @click=${() => this.handleNavigationSubClicked(i, parentId)}
+                  >${i.label}</md-list-item
+                >
+              `,
+        )}</md-list>
+      </div>
+    `;
+  }
 
   render() {
     return html`
       <div class="main">
+        <!--
+          Navigation rail component. This will be visible on desktop and tablet(> 960px) and auto hide on smaller resolutions
+        -->
         <exmg-navigation-rail>
           <exmg-navigation-rail-nav>
-            ${menu.map(
-              (i) =>
+            ${this.menu.map(
+              (i: MenuItem) =>
                 html`<exmg-navigation-rail-nav-item
+                  @click=${() => this.handleRailClick(i.id)}
                   label=${i.label}
                   icon=${i.icon!}
+                  itemId=${i.id!}
+                  .selected=${navigationRailSelected.value === i.id}
                   ?hasSubMenu=${(i.items || []).length > 0}
                 ></exmg-navigation-rail-nav-item>`,
             )}
           </exmg-navigation-rail-nav>
         </exmg-navigation-rail>
 
-        <exmg-navigation-drawer ?open=${this.open}>
-          <div slot="appContent" class="page-content">
-            <div class="card">
-              Drawer open: ${this.open}<br />
-              Item hover: ${itemHover.value}<br />
-              Drawer hover: ${drawerHover.value}
+        <!--
+          Navigation drawer component. This will be permanently visible on screens bigger (> 1560px) and auto hide on smaller resolutions
+        -->
+        <exmg-navigation-drawer id="drawer">
+          <!--
+            Navigation drawer content. This will contain the (optionaly) the toolbar and the page content for the selected page.
+          -->
+          <div slot="appContent" class="page-content">${this.renderToolbar()}${this.renderPage()}</div>
+
+          <!--
+            Navigation drawer navigation. This will contain the navigation items for the drawer and consists of 2 parts:
+            - Top level items which will be similar as the items displayed in the rail
+            - Sub level items which will be displayed when a top level item is selected (default slot)
+          -->
+          <exmg-navigation-drawer-nav>
+            <!-- Top level items -->
+            <md-list slot="topLevel">
+              ${this.menu.map(
+                (i) =>
+                  html`
+                    <md-list-item
+                      type="button"
+                      ?selected=${navigationRailSelected.value === i.id}
+                      @click=${() => this.handleRailClick(i.id)}
+                      ><md-icon slot="start">${i.icon!}</md-icon> ${i.label}
+                      ${(i.items || []).length > 0
+                        ? html`<md-icon slot="end">arrow_forward</md-icon>`
+                        : nothing}</md-list-item
+                    >
+                  `,
+              )}
+            </md-list>
+
+            <!-- Sub level items -->
+            <div class="nav">
+              ${navigationRailHidden.value
+                ? html`
+                    <md-list slot="navTop">
+                      <md-list-item type="button" @click=${this.handlSubMenuBackClick}
+                        ><md-icon slot="start">arrow_back</md-icon> Main menu
+                      </md-list-item></md-list
+                    >
+                    <div class="left-margin">${this.renderSubMenu()}</div>
+                  `
+                : html` <div>${this.renderSubMenu()}</div> `}
             </div>
-          </div>
+          </exmg-navigation-drawer-nav>
         </exmg-navigation-drawer>
       </div>
     `;

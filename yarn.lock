@@ -1143,7 +1143,9 @@
   resolved "file:packages/exmg-navigation"
   dependencies:
     "@exmg/lit-base" "^2.0.1"
+    "@lit-labs/observers" "^2.0.2"
     "@lit-labs/preact-signals" "^1.0.1"
+    "@material/mwc-drawer" "^0.27.0"
     "@material/web" "^1.0.1"
     lit "^3.0.0"
     tslib "^2.6.2"
@@ -1391,6 +1393,13 @@
     validate-npm-package-name "5.0.0"
     yargs-parser "20.2.4"
 
+"@lit-labs/observers@^2.0.2":
+  version "2.0.2"
+  resolved "https://registry.npmjs.org/@lit-labs/observers/-/observers-2.0.2.tgz"
+  integrity sha512-eZb5+W9Cb0e/Y5m1DNxBSGTvGB2TAVTGMnTxL/IzFhPQEcZIAHewW1eVBhN8W07A5tirRaAmmF6fGL1V20p3gQ==
+  dependencies:
+    "@lit/reactive-element" "^1.0.0 || ^2.0.0"
+
 "@lit-labs/preact-signals@^1.0.1":
   version "1.0.1"
   resolved "https://registry.npmjs.org/@lit-labs/preact-signals/-/preact-signals-1.0.1.tgz"
@@ -1404,19 +1413,19 @@
   resolved "https://registry.npmjs.org/@lit-labs/ssr-dom-shim/-/ssr-dom-shim-1.1.2.tgz"
   integrity sha512-jnOD+/+dSrfTWYfSXBXlo5l5f0q1UuJo3tkbMDCYA2lKUYq79jaxqtGEvnRoh049nt1vdo1+45RinipU6FGY2g==
 
+"@lit/reactive-element@^1.0.0 || ^2.0.0", "@lit/reactive-element@^2.0.0":
+  version "2.0.0"
+  resolved "https://registry.npmjs.org/@lit/reactive-element/-/reactive-element-2.0.0.tgz"
+  integrity sha512-wn+2+uDcs62ROBmVAwssO4x5xue/uKD3MGGZOXL2sMxReTRIT0JXKyMXeu7gh0aJ4IJNEIG/3aOnUaQvM7BMzQ==
+  dependencies:
+    "@lit-labs/ssr-dom-shim" "^1.1.2-pre.0"
+
 "@lit/reactive-element@^1.3.0", "@lit/reactive-element@^1.6.0":
   version "1.6.3"
   resolved "https://registry.npmjs.org/@lit/reactive-element/-/reactive-element-1.6.3.tgz"
   integrity sha512-QuTgnG52Poic7uM1AN5yJ09QMe0O28e10XzSvWDz02TJiiKee4stsiownEIadWm8nYzyDAyT+gKzUoZmiWQtsQ==
   dependencies:
     "@lit-labs/ssr-dom-shim" "^1.0.0"
-
-"@lit/reactive-element@^2.0.0":
-  version "2.0.0"
-  resolved "https://registry.npmjs.org/@lit/reactive-element/-/reactive-element-2.0.0.tgz"
-  integrity sha512-wn+2+uDcs62ROBmVAwssO4x5xue/uKD3MGGZOXL2sMxReTRIT0JXKyMXeu7gh0aJ4IJNEIG/3aOnUaQvM7BMzQ==
-  dependencies:
-    "@lit-labs/ssr-dom-shim" "^1.1.2-pre.0"
 
 "@material/animation@^13.0.0":
   version "13.0.0"
@@ -1647,6 +1656,26 @@
     lit "^2.0.0"
     tslib "^2.0.1"
 
+"@material/mwc-top-app-bar-fixed@^0.27.0":
+  version "0.27.0"
+  resolved "https://registry.npmjs.org/@material/mwc-top-app-bar-fixed/-/mwc-top-app-bar-fixed-0.27.0.tgz"
+  integrity sha512-kU1RKmx8U7YCbsBuAXfNLtu+V/Jwos+o2mSY94tZpv36dIsvcsGQ4pB2zW0EaU8g9bQVdwLMVxj4oooxSmbZXw==
+  dependencies:
+    "@material/mwc-top-app-bar" "^0.27.0"
+    "@material/top-app-bar" "=14.0.0-canary.53b3cad2f.0"
+    lit "^2.0.0"
+    tslib "^2.0.1"
+
+"@material/mwc-top-app-bar@^0.27.0":
+  version "0.27.0"
+  resolved "https://registry.npmjs.org/@material/mwc-top-app-bar/-/mwc-top-app-bar-0.27.0.tgz"
+  integrity sha512-vHn10exeDhUVFpo4TgBsS8pta4AxZtjuuxrYFHMYxceGifEATvGbYoPyw1x7cCMcXMMIITElgfCURAbCmn3BgA==
+  dependencies:
+    "@material/mwc-base" "^0.27.0"
+    "@material/top-app-bar" "=14.0.0-canary.53b3cad2f.0"
+    lit "^2.0.0"
+    tslib "^2.0.1"
+
 "@material/radio@^13.0.0":
   version "13.0.0"
   resolved "https://registry.npmjs.org/@material/radio/-/radio-13.0.0.tgz"
@@ -1779,6 +1808,21 @@
   integrity sha512-myHFB7vac8zErA3qgkqmV+kpE+i9JEwc/6Yf0MOumDSpylJGw28QikpNC6eAVBK2EmPQTaFn20mqUxyud8dGqw==
   dependencies:
     "@material/elevation" "14.0.0-canary.53b3cad2f.0"
+
+"@material/top-app-bar@=14.0.0-canary.53b3cad2f.0":
+  version "14.0.0-canary.53b3cad2f.0"
+  resolved "https://registry.npmjs.org/@material/top-app-bar/-/top-app-bar-14.0.0-canary.53b3cad2f.0.tgz"
+  integrity sha512-9vPLLxUbNrWNCPGHoIeIUtyXWQUNh+yQwnkTYVkVAVEb1CsWb2D+/NefytfvyFtXWBFQLybAeG5RH0ZqdcgQBQ==
+  dependencies:
+    "@material/animation" "14.0.0-canary.53b3cad2f.0"
+    "@material/base" "14.0.0-canary.53b3cad2f.0"
+    "@material/elevation" "14.0.0-canary.53b3cad2f.0"
+    "@material/ripple" "14.0.0-canary.53b3cad2f.0"
+    "@material/rtl" "14.0.0-canary.53b3cad2f.0"
+    "@material/shape" "14.0.0-canary.53b3cad2f.0"
+    "@material/theme" "14.0.0-canary.53b3cad2f.0"
+    "@material/typography" "14.0.0-canary.53b3cad2f.0"
+    tslib "^2.1.0"
 
 "@material/touch-target@^13.0.0":
   version "13.0.0"
