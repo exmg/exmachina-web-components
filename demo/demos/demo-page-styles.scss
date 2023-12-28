@@ -1,0 +1,36 @@
+:host {
+  display: block;
+  font-family: var(--mdc-typography-headline3-font-family, var(--mdc-typography-font-family, Roboto, sans-serif));
+  font-size: 15px;
+  color: var(--md-sys-color-on-surface);
+}
+
+h1 {
+  color: var(--md-sys-color-on-surface);
+  padding-top: 1.5rem;
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  max-width: 100%;
+}
+
+.main > div {
+  width: 100%;
+}
+
+.centered {
+  margin: 2rem auto;
+  padding: 0 2rem;
+  max-width: 1200px;
+}
+
+.card {
+  background: var(--md-sys-color-surface-container);
+  max-width: 800px;
+  padding: 0rem;
+  margin-top: 2rem;
+}

@@ -7,6 +7,7 @@ import '@material/web/button/filled-button.js';
 import '@material/web/icon/icon.js';
 import '@material/web/iconbutton/icon-button.js';
 import { ExmgSnackbar } from '@exmg/exmg-snackbar';
+import { style } from '../demo-page-styles-css.js';
 
 @customElement('exmg-snackbar-demo')
 export class SnackbarDemo extends LitElement {
@@ -14,25 +15,8 @@ export class SnackbarDemo extends LitElement {
   loading = false;
 
   static styles = [
+    style,
     css`
-      :host {
-        font-family: var(--mdc-typography-headline3-font-family, var(--mdc-typography-font-family, Roboto, sans-serif));
-        font-size: 15px;
-      }
-      .main {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        width: 100%;
-      }
-      .main > div {
-        width: 100%;
-      }
-      h1 {
-        color: var(--md-sys-color-on-surface);
-        padding-top: 1.5rem;
-      }
       #custom-snackbar {
         --exmg-snackbar-info-background-color: pink;
       }
@@ -45,7 +29,7 @@ export class SnackbarDemo extends LitElement {
 
   render() {
     return html`
-      <div class="main">
+      <div class="main centered">
         <div>
           <h1>Default auto close</h1>
           <md-filled-button @click=${() => this.shadowRoot?.querySelector<ExmgSnackbar>('#default-snackbar')?.show()}>

@@ -1,32 +1,16 @@
-import { LitElement, html, css } from 'lit';
+import { LitElement, html } from 'lit';
 import { customElement } from 'lit/decorators/custom-element.js';
 import '@exmg/exmg-search/exmg-search.js';
 
+import { style } from '../demo-page-styles-css.js';
+
 @customElement('exmg-search-demo')
 export class SearchDemo extends LitElement {
-  static styles = [
-    css`
-      :host {
-        display: block;
-      }
-
-      .main {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        width: 100%;
-      }
-
-      .main > div {
-        width: 100%;
-      }
-    `,
-  ];
+  static styles = [style];
 
   render() {
     return html`
-      <div class="main">
+      <div class="main centered">
         <div>
           <h1>Search Bar</h1>
           <div class="card">

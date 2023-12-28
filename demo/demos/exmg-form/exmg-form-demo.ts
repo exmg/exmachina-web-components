@@ -1,8 +1,9 @@
-import { LitElement, html, css } from 'lit';
+import { LitElement, html } from 'lit';
 import { customElement } from 'lit/decorators.js';
 
 import '@exmg/exmg-form/exmg-form.js';
 import { ExmgForm, exmgFormStyles } from '@exmg/exmg-form';
+import { style } from '../demo-page-styles-css.js';
 
 import './form-base-example.js';
 import './settings-example.js';
@@ -13,33 +14,7 @@ function sleep(ms) {
 
 @customElement('exmg-form-demo')
 export class ExmgFormDemo extends LitElement {
-  static styles = [
-    exmgFormStyles,
-    css`
-      :host {
-        display: block;
-      }
-
-      .main {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        width: 100%;
-      }
-
-      .main > div {
-        width: 100%;
-      }
-
-      .card {
-        background: var(--md-sys-color-surface-container);
-        max-width: 800px;
-        padding: 0rem;
-        margin-top: 2rem;
-      }
-    `,
-  ];
+  static styles = [style, exmgFormStyles];
 
   async doFormAction(e: CustomEvent<unknown>) {
     const formDialog = e.target as ExmgForm;

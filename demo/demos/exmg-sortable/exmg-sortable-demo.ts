@@ -2,6 +2,7 @@ import { LitElement, html, css } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
 import '@exmg/exmg-sortable/exmg-sortable.js';
 import { USERS } from './data/users.js';
+import { style } from '../demo-page-styles-css.js';
 
 @customElement('exmg-sortable-demo')
 export class SortableDemo extends LitElement {
@@ -12,10 +13,8 @@ export class SortableDemo extends LitElement {
   externalSortableHost?: HTMLElement;
 
   static styles = [
+    style,
     css`
-      :host {
-        color: var(--md-sys-color-on-surface);
-      }
       ul,
       li {
         margin-left: 0;
@@ -148,86 +147,90 @@ export class SortableDemo extends LitElement {
 
   render() {
     return html`
-      <h2>List (Animated)</h2>
-      <exmg-sortable animation-enabled orientation="vertical" @dom-order-change="${this.orderChange}">
-        <ul>
-          ${this.users.map((user) => {
-            return html`
-              <li>
-                <strong>${user.firstName}</strong>
-                <span>${user.lastName}</span>
-                <span>${user.email}</span>
-              </li>
-            `;
-          })}
-        </ul>
-      </exmg-sortable>
-      <h2>Cards (Animated))</h2>
-      <exmg-sortable item-selector="div.box" animation-enabled @dom-order-change="${this.orderChange}">
-        <div class="boxes">
-          ${this.users.map((user) => {
-            return html` <div class="box">${user.firstName}</div> `;
-          })}
+      <div class="main centered">
+        <div>
+          <h2>List (Animated)</h2>
+          <exmg-sortable animation-enabled orientation="vertical" @dom-order-change="${this.orderChange}">
+            <ul>
+              ${this.users.map((user) => {
+                return html`
+                  <li>
+                    <strong>${user.firstName}</strong>
+                    <span>${user.lastName}</span>
+                    <span>${user.email}</span>
+                  </li>
+                `;
+              })}
+            </ul>
+          </exmg-sortable>
+          <h2>Cards (Animated))</h2>
+          <exmg-sortable item-selector="div.box" animation-enabled @dom-order-change="${this.orderChange}">
+            <div class="boxes">
+              ${this.users.map((user) => {
+                return html` <div class="box">${user.firstName}</div> `;
+              })}
+            </div>
+          </exmg-sortable>
+
+          <h2>Table with custom handle</h2>
+          <exmg-sortable
+            item-selector="tr"
+            handle-selector=".handle"
+            orientation="vertical"
+            @dom-order-change="${this.orderChange}"
+          >
+            <table>
+              ${this.users.map((user) => {
+                return html`
+                  <tr>
+                    <td class="handle">
+                      <md-icon style="pointer-events: none; margin: 6px;">drag_handle</md-icon>
+                    </td>
+                    <td>${user.firstName}</td>
+                    <td>${user.lastName}</td>
+                    <td>${user.email}</td>
+                  </tr>
+                `;
+              })}
+            </table>
+          </exmg-sortable>
+
+          <h2>Table with custom handle and external sortable node host</h2>
+          <table id="externalSortableHost">
+            ${this.users.map((user) => {
+              return html`
+                <tr>
+                  <td class="handle"><span></span></td>
+                  <td>${user.firstName}</td>
+                  <td>${user.lastName}</td>
+                  <td>${user.email}</td>
+                </tr>
+              `;
+            })}
+          </table>
+          <exmg-sortable
+            item-selector="tr"
+            handle-selector=".handle span"
+            orientation="vertical"
+            @dom-order-change="${this.orderChange}"
+            .sortableHostNode="${this.externalSortableHost}"
+          ></exmg-sortable>
+
+          <h2>Manipulate sorted data</h2>
+          <exmg-sortable item-selector="div.box" @dom-order-change="${this.orderChange}">
+            <div class="boxes">
+              ${this.users.map((user) => {
+                return html`
+                  <div class="box">
+                    ${user.firstName}<br />
+                    Moves: ${user.amountOfMoves || 0}
+                  </div>
+                `;
+              })}
+            </div>
+          </exmg-sortable>
         </div>
-      </exmg-sortable>
-
-      <h2>Table with custom handle</h2>
-      <exmg-sortable
-        item-selector="tr"
-        handle-selector=".handle"
-        orientation="vertical"
-        @dom-order-change="${this.orderChange}"
-      >
-        <table>
-          ${this.users.map((user) => {
-            return html`
-              <tr>
-                <td class="handle">
-                  <md-icon style="pointer-events: none; margin: 6px;">drag_handle</md-icon>
-                </td>
-                <td>${user.firstName}</td>
-                <td>${user.lastName}</td>
-                <td>${user.email}</td>
-              </tr>
-            `;
-          })}
-        </table>
-      </exmg-sortable>
-
-      <h2>Table with custom handle and external sortable node host</h2>
-      <table id="externalSortableHost">
-        ${this.users.map((user) => {
-          return html`
-            <tr>
-              <td class="handle"><span></span></td>
-              <td>${user.firstName}</td>
-              <td>${user.lastName}</td>
-              <td>${user.email}</td>
-            </tr>
-          `;
-        })}
-      </table>
-      <exmg-sortable
-        item-selector="tr"
-        handle-selector=".handle span"
-        orientation="vertical"
-        @dom-order-change="${this.orderChange}"
-        .sortableHostNode="${this.externalSortableHost}"
-      ></exmg-sortable>
-
-      <h2>Manipulate sorted data</h2>
-      <exmg-sortable item-selector="div.box" @dom-order-change="${this.orderChange}">
-        <div class="boxes">
-          ${this.users.map((user) => {
-            return html`
-              <div class="box">
-                ${user.firstName}<br />
-                Moves: ${user.amountOfMoves || 0}
-              </div>
-            `;
-          })}
-        </div>
-      </exmg-sortable>
+      </div>
     `;
   }
 }
