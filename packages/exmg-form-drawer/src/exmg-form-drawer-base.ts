@@ -151,6 +151,7 @@ export class ExmgFormDrawerBase extends ExmgElement {
   }
 
   reset() {
+    this.errorMessage = null;
     const form = this.getForm();
     form!.reset();
   }
@@ -191,7 +192,7 @@ export class ExmgFormDrawerBase extends ExmgElement {
   }
 
   private handleCancelBtnClick() {
-    this.getForm()!.reset();
+    this.reset();
     this.close();
   }
 

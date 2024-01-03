@@ -1,0 +1,46 @@
+:host {
+  --_exmg-navigation-item-background-color-selected: var(
+    --exmg-navigation-item-background-color-selected,
+    var(--md-sys-color-secondary)
+  );
+  --_exmg-navigation-item-color-selected: var(--exmg-navigation-item-color-selected, var(--md-sys-color-on-secondary));
+}
+
+exmg-navigation-drawer {
+  --md-list-container-color: none;
+  --md-list-item-label-text-color: var(--md-sys-color-on-surface-variant);
+  --md-list-item-supporting-text-color: var(--md-sys-color-on-surface-variant);
+  --md-list-item-trailing-supporting-text-color: var(--md-sys-color-on-surface-variant);
+  --md-list-item-container-shape: 24px;
+}
+
+exmg-navigation-drawer md-list-item {
+  margin-right: 8px;
+  margin-left: 8px;
+  border-radius: 24px;
+  --md-list-item-container-shape: 24px;
+}
+
+exmg-navigation-drawer md-list-item[selected] {
+  --md-list-item-label-text-color: var(--_exmg-navigation-item-color-selected);
+  background-color: var(--_exmg-navigation-item-background-color-selected);
+  --md-list-item-leading-icon-color: var(--_exmg-navigation-item-color-selected)
+  --md-list-item-trailing-icon-color: var(--_exmg-navigation-item-color-selected);
+}
+
+exmg-navigation-drawer md-list-item.collapsed-item[selected] {
+  --md-list-item-label-text-color: var(--_exmg-navigation-item-color-selected);
+  background-color: var(--_exmg-navigation-item-background-color-selected);
+}
+
+exmg-navigation-drawer md-list-item[selected] md-icon {
+  color: var(--md-sys-color-primary);
+}
+
+.sub-menu {
+  margin-left: 0.8rem;
+}
+
+.left-margin {
+  margin-left: 2.5rem;
+}

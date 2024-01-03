@@ -1,8 +1,14 @@
 {
   "name": "@exmg/exmg-form",
-  "version": "8.1.37",
+  "version": "9.0.0",
   "type": "module",
-  "description": "Form helper element",
+  "main": "index.js",
+  "module": "index.js",
+  "exports": {
+    ".": "./index.js",
+    "./exmg-form.js": "./src/exmg-form.js"
+  },
+  "description": "Form element",
   "contributors": [
     "Ex Machina"
   ],
@@ -11,7 +17,6 @@
     "lit",
     "form"
   ],
-  "main": "exmg-form.js",
   "files": [
     "**/*.scss",
     "**/*.js",
@@ -25,20 +30,12 @@
   "license": "MIT",
   "dependencies": {
     "@exmg/exmg-button": "file:../exmg-button",
-    "@exmg/lit-base": "^1.1.8",
-    "@polymer/iron-form": "^3.0.1",
-    "lit": "^2.0.0",
-    "tslib": "^2.0.1"
+    "@material/typography": "^14.0.0",
+    "lit": "^3.0.0",
+    "tslib": "^2.6.2"
   },
   "devDependencies": {
-    "@exmg/exmg-markdown-editor": "file:../exmg-markdown-editor",
-    "@exmg/exmg-paper-combobox": "^8.0.1",
-    "@exmg/exmg-paper-token-input": "^8.0.0",
-    "@material/mwc-tab": "^0.25.2",
-    "@material/mwc-tab-bar": "^0.25.2",
-    "@polymer/paper-checkbox": "^3.0.2",
-    "@polymer/paper-input": "^3.2.1",
-    "@polymer/paper-item": "^3.0.1"
+    "@exmg/lit-cli": "1.1.13"
   },
   "scripts": {
     "build:styles": "exmg-lit-cli sass -f \"./**/*.scss\""

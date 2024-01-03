@@ -80,6 +80,9 @@
       "path": "packages/exmg-form-drawer"
     },
     {
+      "path": "packages/exmg-form"
+    },
+    {
       "path": "packages/exmg-breadcrumbs"
     },
     {
@@ -90,6 +93,12 @@
     },
     {
       "path": "packages/exmg-upload"
+    },
+    {
+      "path": "packages/exmg-navigation"
+    },
+    {
+      "path": "packages/exmg-search"
     },
     {
       "path": "demo"

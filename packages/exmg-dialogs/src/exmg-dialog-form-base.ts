@@ -27,35 +27,6 @@ export class ExmgDialogFormBase extends ExmgElement {
    */
   @property({ type: Boolean }) open = false;
 
-  /**
-   * Setting fullscreen displays the dialog fullscreen on small screens.
-   * This can be customized via the `fullscreenBreakpoint` property.
-   * When showing fullscreen, the header will take up less vertical space, and
-   * the dialog will have a `showing-fullscreen`attribute, allowing content to
-   * be styled in this state.
-   *
-   * Dialogs can be sized by setting:
-   *
-   * * --md-dialog-container-min-block-size
-   * * --md-dialog-container-max-block-size
-   * * --md-dialog-container-min-inline-size
-   * * --md-dialog-container-max-inline-size
-   *
-   * These are typically configured via media queries and are independent of the
-   * fullscreen setting.
-   */
-  @property({ type: Boolean }) fullscreen = true;
-
-  /**
-   * A media query string specifying the breakpoint at which the dialog
-   * should be shown fullscreen. Note, this only applies when the `fullscreen`
-   * property is set.
-   *
-   * By default, the dialog is shown fullscreen on screens less than 600px wide
-   * or 400px tall.
-   */
-  @property() fullscreenBreakpoint = '(max-width: 600px), (max-height: 400px)';
-
   @property({ type: String }) type?: 'alert' | undefined;
 
   /**
@@ -211,7 +182,12 @@ export class ExmgDialogFormBase extends ExmgElement {
 
   protected render() {
     const { draggable, type } = this;
-    return html` <md-dialog .draggable=${draggable} .type=${type} .open=${this.open}>
+    return html` <md-dialog
+      .draggable=${draggable}
+      .type=${type}
+      .open=${this.open}
+      @closed=${() => (this.open = false)}
+    >
       <span slot="headline">
         <md-icon-button @click=${() => this.close()}><md-icon>close</md-icon></md-icon-button>
         <span class="headline">${this.title}</span>

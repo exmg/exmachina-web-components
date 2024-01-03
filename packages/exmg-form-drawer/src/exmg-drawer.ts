@@ -6,16 +6,6 @@ import '@polymer/neon-animation/animations/slide-right-animation.js';
 import '@polymer/paper-dialog/paper-dialog.js';
 import { style } from './styles/exmg-drawer-styles-css.js';
 
-/**
- * ### Styling
- * The following custom properties are available for styling:
- *
- * Custom property | Description | Default
- * ----------------|-------------|----------
- * `--exmg-drawer-max-width` | max width of drawer | `max width from style attribute or 547px`
- * `--exmg-drawer-color` | drawer text color | `var(--mdc-theme-on-surface, #02182b))`
- * `--exmg-drawer-bg-color` | drawer background color | `var(--mdc-theme-surface, #ffffff))`
- */
 @customElement('exmg-drawer')
 export class ExmgDrawer extends LitElement {
   /**

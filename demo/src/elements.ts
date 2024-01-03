@@ -28,7 +28,7 @@
       url: 'https://www.npmjs.com/package/@exmg/exmg-dialogs',
     },{
       name: '@exmg/exmg-form',
-      version: '8.1.37',
+      version: '9.0.0',
       url: 'https://www.npmjs.com/package/@exmg/exmg-form',
     },{
       name: '@exmg/exmg-form-drawer',
@@ -43,13 +43,17 @@
       version: '8.1.36',
       url: 'https://www.npmjs.com/package/@exmg/exmg-markdown-editor',
     },{
-      name: '@exmg/exmg-markdown-editor-old',
-      version: '8.1.36',
-      url: 'https://www.npmjs.com/package/@exmg/exmg-markdown-editor-old',
+      name: '@exmg/exmg-navigation',
+      version: '8.1.33',
+      url: 'https://www.npmjs.com/package/@exmg/exmg-navigation',
     },{
       name: '@exmg/exmg-radio-group',
       version: '8.1.35',
       url: 'https://www.npmjs.com/package/@exmg/exmg-radio-group',
+    },{
+      name: '@exmg/exmg-search',
+      version: '1.0.0',
+      url: 'https://www.npmjs.com/package/@exmg/exmg-search',
     },{
       name: '@exmg/exmg-sidemenu',
       version: '8.1.36',

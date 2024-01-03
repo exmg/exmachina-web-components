@@ -55,7 +55,6 @@ export class BreadcrumbsController {
   }
 
   setBreadcrumbs(e: CustomEvent<{ items: BreadcrumbItem[] }>) {
-    console.log('BONJOUR', this.breadcrumbsElement);
     this.breadcrumbsElement && (this.breadcrumbsElement.items = e.detail.items);
   }
 

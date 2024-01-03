@@ -2,7 +2,7 @@ import { customElement } from 'lit/decorators/custom-element.js';
 import '@material/web/progress/circular-progress.js';
 import { ExmgFilledButtonBase } from './exmg-filled-button-base.js';
 
-import { style } from './styles/exmg-button-styles-css.js';
+import { style } from './styles/exmg-filled-button-styles-css.js';
 
 /**
  * exmg-filled-button

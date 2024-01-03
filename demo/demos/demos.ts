@@ -6,6 +6,7 @@ import './exmg-collapsed/exmg-collapsed-demo.js';
 import './exmg-copy-to-clipboard/exmg-copy-to-clipboard-demo.js';
 import './exmg-dialogs/exmg-dialogs-demo.js';
 import './exmg-form-drawer/exmg-form-drawer-demo.js';
+import './exmg-form/exmg-form-demo.js';
 import './exmg-grid/exmg-grid-demo.js';
 import './exmg-radio-group/exmg-radio-group-demo.js';
 import './exmg-sidemenu/exmg-sidemenu-demo.js';
@@ -13,6 +14,8 @@ import './exmg-snackbar/exmg-snackbar-demo.js';
 import './exmg-tooltip/exmg-tooltip-demo.js';
 import './exmg-upload/exmg-upload-demo.js';
 import './exmg-sortable/exmg-sortable-demo.js';
+import './exmg-search/exmg-search-demo.js';
+import './exmg-navigation/exmg-navigation-demo.js';
 import './exmg-markdown-editor/exmg-markdown-editor-demo.js';
 
 export const demos = {
@@ -33,6 +36,9 @@ export const demos = {
   },
   'exmg-form-drawer-demo': {
     tag: literal`exmg-form-drawer-demo`,
+  },
+  'exmg-form-demo': {
+    tag: literal`exmg-form-demo`,
   },
   'exmg-grid-demo': {
     tag: literal`exmg-grid-demo`,
@@ -57,5 +63,11 @@ export const demos = {
   },
   'exmg-upload-demo': {
     tag: literal`exmg-upload-demo`,
+  },
+  'exmg-search-demo': {
+    tag: literal`exmg-search-demo`,
+  },
+  'exmg-navigation-demo': {
+    tag: literal`exmg-navigation-demo`,
   },
 };

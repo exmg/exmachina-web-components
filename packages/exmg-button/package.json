@@ -6,11 +6,12 @@
   "module": "index.js",
   "exports": {
     ".": "./index.js",
-    "./exmg-filled-button.js": "./src/exmg-filled-button.js"
+    "./exmg-filled-button.js": "./src/exmg-filled-button.js",
+    "./exmg-text-button.js": "./src/exmg-text-button.js"
   },
   "dependencies": {
     "@exmg/lit-base": "^2.0.1",
-    "@material/web": "^1.0.0",
+    "@material/web": "^1.0.1",
     "lit": "^3.0.0",
     "tslib": "^2.6.2"
   },

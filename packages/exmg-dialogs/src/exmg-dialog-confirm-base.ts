@@ -163,7 +163,12 @@ export class ExmgDialogConfirmBase extends ExmgElement {
 
   protected override render() {
     const { type, draggable } = this;
-    return html` <md-dialog .type=${type} .draggable=${draggable} .open=${this.open}>
+    return html` <md-dialog
+      .type=${type}
+      .draggable=${draggable}
+      .open=${this.open}
+      @closed=${() => (this.open = false)}
+    >
       <md-icon slot="headline-prefix">${this.icon}</md-icon>
       <span slot="headline">${this.title}</span>
       <div slot="content"><span class="description">${this.message}</span></div>

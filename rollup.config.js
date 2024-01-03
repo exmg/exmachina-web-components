@@ -20,9 +20,11 @@ const elements = [
   'exmg-form',
   'exmg-form-drawer',
   'exmg-collapsed',
+  'exmg-search',
   'exmg-snackbar',
   'exmg-breadcrumbs',
   'exmg-markdown-editor',
+  'exmg-navigation',
   'exmg-upload',
 ];
 

@@ -1,0 +1,18 @@
+:host {
+  display: block;
+}
+
+mwc-top-app-bar-fixed {
+  --mdc-theme-primary: var(--exmg-navigation-toolbar-primary, var(--md-sys-color-background));
+  --mdc-theme-on-primary: var(--exmg-navigation-toolbar-on-primary, var(--md-sys-color-on-background));
+}
+
+md-icon {
+  fill: var(--exmg-navigation-toolbar-on-primary, var(--md-sys-color-on-background));
+}
+
+@media screen and (min-width: 961px) {
+  slot[name='navigationIcon'] {
+    display: none;
+  }
+}

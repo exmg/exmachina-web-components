@@ -5,6 +5,8 @@ import '@material/web/button/outlined-button.js';
 import '@material/web/list/list.js';
 import '@material/web/list/list-item.js';
 import '@material/web/icon/icon.js';
+import './settings-example-list.js';
+//import '@material/web/labs/'
 
 export const downArrowIcon = html`
   <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24">
@@ -98,6 +100,7 @@ export class CollapsedDemo extends LitElement {
   render() {
     return html`
       <div class="main">
+        <settings-example-list></settings-example-list>
         <h1>Standard</h1>
         <div
           role="button"

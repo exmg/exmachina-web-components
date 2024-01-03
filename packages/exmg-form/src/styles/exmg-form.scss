@@ -1,0 +1,99 @@
+.section-title {
+  line-height: 1.5rem;
+  font-size: 1rem;
+  letter-spacing: 0.00625em;
+  font-weight: 500;
+  color: var(--md-sys-color-on-surface);
+  padding-bottom: 8px;
+}
+
+.aside {
+  --_exmg-form-aside-font-size: var(--exmg-form-aside-font-size, 0.875rem);
+  --_exmg-form-aside-line-height: var(--exmg-form-aside-line-height, 1.25rem);
+  --_exmg-form-aside-letter-spacing: var(--exmg-form-aside-letter-spacing, 0.0142857143em);
+  --_exmg-form-aside-font-weight: var(--exmg-form-aside-font-weight, 400);
+  --_exmg-form-aside-margin-left: var(--exmg-form-aside-margin-left, 1rem);
+  --_exmg-form-aside-margin-right: var(--exmg-form-aside-margin-right, 5rem);
+  --_exmg-form-aside-min-width: var(--exmg-form-aside-min-width, 180px);
+  line-height: var(--_exmg-form-aside-line-height);
+  font-size: var(--_exmg-form-aside-font-size);
+  letter-spacing: var(--_exmg-form-aside-letter-spacing);
+  font-weight: var(--_exmg-form-aside-font-weight);
+  color: var(--md-sys-color-on-surface);
+  border-left: 1px solid var(--md-sys-color-outline-variant);
+  box-sizing: border-box;
+  margin-left: var(--_exmg-form-aside-margin-left);
+  margin-right: var(--_exmg-form-aside-margin-right);
+  min-height: 2rem;
+  padding-left: 1rem;
+  vertical-align: top;
+  height: 100%;
+  min-width: var(--_exmg-form-aside-min-width);
+  flex: 0;
+}
+
+form {
+  margin: 0 1rem;
+  width: 100%;
+}
+
+form .row {
+  display: flex;
+  gap: 8px;
+  align-items: flex-start;
+}
+
+form .row > * {
+  flex: 1;
+  height: fit-content;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 0.5rem;
+}
+
+form > * {
+  display: contents;
+}
+
+.actions > * {
+  margin-right: 8px;
+}
+
+.no-flex {
+  display: block;
+}
+
+.extra-margin {
+  margin-top: 2rem;
+  display: block;
+}
+
+label.checkbox {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.toolbar {
+  display: flex;
+  align-items: center;
+  padding: 8px 4px 8px 16px;
+  height: 56px;
+  box-sizing: border-box;
+}
+
+.toolbar .title {
+  line-height: 1.5rem;
+  font-size: 1rem;
+  letter-spacing: 0.00625em;
+  font-weight: 500;
+  color: var(--md-sys-color-on-surface);
+  box-sizing: border-box;
+  overflow-wrap: break-word;
+}

@@ -1,41 +1,131 @@
-import { LitElement, html } from 'lit';
-import { customElement, property } from 'lit/decorators.js';
-import '@material/mwc-tab';
-import '@material/mwc-tab-bar';
+import { LitElement, html, css } from 'lit';
+import { customElement } from 'lit/decorators.js';
 
-import './tab-1.js';
-import './tab-2.js';
-import './tab-3.js';
+import '@exmg/exmg-form/exmg-form.js';
+import { ExmgForm, exmgFormStyles } from '@exmg/exmg-form';
 
-@customElement('form-demo')
-export class FormDemo extends LitElement {
-  @property({ type: Number })
-  private activeTabIndex = 1;
+import './form-base-example.js';
+import './settings-example.js';
 
-  renderTab() {
-    switch (this.activeTabIndex) {
-      case 0:
-        return html` <tab-1></tab-1> `;
-      case 1:
-        return html` <tab-2></tab-2> `;
-      case 2:
-        return html` <tab-3></tab-3> `;
+function sleep(ms) {
+  return new Promise((resolve) => setTimeout(resolve, ms));
+}
+
+@customElement('exmg-form-demo')
+export class ExmgFormDemo extends LitElement {
+  static styles = [
+    exmgFormStyles,
+    css`
+      :host {
+        display: block;
+      }
+
+      .main {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+      }
+
+      .main > div {
+        width: 100%;
+      }
+
+      .card {
+        background: var(--md-sys-color-surface-container);
+        max-width: 800px;
+        padding: 0rem;
+        margin-top: 2rem;
+      }
+    `,
+  ];
+
+  async doFormAction(e: CustomEvent<unknown>) {
+    const formDialog = e.target as ExmgForm;
+    try {
+      formDialog.submitting = true;
+
+      await sleep(1000);
+      throw new Error('Error saving data');
+    } catch (error) {
+      formDialog.showError(error instanceof Error ? error.message : 'Unknown error');
+      console.error(error instanceof Error ? error.message : 'Unknown error');
+    } finally {
+      formDialog.submitting = false;
     }
-    return html` unknown `;
+  }
+
+  renderForm1() {
+    return html`
+      <div class="card">
+        <exmg-form class="has-aside" @dialog-submit=${this.doFormAction}>
+          <div slot="toolbar" class="toolbar"><div class="title">Create contact</div></div>
+          <form>
+            <div class="row">
+              <md-filled-text-field name="firstname" dialogFocus label="First Name" required></md-filled-text-field>
+              <md-filled-text-field name="lastname" label="Last Name" required></md-filled-text-field>
+            </div>
+            <div class="row">
+              <md-filled-text-field name="company" label="Company"></md-filled-text-field>
+              <md-filled-text-field name="amount" label="Amount" type="number" min="0" max="10"></md-filled-text-field>
+            </div>
+            <md-filled-text-field
+              name="email"
+              label="Email"
+              pattern="[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,4}$"
+              required
+            ></md-filled-text-field>
+            <md-filled-text-field name="phone" label="Phone" required></md-filled-text-field>
+          </form>
+          <div slot="aside">
+            Ex Machina will send notices about the Data <a href="#">Processing Terms</a> and EU General Data Protection
+            Regulation to your primary contact. If your organization has a data protection officer or an EU
+            representative, add their contact information.
+          </div>
+        </exmg-form>
+      </div>
+    `;
+  }
+
+  renderForm2() {
+    return html`
+      <div class="card">
+        <exmg-form @dialog-submit=${this.doFormAction}>
+          <div slot="toolbar" class="toolbar"><div class="title">Create contact</div></div>
+          <form>
+            <div class="row">
+              <md-filled-text-field name="firstname" dialogFocus label="First Name" required></md-filled-text-field>
+              <md-filled-text-field name="lastname" label="Last Name" required></md-filled-text-field>
+            </div>
+            <div class="row">
+              <md-filled-text-field name="company" label="Company"></md-filled-text-field>
+              <md-filled-text-field name="amount" label="Amount" type="number" min="0" max="10"></md-filled-text-field>
+            </div>
+            <md-filled-text-field
+              name="email"
+              label="Email"
+              pattern="[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,4}$"
+              required
+            ></md-filled-text-field>
+            <md-filled-text-field name="phone" label="Phone" required></md-filled-text-field>
+          </form>
+        </exmg-form>
+      </div>
+    `;
+  }
+
+  renderForm3() {
+    return html` <div class="card"><form-base-example></form-base-example></div> `;
+  }
+
+  renderForm4() {
+    return html` <div class="card"><settings-example></settings-example></div> `;
   }
 
   render() {
     return html`
-      <mwc-tab-bar
-        activeIndex="1"
-        @MDCTabBar:activated=${(e: CustomEvent<{ index: number }>) => (this.activeTabIndex = e.detail.index)}
-      >
-        <mwc-tab label="one"></mwc-tab>
-        <mwc-tab label="two"></mwc-tab>
-        <mwc-tab label="three"></mwc-tab>
-      </mwc-tab-bar>
-
-      <main>${this.renderTab()}</main>
+      <div class="main">${this.renderForm4()}${this.renderForm1()}${this.renderForm2()}${this.renderForm3()}</div>
     `;
   }
 }
