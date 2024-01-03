@@ -1,8 +1,8 @@
 :host {
-    --exmg-snackbar-positive-background-color: #12805c;
-    --exmg-snackbar-negative-background-color: #c9252d;
-    --exmg-snackbar-info-background-color: #0d66d0;
-    --exmg-snackbar-text-color: #fff;
+  --exmg-snackbar-positive-background-color: #12805c;
+  --exmg-snackbar-negative-background-color: #c9252d;
+  --exmg-snackbar-info-background-color: #0d66d0;
+  --exmg-snackbar-text-color: #fff;
 }
 
 .mdc-snackbar--positive {
@@ -27,4 +27,5 @@
 
 slot[name='icon']::slotted(*) {
   margin-left: 12px;
+  min-width: 24px;
 }

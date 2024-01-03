@@ -15,17 +15,15 @@ import './search-toolbar-demo.js';
 import '../../src/theme/color-pallet.js';
 import { ExmgBaseGridDemo } from './exmg-grid-base.js';
 
+import { style } from '../demo-page-styles-css.js';
+
 @customElement('exmg-grid-demo')
 export class ExmgGridDemo extends ExmgBaseGridDemo {
-  // language=CSS
   static styles = [
+    style,
     tableStyles,
     demoStyles,
     css`
-      :host {
-        display: block;
-        max-width: 1000px;
-      }
       .expandable-toggle {
         cursor: pointer;
       }
@@ -38,28 +36,32 @@ export class ExmgGridDemo extends ExmgBaseGridDemo {
 
   protected render() {
     return html`
-      <h4>Complex grid with toolbar</h4>
-      <demo-complex-grid-with-slotted-toolbar></demo-complex-grid-with-slotted-toolbar>
+      <div class="main centered">
+        <div>
+          <h4>Complex grid with toolbar</h4>
+          <demo-complex-grid-with-slotted-toolbar></demo-complex-grid-with-slotted-toolbar>
 
-      <h4>Complex grid with sortable rows</h4>
-      <demo-complex-grid-sortable></demo-complex-grid-sortable>
+          <h4>Complex grid with sortable rows</h4>
+          <demo-complex-grid-sortable></demo-complex-grid-sortable>
 
-      <h4>Complex grid including actions and filters</h4>
-      <demo-complex-grid></demo-complex-grid>
-      <!-- 
+          <h4>Complex grid including actions and filters</h4>
+          <demo-complex-grid></demo-complex-grid>
+          <!-- 
       <h1>Base Toolbar</h1>
       <exmg-grid-base-toolbar-demo></exmg-grid-base-toolbar-demo>
   
       <h1>Pagination</h1>
       <exmg-grid-pagination-demo></exmg-grid-pagination-demo> -->
 
-      <!-- <h1>Smart Toolbar</h1>
+          <!-- <h1>Smart Toolbar</h1>
       <exmg-grid-smart-toolbar-demo></exmg-grid-smart-toolbar-demo> -->
 
-      <h4>Searchbar in toolbar</h4>
-      <search-toolbar-demo></search-toolbar-demo>
+          <h4>Searchbar in toolbar</h4>
+          <search-toolbar-demo></search-toolbar-demo>
 
-      <color-pallet></color-pallet>
+          <color-pallet></color-pallet>
+        </div>
+      </div>
     `;
   }
 }

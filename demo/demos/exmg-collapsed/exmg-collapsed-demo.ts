@@ -6,7 +6,7 @@ import '@material/web/list/list.js';
 import '@material/web/list/list-item.js';
 import '@material/web/icon/icon.js';
 import './settings-example-list.js';
-//import '@material/web/labs/'
+import { style } from '../demo-page-styles-css.js';
 
 export const downArrowIcon = html`
   <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24">
@@ -38,17 +38,10 @@ export class CollapsedDemo extends LitElement {
   ];
 
   static styles = [
+    style,
     css`
       md-outlined-button {
         width: 100%;
-      }
-      .main {
-        box-sizing: border-box;
-        padding: 1rem;
-      }
-      h1 {
-        color: var(--md-sys-color-on-surface);
-        padding-top: 1.5rem;
       }
       .button {
         display: flex;
@@ -99,77 +92,79 @@ export class CollapsedDemo extends LitElement {
 
   render() {
     return html`
-      <div class="main">
-        <settings-example-list></settings-example-list>
-        <h1>Standard</h1>
-        <div
-          role="button"
-          tabindex="0"
-          class="button"
-          aria-expanded=${this.opened}
-          @click=${() => (this.opened = !this.opened)}
-          aria-controls="collapsed"
-        >
-          See more
-          <md-icon class="icon">expand_more</md-icon>
+      <div class="main centered">
+        <div>
+          <settings-example-list></settings-example-list>
+          <h1>Standard</h1>
+          <div
+            role="button"
+            tabindex="0"
+            class="button"
+            aria-expanded=${this.opened}
+            @click=${() => (this.opened = !this.opened)}
+            aria-controls="collapsed"
+          >
+            See more
+            <md-icon class="icon">expand_more</md-icon>
+          </div>
+          <exmg-collapsed id="collapsed" ?opened=${this.opened}
+            ><p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+              dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
+              ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
+              fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
+              mollit anim id est laborum.
+            </p>
+          </exmg-collapsed>
+
+          <h1>Material</h1>
+          <md-outlined-button
+            role="button"
+            tabindex="0"
+            aria-expanded=${this.openedMaterial}
+            @click=${() => (this.openedMaterial = !this.openedMaterial)}
+            aria-controls="collapsed"
+          >
+            See more
+            <md-icon slot="icon" class="icon">expand_more</md-icon>
+          </md-outlined-button>
+          <exmg-collapsed id="collapsed" ?opened=${this.openedMaterial}
+            ><p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+              dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
+              ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
+              fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
+              mollit anim id est laborum.
+            </p>
+          </exmg-collapsed>
+
+          <h1>FAQ</h1>
+          <md-list>
+            ${this.faqs.map((faq) => {
+              return html`
+                <md-list-item
+                  role="button"
+                  tabindex="0"
+                  aria-expanded=${faq.opened}
+                  @click=${() => this.handleOpen(faq.id)}
+                  aria-controls="collapsed"
+                >
+                  ${faq.title}
+                  <md-icon slot="end" class="icon">expand_more</md-icon>
+                </md-list-item>
+                <exmg-collapsed id="collapsed" ?opened=${faq.opened}
+                  ><p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
+                    et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+                    aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+                    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+                    culpa qui officia deserunt mollit anim id est laborum.
+                  </p>
+                </exmg-collapsed>
+              `;
+            })}
+          </md-list>
         </div>
-        <exmg-collapsed id="collapsed" ?opened=${this.opened}
-          ><p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-            dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
-            ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat
-            nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit
-            anim id est laborum.
-          </p>
-        </exmg-collapsed>
-
-        <h1>Material</h1>
-        <md-outlined-button
-          role="button"
-          tabindex="0"
-          aria-expanded=${this.openedMaterial}
-          @click=${() => (this.openedMaterial = !this.openedMaterial)}
-          aria-controls="collapsed"
-        >
-          See more
-          <md-icon slot="icon" class="icon">expand_more</md-icon>
-        </md-outlined-button>
-        <exmg-collapsed id="collapsed" ?opened=${this.openedMaterial}
-          ><p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-            dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
-            ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat
-            nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit
-            anim id est laborum.
-          </p>
-        </exmg-collapsed>
-
-        <h1>FAQ</h1>
-        <md-list>
-          ${this.faqs.map((faq) => {
-            return html`
-              <md-list-item
-                role="button"
-                tabindex="0"
-                aria-expanded=${faq.opened}
-                @click=${() => this.handleOpen(faq.id)}
-                aria-controls="collapsed"
-              >
-                ${faq.title}
-                <md-icon slot="end" class="icon">expand_more</md-icon>
-              </md-list-item>
-              <exmg-collapsed id="collapsed" ?opened=${faq.opened}
-                ><p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-                  dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-                  aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
-                  dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui
-                  officia deserunt mollit anim id est laborum.
-                </p>
-              </exmg-collapsed>
-            `;
-          })}
-        </md-list>
       </div>
     `;
   }

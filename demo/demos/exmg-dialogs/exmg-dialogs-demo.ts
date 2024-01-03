@@ -8,6 +8,7 @@ import { ExmgDialogConfirm } from '@exmg/exmg-dialogs/exmg-dialog-confirm.js';
 import '@exmg/exmg-dialogs/exmg-dialog-form.js';
 import { ExmgDialogForm } from '@exmg/exmg-dialogs/exmg-dialog-form.js';
 import '@material/web/textfield/filled-text-field.js';
+import { style } from '../demo-page-styles-css.js';
 
 import './item-delete-confirm-dialog.js';
 import './item-create-form-dialog.js';
@@ -23,22 +24,8 @@ function sleep(ms) {
 @customElement('exmg-dialogs-demo')
 export class DialogDemo extends LitElement {
   static styles = [
+    style,
     css`
-      :host {
-        font-family: var(--mdc-typography-headline3-font-family, var(--mdc-typography-font-family, Roboto, sans-serif));
-        font-size: 15px;
-      }
-      .main {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        width: 100%;
-      }
-      .main > div {
-        width: 100%;
-        border-bottom: 1px solid #aaa;
-      }
       .example > * {
         padding: 8px;
       }
@@ -117,7 +104,7 @@ export class DialogDemo extends LitElement {
 
   render() {
     return html`
-      <div class="main">
+      <div class="main centered">
         <div class="example">
           <md-filled-button @click=${clickHandler}>Open Confirm</md-filled-button>
           <exmg-dialog-confirm

@@ -11,6 +11,8 @@ import './exmg-upload-customize-demo.js';
 import './exmg-upload-image-demo.js';
 import './exmg-input-demo.js';
 
+import { style } from '../demo-page-styles-css.js';
+
 @customElement('exmg-upload-demo')
 export class ExmgUploadDemo extends LitElement {
   @query('md-tabs')
@@ -20,11 +22,9 @@ export class ExmgUploadDemo extends LitElement {
   selectedTab = 0;
 
   static styles = [
+    style,
     css`
-      :host {
-        display: block;
-      }
-      main {
+      .content {
         margin-top: 3rem;
       }
     `,
@@ -53,17 +53,19 @@ export class ExmgUploadDemo extends LitElement {
 
   render() {
     return html`
-      <div class="centered">
-        <md-tabs .selected="${this.selectedTab}" @change=${this._handleChange}>
-          <md-primary-tab> Configurable upload </md-primary-tab>
-          <md-primary-tab> Dialog example </md-primary-tab>
-          <md-primary-tab> Custom upload adapter </md-primary-tab>
-          <md-primary-tab> Image features </md-primary-tab>
-          <md-primary-tab> Customize upload </md-primary-tab>
-          <md-primary-tab> Input upload </md-primary-tab>
-        </md-tabs>
+      <div class="main centered">
+        <div>
+          <md-tabs .selected="${this.selectedTab}" @change=${this._handleChange}>
+            <md-primary-tab> Configurable upload </md-primary-tab>
+            <md-primary-tab> Dialog example </md-primary-tab>
+            <md-primary-tab> Custom upload adapter </md-primary-tab>
+            <md-primary-tab> Image features </md-primary-tab>
+            <md-primary-tab> Customize upload </md-primary-tab>
+            <md-primary-tab> Input upload </md-primary-tab>
+          </md-tabs>
 
-        <main>${this.renderContent()}</main>
+          <div class="content">${this.renderContent()}</div>
+        </div>
       </div>
     `;
   }

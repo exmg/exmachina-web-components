@@ -1,14 +1,13 @@
 import { LitElement, html, css } from 'lit';
 import { customElement } from 'lit/decorators/custom-element.js';
 import '@exmg/exmg-tooltip/exmg-tooltip.js';
+import { style } from '../demo-page-styles-css.js';
 
 @customElement('exmg-tooltip-demo')
 export class ExmgTooltipDemo extends LitElement {
   static styles = [
+    style,
     css`
-      :host {
-        color: var(--md-sys-color-on-surface);
-      }
       div {
         margin: 1rem;
       }
@@ -57,26 +56,7 @@ export class ExmgTooltipDemo extends LitElement {
   ];
   render() {
     return html`
-      <style>
-        :host {
-          font-family: var(
-            --mdc-typography-headline3-font-family,
-            var(--mdc-typography-font-family, Roboto, sans-serif)
-          );
-          font-size: 15px;
-        }
-        .main {
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          justify-content: center;
-          width: 100%;
-        }
-        .main > div {
-          width: 100%;
-        }
-      </style>
-      <div class="main">
+      <div class="main centered">
         <div>
           <h1>Simple Usage</h1>
 

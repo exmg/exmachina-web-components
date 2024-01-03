@@ -6,6 +6,8 @@
 
   display: none;
   position: fixed;
+  top: 0;
+  left: 0;
   flex-direction: column;
   justify-content: space-between;
   height: 100%;
@@ -23,4 +25,11 @@
 
 .nav {
   flex: 1;
+}
+
+.bottom {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  justify-content: flex-end;
 }

@@ -1,11 +1,41 @@
-import { LitElement, html } from 'lit';
+import { LitElement, css, html } from 'lit';
 import './exmg-icons.js';
 import '@exmg/exmg-radio-group/exmg-radio-group.js';
 import '@exmg/exmg-radio-group/exmg-radio-group-item.js';
 import { customElement, property } from 'lit/decorators.js';
+import { style } from '../demo-page-styles-css.js';
 
 @customElement('exmg-radio-group-demo')
 export class ExmgRadioGroupDemo extends LitElement {
+  static styles = [
+    style,
+    css`
+      .g6 {
+        flex-basis: calc(50% - 1rem);
+        max-width: calc(50% - 1rem);
+      }
+      h1 {
+        color: var(--md-sys-color-on-surface);
+        padding-top: 1.5rem;
+      }
+      .center {
+        text-align: center;
+      }
+      /* exmg-radio-group-item {
+        min-height: 100px;
+      } */
+      .horizontal > figure {
+        margin-left: 1rem;
+        margin-right: 2rem;
+      }
+      .large {
+        font-size: 29px;
+        line-height: 1;
+        font-weight: 400;
+      }
+    `,
+  ];
+
   @property({ type: String })
   selected = 'option2';
 
@@ -34,55 +64,7 @@ export class ExmgRadioGroupDemo extends LitElement {
 
   render() {
     return html`
-      <style>
-        :host {
-          font-family: var(
-            --mdc-typography-headline3-font-family,
-            var(--mdc-typography-font-family, Roboto, sans-serif)
-          );
-          font-size: 15px;
-          display: block;
-          width: 100%;
-          padding: 1rem;
-          box-sizing: border-box;
-        }
-        .main {
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          justify-content: center;
-          width: 100%;
-        }
-        .main > div {
-          width: 100%;
-          padding-bottom: 1rem;
-        }
-        .g6 {
-          flex-basis: calc(50% - 1rem);
-          max-width: calc(50% - 1rem);
-        }
-        h1 {
-          color: var(--md-sys-color-on-surface);
-          padding-top: 1.5rem;
-        }
-        .center {
-          text-align: center;
-        }
-        /* exmg-radio-group-item {
-        min-height: 100px;
-      } */
-        .horizontal > figure {
-          margin-left: 1rem;
-          margin-right: 2rem;
-        }
-        .large {
-          font-size: 29px;
-          line-height: 1;
-          font-weight: 400;
-        }
-      </style>
-
-      <div class="main">
+      <div class="main centered">
         <div>
           <h1>Flex wrap example</h1>
 

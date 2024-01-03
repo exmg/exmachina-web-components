@@ -2,19 +2,13 @@ import { LitElement, html, css } from 'lit';
 import { customElement, state } from 'lit/decorators.js';
 import '@exmg/exmg-breadcrumbs/exmg-breadcrumbs.js';
 import './page-example.js';
+import { style } from '../demo-page-styles-css.js';
 
 @customElement('exmg-breadcrumbs-demo')
 export class BreadcrumbsDemo extends LitElement {
   static styles = [
+    style,
     css`
-      :host {
-        font-family: Roboto;
-        --mdc-theme-surface: var(--md-sys-color-primary);
-      }
-      h1 {
-        color: var(--md-sys-color-on-surface);
-        padding-top: 1.5rem;
-      }
       .toolbar {
         padding: 0.8em 1em;
         border: 1 px solid hsl(0, 0%, 90%);
@@ -37,21 +31,23 @@ export class BreadcrumbsDemo extends LitElement {
 
   render() {
     return html`
-      <div class="main">
-        <h1>Default</h1>
-        <div class="toolbar">
-          <exmg-breadcrumbs .items="${this.items}"></exmg-breadcrumbs>
+      <div class="main centered">
+        <div>
+          <h1>Default</h1>
+          <div class="toolbar">
+            <exmg-breadcrumbs .items="${this.items}"></exmg-breadcrumbs>
+          </div>
         </div>
-      </div>
-      <div class="main">
-        <h1>Arrow separator</h1>
-        <div class="toolbar">
-          <exmg-breadcrumbs .items="${this.items}" arrow-separator></exmg-breadcrumbs>
+        <div>
+          <h1>Arrow separator</h1>
+          <div class="toolbar">
+            <exmg-breadcrumbs .items="${this.items}" arrow-separator></exmg-breadcrumbs>
+          </div>
         </div>
-      </div>
-      <div class="main">
-        <h1>Page Example Mixin</h1>
-        <page-example></page-example>
+        <div>
+          <h1>Page Example Mixin</h1>
+          <page-example></page-example>
+        </div>
       </div>
     `;
   }
