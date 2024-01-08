@@ -1199,6 +1199,15 @@
     lit "^3.0.0"
     tslib "^2.6.2"
 
+"@exmg/exmg-theme@file:/Users/marksmits/work/exmachina-web-components/packages/exmg-theme":
+  version "1.0.0"
+  resolved "file:packages/exmg-theme"
+  dependencies:
+    "@exmg/lit-base" "^2.0.1"
+    "@material/material-color-utilities" "^0.2.7"
+    lit "^3.0.0"
+    tslib "^2.6.2"
+
 "@exmg/exmg-tooltip@file:../exmg-tooltip", "@exmg/exmg-tooltip@file:/Users/marksmits/work/exmachina-web-components/packages/exmg-tooltip":
   version "8.1.33"
   resolved "file:packages/exmg-tooltip"

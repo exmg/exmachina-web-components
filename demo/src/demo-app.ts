@@ -14,11 +14,11 @@ import '@material/web/menu/menu.js';
 import { demos } from '../demos/demos.js';
 import { repeat } from 'lit/directives/repeat.js';
 
-import './theme/theme-changer.js';
-// import { setupTheme } from './theme-module.js';
+import { initTheme } from '@exmg/exmg-theme';
 
-// const darkMode = window.matchMedia('(prefers-color-scheme:dark)').matches;
-// setupTheme(darkMode);
+initTheme();
+
+import './theme/theme-changer.js';
 
 @customElement('demo-app')
 export class DemoApp extends LitElement {

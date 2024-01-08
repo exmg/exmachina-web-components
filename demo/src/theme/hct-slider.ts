@@ -11,7 +11,7 @@ import { css, html, LitElement } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
 import { styleMap } from 'lit/directives/style-map.js';
 
-import { hctFromHex, hexFromHct } from './material-color-helpers.js';
+import { ThemeUtils } from '@exmg/exmg-theme';
 
 /**
  * A tuple denoting an inclusive value range.
@@ -104,18 +104,18 @@ export class HCTSlider extends LitElement {
         const hue = (HUE_RANGE[1] / numStops) * i;
         // Set chroma to something fairly saturated + tone in the middle of
         // black and white so it's not too dark or too bright and vary the hue
-        const hex = hexFromHct(hue, 100, 50);
+        const hex = ThemeUtils.hexFromHct(hue, 100, 50);
         linearGradientString += `, ${hex} ${i}%`;
       }
     } else if (this.type === 'chroma') {
-      const hct = hctFromHex(this.color || '#000');
+      const hct = ThemeUtils.hctFromHex(this.color || '#000');
       const hue = hct.hue;
 
       for (let i = 0; i < numStops; i++) {
         const chroma = (CHROMA_RANGE[1] / numStops) * i;
         // Change the color of the bar to the current hue and set the tone to
         // mid so we it's not too dark or too bright and vary the chroma
-        const hex = hexFromHct(hue, chroma, 50);
+        const hex = ThemeUtils.hexFromHct(hue, chroma, 50);
         linearGradientString += `, ${hex} ${i}%`;
       }
     } else if (this.type === 'tone') {
@@ -123,7 +123,7 @@ export class HCTSlider extends LitElement {
         const tone = (TONE_RANGE[1] / numStops) * i;
         // Set tone color to black (0 chroma means that hue doesn't matter) and
         // vary the tone
-        const hex = hexFromHct(0, 0, tone);
+        const hex = ThemeUtils.hexFromHct(0, 0, tone);
         linearGradientString += `, ${hex} ${i}%`;
       }
     }

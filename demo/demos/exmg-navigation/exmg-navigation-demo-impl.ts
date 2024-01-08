@@ -12,6 +12,7 @@ import '@exmg/exmg-navigation/exmg-navigation-drawer-nav.js';
 import '@exmg/exmg-collapsed/exmg-collapsed.js';
 
 import './dark-light-toggle.js';
+import './customer-logo.js';
 
 import '@material/web/list/list.js';
 import '@material/web/list/list-item.js';
@@ -33,6 +34,10 @@ import { style } from './exmg-navigation-demo-styles-css.js';
 import { MenuItem, menu as MENU } from './menu.js';
 
 import { style as baseStyle } from '../demo-page-styles-css.js';
+
+import { initTheme } from '@exmg/exmg-theme';
+
+initTheme();
 
 @customElement('exmg-navigation-demo-impl')
 export class ExmgNavigationDemoImpl extends ExmgNavigationBase {
@@ -136,6 +141,7 @@ export class ExmgNavigationDemoImpl extends ExmgNavigationBase {
           Navigation rail component. This will be visible on desktop and tablet(> 960px) and auto hide on smaller resolutions
         -->
           <exmg-navigation-rail>
+            <customer-logo slot="top"></customer-logo>
             <exmg-navigation-rail-nav>
               ${this.menu.map(
                 (i: MenuItem) =>

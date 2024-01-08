@@ -9,6 +9,7 @@ import multiInput from 'rollup-plugin-multi-input';
  * Elements with a viable demo
  */
 const elements = [
+  'exmg-theme',
   'exmg-button',
   'exmg-grid',
   'exmg-dialogs',
