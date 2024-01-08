@@ -1,0 +1,42 @@
+{
+  "name": "@exmg/exmg-theme",
+  "version": "1.0.0",
+  "type": "module",
+  "main": "index.js",
+  "module": "index.js",
+  "description": "Helper to initialize theme for material components",
+  "contributors": [
+    "Ex Machina Group"
+  ],
+  "keywords": [
+    "web-components",
+    "lit",
+    "theme"
+  ],
+  "files": [
+    "**/*.js",
+    "**/*.d.ts"
+  ],
+  "dependencies": {
+    "@exmg/lit-base": "^2.0.1",
+    "@material/material-color-utilities": "^0.2.7",
+    "lit": "^3.0.0",
+    "tslib": "^2.6.2"
+  },
+  "devDependencies": {
+    "@exmg/lit-cli": "1.1.13"
+  },
+  "homepage": "https://github.com/exmg/exmachina-web-components",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:exmg/exmg-web-components.git",
+    "directory": "packages/exmg-theme"
+  },
+  "license": "MIT",
+  "scripts": {
+    "tsc": "tsc"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

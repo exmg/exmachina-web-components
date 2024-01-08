@@ -67,6 +67,10 @@
       version: '8.1.33',
       url: 'https://www.npmjs.com/package/@exmg/exmg-sortable',
     },{
+      name: '@exmg/exmg-theme',
+      version: '1.0.0',
+      url: 'https://www.npmjs.com/package/@exmg/exmg-theme',
+    },{
       name: '@exmg/exmg-tooltip',
       version: '8.1.33',
       url: 'https://www.npmjs.com/package/@exmg/exmg-tooltip',

@@ -1,12 +1,7 @@
-/**
- * @license
- * Copyright 2023 Google LLC
- * SPDX-License-Identifier: Apache-2.0
- */
-
+import { STORAGE_KEY_THEME } from './config.js';
+import { themeCurrentMode } from './theme-signals.js';
 import { applyMaterialTheme, themeFromSourceColor } from './material-color-helpers.js';
-
-export type ColorMode = 'light' | 'dark' | 'auto';
+import type { ColorMode } from './types.js';
 
 /**
  * Generates a Material Theme from a given color and dark mode boolean, and
@@ -36,7 +31,7 @@ function applyThemeFromColor(color: string, isDark: boolean) {
  */
 export function isModeDark(mode: ColorMode, saveAutoMode = true) {
   let isDark = mode === 'dark';
-
+  console.log('isModeDark', mode, isDark);
   // Determines whether the auto mode should display light or dark.
   if (mode === 'auto') {
     isDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
@@ -57,7 +52,7 @@ export function isModeDark(mode: ColorMode, saveAutoMode = true) {
  * @return The current stringified material theme css string.
  */
 export function getCurrentThemeString(): string | null {
-  return localStorage.getItem('material-theme');
+  return localStorage.getItem(STORAGE_KEY_THEME);
 }
 
 /**
@@ -75,6 +70,7 @@ export function getCurrentMode(): ColorMode | null {
  * @param mode The color mode to save to localstorage.
  */
 export function saveColorMode(mode: ColorMode) {
+  themeCurrentMode.value = mode;
   localStorage.setItem('color-mode', mode);
 }
 

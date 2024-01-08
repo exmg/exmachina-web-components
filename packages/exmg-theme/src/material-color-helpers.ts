@@ -12,9 +12,33 @@ import {
   SchemeContent,
 } from '@material/material-color-utilities';
 
-import type { Theme } from './color-events.js';
+import type { Theme } from './types.js';
+import { WithStylesheet } from './types.js';
+import { STORAGE_KEY_THEME } from './config.js';
+import { saveToStorage } from './storage.js';
 
-import { applyThemeString } from './apply-theme-string.js';
+// If supported by the browser, sets the theme color in the URL bar.
+const setUrlBarColor = (themeString: string) => {
+  const surfaceContainer = themeString.match(/--md-sys-color-surface-container:(.+?);/)?.[1];
+  if (surfaceContainer) {
+    document.querySelector('meta[name="theme-color"]')?.setAttribute('content', surfaceContainer);
+  }
+};
+
+export const applyTheme = (doc: DocumentOrShadowRoot, theme: string) => {
+  let sheet = (globalThis as WithStylesheet)[STORAGE_KEY_THEME];
+
+  if (!sheet) {
+    sheet = new CSSStyleSheet();
+    (globalThis as WithStylesheet)[STORAGE_KEY_THEME] = sheet;
+    doc.adoptedStyleSheets.push(sheet);
+  }
+
+  setUrlBarColor(theme);
+
+  sheet.replaceSync(theme);
+  saveToStorage(theme);
+};
 
 /**
  * A Mapping of color token name to MCU HCT color function generator.
@@ -115,12 +139,12 @@ export function themeFromSourceColor(color: string, isDark: boolean): Theme {
  * @param ssName Optional global identifier of the constructable stylesheet and
  *     used to generate the localstorage name.
  */
-export function applyMaterialTheme(doc: DocumentOrShadowRoot, theme: Theme, ssName = 'material-theme') {
+export function applyMaterialTheme(doc: DocumentOrShadowRoot, theme: Theme) {
   let styleString = ':root,:host{';
   for (const [key, value] of Object.entries(theme)) {
     styleString += `--md-sys-color-${key}:${value};`;
   }
   styleString += '}';
 
-  applyThemeString(doc, styleString, ssName);
+  applyTheme(doc, styleString);
 }

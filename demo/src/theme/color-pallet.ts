@@ -48,7 +48,7 @@ export class ColorPallet extends LitElement {
 
   protected firstUpdated() {
     // Get constructable stylesheet
-    let sheet = (globalThis as WithStylesheet)['material-theme'];
+    let sheet = (globalThis as WithStylesheet)['exmg-theme'];
 
     let customProperties: PropType[] = [];
     // @ts-ignore

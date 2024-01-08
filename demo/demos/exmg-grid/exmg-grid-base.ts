@@ -265,7 +265,6 @@ export abstract class ExmgBaseGridDemo extends LitElement {
     switch (filterId) {
       case 'month':
         filteredItems = allItems.filter(({ month }) => month.toLowerCase() === value);
-        debugger;
         break;
       default:
         filteredItems = [...allItems];

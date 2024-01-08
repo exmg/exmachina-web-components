@@ -16,10 +16,8 @@ import { css, html, LitElement } from 'lit';
 import { customElement, query, queryAll, state } from 'lit/decorators.js';
 import { live } from 'lit/directives/live.js';
 
-import { ChangeColorEvent, ChangeDarkModeEvent } from './color-events.js';
-import { hctFromHex, hexFromHct } from './material-color-helpers.js';
-import { getCurrentMode, getCurrentSeedColor, getCurrentThemeString } from './theme.js';
-import type { ColorMode } from './theme.js';
+import { ThemeChangeColorEvent, ThemeChangeDarkModeEvent, ThemeUtils } from '@exmg/exmg-theme';
+import type { ColorMode } from '@exmg/exmg-theme';
 
 import type { HCTSlider } from './hct-slider.js';
 
@@ -72,7 +70,7 @@ export class ThemeChanger extends LitElement {
         <copy-code-button
           button-title="Copy current theme to clipboard"
           label="Copy current theme"
-          .getCopyText=${getCurrentThemeString}
+          .getCopyText=${ThemeUtils.getCurrentThemeString}
         >
         </copy-code-button>
       </div>
@@ -157,8 +155,8 @@ export class ThemeChanger extends LitElement {
       this[slider.type] = slider.value;
     }
 
-    this.hexColor = hexFromHct(this.hue, this.chroma, this.tone);
-    this.dispatchEvent(new ChangeColorEvent(this.hexColor));
+    this.hexColor = ThemeUtils.hexFromHct(this.hue, this.chroma, this.tone);
+    this.dispatchEvent(new ThemeChangeColorEvent(this.hexColor));
   }
 
   /**
@@ -167,7 +165,7 @@ export class ThemeChanger extends LitElement {
    * @param hexColor The hex color to convert to HCT and update the sliders.
    */
   private updateHctFromHex(hexColor: string) {
-    const hct = hctFromHex(hexColor);
+    const hct = ThemeUtils.hctFromHex(hexColor);
     this.hue = hct.hue;
     this.chroma = hct.chroma;
     this.tone = hct.tone;
@@ -176,18 +174,18 @@ export class ThemeChanger extends LitElement {
   private onHexPickerInput() {
     this.hexColor = this.inputEl.value;
     this.updateHctFromHex(this.hexColor);
-    this.dispatchEvent(new ChangeColorEvent(this.hexColor));
+    this.dispatchEvent(new ThemeChangeColorEvent(this.hexColor));
   }
 
   async firstUpdated() {
     if (!this.selectedColorMode) {
       // localStorage is not available on server so must do this here.
-      this.selectedColorMode = getCurrentMode();
+      this.selectedColorMode = ThemeUtils.getCurrentMode();
     }
 
     if (!this.hexColor) {
       // localStorage is not available on server so must do this here.
-      this.hexColor = getCurrentSeedColor()!;
+      this.hexColor = ThemeUtils.getCurrentSeedColor()!;
     }
 
     this.updateHctFromHex(this.hexColor);
@@ -203,7 +201,7 @@ export class ThemeChanger extends LitElement {
     const { button } = e.detail;
     const value = button.dataset.value as ColorMode;
     this.selectedColorMode = value;
-    this.dispatchEvent(new ChangeDarkModeEvent(value));
+    this.dispatchEvent(new ThemeChangeDarkModeEvent(value));
   }
 
   static styles = css`
