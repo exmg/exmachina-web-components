@@ -12,10 +12,44 @@ export const CLOSE_ACTION = 'close';
 
 const serializeForm = (form) => {
   var obj = {};
+  const formElements = form?.elements;
+  debugger;
+  let formElementsArray = Array.from(formElements);
+
+  const checkboxNames = formElementsArray
+    .filter((input: any) => {
+      return input.type === 'checkbox' || input.tagName.toLowerCase().includes('checkbox');
+    })
+    .map((input: any) => input.name);
+
   var formData = new FormData(form);
+
   for (var key of formData.keys()) {
+    console.log(key, formData.get(key));
+    const val = formData.get(key);
+    if (Object.hasOwnProperty.call(obj, key)) {
+      if (!Array.isArray(obj[key])) {
+        obj[key] = [obj[key]];
+      }
+      obj[key].push(val);
+      continue;
+    }
+
+    // @ts-ignore
+    if (checkboxNames.includes(key)) {
+      obj[key] = formData.get(key) === 'on';
+      continue;
+    }
+
     obj[key] = formData.get(key);
   }
+
+  for (const name of checkboxNames) {
+    if (!Object.hasOwnProperty.call(obj, name)) {
+      obj[name] = false;
+    }
+  }
+
   return obj;
 };
 
@@ -50,15 +84,18 @@ export class ExmgFormBase extends ExmgElement {
   protected _handleBlur(e: Event) {
     // @ts-ignore
     typeof e.target.reportValidity === 'function' && e.target.reportValidity();
-
+    console.log('blur');
     this._checkFormValidity();
   }
 
-  protected firstUpdated() {
+  protected async firstUpdated() {
     const form = this.getForm();
 
     this.boundHandleBlur = this._handleBlur.bind(this);
     form!.addEventListener('blur', this.boundHandleBlur, true);
+
+    await this.updateComplete;
+    this._checkFormValidity();
   }
 
   disconnectedCallback() {

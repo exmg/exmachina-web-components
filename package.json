@@ -72,7 +72,7 @@
     "run:docs": "web-dev-server /docs/index.html"
   },
   "dependencies": {
-    "@material/web": "^1.0.1",
+    "@material/web": "^1.1.1",
     "@open-wc/building-rollup": "^2.0.2",
     "@vaadin/vaadin-date-picker": "^23.2.2"
   }

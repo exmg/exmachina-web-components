@@ -16,6 +16,7 @@ import './exmg-upload/exmg-upload-demo.js';
 import './exmg-sortable/exmg-sortable-demo.js';
 import './exmg-search/exmg-search-demo.js';
 import './exmg-navigation/exmg-navigation-demo.js';
+import './exmg-chip-input/exmg-chip-input-demo.js';
 
 export const demos = {
   'exmg-breadcrumbs-demo': {
@@ -65,5 +66,8 @@ export const demos = {
   },
   'exmg-navigation-demo': {
     tag: literal`exmg-navigation-demo`,
+  },
+  'exmg-chip-input-demo': {
+    tag: literal`exmg-chip-input-demo`,
   },
 };

@@ -1,0 +1,26 @@
+:host {
+  display: block;
+}
+
+.label {
+  display: block;
+  font-size: 1rem;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+}
+
+.add {
+  display: flex;
+  align-items: center;
+  margin-top: 0.5rem;
+}
+
+.input-container {
+  position: relative;
+}
+
+.selected-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+}

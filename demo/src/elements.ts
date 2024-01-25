@@ -15,6 +15,10 @@
       version: '8.1.33',
       url: 'https://www.npmjs.com/package/@exmg/exmg-button',
     },{
+      name: '@exmg/exmg-chip-input',
+      version: '1.0.0',
+      url: 'https://www.npmjs.com/package/@exmg/exmg-chip-input',
+    },{
       name: '@exmg/exmg-collapsed',
       version: '8.1.33',
       url: 'https://www.npmjs.com/package/@exmg/exmg-collapsed',
