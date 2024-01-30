@@ -16,6 +16,7 @@ import './exmg-upload/exmg-upload-demo.js';
 import './exmg-sortable/exmg-sortable-demo.js';
 import './exmg-search/exmg-search-demo.js';
 import './exmg-navigation/exmg-navigation-demo.js';
+import './exmg-markdown-editor/exmg-markdown-editor-demo.js';
 
 export const demos = {
   'exmg-breadcrumbs-demo': {
@@ -41,6 +42,9 @@ export const demos = {
   },
   'exmg-grid-demo': {
     tag: literal`exmg-grid-demo`,
+  },
+  'exmg-markdown-editor-demo': {
+    tag: literal`exmg-markdown-editor-demo`,
   },
   'exmg-radio-group-demo': {
     tag: literal`exmg-radio-group-demo`,

@@ -1,6 +1,11 @@
-import {html, LitElement} from 'lit';
-import {customElement} from 'lit/decorators.js';
-import {Action, Filter, FilterSingleSelectConfig, FilterConfigType} from '@exmg/exmg-grid/src/table/types/exmg-grid-toolbar-types.js';
+import { html, LitElement } from 'lit';
+import { customElement } from 'lit/decorators.js';
+import {
+  Action,
+  Filter,
+  FilterSingleSelectConfig,
+  FilterConfigType,
+} from '@exmg/exmg-grid/src/table/types/exmg-grid-toolbar-types.js';
 import '@exmg/exmg-grid/src/table/exmg-grid-toolbar.js';
 
 @customElement('exmg-grid-toolbar-demo')

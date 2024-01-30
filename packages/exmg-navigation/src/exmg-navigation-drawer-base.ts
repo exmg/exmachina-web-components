@@ -16,6 +16,7 @@ import {
 import { SignalWatcher } from '@lit-labs/preact-signals';
 import { observer } from '@exmg/lit-base';
 
+// eslint-disable-next-line
 export class ExmgNavigationDrawerBase extends SignalWatcher(LitElement) {
   @property({ type: Boolean })
   @observer(function (this: ExmgNavigationDrawerBase, value: boolean) {
@@ -51,7 +52,7 @@ export class ExmgNavigationDrawerBase extends SignalWatcher(LitElement) {
       const width = entry!.contentRect!.width;
       const persistentWidth = width > 1560;
 
-      let activeHasSubMenu = this.hasActiveSubmenu();
+      const activeHasSubMenu = this.hasActiveSubmenu();
 
       // If root nav item set and has submenu and persistent width meets the criteria
       const persistent = activeHasSubMenu && persistentWidth;
@@ -73,6 +74,7 @@ export class ExmgNavigationDrawerBase extends SignalWatcher(LitElement) {
     let activeHasSubMenu = false;
 
     for (const key in navigationActiveHasSubmenu.value) {
+      // eslint-disable-next-line
       if (navigationActiveHasSubmenu.value.hasOwnProperty(key) && navigationActiveHasSubmenu.value[key]) {
         activeHasSubMenu = true;
       }
@@ -95,8 +97,8 @@ export class ExmgNavigationDrawerBase extends SignalWatcher(LitElement) {
         contentElement.style.marginLeft = navigationRailHidden.value
           ? '0px'
           : this.open
-          ? 'var(--mdc-drawer-width, 256px)'
-          : '0px';
+            ? 'var(--mdc-drawer-width, 256px)'
+            : '0px';
       }
     }
   }

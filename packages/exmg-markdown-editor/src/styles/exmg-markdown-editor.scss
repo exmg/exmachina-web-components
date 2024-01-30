@@ -1,0 +1,122 @@
+/* NEW STYLES */ 
+/** Editor **/
+
+:host {
+  display: block;
+  overflow: hidden;
+  --editor-border-color: var(--exmg-markdown-editor-border-color, var(--md-sys-color-on-surface-variant));
+  --editor-border-color-focus: var(--exmg-markdown-editor-border-color-focus, var(--md-sys-color-primary));
+  --editor-background-color: var(--exmg-markdown-editor-background-color, var(--md-sys-color-surface-container-high));
+  --editor-code-background-color: var(--exmg-markdown-editor-code-background-color, var(--md-sys-color-surface-container-high));
+  --editor-background-focus-color: var(--exmg-markdown-editor-background-focus-color, var(--md-sys-color-surface-container-high));
+  --editor-code-background-focus-color: var(--exmg-markdown-editor-code-background-focus-color, var(--md-sys-color-surface-container-highest));
+  --editor-label-focus-color: var(--exmg-markdown-editor-label-focus-color, var(--md-sys-color-primary));
+  --editor-label-color: var(--exmg-markdown-editor-label-color, var(--md-sys-color-on-surface));
+}
+
+.container {
+  display: grid;
+  position: relative;
+  grid-template-columns: 100%;
+  grid-template-rows: 0px 56px 1fr;
+  transition: grid-template-rows .2s ease;
+
+  border-top-right-radius: 4px;
+  background-color: var(--editor-code-background-color, var(--md-sys-color-surface-container-high));
+  border-top-left-radius: 4px;
+
+  &[label] {
+    grid-template-rows: 2rem 56px 1fr;
+  }
+  &:hover {
+    background-color: var(--editor-code-background-focus-color, var(--md-sys-color-surface-container-highest));
+  }
+  &::after {
+    content: ' ';
+    display: block;
+    position: absolute;
+    bottom:0;
+    width: 100%;
+    height: 3px;
+    background: var(--editor-border-color-focus, var(--md-sys-color-primary));
+  }
+  &[preview] {
+    background-color: var(--editor-background-color, var(--md-sys-color-surface-container-high));
+    grid-template-rows: 0px .3rem 1fr;
+    &[label] {
+      grid-template-rows: 2rem .3rem 1fr;
+    }
+    &:hover {
+      background-color: var(--editor-code-background-focus-color, var(--md-sys-color-surface-container-highest));
+      cursor: text;
+    }
+    &::after {
+      height: 1px;
+      background: var(--editor-border-color, var(--md-sys-color-on-surface-variant));
+    }
+  }
+}
+
+label[for='markdowdEditorContainer'] {
+  grid-row-start: 1;
+  padding: 0.5rem 0 0 1rem;
+  font-size: .7rem;
+  color: var(--editor-label-focus-color, var(--md-sys-color-primary));
+  transition: all 200ms ease;
+  transform: scale(1) translateY(0px);
+  &[preview] {
+    color:  var(--editor-label-color, var(--md-sys-color-on-surface));
+    padding-bottom: 1rem;
+    transform:translateY(8px);
+    font-size: 1rem;
+  }
+}
+
+exmg-markdown-editor-toolbar {
+  grid-row-start: 1;
+  visibility: visible;
+  transition: visibility 0s, opacity 0.5s linear;
+  opacity: 1;
+  &[preview] {
+    visibility: hidden;
+    opacity: 0;
+  } 
+  &[label] {
+    grid-row-start:2;
+  }
+}
+
+#preview {
+  display: none;
+  grid-row-start: 3;
+  overflow: scroll;
+  &[preview] {
+    display: block;
+  }
+}
+
+#editor {
+  display: block;
+  grid-row-start: 3;
+  &[preview] {
+    display: none;
+  }
+}
+
+slot[name='preview'] {
+  display: none;
+  grid-row-start: 3;
+  &[preview] {
+    display: block;
+  }
+}
+
+::slotted([slot='preview']) {
+  overflow: scroll;
+}
+
+/* Html rendering CSS */
+
+.preview-content {
+  padding: 0 1rem;
+}

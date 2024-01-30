@@ -1,6 +1,6 @@
-import {customElement} from 'lit/decorators.js';
-import {style} from './styles/exmg-sidemenu-base-styles-css.js';
-import {ExmgSidemenuBase} from './exmg-sidemenu-base.js';
+import { customElement } from 'lit/decorators.js';
+import { style } from './styles/exmg-sidemenu-base-styles-css.js';
+import { ExmgSidemenuBase } from './exmg-sidemenu-base.js';
 
 /**
  * The `exmg-sidemenu` displays a vertical sidemenu that can be collapsed.

@@ -1,3 +1,4 @@
+// eslint-disable-next-line
 export type WithStylesheet = typeof globalThis & { [stylesheetName: string]: CSSStyleSheet | undefined };
 export type ColorMode = 'light' | 'dark' | 'auto';
 

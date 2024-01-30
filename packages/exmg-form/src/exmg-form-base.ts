@@ -11,9 +11,9 @@ import { classMap } from 'lit/directives/class-map.js';
 export const CLOSE_ACTION = 'close';
 
 const serializeForm = (form) => {
-  var obj = {};
-  var formData = new FormData(form);
-  for (var key of formData.keys()) {
+  const obj = {};
+  const formData = new FormData(form);
+  for (const key of formData.keys()) {
     obj[key] = formData.get(key);
   }
   return obj;
@@ -33,7 +33,7 @@ export class ExmgFormBase extends ExmgElement {
   /**
    * Internall used to show button spinner.
    */
-  @property({ type: Boolean }) public submitting = false;
+  @property({ type: Boolean }) submitting = false;
 
   @state() private formValid = false;
 

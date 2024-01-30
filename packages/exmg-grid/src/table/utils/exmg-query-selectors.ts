@@ -20,7 +20,7 @@ export class ExmgQuerySelectors {
 
     return this.tableBody!;
   }
-
+  // eslint-disable-next-line
   getColumns(selector = 'th'): NodeListOf<HTMLElement> {
     return this.getTable().querySelectorAll<HTMLElement>(`.grid-columns ${selector}`);
   }
@@ -32,12 +32,14 @@ export class ExmgQuerySelectors {
   getBodyRowSelector(selector = ''): string {
     return `tr:not(.grid-row-detail)${selector}`;
   }
-
+  // eslint-disable-next-line
   getBodyRows(): NodeListOf<HTMLTableRowElement> {
     return this.getTableBody().querySelectorAll<HTMLTableRowElement>(this.getBodyRowSelector());
   }
-
+  // eslint-disable-next-line
   getBodyRowsNotInitialized(): NodeListOf<HTMLTableRowElement> {
-    return this.getTableBody().querySelectorAll<HTMLTableRowElement>(this.getBodyRowSelector(':not([data-initialized])'));
+    return this.getTableBody().querySelectorAll<HTMLTableRowElement>(
+      this.getBodyRowSelector(':not([data-initialized])'),
+    );
   }
 }

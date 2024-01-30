@@ -438,6 +438,7 @@ export class PaperGridTooolbarComboboxElement extends ExmgElement {
   }
 
   filterItems() {
+    // eslint-disable-next-line
     const items: NodeListOf<HTMLElement> = this.querySelectorAll('paper-item, paper-icon-item');
     const hasFilterPhrase = !!this.inputValue && this.inputValue.length > 0;
     const phrase = hasFilterPhrase ? this.inputValue.toLowerCase().trim() : '';

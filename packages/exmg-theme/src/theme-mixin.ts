@@ -12,6 +12,7 @@ export declare class ThemeInterface {
 }
 
 export const ThemeMixin = <T extends Constructor<LitElement & ThemeClass>>(base: T) => {
+  // eslint-disable-next-line
   class ExmgTheme extends SignalWatcher(base) {
     connectedCallback(): void {
       super.connectedCallback();

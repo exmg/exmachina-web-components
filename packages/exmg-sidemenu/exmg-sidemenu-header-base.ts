@@ -1,6 +1,6 @@
-import {html, LitElement} from 'lit';
-import {ExmgElement, observer} from '@exmg/lit-base/index.js';
-import {property} from 'lit/decorators.js';
+import { html, LitElement } from 'lit';
+import { ExmgElement, observer } from '@exmg/lit-base/index.js';
+import { property } from 'lit/decorators.js';
 import '@polymer/paper-listbox';
 import '@polymer/paper-item/paper-item';
 import '@exmg/exmg-tooltip/exmg-tooltip.js';
@@ -22,45 +22,45 @@ export class ExmgSidemenuHeaderBase extends ExmgElement {
   /**
    *  Fakes urls on debug true
    */
-  @property({type: Boolean, reflect: true})
+  @property({ type: Boolean, reflect: true })
   debug = false;
 
   /**
    *  Home/Dashboard url
    */
-  @property({type: String, reflect: true})
+  @property({ type: String, reflect: true })
   homeUrl = '/';
 
   /**
    *  Settings url
    */
-  @property({type: String, reflect: true})
+  @property({ type: String, reflect: true })
   settingsUrl = '/settings';
 
   /**
    *  Settings label
    */
-  @property({type: String, reflect: true})
+  @property({ type: String, reflect: true })
   settingsLabel = 'Settings';
 
   /**
    *  Collapsed state
    */
-  @property({type: Boolean, reflect: true})
+  @property({ type: Boolean, reflect: true })
   collapsed = false;
 
   /**
    *  Home/Hashboard label
    */
-  @property({type: String, reflect: true})
+  @property({ type: String, reflect: true })
   homeLabel = 'Dashboard';
 
   /**
    * Contains the path of the selected menu item
    */
-  @property({type: String})
+  @property({ type: String })
   @observer(function (this: LitElement, selected: string) {
-    this.dispatchEvent(new CustomEvent('selected-changed', {bubbles: false, composed: true, detail: selected}));
+    this.dispatchEvent(new CustomEvent('selected-changed', { bubbles: false, composed: true, detail: selected }));
   })
   selected!: string;
 
@@ -96,6 +96,6 @@ export class ExmgSidemenuHeaderBase extends ExmgElement {
   }
 
   _observeSelected(selected: string) {
-    this.dispatchEvent(new CustomEvent('selected-change', {bubbles: false, composed: true, detail: selected}));
+    this.dispatchEvent(new CustomEvent('selected-change', { bubbles: false, composed: true, detail: selected }));
   }
 }

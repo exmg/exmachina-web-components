@@ -2,9 +2,11 @@
   "extends": "../../tsconfig.json",
   "compilerOptions": {
     "composite": true,
+    "noEmitOnError": false,
     "rootDir": ".",
     "outDir": ".",
     "tsBuildInfoFile": ".tsbuildinfo"
   },
-  "include": ["*.ts", "styles/*.ts"]
+  "include": ["*.ts", "styles/*.ts", "src/**/*.ts", "src/**/*.js"],
+  "exclude": ["node_modules"]
 }

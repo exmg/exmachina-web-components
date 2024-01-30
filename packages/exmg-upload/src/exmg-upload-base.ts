@@ -177,7 +177,7 @@ export class ExmgUploadBase extends ExmgElement {
           id: (Date.now() + Math.random()).toString(36),
           file: item,
           status: 'UPLOADING',
-        } as FileData),
+        }) as FileData,
     );
 
     for (const file of newFiles) {

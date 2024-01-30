@@ -77,8 +77,8 @@ Based on Eslint configuration in `@exmg/eslint-config-lit`
     npm run clean : "del-cli packages/*/node_modules packages/*/package-lock.json && npm run clean:styles & npm run clean :typescript" # Cleans files
     npm run clean:styles : "del-cli packages/**/*-css.*" # Cleans *css.ts and *css.js files
     npm run clean:typescript : "tsc --build --clean" # Cleans built files from TS
-    npm run lint : "npm run lint:typescript && npm run lint:eslint && npm run lint:prettier" # Lint
-    npm run lint:fix : "npm run lint:typescript -- --fix && npm run lint:eslint -- --fix" # Lint fix
+    npm run lint: "npm run build:typescript && npm run lint:eslint && npm run lint:prettier" # Lint
+    npm run format: "npm run lint:eslint -- --fix && prettier \"**/*.js\" \"**/*.ts\" --write --ignore-path .gitignore" # Fornat
     npm run lint:eslint : "eslint \"packages/**/*.ts\" \"demo/**/*.ts\"" # Eslint
     npm run lint:prettier : "prettier \"**/*.js\" \"**/*.ts\" --check --ignore-path .gitignore" # Prettier
     npm run start : "node ./scripts/parseElements.js && npm run build && concurrently --names watch # serve \"npm run watch\" \"web-dev-server --config ./web-dev-server.config.js\"" # Starts demos and watchers for components development

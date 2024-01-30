@@ -12,11 +12,11 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
- * 
+ *
  * Adapted for ExMachina Web Components from https://github.com/material-components/material-web/blob/master/scripts/bump-all-mdc-web-deps.ts
- * 
+ *
  */
-const {execFileSync} = require('child_process');
+const { execFileSync } = require('child_process');
 const fs = require('fs');
 const path = require('path');
 const glob = require('glob');
@@ -29,12 +29,12 @@ function isMdcWebPackage(mdcwPkg) {
 
 function main() {
   const newVersion =
-      '=' + execFileSync('npm', ['info', '@material/mwc-base', 'version'], {
-              encoding: 'utf8'
-            }).trim();
+    '=' +
+    execFileSync('npm', ['info', '@material/mwc-base', 'version'], {
+      encoding: 'utf8',
+    }).trim();
   console.log(`Found latest Material Web Component stable version: ${newVersion}\n`);
-  const packageJsonPaths =
-      glob.sync(path.join('*', 'package.json'), {cwd: packagesDir});
+  const packageJsonPaths = glob.sync(path.join('*', 'package.json'), { cwd: packagesDir });
   let anyChanged = false;
   for (const relPath of packageJsonPaths) {
     const absPath = path.join(packagesDir, relPath);
@@ -50,8 +50,7 @@ function main() {
         if (isMdcWebPackage(pkg)) {
           if (oldVersion !== newVersion) {
             dependencies[pkg] = newVersion;
-            console.log(
-                `\tUpdating ${pkg} from ${oldVersion} to ${newVersion}`);
+            console.log(`\tUpdating ${pkg} from ${oldVersion} to ${newVersion}`);
             changed = true;
             anyChanged = true;
           }
@@ -63,7 +62,7 @@ function main() {
       updateDependencies(pj.dependencies);
     }
     if (pj.devDependencies) {
-      updateDependencies(pj.devDependencies)
+      updateDependencies(pj.devDependencies);
     }
     if (changed) {
       console.log(`\tWriting new package.json`);
@@ -73,8 +72,7 @@ function main() {
   if (anyChanged) {
     // Set an output value for consumption by a GitHub Action.
     // https://help.github.com/en/articles/development-tools-for-github-actions#set-an-output-parameter-set-output
-    console.log(
-        `::set-output name=new-mwc-version::${newVersion.substring(1)}`);
+    console.log(`::set-output name=new-mwc-version::${newVersion.substring(1)}`);
     console.log(`\nRemember to run npm install!`);
   }
 }

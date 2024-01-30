@@ -1,4 +1,4 @@
-import { html, LitElement, nothing } from 'lit';
+import { html, LitElement, nothing, PropertyValueMap } from 'lit';
 import { html as staticHtml } from 'lit/static-html.js';
 import { query, state } from 'lit/decorators.js';
 import { customElement } from 'lit/decorators/custom-element.js';
@@ -45,6 +45,10 @@ export class DemoApp extends LitElement {
 
   private _handleLocationChanged() {
     this._updateFromUrl();
+  }
+
+  protected firstUpdated(_changedProperties: PropertyValueMap<any> | Map<PropertyKey, unknown>): void {
+    // this.handleDarkMode();
   }
 
   _updateFromUrl() {
@@ -96,7 +100,7 @@ export class DemoApp extends LitElement {
     this.selectedElement = elements.find((e) => e.name === `@exmg/${elementName}`);
     const url = new URL(window.location.href);
     url.searchParams.set('el', elementName);
-    //@ts-ignore
+    // @ts-ignore
     window.history.pushState({}, '', url);
   }
 

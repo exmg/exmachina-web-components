@@ -31,6 +31,7 @@ export class ExmgNavigationRailNavItemBase extends LitElement {
 
   constructor() {
     super();
+    // eslint-disable-next-line
     this.setAttribute('role', 'link');
 
     // Bind methods to ensure the correct 'this' context
@@ -44,6 +45,7 @@ export class ExmgNavigationRailNavItemBase extends LitElement {
 
   deselectOtherOptions(id: string) {
     for (const key in navigationActiveHasSubmenu.value) {
+      // eslint-disable-next-line
       if (navigationActiveHasSubmenu.value.hasOwnProperty(key) && key !== id) {
         navigationActiveHasSubmenu.value[key] = false;
       }

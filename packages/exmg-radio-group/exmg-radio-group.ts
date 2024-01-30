@@ -1,10 +1,10 @@
-import {html} from 'lit';
-import {classMap} from 'lit/directives/class-map.js';
-import {property} from 'lit/decorators/property.js';
-import {customElement} from 'lit/decorators/custom-element.js';
-import {observer, ExmgElement} from '@exmg/lit-base/index.js';
-import {style as exmgRadioGroupStyles} from './styles/exmg-radio-group-styles-css.js';
-import {ExmgRadioGroupItem} from './exmg-radio-group-item.js';
+import { html } from 'lit';
+import { classMap } from 'lit/directives/class-map.js';
+import { property } from 'lit/decorators/property.js';
+import { customElement } from 'lit/decorators/custom-element.js';
+import { observer, ExmgElement } from '@exmg/lit-base/index.js';
+import { style as exmgRadioGroupStyles } from './styles/exmg-radio-group-styles-css.js';
+import { ExmgRadioGroupItem } from './exmg-radio-group-item.js';
 
 const ENTER_KEY_CODE = 13;
 
@@ -14,14 +14,14 @@ export class ExmgRadioGroup extends ExmgElement {
    * Name of the element
    * @type {String}
    */
-  @property({type: String})
+  @property({ type: String })
   name?: string;
 
   /**
    * Sets the selected item
    * @type {String}
    */
-  @property({type: String, reflect: true})
+  @property({ type: String, reflect: true })
   @observer(function (this: ExmgRadioGroup) {
     this.setProperSelectedItem();
   })
@@ -31,28 +31,28 @@ export class ExmgRadioGroup extends ExmgElement {
    * Marks the radio group as required
    * @type {Boolean}
    */
-  @property({type: Boolean})
+  @property({ type: Boolean })
   required = false;
 
   /**
    * Allows vertical radio group items
    * @type {Boolean}
    */
-  @property({type: Boolean})
+  @property({ type: Boolean })
   vertical = false;
 
   /**
    * Sets flex wrap
    * @type {Boolean}
    */
-  @property({type: Boolean})
+  @property({ type: Boolean })
   wrap = false;
 
   /**
    * Marks the radio group as invalid for validation
    * @type {Boolean}
    */
-  @property({type: Boolean, reflect: true, attribute: 'invalid'})
+  @property({ type: Boolean, reflect: true, attribute: 'invalid' })
   invalid = false;
 
   private litItemName = '';
@@ -110,12 +110,16 @@ export class ExmgRadioGroup extends ExmgElement {
    * @private
    */
   private handleRadioGroupItemChanged(e: Event) {
-    const {detail} = e as CustomEvent;
+    const { detail } = e as CustomEvent;
 
     this.selected = detail.value;
 
     this.dispatchEvent(
-      new CustomEvent('exmg-radio-group-changed', {detail: {selected: this.selected}, composed: true, bubbles: true}),
+      new CustomEvent('exmg-radio-group-changed', {
+        detail: { selected: this.selected },
+        composed: true,
+        bubbles: true,
+      }),
     );
   }
 

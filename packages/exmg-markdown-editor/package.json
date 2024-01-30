@@ -1,6 +1,6 @@
 {
   "name": "@exmg/exmg-markdown-editor",
-  "version": "8.1.34",
+  "version": "8.1.36",
   "type": "module",
   "description": "Element that wrap-around marked-element to make the markdown editable",
   "main": "index.js",
@@ -29,22 +29,16 @@
   ],
   "dependencies": {
     "@exmg/lit-base": "^2.0.1",
-    "@material/web": "^1.0.1",
-    "@polymer/iron-flex-layout": "^3.0.1",
-    "@polymer/iron-icon": "^3.0.1",
-    "@polymer/iron-iconset-svg": "^3.0.1",
-    "@polymer/marked-element": "^3.0.1",
-    "@polymer/polymer": "^3.4.1",
+    "@material/web": "^1.0.0",
     "codemirror": "5.49.2",
     "lit": "^3.0.0",
-    "marked": "^2.1.3",
+    "marked": "^9.0.0",
     "tslib": "^2.6.2"
   },
   "devDependencies": {
-    "@exmg/lit-cli": "1.1.13",
+    "@exmg/lit-cli": "^1.1.13",
     "@types/codemirror": "^0.0.79",
-    "@types/marked": "^1.2.2",
-    "github-markdown-css": "^3.0.1"
+    "@types/marked": "^1.2.2"
   },
   "scripts": {
     "build:styles": "exmg-lit-cli sass -f \"./**/*.scss\""

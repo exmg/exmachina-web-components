@@ -6,6 +6,6 @@ export interface UploadAdapter {
 export interface UploadConfig {
   uploadUrl?: string;
   customAdapterPath?: string;
-  headers?: {[key: string]: string};
+  headers?: { [key: string]: string };
   responseType?: '' | 'json' | 'text' | 'blob' | 'arraybuffer';
 }

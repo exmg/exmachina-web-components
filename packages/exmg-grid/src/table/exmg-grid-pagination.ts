@@ -41,7 +41,7 @@ export class ExmgGridPagination extends ExmgElement {
 
   private renderPageSizeOptions() {
     const items = (this.pageSizeOptions || []).map(
-      (item: number) => ({ label: `${item}`, value: `${item}` } as FilterItem),
+      (item: number) => ({ label: `${item}`, value: `${item}` }) as FilterItem,
     );
     console.log('pageSize', this.pageSize);
     return html`

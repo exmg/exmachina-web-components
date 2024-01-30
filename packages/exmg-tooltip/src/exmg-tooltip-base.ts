@@ -1,15 +1,15 @@
-import {html} from 'lit';
-import {property} from 'lit/decorators/property.js';
-import {state} from 'lit/decorators.js';
-import {query} from 'lit/decorators/query.js';
-import {ExmgElement, observer} from '@exmg/lit-base/index.js';
+import { html } from 'lit';
+import { property } from 'lit/decorators/property.js';
+import { state } from 'lit/decorators.js';
+import { query } from 'lit/decorators/query.js';
+import { ExmgElement, observer } from '@exmg/lit-base/index.js';
 
 export class ExmgTooltipBase extends ExmgElement {
   /**
    * The id of the element that the tooltip is anchored to. This element
    * must be a sibling of the tooltip.
    */
-  @property({type: String})
+  @property({ type: String })
   @observer(function (this: ExmgTooltipBase) {
     this._findTarget();
   })
@@ -18,25 +18,25 @@ export class ExmgTooltipBase extends ExmgElement {
   /**
    * Positions the tooltip to the top, right, bottom, left of its content.
    */
-  @property({type: String})
+  @property({ type: String })
   position = 'bottom';
 
   /**
    * If true, no parts of the tooltip will ever be shown offscreen.
    */
-  @property({type: Boolean})
+  @property({ type: Boolean })
   fitToVisibleBounds = false;
 
   /**
    * X axis offset from the parent's center
    */
-  @property({type: Number})
+  @property({ type: Number })
   xOffset?: number;
 
   /**
    * Y axis offset from the parent's center
    */
-  @property({type: Number})
+  @property({ type: Number })
   yOffset?: number;
 
   @state()
