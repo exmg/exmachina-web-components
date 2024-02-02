@@ -35,7 +35,6 @@ export class ChipValidator extends Validator<ChipGroupState> {
 
   protected override computeValidity(states: ChipGroupState) {
     if (!this.radioElement) {
-      debugger;
       // Lazily create the radio element
       this.radioElement = document.createElement('input');
       this.radioElement.type = 'radio';

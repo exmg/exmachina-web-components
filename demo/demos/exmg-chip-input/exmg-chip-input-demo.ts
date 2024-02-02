@@ -14,7 +14,9 @@ import '@material/web/chips/suggestion-chip.js';
 import '@material/web/checkbox/checkbox.js';
 import '@material/web/radio/radio.js';
 import '@material/web/labs/card/outlined-card.js';
-// import { candies } from './data.js';
+import { candies } from './data.js';
+
+import './test-chip.js';
 
 @customElement('exmg-chip-input-demo')
 export class ExmgChipInputDemo extends LitElement {
@@ -61,22 +63,21 @@ export class ExmgChipInputDemo extends LitElement {
                   <exmg-chip name="date" value="Wed" label="Wed" aria-label="Wednesday"></exmg-chip>
                 </exmg-chip-input>
               </div>
-            </form> </exmg-form
-        ></md-outlined-card>
-      </div> `;
-  }
-}
-
-/**
-  <div class="row">
+              <div class="row">
                 <exmg-chip-input-dropdown
                   label="Preferred Candy"
                   aria-labelledby="candies-label"
                   dropdown-title="Select candies"
                 >
                   ${candies.map(
-                    (c) => html`<exmg-chip name="candy" value="${c}" label="${c}" aria-label="${c}"></exmg-chip>`,
+                    (c) =>
+                      html`<exmg-chip name="candy" value="${c}" label="${c}" aria-label="${c}" required></exmg-chip>`,
                   )}
                 </exmg-chip-input-dropdown>
               </div>
-*/
+            </form>
+          </exmg-form></md-outlined-card
+        >
+      </div> `;
+  }
+}

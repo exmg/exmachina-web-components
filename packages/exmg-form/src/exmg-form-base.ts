@@ -13,20 +13,23 @@ export const CLOSE_ACTION = 'close';
 const serializeForm = (form) => {
   var obj = {};
   const formElements = form?.elements;
-  debugger;
   let formElementsArray = Array.from(formElements);
 
+  /**
+   * Create list of checkbox elements. If no value is set the return value of the checkbox for 'on' will be a boolean
+   */
   const checkboxNames = formElementsArray
     .filter((input: any) => {
-      return input.type === 'checkbox' || input.tagName.toLowerCase().includes('checkbox');
+      return input.value === 'on' && (input.type === 'checkbox' || input.tagName.toLowerCase().includes('checkbox'));
     })
     .map((input: any) => input.name);
 
   var formData = new FormData(form);
 
-  for (var key of formData.keys()) {
-    console.log(key, formData.get(key));
-    const val = formData.get(key);
+  for (const pair of formData.entries()) {
+    const key = pair[0];
+    const val = pair[1];
+    console.log(key, val);
     if (Object.hasOwnProperty.call(obj, key)) {
       if (!Array.isArray(obj[key])) {
         obj[key] = [obj[key]];
@@ -35,16 +38,19 @@ const serializeForm = (form) => {
       continue;
     }
 
+    // When set to on convert to boolean return value
     // @ts-ignore
     if (checkboxNames.includes(key)) {
-      obj[key] = formData.get(key) === 'on';
+      obj[key] = val === 'on';
       continue;
     }
 
     obj[key] = formData.get(key);
   }
 
+  // All checkboxes that are not checked will not be included in the form data and need to return false
   for (const name of checkboxNames) {
+    // check for
     if (!Object.hasOwnProperty.call(obj, name)) {
       obj[name] = false;
     }
@@ -130,6 +136,9 @@ export class ExmgFormBase extends ExmgElement {
   protected async handleSubmit() {
     this.errorMessage = null;
     const form = this.getForm();
+
+    // Check form validity
+    this._checkFormValidity();
 
     // Return when there are invalid fields
     if (!this.formValid) {

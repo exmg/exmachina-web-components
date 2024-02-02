@@ -6,6 +6,8 @@ import { styles } from '@material/web/chips/internal/filter-styles.css.js';
 import { styles as selectableStyles } from '@material/web/chips/internal/selectable-styles.css.js';
 import { styles as sharedStyles } from '@material/web/chips/internal/shared-styles.css.js';
 import { styles as trailingIconStyles } from '@material/web/chips/internal/trailing-icon-styles.css.js';
+import { ARIAMixinStrict } from '@material/web/internal/aria/aria.js';
+import { redispatchEvent } from '@material/web/internal/events/redispatch-event.js';
 
 import {
   createValidator,
@@ -18,6 +20,7 @@ import { mixinFocusable } from '@material/web/labs/behaviors/focusable.js';
 import { ChipValidator } from './validator/chip-validator.js';
 import { observer } from '@exmg/lit-base';
 import { SelectionController } from './selection-controller.js';
+import { html, nothing } from 'lit';
 
 declare global {
   interface HTMLElementTagNameMap {
@@ -115,6 +118,42 @@ export class ExmgChip extends FilterChipBaseClass {
 
   protected override updated() {
     this[internals].ariaChecked = String(this.checked);
+  }
+
+  protected override renderPrimaryAction(content: unknown) {
+    const { ariaLabel } = this as ARIAMixinStrict;
+    return html`
+      <button
+        class="primary action"
+        id="button"
+        aria-label=${ariaLabel || nothing}
+        aria-pressed=${this.selected}
+        ?disabled=${this.disabled && !this.alwaysFocusable}
+        @click=${this._handleClick}
+      >
+        ${content}
+      </button>
+    `;
+  }
+
+  private _handleClick(event: MouseEvent) {
+    if (this.disabled) {
+      return;
+    }
+
+    // Store prevValue to revert in case `chip.selected` is changed during an
+    // event listener.
+    const prevValue = this.selected;
+    this.selected = !this.selected;
+
+    const preventDefault = !redispatchEvent(this, event);
+    if (preventDefault) {
+      // We should not do `this.selected = !this.selected`, since a client
+      // click listener could change its value. Instead, always revert to the
+      // original value.
+      this.selected = prevValue;
+      return;
+    }
   }
 
   [createValidator]() {

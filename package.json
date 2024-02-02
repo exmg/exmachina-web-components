@@ -55,8 +55,8 @@
     "clean": "del-cli packages/*/node_modules packages/*/package-lock.json && npm run clean:styles & npm run clean:typescript",
     "clean:styles": "del-cli packages/**/*-css.*",
     "clean:typescript": "tsc --build --clean",
-    "lint": "npm run lint:typescript && npm run lint:eslint && npm run lint:prettier",
-    "lint:fix": "npm run lint:typescript -- --fix && npm run lint:eslint -- --fix",
+    "lint": "npm run lint:eslint && npm run lint:prettier",
+    "lint:fix": "npm run lint:eslint -- --fix",
     "lint:eslint": "eslint \"packages/**/*.ts\" \"demo/**/*.ts\"",
     "lint:prettier": "prettier \"**/*.js\" \"**/*.ts\" --check --ignore-path .gitignore",
     "start": "node ./scripts/parseElements.cjs && npm run build && concurrently --names watch,serve \"npm run watch\" \"wds\"",
@@ -72,7 +72,7 @@
     "run:docs": "web-dev-server /docs/index.html"
   },
   "dependencies": {
-    "@material/web": "^1.1.1",
+    "@material/web": "^1.2.0",
     "@open-wc/building-rollup": "^2.0.2",
     "@vaadin/vaadin-date-picker": "^23.2.2"
   }
