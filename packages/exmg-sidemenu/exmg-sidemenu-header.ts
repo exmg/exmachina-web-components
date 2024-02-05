@@ -1,6 +1,6 @@
-import {customElement} from 'lit/decorators.js';
-import {style} from './styles/exmg-sidemenu-header-styles-css.js';
-import {ExmgSidemenuHeaderBase} from './exmg-sidemenu-header-base.js';
+import { customElement } from 'lit/decorators.js';
+import { style } from './styles/exmg-sidemenu-header-styles-css.js';
+import { ExmgSidemenuHeaderBase } from './exmg-sidemenu-header-base.js';
 
 /**
  * `exmg-sidemenu-header` default sidemenu header including a home and settings link.

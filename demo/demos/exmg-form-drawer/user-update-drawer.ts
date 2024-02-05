@@ -24,7 +24,7 @@ export class UserUpdateDrawer extends ExmgFormDrawerBase {
   @property({ type: Object })
   user?: UserData;
 
-  public async show(user?: UserData) {
+  async show(user?: UserData) {
     this.user = user;
     this.opened = true;
     this.title = this.isEditMode() ? 'Update User' : 'Create User';

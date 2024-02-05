@@ -84,7 +84,7 @@ export class CollapsedDemo extends LitElement {
   ];
 
   handleOpen(id: number) {
-    let faq = this.faqs.find((x) => x.id === id);
+    const faq = this.faqs.find((x) => x.id === id);
     if (!faq) return;
     faq.opened = !faq.opened;
     this.faqs = [...this.faqs];

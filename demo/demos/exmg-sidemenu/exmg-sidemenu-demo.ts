@@ -10,12 +10,14 @@ import '@material/web/icon/icon.js';
 import '@material/web/iconbutton/icon-button.js';
 import '@polymer/paper-item/paper-item.js';
 import '@exmg/exmg-tooltip/exmg-tooltip.js';
+import '@exmg/exmg-button';
 import '@polymer/app-layout/app-drawer/app-drawer.js';
 import '@polymer/app-layout/app-drawer-layout/app-drawer-layout.js';
 import '@polymer/app-layout/app-toolbar/app-toolbar.js';
 
 import { menu } from './menu.js';
 import { isItemGroup, MenuItem, MenuGroupItem, MenuItemOrGroupItem } from '@exmg/exmg-sidemenu/exmg-sidemenu-types.js';
+import { ifDefined } from 'lit/directives/if-defined.js';
 
 export const installMediaQueryWatcher = (
   mediaQuery: string,
@@ -42,6 +44,9 @@ export class SidemenuDemo extends LitElement {
 
   @property({ type: Boolean })
   drawerOpened = true;
+
+  @property({ type: String })
+  selectedItemMenu?: String;
 
   static styles = [
     sidemenuStyles,
@@ -95,23 +100,22 @@ export class SidemenuDemo extends LitElement {
     return html`
       <div class="menu-group-title">${i.title}</div>
       ${(i.items || []).map(
-        (subitem: MenuItem) =>
-          html`
-            <a href="${this.debug ? '#' : subitem.path}" data-path="${subitem.path}" tabindex="-1" class="menu-item">
-              <paper-item data-path=${subitem.path} role="menuitem">
-                ${subitem.iconPath
-                  ? html`<svg height="24" viewBox="0 0 24 24" width="24"><path d="${subitem.iconPath}"></path></svg>`
-                  : subitem.icon}
-                <span class="title"> ${subitem.title} </span>
-                ${subitem.badge
-                  ? html`<exmg-sidemenu-badge ?collapsed=${this.collapsed}
-                      >${subitem.badge === true ? html`&nbsp;` : subitem.badge}</exmg-sidemenu-badge
-                    >`
-                  : ''}
-              </paper-item>
-              <exmg-tooltip position="right">${subitem.title}</exmg-tooltip>
-            </a>
-          `,
+        (subitem: MenuItem) => html`
+          <a href="${this.debug ? '#' : subitem.path}" data-path="${subitem.path}" tabindex="-1" class="menu-item">
+            <paper-item data-path=${subitem.path} role="menuitem">
+              ${subitem.iconPath
+                ? html`<svg height="24" viewBox="0 0 24 24" width="24"><path d="${subitem.iconPath}"></path></svg>`
+                : subitem.icon}
+              <span class="title"> ${subitem.title} </span>
+              ${subitem.badge
+                ? html`<exmg-sidemenu-badge ?collapsed=${this.collapsed}
+                    >${subitem.badge === true ? html`&nbsp;` : subitem.badge}</exmg-sidemenu-badge
+                  >`
+                : ''}
+            </paper-item>
+            <exmg-tooltip position="right">${subitem.title}</exmg-tooltip>
+          </a>
+        `,
       )}
       <hr />
     `;
@@ -143,7 +147,8 @@ export class SidemenuDemo extends LitElement {
     `;
   }
 
-  private _handleSelectedChanged() {
+  private _handleSelectedChanged(e: CustomEvent) {
+    this.selectedItemMenu = e.detail;
     if (this.narrow) {
       this.drawerOpened = false;
     }
@@ -155,6 +160,10 @@ export class SidemenuDemo extends LitElement {
 
   private _handleMenuClick() {
     this.drawerOpened = !this.drawerOpened;
+  }
+
+  setItem() {
+    this.selectedItemMenu = 'content/';
   }
 
   renderFooterButton() {
@@ -182,11 +191,11 @@ export class SidemenuDemo extends LitElement {
     return html`
       <div class="wrapper">
         <exmg-sidemenu
-          selected="rooms/"
           ?collapsed=${this.collapsed}
           @collapsed=${this._handleCollapsed}
           @selected-changed=${this._handleSelectedChanged}
           ?narrow=${this.narrow}
+          selected="${ifDefined(this.selectedItemMenu)}"
         >
           <exmg-sidemenu-header slot="header" ?collapsed=${this.collapsed}></exmg-sidemenu-header>
           ${this.renderMenu()} ${this.renderFooterButton()}

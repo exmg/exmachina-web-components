@@ -1,4 +1,4 @@
-html {
+body {
   /* Theme info */
   --mdc-theme-primary: #0071dc;
   --mdc-theme-primary-hover: #0060ca;
@@ -60,9 +60,22 @@ html {
   --content-menu-hover-background-color: #efefef;
 
   --paper-item-hover-background-color: yellow;
+
+  --exmg-markdown-editor-border: var(--mdc-theme-primary);
+  --exmg-markdown-editor-toolbar-background: var(--mdc-theme-primary);
+  --exmg-markdown-editor-toolbar-label-background: var(--mdc-theme-primary);
+  --exmg-markdown-editor-toolbar-button-background-hover: var(--mdc-theme-primary-hover);
+  --exmg-markdown-editor-toolbar-seperator-color: var(--mdc-theme-on-primary);
+  --exmg-markdown-editor-label-color: var(--mdc-theme-on-primary);
+  --exmg-markdown-editor-toolbar-color: var(--mdc-theme-on-primary);
+  --exmg-markdown-editor-toolbar-color-disabled: #aaa;
+  --exmg-markdown-editor-preview-background: var(--mdc-theme-surface);
+  --exmg-markdown-editor-code-hover: var(--mdc-theme-surface-hover);
+  --exmg-markdown-editor-code-color: var(--mdc-theme-on-surface);
+  --exmg-markdown-editor-code-background: var(--mdc-theme-surface);
 }
 
-html[dark-theme] {
+body.dark {
   --dark-black: #000;
   --dark-ice: #f0f0ff;
   --dark-muted-black: rgb(24, 24, 27);
@@ -70,6 +83,7 @@ html[dark-theme] {
   --dark-hover-black: rgb(38, 38, 44);
 
   /* Theme info */
+  --mdc-theme-primary: #0057a8;
   --mdc-theme-secondary: var(--dark-ice);
   --mdc-theme-background: var(--dark-black);
   --mdc-theme-surface: var(--dark-double-muted-black);
@@ -153,13 +167,31 @@ html[dark-theme] {
 
   --paper-checkbox-label-color: var(--mdc-theme-on-surface);
   --paper-checkbox-unchecked-color: var(--mdc-theme-on-surface);
+
+  --exmg-markdown-editor-border: var(--mdc-theme-primary);
+  --exmg-markdown-editor-toolbar-background: var(--mdc-theme-primary);
+  --exmg-markdown-editor-toolbar-label-background: var(--mdc-theme-primary);
+  --exmg-markdown-editor-toolbar-button-background-hover: var(--mdc-theme-primary-hover);
+  --exmg-markdown-editor-toolbar-seperator-color: var(--mdc-theme-on-primary);
+  --exmg-markdown-editor-label-color: var(--mdc-theme-on-primary);
+  --exmg-markdown-editor-toolbar-color: var(--mdc-theme-on-primary);
+  --exmg-markdown-editor-toolbar-color-disabled: #aaa;
+  --exmg-markdown-editor-preview-background: var(--mdc-theme-surface);
+  --exmg-markdown-editor-code-hover: var(--mdc-theme-surface-hover);
+  --exmg-markdown-editor-code-color: var(--mdc-theme-on-surface);
+  --exmg-markdown-editor-code-background: var(--mdc-theme-surface);
 }
 
 body,
 html {
   margin: 0;
   padding: 1rem;
+<<<<<<< HEAD
+  background: var(--mdc-theme-surface);
+  font-family: 'Roboto';
+=======
   font-family: Roboto;
+>>>>>>> b54177a7db768d67ead57029569f09caa50d0878
   -webkit-font-smoothing: antialiased;
 }
 

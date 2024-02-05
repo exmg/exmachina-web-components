@@ -73,7 +73,7 @@ export class ExmgFormBase extends ExmgElement {
   /**
    * Internall used to show button spinner.
    */
-  @property({ type: Boolean }) public submitting = false;
+  @property({ type: Boolean }) submitting = false;
 
   @property({ type: Boolean }) private formValid = false;
 

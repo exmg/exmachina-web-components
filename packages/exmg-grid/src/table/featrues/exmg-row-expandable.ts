@@ -1,4 +1,4 @@
-import {ExmgQuerySelectors} from '../utils/exmg-query-selectors.js';
+import { ExmgQuerySelectors } from '../utils/exmg-query-selectors.js';
 
 export class ExmgRowExpandable {
   private querySelectors: ExmgQuerySelectors;

@@ -1,1 +1,1 @@
-export {UploadService} from './service.js';
+export { UploadService } from './service.js';

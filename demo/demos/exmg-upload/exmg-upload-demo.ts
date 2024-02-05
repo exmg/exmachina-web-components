@@ -1,5 +1,6 @@
 import { LitElement, html, css } from 'lit';
 import { customElement, query, state } from 'lit/decorators.js';
+import { Tabs } from '@material/web/tabs/internal/tabs.js';
 import '@material/web/tabs/tabs.js';
 import '@material/web/tabs/primary-tab.js';
 
@@ -9,7 +10,6 @@ import './exmg-upload-custom-demo.js';
 import './exmg-upload-customize-demo.js';
 import './exmg-upload-image-demo.js';
 import './exmg-input-demo.js';
-import { Tabs } from '@material/web/tabs/internal/tabs.js';
 
 import { style } from '../demo-page-styles-css.js';
 

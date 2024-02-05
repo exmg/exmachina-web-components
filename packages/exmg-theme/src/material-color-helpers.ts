@@ -25,11 +25,14 @@ const setUrlBarColor = (themeString: string) => {
   }
 };
 
+// eslint-disable-next-line
 export const applyTheme = (doc: DocumentOrShadowRoot, theme: string) => {
+  // eslint-disable-next-line
   let sheet = (globalThis as WithStylesheet)[STORAGE_KEY_THEME];
 
   if (!sheet) {
     sheet = new CSSStyleSheet();
+    // eslint-disable-next-line
     (globalThis as WithStylesheet)[STORAGE_KEY_THEME] = sheet;
     doc.adoptedStyleSheets.push(sheet);
   }
@@ -139,6 +142,7 @@ export function themeFromSourceColor(color: string, isDark: boolean): Theme {
  * @param ssName Optional global identifier of the constructable stylesheet and
  *     used to generate the localstorage name.
  */
+// eslint-disable-next-line
 export function applyMaterialTheme(doc: DocumentOrShadowRoot, theme: Theme) {
   let styleString = ':root,:host{';
   for (const [key, value] of Object.entries(theme)) {

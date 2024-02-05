@@ -1,5 +1,5 @@
-import {html, LitElement} from 'lit';
-import {customElement, state} from 'lit/decorators.js';
+import { html, LitElement } from 'lit';
+import { customElement, state } from 'lit/decorators.js';
 import '@exmg/exmg-grid/src/table/exmg-grid-pagination.js';
 
 @customElement('exmg-grid-pagination-demo')

@@ -176,18 +176,17 @@ export class ExmgNavigationDemoImpl extends ExmgNavigationBase {
               <!-- Top level items -->
               <md-list slot="topLevel">
                 ${this.menu.map(
-                  (i) =>
-                    html`
-                      <md-list-item
-                        type="button"
-                        ?selected=${navigationRailSelected.value === i.id}
-                        @click=${() => this.handleRailClick(i.id)}
-                        ><md-icon slot="start">${i.icon!}</md-icon> ${i.label}
-                        ${(i.items || []).length > 0
-                          ? html`<md-icon slot="end">arrow_forward</md-icon>`
-                          : nothing}</md-list-item
-                      >
-                    `,
+                  (i) => html`
+                    <md-list-item
+                      type="button"
+                      ?selected=${navigationRailSelected.value === i.id}
+                      @click=${() => this.handleRailClick(i.id)}
+                      ><md-icon slot="start">${i.icon!}</md-icon> ${i.label}
+                      ${(i.items || []).length > 0
+                        ? html`<md-icon slot="end">arrow_forward</md-icon>`
+                        : nothing}</md-list-item
+                    >
+                  `,
                 )}
               </md-list>
 

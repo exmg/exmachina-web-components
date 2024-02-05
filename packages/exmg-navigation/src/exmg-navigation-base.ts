@@ -20,6 +20,7 @@ export interface MenuItem {
   items?: MenuItem[];
 }
 
+// eslint-disable-next-line
 export class ExmgNavigationBase extends SignalWatcher(LitElement) {
   @property({ type: String })
   pageId = 'chat';

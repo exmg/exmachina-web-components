@@ -25,7 +25,7 @@ export interface BaseFilterConfig {
 }
 
 export interface FilterSingleSelectConfig extends BaseFilterConfig {
-  data: {id: string; title: string}[];
+  data: { id: string; title: string }[];
 }
 
 export interface Setting<TConfig extends BaseSettingConfig = BaseSettingConfig> {

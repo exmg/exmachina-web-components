@@ -61,6 +61,7 @@ export class ThemeChanger extends LitElement {
   @state() tone = 0;
 
   @query('input') private inputEl!: HTMLInputElement;
+  // eslint-disable-next-line no-undef
   @queryAll('hct-slider') private sliders!: NodeListOf<HCTSlider>;
 
   render() {
@@ -189,6 +190,7 @@ export class ThemeChanger extends LitElement {
     }
 
     this.updateHctFromHex(this.hexColor);
+    this.dispatchEvent(new ThemeChangeColorEvent(this.hexColor));
   }
 
   private onColorModeSelection(

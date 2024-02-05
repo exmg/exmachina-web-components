@@ -87,7 +87,7 @@ export class FileImageUploadForm extends ExmgElement {
           value=${ifDefined(this.aspectRatio)}
           @blur=${(e: FocusEvent) => this._handleBlur(e, 'aspectRatio')}
         ></md-outlined-text-field
-        ></div
+        ></div>
       </div>
     `;
   }

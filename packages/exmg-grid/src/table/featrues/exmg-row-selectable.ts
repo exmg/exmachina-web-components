@@ -43,7 +43,7 @@ export class ExmgRowSelectable {
     this.selectableCheckboxSelector = scs;
     this.disableRowClickSelection = drcs;
   }
-
+  // eslint-disable-next-line
   initFeature(bodyRows: NodeListOf<HTMLTableRowElement>) {
     const fireEvent = this.initAllCheckbox();
     const rowsSelectionSyncShouldTriggerEvent = this.syncRowSelectionWithBodyCheckboxes();
@@ -52,7 +52,7 @@ export class ExmgRowSelectable {
       this.fireSelectableRows();
     }
   }
-
+  // eslint-disable-next-line
   updateFeature(bodyRows: NodeListOf<HTMLTableRowElement>) {
     this.updateBodyRowsListeners(bodyRows);
     const rowsSelectionSyncShouldTriggerEvent = this.syncRowSelectionWithBodyCheckboxes();
@@ -79,7 +79,7 @@ export class ExmgRowSelectable {
       }),
     );
   }
-
+  // eslint-disable-next-line
   private updateBodyRowsListeners(bodyRows: NodeListOf<HTMLTableRowElement>) {
     bodyRows.forEach((row) => {
       row.setAttribute('data-is-selectable', '');

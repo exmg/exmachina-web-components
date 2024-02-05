@@ -1,0 +1,17 @@
+:host {
+  display: block;
+}
+
+
+
+.toolbar-container {
+  padding: 0.5rem 1rem;
+  display: flex;
+}
+
+md-icon-button:not(:first) {
+  margin: 0 .3rem;
+}
+md-icon-button:first {
+  margin: 0 0;
+}

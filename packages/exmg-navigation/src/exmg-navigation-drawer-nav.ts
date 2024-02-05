@@ -8,6 +8,7 @@ import '@material/web/list/list-item.js';
 import { ExmgElement } from '@exmg/lit-base';
 
 @customElement('exmg-navigation-drawer-nav')
+// eslint-disable-next-line
 export class ExmgNavigationDrawerNav extends SignalWatcher(ExmgElement) {
   static styles = [
     css`

@@ -1,6 +1,6 @@
 {
   "name": "@exmg/exmg-breadcrumbs",
-  "version": "8.1.33",
+  "version": "8.1.35",
   "type": "module",
   "main": "index.js",
   "module": "index.js",

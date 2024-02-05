@@ -14,6 +14,7 @@ export class ExmgForm extends ExmgFormBase {
 
 declare global {
   interface HTMLElementTagNameMap {
+    // @ts-ignore
     'exmg-form': ExmgForm;
   }
 }
