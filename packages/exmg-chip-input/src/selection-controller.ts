@@ -20,39 +20,46 @@ export interface SelectionElement extends HTMLElement {
  * A `ReactiveController` that provides root node-scoped selection for
  * elements, similar to native `<input type="radio">` selection.
  *
- * To use, elements should add the controller and call
- * `selectionController.handleCheckedChange()` in a getter/setter. This must
- * be synchronous to match native behavior.
- *
  * @example
  * const CHECKED = Symbol('checked');
  *
- * class MyToggle extends LitElement {
- *   get checked() { return this[CHECKED]; }
- *   set checked(checked: boolean) {
- *     const oldValue = this.checked;
- *     if (oldValue === checked) {
- *       return;
- *     }
+ * class MyChip extends LitElement {
+ *   @property({ type: Boolean }) removable = false;
  *
- *     this[CHECKED] = checked;
- *     this.selectionController.handleCheckedChange();
- *     this.requestUpdate('checked', oldValue);
- *   }
+ *    @property({ type: Boolean, reflect: true })
+ *    @observer(function (this: ExmgChip, selected: boolean) {
+ *      this.checked = selected;
+ *    })
+ *    selected = false;
  *
- *   [CHECKED] = false;
+ *    @property({ type: Boolean })
+ *    get checked() {
+ *      return this[CHECKED];
+ *    }
+ *    set checked(checked: boolean) {
+ *      const wasChecked = this.checked;
+ *      if (wasChecked === checked) {
+ *        return;
+ *      }
+ *      console.log('checked', checked);
  *
- *   private selectionController = new SelectionController(this);
+ *      this[CHECKED] = checked;
+ *      this.requestUpdate('checked', wasChecked);
+ *    }
  *
- *   constructor() {
- *     super();
- *     this.addController(this.selectionController);
- *   }
+ *    [CHECKED] = false;
+ *
+ *    private selectionController = new SelectionController(this);
+ *
+ *    constructor() {
+ *      super();
+ *      this.addController(this.selectionController);
+ *    }
  * }
  */
 export class SelectionController implements ReactiveController {
   /**
-   * All single selection elements in the host element's root with the same
+   * All selection elements in the host element's root with the same
    * `name` attribute, including the host element.
    */
   get controls(): [SelectionElement, ...SelectionElement[]] {

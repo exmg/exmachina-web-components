@@ -16,8 +16,6 @@ import '@material/web/radio/radio.js';
 import '@material/web/labs/card/outlined-card.js';
 import { candies } from './data.js';
 
-import './test-chip.js';
-
 @customElement('exmg-chip-input-demo')
 export class ExmgChipInputDemo extends LitElement {
   static styles = [
@@ -33,6 +31,10 @@ export class ExmgChipInputDemo extends LitElement {
       form {
         width: 100%;
         margin: 1rem;
+      }
+
+      .row {
+        margin-bottom: 1rem;
       }
     `,
   ];
@@ -51,21 +53,21 @@ export class ExmgChipInputDemo extends LitElement {
   }
 
   render() {
-    return html`Demo badge input <exmg-chip-input></exmg-chip-input><br /><br />
+    return html`
       <div class="main">
         <md-outlined-card>
           <exmg-form @dialog-submit=${this.doFormAction}>
             <form>
               <div class="row">
-                <exmg-chip-input label="Dates" aria-labelledby="dates-label">
+                <exmg-chip-input label="Dates (Chip input)" aria-labelledby="dates-label">
                   <exmg-chip name="date" value="Mon" label="Mon" aria-label="Monday"></exmg-chip>
-                  <exmg-chip name="date" value="Tue" label="Tue" aria-label="Tuesday"></exmg-chip>
+                  <exmg-chip name="date" value="Tue" label="Tue" aria-label="Tuesday" selected></exmg-chip>
                   <exmg-chip name="date" value="Wed" label="Wed" aria-label="Wednesday"></exmg-chip>
                 </exmg-chip-input>
               </div>
               <div class="row">
                 <exmg-chip-input-dropdown
-                  label="Preferred Candy"
+                  label="Preferred Candy (Chip input dropdown)"
                   aria-labelledby="candies-label"
                   dropdown-title="Select candies"
                 >
@@ -78,6 +80,7 @@ export class ExmgChipInputDemo extends LitElement {
             </form>
           </exmg-form></md-outlined-card
         >
-      </div> `;
+      </div>
+    `;
   }
 }

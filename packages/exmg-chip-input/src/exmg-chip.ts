@@ -64,7 +64,6 @@ export class ExmgChip extends FilterChipBaseClass {
     if (wasChecked === checked) {
       return;
     }
-    console.log('checked', checked);
 
     this[CHECKED] = checked;
     this.requestUpdate('checked', wasChecked);

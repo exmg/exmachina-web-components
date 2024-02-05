@@ -31,7 +31,7 @@ function applyThemeFromColor(color: string, isDark: boolean) {
  */
 export function isModeDark(mode: ColorMode, saveAutoMode = true) {
   let isDark = mode === 'dark';
-  console.log('isModeDark', mode, isDark);
+
   // Determines whether the auto mode should display light or dark.
   if (mode === 'auto') {
     isDark = window.matchMedia('(prefers-color-scheme: dark)').matches;

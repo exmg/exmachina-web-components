@@ -1,5 +1,5 @@
 import { html, nothing } from 'lit';
-import { property, state } from 'lit/decorators.js';
+import { property } from 'lit/decorators.js';
 
 import '@exmg/exmg-button/exmg-text-button.js';
 import '@material/web/button/text-button.js';
@@ -29,7 +29,7 @@ const serializeForm = (form) => {
   for (const pair of formData.entries()) {
     const key = pair[0];
     const val = pair[1];
-    console.log(key, val);
+
     if (Object.hasOwnProperty.call(obj, key)) {
       if (!Array.isArray(obj[key])) {
         obj[key] = [obj[key]];
@@ -75,7 +75,7 @@ export class ExmgFormBase extends ExmgElement {
    */
   @property({ type: Boolean }) public submitting = false;
 
-  @state() private formValid = false;
+  @property({ type: Boolean }) private formValid = false;
 
   boundHandleBlur?: (e: Event) => void;
 
@@ -90,7 +90,6 @@ export class ExmgFormBase extends ExmgElement {
   protected _handleBlur(e: Event) {
     // @ts-ignore
     typeof e.target.reportValidity === 'function' && e.target.reportValidity();
-    console.log('blur');
     this._checkFormValidity();
   }
 
@@ -99,6 +98,8 @@ export class ExmgFormBase extends ExmgElement {
 
     this.boundHandleBlur = this._handleBlur.bind(this);
     form!.addEventListener('blur', this.boundHandleBlur, true);
+
+    //this.boundHandleValidateElement = this._handleValidateElement.bind(this);
 
     await this.updateComplete;
     this._checkFormValidity();
