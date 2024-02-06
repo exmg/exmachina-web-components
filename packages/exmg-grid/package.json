@@ -1,6 +1,6 @@
 {
   "name": "@exmg/exmg-grid",
-  "version": "9.0.0",
+  "version": "9.0.1",
   "type": "module",
   "description": "exmg grid element",
   "contributors": [
@@ -30,8 +30,8 @@
   "dependencies": {
     "@exmg/exmg-sortable": "file:../exmg-sortable",
     "@exmg/lit-base": "^2.0.1",
-    "@material/web": "^1.2.0",
     "@material/typography": "^14.0.0",
+    "@material/web": "^1.2.0",
     "@polymer/iron-dropdown": "^3.0.1",
     "@polymer/iron-flex-layout": "^3.0.1",
     "@polymer/iron-input": "^3.0.1",
