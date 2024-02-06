@@ -1,6 +1,6 @@
 {
   "name": "@exmg/exmg-sortable",
-  "version": "8.1.35",
+  "version": "9.0.0",
   "type": "module",
   "main": "index.js",
   "module": "index.js",

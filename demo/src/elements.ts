@@ -71,11 +71,6 @@ export const elements: Element[] = [
     url: 'https://www.npmjs.com/package/@exmg/exmg-search',
   },
   {
-    name: '@exmg/exmg-sidemenu',
-    version: '8.1.34',
-    url: 'https://www.npmjs.com/package/@exmg/exmg-sidemenu',
-  },
-  {
     name: '@exmg/exmg-snackbar',
     version: '8.1.35',
     url: 'https://www.npmjs.com/package/@exmg/exmg-snackbar',
