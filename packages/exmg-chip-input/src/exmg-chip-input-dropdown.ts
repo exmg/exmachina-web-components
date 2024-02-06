@@ -29,6 +29,7 @@ declare global {
 export class ExmgChipInputDropdown extends ChipSet {
   @property({ type: String }) label = '';
   @property({ type: String }) dropdownTitle = 'Select items';
+  @property({ type: String }) btnAddText = 'Add items';
 
   @property({ type: Array }) selectedChips?: ExmgChip[];
 
@@ -106,7 +107,7 @@ export class ExmgChipInputDropdown extends ChipSet {
             aria-haspopup="dialog"
             aria-expanded=${this.menuOpen ? 'true' : 'false'}
           >
-            Add candy
+            ${this.btnAddText}
             <md-icon slot="icon">add</md-icon>
           </md-text-button>
         </div>

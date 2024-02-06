@@ -1,6 +1,6 @@
-import { html, LitElement } from 'lit';
+import { css, html, LitElement } from 'lit';
 import { customElement, query, state } from 'lit/decorators.js';
-import demoStyles from './demo-common-css.js';
+import { style } from '../demo-page-styles-css.js';
 import { Tabs } from '@material/web/tabs/internal/tabs.js';
 
 import '@material/web/tabs/tabs.js';
@@ -12,7 +12,11 @@ import './exmg-markdown-editor-simple-demo.js';
 
 @customElement('exmg-markdown-editor-demo')
 export class DemoSimpleGridTable extends LitElement {
-  static styles = [demoStyles];
+  static styles = [style, css`
+      main {
+        padding-top: 1.5rem;
+      }
+  `];
 
   @query('md-tabs') tabs?: Tabs;
   @state() selectedTab = 0;
@@ -38,15 +42,17 @@ export class DemoSimpleGridTable extends LitElement {
 
   protected render() {
     return html`
-      <div class="centered">
-        <md-tabs .selected="${this.selectedTab}" @change=${this._handleChange}>
-          <md-primary-tab> Simple demo </md-primary-tab>
-          <md-primary-tab> Customized Preview </md-primary-tab>
-          <md-primary-tab> Upload Image </md-primary-tab>
-          <md-primary-tab> Custom actions/toolbar </md-primary-tab>
-        </md-tabs>
+      <div class="main centered">
+        <div>
+          <md-tabs .selected="${this.selectedTab}" @change=${this._handleChange}>
+            <md-primary-tab> Simple demo </md-primary-tab>
+            <md-primary-tab> Customized Preview </md-primary-tab>
+            <md-primary-tab> Upload Image </md-primary-tab>
+            <md-primary-tab> Custom actions/toolbar </md-primary-tab>
+          </md-tabs>
 
-        <main>${this.renderContent()}</main>
+          <main>${this.renderContent()}</main>
+        </div>
       </div>
     `;
   }
