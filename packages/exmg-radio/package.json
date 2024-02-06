@@ -1,0 +1,53 @@
+{
+  "name": "@exmg/exmg-radio",
+  "version": "8.1.35",
+  "type": "module",
+  "description": "Paper style radio group element",
+  "contributors": [
+    "Ex Machina"
+  ],
+  "keywords": [
+    "web-components",
+    "polymer",
+    "paper",
+    "radio",
+    "radio-group",
+    "radio-button"
+  ],
+  "main": "index.js",
+  "module": "index.js",
+  "exports": {
+    ".": "./index.js",
+    "./src/exmg-radio-item.js": "./src/exmg-radio-item.js"
+  },
+  "files": [
+    "**/*.scss",
+    "**/*.js",
+    "**/*.d.ts"
+  ],
+  "homepage": "https://github.com/exmg/exmachina-web-components",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:exmg/exmg-web-components.git",
+    "directory": "packages/exmg-radio"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "@exmg/lit-base": "^1.1.8",
+    "@material/mwc-base": "=0.27.0",
+    "@material/mwc-radio": "=0.27.0",
+    "@material/mwc-ripple": "=0.27.0",
+    "@material/radio": "^13.0.0",
+    "lit": "2.8.0",
+    "tslib": "^2.6.2"
+  },
+  "devDependencies": {
+    "@exmg/lit-cli": "1.1.13"
+  },
+  "scripts": {
+    "build:styles": "exmg-lit-cli sass -f \"./src/styles/*.scss\""
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}
