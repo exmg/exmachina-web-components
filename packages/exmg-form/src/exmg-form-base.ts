@@ -1,5 +1,5 @@
 import { html, nothing } from 'lit';
-import { property, state } from 'lit/decorators.js';
+import { property } from 'lit/decorators.js';
 
 import '@exmg/exmg-button/exmg-text-button.js';
 import '@material/web/button/text-button.js';
@@ -11,11 +11,51 @@ import { classMap } from 'lit/directives/class-map.js';
 export const CLOSE_ACTION = 'close';
 
 const serializeForm = (form) => {
-  const obj = {};
-  const formData = new FormData(form);
-  for (const key of formData.keys()) {
+  var obj = {};
+  const formElements = form?.elements;
+  let formElementsArray = Array.from(formElements);
+
+  /**
+   * Create list of checkbox elements. If no value is set the return value of the checkbox for 'on' will be a boolean
+   */
+  const checkboxNames = formElementsArray
+    .filter((input: any) => {
+      return input.value === 'on' && (input.type === 'checkbox' || input.tagName.toLowerCase().includes('checkbox'));
+    })
+    .map((input: any) => input.name);
+
+  var formData = new FormData(form);
+
+  for (const pair of formData.entries()) {
+    const key = pair[0];
+    const val = pair[1];
+
+    if (Object.hasOwnProperty.call(obj, key)) {
+      if (!Array.isArray(obj[key])) {
+        obj[key] = [obj[key]];
+      }
+      obj[key].push(val);
+      continue;
+    }
+
+    // When set to on convert to boolean return value
+    // @ts-ignore
+    if (checkboxNames.includes(key)) {
+      obj[key] = val === 'on';
+      continue;
+    }
+
     obj[key] = formData.get(key);
   }
+
+  // All checkboxes that are not checked will not be included in the form data and need to return false
+  for (const name of checkboxNames) {
+    // check for
+    if (!Object.hasOwnProperty.call(obj, name)) {
+      obj[name] = false;
+    }
+  }
+
   return obj;
 };
 
@@ -35,7 +75,7 @@ export class ExmgFormBase extends ExmgElement {
    */
   @property({ type: Boolean }) submitting = false;
 
-  @state() private formValid = false;
+  @property({ type: Boolean }) private formValid = false;
 
   boundHandleBlur?: (e: Event) => void;
 
@@ -50,15 +90,19 @@ export class ExmgFormBase extends ExmgElement {
   protected _handleBlur(e: Event) {
     // @ts-ignore
     typeof e.target.reportValidity === 'function' && e.target.reportValidity();
-
     this._checkFormValidity();
   }
 
-  protected firstUpdated() {
+  protected async firstUpdated() {
     const form = this.getForm();
 
     this.boundHandleBlur = this._handleBlur.bind(this);
     form!.addEventListener('blur', this.boundHandleBlur, true);
+
+    //this.boundHandleValidateElement = this._handleValidateElement.bind(this);
+
+    await this.updateComplete;
+    this._checkFormValidity();
   }
 
   disconnectedCallback() {
@@ -93,6 +137,9 @@ export class ExmgFormBase extends ExmgElement {
   protected async handleSubmit() {
     this.errorMessage = null;
     const form = this.getForm();
+
+    // Check form validity
+    this._checkFormValidity();
 
     // Return when there are invalid fields
     if (!this.formValid) {

@@ -1,12 +1,14 @@
 {
-  "name": "@exmg/exmg-search",
+  "name": "@exmg/exmg-chip-input",
   "version": "1.0.0",
   "type": "module",
   "main": "index.js",
   "module": "index.js",
   "exports": {
     ".": "./index.js",
-    "./exmg-search.js": "./src/exmg-search.js"
+    "./exmg-chip-input.js": "./src/exmg-chip-input.js",
+    "./exmg-chip-input-dropdown.js": "./src/exmg-chip-input-dropdown.js",
+    "./exmg-chip.js": "./src/exmg-chip.js"
   },
   "dependencies": {
     "@exmg/lit-base": "^2.0.1",
@@ -20,7 +22,8 @@
   "keywords": [
     "web-components",
     "lit",
-    "search"
+    "chip",
+    "input"
   ],
   "files": [
     "**/*.scss",
@@ -31,7 +34,7 @@
   "repository": {
     "type": "git",
     "url": "git@github.com:exmg/exmg-web-components.git",
-    "directory": "packages/exmg-search"
+    "directory": "packages/exmg-chip-input"
   },
   "license": "MIT",
   "scripts": {
