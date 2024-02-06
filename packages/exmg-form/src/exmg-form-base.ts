@@ -11,9 +11,9 @@ import { classMap } from 'lit/directives/class-map.js';
 export const CLOSE_ACTION = 'close';
 
 const serializeForm = (form) => {
-  var obj = {};
+  const obj = {};
   const formElements = form?.elements;
-  let formElementsArray = Array.from(formElements);
+  const formElementsArray = Array.from(formElements);
 
   /**
    * Create list of checkbox elements. If no value is set the return value of the checkbox for 'on' will be a boolean
@@ -24,7 +24,7 @@ const serializeForm = (form) => {
     })
     .map((input: any) => input.name);
 
-  var formData = new FormData(form);
+  const formData = new FormData(form);
 
   for (const pair of formData.entries()) {
     const key = pair[0];
@@ -75,7 +75,7 @@ export class ExmgFormBase extends ExmgElement {
    */
   @property({ type: Boolean }) submitting = false;
 
-  @property({ type: Boolean }) private formValid = false;
+  @property({ type: Boolean }) formValid = false;
 
   boundHandleBlur?: (e: Event) => void;
 
@@ -99,7 +99,7 @@ export class ExmgFormBase extends ExmgElement {
     this.boundHandleBlur = this._handleBlur.bind(this);
     form!.addEventListener('blur', this.boundHandleBlur, true);
 
-    //this.boundHandleValidateElement = this._handleValidateElement.bind(this);
+    // this.boundHandleValidateElement = this._handleValidateElement.bind(this);
 
     await this.updateComplete;
     this._checkFormValidity();

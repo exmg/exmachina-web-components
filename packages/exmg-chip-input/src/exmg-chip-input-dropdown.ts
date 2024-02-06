@@ -44,8 +44,8 @@ export class ExmgChipInputDropdown extends ChipSet {
   }
 
   private _onSelect(e: Event) {
-    var clickedElement = e.target as Element;
-    var elementType = clickedElement.tagName;
+    const clickedElement = e.target as Element;
+    const elementType = clickedElement.tagName;
 
     if (elementType === 'EXMG-CHIP') {
       // @ts-ignore
@@ -101,8 +101,8 @@ export class ExmgChipInputDropdown extends ChipSet {
           <md-text-button
             id="button"
             @click="${this.onOpenClick}"
-            title="Page theme controls"
-            aria-label="Page theme controls"
+            title="${this.dropdownTitle} controls"
+            aria-label="${this.dropdownTitle} controls"
             aria-haspopup="dialog"
             aria-expanded=${this.menuOpen ? 'true' : 'false'}
           >
@@ -116,7 +116,7 @@ export class ExmgChipInputDropdown extends ChipSet {
           anchor-corner="end-start"
           default-focus="none"
           role="dialog"
-          aria-label="Page color theme controls"
+          aria-label="${this.dropdownTitle} controls"
           .open=${this.menuOpen}
           @closed=${this.onMenuClosed}
           @keydown=${this.onKeydown}
