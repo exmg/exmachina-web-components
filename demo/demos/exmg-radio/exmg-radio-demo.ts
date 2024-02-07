@@ -11,10 +11,6 @@ export class ExmgRadioDemo extends LitElement {
   static styles = [
     style,
     css`
-      .g6 {
-        flex-basis: calc(50% - 1rem);
-        max-width: calc(50% - 1rem);
-      }
       h1 {
         color: var(--md-sys-color-on-surface);
         padding-top: 1.5rem;
@@ -140,7 +136,7 @@ export class ExmgRadioDemo extends LitElement {
               <div slot="title">512GB</div>
               <div slot="content">From $1099 or $45.79/mo.per month for 24 mo. *months before trade-in</div>
             </exmg-radio-item>
-            <exmg-radio-item value="1024GB" name="wrapped">
+            <exmg-radio-item value="1024GB" name="wrapped" disabled>
               <img slot="image" src="https://via.placeholder.com/100" alt="1024GB" />
               <div slot="title">1024GB</div>
               <div slot="content">From $1099 or $45.79/mo.per month for 24 mo. *months before trade-in</div>

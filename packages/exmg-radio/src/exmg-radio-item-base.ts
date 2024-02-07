@@ -79,7 +79,7 @@ export class ExmgRadioItemBase extends radioBaseClass {
   }
 
   protected override render() {
-    const classes = { checked: this.checked };
+    const classes = { checked: this.checked, disabled: this.disabled };
     const showRadioMap = classMap({ 'show-radio': this.radio, icon: true });
     return html`
       <div class="container ${classMap(classes)}" aria-hidden="true">
