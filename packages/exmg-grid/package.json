@@ -1,6 +1,6 @@
 {
   "name": "@exmg/exmg-grid",
-  "version": "8.1.36",
+  "version": "8.1.40",
   "type": "module",
   "description": "exmg grid element",
   "contributors": [
@@ -30,7 +30,7 @@
   "dependencies": {
     "@exmg/exmg-sortable": "file:../exmg-sortable",
     "@exmg/lit-base": "^2.0.1",
-    "@material/web": "^1.0.1",
+    "@material/web": "^1.2.0",
     "@material/typography": "^14.0.0",
     "@polymer/iron-dropdown": "^3.0.1",
     "@polymer/iron-flex-layout": "^3.0.1",
@@ -53,5 +53,6 @@
   },
   "publishConfig": {
     "access": "public"
-  }
+  },
+  "gitHead": "a80268a43889f54fc67cafc66405d1f622f7528e"
 }
