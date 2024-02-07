@@ -2,7 +2,7 @@ import { LitElement, css, html } from 'lit';
 import { customElement } from 'lit/decorators.js';
 import { style } from '../demo-page-styles-css.js';
 
-import '@exmg/exmg-radio/src/exmg-radio-item.js';
+import '@exmg/exmg-radio/exmg-radio-item.js';
 import '@exmg/exmg-form/exmg-form.js';
 import '@material/web/icon/icon.js';
 

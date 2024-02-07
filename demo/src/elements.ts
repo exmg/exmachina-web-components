@@ -51,10 +51,6 @@
       version: '8.1.35',
       url: 'https://www.npmjs.com/package/@exmg/exmg-radio',
     },{
-      name: '@exmg/exmg-radio-group',
-      version: '8.1.35',
-      url: 'https://www.npmjs.com/package/@exmg/exmg-radio-group',
-    },{
       name: '@exmg/exmg-search',
       version: '1.0.0',
       url: 'https://www.npmjs.com/package/@exmg/exmg-search',
