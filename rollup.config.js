@@ -14,6 +14,7 @@ const elements = [
   'exmg-grid',
   'exmg-dialogs',
   'exmg-tooltip',
+  'exmg-radio',
   'exmg-sortable',
   'exmg-copy-to-clipboard',
   'exmg-form',

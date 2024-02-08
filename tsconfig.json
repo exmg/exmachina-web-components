@@ -64,6 +64,9 @@
       "path": "packages/exmg-tooltip"
     },
     {
+      "path": "packages/exmg-radio"
+    },
+    {
       "path": "packages/exmg-sortable"
     },
     {

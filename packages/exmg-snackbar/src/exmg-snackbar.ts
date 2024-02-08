@@ -7,7 +7,6 @@ import { style as newStyles } from './styles/exmg-snackbar-styles-css.js';
 import { styles } from '@material/mwc-snackbar/mwc-snackbar.css.js';
 
 @customElement('exmg-snackbar')
-// @ts-ignore
 export class ExmgSnackbar extends SnackbarBase {
   /**
    * Sets the Snackbar variant, options from MWC
@@ -22,7 +21,6 @@ export class ExmgSnackbar extends SnackbarBase {
   @property({ type: Number })
   yOffset: number = 0;
 
-  // @ts-ignore
   static styles = [styles, newStyles];
 
   protected override render() {

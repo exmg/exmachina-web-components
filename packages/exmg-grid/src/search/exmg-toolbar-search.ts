@@ -61,7 +61,7 @@ export class ToolbarSearch extends ExmgElement {
         white-space: nowrap;
         overflow: hidden;
         font-size: 14px;
-
+        opacity: 0.6;
         text-overflow: ellipsis;
         letter-spacing: 0.005em;
         box-sizing: border-box;
@@ -101,6 +101,7 @@ export class ToolbarSearch extends ExmgElement {
         border: none !important;
         font-size: 0;
         margin-right: 1rem;
+        color: var(--exmg-table-color, black);
       }
 
       md-focus-ring {

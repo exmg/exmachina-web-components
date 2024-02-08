@@ -1,0 +1,49 @@
+{
+  "name": "@exmg/exmg-radio",
+  "version": "9.0.0",
+  "description": "Material style radio element",
+  "contributors": [
+    "Ex Machina"
+  ],
+  "keywords": [
+    "web-components",
+    "lit",
+    "material",
+    "radio",
+    "radio-button"
+  ],
+  "type": "module",
+  "main": "index.js",
+  "module": "index.js",
+  "exports": {
+    ".": "./index.js",
+    "./exmg-radio-item.js": "./src/exmg-radio-item.js"
+  },
+  "files": [
+    "**/*.scss",
+    "**/*.js",
+    "**/*.d.ts"
+  ],
+  "homepage": "https://github.com/exmg/exmachina-web-components",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:exmg/exmg-web-components.git",
+    "directory": "packages/exmg-radio"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "@material/web": "^1.2.0",
+    "lit": "3.0.0",
+    "tslib": "^2.6.2"
+  },
+  "devDependencies": {
+    "@exmg/lit-cli": "^2.0.1"
+  },
+  "scripts": {
+    "build:styles": "exmg-lit-cli sass -f \"./**/*.scss\"",
+    "tsc": "tsc"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}
