@@ -1,16 +1,15 @@
 {
   "name": "@exmg/exmg-radio",
-  "version": "8.1.35",
-  "description": "Paper style radio group element",
+  "version": "9.0.0",
+  "description": "Material style radio element",
   "contributors": [
     "Ex Machina"
   ],
   "keywords": [
     "web-components",
-    "polymer",
-    "paper",
+    "lit",
+    "material",
     "radio",
-    "radio-group",
     "radio-button"
   ],
   "type": "module",
