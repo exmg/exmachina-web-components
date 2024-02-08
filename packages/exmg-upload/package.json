@@ -1,11 +1,11 @@
 {
   "name": "@exmg/exmg-upload",
-  "version": "1.0.12",
+  "version": "9.0.1",
   "dependencies": {
-    "@exmg/lit-base": "^2.0.1",
     "@exmg/exmg-button": "file:../exmg-button",
     "@exmg/exmg-collapsed": "file:../exmg-collapsed",
     "@exmg/exmg-dialogs": "file:../exmg-dialogs",
+    "@exmg/lit-base": "^2.0.1",
     "@material/web": "^1.2.0",
     "cropperjs": "^1.5.13",
     "lit": "^3.0.0",

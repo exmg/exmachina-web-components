@@ -1,6 +1,6 @@
 {
   "name": "@exmg/exmg-markdown-editor",
-  "version": "8.1.39",
+  "version": "9.0.1",
   "type": "module",
   "description": "Element that wrap-around marked-element to make the markdown editable",
   "main": "index.js",
@@ -29,7 +29,7 @@
   ],
   "dependencies": {
     "@exmg/lit-base": "^2.0.1",
-    "@material/web": "^1.0.0",
+    "@material/web": "^1.2.0",
     "codemirror": "5.49.2",
     "lit": "^3.0.0",
     "marked": "^9.0.0",

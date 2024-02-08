@@ -9,13 +9,13 @@ import './exmg-form-drawer/exmg-form-drawer-demo.js';
 import './exmg-form/exmg-form-demo.js';
 import './exmg-grid/exmg-grid-demo.js';
 import './exmg-radio/exmg-radio-demo.js';
-import './exmg-sidemenu/exmg-sidemenu-demo.js';
 import './exmg-snackbar/exmg-snackbar-demo.js';
 import './exmg-tooltip/exmg-tooltip-demo.js';
 import './exmg-upload/exmg-upload-demo.js';
 import './exmg-sortable/exmg-sortable-demo.js';
 import './exmg-search/exmg-search-demo.js';
 import './exmg-navigation/exmg-navigation-demo.js';
+import './exmg-chip-input/exmg-chip-input-demo.js';
 import './exmg-markdown-editor/exmg-markdown-editor-demo.js';
 
 export const demos = {
@@ -49,9 +49,6 @@ export const demos = {
   'exmg-radio-demo': {
     tag: literal`exmg-radio-demo`,
   },
-  'exmg-sidemenu-demo': {
-    tag: literal`exmg-sidemenu-demo`,
-  },
   'exmg-snackbar-demo': {
     tag: literal`exmg-snackbar-demo`,
   },
@@ -69,5 +66,8 @@ export const demos = {
   },
   'exmg-navigation-demo': {
     tag: literal`exmg-navigation-demo`,
+  },
+  'exmg-chip-input-demo': {
+    tag: literal`exmg-chip-input-demo`,
   },
 };

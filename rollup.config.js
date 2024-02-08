@@ -16,7 +16,6 @@ const elements = [
   'exmg-tooltip',
   'exmg-radio',
   'exmg-sortable',
-  'exmg-sidemenu',
   'exmg-copy-to-clipboard',
   'exmg-form',
   'exmg-form-drawer',
@@ -26,6 +25,7 @@ const elements = [
   'exmg-breadcrumbs',
   'exmg-markdown-editor',
   'exmg-navigation',
+  'exmg-chip-input',
   'exmg-upload',
 ];
 

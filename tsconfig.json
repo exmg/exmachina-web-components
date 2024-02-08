@@ -52,6 +52,9 @@
       "path": "packages/exmg-button"
     },
     {
+      "path": "packages/exmg-chip-input"
+    },
+    {
       "path": "packages/exmg-grid"
     },
     {
@@ -65,9 +68,6 @@
     },
     {
       "path": "packages/exmg-sortable"
-    },
-    {
-      "path": "packages/exmg-sidemenu"
     },
     {
       "path": "packages/exmg-markdown-editor"
