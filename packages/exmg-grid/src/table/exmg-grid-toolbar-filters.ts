@@ -74,7 +74,7 @@ export class ExmgGridToolbarFilters extends ExmgElement {
           trailing-icon
           >${this.selectedLabel()} <md-icon slot="icon">expand_more</md-icon></md-text-button
         >
-        <md-menu id="menu" menu-corner="start-end" anchor="filterBtn" role="listbox" aria-label="Filter options">
+        <md-menu id="menu" menu-corner="start-start" anchor="filterBtn" role="listbox" aria-label="Filter options">
           ${this.items?.map(
             (i) =>
               html`<md-menu-item
