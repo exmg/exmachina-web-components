@@ -1150,7 +1150,7 @@
     tslib "^2.6.2"
 
 "@exmg/exmg-radio@file:/Users/rodriguecouanon/Desktop/Work/exmachina-web-components/packages/exmg-radio":
-  version "8.1.35"
+  version "9.0.0"
   resolved "file:packages/exmg-radio"
   dependencies:
     "@material/web" "^1.2.0"
