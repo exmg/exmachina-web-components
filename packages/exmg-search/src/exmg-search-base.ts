@@ -57,7 +57,7 @@ export class ExmgSearchBase extends ExmgElement {
     return html`
       <div class=${classMap(classMapValues)}>
         <div class="mode-input">
-          <md-focus-ring for="searchInput"></md-focus-ring>
+          <md-focus-ring for="searchInput" inward></md-focus-ring>
           <md-icon class="search">search</md-icon>
           <input
             id="searchInput"

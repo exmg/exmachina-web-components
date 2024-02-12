@@ -23,13 +23,13 @@ export class ExmgRadioItem extends Radio {
 
   protected override render() {
     const classes = { checked: this.checked, disabled: this.disabled };
-    const showRadioMap = classMap({ 'show-radio': this.radio, icon: true });
+    const showRadioMap = classMap({ 'show-radio': this.radio });
     return html`
       <div class="container ${classMap(classes)}" aria-hidden="true">
         <md-ripple part="ripple" .control=${this} ?disabled=${this.disabled}></md-ripple>
         <md-focus-ring part="focus-ring" .control=${this}></md-focus-ring>
-        <div class="radio-container">
-          <svg class=${showRadioMap} viewBox="0 0 20 20">
+        <div class="radio-container ${showRadioMap}">
+          <svg class="icon ${showRadioMap}" viewBox="0 0 20 20">
             <mask id="${this.maskIdOverride}">
               <rect width="100%" height="100%" fill="white" />
               <circle cx="10" cy="10" r="8" fill="black" />

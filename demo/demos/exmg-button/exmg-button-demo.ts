@@ -18,24 +18,24 @@ export class ButtonDemo extends LitElement {
     return html`
       <div class="main centered">
         <div>
-          <h1>Loading (click it!)</h1>
+          <h1>Filled Button Loading (click it!)</h1>
           <exmg-filled-button @click=${() => (this.loading = !this.loading)} ?loading=${this.loading}
             >LOADING</exmg-filled-button
           >
         </div>
         <div>
-          <h1>Loading disabled</h1>
+          <h1>Filled Button Loading disabled</h1>
           <exmg-filled-button disabled loading>LOADING</exmg-filled-button>
         </div>
 
         <div>
-          <h1>Loading (click it!)</h1>
+          <h1>Text Button Loading (click it!)</h1>
           <exmg-text-button @click=${() => (this.loading = !this.loading)} ?loading=${this.loading}
             >LOADING</exmg-text-button
           >
         </div>
         <div>
-          <h1>Loading disabled</h1>
+          <h1>Text Button Loading disabled</h1>
           <exmg-text-button disabled loading>LOADING</exmg-text-button>
         </div>
       </div>

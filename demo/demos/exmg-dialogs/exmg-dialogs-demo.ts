@@ -28,6 +28,7 @@ export class DialogDemo extends LitElement {
     css`
       .example > * {
         padding: 8px;
+        margin-bottom: 1rem;
       }
 
       .headline {

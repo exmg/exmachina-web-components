@@ -10,6 +10,7 @@ import '@material/web/icon/icon.js';
 import '@material/web/divider/divider.js';
 import '@material/web/textfield/filled-text-field.js';
 import '@material/web/checkbox/checkbox.js';
+import '@exmg/exmg-radio/exmg-radio-item.js';
 
 @customElement('settings-example')
 export class SettingsExample extends LitElement {
@@ -42,6 +43,10 @@ export class SettingsExample extends LitElement {
         transform: rotate(180deg);
         transition: transform 150ms ease;
       }
+      .horizontal {
+        display: flex;
+        gap: 16px;
+      }
 
       .label {
         line-height: 1.5rem;
@@ -61,7 +66,10 @@ export class SettingsExample extends LitElement {
       }
 
       exmg-form {
-        --exmg-form-content-margin-left: 180px;
+        --exmg-form-content-margin-left: 80px;
+        form {
+          width: 100%;
+        }
       }
     `,
   ];
@@ -99,6 +107,14 @@ export class SettingsExample extends LitElement {
               pattern="[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,4}$"
               required
             ></md-filled-text-field>
+            <div class="horizontal">
+              <exmg-radio-item name="contact" value="yes">
+                <div slot="content">I want to be contacted for commercial purpose</div>
+              </exmg-radio-item>
+              <exmg-radio-item name="contact" value="no">
+                <div slot="content">I do not want to be contacted for commercial purpose</div>
+              </exmg-radio-item>
+            </div>
             <md-filled-text-field name="phone" label="Phone" required></md-filled-text-field>
           </form>
           <div slot="aside">
