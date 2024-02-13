@@ -52,7 +52,7 @@
       url: 'https://www.npmjs.com/package/@exmg/exmg-navigation',
     },{
       name: '@exmg/exmg-radio',
-      version: '8.1.35',
+      version: '9.0.0',
       url: 'https://www.npmjs.com/package/@exmg/exmg-radio',
     },{
       name: '@exmg/exmg-search',
