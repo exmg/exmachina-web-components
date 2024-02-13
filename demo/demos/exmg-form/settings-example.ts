@@ -74,6 +74,10 @@ export class SettingsExample extends LitElement {
     `,
   ];
 
+  doFormAction(e: CustomEvent<unknown>) {
+    console.log('Form data', e.detail);
+  }
+
   render() {
     return html`
       <div
@@ -91,7 +95,7 @@ export class SettingsExample extends LitElement {
         <md-icon class="icon">expand_more</md-icon>
       </div>
       <exmg-collapsed id="collapsed" ?opened=${this.opened}>
-        <exmg-form>
+        <exmg-form @dialog-submit=${this.doFormAction}>
           <form>
             <div class="row">
               <md-filled-text-field name="firstname" dialogFocus label="First Name" required></md-filled-text-field>
@@ -108,10 +112,10 @@ export class SettingsExample extends LitElement {
               required
             ></md-filled-text-field>
             <div class="horizontal">
-              <exmg-radio-item name="contact" value="yes">
+              <exmg-radio-item name="contact" required>
                 <div slot="content">I want to be contacted for commercial purpose</div>
               </exmg-radio-item>
-              <exmg-radio-item name="contact" value="no">
+              <exmg-radio-item name="contact" required>
                 <div slot="content">I do not want to be contacted for commercial purpose</div>
               </exmg-radio-item>
             </div>

@@ -20,7 +20,7 @@ export class ExmgFormDemo extends LitElement {
     const formDialog = e.target as ExmgForm;
     try {
       formDialog.submitting = true;
-
+      console.log('Form data', e.detail);
       await sleep(1000);
       throw new Error('Error saving data');
     } catch (error) {
@@ -70,7 +70,7 @@ export class ExmgFormDemo extends LitElement {
           <div slot="toolbar" class="toolbar"><div class="title">Create contact</div></div>
           <form>
             <div class="row">
-              <md-filled-text-field name="firstname" dialogFocus label="First Name" required></md-filled-text-field>
+              <md-filled-text-field name="firstname" label="First Name" required></md-filled-text-field>
               <md-filled-text-field name="lastname" label="Last Name" required></md-filled-text-field>
             </div>
             <div class="row">
