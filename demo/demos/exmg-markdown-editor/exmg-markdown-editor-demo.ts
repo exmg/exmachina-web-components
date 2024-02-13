@@ -12,11 +12,14 @@ import './exmg-markdown-editor-simple-demo.js';
 
 @customElement('exmg-markdown-editor-demo')
 export class DemoSimpleGridTable extends LitElement {
-  static styles = [style, css`
+  static styles = [
+    style,
+    css`
       main {
         padding-top: 1.5rem;
       }
-  `];
+    `,
+  ];
 
   @query('md-tabs') tabs?: Tabs;
   @state() selectedTab = 0;

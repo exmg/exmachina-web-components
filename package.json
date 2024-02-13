@@ -36,7 +36,6 @@
     "concurrently": "^6.2.0",
     "del-cli": "^3.0.1",
     "eslint": "^8.29.0",
-    "jsdoc": "^3.6.10",
     "lerna": "^7.0.0",
     "lit": "^3.0.0",
     "lit-analyzer": "^1.2.1",
@@ -48,7 +47,6 @@
     "run-script-os": "^1.1.6",
     "sass": "1.58.3",
     "ts-lit-plugin": "^1.2.1",
-    "tui-jsdoc-template": "^1.2.2",
     "typescript": "^4.4.0",
     "web-animations-js": "^2.3.1"
   },
@@ -67,9 +65,9 @@
     "build:typescript": "tsc --build --verbose",
     "build:demo-styles": "exmg-lit-cli sass -f \"demo/**/*.scss\"",
     "build:styles": "npx lerna run --stream build:styles && npm run build:demo-styles",
-    "build:demo": "node ./scripts/parseElements.cjs && npm run build && rollup --config ./rollup.config.js",
+    "build:demo": "node ./scripts/parseElements.cjs && npm run build && rollup --config ./rollup.config.js && node ./scripts/indexFileDemoProcessing.cjs",
     "run:demo": "web-dev-server ./docs/demo/index.html",
-    "build:docs": "npm run build && rm -rf ./docs && npm run build:demo && ./node_modules/.bin/jsdoc -c ./jsdoc.conf.json -R README.md && node ./scripts/processDemoInDocumentation.js",
+    "build:docs": "npm run build && rm -rf ./docs && npm run build:demo",
     "run:docs": "web-dev-server /docs/index.html"
   },
   "dependencies": {

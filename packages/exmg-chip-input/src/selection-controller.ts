@@ -76,11 +76,13 @@ export class SelectionController implements ReactiveController {
     ];
   }
 
+  // eslint-disable-next-line no-undef
   private root: ParentNode | null = null;
 
   constructor(private readonly host: SelectionElement) {}
 
   hostConnected() {
+    // eslint-disable-next-line no-undef
     this.root = this.host.getRootNode() as ParentNode;
   }
 
