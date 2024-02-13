@@ -165,12 +165,12 @@ export class ExmgRadioDemo extends LitElement {
             <div slot="toolbar" class="toolbar"><div class="title">Accept terms and conditions</div></div>
             <form>
               <div class="vertical fixed">
-                <exmg-radio-item name="radio-form">
+                <exmg-radio-item name="radio-form" required>
                   <md-icon slot="image">done</md-icon>
                   <div slot="title">Yes</div>
                   <div slot="content">I agree to the terms and conditions</div>
                 </exmg-radio-item>
-                <exmg-radio-item name="radio-form">
+                <exmg-radio-item name="radio-form" required>
                   <md-icon slot="image">highlight_off</md-icon>
                   <div slot="title">No</div>
                   <div slot="content">I do not agree to terms and conditions</div>
