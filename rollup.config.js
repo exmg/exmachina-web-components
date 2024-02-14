@@ -9,7 +9,7 @@ import multiInput from 'rollup-plugin-multi-input';
  * Elements with a viable demo
  */
 const elements = [
-  'exmg-theme',
+  // 'exmg-theme',
   'exmg-button',
   'exmg-grid',
   'exmg-dialogs',
@@ -31,9 +31,9 @@ const elements = [
 
 const elementsConfigs = elements.map((element) => {
   return {
-    input: [`demo/demos/${element}/*.js`],
+    input: [`demo/demos/${element}/**/*.js`],
     output: {
-      dir: `docs/demo/demos/`,
+      dir: `docs/demos/`,
       format: 'es',
       sourcemap: false,
     },
@@ -50,7 +50,7 @@ const elementsConfigs = elements.map((element) => {
         targets: [
           {
             src: [`./demo/demos/${element}/*.html`, `./demo/demos/${element}/*.png`],
-            dest: `./docs/demo/demos/${element}/`,
+            dest: `./docs/demos/${element}/`,
           },
         ],
       }),
@@ -62,7 +62,7 @@ export default [
   {
     input: './demo/src/demo-app.js',
     output: {
-      file: './docs/demo/src/demo-app.js',
+      file: './docs/src/demo-app.js',
       format: 'es',
       sourcemap: false,
     },
@@ -76,15 +76,15 @@ export default [
         targets: [
           {
             src: 'demo/src/styles/main.css',
-            dest: 'docs/demo/src/styles',
+            dest: 'docs/src/styles',
           },
           {
             src: 'demo/src/styles/m3/theme.css',
-            dest: 'docs/demo/src/styles',
+            dest: 'docs/src/styles',
           },
           {
             src: 'demo/index.html',
-            dest: 'docs/demo',
+            dest: 'docs',
           },
           {
             src: 'node_modules/@webcomponents/shadycss/apply-shim.min.js',

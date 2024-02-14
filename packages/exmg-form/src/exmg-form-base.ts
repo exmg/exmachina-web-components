@@ -24,6 +24,13 @@ const serializeForm = (form) => {
     })
     .map((input: any) => input.name);
 
+  /* Same for the radio items */
+  const radioNames = formElementsArray
+    .filter((input: any) => {
+      return input.type === 'radio' || input.tagName.toLowerCase().includes('radio');
+    })
+    .map((input: any) => input.name);
+
   const formData = new FormData(form);
 
   for (const pair of formData.entries()) {
@@ -42,6 +49,16 @@ const serializeForm = (form) => {
     // @ts-ignore
     if (checkboxNames.includes(key)) {
       obj[key] = val === 'on';
+      continue;
+    }
+
+    // Check for a default value of on for radio items to set to true, if not, set to the value
+    if (radioNames.includes(key)) {
+      if (val === 'on') {
+        obj[key] = val === 'on';
+      } else {
+        obj[key] = val;
+      }
       continue;
     }
 
