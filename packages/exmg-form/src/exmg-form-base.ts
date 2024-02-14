@@ -118,7 +118,9 @@ export class ExmgFormBase extends ExmgElement {
     let allValid = true;
     for (const el of formElements || []) {
       // @ts-ignore
-      const isValid = typeof el.reportValidity === 'function' && el.checkValidity();
+      if (typeof el.reportValidity !== 'function') continue;
+      // @ts-ignore
+      const isValid = el.checkValidity();
       if (!isValid) {
         allValid = false;
       }
