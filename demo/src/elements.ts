@@ -48,7 +48,7 @@
       url: 'https://www.npmjs.com/package/@exmg/exmg-markdown-editor',
     },{
       name: '@exmg/exmg-navigation',
-      version: '9.0.4',
+      version: '9.0.5',
       url: 'https://www.npmjs.com/package/@exmg/exmg-navigation',
     },{
       name: '@exmg/exmg-radio',

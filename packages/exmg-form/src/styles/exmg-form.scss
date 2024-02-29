@@ -78,6 +78,10 @@ label.checkbox {
   align-items: center;
   font-size: 1rem;
   font-weight: 500;
+  margin: 1rem;
+  md-checkbox {
+    margin-right: 1rem;
+  }
 }
 
 .toolbar {
@@ -96,4 +100,8 @@ label.checkbox {
   color: var(--md-sys-color-on-surface);
   box-sizing: border-box;
   overflow-wrap: break-word;
+}
+
+a {
+  color: var(--md-sys-color-primary);
 }

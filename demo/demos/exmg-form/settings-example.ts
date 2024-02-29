@@ -43,7 +43,7 @@ export class SettingsExample extends LitElement {
         transform: rotate(180deg);
         transition: transform 150ms ease;
       }
-      .horizontal {
+      .radio-group {
         display: flex;
         gap: 16px;
       }
@@ -98,20 +98,31 @@ export class SettingsExample extends LitElement {
         <exmg-form @dialog-submit=${this.doFormAction}>
           <form>
             <div class="row">
-              <md-filled-text-field name="firstname" dialogFocus label="First Name" required></md-filled-text-field>
-              <md-filled-text-field name="lastname" label="Last Name" required></md-filled-text-field>
+              <md-filled-text-field
+                name="firstname"
+                dialogFocus
+                label="First Name"
+                value="Rick"
+                required
+              ></md-filled-text-field>
+              <md-filled-text-field name="lastname" label="Last Name" value="Novak" required></md-filled-text-field>
             </div>
             <div class="row">
               <md-filled-text-field name="company" label="Company"></md-filled-text-field>
               <md-filled-text-field name="amount" label="Amount" type="number" min="0" max="10"></md-filled-text-field>
             </div>
-            <md-filled-text-field
-              name="email"
-              label="Email"
-              pattern="[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,4}$"
-              required
-            ></md-filled-text-field>
-            <div class="horizontal">
+            <div class="row">
+              <md-filled-text-field
+                name="email"
+                label="Email"
+                pattern="[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,4}$"
+                required
+              ></md-filled-text-field>
+            </div>
+            <div class="row">
+              <md-filled-text-field name="phone" label="Phone" required></md-filled-text-field>
+            </div>
+            <div class="row radio-group">
               <exmg-radio-item name="contact" required>
                 <div slot="content">I want to be contacted for commercial purpose</div>
               </exmg-radio-item>
@@ -119,7 +130,6 @@ export class SettingsExample extends LitElement {
                 <div slot="content">I do not want to be contacted for commercial purpose</div>
               </exmg-radio-item>
             </div>
-            <md-filled-text-field name="phone" label="Phone" required></md-filled-text-field>
           </form>
           <div slot="aside">
             Ex Machina will send notices about the Data <a href="#">Processing Terms</a> and EU General Data Protection
