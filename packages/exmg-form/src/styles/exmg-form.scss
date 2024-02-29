@@ -39,7 +39,8 @@ form {
 
 form .row {
   display: flex;
-  gap: 8px;
+  gap: 6px;
+  height: 76px;
   align-items: flex-start;
 }
 
@@ -78,7 +79,7 @@ label.checkbox {
   align-items: center;
   font-size: 1rem;
   font-weight: 500;
-  margin: 1rem;
+  margin: 0.5rem 1rem;
   md-checkbox {
     margin-right: 1rem;
   }
