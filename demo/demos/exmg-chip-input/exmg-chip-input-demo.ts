@@ -56,7 +56,7 @@ export class ExmgChipInputDemo extends LitElement {
     return html`
       <div class="main">
         <md-outlined-card>
-          <exmg-form @dialog-submit=${this.doFormAction}>
+          <exmg-form @form-submit=${this.doFormAction}>
             <form>
               <div class="row">
                 <exmg-chip-input label="Dates (Chip input)" aria-labelledby="dates-label">

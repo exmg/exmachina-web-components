@@ -173,12 +173,12 @@ export class ExmgFormBase extends ExmgElement {
         await this.doAction(data);
       } catch (error) {
         this.showError(error instanceof Error ? error.message : 'Unknown error');
-        this.fire('dialog-error', { message: error instanceof Error ? error.message : 'Unknown error' }, true);
+        this.fire('form-error', { message: error instanceof Error ? error.message : 'Unknown error' }, true);
       } finally {
         this.submitting = false;
       }
     } else {
-      this.fire('dialog-submit', data, true);
+      this.fire('form-submit', data, true);
     }
   }
 

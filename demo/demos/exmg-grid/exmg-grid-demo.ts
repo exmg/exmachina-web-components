@@ -59,7 +59,7 @@ export class ExmgGridDemo extends ExmgBaseGridDemo {
           <h4>Searchbar in toolbar</h4>
           <search-toolbar-demo></search-toolbar-demo>
 
-          <!-- <color-pallet></color-pallet> -->
+          <color-pallet></color-pallet>
         </div>
       </div>
     `;

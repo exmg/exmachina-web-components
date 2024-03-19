@@ -34,7 +34,7 @@ export class ExmgFormDemo extends LitElement {
   renderForm1() {
     return html`
       <div class="card">
-        <exmg-form class="has-aside" @dialog-submit=${this.doFormAction}>
+        <exmg-form class="has-aside" @form-submit=${this.doFormAction}>
           <div slot="toolbar" class="toolbar"><div class="title">Create contact</div></div>
           <form>
             <div class="row">
@@ -76,7 +76,7 @@ export class ExmgFormDemo extends LitElement {
   renderForm2() {
     return html`
       <div class="card">
-        <exmg-form @dialog-submit=${this.doFormAction}>
+        <exmg-form @form-submit=${this.doFormAction}>
           <div slot="toolbar" class="toolbar"><div class="title">Create contact</div></div>
           <form>
             <div class="row">

@@ -161,7 +161,7 @@ export class ExmgRadioDemo extends LitElement {
         </div>
         <div>
           <h1>Title, icon and description example, in form</h1>
-          <exmg-form @dialog-submit=${this.doFormAction}>
+          <exmg-form @form-submit=${this.doFormAction}>
             <div slot="toolbar" class="toolbar"><div class="title">Accept terms and conditions</div></div>
             <form>
               <div class="vertical fixed">

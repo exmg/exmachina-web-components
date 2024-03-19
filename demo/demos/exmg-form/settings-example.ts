@@ -95,7 +95,7 @@ export class SettingsExample extends LitElement {
         <md-icon class="icon">expand_more</md-icon>
       </div>
       <exmg-collapsed id="collapsed" ?opened=${this.opened}>
-        <exmg-form @dialog-submit=${this.doFormAction}>
+        <exmg-form @form-submit=${this.doFormAction}>
           <form>
             <div class="row">
               <md-filled-text-field
