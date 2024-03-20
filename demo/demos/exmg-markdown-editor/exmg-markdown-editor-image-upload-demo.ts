@@ -30,7 +30,7 @@ export class ExmgMarkdownEditorImageUploadDemo extends LitElement {
 
   render() {
     return html`
-      <exmg-markdown-editor id="upload" upload markdown=${markdown} @insert-image=${this.handleImageUpload}>
+      <exmg-markdown-editor id="upload" upload value=${markdown} @insert-image=${this.handleImageUpload}>
       </exmg-markdown-editor>
       <exmg-dialog-upload @dialog-submit=${this.handleDialogSubmit}>
         <exmg-upload maxSize="1mb" accept=".jpg,.jpeg,.png,.webp,.svg" serverType="local" allowCropping></exmg-upload>

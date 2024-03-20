@@ -22,7 +22,7 @@ export class ExmgMarkdownEditorCustomPreviewDemo extends LitElement {
 
   render() {
     return html`
-      <exmg-markdown-editor markdown=${markdown}>
+      <exmg-markdown-editor value=${markdown}>
         <div slot="preview"></div>
       </exmg-markdown-editor>
     `;

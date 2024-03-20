@@ -15,7 +15,7 @@ export class ExmgMarkdownEditorCustomRendererDemo extends LitElement {
 
   render() {
     return html`
-      <exmg-markdown-editor-custom-demo markdown=${`-- Underline ! --\n${markdown}`}></exmg-markdown-editor-custom-demo>
+      <exmg-markdown-editor-custom-demo value=${`-- Underline ! --\n${markdown}`}></exmg-markdown-editor-custom-demo>
     `;
   }
 }

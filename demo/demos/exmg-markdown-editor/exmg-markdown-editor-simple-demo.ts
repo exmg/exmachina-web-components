@@ -10,11 +10,28 @@ export class ExmgMarkdownEditorSimpleDemo extends LitElement {
       :host {
         display: block;
       }
+
+      form {
+        width: 100%;
+      }
     `,
   ];
 
+  submit(e: CustomEvent) {
+    console.log('Form submitted', e.detail);
+  }
+
   render() {
-    return html` <exmg-markdown-editor label="Exmg Markdown Demo" markdown=${markdown}></exmg-markdown-editor>`;
+    return html` <exmg-form @form-submit=${this.submit}>
+      <form>
+        <exmg-markdown-editor
+          name="markdown"
+          label="Exmg Markdown Demo"
+          value="${markdown}"
+          required
+        ></exmg-markdown-editor>
+      </form>
+    </exmg-form>`;
   }
 }
 

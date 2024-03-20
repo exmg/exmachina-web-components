@@ -6,10 +6,13 @@ import { defaultConfiguration } from './utils/configurations.js';
 import { ExmgElement, observer } from '@exmg/lit-base';
 import { markdownActions } from './actions.js';
 import { MarkdownActions, ToolbarIcons, ToolbarItem } from './types.js';
-import { ifDefined } from 'lit/directives/if-defined.js';
 import { TokenizerAndRendererExtension, marked } from 'marked';
+import { mixinElementInternals } from '@material/web/labs/behaviors/element-internals.js';
+import { getFormValue, mixinFormAssociated } from '@material/web/labs/behaviors/form-associated.js';
 
 import './exmg-markdown-editor-toolbar.js';
+
+const MarkdownBaseClass = mixinFormAssociated(mixinElementInternals(ExmgElement));
 
 /**
  * Markdown editor element.
@@ -42,10 +45,13 @@ import './exmg-markdown-editor-toolbar.js';
  * @extends ExmgElement
  * @summary Markdown editor element
  */
-export class MarkdownEditorElementBase extends ExmgElement {
-  @property() markdown?: string;
+export class MarkdownEditorElementBase extends MarkdownBaseClass {
+  @property() value: string = '';
   @property() html?: string;
-  @property() label?: string;
+
+  @property({ type: String, attribute: 'label' })
+  label = '';
+
   @property({ type: Boolean }) upload = false;
   @property({ type: Array }) toolbarActions?: ToolbarItem[];
   @property({ type: Object }) toolbarIcons?: ToolbarIcons;
@@ -71,6 +77,26 @@ export class MarkdownEditorElementBase extends ExmgElement {
   internalTextareaField?: HTMLTextAreaElement;
   heightStyleMap?: any;
 
+  reset() {
+    this.value = this.getAttribute('value') ?? '';
+  }
+
+  override [getFormValue]() {
+    return this.value;
+  }
+
+  override formResetCallback() {
+    this.reset();
+  }
+
+  override formStateRestoreCallback(state: string) {
+    this.value = state;
+  }
+
+  override focus() {
+    this.codeMirrorEditor?.focus();
+  }
+
   protected firstUpdated() {
     this.codeMirrorSetup();
     this.previewElement = this.getPreviewElement();
@@ -86,8 +112,8 @@ export class MarkdownEditorElementBase extends ExmgElement {
     this.blurHandlerBinding = this.handleBlur.bind(this);
     this.addEventListener('blur', this.handleBlur);
 
-    if (this.markdown) {
-      this.updateValue(this.markdown);
+    if (this.value) {
+      this.updateValue(this.value);
       this.codeMirrorEditor!.refresh();
     }
   }
@@ -113,7 +139,7 @@ export class MarkdownEditorElementBase extends ExmgElement {
     // eslint-disable-next-line
     this.codeMirrorEditor = window.CodeMirror(this.editorElement, {
       ...this.editorConfiguration,
-      value: this.markdown || '',
+      value: this.value || '',
     });
     this.codeMirrorEditor.on('focus', (_editor: Editor) => {
       this.handleFocus();
@@ -164,13 +190,13 @@ export class MarkdownEditorElementBase extends ExmgElement {
       </main>
     `;
     }
-    if (newValue === this.markdown) {
+    if (newValue === this.value) {
       return;
     }
-    this.markdown = newValue;
+    this.value = newValue || '';
 
     /* Fire update event */
-    this.fire('change', this.markdown);
+    this.fire('change', this.value);
   }
 
   disablePreview() {
@@ -195,8 +221,8 @@ export class MarkdownEditorElementBase extends ExmgElement {
           ?preview=${this.preview}
           ?upload=${this.upload}
           @action=${this.handleAction}
-          .actions=${ifDefined(this.toolbarActions)}
-          .icons=${ifDefined(this.toolbarIcons)}
+          .actions=${this.toolbarActions || []}
+          .icons=${this.toolbarIcons || []}
         ></exmg-markdown-editor-toolbar>
         <div id="editor" ?preview=${this.preview} style=${this.heightStyleMap}></div>
         <div id="preview" ?preview=${this.preview} style=${this.heightStyleMap}></div>
