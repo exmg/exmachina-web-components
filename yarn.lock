@@ -1073,7 +1073,7 @@
     tslib "^2.6.2"
 
 "@exmg/exmg-dialogs@file:../exmg-dialogs", "@exmg/exmg-dialogs@file:/Users/marksmits/work/exmachina-web-components/packages/exmg-dialogs":
-  version "9.0.6"
+  version "9.0.7"
   resolved "file:packages/exmg-dialogs"
   dependencies:
     "@exmg/exmg-button" "file:../exmg-button"
@@ -1086,7 +1086,7 @@
     tslib "^2.6.2"
 
 "@exmg/exmg-form-drawer@file:/Users/marksmits/work/exmachina-web-components/packages/exmg-form-drawer":
-  version "9.0.6"
+  version "9.0.7"
   resolved "file:packages/exmg-form-drawer"
   dependencies:
     "@exmg/exmg-button" "file:../exmg-button"
@@ -1098,7 +1098,7 @@
     tslib "^2.6.2"
 
 "@exmg/exmg-form@file:../exmg-form", "@exmg/exmg-form@file:/Users/marksmits/work/exmachina-web-components/packages/exmg-form":
-  version "9.0.6"
+  version "9.0.7"
   resolved "file:packages/exmg-form"
   dependencies:
     "@exmg/exmg-button" "file:../exmg-button"
@@ -1127,7 +1127,7 @@
     tslib "^2.6.2"
 
 "@exmg/exmg-markdown-editor@file:/Users/marksmits/work/exmachina-web-components/packages/exmg-markdown-editor":
-  version "9.0.5"
+  version "9.0.6"
   resolved "file:packages/exmg-markdown-editor"
   dependencies:
     "@exmg/lit-base" "^2.0.1"
@@ -1200,7 +1200,7 @@
     tslib "^2.6.2"
 
 "@exmg/exmg-upload@file:/Users/marksmits/work/exmachina-web-components/packages/exmg-upload":
-  version "9.0.6"
+  version "9.0.7"
   resolved "file:packages/exmg-upload"
   dependencies:
     "@exmg/exmg-button" "file:../exmg-button"
@@ -1934,6 +1934,51 @@
   version "16.10.0"
   resolved "https://registry.npmjs.org/@nx/nx-darwin-arm64/-/nx-darwin-arm64-16.10.0.tgz"
   integrity sha512-YF+MIpeuwFkyvM5OwgY/rTNRpgVAI/YiR0yTYCZR+X3AAvP775IVlusNgQ3oedTBRUzyRnI4Tknj1WniENFsvQ==
+
+"@nx/nx-darwin-x64@16.10.0":
+  version "16.10.0"
+  resolved "https://registry.npmjs.org/@nx/nx-darwin-x64/-/nx-darwin-x64-16.10.0.tgz"
+  integrity sha512-ypi6YxwXgb0kg2ixKXE3pwf5myVNUgWf1CsV5OzVccCM8NzheMO51KDXTDmEpXdzUsfT0AkO1sk5GZeCjhVONg==
+
+"@nx/nx-freebsd-x64@16.10.0":
+  version "16.10.0"
+  resolved "https://registry.npmjs.org/@nx/nx-freebsd-x64/-/nx-freebsd-x64-16.10.0.tgz"
+  integrity sha512-UeEYFDmdbbDkTQamqvtU8ibgu5jQLgFF1ruNb/U4Ywvwutw2d4ruOMl2e0u9hiNja9NFFAnDbvzrDcMo7jYqYw==
+
+"@nx/nx-linux-arm-gnueabihf@16.10.0":
+  version "16.10.0"
+  resolved "https://registry.npmjs.org/@nx/nx-linux-arm-gnueabihf/-/nx-linux-arm-gnueabihf-16.10.0.tgz"
+  integrity sha512-WV3XUC2DB6/+bz1sx+d1Ai9q2Cdr+kTZRN50SOkfmZUQyEBaF6DRYpx/a4ahhxH3ktpNfyY8Maa9OEYxGCBkQA==
+
+"@nx/nx-linux-arm64-gnu@16.10.0":
+  version "16.10.0"
+  resolved "https://registry.npmjs.org/@nx/nx-linux-arm64-gnu/-/nx-linux-arm64-gnu-16.10.0.tgz"
+  integrity sha512-aWIkOUw995V3ItfpAi5FuxQ+1e9EWLS1cjWM1jmeuo+5WtaKToJn5itgQOkvSlPz+HSLgM3VfXMvOFALNk125g==
+
+"@nx/nx-linux-arm64-musl@16.10.0":
+  version "16.10.0"
+  resolved "https://registry.npmjs.org/@nx/nx-linux-arm64-musl/-/nx-linux-arm64-musl-16.10.0.tgz"
+  integrity sha512-uO6Gg+irqpVcCKMcEPIQcTFZ+tDI02AZkqkP7koQAjniLEappd8DnUBSQdcn53T086pHpdc264X/ZEpXFfrKWQ==
+
+"@nx/nx-linux-x64-gnu@16.10.0":
+  version "16.10.0"
+  resolved "https://registry.npmjs.org/@nx/nx-linux-x64-gnu/-/nx-linux-x64-gnu-16.10.0.tgz"
+  integrity sha512-134PW/u/arNFAQKpqMJniC7irbChMPz+W+qtyKPAUXE0XFKPa7c1GtlI/wK2dvP9qJDZ6bKf0KtA0U/m2HMUOA==
+
+"@nx/nx-linux-x64-musl@16.10.0":
+  version "16.10.0"
+  resolved "https://registry.npmjs.org/@nx/nx-linux-x64-musl/-/nx-linux-x64-musl-16.10.0.tgz"
+  integrity sha512-q8sINYLdIJxK/iUx9vRk5jWAWb/2O0PAbOJFwv4qkxBv4rLoN7y+otgCZ5v0xfx/zztFgk/oNY4lg5xYjIso2Q==
+
+"@nx/nx-win32-arm64-msvc@16.10.0":
+  version "16.10.0"
+  resolved "https://registry.npmjs.org/@nx/nx-win32-arm64-msvc/-/nx-win32-arm64-msvc-16.10.0.tgz"
+  integrity sha512-moJkL9kcqxUdJSRpG7dET3UeLIciwrfP08mzBQ12ewo8K8FzxU8ZUsTIVVdNrwt01CXOdXoweGfdQLjJ4qTURA==
+
+"@nx/nx-win32-x64-msvc@16.10.0":
+  version "16.10.0"
+  resolved "https://registry.npmjs.org/@nx/nx-win32-x64-msvc/-/nx-win32-x64-msvc-16.10.0.tgz"
+  integrity sha512-5iV2NKZnzxJwZZ4DM5JVbRG/nkhAbzEskKaLBB82PmYGKzaDHuMHP1lcPoD/rtYMlowZgNA/RQndfKvPBPwmXA==
 
 "@octokit/auth-token@^3.0.0":
   version "3.0.4"

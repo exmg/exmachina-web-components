@@ -2,8 +2,14 @@
   "name": "@exmg/exmg-markdown-editor",
   "version": "9.0.6",
   "type": "module",
-  "description": "Element that wrap-around marked-element to make the markdown editable",
   "main": "index.js",
+  "module": "index.js",
+  "exports": {
+    ".": "./index.js",
+    "./exmg-markdown-editor.js": "./src/exmg-markdown-editor.js",
+    "./exmg-markdown-editor-toolbar.js": "./src/exmg-markdown-editor-toolbar.js"
+  },
+  "description": "Element that wrap-around marked-element to make the markdown editable",
   "contributors": [
     "Ex Machina Group"
   ],
