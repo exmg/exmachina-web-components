@@ -4,11 +4,12 @@ import { query, property, state } from 'lit/decorators.js';
 import { Editor, EditorConfiguration } from 'codemirror';
 import { defaultConfiguration } from './utils/configurations.js';
 import { ExmgElement, observer } from '@exmg/lit-base';
-import { markdownActions } from './actions.js';
+import { markdownActions, toolbarActions } from './actions.js';
 import { MarkdownActions, ToolbarIcons, ToolbarItem } from './types.js';
 import { TokenizerAndRendererExtension, marked } from 'marked';
 import { mixinElementInternals } from '@material/web/labs/behaviors/element-internals.js';
 import { getFormValue, mixinFormAssociated } from '@material/web/labs/behaviors/form-associated.js';
+import { toolbarIcons } from './icons.js';
 
 import './exmg-markdown-editor-toolbar.js';
 
@@ -53,8 +54,8 @@ export class MarkdownEditorElementBase extends MarkdownBaseClass {
   label = '';
 
   @property({ type: Boolean }) upload = false;
-  @property({ type: Array }) toolbarActions?: ToolbarItem[];
-  @property({ type: Object }) toolbarIcons?: ToolbarIcons;
+  @property({ type: Array }) toolbarActions?: ToolbarItem[] = toolbarActions;
+  @property({ type: Object }) toolbarIcons?: ToolbarIcons = toolbarIcons;
   @property({ type: Array }) markedExtension?: TokenizerAndRendererExtension[];
   @query('#editor') editorElement?: HTMLDivElement;
   @state() previewElement?: Element | null;
