@@ -39,8 +39,6 @@ export class MarkdownEditorToolbarBase extends ExmgElement {
   }
 
   protected render() {
-    console.log(this.actions, this.icons);
-    console.log(toolbarActions, toolbarIcons);
     return html` <div class="toolbar-container">${this.renderActionButtons()}</div> `;
   }
 }
