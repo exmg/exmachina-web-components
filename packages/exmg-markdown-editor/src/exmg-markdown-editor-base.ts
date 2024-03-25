@@ -53,7 +53,7 @@ const MarkdownBaseClass = mixinConstraintValidation(mixinFormAssociated(mixinEle
  * @summary Markdown editor element
  */
 export class MarkdownEditorElementBase extends MarkdownBaseClass {
-  @property({ type: String, reflect: true }) value: string = '';
+  @property({ type: String }) value: string = '';
   @property() html?: string;
 
   @property({ type: String, attribute: 'label' })
