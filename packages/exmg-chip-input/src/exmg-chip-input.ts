@@ -2,7 +2,7 @@ import { customElement } from 'lit/decorators/custom-element.js';
 import { style } from './styles/exmg-chip-input-css.js';
 
 import { ChipSet } from '@material/web/chips/internal/chip-set.js';
-import { styles } from '@material/web/chips/internal/chip-set-styles.css.js';
+import { styles } from '@material/web/chips/internal/chip-set-styles.js';
 import { Chip } from '@material/web/chips/internal/chip.js';
 import { html } from 'lit';
 import { property } from 'lit/decorators.js';
