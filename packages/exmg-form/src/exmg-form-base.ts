@@ -31,6 +31,12 @@ const serializeForm = (form) => {
     })
     .map((input: any) => input.name);
 
+  const numberNames = formElementsArray
+    .filter((input: any) => {
+      return input.type === 'number';
+    })
+    .map((input: any) => input.name);
+
   const formData = new FormData(form);
 
   for (const pair of formData.entries()) {
@@ -42,6 +48,11 @@ const serializeForm = (form) => {
         obj[key] = [obj[key]];
       }
       obj[key].push(val);
+      continue;
+    }
+
+    if (numberNames.includes(key)) {
+      obj[key] = val ? parseFloat(`${val}`) : undefined;
       continue;
     }
 
