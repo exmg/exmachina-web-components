@@ -28,15 +28,15 @@
       url: 'https://www.npmjs.com/package/@exmg/exmg-copy-to-clipboard',
     },{
       name: '@exmg/exmg-dialogs',
-      version: '9.0.6',
+      version: '9.0.7',
       url: 'https://www.npmjs.com/package/@exmg/exmg-dialogs',
     },{
       name: '@exmg/exmg-form',
-      version: '9.0.6',
+      version: '9.0.7',
       url: 'https://www.npmjs.com/package/@exmg/exmg-form',
     },{
       name: '@exmg/exmg-form-drawer',
-      version: '9.0.6',
+      version: '9.0.7',
       url: 'https://www.npmjs.com/package/@exmg/exmg-form-drawer',
     },{
       name: '@exmg/exmg-grid',
@@ -44,7 +44,7 @@
       url: 'https://www.npmjs.com/package/@exmg/exmg-grid',
     },{
       name: '@exmg/exmg-markdown-editor',
-      version: '9.0.5',
+      version: '9.0.7',
       url: 'https://www.npmjs.com/package/@exmg/exmg-markdown-editor',
     },{
       name: '@exmg/exmg-navigation',
@@ -76,7 +76,7 @@
       url: 'https://www.npmjs.com/package/@exmg/exmg-tooltip',
     },{
       name: '@exmg/exmg-upload',
-      version: '9.0.6',
+      version: '9.0.7',
       url: 'https://www.npmjs.com/package/@exmg/exmg-upload',
     },
   ];

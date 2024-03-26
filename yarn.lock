@@ -1127,7 +1127,7 @@
     tslib "^2.6.2"
 
 "@exmg/exmg-markdown-editor@file:/Users/marksmits/work/exmachina-web-components/packages/exmg-markdown-editor":
-  version "9.0.6"
+  version "9.0.7"
   resolved "file:packages/exmg-markdown-editor"
   dependencies:
     "@exmg/lit-base" "^2.0.1"
