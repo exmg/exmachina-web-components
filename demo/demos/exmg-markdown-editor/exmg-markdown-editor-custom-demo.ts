@@ -4,7 +4,7 @@ import {
   markdownActions,
   toolbarActions,
   ToolbarItem,
-} from '@exmg/exmg-markdown-editor/index.js';
+} from '@exmg/exmg-markdown-editor';
 import { Editor } from 'codemirror';
 import { customElement } from 'lit/decorators.js';
 

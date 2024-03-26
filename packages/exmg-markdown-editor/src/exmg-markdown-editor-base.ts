@@ -4,15 +4,22 @@ import { query, property, state } from 'lit/decorators.js';
 import { Editor, EditorConfiguration } from 'codemirror';
 import { defaultConfiguration } from './utils/configurations.js';
 import { ExmgElement, observer } from '@exmg/lit-base';
-import { markdownActions } from './actions.js';
+import { markdownActions, toolbarActions } from './actions.js';
 import { MarkdownActions, ToolbarIcons, ToolbarItem } from './types.js';
 import { TokenizerAndRendererExtension, marked } from 'marked';
 import { mixinElementInternals } from '@material/web/labs/behaviors/element-internals.js';
 import { getFormValue, mixinFormAssociated } from '@material/web/labs/behaviors/form-associated.js';
+import { toolbarIcons } from './icons.js';
+import { MardownEditorValidator } from './validator/exmg-markdown-editor-validator.js';
+import {
+  createValidator,
+  getValidityAnchor,
+  mixinConstraintValidation,
+} from '@material/web/labs/behaviors/constraint-validation.js';
 
 import './exmg-markdown-editor-toolbar.js';
 
-const MarkdownBaseClass = mixinFormAssociated(mixinElementInternals(ExmgElement));
+const MarkdownBaseClass = mixinConstraintValidation(mixinFormAssociated(mixinElementInternals(ExmgElement)));
 
 /**
  * Markdown editor element.
@@ -46,16 +53,17 @@ const MarkdownBaseClass = mixinFormAssociated(mixinElementInternals(ExmgElement)
  * @summary Markdown editor element
  */
 export class MarkdownEditorElementBase extends MarkdownBaseClass {
-  @property() value: string = '';
+  @property({ type: String }) value: string = '';
   @property() html?: string;
 
   @property({ type: String, attribute: 'label' })
   label = '';
 
   @property({ type: Boolean }) upload = false;
-  @property({ type: Array }) toolbarActions?: ToolbarItem[];
-  @property({ type: Object }) toolbarIcons?: ToolbarIcons;
+  @property({ type: Array }) toolbarActions?: ToolbarItem[] = toolbarActions;
+  @property({ type: Object }) toolbarIcons?: ToolbarIcons = toolbarIcons;
   @property({ type: Array }) markedExtension?: TokenizerAndRendererExtension[];
+  @property({ type: Boolean, reflect: true }) required = false;
   @query('#editor') editorElement?: HTMLDivElement;
   @state() previewElement?: Element | null;
 
@@ -73,8 +81,8 @@ export class MarkdownEditorElementBase extends MarkdownBaseClass {
   editorConfiguration: EditorConfiguration = defaultConfiguration;
   editorActions: MarkdownActions = markdownActions;
   codeMirrorEditor?: Editor;
+  internalTextarea?: HTMLTextAreaElement;
   blurHandlerBinding: any;
-  internalTextareaField?: HTMLTextAreaElement;
   heightStyleMap?: any;
 
   reset() {
@@ -83,6 +91,14 @@ export class MarkdownEditorElementBase extends MarkdownBaseClass {
 
   override [getFormValue]() {
     return this.value;
+  }
+
+  [createValidator]() {
+    return new MardownEditorValidator(() => this);
+  }
+
+  [getValidityAnchor]() {
+    return this.internalTextarea!;
   }
 
   override formResetCallback() {
@@ -116,6 +132,10 @@ export class MarkdownEditorElementBase extends MarkdownBaseClass {
       this.updateValue(this.value);
       this.codeMirrorEditor!.refresh();
     }
+    if (this.label && this.required) {
+      this.setAttribute('aria-required', 'true');
+      this.label += ' *';
+    }
   }
 
   protected disconectedCallback() {
@@ -147,11 +167,7 @@ export class MarkdownEditorElementBase extends MarkdownBaseClass {
     this.codeMirrorEditor.on('change', (editor: Editor) => {
       this.updateValue(editor.getValue());
     });
-
-    this.internalTextareaField = this.codeMirrorEditor.getInputField();
-    if (this.internalTextareaField) {
-      //
-    }
+    this.internalTextarea = this.codeMirrorEditor.getInputField();
   }
 
   handleFocus() {
@@ -194,8 +210,6 @@ export class MarkdownEditorElementBase extends MarkdownBaseClass {
       return;
     }
     this.value = newValue || '';
-
-    /* Fire update event */
     this.fire('change', this.value);
   }
 

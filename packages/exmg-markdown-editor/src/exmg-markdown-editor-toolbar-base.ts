@@ -2,7 +2,7 @@ import { html } from 'lit';
 import { toolbarActions } from './actions.js';
 import { ToolbarIcons, ToolbarItem } from './types.js';
 import { toolbarIcons } from './icons.js';
-import { ExmgElement } from '@exmg/lit-base';
+import { ExmgElement } from '@exmg/lit-base/index.js';
 import { property } from 'lit/decorators.js';
 
 import '@material/web/iconbutton/icon-button.js';

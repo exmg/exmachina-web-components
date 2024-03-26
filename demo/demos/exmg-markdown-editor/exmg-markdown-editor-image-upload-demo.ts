@@ -2,8 +2,8 @@ import { html, css, LitElement } from 'lit';
 import { customElement, query } from 'lit/decorators.js';
 import { markdown } from './markdown.js';
 import { ExmgDialogUpload } from '@exmg/exmg-upload/exmg-dialog-upload.js';
-import { MarkdownEditorElement } from '@exmg/exmg-markdown-editor/index.js';
-import '@exmg/exmg-markdown-editor/src/exmg-markdown-editor-toolbar.js';
+import { MarkdownEditorElement } from '@exmg/exmg-markdown-editor';
+import '@exmg/exmg-markdown-editor';
 
 @customElement('exmg-markdown-editor-image-upload-demo')
 export class ExmgMarkdownEditorImageUploadDemo extends LitElement {

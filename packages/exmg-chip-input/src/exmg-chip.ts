@@ -1,11 +1,11 @@
 import { customElement, property, query } from 'lit/decorators.js';
 
-import { styles as elevatedStyles } from '@material/web/chips/internal/elevated-styles.css.js';
+import { styles as elevatedStyles } from '@material/web/chips/internal/elevated-styles.js';
 import { FilterChip } from '@material/web/chips/internal/filter-chip.js';
-import { styles } from '@material/web/chips/internal/filter-styles.css.js';
-import { styles as selectableStyles } from '@material/web/chips/internal/selectable-styles.css.js';
-import { styles as sharedStyles } from '@material/web/chips/internal/shared-styles.css.js';
-import { styles as trailingIconStyles } from '@material/web/chips/internal/trailing-icon-styles.css.js';
+import { styles } from '@material/web/chips/internal/filter-styles.js';
+import { styles as selectableStyles } from '@material/web/chips/internal/selectable-styles.js';
+import { styles as sharedStyles } from '@material/web/chips/internal/shared-styles.js';
+import { styles as trailingIconStyles } from '@material/web/chips/internal/trailing-icon-styles.js';
 import { ARIAMixinStrict } from '@material/web/internal/aria/aria.js';
 import { redispatchEvent } from '@material/web/internal/events/redispatch-event.js';
 

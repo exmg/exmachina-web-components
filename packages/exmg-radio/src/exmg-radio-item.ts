@@ -2,7 +2,7 @@ import { html } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
 import { Radio } from '@material/web/radio/internal/radio.js';
 import { classMap } from 'lit/directives/class-map.js';
-import { styles } from '@material/web/radio/internal/radio-styles.css.js';
+import { styles } from '@material/web/radio/internal/radio-styles.js';
 import radioStyle from './styles/exmg-radio-item-css.js';
 
 let maskId = 0;
