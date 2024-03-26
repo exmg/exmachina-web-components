@@ -2,6 +2,8 @@ import { customElement } from 'lit/decorators/custom-element.js';
 
 import '@material/web/iconbutton/icon-button.js';
 import '@material/web/button/text-button.js';
+import '@material/web/chips/input-chip.js';
+import '@material/web/icon/icon.js';
 import '@material/web/menu/menu.js';
 import './dropdown/dropdown-container.js';
 

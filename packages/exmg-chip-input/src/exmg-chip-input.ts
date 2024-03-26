@@ -27,7 +27,7 @@ export class ExmgChipInput extends ChipSet {
   protected override render() {
     return html`<div class="container">
       <div class="label">${this.label}</div>
-      <slot @slotchange=${this.updateTabIndicesOverride}></slot>
+      <div class="items"><slot @slotchange=${this.updateTabIndicesOverride}></slot></div>
     </div>`;
   }
 

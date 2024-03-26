@@ -16,7 +16,7 @@
       url: 'https://www.npmjs.com/package/@exmg/exmg-button',
     },{
       name: '@exmg/exmg-chip-input',
-      version: '9.0.4',
+      version: '9.0.5',
       url: 'https://www.npmjs.com/package/@exmg/exmg-chip-input',
     },{
       name: '@exmg/exmg-collapsed',
@@ -44,7 +44,7 @@
       url: 'https://www.npmjs.com/package/@exmg/exmg-grid',
     },{
       name: '@exmg/exmg-markdown-editor',
-      version: '9.0.7',
+      version: '9.0.8',
       url: 'https://www.npmjs.com/package/@exmg/exmg-markdown-editor',
     },{
       name: '@exmg/exmg-navigation',
@@ -52,7 +52,7 @@
       url: 'https://www.npmjs.com/package/@exmg/exmg-navigation',
     },{
       name: '@exmg/exmg-radio',
-      version: '9.0.5',
+      version: '9.0.6',
       url: 'https://www.npmjs.com/package/@exmg/exmg-radio',
     },{
       name: '@exmg/exmg-search',
