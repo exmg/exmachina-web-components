@@ -1,4 +1,4 @@
-import { html, nothing } from 'lit';
+import { PropertyValueMap, html, nothing } from 'lit';
 import { styleMap } from 'lit/directives/style-map.js';
 import { query, property, state } from 'lit/decorators.js';
 import { Editor, EditorConfiguration } from 'codemirror';
@@ -87,6 +87,12 @@ export class MarkdownEditorElementBase extends MarkdownBaseClass {
 
   reset() {
     this.value = this.getAttribute('value') ?? '';
+  }
+
+  protected updated(changedProps: PropertyValueMap<any> | Map<PropertyKey, unknown>) {
+    if (changedProps.has('value') && this.codeMirrorEditor?.getValue() !== this.value) {
+      this.codeMirrorEditor?.setValue(this.value);
+    }
   }
 
   override [getFormValue]() {
