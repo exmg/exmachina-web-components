@@ -151,14 +151,16 @@ export class ExmgDialogConfirmBase extends ExmgElement {
       try {
         this.submitting = true;
         await this.doAction();
+
+        this.fire('action-success');
         this.close();
       } catch (error) {
-        this.fire('dialog-error', { message: error instanceof Error ? error.message : 'Unknown error' }, true);
+        this.fire('action-error', { message: error instanceof Error ? error.message : 'Unknown error' }, true);
       } finally {
         this.submitting = false;
       }
     } else {
-      this.fire('dialog-confirmed', {}, true);
+      this.fire('action-confirmed', {}, true);
     }
   }
 

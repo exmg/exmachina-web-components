@@ -162,14 +162,15 @@ export class ExmgDialogFormBase extends ExmgElement {
       try {
         this.submitting = true;
         await this.doAction(data);
+        this.fire('action-success');
       } catch (error) {
-        this.fire('dialog-error', { message: error instanceof Error ? error.message : 'Unkbnown error' }, true);
+        this.fire('action-error', { message: error instanceof Error ? error.message : 'Unkbnown error' }, true);
       } finally {
         this.submitting = false;
         this.open = false;
       }
     } else {
-      this.fire('dialog-submit', data, true);
+      this.fire('action-submit', data, true);
     }
   }
 
