@@ -157,7 +157,7 @@ export class Drawer extends LitElement {
         title="Create User"
         ?submit-btn-hidden=${this.submitBtnHidden}
         ?disable-sticky-header=${this.disableStickyHeader}
-        @drawer-submit=${this.doFormAction}
+        @action-submit=${this.doFormAction}
       >
         <form>
           <div class="row">

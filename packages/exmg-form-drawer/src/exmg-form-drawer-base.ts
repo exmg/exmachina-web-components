@@ -177,9 +177,10 @@ export class ExmgFormDrawerBase extends ExmgElement {
       try {
         this.submitting = true;
         await this.doAction(data);
+        this.fire('action-success');
       } catch (error) {
         this.errorMessage = error instanceof Error ? error.message : 'Unkbnown error';
-        this.fire('drawer-error', { message: this.errorMessage }, true);
+        this.fire('action-error', { message: this.errorMessage }, true);
       } finally {
         this.submitting = false;
         if (!this.keepOpenedOnSubmitSuccess) {
@@ -187,7 +188,7 @@ export class ExmgFormDrawerBase extends ExmgElement {
         }
       }
     } else {
-      this.fire('drawer-submit', data, true);
+      this.fire('action-submit', data, true);
     }
   }
 
