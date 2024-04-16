@@ -115,6 +115,15 @@ export class ExmgFormBase extends ExmgElement {
     return this.shadowRoot!.querySelector('form');
   }
 
+  reset() {
+    const form = this.getForm();
+    form?.reset();
+  }
+
+  submit() {
+    this.handleSubmit();
+  }
+
   protected _handleBlur(e: Event) {
     // @ts-ignore
     typeof e.target.reportValidity === 'function' && e.target.reportValidity();
