@@ -10,7 +10,7 @@ import { classMap } from 'lit/directives/class-map.js';
 
 export const CLOSE_ACTION = 'close';
 
-const serializeForm = (form) => {
+export const serializeForm = (form) => {
   const obj = {};
   const formElements = form?.elements;
   const formElementsArray = Array.from(formElements);
@@ -106,6 +106,7 @@ export class ExmgFormBase extends ExmgElement {
   @property({ type: Boolean }) formValid = false;
 
   boundHandleBlur?: (e: Event) => void;
+  boundHandleKeyup?: (e: Event) => void;
 
   @property({ type: Boolean }) hasAsideContent = false;
 
@@ -124,6 +125,10 @@ export class ExmgFormBase extends ExmgElement {
     this.handleSubmit();
   }
 
+  protected _handleKeyup() {
+    this._checkFormValidity();
+  }
+
   protected _handleBlur(e: Event) {
     // @ts-ignore
     typeof e.target.reportValidity === 'function' && e.target.reportValidity();
@@ -136,7 +141,8 @@ export class ExmgFormBase extends ExmgElement {
     this.boundHandleBlur = this._handleBlur.bind(this);
     form!.addEventListener('blur', this.boundHandleBlur, true);
 
-    // this.boundHandleValidateElement = this._handleValidateElement.bind(this);
+    this.boundHandleKeyup = this._handleKeyup.bind(this);
+    form!.addEventListener('keyup', this.boundHandleKeyup, true);
 
     await this.updateComplete;
     this._checkFormValidity();
@@ -144,7 +150,10 @@ export class ExmgFormBase extends ExmgElement {
 
   disconnectedCallback() {
     const form = this.getForm();
-    this.boundHandleBlur && form!.addEventListener('blur', this.boundHandleBlur, true);
+
+    this.boundHandleBlur && form!.removeEventListener('blur', this.boundHandleBlur, true);
+    this.boundHandleKeyup && form!.removeEventListener('keyup', this.boundHandleKeyup, true);
+
     super.disconnectedCallback();
   }
 
@@ -207,7 +216,7 @@ export class ExmgFormBase extends ExmgElement {
   }
 
   protected renderToolbar() {
-    return html`<slot name="toolbar"></slot>`;
+    return html`<div class="toolbar-container"><slot name="toolbar"></slot></div>`;
   }
 
   protected renderFormContent() {
@@ -229,14 +238,8 @@ export class ExmgFormBase extends ExmgElement {
     return html`<div class="form-error"><div>${this.errorMessage}</div></div>`;
   }
 
-  protected render() {
-    return html` <div class="toolbar-container">${this.renderToolbar()}</div>
-      ${this.errorMessage ? this.renderError() : nothing}
-      <div class="container">
-        <div class="content">${this.renderFormContent()}</div>
-        <div class="aside ${classMap({ empty: !this.hasAsideContent })}">${this.renderAside()}</div>
-      </div>
-      <div class="divider"><md-divider></md-divider></div>
+  protected renderActions() {
+    return html`
       <div class="actions">
         <md-text-button slot="footer" dialogFocus @click=${() => this.fire('form-cancel')}
           >${this.cancelBtn}</md-text-button
@@ -248,6 +251,22 @@ export class ExmgFormBase extends ExmgElement {
           ?loading=${this.submitting}
           >${this.submitBtn}</exmg-text-button
         >
-      </div>`;
+      </div>
+    `;
+  }
+
+  protected renderContainer() {
+    return html` <div class="container">
+      <div class="content">${this.renderFormContent()}</div>
+      <div class="aside ${classMap({ empty: !this.hasAsideContent })}">${this.renderAside()}</div>
+    </div>`;
+  }
+
+  protected render() {
+    return html`
+      ${this.renderToolbar()} ${this.errorMessage ? this.renderError() : nothing} ${this.renderContainer()}
+      <div class="divider"><md-divider></md-divider></div>
+      ${this.renderActions()}
+    `;
   }
 }

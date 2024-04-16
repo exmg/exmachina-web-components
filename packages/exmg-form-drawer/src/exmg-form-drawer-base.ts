@@ -5,15 +5,7 @@ import './exmg-drawer.js';
 import '@exmg/exmg-button/exmg-filled-button.js';
 import '@material/web/button/text-button.js';
 import { ExmgElement } from '@exmg/lit-base';
-
-const serializeForm = (form) => {
-  const obj = {};
-  const formData = new FormData(form);
-  for (const key of formData.keys()) {
-    obj[key] = formData.get(key);
-  }
-  return obj;
-};
+import { serializeForm } from '@exmg/exmg-form';
 
 export class ExmgFormDrawerBase extends ExmgElement {
   /**

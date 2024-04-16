@@ -9,17 +9,9 @@ import '@material/web/icon/icon.js';
 
 import { property, query, state } from 'lit/decorators.js';
 import { ExmgElement } from '@exmg/lit-base';
+import { serializeForm } from '@exmg/exmg-form';
 
 export const CLOSE_ACTION = 'close';
-
-const serializeForm = (form) => {
-  const obj = {};
-  const formData = new FormData(form);
-  for (const key of formData.keys()) {
-    obj[key] = formData.get(key);
-  }
-  return obj;
-};
 
 export class ExmgDialogFormBase extends ExmgElement {
   /**
