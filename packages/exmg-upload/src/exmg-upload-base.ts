@@ -310,7 +310,8 @@ export class ExmgUploadBase extends ExmgElement {
     item.error = message;
   }
 
-  openFileSelector() {
+  openFileSelector(e: CustomEvent) {
+    e.preventDefault();
     const fileInput = this?.shadowRoot?.querySelector('#file');
     if (fileInput) {
       (fileInput as HTMLInputElement).click();
