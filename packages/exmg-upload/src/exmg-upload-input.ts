@@ -45,8 +45,16 @@ export class ExmgUploadInput extends LitElement {
     }
 
     const response = upload.getValues()[0]!;
-    // @ts-ignore
-    input.value = response.url ? response.url : response;
+    let value = '';
+    try {
+      const d = JSON.parse(response);
+      // @ts-ignore
+      value = response.url ? response.url : response;
+    } catch (error) {
+      value = response;
+    }
+
+    input.value = value;
 
     setTimeout(() => {
       upload.reset();
