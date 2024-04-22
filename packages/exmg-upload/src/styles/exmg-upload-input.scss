@@ -1,10 +1,10 @@
 :host {
-  display: block;
+  display: inline-flex;
 }
 
-.input {
+.input-wrapper {
   display: flex;
-  align-items: center;
+  flex-direction: column;
 }
 
 .icon {
