@@ -53,6 +53,7 @@ export class ExmgUploadInput extends LitElement {
   }
 
   handleClick(e: CustomEvent) {
+    e.preventDefault();
     const el = e.target as HTMLElement;
     const slotValue = el.getAttribute('slot');
     if (el.tagName.toLowerCase() === 'md-icon-button' && slotValue === 'trailing-icon') {
