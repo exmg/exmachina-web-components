@@ -49,7 +49,7 @@ export class ExmgUploadInput extends LitElement {
     try {
       const d = JSON.parse(response);
       // @ts-ignore
-      value = response.url ? response.url : response;
+      value = d.url ? d.url : response;
     } catch (error) {
       value = response;
     }
