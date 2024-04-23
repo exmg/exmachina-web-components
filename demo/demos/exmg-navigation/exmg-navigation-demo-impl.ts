@@ -78,6 +78,7 @@ export class ExmgNavigationDemoImpl extends ExmgNavigationBase {
           ><md-icon>menu</md-icon></md-icon-button
         >
         <div slot="title">${this.pageId || 'home'}</div>
+        <md-icon slot="actionItems">expand_more</md-icon>
       </exmg-navigation-toolbar>
     `;
   }

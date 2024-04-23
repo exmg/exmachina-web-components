@@ -33,9 +33,7 @@ export class ExmgUploadCustomizeDemo extends LitElement {
       </div>
       <div slot="drop-text">
         Drag and drop, of
-        <a href="#" @click=${() => this.shadowRoot?.querySelector<ExmgUpload>('exmg-upload')?.openFileSelector()}
-          >browse</a
-        >
+        <a href="#" @click=${this.shadowRoot?.querySelector<ExmgUpload>('exmg-upload')?.openFileSelector}>browse</a>
         je bestanden
       </div>
     </exmg-upload>`;
