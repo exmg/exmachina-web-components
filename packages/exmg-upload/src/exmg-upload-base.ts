@@ -205,6 +205,9 @@ export class ExmgUploadBase extends ExmgElement {
       return;
     }
 
+    // clear error files
+    this.files = [...this.files.filter((item) => !item.invalid)];
+
     const addedFiles = this._getFiles(event);
 
     this.prepareFiles(addedFiles);

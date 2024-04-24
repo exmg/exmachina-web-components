@@ -127,6 +127,10 @@ export class ExmgDialogUploadBase extends ExmgElement {
   }
 
   _handleClose() {
+    const uploadElement = this.getUploadElement();
+    if (uploadElement) {
+      uploadElement.reset();
+    }
     this.open = false;
   }
 
@@ -199,12 +203,7 @@ export class ExmgDialogUploadBase extends ExmgElement {
 
   protected override render() {
     const { type, draggable } = this;
-    return html` <md-dialog
-      .draggable=${draggable}
-      .type=${type}
-      .open=${this.open}
-      @closed=${() => (this.open = false)}
-    >
+    return html` <md-dialog .draggable=${draggable} .type=${type} .open=${this.open} @closed=${this._handleClose}>
       <span slot="headline">
         <md-icon-button @click=${() => this.close()}><md-icon>close</md-icon></md-icon-button>
         <span class="headline">${this.title}</span>

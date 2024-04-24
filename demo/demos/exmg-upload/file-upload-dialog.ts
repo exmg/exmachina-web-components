@@ -73,7 +73,7 @@ export class FileUploadDialog extends LitElement {
       >
         <exmg-upload
           maxSize="1mb"
-          maxAmount="2"
+          maxAmount="1"
           multiple
           serverType="local"
           uploadUrl=${ifDefined(this.uploadUrl)}

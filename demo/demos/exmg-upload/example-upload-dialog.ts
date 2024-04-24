@@ -19,6 +19,6 @@ export class ExampleUploadDialog extends ExmgDialogUploadBase {
   }
 
   protected override renderContent() {
-    return html` <exmg-upload maxSize="1mb" maxAmount="2" multiple serverType="local" allowCropping> </exmg-upload> `;
+    return html` <exmg-upload maxSize="1mb" maxAmount="1" multiple serverType="local" allowCropping> </exmg-upload> `;
   }
 }

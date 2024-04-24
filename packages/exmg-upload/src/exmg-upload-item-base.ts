@@ -139,7 +139,7 @@ export class ExmgUploadItemBase extends ExmgElement {
           </md-icon-button>`
         : nothing}
       <md-icon-button @click=${this._handleRemoveClick}>
-        <md-icon>close</md-icon>
+        <md-icon>delete</md-icon>
       </md-icon-button>`;
   }
 
@@ -175,7 +175,7 @@ export class ExmgUploadItemBase extends ExmgElement {
             ? html` <md-linear-progress
                 max="100"
                 class="progress"
-                progress="${ifDefined(progress || 0)}"
+                value="${ifDefined(progress || 0)}"
               ></md-linear-progress>`
             : nothing}
           ${this.item?.error

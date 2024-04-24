@@ -62,7 +62,10 @@
 
 .file-error {
   font-size: 0.7rem;
-  color: #b00020;
+  background-color: var(--md-sys-color-error-container, #b00020);
+  color: var(--md-sys-color-on-error-container, white);
+  padding: 2px 4px;
+  border-radius: 6px;
 }
 
 .actions {
