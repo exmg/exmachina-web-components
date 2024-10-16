@@ -9,7 +9,7 @@
     "tslib": "^2.0.1"
   },
   "devDependencies": {
-    "@exmg/lit-cli": "1.1.9"
+    "@exmg/lit-cli": "2.0.3"
   },
   "keywords": [
     "web-components",

@@ -3,12 +3,12 @@
   "version": "8.2.0",
   "type": "module",
   "dependencies": {
-    "@exmg/lit-base": "^1.1.8",
+    "@exmg/lit-base": "^2.0.5",
     "lit": "^3.2.1",
     "tslib": "^2.0.1"
   },
   "devDependencies": {
-    "@exmg/lit-cli": "1.1.9"
+    "@exmg/lit-cli": "2.0.3"
   },
   "keywords": [
     "web-components",

@@ -5,7 +5,7 @@
     "@exmg/exmg-button": "file:../exmg-button",
     "@exmg/exmg-dialogs": "file:../exmg-dialogs",
     "@exmg/exmg-sortable": "file:../exmg-sortable",
-    "@exmg/lit-base": "^1.1.8",
+    "@exmg/lit-base": "^2.0.5",
     "@material/mwc-base": "=0.25.3",
     "@polymer/paper-dialog": "^3.0.0",
     "@polymer/paper-dialog-scrollable": "^3.0.0",
@@ -43,7 +43,7 @@
   },
   "license": "MIT",
   "devDependencies": {
-    "@exmg/lit-cli": "1.1.9"
+    "@exmg/lit-cli": "2.0.3"
   },
   "scripts": {
     "build:styles": "exmg-lit-cli sass -f \"./**/*.scss\""

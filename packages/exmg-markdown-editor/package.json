@@ -28,7 +28,7 @@
     "**/*.d.ts"
   ],
   "dependencies": {
-    "@exmg/lit-base": "^1.1.8",
+    "@exmg/lit-base": "^2.0.5",
     "@material/mwc-base": "=0.25.3",
     "@material/mwc-icon": "^0.25.3",
     "@polymer/iron-flex-layout": "^3.0.1",
@@ -42,7 +42,7 @@
     "tslib": "^2.0.1"
   },
   "devDependencies": {
-    "@exmg/lit-cli": "1.1.9",
+    "@exmg/lit-cli": "2.0.3",
     "@types/codemirror": "^0.0.79",
     "@types/marked": "^1.2.2",
     "github-markdown-css": "^3.0.1"

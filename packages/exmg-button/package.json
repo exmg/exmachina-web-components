@@ -3,7 +3,7 @@
   "version": "8.2.0",
   "type": "module",
   "dependencies": {
-    "@exmg/lit-base": "^1.1.8",
+    "@exmg/lit-base": "^2.0.5",
     "@material/mwc-base": "=0.25.3",
     "@material/mwc-button": "=0.25.3",
     "@material/mwc-ripple": "=0.25.3",
@@ -12,7 +12,7 @@
     "tslib": "^2.0.1"
   },
   "devDependencies": {
-    "@exmg/lit-cli": "1.1.9"
+    "@exmg/lit-cli": "2.0.3"
   },
   "keywords": [
     "web-components",
