@@ -1,6 +1,6 @@
 {
   "name": "@exmg/exmg-grid",
-  "version": "8.2.0",
+  "version": "8.2.1",
   "type": "module",
   "description": "exmg grid element",
   "contributors": [
@@ -28,7 +28,7 @@
     "directory": "packages/exmg-grid"
   },
   "dependencies": {
-    "@exmg/exmg-sortable": "^8.2.0",
+    "@exmg/exmg-sortable": "^8.2.1",
     "@exmg/lit-base": "^2.0.5",
     "@material/mwc-base": "^0.25.2",
     "@material/mwc-button": "^0.25.2",

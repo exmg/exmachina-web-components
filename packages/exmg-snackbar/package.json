@@ -1,6 +1,6 @@
 {
   "name": "@exmg/exmg-snackbar",
-  "version": "8.2.0",
+  "version": "8.2.1",
   "type": "module",
   "dependencies": {
     "@material/mwc-base": "=0.25.3",

@@ -1,6 +1,6 @@
 {
   "name": "@exmg/exmg-radio-group",
-  "version": "8.2.0",
+  "version": "8.2.1",
   "type": "module",
   "description": "Paper style radio group element",
   "contributors": [
