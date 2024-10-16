@@ -28,7 +28,7 @@
     "@exmg/exmg-form": "file:../exmg-form",
     "@polymer/neon-animation": "^3.0.1",
     "@polymer/paper-dialog": "^3.0.1",
-    "lit": "^2.0.0",
+    "lit": "^3.2.1",
     "tslib": "^2.0.1"
   },
   "devDependencies": {

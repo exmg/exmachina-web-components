@@ -7,7 +7,7 @@
     "**/*.js": { "when": "$(basename).ts" }
   },
   "editor.codeActionsOnSave": {
-    "source.fixAll.eslint": true
+    "source.fixAll.eslint": "explicit"
   },
   "workbench.colorCustomizations": {
     "editor.lineHighlightBackground": "#77777733"
