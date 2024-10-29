@@ -3,7 +3,7 @@
   "version": "8.2.2",
   "type": "module",
   "dependencies": {
-    "@exmg/lit-base": "^2.0.5",
+    "@exmg/lit-base": "^3.0.0",
     "@material/mwc-base": "=0.25.3",
     "@material/mwc-button": "=0.25.3",
     "@material/mwc-ripple": "=0.25.3",
