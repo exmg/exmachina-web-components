@@ -1,10 +1,9 @@
-import { html, css } from 'lit';
+import { html, css, LitElement } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
-import { ExmgElement } from '@exmg/lit-base';
 
 @customElement('file-image-upload-form')
-export class FileImageUploadForm extends ExmgElement {
+export class FileImageUploadForm extends LitElement {
   @property({ type: String }) accept?: string;
   @property({ type: String }) maxSize?: string;
   @property({ type: String }) fixedResolution?: string;
@@ -31,12 +30,11 @@ export class FileImageUploadForm extends ExmgElement {
 
   _handleBlur(e: FocusEvent, name: string) {
     // @ts-ignore
-    this.fire('property-changed', { name, value: e.target.value });
+    this.dispatchEvent(new CustomEvent('property-changed', { detail: { name, value: e.target.value } }));
   }
 
   _handleChange(e, name: string) {
-    // @ts-ignore
-    this.fire('property-changed', { name, value: e.target.checked });
+    this.dispatchEvent(new CustomEvent('property-changed', { detail: { name, value: e.target.checked } }));
   }
 
   render() {

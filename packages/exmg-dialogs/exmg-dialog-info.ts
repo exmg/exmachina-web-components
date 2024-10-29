@@ -1,9 +1,8 @@
-import { html } from 'lit';
+import { LitElement, html } from 'lit';
 import { property } from 'lit/decorators/property.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import { customElement } from 'lit/decorators/custom-element.js';
 import { query } from 'lit/decorators/query.js';
-import { ExmgElement } from '@exmg/lit-base/index.js';
 import '@polymer/paper-dialog';
 import '@polymer/paper-dialog-scrollable';
 import '@exmg/exmg-button/exmg-button';
@@ -19,10 +18,10 @@ import { closeIcon } from './exmg-dialog-icons.js';
  * Dialog element useful to display information.
  *
  * @customElement exmg-dialog-info
- * @extends ExmgElement
+ * @extends LitElement
  */
 @customElement('exmg-dialog-info')
-export class ExmgInfoDialog extends ExmgElement {
+export class ExmgInfoDialog extends LitElement {
   /**
    * Title of the dialog
    * @type {String}

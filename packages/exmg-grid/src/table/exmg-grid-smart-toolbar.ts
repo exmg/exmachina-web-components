@@ -1,6 +1,5 @@
-import { html, css } from 'lit';
+import { html, css, LitElement } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
-import { ExmgElement } from '@exmg/lit-base/index.js';
 import './exmg-grid-toolbar.js';
 import {
   Filter,
@@ -18,7 +17,7 @@ import {
 } from './types/exmg-grid-smart-toolbar-types.js';
 
 @customElement('exmg-grid-smart-toolbar')
-export class ExmgGridSmartToolbar extends ExmgElement {
+export class ExmgGridSmartToolbar extends LitElement {
   @property({ type: String })
   description = '';
 

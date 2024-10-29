@@ -1,7 +1,6 @@
-import { html } from 'lit';
+import { html, LitElement } from 'lit';
 import { property, customElement, query } from 'lit/decorators.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
-import { ExmgElement } from '@exmg/lit-base/index.js';
 import '@material/mwc-icon-button';
 import { PaperDialogElement } from '@polymer/paper-dialog';
 import '@polymer/paper-dialog';
@@ -16,10 +15,10 @@ import { closeIcon, warningIcon } from './exmg-dialog-icons.js';
  * Dialog element useful for confirmation prompts.
  *
  * @customElement exmg-dialog-confirm
- * @extends ExmgElement
+ * @extends LitElement
  */
 @customElement('exmg-dialog-confirm')
-export class ExmgConfirmDialog extends ExmgElement {
+export class ExmgConfirmDialog extends LitElement {
   /**
    * Title of the dialog
    * @type {String}

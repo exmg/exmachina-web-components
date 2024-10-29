@@ -1,4 +1,4 @@
-import { html } from 'lit';
+import { LitElement, html } from 'lit';
 import { ExmgElement, observer } from '@exmg/lit-base/index.js';
 import { property } from 'lit/decorators.js';
 import '@polymer/paper-listbox';
@@ -15,7 +15,7 @@ export const settingsIcon = html`
   </svg>
 `;
 
-export class ExmgSidemenuBase extends ExmgElement {
+export class ExmgSidemenuBase extends LitElement {
   @property({ type: Boolean, reflect: true })
   @observer(function (this: ExmgElement, collapsed: boolean) {
     this.dispatchEvent(new CustomEvent('collapsed', { bubbles: false, composed: true, detail: collapsed }));
@@ -91,7 +91,7 @@ export class ExmgSidemenuBase extends ExmgElement {
    */
   _handleSelectionChange(e: CustomEvent<{ value: string }>) {
     this.selected = e.detail.value;
-    this.fire('selected-change', this.selected, true);
+    this.dispatchEvent(new CustomEvent('selected-change', { detail: this.selected, bubbles: true, composed: true }));
   }
 
   /**

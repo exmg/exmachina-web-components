@@ -5,7 +5,7 @@
     "@exmg/exmg-button": "file:../exmg-button",
     "@exmg/exmg-dialogs": "file:../exmg-dialogs",
     "@exmg/exmg-sortable": "file:../exmg-sortable",
-    "@exmg/lit-base": "^1.1.8",
+    "@exmg/lit-base": "^2.0.5",
     "@material/mwc-base": "=0.25.3",
     "@polymer/paper-dialog": "^3.0.0",
     "@polymer/paper-dialog-scrollable": "^3.0.0",

@@ -1,14 +1,13 @@
-import { html, nothing } from 'lit';
+import { html, nothing, LitElement } from 'lit';
 import { query, property, state } from 'lit/decorators.js';
 
 import '@exmg/exmg-button';
 
 import { FileData } from './types.js';
-import { ExmgElement } from '@exmg/lit-base';
 
 import Cropper from 'cropperjs';
 
-export class ExmgUploadCropBase extends ExmgElement {
+export class ExmgUploadCropBase extends LitElement {
   @property({ type: Object })
   cropperConfig: any = {};
 
@@ -24,7 +23,7 @@ export class ExmgUploadCropBase extends ExmgElement {
   private cropper?: Cropper;
 
   protected firstUpdated() {
-    this.fire('crop-start', {}, true);
+    this.dispatchEvent(new CustomEvent('exmg-upload-crop-ready', { bubbles: true, composed: true }));
   }
 
   async crop(item: FileData) {
@@ -42,7 +41,7 @@ export class ExmgUploadCropBase extends ExmgElement {
   }
 
   _cancel() {
-    this.fire('crop-cancel', {}, true);
+    this.dispatchEvent(new CustomEvent('crop-cancel', { bubbles: true, composed: true }));
   }
 
   saveCropArea() {
@@ -56,7 +55,7 @@ export class ExmgUploadCropBase extends ExmgElement {
       }
       const file = new File([blob], `cropped-${this._item.file.name}`, { type: this._item.file.type });
       this._item.file = file;
-      this.fire('crop-done', this._item);
+      this.dispatchEvent(new CustomEvent('crop-done', { detail: this._item, bubbles: true, composed: true }));
     }, this._item?.file.type);
   }
 

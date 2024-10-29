@@ -1,4 +1,4 @@
-import { html } from 'lit';
+import { html, LitElement } from 'lit';
 import { property, query, state } from 'lit/decorators.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import { repeat } from 'lit/directives/repeat.js';
@@ -13,11 +13,11 @@ import './exmg-upload-drop-area.js';
 
 import { isCorrectResolution, isImage, isSizeValid, isTypeValidExtension } from './utils.js';
 import { classMap } from 'lit/directives/class-map.js';
-import { ExmgElement, observer } from '@exmg/lit-base';
+import { observer } from '@exmg/lit-base';
 
 import Cropper from 'cropperjs';
 
-export class ExmgUploadBase extends ExmgElement {
+export class ExmgUploadBase extends LitElement {
   /**
    * The id of the element that the upload is anchored to. This element
    * must be a sibling of the upload.
@@ -175,15 +175,16 @@ export class ExmgUploadBase extends ExmgElement {
           id: (Date.now() + Math.random()).toString(36),
           file: item,
           status: 'UPLOADING',
-        } as FileData),
+        }) as FileData,
     );
 
     for (const file of newFiles) {
       this._validateFile(file);
       this.files = [...this.files, file];
     }
-
-    this.fire('files-changed', { files: this.files }, true);
+    this.dispatchEvent(
+      new CustomEvent('files-changed', { detail: { files: this.files }, bubbles: true, composed: true }),
+    );
 
     this._uploaded = true;
 
@@ -254,8 +255,10 @@ export class ExmgUploadBase extends ExmgElement {
       return item.id !== id;
     });
 
-    this.fire('file-removed', id);
-    this.fire('files-changed', { files: this.files }, true);
+    this.dispatchEvent(new CustomEvent('file-removed', { detail: id, bubbles: true, composed: true }));
+    this.dispatchEvent(
+      new CustomEvent('files-changed', { detail: { files: this.files }, bubbles: true, composed: true }),
+    );
   }
 
   /**
@@ -280,8 +283,7 @@ export class ExmgUploadBase extends ExmgElement {
 
     this.removeFile(item?.id);
     this.prepareFiles([item.file]);
-
-    this.fire('crop-done', e.detail);
+    this.dispatchEvent(new CustomEvent('crop-done', { detail: item, bubbles: true, composed: true }));
   }
 
   /**
@@ -290,7 +292,7 @@ export class ExmgUploadBase extends ExmgElement {
    */
   cancelActiveCrop() {
     this._isCropping = false;
-    this.fire('crop-cancel', {}, true);
+    this.dispatchEvent(new CustomEvent('crop-cancel', { detail: {}, bubbles: true, composed: true }));
   }
 
   saveActiveCrop() {

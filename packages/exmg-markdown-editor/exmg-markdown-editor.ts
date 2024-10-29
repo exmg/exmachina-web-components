@@ -1,5 +1,5 @@
-import { html, TemplateResult } from 'lit';
-import { ExmgElement, observer } from '@exmg/lit-base/index.js';
+import { html, LitElement, TemplateResult } from 'lit';
+import { observer } from '@exmg/lit-base/index.js';
 import { customElement, query, property, state } from 'lit/decorators.js';
 import { repeat } from 'lit/directives/repeat.js';
 import { classMap } from 'lit/directives/class-map.js';
@@ -94,11 +94,11 @@ import { Renderer, marked } from 'marked';
  * @element exmg-markdown-editor
  * @demo demo/index.html
  * @memberof Exmg
- * @extends ExmgElement
+ * @extends LitElement
  * @summary Markdown editor element
  */
 @customElement('exmg-markdown-editor')
-export class EditorElement extends ExmgElement {
+export class EditorElement extends LitElement {
   @property({ type: Boolean, attribute: 'auto-focus' })
   autoFocus = false;
 

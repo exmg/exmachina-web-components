@@ -1,6 +1,5 @@
-import { html } from 'lit';
+import { LitElement, html } from 'lit';
 import { customElement, property, state } from 'lit/decorators.js';
-import { ExmgElement } from '@exmg/lit-base/index.js';
 import { style } from '../styles/exmg-grid-base-toolbar-styles-css.js';
 
 /**
@@ -9,7 +8,7 @@ import { style } from '../styles/exmg-grid-base-toolbar-styles-css.js';
  *
  */
 @customElement('exmg-grid-base-toolbar')
-export class ExmgGridBaseToolbar extends ExmgElement {
+export class ExmgGridBaseToolbar extends LitElement {
   static styles = [style];
 
   @state()

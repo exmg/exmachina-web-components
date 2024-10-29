@@ -1,6 +1,6 @@
-import { html } from 'lit';
+import { LitElement, html } from 'lit';
 import { property, state } from 'lit/decorators.js';
-import { observer, ExmgElement } from '@exmg/lit-base/index.js';
+import { observer } from '@exmg/lit-base/index.js';
 
 /**
  * Helper function to toggle element
@@ -22,7 +22,7 @@ const toggleClass = (className: string, el: HTMLElement, val?: boolean) => {
   }
 };
 
-export class ExmgCollapsedBase extends ExmgElement {
+export class ExmgCollapsedBase extends LitElement {
   /**
    * Whether or not the element is opened or not
    * @type {Boolean}

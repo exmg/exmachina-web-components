@@ -1,10 +1,9 @@
-import { html, css } from 'lit';
+import { html, css, LitElement } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
-import { ExmgElement } from '@exmg/lit-base';
 
 @customElement('file-upload-form')
-export class FileUploadForm extends ExmgElement {
+export class FileUploadForm extends LitElement {
   @property({ type: String }) accept?: string;
   @property({ type: String }) maxSize: string = '1gb';
   @property({ type: Boolean }) multiple = true;
@@ -33,18 +32,18 @@ export class FileUploadForm extends ExmgElement {
 
   _handleBlur(e: FocusEvent, name: string) {
     // @ts-ignore
-    this.fire('property-changed', { name, value: e.target.value });
+    this.dispatchEvent(new CustomEvent('property-changed', { detail: { name, value: e.target.value } }));
   }
 
   _handleChange(e, name: string) {
     // @ts-ignore
-    this.fire('property-changed', { name, value: e.target.checked });
+    this.dispatchEvent(new CustomEvent('property-changed', { detail: { name, value: e.target.checked } }));
   }
 
   _handleRadio() {
     // @ts-ignore
     const value = this.shadowRoot?.querySelector('input[name="serverType"]:checked')?.value;
-    this.fire('property-changed', { name: 'serverType', value });
+    this.dispatchEvent(new CustomEvent('property-changed', { detail: { name: 'serverType', value } }));
   }
 
   render() {

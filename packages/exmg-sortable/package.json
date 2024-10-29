@@ -17,7 +17,7 @@
     "**/*.d.ts"
   ],
   "dependencies": {
-    "@exmg/lit-base": "^1.1.8",
+    "@exmg/lit-base": "^2.0.5",
     "lit": "^2.0.0",
     "tslib": "^2.0.1"
   },

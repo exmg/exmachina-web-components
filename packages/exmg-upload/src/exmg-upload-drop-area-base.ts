@@ -1,11 +1,10 @@
-import { html } from 'lit';
+import { LitElement, html } from 'lit';
 import { property } from 'lit/decorators.js';
 import { classMap } from 'lit/directives/class-map.js';
 
 import { DragAndDropMixin } from './mixins/exmg-upload-drag-drop-mixin.js';
-import { ExmgElement } from '@exmg/lit-base';
 
-export class ExmgUploadDropAreaBase extends DragAndDropMixin(ExmgElement) {
+export class ExmgUploadDropAreaBase extends DragAndDropMixin(LitElement) {
   @property({ type: String })
   description?: string;
 

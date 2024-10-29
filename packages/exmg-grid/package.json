@@ -29,7 +29,7 @@
   },
   "dependencies": {
     "@exmg/exmg-sortable": "^8.1.35",
-    "@exmg/lit-base": "^1.1.8",
+    "@exmg/lit-base": "^2.0.5",
     "@material/mwc-base": "^0.25.2",
     "@material/mwc-button": "^0.25.2",
     "@material/mwc-checkbox": "^0.25.2",

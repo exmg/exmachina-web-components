@@ -1,15 +1,14 @@
-import { html, nothing } from 'lit';
+import { html, nothing, LitElement } from 'lit';
 import { property } from 'lit/decorators.js';
 import { FileData } from './types.js';
 import '@material/mwc-icon-button';
 import { formatBytes, isImage } from './utils.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import { UploadService } from './upload/index.js';
-import { ExmgElement } from '@exmg/lit-base';
 import { checkIcon, closeIcon, editIcon, errorIcon, warningIcon } from './exmg-upload-icons.js';
 import { UploadConfig } from './upload/types.js';
 
-export class ExmgUploadItemBase extends ExmgElement {
+export class ExmgUploadItemBase extends LitElement {
   /**
    * Optional property. If not set it will look for the window.emconfig.backendHost
    */
@@ -64,12 +63,12 @@ export class ExmgUploadItemBase extends ExmgElement {
   }
 
   private _handleEditClick() {
-    this.fire('edit-image', this.item, true);
+    this.dispatchEvent(new CustomEvent('edit-image', { detail: this.item, bubbles: true, composed: true }));
   }
 
   private _handleRemoveClick() {
     this.uploadService?.abort();
-    this.fire('remove-item', this.item?.id, true);
+    this.dispatchEvent(new CustomEvent('remove-item', { detail: this.item?.id, bubbles: true, composed: true }));
   }
 
   /**
@@ -102,7 +101,7 @@ export class ExmgUploadItemBase extends ExmgElement {
         this.item.url = url;
         this.item.status = 'UPLOADED';
         this.requestUpdate('item');
-        this.fire('upload-success', this.item, true);
+        this.dispatchEvent(new CustomEvent('upload-success', { detail: this.item, bubbles: true, composed: true }));
       } catch (error) {
         this.handleError(error as string);
         throw new Error(error as string);
