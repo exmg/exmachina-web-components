@@ -1,5 +1,4 @@
-import { html, PropertyValues } from 'lit';
-import { ExmgElement } from '@exmg/lit-base/index.js';
+import { html, LitElement, PropertyValues } from 'lit';
 import { property } from 'lit/decorators.js';
 import { gestures } from '@exmg/lit-base/index.js';
 
@@ -11,7 +10,7 @@ const orientationMap = {
   vertical: { x: 0, y: 1 },
 };
 
-export class SortableElementBase extends ExmgElement {
+export class SortableElementBase extends LitElement {
   @property({ type: String, attribute: 'handle-selector' })
   handleSelector?: string;
 

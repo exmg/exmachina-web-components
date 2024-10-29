@@ -1,10 +1,7 @@
-import { html } from 'lit';
+import { html, LitElement } from 'lit';
 import { property, query, state } from 'lit/decorators.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
-
-import { ExmgElement } from '@exmg/lit-base/src/exmg-element.js';
 import { PaperDialogElement } from '@polymer/paper-dialog';
-
 import '@polymer/paper-dialog';
 import '@polymer/paper-dialog-scrollable';
 import '@exmg/exmg-button/exmg-button';
@@ -13,7 +10,7 @@ import '@material/mwc-icon-button';
 
 import { closeIcon } from '@exmg/exmg-dialogs/exmg-dialog-icons.js';
 
-export class ExmgUploadDialogBase extends ExmgElement {
+export class ExmgUploadDialogBase extends LitElement {
   /**
    * Title of the dialog
    */
@@ -77,7 +74,7 @@ export class ExmgUploadDialogBase extends ExmgElement {
     const uploadElement = this._getImageUploadElement();
     if (uploadElement) {
       const urls = uploadElement.getValues();
-      this.fire('upload-save', { urls }, true);
+      this.dispatchEvent(new CustomEvent('upload-save', { detail: { urls }, bubbles: true, composed: true }));
     }
   }
 

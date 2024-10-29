@@ -1,5 +1,5 @@
 import { html, LitElement } from 'lit';
-import { ExmgElement, observer } from '@exmg/lit-base/index.js';
+import { observer } from '@exmg/lit-base/index.js';
 import { property } from 'lit/decorators.js';
 import '@polymer/paper-listbox';
 import '@polymer/paper-item/paper-item';
@@ -18,7 +18,7 @@ const settingsIcon = html`
   </svg>
 `;
 
-export class ExmgSidemenuHeaderBase extends ExmgElement {
+export class ExmgSidemenuHeaderBase extends LitElement {
   /**
    *  Fakes urls on debug true
    */

@@ -1,5 +1,4 @@
-import { css, html } from 'lit';
-import { ExmgElement } from '@exmg/lit-base/index.js';
+import { css, html, LitElement } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import { repeat } from 'lit/directives/repeat.js';
@@ -25,7 +24,7 @@ import {
 } from './types/exmg-grid-toolbar-types.js';
 
 @customElement('exmg-grid-toolbar')
-export class ExmgGridToolbar extends ExmgElement {
+export class ExmgGridToolbar extends LitElement {
   static styles = [
     css`
       exmg-grid-toolbar-combobox {

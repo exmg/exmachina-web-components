@@ -1,15 +1,15 @@
-import { html } from 'lit';
+import { LitElement, html } from 'lit';
 import { classMap } from 'lit/directives/class-map.js';
 import { property } from 'lit/decorators/property.js';
 import { customElement } from 'lit/decorators/custom-element.js';
-import { observer, ExmgElement } from '@exmg/lit-base/index.js';
+import { observer } from '@exmg/lit-base/index.js';
 import { style as exmgRadioGroupStyles } from './styles/exmg-radio-group-styles-css.js';
 import { ExmgRadioGroupItem } from './exmg-radio-group-item.js';
 
 const ENTER_KEY_CODE = 13;
 
 @customElement('exmg-radio-group')
-export class ExmgRadioGroup extends ExmgElement {
+export class ExmgRadioGroup extends LitElement {
   /**
    * Name of the element
    * @type {String}

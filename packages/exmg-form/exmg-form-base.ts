@@ -1,7 +1,7 @@
-import { html } from 'lit';
+import { LitElement, html } from 'lit';
 import { property, query, state } from 'lit/decorators.js';
 import { classMap } from 'lit/directives/class-map.js';
-import { observer, ExmgElement, debounce, async } from '@exmg/lit-base/index.js';
+import { observer, debounce, async } from '@exmg/lit-base/index.js';
 import '@polymer/iron-form/iron-form.js';
 import '@exmg/exmg-button/exmg-button.js';
 import { IronFormElement } from '@polymer/iron-form/iron-form.js';
@@ -19,7 +19,7 @@ const warningIcon = html`
   </svg>
 `;
 
-export class ExmgFormBase extends ExmgElement {
+export class ExmgFormBase extends LitElement {
   /**
    * Option to hide submit button
    * @type {Boolean}

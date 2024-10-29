@@ -1,10 +1,10 @@
-import { html } from 'lit';
+import { LitElement, html } from 'lit';
 import { property } from 'lit/decorators/property.js';
 import { state } from 'lit/decorators.js';
 import { query } from 'lit/decorators/query.js';
-import { ExmgElement, observer } from '@exmg/lit-base/index.js';
+import { observer } from '@exmg/lit-base/index.js';
 
-export class ExmgTooltipBase extends ExmgElement {
+export class ExmgTooltipBase extends LitElement {
   /**
    * The id of the element that the tooltip is anchored to. This element
    * must be a sibling of the tooltip.

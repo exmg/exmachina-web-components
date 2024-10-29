@@ -1,6 +1,5 @@
-import { html } from 'lit';
+import { LitElement, html } from 'lit';
 import { customElement, state, property, query } from 'lit/decorators.js';
-import { ExmgElement } from '@exmg/lit-base/index.js';
 import { style } from './styles/exmg-copy-to-clipboard-styles-css.js';
 
 /**
@@ -15,10 +14,10 @@ import { style } from './styles/exmg-copy-to-clipboard-styles-css.js';
  * ```
  *
  * @customElement exmg-copy-to-clipboard
- * @extends ExmgElement
+ * @extends LitElement
  */
 @customElement('exmg-copy-to-clipboard')
-export class ExmgCopyToClipboard extends ExmgElement {
+export class ExmgCopyToClipboard extends LitElement {
   /**
    * Value to be copied
    * @type {String}

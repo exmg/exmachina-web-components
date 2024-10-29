@@ -1,9 +1,10 @@
 import { ExmgBreadcrumbs } from './exmg-breadcrumbs.js';
-import { observer, ExmgElement, Constructor } from '@exmg/lit-base/index.js';
+import { observer, Constructor } from '@exmg/lit-base/index.js';
 import { BreadcrumbItem } from './types.js';
 import { property } from 'lit/decorators.js';
+import { LitElement } from 'lit';
 
-export abstract class BreadcrumbsClass extends ExmgElement {
+export abstract class BreadcrumbsClass extends LitElement {
   breadcrumbsElement?: ExmgBreadcrumbs;
   breadcrumbs?: BreadcrumbItem[];
 }
@@ -13,7 +14,7 @@ export interface BreadcrumbsInterface {
   emitResetBreadcrumbs(): void;
 }
 
-export const BreadcrumbsMixin = <T extends Constructor<ExmgElement & BreadcrumbsClass>>(base: T) => {
+export const BreadcrumbsMixin = <T extends Constructor<LitElement & BreadcrumbsClass>>(base: T) => {
   class BreadcrumbsState extends base {
     setBreadcrumbsBind: (e: CustomEvent<{ items: BreadcrumbItem[] }>) => void;
     resetBreadcrumbsBind: () => void;

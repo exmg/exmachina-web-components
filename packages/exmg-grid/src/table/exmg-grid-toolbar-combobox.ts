@@ -1,5 +1,4 @@
-import { html, css } from 'lit';
-import { ExmgElement } from '@exmg/lit-base/index.js';
+import { html, css, LitElement } from 'lit';
 import { customElement, property, query, state } from 'lit/decorators.js';
 import { classMap } from 'lit/directives/class-map.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
@@ -61,7 +60,7 @@ const debounce = (time: number) => {
 };
 
 @customElement('exmg-grid-toolbar-combobox')
-export class PaperGridTooolbarComboboxElement extends ExmgElement {
+export class PaperGridTooolbarComboboxElement extends LitElement {
   /**
    * If you want to use an attribute value or property of an element for
    * `selected` instead of the index, set this to the name of the attribute
