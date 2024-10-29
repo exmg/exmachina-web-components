@@ -1,6 +1,6 @@
 {
   "name": "@exmg/exmg-button",
-  "version": "8.2.2",
+  "version": "8.2.3",
   "type": "module",
   "dependencies": {
     "@exmg/lit-base": "^3.0.0",
