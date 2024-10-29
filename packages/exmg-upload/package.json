@@ -1,6 +1,6 @@
 {
   "name": "@exmg/exmg-upload",
-  "version": "1.0.12",
+  "version": "1.1.1",
   "dependencies": {
     "@exmg/exmg-button": "file:../exmg-button",
     "@exmg/exmg-dialogs": "file:../exmg-dialogs",
@@ -10,7 +10,7 @@
     "@polymer/paper-dialog": "^3.0.0",
     "@polymer/paper-dialog-scrollable": "^3.0.0",
     "cropperjs": "^1.5.13",
-    "lit": "^2.0.0",
+    "lit": "^3.2.1",
     "tslib": "^2.0.1"
   },
   "files": [
@@ -43,7 +43,7 @@
   },
   "license": "MIT",
   "devDependencies": {
-    "@exmg/lit-cli": "1.1.9"
+    "@exmg/lit-cli": "2.0.3"
   },
   "scripts": {
     "build:styles": "exmg-lit-cli sass -f \"./**/*.scss\""

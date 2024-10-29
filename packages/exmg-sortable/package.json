@@ -1,6 +1,6 @@
 {
   "name": "@exmg/exmg-sortable",
-  "version": "8.1.35",
+  "version": "8.2.1",
   "type": "module",
   "description": "Enables drag and drop sorting of items in a list or table",
   "contributors": [
@@ -22,7 +22,7 @@
     "tslib": "^2.0.1"
   },
   "devDependencies": {
-    "@exmg/lit-cli": "1.1.9"
+    "@exmg/lit-cli": "2.0.3"
   },
   "homepage": "https://github.com/exmg/exmachina-web-components",
   "main": "exmg-sortable.js",

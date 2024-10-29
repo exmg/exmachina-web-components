@@ -1,15 +1,15 @@
 {
   "name": "@exmg/exmg-snackbar",
-  "version": "8.1.37",
+  "version": "8.2.1",
   "type": "module",
   "dependencies": {
     "@material/mwc-base": "=0.25.3",
     "@material/mwc-snackbar": "=0.25.3",
-    "lit": "^2.0.0",
+    "lit": "^3.2.1",
     "tslib": "^2.0.1"
   },
   "devDependencies": {
-    "@exmg/lit-cli": "1.1.9"
+    "@exmg/lit-cli": "2.0.3"
   },
   "keywords": [
     "web-components",

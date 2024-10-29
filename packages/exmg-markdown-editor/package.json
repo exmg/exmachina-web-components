@@ -1,6 +1,6 @@
 {
   "name": "@exmg/exmg-markdown-editor",
-  "version": "8.1.39",
+  "version": "8.2.1",
   "type": "module",
   "description": "Element that wrap-around marked-element to make the markdown editable",
   "main": "index.js",
@@ -37,12 +37,12 @@
     "@polymer/marked-element": "^3.0.1",
     "@polymer/polymer": "^3.4.1",
     "codemirror": "5.49.2",
-    "lit": "^2.0.0",
+    "lit": "^3.2.1",
     "marked": "^9.0.0",
     "tslib": "^2.0.1"
   },
   "devDependencies": {
-    "@exmg/lit-cli": "1.1.9",
+    "@exmg/lit-cli": "2.0.3",
     "@types/codemirror": "^0.0.79",
     "@types/marked": "^1.2.2",
     "github-markdown-css": "^3.0.1"

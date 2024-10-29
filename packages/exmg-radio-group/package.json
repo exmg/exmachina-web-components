@@ -1,6 +1,6 @@
 {
   "name": "@exmg/exmg-radio-group",
-  "version": "8.1.35",
+  "version": "8.2.1",
   "type": "module",
   "description": "Paper style radio group element",
   "contributors": [
@@ -33,11 +33,11 @@
     "@material/mwc-radio": "=0.25.3",
     "@material/mwc-ripple": "=0.25.3",
     "@material/radio": "^13.0.0",
-    "lit": "^2.0.0",
+    "lit": "^3.2.1",
     "tslib": "^2.0.1"
   },
   "devDependencies": {
-    "@exmg/lit-cli": "1.1.9"
+    "@exmg/lit-cli": "2.0.3"
   },
   "scripts": {
     "build:styles": "exmg-lit-cli sass -f \"./styles/*.scss\""

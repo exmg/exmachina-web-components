@@ -1,11 +1,11 @@
 {
   "name": "@exmg/exmg-tooltip",
-  "version": "8.1.35",
+  "version": "8.2.1",
   "type": "module",
   "dependencies": {
     "@exmg/lit-base": "^2.0.5",
     "@material/mwc-base": "=0.25.3",
-    "lit": "^2.0.0",
+    "lit": "^3.2.1",
     "tslib": "^2.0.1"
   },
   "files": [
@@ -27,7 +27,7 @@
   },
   "license": "MIT",
   "devDependencies": {
-    "@exmg/lit-cli": "1.1.9"
+    "@exmg/lit-cli": "2.0.3"
   },
   "scripts": {
     "build:styles": "exmg-lit-cli sass -f \"./**/*.scss\""

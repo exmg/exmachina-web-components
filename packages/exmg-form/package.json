@@ -1,6 +1,6 @@
 {
   "name": "@exmg/exmg-form",
-  "version": "8.1.40",
+  "version": "8.2.1",
   "type": "module",
   "description": "Form helper element",
   "contributors": [
@@ -27,7 +27,7 @@
     "@exmg/exmg-button": "file:../exmg-button",
     "@exmg/lit-base": "^2.0.5",
     "@polymer/iron-form": "^3.0.1",
-    "lit": "^2.0.0",
+    "lit": "^3.2.1",
     "tslib": "^2.0.1"
   },
   "devDependencies": {
