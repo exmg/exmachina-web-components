@@ -1,6 +1,6 @@
 {
   "name": "@exmg/exmg-sortable",
-  "version": "8.2.1",
+  "version": "8.2.2",
   "type": "module",
   "description": "Enables drag and drop sorting of items in a list or table",
   "contributors": [

@@ -1,6 +1,6 @@
 {
   "name": "@exmg/exmg-upload",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "dependencies": {
     "@exmg/exmg-button": "file:../exmg-button",
     "@exmg/exmg-dialogs": "file:../exmg-dialogs",

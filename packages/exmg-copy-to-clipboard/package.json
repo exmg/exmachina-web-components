@@ -1,6 +1,6 @@
 {
   "name": "@exmg/exmg-copy-to-clipboard",
-  "version": "8.2.1",
+  "version": "8.2.2",
   "type": "module",
   "dependencies": {
     "@exmg/lit-base": "^2.0.5",
