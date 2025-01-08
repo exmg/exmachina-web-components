@@ -11,6 +11,7 @@ import { ChipSet } from '@material/web/chips/internal/chip-set.js';
 
 import { html } from 'lit';
 import { property, state } from 'lit/decorators.js';
+import { repeat } from 'lit/directives/repeat.js';
 
 import { style } from './styles/exmg-chip-input-dropdown-css.js';
 import { ExmgChip } from './exmg-chip.js';
@@ -90,8 +91,10 @@ export class ExmgChipInputDropdown extends ChipSet {
       <div class="label">${this.label}</div>
       <div class="input-container">
         <div class="selected-chips">
-          ${this.selectedChips?.map(
-            (c: ExmgChip) =>
+          ${repeat(
+            this.selectedChips || [],
+            (c) => c.value,
+            (c) =>
               html`<md-input-chip
                 label="${c.label}"
                 data-value=${c.value}
